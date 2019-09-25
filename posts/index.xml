@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/posts/</link>
+    <description>Recent content in Posts on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 26 Sep 2019 00:03:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://forrestsu.github.io/posts/my-first-post/</link>
+      <pubDate>Thu, 26 Sep 2019 00:03:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/my-first-post/</guid>
+      <description>hello 你好
+my first blog hello world!</description>
+    </item>
+    
+  </channel>
+</rss>
