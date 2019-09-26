@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>程序员的冷浪漫</title>
-    <link>https://forrestsu.github.io/</link>
-    <description>Recent content on 程序员的冷浪漫</description>
+    <title>resume on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/resume/</link>
+    <description>Recent content in resume on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Tue, 14 Feb 2017 23:39:53 +0800</lastBuildDate>
     
-	<atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://forrestsu.github.io/tags/resume/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,25 +23,6 @@ https://forrestsu.github.io
 Email
 sunquana@gmail.com
 Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，Git 快速学习和解决问题的能力  Experience  2015.07 - 现在，软件工程师, Hundsun Company, HangZhou. 2011.09 - 2015.06，就读于湖南农业大学，计算机专业。  Awards  2014.10 湖南省第十届“蓝狐网络杯”大学生计算机程序设计省赛 一等奖 2014.03 获得湖南农业大学程序设计竞赛一等奖 2013.05 获得湖南农业大学信息科学技术学院logo设计大赛一等奖  Publications  2015.</description>
-    </item>
-    
-    <item>
-      <title>归档</title>
-      <link>https://forrestsu.github.io/archives/</link>
-      <pubDate>Mon, 26 Sep 2016 00:23:04 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/archives/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://forrestsu.github.io/posts/my-first-post/</link>
-      <pubDate>Tue, 26 Jan 2016 00:03:04 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/my-first-post/</guid>
-      <description>hello 你好
-my first blog hello world!</description>
     </item>
     
   </channel>
