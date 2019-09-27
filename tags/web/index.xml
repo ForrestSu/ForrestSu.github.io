@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/web/</link>
+    <description>Recent content in web on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 26 Oct 2017 23:44:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web-Design-in-4-minutes</title>
+      <link>https://forrestsu.github.io/posts/design/web-design-in-4-minutes/</link>
+      <pubDate>Thu, 26 Oct 2017 23:44:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/design/web-design-in-4-minutes/</guid>
+      <description>网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
+1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
+2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
+body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后，如何对文本自身进行样式化？
+3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&amp;rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。
+body { font-family: &amp;quot;Helvetica&amp;quot;, &amp;quot;Arial&amp;quot;, sans-serif; }  如果你想要用一款衬线字体，可以试试 ”Georgia“。 在让我们的文字更有吸引力力的同时，接下来继续让它更具有可读性。</description>
+    </item>
+    
+  </channel>
+</rss>

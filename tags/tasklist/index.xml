@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tasklist on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/tasklist/</link>
+    <description>Recent content in tasklist on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 18 Feb 2017 19:13:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/tasklist/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TaskList-now</title>
+      <link>https://forrestsu.github.io/posts/aboutme/tasklist-now/</link>
+      <pubDate>Sat, 18 Feb 2017 19:13:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/tasklist-now/</guid>
+      <description>TaskList 1 今年24岁，差不多再过2年，也要买房子结婚了。
+2 计划去哪个城市工作？
+3</description>
+    </item>
+    
+  </channel>
+</rss>

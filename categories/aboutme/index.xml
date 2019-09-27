@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AboutMe on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/aboutme/</link>
+    <description>Recent content in AboutMe on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 28 Feb 2017 19:13:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/aboutme/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>最近工作</title>
+      <link>https://forrestsu.github.io/posts/aboutme/%E6%9C%80%E8%BF%91%E5%B7%A5%E4%BD%9C/</link>
+      <pubDate>Tue, 28 Feb 2017 19:13:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/%E6%9C%80%E8%BF%91%E5%B7%A5%E4%BD%9C/</guid>
+      <description> 工作流程 一、 梳理工作流程 　售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。
+二、 还需要熟悉的模块 　消息机制、主推，共享内存插件。
+　后续会涉及消息主推，UFX消息插件的开发。
+三、不足 　中间件相关的插件，具体实现还需了解。
+当你要辞职时，应该把你觉得应该能学到的东西都学到了，然后出去 以后不要后悔就行。 </description>
+    </item>
+    
+    <item>
+      <title>TaskList-now</title>
+      <link>https://forrestsu.github.io/posts/aboutme/tasklist-now/</link>
+      <pubDate>Sat, 18 Feb 2017 19:13:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/tasklist-now/</guid>
+      <description>TaskList 1 今年24岁，差不多再过2年，也要买房子结婚了。
+2 计划去哪个城市工作？
+3</description>
+    </item>
+    
+    <item>
+      <title>个人的优点与不足</title>
+      <link>https://forrestsu.github.io/posts/aboutme/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/</link>
+      <pubDate>Wed, 08 Feb 2017 15:58:10 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/</guid>
+      <description>我的优点 好像还没发现什么优点&amp;hellip; &amp;gt;_&amp;lt;
+我的不足之处 1 演讲或者给别人分享的时候：&amp;lt;我声音太小&amp;gt; 2017-02-08 &amp;gt;声音要大一点。（不然声音太小，会显得很没有底气）
+2 &amp;lt;不够谦逊&amp;gt; 2017-08-07 &amp;gt; (1) 务必时刻保持一颗谦虚的心，背后多言他人的溢美之词，我只需取其善者而从之，不善者而改之。 (2) 也不能自己的想法强加给别人，我只需要管好我自己。(己所不欲，勿施于人; 穷则独善其身) (3) 毕竟写点业务代码也没啥难的，都有成熟的解决方案，我的眼光应该放的更长远，有发牢骚的时间，还不如看看框架和底层 (发挥算法还没荒废了)。 (4) 时常反思自己的一言一行，换位思考。(慎言笃行)
+3 &amp;lt;有点拖延症&amp;gt; 2017-08-07 &amp;gt; 想写的文章一直拖着，没有抽点时间去写。
+待补充&amp;hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*
+我待改进的地方 2017-07-06 1 遇到问题，先google，如果没找到好的解决方案，可以咨询CTO（可采用微信或者 Email的方式） 一般CTO都很乐意被别人问问题的 (当然弱鸡问题除外)。 切记。</description>
+    </item>
+    
+    <item>
+      <title>2017新年计划</title>
+      <link>https://forrestsu.github.io/posts/aboutme/2017_new_year_plan/</link>
+      <pubDate>Thu, 26 Jan 2017 19:13:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/2017_new_year_plan/</guid>
+      <description>时间：2017年1月26~ 2017年2月3日
+1月26日 计划和同学聚会
+1月27日 除夕
+1月28日 初一，在家呆着。
+1月29日 时间：2017年1月26~ 2017年2月3日
+1月26日 计划和同学聚会
+1月27日 除夕
+1月28日 初一，在家呆着。
+1月29日</description>
+    </item>
+    
+    <item>
+      <title>求职计划</title>
+      <link>https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Thu, 26 Jan 2017 19:13:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/</guid>
+      <description>1 先定一个求职方向
+2 经常补充自己的简历。
+放在github.io 上面</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>link on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/link/</link>
+    <description>Recent content in link on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 19 Feb 2017 16:55:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/link/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>编译、链接-笔记(1)</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Sun, 19 Feb 2017 16:55:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</guid>
+      <description>1 函数的调用是用栈实现的，C常用的函数调用方式cdecl，c++采用一种新的thiscall 方式，主要是用于类成员的调用。
+2 cdecl 参数压栈是从右向左，参数出栈由调用方 维护。
+3 stdcall的参数出栈由 被调用的函数自己维护。</description>
+    </item>
+    
+  </channel>
+</rss>

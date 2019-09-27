@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Git - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="Git">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/categories/git/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/categories/git/index.xml" title="程序员的冷浪漫" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        分类
+                        <span class="keyword">Git</span>
+                        中的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">Git原理分析</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年3月9日 11:24:00
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/git">Git</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                ###Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。 &gt;git init &gt;git add number.txt
+此时在.git 下会产生一个index文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgithub%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/">访问github网页排版紊乱</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2016年11月6日 21:02:00
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/git">Git</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                在chrome下用F12查看（右键- &gt; 审察元素）有几个请求TIMED_OUT 了，猜想应该是github的DNS被GFW污染了。
+解决办法 修改hosts文件，直接通过IP访问github的CDN assets-cdn.github.com，不用域名解析。
+通过 www.ipaddress.com 这个网站查询assets-cdn.github.com的IP地址，然后在hosts中增加一条。 &gt;151.101.44.133 assets-cdn.github.com 151.101.12.133 avatars0.githubusercontent.com
+然后在控制台刷新下DNS缓存： &gt;ipconfig /flushdns
+最后访问github.com首页，布局就显示正常了。……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgithub%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">git-cherry-pick</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2016年9月12日 01:10:00
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/git">Git</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &gt;git cherry-pick ee99d9a
+如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
+2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。 解决完冲突后: 《完》……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">git-merge-和git-rebase的区别</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2016年9月11日 23:57:00
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/git">Git</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。 ###一、git merge [branchName] 顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
+&gt;git checkout dev-feature &gt;git merge master
+　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。 ##二、git rebase [branchName] 按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
+##三、冲突解决 如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &gt;$ git rebase &ndash;continue……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/design/web-design-in-4-minutes/" title="Web-Design-in-4-minutes">Web-Design-in-4-minutes</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/" title="优美的句子">优美的句子</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/diary/%E5%BD%93%E4%B8%8B%E7%9A%84%E6%97%B6%E5%85%89/" title="当下的时光">当下的时光</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="关于博弈论">关于博弈论</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/diary/2017%E6%98%A5%E8%8A%82%E5%9B%9E%E5%AE%B6%E9%9A%8F%E6%84%9F/" title="2017春节回家随感">2017春节回家随感</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/silicon-valley-4%E8%A7%82%E5%90%8E%E6%84%9F/" title="「Silicon-Valley-4」观后感">「Silicon-Valley-4」观后感</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-feel/" title="Silicon Valley 3」观后感">Silicon Valley 3」观后感</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/" title="《偷影子的人》读后感">《偷影子的人》读后感</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/" title="Thinking-micro-service-Architecture">Thinking-micro-service-Architecture</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" title="程序员如何留Email?">程序员如何留Email?</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/design/">design(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(1)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/cherry-pick/">cherry-pick</a>
+    
+    <a href="https://forrestsu.github.io/tags/compile/">compile</a>
+    
+    <a href="https://forrestsu.github.io/tags/dream/">dream</a>
+    
+    <a href="https://forrestsu.github.io/tags/email/">email</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/github/">github</a>
+    
+    <a href="https://forrestsu.github.io/tags/hk/">hk</a>
+    
+    <a href="https://forrestsu.github.io/tags/home/">home</a>
+    
+    <a href="https://forrestsu.github.io/tags/link/">link</a>
+    
+    <a href="https://forrestsu.github.io/tags/marclevy/">marclevy</a>
+    
+    <a href="https://forrestsu.github.io/tags/merge/">merge</a>
+    
+    <a href="https://forrestsu.github.io/tags/micro/">micro</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan</a>
+    
+    <a href="https://forrestsu.github.io/tags/programer/">programer</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/saying/">saying</a>
+    
+    <a href="https://forrestsu.github.io/tags/service/">service</a>
+    
+    <a href="https://forrestsu.github.io/tags/silicon-valley/">silicon-valley</a>
+    
+    <a href="https://forrestsu.github.io/tags/tasklist/">tasklist</a>
+    
+    <a href="https://forrestsu.github.io/tags/time/">time</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/visa/">visa</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/">博弈论</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD/">合伙吃饭</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%8B%94%E7%89%99/">拔牙</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/">晓松奇谈</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9C%89%E5%91%B3/">有味</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85/">背包</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+
+</body>
+</html>
