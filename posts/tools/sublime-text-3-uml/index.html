@@ -119,7 +119,7 @@
                 let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
                 var useFloatToc = false;
 
-                if (floatTocWidth >= 100) {
+                if (floatTocWidth >= 100 && useFloatToc) {
                     useFloatToc = true;
                     document.getElementById("toc_list").appendChild(tocNavElem);
                     floatTocDivElem.style.display = 'block';
