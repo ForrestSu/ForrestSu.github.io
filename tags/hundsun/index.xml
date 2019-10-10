@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hundsun on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/hundsun/</link>
+    <description>Recent content in hundsun on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 27 Mar 2017 11:19:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/hundsun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>恒生工作梳理</title>
+      <link>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</link>
+      <pubDate>Mon, 27 Mar 2017 11:19:05 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</guid>
+      <description> 工作流程 一、 梳理工作流程 　售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。
+二、 还需要熟悉的模块 　消息机制、主推，共享内存插件。
+　后续会涉及消息主推，UFX消息插件的开发。
+三、不足 　中间件相关的插件，具体实现还需了解。
+当你要辞职时，应该把你觉得应该能学到的东西都学到了，然后出去 以后不要后悔就行。 </description>
+    </item>
+    
+  </channel>
+</rss>

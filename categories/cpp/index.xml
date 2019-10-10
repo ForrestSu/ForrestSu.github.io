@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CPP on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/cpp/</link>
+    <description>Recent content in CPP on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 10 Oct 2019 11:25:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>c&#43;&#43; 11智能指针</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</link>
+      <pubDate>Thu, 10 Oct 2019 11:25:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</guid>
+      <description> 1 概要 C++ 11 包含了智能指针，需要包含头文件#include &amp;lt;memory&amp;gt;
+unique_ptr </description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; RAII</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/</link>
+      <pubDate>Thu, 10 Oct 2019 11:01:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/</guid>
+      <description>什么是RAII ? 　RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。</description>
+    </item>
+    
+    <item>
+      <title>Multithreading-with-ZeroMQ</title>
+      <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
+      <pubDate>Fri, 02 Nov 2018 17:29:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
+      <description>Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
+Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ &amp;nbsp; ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。</description>
+    </item>
+    
+    <item>
+      <title>c和c&#43;&#43;混用技巧</title>
+      <link>https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 17 Jul 2017 16:12:12 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>1 用C-style 来访问vector
+vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;quot;abc&amp;quot;); str.push_back(&amp;quot;123&amp;quot;); //按照 C-style 来访问vector char** ptr= str.data(); for(int i =0;i&amp;lt;2;++i) printf(&amp;quot;%s\n&amp;quot;,ptr[i]);  2</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;11 std::function 和 std::bind</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/</link>
+      <pubDate>Fri, 09 Jun 2017 16:50:08 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/</guid>
+      <description>1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &amp;hellip;
+#include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.2, &#39;w&#39;, 7); cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; return 0; } int f(int a, char b , double c) { cout&amp;lt;&amp;lt;&amp;quot;a==&amp;quot;&amp;lt;&amp;lt; a &amp;lt;&amp;lt;&amp;quot;,b==&amp;quot; &amp;lt;&amp;lt;b &amp;lt;&amp;lt; &amp;quot;,c==&amp;quot;&amp;lt;&amp;lt;c &amp;lt;&amp;lt;endl; return 0; }  2 std::function std::function 可以用来定义一个函数</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; explicit</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-explicit/</link>
+      <pubDate>Fri, 07 Apr 2017 23:42:42 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-explicit/</guid>
+      <description> C++中的explicit class Test1 { public: Test1(int n) { num=n; }//普通构造函数 private: int num; }; class Test2 { public: explicit Test2(int n) { num=n; }//explicit(显式)构造函数 private: int num; }; int main() { Test1 t1=12; //隐式调用其构造函数,成功 Test2 t2=12; //编译错误,不能隐式调用其构造函数 Test2 t2(12); //显式调用成功 return 0; }  </description>
+    </item>
+    
+    <item>
+      <title>posix-pthread (1)</title>
+      <link>https://forrestsu.github.io/posts/cpp/posix-pthread-1/</link>
+      <pubDate>Wed, 22 Mar 2017 17:48:27 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/posix-pthread-1/</guid>
+      <description>进程和线程api对比 | 进程 | 线程 | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- |:&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-:| | pid_t | thread_t |
+| fork | pthread_create |
+| waitpid | pthread_jion |
+| exit | pthread_exit | |在main函数中调用return| 在线程函数中调用return | | 僵进程 | 僵线程| |wait_pid | pthread_jion| | | pthread_detach | |kill | pthread_cancel|</description>
+    </item>
+    
+    <item>
+      <title>Linux 服务端编程（一）</title>
+      <link>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</link>
+      <pubDate>Fri, 24 Feb 2017 17:29:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</guid>
+      <description> ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;amp;0xff03 hex(节点号)&amp;amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
+Usage #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;sys/ipc.h&amp;gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&amp;quot;usage: keyfile\n&amp;quot;); return 0; } printf(&amp;quot;%s\n&amp;quot;,argv[0]); printf(&amp;quot;ftok=0x%x\n&amp;quot;,ftok(argv[1],1) ); return 0; }  </description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;关于NULL、0、nullptr</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</link>
+      <pubDate>Sun, 17 Jul 2016 01:11:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</guid>
+      <description>2016-07-17 星期日 天气☀ 01:07:04
+一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+#define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
+int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
+#ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif  3 C++11引入了nullptr 来表示空指针</description>
+    </item>
+    
+    <item>
+      <title>PCLint9安装_(软件质量之道)</title>
+      <link>https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/</link>
+      <pubDate>Sat, 04 Jun 2016 17:35:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/</guid>
+      <description>目前官网最新版是PCLint9.0L(2016-6-3) 2. 接下来弹出PCLint的配置程序，点击下一步开始配置。 </description>
+    </item>
+    
+  </channel>
+</rss>

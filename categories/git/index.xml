@@ -6,7 +6,7 @@
     <description>Recent content in Git on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 09 Mar 2017 11:24:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Mar 2017 11:24:45 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,20 +14,20 @@
     <item>
       <title>Git原理分析</title>
       <link>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
-      <pubDate>Thu, 09 Mar 2017 11:24:00 +0800</pubDate>
+      <pubDate>Thu, 09 Mar 2017 11:24:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
-      <description>###Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &amp;gt;number.txt。 &amp;gt;git init &amp;gt;git add number.txt
+      <description> Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &amp;gt;number.txt。 &amp;gt;git init &amp;gt;git add number.txt
 此时在.git 下会产生一个index文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 </description>
     </item>
     
     <item>
-      <title>访问github网页排版紊乱</title>
-      <link>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgithub%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</link>
-      <pubDate>Sun, 06 Nov 2016 21:02:00 +0800</pubDate>
+      <title>访问git网页排版紊乱</title>
+      <link>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</link>
+      <pubDate>Sun, 06 Nov 2016 21:02:59 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgithub%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</guid>
-      <description>在chrome下用F12查看（右键- &amp;gt; 审察元素）有几个请求TIMED_OUT 了，猜想应该是github的DNS被GFW污染了。
+      <guid>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</guid>
+      <description>在chrome下用F12查看（右键- &amp;gt; 审察元素）有几个请求TIMED_OUT 了，猜想应该是github的DNS被 GFirewall 污染了。
 解决办法 修改hosts文件，直接通过IP访问github的CDN assets-cdn.github.com，不用域名解析。
 通过 www.ipaddress.com 这个网站查询assets-cdn.github.com的IP地址，然后在hosts中增加一条。 &amp;gt;151.101.44.133 assets-cdn.github.com 151.101.12.133 avatars0.githubusercontent.com
 然后在控制台刷新下DNS缓存： &amp;gt;ipconfig /flushdns
@@ -35,9 +35,9 @@
     </item>
     
     <item>
-      <title>git-cherry-pick</title>
+      <title>git cherry-pick</title>
       <link>https://forrestsu.github.io/posts/git/git-cherry-pick/</link>
-      <pubDate>Mon, 12 Sep 2016 01:10:00 +0800</pubDate>
+      <pubDate>Mon, 12 Sep 2016 01:10:59 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-cherry-pick/</guid>
       <description>1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &amp;gt;git cherry-pick ee99d9a
@@ -46,15 +46,17 @@
     </item>
     
     <item>
-      <title>git-merge-和git-rebase的区别</title>
+      <title>git merge 和git rebase的区别</title>
       <link>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
-      <pubDate>Sun, 11 Sep 2016 23:57:00 +0800</pubDate>
+      <pubDate>Sun, 11 Sep 2016 23:57:14 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-      <description>最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。 ###一、git merge [branchName] 顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
+      <description>最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
+一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
 &amp;gt;git checkout dev-feature &amp;gt;git merge master
-　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。 ##二、git rebase [branchName] 按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
-##三、冲突解决 如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &amp;gt;$ git rebase &amp;ndash;continue</description>
+　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
+二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
+三、冲突解决 　如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &amp;gt;$ git rebase &amp;ndash;continue</description>
     </item>
     
   </channel>

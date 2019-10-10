@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/cs/</link>
+    <description>Recent content in CS on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 10 Oct 2019 11:05:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/cs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>中兴程序员事件</title>
+      <link>https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
+      <pubDate>Thu, 10 Oct 2019 11:05:25 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
+      <description>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！  互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。 我估计不少人会遇到没工作的情况，但大部分人扛一扛就过去了。随着社会的发展，人的工作年限会越来越长，要有长期的规划和路径，什么阶段做什么阶段的事情，天下没有一劳永逸的事情。
+环境永远是变化的，人生如练功，一份功一份松，松了一环之后，再往紧处练，层层而上。功力越深，无论环境如何变化，实力越强的人，越不容易被击败。
+这种实力当然不仅仅是某个领域的技术，如果只专注于细节不看趋势，趋势没了，再好的技术也就没用了。所以始于技术，陷于业务，忠于盈利。
+我始终认为，人过四十，工作应该是一种需求，而不是压力。我现在每天工作的时候都特别开心，阅读产品，看代码，写东西，带领大家往前冲，是一种享受。
+这个世界是不相信眼泪的，马云说：要是哭有用，那我每天哭！
+昨天在图书馆一个头发斑白的老大爷在用电脑查阅资料，我想如果等我老了，我希望用这种方式度过余生。想法会随时间改变，谁知道呢-_-</description>
+    </item>
+    
+    <item>
+      <title>金融软件系统的演进</title>
+      <link>https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/</link>
+      <pubDate>Thu, 10 Oct 2019 11:04:59 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/</guid>
+      <description>金融行业也在 考虑服务化架构转型
+从传统的 三层 到微服务架构 而微服务的都采用Docker容器化部署，
+服务节点的 注册与发现 感觉现在接触的节点 和ali的Dubbo的provider comsumer 好像，应该是个 微型的Dubbo
+考虑 服务编程更加 异步化
+FAE
+1 带着问题去阅读源代码 2 动手实践 调试内核 eclispe O0 3 兴趣 兴趣 兴趣
+今天接到移动客服的电话，我已经记不清这是第几次建议我更换套餐了！这次我想好好了解下，她们为何乐此不疲？ 还没等她照本宣科式的念完28元的套餐优惠信息时，我说：「我一直不在本省，你赠送的优惠我很多用不了！」客服:「那你为什么不换号码？balabala」 我想：出个省还要换手机号？你萌知不知道现在换个手机号有多麻烦？而且你给我推荐业务能不能走点心？我想你们设定了这么多框框，迟早会把自己框在里面！</description>
+    </item>
+    
+    <item>
+      <title>计算机系统组成</title>
+      <link>https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</link>
+      <pubDate>Wed, 09 Oct 2019 19:25:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</guid>
+      <description>1 不用goto! 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。</description>
+    </item>
+    
+    <item>
+      <title>蒙特卡罗搜索树(译)</title>
+      <link>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</link>
+      <pubDate>Fri, 20 Oct 2017 00:54:53 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</guid>
+      <description>今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)！原文在这[阅读原文](http://mcts.ai)。  1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
+2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
+ Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。</description>
+    </item>
+    
+    <item>
+      <title>搭建CUDA 环境（GPU）</title>
+      <link>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</link>
+      <pubDate>Sun, 20 Aug 2017 23:02:59 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</guid>
+      <description>1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)
+1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612)  CUDA Toolkit on x86_32 is unsupported
+ 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.2 检查是否成功安装 安装完成后，检查是否成功安装。
+(1) cmd 中输入 nvcc -V, 查看 nvcc 版本。</description>
+    </item>
+    
+    <item>
+      <title>程序员如何留Email？</title>
+      <link>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</link>
+      <pubDate>Sun, 12 Mar 2017 22:21:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</guid>
+      <description>有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密 &amp;gt; echo 邮箱号 | base64
+我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。</description>
+    </item>
+    
+  </channel>
+</rss>

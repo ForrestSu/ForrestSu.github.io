@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/linux/</link>
+    <description>Recent content in Linux on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 09 Oct 2019 19:20:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu 16.10升级体验</title>
+      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Wed, 09 Oct 2019 19:20:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/</guid>
+      <description>1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制costom的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
+vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
+    </item>
+    
+    <item>
+      <title>ubuntu 16.10安装eclipse 4.6</title>
+      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/</link>
+      <pubDate>Sat, 13 May 2017 15:22:38 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/</guid>
+      <description>1.下载jdk , jdk-8u131-linux-x64.tar.gz 2 建立 sudo mkdir /usr/lib/java
+3 添加环境变量sudo vi /etc/profile
+ export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
+ 4
+ [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.xpm Terminal=false StartupNotify=true Type=Application Categories=Application;Development;
+ </description>
+    </item>
+    
+    <item>
+      <title>ubuntu 16.10安装teamviewer12</title>
+      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</link>
+      <pubDate>Fri, 12 May 2017 23:52:34 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</guid>
+      <description>1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
+ 2 在终端输入teamviewer，即可在终端启动该程序。 In case you get the error “wrong architecture i386” you have to execute the following commands:
+ sudo dpkg &amp;ndash;add-architecture i386 sudo apt-get update</description>
+    </item>
+    
+  </channel>
+</rss>

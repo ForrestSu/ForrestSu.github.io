@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Architecture | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Architecture - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="Architecture">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/tags/architecture/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/architecture/index.xml" title="程序员的冷浪漫" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">Architecture</span>
+                        的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">Seastar 入门</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年10月9日 19:36:04
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
+由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
+具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）
+对应的解决方案，在接下来的数十年中很流行，它将放弃舒适但低效的同步服务器设计，并转而采用 新型服务器设计 - 异步或事件驱动，服务器设计。 事件驱动的服务器只有一个线程，或者更准确地说，每个CPU有一个线程。这个单线程运行一个紧密的循环，在每次迭代中检查，使用poll()（或更有效epoll）用于许多打开的文件描述符上的新事件，例如套接字。例如，一个事件可以是一个可读的套接字（新数据已经从远程端到达）或变得可写（我们可以在这个连接上发送更多的数据）。应用程序通过执行一些非阻塞操作来处理此事件，修改一个或多个文件描述符并保持其对此连接状态的了解。 然而，异步服务器应用程序的作者在今天仍面临着两大挑战：……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">异步编程</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年10月9日 19:24:50
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。  ……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年4月15日 19:50:09
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                ## 25岁的迷茫 2018-04-15 19:09:09 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">Thinking coroutine thread async</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年2月8日 22:32:16
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">Thinking micro-service Architecture</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年5月15日 14:41:51
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
+Analysis Advantage Analysis： zeroMQ……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/java/</link>
+    <description>Recent content in Java on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 10 Oct 2019 11:02:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>java 注解</title>
+      <link>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Thu, 10 Oct 2019 11:02:25 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
+      <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
+2 自定义注解 </description>
+    </item>
+    
+    <item>
+      <title>Zookeeper-Kafka-Cluster-Deployment-Plan</title>
+      <link>https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/</link>
+      <pubDate>Fri, 02 Nov 2018 17:28:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/</guid>
+      <description>Zookeeper+Kafka集群搭建方案 date: 2018-10-30 19:50 Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
+Zookeeper工作方式
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
+说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</description>
+    </item>
+    
+    <item>
+      <title>java 反射机制(1)</title>
+      <link>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</link>
+      <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</guid>
+      <description>什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。
+// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;quot;Javass.c10.HelloWorld&amp;quot;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&amp;quot;-&amp;gt;&amp;quot;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/tools/</link>
+    <description>Recent content in Tools on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 10 Oct 2019 10:40:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>推荐-小工具</title>
+      <link>https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Thu, 10 Oct 2019 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
+      <description>推荐个人最常用的Top10 便携自由(Free)的小软件。 Windows 1. cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 2. AutoHotkey 自定义全局热键 3. clover 资源管理器像浏览器一样显示多窗口 4. everything 快速查找磁盘文件(支持正则) (V1.3.4.686) 5. Ditto 可以选择的粘贴板工具 6. GifCam Gif动画录制工具 7. chrome 及一系列插件 待补充&amp;hellip;
+大家如果需要留言，可以直接回复_</description>
+    </item>
+    
+    <item>
+      <title>在Markdown中输入数学公式(MathJax)</title>
+      <link>https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/</link>
+      <pubDate>Sun, 25 Jun 2017 19:46:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/</guid>
+      <description>1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义  语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)   单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示  语句为$$\sum{i=0}^N\int{a}^{b}g(t,i)\text{d}t$$ 显示为  下列描述语句中若非特别指出均省略$...$   2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega &amp;nbsp; &amp;nbsp;     若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为  若需要斜体希腊字母，将命令前加上var前缀即可。   3 字母修饰 3.</description>
+    </item>
+    
+    <item>
+      <title>win下ssh指定密码登陆</title>
+      <link>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</link>
+      <pubDate>Mon, 29 May 2017 21:02:22 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</guid>
+      <description>1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
+3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
+5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.</description>
+    </item>
+    
+    <item>
+      <title>Eclipse 4.6 support c&#43;&#43;11</title>
+      <link>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</link>
+      <pubDate>Thu, 27 Apr 2017 10:14:35 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</guid>
+      <description>1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
+2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor. Since you didn&amp;rsquo;t mention which compiler you&amp;rsquo;re using, I&amp;rsquo;ll assume it&amp;rsquo;s GCC but the steps will be similar for other compilers.</description>
+    </item>
+    
+    <item>
+      <title>Docker install Ubuntu</title>
+      <link>https://forrestsu.github.io/posts/tools/docker-install-ubuntu/</link>
+      <pubDate>Tue, 21 Mar 2017 16:55:52 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/docker-install-ubuntu/</guid>
+      <description>1 前言 2017-03-21 13:57:22 +08:00 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
+当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
+2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
+然后点击next.
+安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
+3 启动 双击Docker Quickstart Terminal 启动即可。
+4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash</description>
+    </item>
+    
+    <item>
+      <title>My Chrome Plugin</title>
+      <link>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</link>
+      <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
+      <description> 广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   </description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 Markdown</title>
+      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/</link>
+      <pubDate>Mon, 16 May 2016 00:22:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/</guid>
+      <description>1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容： &amp;gt;{ &amp;ldquo;color_scheme&amp;rdquo;: &amp;ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&amp;rdquo;, &amp;ldquo;draw_centered&amp;rdquo;: false, &amp;ldquo;line_numbers&amp;rdquo;: true, &amp;ldquo;highlight_line&amp;rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &amp;ldquo;wrap_width&amp;rdquo;:0 }
+最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。 &amp;gt;git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
+然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。 &amp;gt;{ &amp;ldquo;enable_mathjax&amp;rdquo;: true, &amp;ldquo;enable_highlight&amp;rdquo;: true }
+最后，我们在Preferences-key bindings-user里面自定义一个快捷键，可以快速输出html。 &amp;gt;//4 markdown_html预览 { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;alt+c&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;markdown_preview&amp;rdquo;, &amp;ldquo;args&amp;rdquo;: {&amp;ldquo;target&amp;rdquo;: &amp;ldquo;browser&amp;rdquo;, &amp;ldquo;parser&amp;rdquo;:&amp;ldquo;markdown&amp;rdquo;} },</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 UML</title>
+      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-uml/</link>
+      <pubDate>Sun, 15 May 2016 14:19:58 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-uml/</guid>
+      <description>1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件 &amp;gt;@startuml
+skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bob -&amp;gt; Alice : Hello, how are you Consolas Alice -&amp;gt; Bob : Fine, thank you, and you? @enduml
+2 安装步骤 2.1 下载[graphviz-2.38.zip ](http://www.graphviz.org/Download_windows.php)(`注：我用的是Windows,如果是其他操作系统选择对应版本`) 目前最新版是graphviz-2.38(2016年5月15日) 解压到系统的某一目录，然后添加到系统环境变量(如下图),重启OS后生效： 3 安装ST3插件sublime_diagram_plugin 通过Preferences-&amp;gt;browse packages进入插件安装包，下载完成后重启ST3: &amp;gt;git clone https://github.</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text3 C语言插件</title>
+      <link>https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sat, 14 May 2016 15:20:30 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/</guid>
+      <description>0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&amp;gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。 &amp;gt;//1.Alignment 代码自动对齐 { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;alt+d&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;alignment&amp;rdquo; }
+3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved
+4 DocBlockr 自动生成函数注释，在不同参数之间切换可以用tab. 5 AllAutocomplete AllAutocomplete可以对打开的所有文件的变量名进行提示。sublime默认只对当前打开的文件的变量进行提示。
+6 CTags 可以在函数的声明和定义自检来回跳转了，首先需要下载Ctags，比如我存在D盘的根目录下，之后需要在Sublime中配置路径
+然后就可以用ctrl+shift+左键，跳转到定义处了，ctrl+shift+右键。如果不习惯用鼠标可以ctrl+&amp;gt;跳转到定义，ctrl+&amp;lt;返回。</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 设置</title>
+      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Sat, 14 May 2016 14:13:40 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/</guid>
+      <description>1 User 1 通过快捷键开控制自动换行，在Preferences -&amp;gt;key bindings-User添加如下内容即可。 &amp;gt;{ &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;ctrl+shift+w&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;toggle_setting&amp;rdquo;, &amp;ldquo;args&amp;rdquo;: {&amp;ldquo;setting&amp;rdquo;: &amp;ldquo;word_wrap&amp;rdquo;} }</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 插件安装</title>
+      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 12 May 2016 13:17:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
+      <description>1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &amp;gt; import urllib.request,os,hashlib; h = &amp;lsquo;2915d1851351e5ee549c20394736b442&amp;rsquo; + &amp;lsquo;8bc59f460fa1548d1514676163dafc88&amp;rsquo;; pf = &amp;lsquo;Package Control.sublime-package&amp;rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;lsquo;http://packagecontrol.io/&#39; + pf.replace(&amp;rsquo; &amp;lsquo;, &amp;lsquo;%20&amp;rsquo;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;lsquo;Error validating download (got %s instead of %s), please try manual install&amp;rsquo; % (dh, h)) if dh !</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>how to use protobuf Reflection? | 程序员的冷浪漫</title>
+    <meta property="og:title" content="how to use protobuf Reflection? - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-04-27T21:56:39&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-04-27T21:56:39&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="how to use protobuf Reflection?">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        <div id="virtual_toc_list" style="display: none">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-reflection-in-c">1 reflection in C++</a></li>
+<li><a href="#2-reflection-in-java">2 reflection in Java</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
+            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </header>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                 
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '0px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    fixedTocElem.appendChild(tocNavElem);
+                    fixedTocElem.parentElement.style.display = "";
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">how to use protobuf Reflection?</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年4月27日 21:56:39
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear" style="display: none">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<p>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。</p>
+
+<h3 id="1-reflection-in-c">1 reflection in C++</h3>
+
+<p>在c++中使用protobuf 反射</p>
+
+<pre><code class="language-proto">package com.sunquan;
+
+message Login 
+{
+    optional int64 userid = 1;
+    optional string username = 2; // name
+    optional string password = 3; // passwd
+    optional string email = 4;
+    optional string nickname = 5;
+    // etc ... 
+}
+</code></pre>
+
+<p>&nbsp;  C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。</p>
+
+<pre><code class="language-cpp">/**
+ * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以调用该消息的 New() 方法来构造这种类型的可变消息。
+ * @param FullMsgName  eg: com.sunquan.Login
+ * @return if fail return NULL
+ */
+const google::protobuf::Message* ParseUtil::FindMsgProtoType(const std::string&amp; FullMsgName)
+{
+    google::protobuf::Message* pFactory = NULL;
+    auto pDesc = google::protobuf::DescriptorPool::generated_pool()-&gt;FindMessageTypeByName(FullMsgName);
+    if (pDesc)
+    {
+        // Calling this method twice with the same Descriptor returns the same object.
+        pFactory = google::protobuf::MessageFactory::generated_factory()-&gt;GetPrototype(pDesc);
+    } else
+        std::cerr &lt;&lt; &quot;can't find new desc:&quot; &lt;&lt; FullMsgName &lt;&lt; std::endl;
+    return pFactory;
+}
+</code></pre>
+
+<p>当我们通过消息原型new一个可变的消息对象，就可以对消息进行动态赋值了，如下：</p>
+
+<pre><code>int ParseUtil::ReflectionTest() {
+    std::string fullname = &quot;com.sunquan.Login&quot;;
+    const google::protobuf::Message* pMsgFactory = FindMsgProtoType(fullname);
+    if (pMsgFactory == NULL){
+       std::cerr &lt;&lt; &quot;CreateMessage() fail!&quot; &lt;&lt;std::endl;
+       return 0;
+    }
+    //new mutable msg
+    google::protobuf::Message* pMsg = pMsgFactory-&gt;New();
+
+    const google::protobuf::Descriptor *pdesc = pMsgFactory-&gt;GetDescriptor();
+    const google::protobuf::Reflection *refl = pMsgFactory-&gt;GetReflection();
+
+    // 动态查找一个 FieldDesc
+    std::string fieldname = &quot;username&quot;;
+    const google::protobuf::FieldDescriptor* pfield = pdesc-&gt;FindFieldByName(fieldname);
+    if (pfield) {
+        // 暂不支持 repeat 类型
+        if (pfield-&gt;is_repeated()) {
+            std::cerr &lt;&lt; &quot;repeat field is not support!&quot; &lt;&lt; fieldname &lt;&lt; std::endl;
+            continue;
+        }
+        switch (pfield-&gt;cpp_type()) {
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT32:
+            //if(oneRow[i].type() == QVariant::Date)
+            refl-&gt;SetInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT64:
+            refl-&gt;SetInt64(pMsg, pfield, 100LL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT32:
+            refl-&gt;SetUInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT64:
+            refl-&gt;SetUInt64(pMsg, pfield, 100ULL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_DOUBLE:
+            refl-&gt;SetDouble(pMsg, pfield, 100.89);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_FLOAT:
+            refl-&gt;SetFloat(pMsg, pfield, 100.98);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_BOOL:
+            refl-&gt;SetBool(pMsg, pfield, true);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_STRING:
+            refl-&gt;SetString(pMsg, pfield, &quot;name&quot;);
+            break;
+        default:
+            //NoSupport CPPTYPE_ENUM/CPPTYPE_MESSAGE
+            std::cout &lt;&lt; &quot;UnSupport Type=&quot; &lt;&lt; pfield-&gt;type_name() &lt;&lt; std::endl;
+            break;
+        }
+    }
+    //if no longer use, please remember delete &quot;pMsg&quot;
+    if (pMsg) delete pMsg;
+    return 0;
+}
+</code></pre>
+
+<h3 id="2-reflection-in-java">2 reflection in Java</h3>
+
+<p>在Java中使用的protobuf反射。
+1 已知消息名称，查找到该消息类型的 Descriptor，然后根据序列化的字节码，动态构建对象。</p>
+
+<pre><code class="language-java">
+	public static void Reflect_Parse()
+	{
+		Login req = Login.newBuilder()
+		        .setUserid(100)
+		        .setUsername(&quot;Alice&quot;)
+		        .setEmail(&quot;Alice123@gmail.com&quot;)
+		        .setNickname(&quot;爱丽丝&quot;)
+	    		.setPassword(Digest.getStringMD5(&quot;A123456&quot;))
+	    		.build();
+		ByteString data = req.toByteString();
+		
+		try {
+		    //根据消息名称查找 Descriptor, DynamicMessage工厂 根据指定的 Descriptor 产生消息 object
+            String magname = &quot;Login&quot;;
+            Descriptor desc = DemoProtos.getDescriptor().findMessageTypeByName(magname);
+
+            if (desc != null) {
+                // com.sunquan.zmqproto.Login
+                System.out.println(desc.getFullName());
+                DynamicMessage msg = DynamicMessage.parseFrom(desc, data);
+                System.out.println(msg.toString());
+            } else {
+                System.out.println(&quot;Can't find msg desc: &quot; + magname);
+            }
+            //底层的实现: 每个消息自身都实现了 自己的  getDescriptor() 接口
+            Descriptor desc_direct = Login.getDescriptor();
+		} catch (InvalidProtocolBufferException e) {
+			e.printStackTrace();
+		}
+	}
+</code></pre>
+
+<p>2 预先准备好所有可能的消息，动态解析
+ 把所有可能的消息的 Descriptor 加入到 Map，然后从Map中查找。</p>
+
+<pre><code class="language-java">   private Map&lt;MsgType, Descriptor&gt; typeMap = new TreeMap&lt;MsgType, Descriptor&gt;();
+   typeMap.put(MsgType.LOGINREP, LoginRep.getDescriptor());
+   typeMap.put(MsgType.INSERTORDERREP, InsertOrderRep.getDescriptor());
+   typeMap.put(MsgType.CANCELORDERREP, CancelOrderRep.getDescriptor());
+</code></pre>
+
+<p>3 动态修改消息字段值
+wait</p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/library/redis-%E5%85%A5%E9%97%A8/">Redis 入门</a></li>
+        
+        <li><a href="/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a></li>
+        
+        <li><a href="/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a></li>
+        
+        <li><a href="/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a></li>
+        
+        <li><a href="/posts/architecture/thinking-coroutine-thread-async/">Thinking coroutine thread async</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://forrestsu.github.io/tags/library">Library</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

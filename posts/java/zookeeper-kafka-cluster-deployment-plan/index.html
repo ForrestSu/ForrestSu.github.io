@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Zookeeper-Kafka-Cluster-Deployment-Plan | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Zookeeper-Kafka-Cluster-Deployment-Plan - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-11-02T17:28:19&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-11-02T17:28:19&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="Zookeeper-Kafka-Cluster-Deployment-Plan">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        <div id="virtual_toc_list" style="display: none">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#zookeeper-kafka集群搭建方案">Zookeeper+Kafka集群搭建方案</a></li>
+<li><a href="#说明">说明</a></li>
+<li><a href="#一-安装zookeeper">一、 安装zookeeper</a></li>
+<li><a href="#二-安装kafka">二、 安装Kafka</a></li>
+<li><a href="#三-启动集群和测试">三、 启动集群和测试</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
+            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </header>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                 
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '0px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    fixedTocElem.appendChild(tocNavElem);
+                    fixedTocElem.parentElement.style.display = "";
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Zookeeper-Kafka-Cluster-Deployment-Plan</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年11月2日 17:28:19
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear" style="display: none">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<h3 id="zookeeper-kafka集群搭建方案">Zookeeper+Kafka集群搭建方案</h3>
+
+<p>date: 2018-10-30 19:50
+<!--[TOC] --></p>
+
+<p><strong>Zookeeper是一个高性能分布式应用协调服务</strong>
+- Naming Service
+- 配置管理
+- Leader Election
+- 服务发现
+- 同步
+- Group Service
+- Barrier
+- 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以)
+- 两阶段提交</p>
+
+<p>Zookeeper工作方式</p>
+
+<ul>
+<li>Zookeeper集群包含一个1个Leader，多个Follower</li>
+<li>所有的Follower都可提供读服务</li>
+<li>所有的写操作都会被forward到Leader</li>
+<li>Client与Server通过NIO通信</li>
+<li>全局串行化所有的写操作</li>
+<li>保证同一客户端的指令被FIFO执行</li>
+<li>保证消息通知的FIFO</li>
+</ul>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/436556-31107057ded3933b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="kafka-zookeeper-cluster" /></p>
+
+<p>与Kafka读写操作不一样，Kafka只有Leader提供读写操作。</p>
+
+<h3 id="说明">说明</h3>
+
+<p>搭建zookeeper和Kafka集群：
+本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</p>
+
+<p>主机规划：<br />
+192.168.0.151 　Kafka+Zookeeper<br />
+192.168.0.152 　Kafka+Zookeeper<br />
+192.168.0.153　 Kafka+Zookeeper</p>
+
+<p>软件下载地址：</p>
+
+<pre><code class="language-sh">wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.12-1.1.0.tgz
+</code></pre>
+
+<p>三台主机hosts文件一致：</p>
+
+<pre><code class="language-sh"># cat /etc/hosts
+192.168.0.152 master
+192.168.0.151 worker1
+192.168.0.153 worker2
+</code></pre>
+
+<h3 id="一-安装zookeeper">一、 安装zookeeper</h3>
+
+<p>(1) 下载 <code>zookeeper-3.4.10.tar.gz</code></p>
+
+<p>(2) 在 master 节点上安装 zookeeper<br />
+    解压安装包，并复制配置文件</p>
+
+<pre><code># 在master节点上
+[opadm@master ~]$ tar -xzvf zookeeper-3.4.10.tar.gz
+[opadm@master ~]$ cd zookeeper-3.4.10/conf/
+[opadm@master conf]$ cp zoo_sample.cfg zoo.cfg
+</code></pre>
+
+<p>(3) 修改 zoo.cfg
+&gt;[opadm@master conf]$ vi zoo.cfg</p>
+
+<p>修改内容如下：</p>
+
+<pre><code>...
+# dataDir 最好不要在 /tmp 下
+dataDir=/tmp/zookeeper
+...
+# the port at which the clients will connect
+clientPort=2181
+
+# 添加节点，注：端口 8001、8002 不固定
+server.0=master:8001:8002
+server.1=worker1:8001:8002
+server.2=worker2:8001:8002
+...
+</code></pre>
+
+<p>(4) 在 dataDir 目录下创建 data 文件夹 和 myid 文件（内容为0）</p>
+
+<pre><code># 在master节点上
+[opadm@master ~]$ mkdir /tmp/zookeeper/data/
+[opadm@master ~]$ touch /tmp/zookeeper/myid
+[opadm@master ~]$ echo 0 &gt; /tmp/zookeeper/myid
+</code></pre>
+
+<p>(5) 将 zookeeper-3.4.10 文件夹复制到另外两个节点下</p>
+
+<pre><code># 在master节点上
+[opadm@master ~]$ scp -r zookeeper-3.4.10/ worker1:~/
+[opadm@master ~]$ scp -r zookeeper-3.4.10/ worker2:~/
+</code></pre>
+
+<p>并在相同 dataDir 下创建 data 文件夹 和 myid 文件
+注：worker1 的 myid 文件内容为 1，worker2 的 myid 文件内容为 2</p>
+
+<pre><code># 登录 worker1
+[opadm@worker1 ~]$ mkdir /tmp/zookeeper/data/
+[opadm@worker1 ~]$ touch /tmp/zookeeper/myid
+[opadm@worker1 ~]$ echo 1 &gt; /tmp/zookeeper/myid
+</code></pre>
+
+<pre><code># 登录 worker2
+[opadm@worker2 ~]$ mkdir /tmp/zookeeper/data/
+[opadm@worker2 ~]$ touch /tmp/zookeeper/myid
+[opadm@worker2 ~]$ echo 2 &gt; /tmp/zookeeper/myid
+</code></pre>
+
+<h3 id="二-安装kafka">二、 安装Kafka</h3>
+
+<p>(1) 下载 kafka_2.11-0.10.0.1.tar.gz</p>
+
+<p>(2) 在 master 节点上安装 kafka（一个broker）
+解压安装包</p>
+
+<pre><code># 在master节点上
+&gt; [opadm@master ~]$ tar -xzvf kafka_2.11-0.10.0.1.tar.gz
+</code></pre>
+
+<p>(3) 修改 server.properties</p>
+
+<pre><code># 在master节点上
+[opadm@master ~]$ cd kafka_2.11-0.10.0.1/config/
+[opadm@master config]$ vi server.properties
+</code></pre>
+
+<p>修改内容如下：</p>
+
+<pre><code>...
+# master为0
+broker.id=0    
+...
+# 连接
+zookeeper.connect=master:2181,worker1:2181,worker2:2181
+# 可删除topic
+delete.topic.enable=true
+...
+</code></pre>
+
+<p>(4) 将 kafka_2.11-0.10.0.1 文件夹复制到另外两个节点下</p>
+
+<pre><code># 在master节点上
+[opadm@master ~]$ scp -r kafka_2.11-0.10.0.1/ worker1:~/
+[opadm@master ~]$ scp -r kafka_2.11-0.10.0.1/ worker2:~/
+</code></pre>
+
+<p>并修改每个节点对应的 server.properties 文件的 broker.id： master为0，worker1为1，worker2为2</p>
+
+<h3 id="三-启动集群和测试">三、 启动集群和测试</h3>
+
+<p>** 注：启动时：先启动 zookeeper，后启动 kafka；关闭时：先关闭 kafka，后关闭zookeeper **</p>
+
+<p>(1) 分别在每个节点上启动 zookeeper</p>
+
+<pre><code># 在master节点上
+[opadm@master zookeeper-3.4.10]$ bin/zkServer.sh start
+
+# 在worker1节点上
+[opadm@worker1 zookeeper-3.4.10]$ bin/zkServer.sh start
+
+# 在worker2节点上
+[opadm@worker2 zookeeper-3.4.10]$ bin/zkServer.sh start
+</code></pre>
+
+<p>(2) 验证 zookeeper 集群</p>
+
+<pre><code># 在master节点上
+[opadm@master zookeeper-3.4.10]$ bin/zkServer.sh status
+
+# 在worker1节点上
+[opadm@worker1 zookeeper-3.4.10]$ bin/zkServer.sh status
+
+# 在worker2节点上
+[opadm@worker2 zookeeper-3.4.10]$ bin/zkServer.sh status
+</code></pre>
+
+<p>显示结果为：有一个是 leader，剩下的都是 follower</p>
+
+<p>(3) 启动 Kafaka 集群</p>
+
+<pre><code># 在master节点上
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-server-start.sh config/server.properties &amp;
+
+# 在worker1节点上
+[opadm@worker1 kafka_2.11-0.10.0.1]$ bin/kafka-server-start.sh config/server.properties &amp;
+
+# 在worker2节点上
+[opadm@worker2 kafka_2.11-0.10.0.1]$ bin/kafka-server-start.sh config/server.properties &amp;
+</code></pre>
+
+<p>(4) 测试
+创建 topic 和 显示 topic 信息</p>
+
+<pre><code># 在master节点上 创建topic
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-topics.sh --create --zookeeper master:2181,worker1:2181,worker2:2181 --replication-factor 3 --partitions 3 --topic test
+</code></pre>
+
+<pre><code># 在master节点上 显示topic信息
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-topics.sh --describe --zookeeper master:2181,worker1:2181,worker2:2181 --topic test
+</code></pre>
+
+<pre><code># 在master节点上 列出topic
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-topics.sh --list --zookeeper master:2181,worker1:2181,worker2:2181
+</code></pre>
+
+<p>创建 producer</p>
+
+<pre><code># 在master节点上 测试生产消息
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-console-producer.sh --broker-list master:9092 -topic test
+</code></pre>
+
+<p>创建 consumer</p>
+
+<pre><code># 在master节点上 测试消费
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-console-consumer.sh --bootstrap-server master:9092 -topic test --from-beginning
+
+# 在worker1节点上 测试消费
+[opadm@worker1 kafka_2.11-0.10.0.1]$ bin/kafka-console-consumer.sh --bootstrap-server worker1:9092 -topic test --from-beginning
+
+# 在worker2节点上 测试消费
+[opadm@worker2 kafka_2.11-0.10.0.1]$ bin/kafka-console-consumer.sh --bootstrap-server worker2:9092 -topic test --from-beginning
+
+</code></pre>
+
+<p>然后在 producer 里输入消息，consumer 中就会显示出同样的内容，表示消费成功
+(5) 删除 topic 和关闭服务</p>
+
+<pre><code># 在master节点上 删除topic
+[opadm@master kafka_2.11-0.10.0.1]$ bin/kafka-topics.sh --delete --zookeeper master:2181,worker1:2181,worker2:2181 --topic test
+</code></pre>
+
+<p>关闭kafka 和 zookeeper</p>
+
+<pre><code># 在master节点上 关闭kafka
+[opadm@master ~]$ ./kafka_2.11-0.10.0.1/bin/kafka-server-stop.sh
+# 在worker1节点上 关闭kafka
+[opadm@worker1 ~]$ ./kafka_2.11-0.10.0.1/bin/kafka-server-stop.sh
+# 在worker2节点上 关闭kafka
+[opadm@worker2 ~]$ ./kafka_2.11-0.10.0.1/bin/kafka-server-stop.sh
+
+# 在master节点上 关闭zookeeper
+[opadm@master ~]$ ./zookeeper-3.4.10/bin/zkServer.sh stop
+# 在worker1节点上 关闭zookeeper
+[opadm@worker1 ~]$ ./zookeeper-3.4.10/bin/zkServer.sh stop
+# 在worker2节点上 关闭zookeeper
+[opadm@worker2 ~]$ ./zookeeper-3.4.10/bin/zkServer.sh stop
+</code></pre>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/">java 反射机制(1)</a></li>
+        
+        <li><a href="/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">午夜梦醒十分</a></li>
+        
+        <li><a href="/posts/library/kafka%E5%AE%89%E8%A3%85/">kafka安装</a></li>
+        
+        <li><a href="/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">git 源码学习</a></li>
+        
+        <li><a href="/posts/library/how-to-use-protobuf-reflection-/">how to use protobuf Reflection?</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://forrestsu.github.io/tags/java">Java</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

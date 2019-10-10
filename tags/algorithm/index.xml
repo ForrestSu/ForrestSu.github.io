@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithm on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/algorithm/</link>
+    <description>Recent content in Algorithm on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 16 Jul 2017 17:14:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于博弈论</title>
+      <link>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</link>
+      <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
+      <description>…… 大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 …… 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ ⋯⋯ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。 …… 本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。 …… 待续</description>
+    </item>
+    
+    <item>
+      <title>背包九讲01-关于常数的优化</title>
+      <link>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sun, 28 Aug 2016 01:13:01 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
+      <description>01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
+关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程：
+dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候我们只需要计算出dp[V-cn]的值就可以停止循环了。进一步，当处理第i个物品时只需要循环到： 　备注：原作者手误把公式中ｃi+1写成了ｗi。 2 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。 最后：基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。 代码如下：
+/** nyoj: 654*/ //c header #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;cstring&amp;gt; //cpp header #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;string&amp;gt; using namespace std; #define M 1100000 //Max bag&#39;s Capacity #define N 120 //Max Item&#39;s amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&amp;lt;int,int&amp;gt; ppi; /**Cap is the bag&#39;s Capacity; SumCost is the sum of Item&#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements return x.</description>
+    </item>
+    
+  </channel>
+</rss>

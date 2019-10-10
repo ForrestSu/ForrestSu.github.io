@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>搭建CUDA 环境（GPU） | 程序员的冷浪漫</title>
+    <meta property="og:title" content="搭建CUDA 环境（GPU） - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2017-08-20T23:02:59&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2017-08-20T23:02:59&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="搭建CUDA 环境（GPU）">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        <div id="virtual_toc_list" style="display: none">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-preface">1 Preface</a>
+<ul>
+<li>
+<ul>
+<li><a href="#1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#2-cuda-环境搭建">2 CUDA 环境搭建</a>
+<ul>
+<li>
+<ul>
+<li><a href="#2-1-download">2.1 Download</a></li>
+<li><a href="#2-2-检查是否成功安装">2.2 检查是否成功安装</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#3-data-interaction">3 Data Interaction</a>
+<ul>
+<li>
+<ul>
+<li><a href="#3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</a>
+<ul>
+<li><a href="#1-动态申请连续的内存块">(1) 动态申请连续的内存块</a></li>
+<li><a href="#2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</a></li>
+<li><a href="#3-释放内存">(3) 释放内存</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-cuda-demos">4 CUDA-Demos</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#4-1-vector-add">4.1 Vector Add</a></li>
+</ul></li>
+<li><a href="#4-2-matrix-calculation">4.2 Matrix Calculation</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
+            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </header>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                 
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '0px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    fixedTocElem.appendChild(tocNavElem);
+                    fixedTocElem.parentElement.style.display = "";
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">搭建CUDA 环境（GPU）</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2017年8月20日 23:02:59
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear" style="display: none">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<h2 id="1-preface">1 Preface</h2>
+
+<p> 　　最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(<code>10 thread</code>)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。
+　　下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)</p>
+
+<h4 id="1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</h4>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/436556-df096f971989c7af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nvida" /></p>
+
+<p>官网查看CUDA兼容的GPU型号<a href="https://developer.nvidia.com/cuda-gpus">cuda-gpu</a> <code>(20170612)</code>
+<img src="http://upload-images.jianshu.io/upload_images/436556-d8bf6b8925d1e7ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nvida" /></p>
+
+<blockquote>
+<p>CUDA Toolkit on x86_32 is unsupported</p>
+</blockquote>
+
+<h2 id="2-cuda-环境搭建">2 CUDA 环境搭建</h2>
+
+<h4 id="2-1-download">2.1 Download</h4>
+
+<p>nvidia <a href="https://developer.nvidia.com/cuda-toolkit">cuda-toolkit</a>
+下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。
+<img src="http://upload-images.jianshu.io/upload_images/436556-80c38c6bc4043bcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sdk" /></p>
+
+<h4 id="2-2-检查是否成功安装">2.2 检查是否成功安装</h4>
+
+<p>安装完成后，检查是否成功安装。<br />
+(1) cmd 中输入 <code>nvcc -V</code>, 查看 nvcc 版本。<br />
+(2) 执行 <strong>deviceQuery.exe</strong> 可以查看显卡设备:</p>
+
+<pre><code>λ deviceQuery
+deviceQuery Starting...
+
+ CUDA Device Query (Runtime API) version (CUDART static linking)
+
+Detected 1 CUDA Capable device(s)
+
+Device 0: &quot;NVS 510&quot;
+  CUDA Driver Version / Runtime Version          8.0 / 8.0
+  CUDA Capability Major/Minor version number:    3.0
+  Total amount of global memory:                 2048 MBytes (2147483648 bytes)
+  ( 1) Multiprocessors, (192) CUDA Cores/MP:     192 CUDA Cores
+  GPU Max Clock rate:                            797 MHz (0.80 GHz)
+  Memory Clock rate:                             891 Mhz
+  Memory Bus Width:                              128-bit
+  L2 Cache Size:                                 262144 bytes
+  Maximum Texture Dimension Size (x,y,z)         1D=(65536), 2D=(65536, 65536), 3D=(4096, 4096, 4096)
+  Maximum Layered 1D Texture Size, (num) layers  1D=(16384), 2048 layers
+  Maximum Layered 2D Texture Size, (num) layers  2D=(16384, 16384), 2048 layers
+  Total amount of constant memory:               65536 bytes
+  Total amount of shared memory per block:       49152 bytes
+  Total number of registers available per block: 65536
+  Warp size:                                     32
+  Maximum number of threads per multiprocessor:  2048
+  Maximum number of threads per block:           1024
+  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+  Maximum memory pitch:                          2147483647 bytes
+  Texture alignment:                             512 bytes
+  Concurrent copy and kernel execution:          Yes with 1 copy engine(s)
+  Run time limit on kernels:                     Yes
+  Integrated GPU sharing Host Memory:            No
+  Support host page-locked memory mapping:       Yes
+  Alignment requirement for Surfaces:            Yes
+  Device has ECC support:                        Disabled
+  CUDA Device Driver Mode (TCC or WDDM):         WDDM (Windows Display Driver Model)
+  Device supports Unified Addressing (UVA):      Yes
+  Device PCI Domain ID / Bus ID / location ID:   0 / 3 / 0
+</code></pre>
+
+<p>(3)执行 <strong>bandwidthTest.exe</strong>,看到 <code>Result - Pass</code></p>
+
+<pre><code>λ bandwidthTest
+[CUDA Bandwidth Test] - Starting...
+Running on...
+
+ Device 0: NVS 510
+ Quick Mode
+
+ Host to Device Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     5861.3
+
+ Device to Host Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     6536.8
+
+ Device to Device Bandwidth, 1 Device(s)
+ PINNED Memory Transfers
+   Transfer Size (Bytes)        Bandwidth(MB/s)
+   33554432                     20376.2
+
+Result = PASS
+</code></pre>
+
+<h2 id="3-data-interaction">3 Data Interaction</h2>
+
+<h4 id="3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</h4>
+
+<p> 　CPU 和 GPU 有各自独立的内存空间，在 GPU 中不能直接访问 CPU 端的代码，反之也一样。<br />
+这时候最直接的方式就是<strong>数据拷贝</strong>: 在计算前将数据从 CPU 复制到 GPU 端，以 GPU 内存指针的方式传递给 GPU 的内存空间进行读写操作，计算完后将计算结果复制回 CPU 端。下面我们看下一个Sample Project 的代码 <code>bandwidthTest</code><br />
+<strong>函数功能</strong>：测试device to device (or device &lt;==&gt; host)拷贝数据的带宽。</p>
+
+<h5 id="1-动态申请连续的内存块">(1) 动态申请连续的内存块</h5>
+
+<pre><code class="language-cpp">/**char *d_idata: device input data
+ * char *h_odata: host output data
+ */
+  // Host 上动态申请内存
+  cudaError_t cudaHostAlloc((void **)&amp;h_odata, memSize, bWriteCombined);
+  // device 上动态申请内存
+  cudaError_t cudaMalloc((void **) &amp;d_idata, memSize);
+</code></pre>
+
+<h5 id="2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</h5>
+
+<pre><code class="language-cpp">  // sync CopyData from Device to Host 
+  cudaError_t cudaMemcpy(void *dst, const void *src,size_t memSize, cudaMemcpyDeviceToHost);
+  // async CopyData from Host to Device (line 791)
+  cudaError_t cudaMemcpyAsync(void *dst, const void *src,size_t memSize, cudaMemcpyHostToDevice, 0);
+</code></pre>
+
+<blockquote>
+<p>数据从device 拷贝回 host 是一个同步数据拷贝。</p>
+</blockquote>
+
+<h5 id="3-释放内存">(3) 释放内存</h5>
+
+<pre><code class="language-cpp">  //释放 host 上的内存
+  cudaError_t cudaFreeHost(h_odata);
+  //释放 device 上的内存
+  cudaError_t cudaFree(d_idata);
+</code></pre>
+
+<p>注：(1) 每个函数都需用宏 <code>checkCudaErrors()</code> 来检查返回值。<br />
+(2) 有3个宏：<code>HOST_TO_DEVICE</code>、<code>DEVICE_TO_HOST</code>、<code>DEVICE_TO_DEVICE</code></p>
+
+<h2 id="4-cuda-demos">4 CUDA-Demos</h2>
+
+<p>下面来看个简单的 GPU 计算向量加法的例子。</p>
+
+<h5 id="4-1-vector-add">4.1 Vector Add</h5>
+
+<p>CUDA Kernel function: 这段代码只能在GPU上执行，不能在CPU上执行。<br />
+下面来看一个内核函数的例子：</p>
+
+<pre><code class="language-cpp">/* CUDA Kernel Device code
+*/
+__global__ void vectorAdd(const float *A, const float *B, float *C, int numElements)
+{
+    /* build-in variable
+     *  blockDim 每个线程块需要启动的线程总数
+     *  blockIdx 线程块编号,从0开始编号
+     *  threadIdx  线程ID,每个线程块内从0开始编号
+     */
+    int i = blockDim.x * blockIdx.x + threadIdx.x;
+
+    if (i &lt; numElements) //防止数组越界!!!
+    {
+        C[i] = A[i] + B[i];
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>其中 <code>__global__</code> 告诉编译器生成的是GPU代码而不是 CPU 代码，并且这段代码在 CPU 上是全局可见的。</p>
+</blockquote>
+
+<p>如何在 CPU 端调用内核函数？<br />
+CUDA 专门定义了一个 C 语言扩展用以调用内核函数。语法如下：
+<code>kernel_function&lt;&lt;&lt; num_blocks, num_threads&gt;&gt;&gt;(params, param2, ...)</code></p>
+
+<pre><code class="language-cpp">// Launch the Vector Add CUDA Kernel
+    int threadsPerBlock = 256;
+    int blocksPerGrid =(numElements + threadsPerBlock - 1) / threadsPerBlock;
+   
+    vectorAdd&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(d_A, d_B, d_C, numElements);
+
+    err = cudaGetLastError();
+</code></pre>
+
+<blockquote>
+<p>其中：num_blocks 告诉 GPU 启动线程块的数量；<br />
+num_threads 表示单个 Block 内启动的线程数。</p>
+</blockquote>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/436556-d18d08570991a22a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="线程块" /></p>
+
+<blockquote>
+<p>*向量的减法、乘法类似*。</p>
+</blockquote>
+
+<h4 id="4-2-matrix-calculation">4.2 Matrix Calculation</h4>
+
+<p><code>next post write</code></p>
+
+<h2 id="5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</h2>
+
+<ul>
+<li>CPU 单线程 / GPU 多线程</li>
+<li>CPU 多线程 / GPU 多线程 (注意内存的使用)</li>
+</ul>
+
+<blockquote>
+<p>GPU 是典型的 SPMD (即单指令多数据模型)。</p>
+</blockquote>
+
+<h2 id="reference">Reference</h2>
+
+<p>[1] <a href="http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">Nvidia 开发者文档</a><br />
+[2] <a href="http://blog.csdn.net/kyocen/article/details/51424161">vs2013下编写你的第一个CUDA程序</a>　<em>简单的方式：可以直接新建 CUDA 8.0 的project</em><br />
+[3] CUDA并行程序设计：GPU编程指南· Shane Cook 著<br />
+[4] GeForce GTX 280 GPU<br />
+<img src="http://upload-images.jianshu.io/upload_images/436556-86d7464e4c012caf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
+
+<blockquote>
+<p>名词解释：<br />
+SM:  Streaming Multiprocessor 流处理簇<br />
+SP:  Stream Processor 流处理器<br />
+DRAM： 缓存</p>
+</blockquote>
+
+<p>@Author: sunquan<br />
+@DateTime 2017-06-12 T10:24:33+0800
+@email: sunquana@gmail.com
+Copyright@2017</p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">程序员如何留Email？</a></li>
+        
+        <li><a href="/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/">优美的句子</a></li>
+        
+        <li><a href="/posts/diary/%E5%BD%93%E4%B8%8B%E7%9A%84%E6%97%B6%E5%85%89/">当下的时光</a></li>
+        
+        <li><a href="/posts/life/%E5%85%B3%E4%BA%8E%E7%BC%96%E7%A8%8B/">关于编程</a></li>
+        
+        <li><a href="/posts/life/%E5%AD%A6%E4%BA%86%E7%AE%97%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">学了算法有什么用？</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://forrestsu.github.io/tags/cs">CS</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

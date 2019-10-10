@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>QDII转换机工作汇总 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="QDII转换机工作汇总 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2017-04-07T17:59:22&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2017-04-07T17:59:22&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="QDII转换机工作汇总">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        <div id="virtual_toc_list" style="display: none">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-概述">1 概述</a></li>
+<li><a href="#2-转换任务逻辑">2 转换任务逻辑</a>
+<ul>
+<li><a href="#境外行情归档-境外业务日期自动切换">境外行情归档/ 境外业务日期自动切换</a></li>
+<li><a href="#fix转换任务">FIX转换任务 √</a></li>
+<li><a href="#恒生fix转换任务">恒生FIX转换任务</a></li>
+<li><a href="#境外fix期货报盘">境外FIX期货报盘</a></li>
+<li><a href="#境外统一期货报盘-含委托-成交-行情">境外统一期货报盘(含委托、成交、行情) √</a></li>
+<li><a href="#彭博资讯文件导入-10个">彭博资讯文件导入（10个）√</a></li>
+<li><a href="#实时行情任务-3个">实时行情任务（3个）√</a></li>
+<li><a href="#后台服务-svc-qdiirealhq-svc-qdii-blcoaction">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</a></li>
+</ul></li>
+<li><a href="#3-小工具">3 小工具</a>
+<ul>
+<li><a href="#fix回报重演工具-fixrep">FIX回报重演工具（Fixrep）</a></li>
+<li><a href="#fixsimulator模拟成交工具">FixSimulator模拟成交工具</a></li>
+<li><a href="#fix日志解析工具">FIX日志解析工具</a></li>
+<li><a href="#彭博sapi行情下载工具-or-xlsx模板获取">彭博SAPI行情下载工具（or  XLSX模板获取）</a></li>
+</ul></li>
+<li><a href="#4-ufx-ei交易">4 UFX/EI交易</a>
+<ul>
+<li><a href="#ei交易服务">EI交易服务</a></li>
+<li><a href="#ufx交易服务">UFX交易服务</a></li>
+</ul></li>
+<li><a href="#5-问题分析">5 问题分析</a></li>
+<li><a href="#6-其他">6 其他</a>
+<ul>
+<li><a href="#nyfix对接相关">NYFIX对接相关</a></li>
+<li><a href="#asar相关问题排查思路">ASAR相关问题排查思路</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+<li><a href="#参考文档">参考文档</a></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
+            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </header>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                 
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '0px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    fixedTocElem.appendChild(tocNavElem);
+                    fixedTocElem.parentElement.style.display = "";
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">QDII转换机工作汇总</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2017年4月7日 17:59:22
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear" style="display: none">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<!-- 
+@Author: sunquan  
+@DateTime 2017-03-21 T10:24:33+0800
+@email: sunquana@gmail.com
+Copyright@2016  
+-->
+
+<p><center><h1>QDII转换机工作汇总</h1></center>
+<p align="center">孙权 2017-03-21 17:35:12</p></p>
+
+<p>[TOC]</p>
+
+<h2 id="1-概述">1 概述</h2>
+
+<p> 　目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。<br />
+操作手册《QDII操作手册－转换机部分.docx》 <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> 、设计文档 <sup class="footnote-ref" id="fnref:DesignDoc"><a href="#fn:DesignDoc">2</a></sup>。清单如下:</p>
+
+<ul>
+<li>qdii_archivehq (<code>境外行情归档</code>，<code>境外业务日期自动切换</code>)<br /></li>
+<li>qdii_baseinfo  (一系列<code>彭博行情文件转换任务</code>)<br /></li>
+<li>qdii_fix (<code>FIX转换任务</code>)<br /></li>
+<li>qdii_futhsfix (<code>境外FIX期货报盘</code>)<br /></li>
+<li>qdii_hsfix  (<code>恒生FIX转换任务</code>)<br /></li>
+<li>qdii_realhq (<code>彭博实时行情任务</code>，<code>聚源行情转换任务</code>)<br /></li>
+<li>qdii_reuterhq  (<code>路透Xtra3000行情转换</code>)<br /></li>
+<li>qdii_spfut  (<code>境外统一期货委托</code>、 <code>境外统一期货成交</code> 、 <code>境外统一期货行情</code>)<br /></li>
+</ul>
+
+<blockquote>
+<p>下面有 <code>√</code> 的任务需要代码走读。</p>
+</blockquote>
+
+<h2 id="2-转换任务逻辑">2 转换任务逻辑</h2>
+
+<h3 id="境外行情归档-境外业务日期自动切换">境外行情归档/ 境外业务日期自动切换</h3>
+
+<p><strong>境外行情归档</strong><br />
+首次启动检查境外非期货市场是否有历史行情（tstockinfo每个市场只保留一天的行情数据），有历史行情则进行行情填充（sp_qdii_makeup_stockinfo）。<br />
+然后任务一直检查是否有市场闭市，然后执行行情归档操作（sp_qdii_market_store）<br />
+<strong>境外业务日期自动切换</strong><br />
+线程1 负责循环调用存储过程：sp_qdii_marketbusintrance（根据市场和品种进行业务日期的切换）<br />
+线程2 负责循环调用存储过程：sp_qdii_businentrancefuture（期货基金业务初始化）</p>
+
+<h3 id="fix转换任务">FIX转换任务 √</h3>
+
+<p>功能：<br />
+(1) 负责进行境外股票、期货的委托报送，确认和成交<br />
+(2) 支持合笔与分笔委托报单<br />
+参考文档：《FIX转换机详细设计.docx》</p>
+
+<h3 id="恒生fix转换任务">恒生FIX转换任务</h3>
+
+<p>　　逻辑与《FIX转换任务》类似。<br />
+区别：FIX转换任务调用的是appia.dll收发FIX报文，恒生FIX转换机采用的是HSFIX引擎。
+&gt;注意：HSFIX执行路径不能含中文，否则启动会报错，报错截图详见QDII操作手册<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
+
+<h3 id="境外fix期货报盘">境外FIX期货报盘</h3>
+
+<p>逻辑和《HSFIX转换机》类似，只是调用的后台服务不同。</p>
+
+<h3 id="境外统一期货报盘-含委托-成交-行情">境外统一期货报盘(含委托、成交、行情) √</h3>
+
+<p>目前支持香港SP柜台。<br />
+详见《SharpPoint报盘详细设计.docx》<sup class="footnote-ref" id="fnref:DesignDoc"><a href="#fn:DesignDoc">2</a></sup></p>
+
+<h3 id="彭博资讯文件导入-10个">彭博资讯文件导入（10个）√</h3>
+
+<p>逻辑：IniVar(Load)→Parse→CheckData→Import，主要更新的表：tstockinfo，tstockmarketinfo，thisstockinfo<br />
+（1）加载基础数据，初始化数据库连接；<br />
+（2）Parse从csv文件中读取一行数据；<br />
+（3）CheckData对该行记录做合法性检查(长度、类型等)，然后进行数据处理；<br />
+（4）Import拼接SQL并执行。<br />
+下面仅以“彭博期货信息”导入任务为例展开。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Task</th>
+<th align="center">导入的表</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">境外证券信息导入</td>
+<td align="center">tstockinfo,tstockmarketinfo,thisstockinfo,treutersstockinfo</td>
+</tr>
+
+<tr>
+<td align="center">境外收盘行情导入</td>
+<td align="center">tstockinfo,tstockmarketinfo</td>
+</tr>
+
+<tr>
+<td align="center">境外外汇信息导入</td>
+<td align="center">tcurrencyrate(币种汇率表)</td>
+</tr>
+
+<tr>
+<td align="center">境外股本信息导入</td>
+<td align="center">tstockinfo,tstockmarketinfo</td>
+</tr>
+
+<tr>
+<td align="center"><del>境外债券评级导入</del> (待作废)</td>
+<td align="center">tbondproperty</td>
+</tr>
+
+<tr>
+<td align="center">彭博债券信息导入</td>
+<td align="center">tstockinfo,tstockmarketinfo,thisstockinfo,tbondproperty</td>
+</tr>
+
+<tr>
+<td align="center">境外期货信息导入</td>
+<td align="center">treutersstockinfo,tstockinfo,thisstockinfo,<br/>tstockmarketinfo,TFUTURESINFO,TQDIIFUTURESINFO</td>
+</tr>
+
+<tr>
+<td align="center">路透DSS公司行为数据导入</td>
+<td align="center">treuterscorpactioninfo</td>
+</tr>
+
+<tr>
+<td align="center">彭博公司行为数据导入</td>
+<td align="center">tbloombergcorpactioninfo</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="实时行情任务-3个">实时行情任务（3个）√</h3>
+
+<p><strong>彭博实时行情任务</strong>：<br />
+　　主要通过Bloomberg DesktopAPI的库，向彭博终端订阅实时行情。<br />
+回调接口SessionProcessEvent来接收事件消息、实时行情，并放入行情队列hqMemoData。<br />
+行情刷新线程调用服务svc_qdiirealhq，刷新后台实时行情。
+&gt;接口文档：<em>Documents\D9.接口文档\01.QDII基础数据接口\bloomberg\B1.彭博 Desktop API</em></p>
+
+<p><strong>路透Xtra3000行情转换：</strong><br />
+　　主要通过Reuter的rtx实时行情库，先查询stockinfo中境外市场的代码，然后按照代码订阅路透的实时行情<code>AdxRtList.RegisterItems(stockcode)</code>，同样调用svc_qdiirealhq服务来刷新实时行情。
+&gt;接口文档：<em>Documents\D9.接口文档\01.QDII基础数据接口\Reuters\R2.路透Xtra3000行情</em></p>
+
+<p><strong>聚源行情转换任务</strong>：<br />
+　　通过读取dbf来获取实时行情，目前仅支持港股的实时行情。同样调用<code>svc_qdiirealhq</code>服务来刷新后台实时行情。
+&gt;导入样例文件：<code>HKQuotes.dbf</code></p>
+
+<h3 id="后台服务-svc-qdiirealhq-svc-qdii-blcoaction">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</h3>
+
+<p><strong>实时行情服务：</strong>svc_qdiirealhq<br />
+　逻辑：前台传入 <code>|</code> 分隔的批量行情数据包，服务每次解析一条，根据前台传入标志isSaveToDB=0, 则把行情写入共享内存ChangeStockHq()；
+否则调用RefreshDBStkInfo()更新数据库行情(更新停牌标志和涨跌停价格)，主要更新的表：tstockinfo，tstockmarketinfo。</p>
+
+<p><strong>公司行为：</strong>svc_qdii_blcoaction svc_qdii_singlecoac<br />
+　svc_qdii_blcoaction:  支持导入的彭博公司行为数据类型：配股、红利、红股、股份拆分。<br />
+逻辑：该服务每次处理一条公司行为数据，然后插入(或更新)到tcorpactioninfo表中。<br />
+　svc_qdii_singlecoac:  支持的Reuter公司行为数据类型：红股、红利、红利选择、资本回报、股份拆分、股份合并、派送红股、配股。<br />
+逻辑：和svc_qdii_blcoaction类似。</p>
+
+<h2 id="3-小工具">3 小工具</h2>
+
+<h3 id="fix回报重演工具-fixrep">FIX回报重演工具（Fixrep）</h3>
+
+<p>Description：<br />
+　　一个模拟券商：主要通过读取 Appia Engine 的日志数据，然后接收appia engine 发送的委托数据,和日志中的委托数据进行对比，匹配成功则发送对应的执行报告。<br />
+实现逻辑：
+  参考文档：《FIX回报重演设计方案.docx》<sup class="footnote-ref" id="fnref:DesignDoc"><a href="#fn:DesignDoc">2</a></sup>
+&gt;   SVN:  \QDII\trunk\developtools\Fixrep<br />
+&gt;   Doc:  \QDII\trunk\developtools\Fixrep\FIX回报重演工具使用说明.pdf</p>
+
+<h3 id="fixsimulator模拟成交工具">FixSimulator模拟成交工具</h3>
+
+<p>Description：<br />
+　　FIX模拟成交工具：支持恒生FIX转换机、FIX转换机。
+&gt;   SVN:  \QDII\trunk\developtools\FixSimulator<br />
+&gt;   Doc:  \QDII\trunk\developtools\FixSimulator\README.pdf</p>
+
+<h3 id="fix日志解析工具">FIX日志解析工具</h3>
+
+<p><a href="http://192.168.52.26:6001">Log Analysis</a></p>
+
+<h3 id="彭博sapi行情下载工具-or-xlsx模板获取">彭博SAPI行情下载工具（or  XLSX模板获取）</h3>
+
+<p>彭博SAPI行情工具需要客户购买彭博的SAPI接口才能使用；如果没有购买，就采用Excel模板通过彭博Excel插件来获取资讯和行情数据。<br />
+   彭博SAPI行情使用请参考《彭博取数工具操作手册.docx》<sup class="footnote-ref" id="fnref:5"><a href="#fn:5">3</a></sup><br />
+XLSX模板<br />
+&gt; svn路径：Install\BloombergExcel导出模板</p>
+
+<h2 id="4-ufx-ei交易">4 UFX/EI交易</h2>
+
+<h3 id="ei交易服务">EI交易服务</h3>
+
+<p>EI作用是在ASAR外面再封装一层,给HS内部其他系统，可以用功能号的方式调用。</p>
+
+<h3 id="ufx交易服务">UFX交易服务</h3>
+
+<h2 id="5-问题分析">5 问题分析</h2>
+
+<p>以下是我解决或遇到的几个问题，个人觉得比较有意思，和大家分享一下，希望能有帮助。<br />
+（1）头文件未引用（source:<code>lizp</code>）<br />
+问题分析：
+&gt; 能够正常编译和运行（编译时会有警告）</p>
+
+<pre><code class="language-java">  const char* getFundName(int a)  
+</code></pre>
+
+<blockquote>
+<p>如果不包含头文件，会生成缺省的定义</p>
+
+<pre><code class="language-java">   int getFundName(int a) 
+</code></pre>
+
+<p>如果在64位的机器上运行，当函数返回一个大于32位的指针时，高位就会被截断，从而导致程序崩溃。</p>
+</blockquote>
+
+<p>建议：正确包含头文件，且不要有头文件的循环引用。<br />
+（2）关于文件编码的问题（source:<code>wangpx</code>）<br />
+  &gt;我们后台服务源代码统一编码是gb2312,如果不统一，编译的时候，会报一些结构体成员不存在等一些奇怪的问题。</p>
+
+<p>（3）变量多次定义的问题（source:<code>sunquan</code>)<br />
+sqlca头文件里面使用了一个全局变量，当工程加入cpp文件时，编译时就会报重复定义。
+&gt;C语言里面:同一个变量多处（同一个文件或多个文件）允许重复声明，但是最多只能有一次定义。<br />
+&gt;C++同一个文件有多处声明，在编译期报错；声明分散在多个文件，每个文件最多一个，则链接为SO时报错。</p>
+
+<p>解决办法：CPP头文件引用前定义一个宏，当在cpp文件编译的时候，该全局变量在宏展开的时候会加上extern。</p>
+
+<h2 id="6-其他">6 其他</h2>
+
+<h3 id="nyfix对接相关">NYFIX对接相关</h3>
+
+<p>NYFIX网络的对接、券商的测试流程，参考文档《NYFIX对接分享.pptx》<sup class="footnote-ref" id="fnref:4"><a href="#fn:4">4</a></sup><br />
+开发自测可采用上面提到的 <a href="#fixsimulator">FIX模拟成交</a><br />
+使用引擎的启动参考脚本如下：(内含手册)
+&gt;自测引擎Bat启动脚本在：svn：developtools\Appia引擎-模拟成交配置<br />
+&gt;和nyfix上的券商做测试bat： Install\NYFIX\Nyfix公司券商测试</p>
+
+<p>测试用例模板：
+&gt; Broker FIX Test scripts(Template2016).xlsx
+&gt; svn路径：Documents\QDII券商测试-2016</p>
+
+<h3 id="asar相关问题排查思路">ASAR相关问题排查思路</h3>
+
+<p>一般中间件的常见问题是： 比如AS服务起不来？<br />
+   检查：一般升级完AS服务，需要用asar用户执行命令：
+   &gt; fundcfgtool ~/bin/ ~/workspace/</p>
+
+<p>一般思路：<br />
+ <strong>A 如果是所有服务都启动超时</strong><br />
+  一般是环境配置的问题，查看日志具体分析: <code>trade.log</code>/<code>as_fund_n.log</code>（n表示具体的数字）<br />
+&gt;  注意： 首次安装完系统，需要用集成工具更新hstrade.ini中的加密串。<br />
+  加密串获取： select * from hsuserpassword where l_user_type=5 <em>（l_user_type=5 供后台服务使用）</em></p>
+
+<p><strong>B 如果是个别服务起不来</strong><br />
+   检查消息中心是否已经成功启动。如果已启动，再根据对应的日志，看是什么错误。<br />
+   经常出现Oracle库下面的xxx.so找不到，但是locate又能查到这个so，这时候检查asar用户是否有访问该so的权限即可。</p>
+
+<h3 id="其他">其他</h3>
+
+<p>如果后续有新增转换任务，请同步在文档<strong>《QDII操作手册－转换机部分.docx》</strong>中补充对应的操作文档。
+&gt; 本次培训的所有文档将上传至svn：Documents\D6.培训资料\07.QDII功能\转换机_交接内容[孙权]</p>
+
+<h2 id="参考文档">参考文档</h2>
+
+<blockquote>
+<p>《QDII报盘详细设计.docx》<br />
+《SharpPoint报盘详细设计.docx》<br />
+ <strong>&hellip;&hellip;</strong><br />
+ svn：Documents\D2.Designs\05.模块设计\01.转换机（报盘&amp;行情）\02.报盘</p>
+</blockquote>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">《QDII操作手册－转换机部分.docx》→svn：Documents\D4.Manuals\03.境外投资系统操作手册<br />
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:DesignDoc">转换机设计文档：
+ <a class="footnote-return" href="#fnref:DesignDoc"><sup>[return]</sup></a></li>
+<li id="fn:5">《彭博取数工具操作手册.docx》 →svn：Install\Bloomberg<br />
+ <a class="footnote-return" href="#fnref:5"><sup>[return]</sup></a></li>
+<li id="fn:4">《NYFIX对接分享.pptx》 →svn：Documents\D9.接口文档\00.FIX接口\02.Appia<br />
+ <a class="footnote-return" href="#fnref:4"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/">恒生一年半工作体验</a></li>
+        
+        <li><a href="/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/">离职前</a></li>
+        
+        <li><a href="/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a></li>
+        
+        <li><a href="/posts/life/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6%E5%AF%BC%E5%B8%88-%E8%B4%BA%E8%80%81%E5%B8%88/">我的大学导师 (贺老师)</a></li>
+        
+        <li><a href="/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/">恒生工作梳理</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://forrestsu.github.io/tags/work">Work</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

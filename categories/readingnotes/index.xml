@@ -6,34 +6,78 @@
     <description>Recent content in ReadingNotes on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Jun 2017 01:10:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2019 11:23:08 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/readingnotes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>「Silicon-Valley-4」观后感</title>
-      <link>https://forrestsu.github.io/posts/readingnotes/silicon-valley-4%E8%A7%82%E5%90%8E%E6%84%9F/</link>
-      <pubDate>Tue, 06 Jun 2017 01:10:01 +0800</pubDate>
+      <title>编译-链接-笔记(1)</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Thu, 10 Oct 2019 11:23:08 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/readingnotes/silicon-valley-4%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</guid>
+      <description>1 函数的调用是用栈实现的，C常用的函数调用方式cdecl，c++采用一种新的thiscall 方式，主要是用于类成员的调用。
+2 cdecl 参数压栈是从右向左，参数出栈由调用方 维护。
+3 stdcall的参数出栈由 被调用的函数自己维护。</description>
+    </item>
+    
+    <item>
+      <title>最好的告别</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/</link>
+      <pubDate>Wed, 09 Oct 2019 20:24:56 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/</guid>
+      <description>当我们谈论衰老与死亡这个话题，那么远却又那么近，确实这个话题有些悲伤，很多时候都刻意让自己不去想，但是我们必须得面对，或早或晚。以防那天突然来临，我们不至于恍然不知所措。 1 About Aging
+2 Do Something？ 我们还面对一个貌似简单的谜题：当我们年老、体弱、不能照顾自己的时候，是什么使得生活值得过下去？
+3 What should I do?</description>
+    </item>
+    
+    <item>
+      <title>关于股市</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
+      <pubDate>Wed, 09 Oct 2019 19:34:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
+      <description>Preface 　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来GuShi就是“反常”的，也许这才是GuShi独有的魅力。
+Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」这样个说法就是听起来正确的诡辩论，但也陈述了一个事实：这个市场确实80%的人都是亏钱的，就像这个世界80%的财富把握在20%的人手上一样(近似正态分布)，我们大部分人都位于6个Sigma之内。 那么为什么会造成这种现象呢？一般的说法是：“市场等各方面信息的不对称造成的”。我们进一步追根溯源：“什么信息会对GuShi产生波动？这些信息的来源又是哪？” 那么问题的根源到这里就显而易见了。
+ 每个人都力求运用自己的资本生产出最大的价值。一般而言，他不会是为了促进公共利益，也不知道促进多少。他只考虑自己的安全，自己的所得。正是这样，他由一只看不见的手引导着，实现着他自己并不打算实现的目标。与有意地促进相比，在追求他自己利益的过程中，往往能够更加有效地促进社会的公益。 &amp;ndash;Adam Smith
+ Stock Price 高维世界与一维价值这世界上用一个能源，以及在不确定条件下如何决策？  Can we double-win in market 　很多人觉得这个市场有一方盈，就必有一方亏。但是从长期、宏观上看，由于不断有公司的利润和新的血液进入市场，不一定总得有人亏。 随着人民币的发行，人们货币的持有量会逐渐增多，单位货币的购买力会逐渐下降，当然央行会保证这个进程会缓慢进行，防止出现经济危机。 最好学点儿理财吧，我爸妈唯一知道的就是把钱放银行，拿手的*理财方式*大概就是麻将了吧！我感觉很难去改变他们的想法，但是我们可以去改变自己。 基金，外汇，股票都是我们可以尝试的理财方式，只不过回报率和风险不一样。可以肯定的是，高回报必然伴随着高风险，按照自己能够接受的风险系数选择自己的理财方式即可。
+声明：本文主要写一些个人的想法，如有不正确的地方，欢迎回复，深入探讨^_*。</description>
+    </item>
+    
+    <item>
+      <title>《有味》汪涵</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/</link>
+      <pubDate>Wed, 09 Oct 2019 19:28:27 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/</guid>
+      <description>2016-04-07 第一次看到《有味》(汪涵)的这本书是在高三的时候，上午第二节课做完午间操，都会路过书店，当时只是走马观花看了一下，最近才在「微信读书」上看完了。 汪涵生于苏州，自幼随父母到湖南湘潭生活，毕业于湖南广电，积极上进，成就了今天的汪涵。看完整本书，如果汪涵非常喜欢手工艺品，喜欢琴棋书画。 男生小时候都喜欢自己做点什么，比如砍个树杈做弹弓，找根竹竿做吊杆，我记得我小时候喜欢自己做过一个风铃，在海边捡的贝壳，要爷爷在山上砍的大约10cm的竹筒。然后我就一个劲的在竹筒上钻孔，引线，最后悬挂在床帘上，有风时可以看到贝壳随风摆动(感觉非常有成就感)。</description>
+    </item>
+    
+    <item>
+      <title>「Silicon Valley 4 」观后感</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Tue, 06 Jun 2017 01:10:38 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
       <description>2017-06-06 天气晴 星期二 看了硅谷4 前5集，男主角属于那种典型的技术男，不想在视屏聊天软件上继续发展，想基于自己创造的压缩算法来构建一个互联网络。印度人搞出来的视频聊天App由于小于12岁的用户太多，此时正好huli的CEO，Gavin有收购的想法，正好阴差阳错把产品转给了Gavin，进而导致Gavin被赶下台。 此时男主角 发现自己想要构建的Piper网络却被Gavin注册了专利，他晚上直接去找Gavin，遭遇闭门羹，峰回路转Gavin却提出要和男主角合作。后来却因为哺血仔的欺骗，对人生心灰意冷把专利无偿转给了Richard，然后坐飞机去寻找自我&amp;hellip;　Feeling 　Gavin走了居然还有种舍不得，就像甘地丢下另一只鞋子那样，有时候我们得不到的东西，如果能成全别人，那也是一种美事！
 待续&amp;hellip;..</description>
     </item>
     
     <item>
-      <title>Silicon Valley 3」观后感</title>
-      <link>https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-feel/</link>
-      <pubDate>Tue, 06 Jun 2017 00:46:00 +0800</pubDate>
+      <title>「Silicon Valley 3 」观后感</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Tue, 06 Jun 2017 00:46:13 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-feel/</guid>
+      <guid>https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
       <description>2016-12-11 天气晴 星期天 硅谷一个在硅晶体上发展起来的城市，一波又一波聪明的年轻人在这里改变着世界。 今天周末，在房间里休息看了硅谷3，感受了一下像google、Twitter、Facebook、Uber、Arbin这一类的公司是如何发展起来的，就像google，两个年轻人搞出来一个搜索算法，Twitter搞了一个社交网络! 硅谷3主要以day-to-day的方式描述了Engineer的日常，风险投资人来资助Good idea,当然也有很多创意项目在孵化期间就陨灭了。但是一旦成长起来就能够掀起一波互联网的浪潮。感觉到底是干一行爱一行还是做自己喜欢的事?看了</description>
     </item>
     
     <item>
       <title>《偷影子的人》读后感</title>
       <link>https://forrestsu.github.io/posts/readingnotes/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</link>
-      <pubDate>Tue, 06 Jun 2017 00:42:01 +0800</pubDate>
+      <pubDate>Tue, 06 Jun 2017 00:42:23 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/readingnotes/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</guid>
       <description>preface 　《偷影子的人》作者marc·levy，这本书是在2015-09-17日京东搞活动买的，差不多16年3月份才开始看，每天晚上看一点，断断续续差不读2周看完。整本书240页左右。
@@ -45,32 +89,12 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
     </item>
     
     <item>
-      <title>编译、链接-笔记(1)</title>
-      <link>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Sun, 19 Feb 2017 16:55:00 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</guid>
-      <description>1 函数的调用是用栈实现的，C常用的函数调用方式cdecl，c++采用一种新的thiscall 方式，主要是用于类成员的调用。
-2 cdecl 参数压栈是从右向左，参数出栈由调用方 维护。
-3 stdcall的参数出栈由 被调用的函数自己维护。</description>
-    </item>
-    
-    <item>
       <title>晓松奇谈</title>
       <link>https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/</link>
-      <pubDate>Sat, 06 Aug 2016 21:11:23 +0800</pubDate>
+      <pubDate>Sat, 06 Aug 2016 21:11:50 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/</guid>
       <description>历史不是镜子，历史是精子，牺牲亿万，才有一个活到今天。人生不是故事，人生是事故，摸爬滚打，才不辜负功名尘土。</description>
-    </item>
-    
-    <item>
-      <title>2月-有味</title>
-      <link>https://forrestsu.github.io/posts/readingnotes/2%E6%9C%88-%E6%9C%89%E5%91%B3/</link>
-      <pubDate>Thu, 07 Apr 2016 00:13:10 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/readingnotes/2%E6%9C%88-%E6%9C%89%E5%91%B3/</guid>
-      <description>第一次看到《有味》(汪涵)的这本书是在高三的时候，上午第二节课做完午间操，都会路过书店，当时只是走马观花看了一下，最近才在「微信读书」上看完了。 汪涵生于苏州，自幼随父母到湖南湘潭生活，毕业于湖南广电，积极上进，成就了今天的汪涵。看完整本书，如果汪涵非常喜欢手工艺品，喜欢琴棋书画。 男生小时候都喜欢自己做点什么，比如砍个树杈做弹弓，找根竹竿做吊杆，我记得我小时候喜欢自己做过一个风铃，在海边捡的贝壳，要爷爷在山上砍的大约10cm的竹筒。然后我就一个劲的在竹筒上钻孔，引线，最后悬挂在床帘上，有风时可以看到贝壳随风摆动(感觉非常有成就感)。</description>
     </item>
     
   </channel>

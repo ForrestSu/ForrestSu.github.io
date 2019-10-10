@@ -1,2 +1,5 @@
+## only 3 files is private now!!!
+## .git .gitignore .tmp
+
 .DS_Store
 .tmp

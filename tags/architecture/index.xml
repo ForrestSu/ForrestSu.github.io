@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/architecture/</link>
+    <description>Recent content in Architecture on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 09 Oct 2019 19:36:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Seastar 入门</title>
+      <link>https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 09 Oct 2019 19:36:04 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/</guid>
+      <description>这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
+由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
+具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）
+对应的解决方案，在接下来的数十年中很流行，它将放弃舒适但低效的同步服务器设计，并转而采用 新型服务器设计 - 异步或事件驱动，服务器设计。 事件驱动的服务器只有一个线程，或者更准确地说，每个CPU有一个线程。这个单线程运行一个紧密的循环，在每次迭代中检查，使用poll()（或更有效epoll）用于许多打开的文件描述符上的新事件，例如套接字。例如，一个事件可以是一个可读的套接字（新数据已经从远程端到达）或变得可写（我们可以在这个连接上发送更多的数据）。应用程序通过执行一些非阻塞操作来处理此事件，修改一个或多个文件描述符并保持其对此连接状态的了解。 然而，异步服务器应用程序的作者在今天仍面临着两大挑战：</description>
+    </item>
+    
+    <item>
+      <title>异步编程</title>
+      <link>https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Wed, 09 Oct 2019 19:24:50 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</guid>
+      <description>我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。  </description>
+    </item>
+    
+    <item>
+      <title>25岁的迷茫</title>
+      <link>https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</link>
+      <pubDate>Sun, 15 Apr 2018 19:50:09 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</guid>
+      <description>## 25岁的迷茫 2018-04-15 19:09:09 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。</description>
+    </item>
+    
+    <item>
+      <title>Thinking coroutine thread async</title>
+      <link>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</link>
+      <pubDate>Thu, 08 Feb 2018 22:32:16 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</guid>
+      <description>从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程</description>
+    </item>
+    
+    <item>
+      <title>Thinking micro-service Architecture</title>
+      <link>https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/</link>
+      <pubDate>Mon, 15 May 2017 14:41:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/</guid>
+      <description>前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
+Analysis Advantage Analysis： zeroMQ</description>
+    </item>
+    
+  </channel>
+</rss>

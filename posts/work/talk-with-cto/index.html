@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Talk with cto | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Talk with cto - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2018-01-08T00:19:26&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2018-01-08T00:19:26&#43;08:00">
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="Talk with cto">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/work/talk-with-cto/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io/">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io/">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="Todo">Todo</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        <div id="virtual_toc_list" style="display: none">
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#谈话记录">谈话记录</a>
+<ul>
+<li><a href="#基本面">基本面</a></li>
+<li><a href="#work">work</a></li>
+<li><a href="#技术认知">技术认知</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+        </div>
+        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
+            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
+                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
+                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
+            </header>
+            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
+        
+            </div>
+        </div>
+        <style type="text/css">
+            #float_toc_div {
+                position: fixed;
+                display: none;
+                 
+                height: auto;
+                font-size: 13px;
+            }
+        
+            #toc_list a:hover,
+            #toc_list a:active {
+                color: #ba3925;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                let tocNavElem = document.getElementById("TableOfContents");
+                let floatTocDivElem = document.getElementById("float_toc_div");
+                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
+                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
+                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
+                var useFloatToc = false;
+
+                if (floatTocWidth >= 100) {
+                    useFloatToc = true;
+                    document.getElementById("toc_list").appendChild(tocNavElem);
+                    floatTocDivElem.style.display = 'block';
+                    floatTocDivElem.style.width = floatTocWidth + 'px';
+                    top();
+                    floatTocDivElem.style.left = '0px';
+
+                    function top() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
+                        }
+                    }
+
+                    function ishide() {
+                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
+                            floatTocDivElem.style.top = '0px';
+                        } else {
+                            floatTocDivElem.style.display = 'block';
+                        }
+                    }
+
+                    window.onscroll = function () {
+                        ishide();
+                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
+                            top();
+                        }
+                    };
+
+                    window.onresize = function () {
+                        ishide();
+                    }
+
+                    document.getElementById("toc_btn_open").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "none":
+                                document.getElementById("toc_btn_close").style.display = "";
+                                tocListElem.style.display = "";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+
+                    document.getElementById("toc_btn_close").addEventListener('click', function () {
+                        switch (tocListElem.style.display) {
+                            case "":
+                                document.getElementById("toc_btn_close").style.display = "none";
+                                tocListElem.style.display = "none";
+                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
+                                break;
+                            default:
+                                break;
+                        }
+                    }, false);
+                } else {
+                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
+                    fixedTocElem.appendChild(tocNavElem);
+                    fixedTocElem.parentElement.style.display = "";
+                }
+                document.getElementById("virtual_toc_list").remove();
+            };   
+        </script>
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Talk with cto</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2018年1月8日 00:19:26
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
+                            
+                        </div>
+                        
+                        
+                        <div class="post-meta">
+                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
+                        </div>
+                        
+                        
+                        <div class="clear" style="display: none">
+                            <div class="toc-article">
+                                <div class="toc-title">文章目录</div>
+                            </div>
+                        </div>
+                        
+                        <div class="post-content">
+                            
+
+<p>2018-01-03 Wed 13:00  huamao center 2 floor
+备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.</p>
+
+<h3 id="谈话记录">谈话记录</h3>
+
+<p>谈话主要以QA的方式展开,如下:</p>
+
+<h4 id="基本面">基本面</h4>
+
+<p>luke: 你是什么时候来公司的？
+sq: 今年4月10日，来名策有8个月了。
+luke: 在恒生工作了几年？
+sq: 算上实习期 共2年。
+luke: 在恒生的工作怎么样？是不是学到了很多东西？
+sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
+luke: 恒生不是也有中间件吗？
+sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
+luke: 当初在恒生你也是跟张前平做事的？
+sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。
+&hellip;找到一个咖啡厅坐下&hellip;.
+luke: 学校里数学学得怎么样？
+sq：有点偏科，就数学稍微学得好点。
+luke: 如果这行要继续做下去，主要还是靠兴趣，你是从高中开始编程还是大学？
+sq: 大学，感觉老师C语言课讲得很好！然后跟老师进了实验室；准备课件、组织比赛。
+luke: 你觉得计算机的本质是什么？或者说操作系统的本质？
+sq: cpu，内存，寄存器?
+luke: 不是，计算机本质就是符号逻辑。解决的是可计算的问题。不是所有的问题都可以用计算机来解决的。比 *如停机问题，哥德尔不完备定理*。
+luke: 计算机能解决的问题是有限的，比如双精度浮点数表示的范围 1.7*10^308 ~1.7*10^-308。浮点数的分布密度是不是均匀的？
+sq: 均匀是什么意思？
+luke: 就是 一个很小的数 [0,1]和 [1*10^300, 1*10^301]表示的浮点数个数。应该是0~1能表示的浮点数个数更多，因为整数部分用很少的位数就能表示，留给小数的比特位更多。
+luke: 整个人类社会，到目前产生的代码行数是不是可以用自然数来统计？
+sq: 恩。
+luke: 但是计算机无法表示所有自然数，因为自然数是无限多个，计算机的计算能力是有限的，只能表示有限的自然数。
+luke: 大学学过编译原理吗？
+sq: 恩，还记得一部分，语法分析，词法分析，AST。
+luke: 推荐你看一本书: CSAPP, 你可以好好看一下！国外本科生的入门教材。
+sq: 恩,好。</p>
+
+<h4 id="work">work</h4>
+
+<p>luke: 之前做了线性回归, 谈谈你学习GPU编程的过程?
+sq: 当时正好买了一本GPU的书，把一些cuda的基本概念讲的很细，然后看一下cuda 开发者手册，很快就上手了。
+luke: 为什么会想到买这一本呢？
+sq: 6月份的时候买了几本机器学习的书，顺带买了一本叫《CUDA并行程序设计》的书，可能是JD推荐算法的原因，这几本书的相关性比较高:) 。
+luke: GPU弄完了学到了什么？
+sq: 当时主要奔着实现目标去的，也没了解太多，主要看了下怎么手动指定GPU使用的线程数，理解了下 grid 和 block 的关系。
+luke: 谈谈GPU和CPU的差别？
+sq: 就像您之前给我们说的，CPU处理复杂的逻辑运算，适合计算密集型的任务，GPU核数非常多，并发性强，适合批量的执行逻辑简单的任务。
+luke: 为什么GPU只能处理简单的逻辑？他们的指令集是一样的吗？
+sq: Um&hellip; 一个是Intel，一个是 Nvidia ，应该不一样。
+luke: 这两个设计是不一样的，GPU是基于大的吞吐量设计。GPU适合计算密集型，易于并行的程序。
+luke: 总体来说，今年招的这批人中,你还是比较能干的。
+sq: 谢谢:) 。</p>
+
+<h4 id="技术认知">技术认知</h4>
+
+<p>luke: 现在zmq和libuv 了解的怎么样了？
+sq: 基本能上手写东西，底层的细节还不是很清楚。
+luke: 能用一句话概括 libuv 做了什么事？
+sq: 这个&hellip; 是一个异步框架，事件驱动？
+luke:不是，事件驱动只是我们拿它来做事件驱动编程， libuv 本质是一个同步的event_loop, 管理用户注册的事件。linux底层是调用select 或者 epoll 来实现的，windows 下使用 IOCP。
+luke: 你可以去了解下I/O模型, 同步复用，多路复用，信号驱动I/O, 异步I/O。
+sq: 恩,好。
+luke: 也可以看下 <strong>《The Linux Programming Interface》</strong>.
+sq: 看过一点《UNIX环境高级编程》感觉都是讲的操作系统的系统调用:(。
+luke: 恩.
+luke: 有没有想过做微妙级的 交易系统？该选取什么样基础组件，用libuv，zmq 能不能符合要求？
+sq: 这个还没有仔细想过这个问题:(.
+luke: 有没有考虑过git 替换 svn？
+sq: 这个我自己平时使用git，感觉git的branch管理很好用，cherry-pick 也不错。当时在恒生也想大家使用git(开发团队)，无果。
+luke: git 的本质是什么？用一句话概括。
+sq:之前了解过一点git的实现，是一个版本管理工具？看成一个微型的数据库？文件差异比较？
+luke: 不对，版本工具只是表象。差异比较git也是借用别人的。
+sq: 哦，里面好像用了个 hash 算法。
+luke: 恩, git核心就是一个 键值管理工具，在这个基础上做了好用的管理命令(shell脚本)，后面的人采用c/c++又实现了一遍。
+luke: 我们公司也可以推广使用git，相信你来做个入门的培训也没有问题。
+sq: 恩，当前我们的项目库还不是太多。
+luke: 如果换用git，有没想过刘江波，刘艳慧他们要学点什么，做哪些修改？
+sq: 自动化集成这块我自己还没做过，从这个方面来看我思考问题还不够全面。首先看有没有必要切换到git，对比下git和svn的优缺点，再做决定。 如果只是单纯的切换到git，应该只需要调整目前的shell脚本，最好是了解下 git 的规范化的集成流程比较好。
+luke: 你自己有没有特别想做的事？
+sq: 这个我目前还没有太多的想法，目前还是习惯被动的分配任务:-P。
+luke: 那就像比如我让你去参观动物园，然后回来告诉我动物园有哪些动物！ 然后你就去了，然后看了大象，狮子，猴子等，回来写了一篇观后感，很好的完成了任务。但是不知道动物园背后的运作模式，怎么饲养动物、和动物相处。
+luke: 计算机里面东西确实很多，随便找个分支就足够你钻研一生，但一定要找一到两个方向深钻下去，然后你出来看其他领域的问题就能看到相应的深度，触类旁通。
+luke: 探索未知，做一些感兴趣的，有意义的事，主要还是喜欢。
+luke: 虽然很多时候，看起来都在解决实际的业务问题，很多工作不懂底层也能做，但是很多方向性的判断上都关系到对计算机底层的认知。
+luke: 如果告诉你有两个人，或者程序，你知道他们的交易策略(什么样的价格买或者卖), 然后你有一台性能更优的机器，你能不能预测股价的趋势？
+sq: 应该大致上可以预测吧。
+luke: 一开口就知道底层知识的欠缺！ 答案是不能，就拿一点: 你能不能保证这两个人看到的最新行情的时刻是一样的？网络时延，委托报送到交易所的时间是否有差异？
+sq: 这样的话, 不确定的因素太多了。
+luke: 恩，不考虑人行为的不确定性，外界环境就有这么多不确定性，所以很难做到精确预测。
+luke: 希望我或者公司 能为你做点什么？
+sq: 多开展几次技术培训哈~
+luke: 没有其他的了？
+sq: en&hellip; 好像没有了.</p>
+
+<p><img src="http://upload-images.jianshu.io/upload_images/436556-c58f6045253e82e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Talk" /></p>
+
+                        </div>
+
+                        
+
+
+                        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/">工作会议</a></li>
+        
+        <li><a href="/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/">大公司还是小公司？</a></li>
+        
+        <li><a href="/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/">谈创业公司的例会</a></li>
+        
+        <li><a href="/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/">工作重心梳理</a></li>
+        
+        <li><a href="/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">QDII转换机工作汇总</a></li>
+        
+    </ul>
+</div>
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="https://forrestsu.github.io/tags/work">Work</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/algorithm/">algorithm(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/architecture/">architecture(5)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/bigdata/">bigdata(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cpp/">cpp(10)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/git/">git(4)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/java/">java(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/languages/">languages(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/library/">library(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/life/">life(16)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/linux/">linux(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/resume/">resume(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/todolist/">todolist(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/tools/">tools(11)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/web/">web(6)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/about/">about</a>
+    
+    <a href="https://forrestsu.github.io/tags/aboutme/">aboutme</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">architecture</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">cs</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">diary</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">java</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">languages</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">library</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">life</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">linux</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">tools</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">travel</a>
+    
+    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">web</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io/">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+</html>

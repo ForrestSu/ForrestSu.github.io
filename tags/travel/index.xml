@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>travel on 程序员的冷浪漫</title>
+    <title>Travel on 程序员的冷浪漫</title>
     <link>https://forrestsu.github.io/tags/travel/</link>
-    <description>Recent content in travel on 程序员的冷浪漫</description>
+    <description>Recent content in Travel on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Jan 2016 22:21:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2019 20:21:25 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/travel/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>关于香港旅游签证</title>
-      <link>https://forrestsu.github.io/posts/travel/travel_in_hk/</link>
-      <pubDate>Sat, 09 Jan 2016 22:21:07 +0800</pubDate>
+      <title>travel-2017</title>
+      <link>https://forrestsu.github.io/posts/travel/travel-2017/</link>
+      <pubDate>Wed, 09 Oct 2019 20:21:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/travel/travel_in_hk/</guid>
-      <description>Preface 过些日子计划带父母去香港逛逛，顺便品尝下香港的美食小吃，不能光顾着自己嗨 (不能一人吃饱全家不饿) ，好了不多废话了，下面谈谈签证的问题。
-1 签证分类 1.1 团队旅游L：
-分为三个月一次或两次、一年一次或两次，每次逗留不超过7天，目前可以自行入关，和G签一样。
-   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2.2 探亲T：
-分为三种:
-   三个月一次有效 在香港或澳门逗留不超过14天 20元/每签     三个月多次有效 自首次进入香港或澳门起累计逗留不超过90天 100元/每签   一年多次有效 持证人每次在香港或者澳门逗留不超过90天 100元/每签    3 商务S：</description>
+      <guid>https://forrestsu.github.io/posts/travel/travel-2017/</guid>
+      <description> 一、 想去的地方  龙门古镇 （浙江杭州）  </description>
+    </item>
+    
+    <item>
+      <title>2016-Plans</title>
+      <link>https://forrestsu.github.io/posts/travel/2016-plans/</link>
+      <pubDate>Fri, 03 Jun 2016 22:22:05 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/travel/2016-plans/</guid>
+      <description>1 找到一个女朋友。 ###Coding
+2 在Github上Commit 3+个项目。
+3 看5本非技术书，看5本技术书集。 - 《李世乭自传》&amp;ndash;在读&amp;hellip; - 《有味》-汪涵 &amp;ndash;读完 - 《Linus Torvalds自传》(中文版)
+- 《Operating Systems Design &amp;amp; Implementation 3rd Edition》 &amp;ndash;计划读
+###TRAVEL 云南旅游一次，大理，丽江。（八月份）
+去一次西藏旅游。（国庆节）</description>
     </item>
     
   </channel>
