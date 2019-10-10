@@ -406,7 +406,8 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
       <pubDate>Sun, 03 Jun 2018 23:57:22 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
-      <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
+      <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
+Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
 Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
 .dircache └── objects ├── 00 ├── 01 ├── .</description>
     </item>
