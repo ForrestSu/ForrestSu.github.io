@@ -71,89 +71,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/" title="Docker install Ubuntu" >Docker install Ubuntu</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月21日 16:55:52
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
-当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
-2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-然后点击next.
-安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。
-4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" title="程序员如何留Email？" >程序员如何留Email？</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月12日 22:21:45
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密 &gt; echo 邮箱号 | base64
-我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析" >Git原理分析</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月9日 11:24:45
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                 Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。 &gt;git init &gt;git add number.txt
-此时在.git 下会产生一个index文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" title="Linux 服务端编程（一）" >Linux 服务端编程（一）</a>
                                 </h1>
                             </header>
@@ -174,6 +91,31 @@
 Usage #include &lt;stdio.h&gt; #include &lt;sys/ipc.h&gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&quot;usage: keyfile\n&quot;); return 0; } printf(&quot;%s\n&quot;,argv[0]); printf(&quot;ftok=0x%x\n&quot;,ftok(argv[1],1) ); return 0; }  ……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017" >travel-2017</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年2月20日 20:21:25
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/travel">Travel</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 一、 想去的地方  龙门古镇 （浙江杭州）  ……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
                         </article>
                     
                     
@@ -229,6 +171,32 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
                                 前言 　今年是来恒生的第二年（如果算上实习的话）……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/" title="ubuntu 16.10升级体验" >ubuntu 16.10升级体验</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年2月12日 01:50:45
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制 custom 的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
+vlc中文字幕乱码 将字体改为arial unicode ms即可。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
                         </article>
                     
                     
@@ -350,6 +318,33 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
                         </article>
                     
                     
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/" title="XSL 语言" >XSL 语言</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年1月18日 14:08:31
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。
+XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件：
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;cdcatalog.xsl&quot;?&gt; &lt;!-- &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;readline.xsl&quot;?&gt;--&gt; &lt;catalog&gt; &lt;cd&gt; &lt;title&gt;你好&lt;/title&gt; &lt;artist&gt;Bob Zhang&lt;/artist&gt; &lt;country&gt;USA&lt;/country&gt; &lt;company&gt;Columbia&lt;/company&gt; &lt;price&gt;9.9&lt;/price&gt; &lt;year&gt;1985&lt;/year&gt; &lt;/cd&gt; &lt;cd&gt; &lt;title&gt;Happy in the Rain&lt;/title&gt; &lt;artist&gt;Alice&lt;/artist&gt; &lt;country&gt;USA&lt;/country&gt; &lt;company&gt;Columbia&lt;/company&gt; &lt;price&gt;10.……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/">阅读全文</a></p>
+                        </article>
+                    
+                    
                     
 
 
@@ -462,43 +457,43 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+        <a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/" title="Spark 读取mysql">Spark 读取mysql</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+        <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -531,7 +526,7 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(5)</a>
     </li>
     
     <li>
@@ -579,11 +574,7 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(3)</a>
     </li>
     
     <li>
@@ -592,6 +583,10 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
     
     <li>
         <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     </li>
     
 </ul>
@@ -651,11 +646,11 @@ Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，
     
     <a href="https://forrestsu.github.io/tags/travel/">travel</a>
     
-    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
-    
     <a href="https://forrestsu.github.io/tags/web/">web</a>
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
     
 </div>
     </section>

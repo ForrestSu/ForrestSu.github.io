@@ -73,11 +73,36 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针" >c&#43;&#43; 11智能指针</a>
+                                    <a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/" title="Spark 读取mysql" >Spark 读取mysql</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月10日 11:25:00
+                               2019年2月26日 17:42:00
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/bigdata">BigData</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&quot;${this.getClass.getSimpleName}&quot;).setMaster(&quot;local&quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.read.format(&quot;jdbc&quot;) .option(&quot;url&quot;, &quot;jdbc:mysql://192.168.0.151:3306/spark&quot;) .……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ" >Multithreading-with-ZeroMQ</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年11月2日 17:29:51
                             </date>
                             
                             <div class="post-meta">
@@ -88,10 +113,11 @@
                             </div>
                             
                             <div class="post-content">
-                                 1 概要 C++ 11 包含了智能指针，需要包含头文件#include &lt;memory&gt;
-unique_ptr ……
+                                Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
+Preface &nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ &nbsp; ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
                         </article>
                     
                     
@@ -99,29 +125,27 @@ unique_ptr ……
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件" >中兴程序员事件</a>
+                                    <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan" >Zookeeper-Kafka-Cluster-Deployment-Plan</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月10日 11:05:25
+                               2018年11月2日 17:28:19
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！  互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。 我估计不少人会遇到没工作的情况，但大部分人扛一扛就过去了。随着社会的发展，人的工作年限会越来越长，要有长期的规划和路径，什么阶段做什么阶段的事情，天下没有一劳永逸的事情。
-环境永远是变化的，人生如练功，一份功一份松，松了一环之后，再往紧处练，层层而上。功力越深，无论环境如何变化，实力越强的人，越不容易被击败。
-这种实力当然不仅仅是某个领域的技术，如果只专注于细节不看趋势，趋势没了，再好的技术也就没用了。所以始于技术，陷于业务，忠于盈利。
-我始终认为，人过四十，工作应该是一种需求，而不是压力。我现在每天工作的时候都特别开心，阅读产品，看代码，写东西，带领大家往前冲，是一种享受。
-这个世界是不相信眼泪的，马云说：要是哭有用，那我每天哭！
-昨天在图书馆一个头发斑白的老大爷在用电脑查阅资料，我想如果等我老了，我希望用这种方式度过余生。想法会随时间改变，谁知道呢-_-……
+                                Zookeeper+Kafka集群搭建方案 date: 2018-10-30 19:50 Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
+Zookeeper工作方式
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
+说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
                         </article>
                     
                     
@@ -129,30 +153,25 @@ unique_ptr ……
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进" >金融软件系统的演进</a>
+                                    <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解" >java 注解</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月10日 11:04:59
+                               2018年10月10日 11:02:25
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                金融行业也在 考虑服务化架构转型
-从传统的 三层 到微服务架构 而微服务的都采用Docker容器化部署，
-服务节点的 注册与发现 感觉现在接触的节点 和ali的Dubbo的provider comsumer 好像，应该是个 微型的Dubbo
-考虑 服务编程更加 异步化
-FAE
-1 带着问题去阅读源代码 2 动手实践 调试内核 eclispe O0 3 兴趣 兴趣 兴趣
-今天接到移动客服的电话，我已经记不清这是第几次建议我更换套餐了！这次我想好好了解下，她们为何乐此不疲？ 还没等她照本宣科式的念完28元的套餐优惠信息时，我说：「我一直不在本省，你赠送的优惠我很多用不了！」客服:「那你为什么不换号码？balabala」 我想：出个省还要换手机号？你萌知不知道现在换个手机号有多麻烦？而且你给我推荐业务能不能走点心？我想你们设定了这么多框框，迟早会把自己框在里面！……
+                                 注解的发展历史 JavaDoc&mdash;&ndash;&gt;EjbDoclet&mdash;&gt;XDoclet&mdash;-&gt;annotation ####1 用注解减少IDE警告信息 &gt;@java.lang.SuppressWarnings(value=&ldquo;unchecked“)
+2 自定义注解 ……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/">阅读全文</a></p>
                         </article>
                     
                     
@@ -160,62 +179,11 @@ FAE
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII" >C&#43;&#43; RAII</a>
+                                    <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分" >午夜梦醒十分</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月10日 11:01:51
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cpp">CPP</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                什么是RAII ? 　RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史" >公司的成长史</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年10月10日 11:01:18
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                preface 最近Boss 开了例会，谈了下公司的发展史。听着挺有意思，于是决定记录下来。
-##……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？" >what do you want？</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年10月9日 20:30:10
+                               2018年9月17日 06:08:12
                             </date>
                             
                             <div class="post-meta">
@@ -226,10 +194,9 @@ FAE
                             </div>
                             
                             <div class="post-content">
-                                1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
-摩西奶奶 说：人生只有一次，去做自己喜欢的事。……
+                                梦到我爷爷在不久的未来将离我而去，梦里是那么真实，是一个穿T恤的夏天，在我家门口的大红枣树下，还记得红枣树是奶奶刚嫁到我家时种下的；梦里未来的我已攒够了7位数的积蓄，开始组建自己的家；梦里是我爷爷肾好像得了急性炎症，匆忙之间就离开了，来不及说一声再见，我看着树上挂着一颗颗熟透的红枣，瞬间眼睛湿润了！ 今年抽个空，去给爷爷做个健康体检。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
                         </article>
                     
                     
@@ -237,11 +204,40 @@ FAE
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
+                                    <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" >kafka安装</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 20:29:57
+                               2018年7月31日 10:34:54
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
+启动zookeeper服务 bin/zkServer.sh start
+kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
+dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下  启动zookeeper
+bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broker） ``` 启动kafka服务器（broker）……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年6月9日 20:29:57
                             </date>
                             
                             <div class="post-meta">
@@ -254,7 +250,7 @@ FAE
                             <div class="post-content">
                                 金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/">阅读全文</a></p>
                         </article>
                     
                     
@@ -262,28 +258,28 @@ FAE
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan" >talk with Yuanyuan</a>
+                                    <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市" >关于股市</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 20:28:51
+                               2018年6月9日 19:34:23
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/readingnotes">ReadingNotes</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                1 来北京怎么样？ 还习惯吗?
-2 老家哪的？
-3 和杭州相比怎么样？
-4 工作还习惯吗？
-5 还说家乡话？……
+                                Preface 　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来GuShi就是“反常”的，也许这才是GuShi独有的魅力。
+Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」这样个说法就是听起来正确的诡辩论，但也陈述了一个事实：这个市场确实80%的人都是亏钱的，就像这个世界80%的财富把握在20%的人手上一样(近似正态分布)，我们大部分人都位于6个Sigma之内。 那么为什么会造成这种现象呢？一般的说法是：“市场等各方面信息的不对称造成的”。我们进一步追根溯源：“什么信息会对GuShi产生波动？这些信息的来源又是哪？” 那么问题的根源到这里就显而易见了。
+ 每个人都力求运用自己的资本生产出最大的价值。一般而言，他不会是为了促进公共利益，也不知道促进多少。他只考虑自己的安全，自己的所得。正是这样，他由一只看不见的手引导着，实现着他自己并不打算实现的目标。与有意地促进相比，在追求他自己利益的过程中，往往能够更加有效地促进社会的公益。 &ndash;Adam Smith
+ Stock Price 高维世界与一维价值这世界上用一个能源，以及在不确定条件下如何决策？  Can we double-win in market 　很多人觉得这个市场有一方盈，就必有一方亏。但是从长期、宏观上看，由于不断有公司的利润和新的血液进入市场，不一定总得有人亏。 随着人民币的发行，人们货币的持有量会逐渐增多，单位货币的购买力会逐渐下降，当然央行会保证这个进程会缓慢进行，防止出现经济危机。 最好学点儿理财吧，我爸妈唯一知道的就是把钱放银行，拿手的*理财方式*大概就是麻将了吧！我感觉很难去改变他们的想法，但是我们可以去改变自己。 基金，外汇，股票都是我们可以尝试的理财方式，只不过回报率和风险不一样。可以肯定的是，高回报必然伴随着高风险，按照自己能够接受的风险系数选择自己的理财方式即可。
+声明：本文主要写一些个人的想法，如有不正确的地方，欢迎回复，深入探讨^_*。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/">阅读全文</a></p>
                         </article>
                     
                     
@@ -291,24 +287,27 @@ FAE
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017" >travel-2017</a>
+                                    <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习" >git 源码学习</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 20:21:25
+                               2018年6月3日 23:57:22
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/travel">Travel</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                 一、 想去的地方  龙门古镇 （浙江杭州）  ……
+                                Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
+Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
+Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
+.dircache └── objects ├── 00 ├── 01 ├── .……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
                         </article>
                     
                     
@@ -392,43 +391,43 @@ FAE
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" title="c&#43;&#43; 11智能指针">c&#43;&#43; 11智能指针</a>
+        <a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/" title="Spark 读取mysql">Spark 读取mysql</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cs/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/" title="金融软件系统的演进">金融软件系统的演进</a>
+        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+        <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -461,7 +460,7 @@ FAE
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/cs/">cs(6)</a>
+        <a href="https://forrestsu.github.io/categories/cs/">cs(5)</a>
     </li>
     
     <li>
@@ -509,11 +508,7 @@ FAE
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/travel/">travel(2)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/categories/traveling/">traveling(1)</a>
+        <a href="https://forrestsu.github.io/categories/travel/">travel(3)</a>
     </li>
     
     <li>
@@ -522,6 +517,10 @@ FAE
     
     <li>
         <a href="https://forrestsu.github.io/categories/work/">work(13)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     </li>
     
 </ul>
@@ -581,11 +580,11 @@ FAE
     
     <a href="https://forrestsu.github.io/tags/travel/">travel</a>
     
-    <a href="https://forrestsu.github.io/tags/traveling/">traveling</a>
-    
     <a href="https://forrestsu.github.io/tags/web/">web</a>
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
     
 </div>
     </section>

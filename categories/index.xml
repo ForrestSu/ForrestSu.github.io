@@ -21,83 +21,20 @@
     </item>
     
     <item>
-      <title>CPP</title>
-      <link>https://forrestsu.github.io/categories/cpp/</link>
-      <pubDate>Thu, 10 Oct 2019 11:25:00 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/cpp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CS</title>
-      <link>https://forrestsu.github.io/categories/cs/</link>
-      <pubDate>Thu, 10 Oct 2019 11:05:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/cs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Work</title>
-      <link>https://forrestsu.github.io/categories/work/</link>
-      <pubDate>Thu, 10 Oct 2019 11:01:18 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/work/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://forrestsu.github.io/categories/life/</link>
-      <pubDate>Wed, 09 Oct 2019 20:30:10 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Travel</title>
-      <link>https://forrestsu.github.io/categories/travel/</link>
-      <pubDate>Wed, 09 Oct 2019 20:21:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/travel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Architecture</title>
-      <link>https://forrestsu.github.io/categories/architecture/</link>
-      <pubDate>Wed, 09 Oct 2019 19:36:04 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/architecture/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ReadingNotes</title>
-      <link>https://forrestsu.github.io/categories/readingnotes/</link>
-      <pubDate>Wed, 09 Oct 2019 19:28:27 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/readingnotes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://forrestsu.github.io/categories/linux/</link>
-      <pubDate>Wed, 09 Oct 2019 19:20:45 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BigData</title>
       <link>https://forrestsu.github.io/categories/bigdata/</link>
       <pubDate>Tue, 26 Feb 2019 17:42:00 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/bigdata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CPP</title>
+      <link>https://forrestsu.github.io/categories/cpp/</link>
+      <pubDate>Fri, 02 Nov 2018 17:29:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/cpp/</guid>
       <description></description>
     </item>
     
@@ -111,11 +48,56 @@
     </item>
     
     <item>
+      <title>Life</title>
+      <link>https://forrestsu.github.io/categories/life/</link>
+      <pubDate>Mon, 17 Sep 2018 06:08:12 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/life/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Library</title>
       <link>https://forrestsu.github.io/categories/library/</link>
       <pubDate>Tue, 31 Jul 2018 10:34:54 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/library/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ReadingNotes</title>
+      <link>https://forrestsu.github.io/categories/readingnotes/</link>
+      <pubDate>Sat, 09 Jun 2018 19:34:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/readingnotes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Architecture</title>
+      <link>https://forrestsu.github.io/categories/architecture/</link>
+      <pubDate>Fri, 20 Apr 2018 22:44:50 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Work</title>
+      <link>https://forrestsu.github.io/categories/work/</link>
+      <pubDate>Thu, 15 Mar 2018 21:14:22 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CS</title>
+      <link>https://forrestsu.github.io/categories/cs/</link>
+      <pubDate>Thu, 08 Feb 2018 22:17:59 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/cs/</guid>
       <description></description>
     </item>
     
@@ -147,6 +129,15 @@
     </item>
     
     <item>
+      <title>杂谈</title>
+      <link>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Sun, 17 Dec 2017 11:05:25 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tools</title>
       <link>https://forrestsu.github.io/categories/tools/</link>
       <pubDate>Tue, 10 Oct 2017 10:40:28 +0800</pubDate>
@@ -174,6 +165,15 @@
     </item>
     
     <item>
+      <title>Linux</title>
+      <link>https://forrestsu.github.io/categories/linux/</link>
+      <pubDate>Sat, 13 May 2017 15:22:38 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Git</title>
       <link>https://forrestsu.github.io/categories/git/</link>
       <pubDate>Thu, 09 Mar 2017 11:24:45 +0800</pubDate>
@@ -183,20 +183,20 @@
     </item>
     
     <item>
+      <title>Travel</title>
+      <link>https://forrestsu.github.io/categories/travel/</link>
+      <pubDate>Mon, 20 Feb 2017 20:21:25 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/travel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>resume</title>
       <link>https://forrestsu.github.io/categories/resume/</link>
       <pubDate>Tue, 14 Feb 2017 23:39:53 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/resume/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Traveling</title>
-      <link>https://forrestsu.github.io/categories/traveling/</link>
-      <pubDate>Sat, 09 Jan 2016 22:21:52 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/traveling/</guid>
       <description></description>
     </item>
     
