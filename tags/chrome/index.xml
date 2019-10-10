@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/chrome/</link>
+    <description>Recent content in chrome on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 06 Dec 2016 08:44:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Chrome Plugin</title>
+      <link>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</link>
+      <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
+      <description>广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   Scroll To Top (offered by AlphaTr)
+Todoist：待办事项列表及任务管理器</description>
+    </item>
+    
+  </channel>
+</rss>

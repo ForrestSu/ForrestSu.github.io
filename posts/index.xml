@@ -332,7 +332,7 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
       <pubDate>Wed, 09 Oct 2019 19:20:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/</guid>
-      <description>1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制costom的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
+      <description>1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制 custom 的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
 vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
     </item>
     
@@ -1117,7 +1117,8 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
       <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
-      <description> 广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   </description>
+      <description>广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   Scroll To Top (offered by AlphaTr)
+Todoist：待办事项列表及任务管理器</description>
     </item>
     
     <item>

@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
+    <loc>https://forrestsu.github.io/tags/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/todolist/</loc>
+    <loc>https://forrestsu.github.io/categories/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -53,12 +53,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
     <lastmod>2019-10-10T11:23:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
     <lastmod>2019-10-10T11:23:08+08:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/cs/</loc>
+    <loc>https://forrestsu.github.io/categories/cs/</loc>
     <lastmod>2019-10-10T11:05:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/cs/</loc>
+    <loc>https://forrestsu.github.io/tags/cs/</loc>
     <lastmod>2019-10-10T11:05:25+08:00</lastmod>
   </url>
   
@@ -163,12 +163,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/diary/</loc>
+    <loc>https://forrestsu.github.io/categories/diary/</loc>
     <lastmod>2019-10-10T10:59:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/diary/</loc>
+    <loc>https://forrestsu.github.io/tags/diary/</loc>
     <lastmod>2019-10-10T10:59:20+08:00</lastmod>
   </url>
   
@@ -193,12 +193,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/tools/</loc>
+    <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2019-10-10T10:40:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/tools/</loc>
+    <loc>https://forrestsu.github.io/categories/tools/</loc>
     <lastmod>2019-10-10T10:40:28+08:00</lastmod>
   </url>
   
@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/architecture/</loc>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
     <lastmod>2019-10-09T19:36:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <loc>https://forrestsu.github.io/tags/architecture/</loc>
     <lastmod>2019-10-09T19:36:04+08:00</lastmod>
   </url>
   
@@ -473,12 +473,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
+    <loc>https://forrestsu.github.io/tags/algorithm/</loc>
     <lastmod>2017-07-16T17:14:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/algorithm/</loc>
+    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
     <lastmod>2017-07-16T17:14:54+08:00</lastmod>
   </url>
   
@@ -545,6 +545,21 @@
   <url>
     <loc>https://forrestsu.github.io/posts/readingnotes/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2017-06-06T00:42:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/cmder/</loc>
+    <lastmod>2017-05-29T21:02:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/putty/</loc>
+    <lastmod>2017-05-29T21:02:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/ssh/</loc>
+    <lastmod>2017-05-29T21:02:22+08:00</lastmod>
   </url>
   
   <url>
@@ -668,12 +683,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/resume/</loc>
+    <loc>https://forrestsu.github.io/categories/resume/</loc>
     <lastmod>2017-02-14T23:39:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/resume/</loc>
+    <loc>https://forrestsu.github.io/tags/resume/</loc>
     <lastmod>2017-02-14T23:39:53+08:00</lastmod>
   </url>
   
@@ -713,7 +728,17 @@
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/tags/chrome/</loc>
+    <lastmod>2016-12-06T08:44:52+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</loc>
+    <lastmod>2016-12-06T08:44:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/plugin/</loc>
     <lastmod>2016-12-06T08:44:52+08:00</lastmod>
   </url>
   
@@ -808,12 +833,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/traveling/</loc>
+    <loc>https://forrestsu.github.io/categories/traveling/</loc>
     <lastmod>2016-01-09T22:21:52+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/traveling/</loc>
+    <loc>https://forrestsu.github.io/tags/traveling/</loc>
     <lastmod>2016-01-09T22:21:52+08:00</lastmod>
   </url>
   

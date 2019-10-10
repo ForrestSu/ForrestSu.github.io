@@ -221,7 +221,7 @@
 <pre><code>今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)！原文在这[阅读原文](http://mcts.ai)。
 </code></pre>
 
-<p><img src="http://upload-images.jianshu.io/upload_images/436556-d4964a9c729f3fc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Monte Carlo Tree Search" /></p>
+<p><img src="/upload/monte-carlo-tree-search.png" alt="monte-carlo-tree-search" /></p>
 
 <h3 id="1-what-is-mcts">1 What is MCTS?</h3>
 
@@ -232,7 +232,7 @@
 
 <p>　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：</p>
 
-<p><img src="http://upload-images.jianshu.io/upload_images/436556-f4031425fd06e1af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MCTS" /></p>
+<p><img src="/upload/mcts-tree.png" alt="MCTS-tree" /></p>
 
 <ol>
 <li>Selection
@@ -254,7 +254,7 @@
 <p>如何选择最优的子节点呢？
    树下降期间的节点选择，是通过选择最大化一些数量的节点来实现的<code>(译者注：类似于贪心的策略，每次选取局部最优，这个最优是模拟出来的，所以每个子节点都有机会)</code>，类似于玩家必须选择胜算最大的落子位置。通常使用以下公式来计算：</p>
 
-<p><img src="http://upload-images.jianshu.io/upload_images/436556-d34a2d6d27b6accd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" Upper Confidence Bounds for Trees (UCB) " /></p>
+<p><img src="/upload/upper-confidence-bounds-for-trees-ucb.png" alt="upper-confidence-bounds-for-trees-UCB" /></p>
 
 <p>其中vi是节点的估计值，ni是节点被访问的次数，N是其父访问次数的总次数。C是可调偏置参数。</p>
 
@@ -472,6 +472,10 @@
     
     <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
     
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">cs</a>
@@ -492,9 +496,15 @@
     
     <a href="https://forrestsu.github.io/tags/linux/">linux</a>
     
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty</a>
+    
     <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     

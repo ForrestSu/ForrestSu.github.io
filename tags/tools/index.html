@@ -127,32 +127,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">win下ssh指定密码登陆</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年5月29日 21:02:22
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/tools">Tools</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
-3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
-5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">Eclipse 4.6 support c&#43;&#43;11</a>
                                 </h1>
                             </header>
@@ -200,29 +174,6 @@
 3 启动 双击Docker Quickstart Terminal 启动即可。
 4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/">My Chrome Plugin</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2016年12月6日 08:44:52
-                            </date>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/tools">Tools</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                 广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   ……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/">阅读全文</a></p>
                             </div>
                         </article>
                     
@@ -327,30 +278,33 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
                             </div>
                         </article>
                     
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">Sublime Text 3 插件安装</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2016年5月12日 13:17:06
+                            </date>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/tools">Tools</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &gt; import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;http://packagecontrol.io/' + pf.replace(&rsquo; &lsquo;, &lsquo;%20&rsquo;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&lsquo;Error validating download (got %s instead of %s), please try manual install&rsquo; % (dh, h)) if dh !……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
 
                     
 
 
-
-<ol class="page-navigator">
-    
-
-    
-    <li  class="current">
-        <a href="https://forrestsu.github.io/tags/tools/">1</a>
-    </li>
-    
-    <li >
-        <a href="https://forrestsu.github.io/tags/tools/page/2/">2</a>
-    </li>
-    
-
-    
-    <li class="next">
-        <a href="https://forrestsu.github.io/tags/tools/page/2/">下一页</a>
-    </li>
-    
-</ol>
 
 
 
@@ -521,6 +475,10 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
     
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">cs</a>
@@ -541,9 +499,15 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/linux/">linux</a>
     
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty</a>
+    
     <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     

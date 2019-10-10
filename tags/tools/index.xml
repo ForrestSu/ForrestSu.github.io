@@ -31,18 +31,6 @@
     </item>
     
     <item>
-      <title>win下ssh指定密码登陆</title>
-      <link>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</link>
-      <pubDate>Mon, 29 May 2017 21:02:22 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</guid>
-      <description>1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
-3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
-5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.</description>
-    </item>
-    
-    <item>
       <title>Eclipse 4.6 support c&#43;&#43;11</title>
       <link>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</link>
       <pubDate>Thu, 27 Apr 2017 10:14:35 +0800</pubDate>
@@ -65,15 +53,6 @@
 安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
 3 启动 双击Docker Quickstart Terminal 启动即可。
 4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash</description>
-    </item>
-    
-    <item>
-      <title>My Chrome Plugin</title>
-      <link>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</link>
-      <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
-      <description> 广告拦截  隐私保护  文档查看  写邮件  书签查找  网页截图工具  Github代码查看  标签页管理   </description>
     </item>
     
     <item>

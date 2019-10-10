@@ -222,13 +222,13 @@
 <h3 id="一-git-merge-branchname">一、git merge [branchName]</h3>
 
 <p>　　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是<code>master</code>，另一个是<code>dev-feature</code>。(如下图)
-<img src="http://upload-images.jianshu.io/upload_images/436556-5355047313d74a41.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Repo(two branch)" /></p>
+<img src="/upload/git-two-branch.png" alt="git-two-branch" /></p>
 
 <p>我们在dev-feature 分支，想同步master的通用修改：<br />
 &gt;git checkout dev-feature
 &gt;git merge master</p>
 
-<p><img src="http://upload-images.jianshu.io/upload_images/436556-10b93b303047a220.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
+<p><img src="/upload/git-two-branch-merge.png" alt="git-two-branch-merge" /></p>
 
 <p>　　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。</p>
 
@@ -237,7 +237,7 @@
 <p>　　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行<strong><code>git rebase master</code></strong>，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的<strong>后续修改</strong>依次应用于master分支。
 　　Git会把C4和C6节点回收，可以用git gc查看。</p>
 
-<p><img src="http://upload-images.jianshu.io/upload_images/436556-bfcf7c4e3ebcd8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" /></p>
+<p><img src="/upload/git-rebase-master-show.png" alt="git-rebase-master-show" /></p>
 
 <h2 id="三-冲突解决">三、冲突解决</h2>
 
@@ -250,12 +250,12 @@
 &gt;$ git rebase &ndash;abort</p>
 
 <p>下面是冲突代码的截图
-<img src="http://upload-images.jianshu.io/upload_images/436556-63c716b8c57d29f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="conflict" /></p>
+<img src="/upload/git-conflict-occur-01.png" alt="git-conflict-occur-01" /></p>
 
 <p>同时我们查看版本树，发现正在将C2的修改应用于master分支的C3之上。
-<img src="http://upload-images.jianshu.io/upload_images/436556-bcf9899fda56c0ad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="conflict occur" />
+<img src="/upload/git-conflict-occur-02.png" alt="git-conflict-occur-02" />
 变基完成后
-<img src="http://upload-images.jianshu.io/upload_images/436556-b7963e873adcecf1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="rebase success" />
+<img src="/upload/git-rebase-result.png" alt="git-rebase-result" />
 《完》</p>
 
                         </div>
@@ -464,6 +464,10 @@
     
     <a href="https://forrestsu.github.io/tags/bigdata/">bigdata</a>
     
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">cpp</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">cs</a>
@@ -484,9 +488,15 @@
     
     <a href="https://forrestsu.github.io/tags/linux/">linux</a>
     
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty</a>
+    
     <a href="https://forrestsu.github.io/tags/readingnotes/">readingnotes</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
