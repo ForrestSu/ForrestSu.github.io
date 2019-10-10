@@ -71,91 +71,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/aboutme/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/" title="个人的优点与不足" >个人的优点与不足</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年2月8日 15:58:52
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/aboutme">AboutMe</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                我的优点 好像还没发现什么优点&hellip; &gt;_&lt;
-我的不足之处 1 演讲或者给别人分享的时候：&lt;我声音太小&gt; 2017-02-08 &gt;声音要大一点。（不然声音太小，会显得很没有底气）
-2 &lt;不够谦逊&gt; 2017-08-07 &gt; (1) 务必时刻保持一颗谦虚的心，背后多言他人的溢美之词，我只需取其善者而从之，不善者而改之。 (2) 也不能自己的想法强加给别人，我只需要管好我自己。(己所不欲，勿施于人; 穷则独善其身) (3) 毕竟写点业务代码也没啥难的，都有成熟的解决方案，我的眼光应该放的更长远，有发牢骚的时间，还不如看看框架和底层 (发挥算法还没荒废了)。 (4) 时常反思自己的一言一行，换位思考。(慎言笃行)
-3 &lt;有点拖延症&gt; 2017-08-07 &gt; 想写的文章一直拖着，没有抽点时间去写。
-待补充&hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*
-我待改进的地方 2017-07-06 1 遇到问题，先google，如果没找到好的解决方案，可以咨询CTO（可采用微信或者 Email的方式） 一般CTO都很乐意被别人问问题的 (当然弱鸡问题除外)。 切记。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/aboutme/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/" title="如何配置nginx php7(windows)" >如何配置nginx php7(windows)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年2月1日 21:39:21
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。
-1 StartUp  Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip  2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64
-3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.conf配置: 2 复制并注释掉fastcgi_param,修改/scripts为$document_root 3.2 php配置文件 1 复制php.ini-development到php.ini 启用以下dll： php_bz2.……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/" title="XSL 语言(2)" >XSL 语言(2)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年1月18日 15:56:07
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                上一篇主要入门了 XSL，这一课来进一步学习XSL。
-1 语法 (1) xsl:if 元素 语法：
-&lt;xsl:if test=&quot;expression&quot;&gt; ... ...如果条件成立则输出... ... &lt;/xsl:if&gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。
- &lt;xsl:for-each select=&quot;catalog/cd&quot;&gt; &lt;xsl:if test=&quot;price = 10&quot;&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:if&gt; &lt;/xsl:for-each&gt;  (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/" title="XSL 语言" >XSL 语言</a>
                                 </h1>
                             </header>
@@ -198,14 +113,38 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
                             </div>
                             
                             <div class="post-content">
-                                 1 前言  右上颌一年前长了一颗智齿，当时刚萌出的时候还有点小发炎，现在感觉越长越歪，刷牙也刷不到，而且每次吃饭都会食物卡在智齿上。听同事说几分钟就能拔掉，所以先到Google了「杭州拔智齿&hellip;」相关的话题，然后找到了知乎的一个帖子，看了下回复，就找到了一位姓廖医生（门诊就挂她的号）。
+                                1 前言  右上颌一年前长了一颗智齿，当时刚萌出的时候还有点小发炎，现在感觉越长越歪，刷牙也刷不到，而且每次吃饭都会食物卡在智齿上。听同事说几分钟就能拔掉，所以先到Google了「杭州拔智齿&hellip;」相关的话题，然后找到了知乎的一个帖子，看了下回复，就找到了一位姓廖医生（门诊就挂她的号）。
 2 门诊检查  在风和日丽的一个早上（2016-12月17日星期六），就去杭州口腔医院挂号、直奔５楼，廖医生建议先拍个片子。  看完片子，廖医生说：“四颗埋伏智齿，只有一颗萌出了一点，其他3颗都还在牙肉里，下面两颗牙槽神经线比较近，每颗难度和风险都不小，门诊拔除的话可能风险比较高，每次只能拔1~2颗，建议住院全麻一次性拔除！”我犹豫又思索了一会儿，还是决定一次性拔了算了，免得后面智齿继续长的话，东西都吃不了。（之前看到知乎上的贴子说老美拔智齿都是全麻的）。在和廖医生沟通了手术先关的事项后，决定20号住院21号手术。于是给领导打了个电话说明了原由，请了4天假。然后给我妈打电话来杭州来照顾我三天，顺便来杭州玩一下。
 3 手术  第一天(20号)，医生会问下病史，各种化验胸片心电图，手术医生和麻醉医生找你谈话签字。 第二天中午12点左右，我换好病服，进入手术室（这是我自记事以来生平第一次进手术室），医生话了几句家常就迷迷糊糊的睡着了，然后一觉醒来，只听见旁边有声音再说：“醒了，睁眼了！”（有点像电影里的剧情）“手术过程很顺利，四颗智齿全部拔除！” 医生说。听完这句，我正想合上还没完全睁开的双眼继续睡，医生说：“不要睡着，不断的伸腿，收腿，直到没有睡意！” 其间感觉不到明显的疼痛，一直用抽纸擦除口中带血的唾液。就这样在观察室度过了4小时回到了普通病房。 晚上隔壁一个病友的妈妈送来的一盒温牛奶和2瓶酸奶，吃完就在走廊上散步。 第三天，挂盐水，脸部还是有轻微的肿，护士MM又拿了一袋冰袋敷了下。 第四天，照旧挂盐水，办出院手续，结账出院。 整个手术下来，基本上没有明显的疼痛，手术后第一个周六(手术后第10天)去医院拆完缝线，回来就能吃米饭了，感觉恢复的挺好。 全麻拔牙体验  第一次全麻手术，手术前还是有些许忐忑不安的，然后在知乎上也搜了相关的帖子，发现老美基本都是全麻拔智齿，也基本打消了我的疑虑。 拔牙的时候是一觉睡过去的，基本没有感觉。大约2个小时后醒来，就躺在观察室的病床上，没有明显的痛感，脸颊有轻微的肿，说话不利索，唾液里还会有血。醒来5~6个小时后就能喝点牛奶(或者酸奶)了，很想吃东西，但是嘴巴只能张一点，因为下面两颗智齿都没有长出来，创口有缝线。 晚上睡觉只能仰睡，脸腮还会有隐隐的痛，睡觉的时候偶尔就会醒来，不过第二个晚上就好很多了。住院期间，廖医生都会带医务人员来查房，问下有什么不适，感觉还是蛮体贴温馨的。 整个全麻手术下来，基本没有明显的疼痛感，术后恢复的也很顺利。非常感谢廖医生^_^。
 插曲  和隔壁的病友妹子聊天，她问我拔完有没有感觉到痛，我说基本不怎么痛。妹子说：我恢复的比她快，然后妹子第三天就出院了。（囧）
-感悟  十天只能喝稀饭的日子里，不能咀嚼，感觉吃什么都没有味道，有些东西只有在你要失去的时候才察觉到要好好珍惜，就像大学的日子，到了大四才觉得大学真好，可是转眼就要各奔东西。后面得经常锻炼身体，别整天坐在办公司码代码。
- ……
+感悟  十天只能喝稀饭的日子里，不能咀嚼，感觉吃什么都没有味道，有些东西只有在你要失去的时候才察觉到要好好珍惜，就像大学的日子，到了大四才觉得大学真好，可是转眼就要各奔东西。后面得经常锻炼身体，别整天坐在办公司码代码。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%85%A8%E9%BA%BB%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8B%94%E5%9B%9B%E9%A2%97%E6%99%BA%E9%BD%BF%E6%98%AF%E6%80%8E%E6%A0%B7%E4%B8%80%E7%A7%8D%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/" title="「Silicon Valley 3 」观后感" >「Silicon Valley 3 」观后感</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年12月11日 00:46:13
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/readingnotes">ReadingNotes</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                硅谷一个在硅晶体上发展起来的城市，一波又一波聪明的年轻人在这里改变着世界。 今天周末，在房间里休息看了硅谷3，感受了一下像google、Twitter、Facebook、Uber、Arbin这一类的公司是如何发展起来的，就像google，两个年轻人搞出来一个搜索算法，Twitter搞了一个社交网络! 硅谷3主要以day-to-day的方式描述了Engineer的日常，风险投资人来资助Good idea,当然也有很多创意项目在孵化期间就陨灭了。但是一旦成长起来就能够掀起一波互联网的浪潮。感觉到底是干一行爱一行还是做自己喜欢的事?看了……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/">阅读全文</a></p>
                         </article>
                     
                     
@@ -333,6 +272,63 @@ Todoist：待办事项列表及任务管理器……
                         </article>
                     
                     
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick" >git cherry-pick</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年9月12日 01:10:59
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &gt;git cherry-pick ee99d9a
+如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
+2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。 解决完冲突后: 《完》……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别" >git merge 和git rebase的区别</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年9月11日 23:57:14
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
+一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
+&gt;git checkout dev-feature &gt;git merge master
+　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
+二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
+三、冲突解决 　如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &gt;$ git rebase &ndash;continue……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
+                        </article>
+                    
+                    
                     
 
 
@@ -436,14 +432,6 @@ Todoist：待办事项列表及任务管理器……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
     </li>
     
@@ -452,23 +440,31 @@ Todoist：待办事项列表及任务管理器……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -505,7 +501,7 @@ Todoist：待办事项列表及任务管理器……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
     </li>
     
     <li>

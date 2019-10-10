@@ -6,7 +6,7 @@
     <description>Recent content in Tools on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Oct 2019 10:40:28 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Oct 2017 10:40:28 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,11 @@
     <item>
       <title>推荐-小工具</title>
       <link>https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Thu, 10 Oct 2019 10:40:28 +0800</pubDate>
+      <pubDate>Tue, 10 Oct 2017 10:40:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
-      <description>推荐个人最常用的Top10 便携自由(Free)的小软件。 Windows 1. cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 2. AutoHotkey 自定义全局热键 3. clover 资源管理器像浏览器一样显示多窗口 4. everything 快速查找磁盘文件(支持正则) (V1.3.4.686) 5. Ditto 可以选择的粘贴板工具 6. GifCam Gif动画录制工具 7. chrome 及一系列插件 待补充&amp;hellip;
-大家如果需要留言，可以直接回复_</description>
+      <description>推荐个人最常用的Top10 便携自由(Free)的小软件。
+Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 AutoHotkey 自定义全局热键 clover 资源管理器像浏览器一样显示多窗口 everything 快速查找磁盘文件(支持正则) (V1.3.4.686) Ditto 可以选择的粘贴板工具 GifCam Gif动画录制工具 chrome 及一系列插件 待补充&amp;hellip;  大家如果需要留言，可以直接回复_</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@
       <pubDate>Tue, 21 Mar 2017 16:55:52 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/docker-install-ubuntu/</guid>
-      <description>1 前言 2017-03-21 13:57:22 +08:00 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
+      <description>1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
 当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
 2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
 然后点击next.

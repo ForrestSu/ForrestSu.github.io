@@ -71,63 +71,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick" >git cherry-pick</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月12日 01:10:59
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &gt;git cherry-pick ee99d9a
-如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
-2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。 解决完冲突后: 《完》……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别" >git merge 和git rebase的区别</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月11日 23:57:14
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
-一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
-&gt;git checkout dev-feature &gt;git merge master
-　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
-二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
-三、冲突解决 　如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &gt;$ git rebase &ndash;continue……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化" >背包九讲01-关于常数的优化</a>
                                 </h1>
                             </header>
@@ -171,7 +114,10 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
                             </div>
                             
                             <div class="post-content">
-                                我今年23岁，从毕业到今天(2016-08-18)，大约来杭州工作也有一年时间了。 ##工作上 今天晚上7:30领导半年度谈话，浑浑噩噩又过了半年，没有了寒暑假的日子感觉就是度年如日，自从我导师离职，加入到QD小组快有3～4月了，感觉工作任务有点多，但是整体还好。后续还需要提高工作效率。凌总问我以后是想走业务路线还是技术路线？答曰：还没想好！应该是时候规划一下了。 下半年主要是境外期货业务。 ##生活上 生活上整体还好，这半年都宅在房子里，西湖都没去几次～说来惭愧。体重长胖了几斤。大约每两周用微信给爷爷打一次电话。 ##学习上 计划看十本书 现在大约看了5本，每周计划写一次的博客只写了几篇，计划旅游还没有着落。看了一部美剧(囧)。后面得规划下时间。 ~记于江畔云庐 2016-08-19 00:28~……
+                                我今年23岁，从毕业到今天(2016-08-18)，大约来杭州工作也有一年时间了。
+工作上 今天晚上7:30领导半年度谈话，浑浑噩噩又过了半年，没有了寒暑假的日子感觉就是度年如日，自从我导师离职，加入到QD小组快有3～4月了，感觉工作任务有点多，但是整体还好。后续还需要提高工作效率。凌总问我以后是想走业务路线还是技术路线？答曰：还没想好！应该是时候规划一下了。 下半年主要是境外期货业务。
+生活上 生活上整体还好，这半年都宅在房子里，西湖都没去几次～说来惭愧。体重长胖了几斤。大约每两周用微信给爷爷打一次电话。
+学习上 计划看十本书 现在大约看了5本，每周计划写一次的博客只写了几篇，计划旅游还没有着落。看了一部美剧(囧)。后面得规划下时间。 ~记于江畔云庐 2016-08-19 00:28~……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/">阅读全文</a></p>
                         </article>
@@ -221,8 +167,10 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
                             </div>
                             
                             <div class="post-content">
-                                夜半梦回初醒，梦着和邻家女孩初中一起上学补课的日子，感觉那么无忧无虑和惬意。 ###关于太爷爷 在我最早对死亡有明显的意识是在2012年9月左右，我太爷爷去世，经常有人提起都说他很长寿。那天我请假回家参加太爷爷的丧事，我们那里有个风俗——丧事晚上会请说书的先生说大半夜书，下面的孝子贤孙跪倒一片，后半夜就是孝子贤孙给死去的亲人在路上撒钱。那晚我和大人们跪了大半夜。（应该中国的很多地方都有这种风俗） 对太爷爷的记忆随着时间的推移轮廓变得逐渐模糊，不算太高，看起来有点瘦，生活基本上都是自理，只有过年的时候亲戚朋友会塞上几百块钱。每年大学的暑假都会先回家休息一个月，然后再去学校实验室集训一个月。那年暑假，我太爷爷正好摔跤了，然后每天我和爷爷吃饭前，爷爷都让我去给太爷爷送饭。小时候太爷爷一直对我很好，经常来我家串个门，看会儿电视，翻翻族谱，找到自己的名字，然后弓着背回去了。有时还会给我带点好吃的，比如山里姑爹送来的柿子，还无花果-直到有一天送饭才发现是他在屋旁自己种的无花果。摔倒的那个月，太爷爷生活不能自理，我赵赵姑爹会骑个自行车隔三差五过来帮忙洗下被套，打扰卫生，点下蚊香，买点卫生纸之类的。所以我每年回家都会看下这几个姑爹。 ###关于太爷爷 下面开始讲我的奶奶，我奶奶是个勤快的庄稼人，一天到晚忙着地里除草打药，经常忙到很晚，有时我叫她吃饭才肯回，后来很多亲戚都说她是因劳成疾。老一辈的人都很节省，舍不得花钱，一年到头也没添置几件新衣裳，但我爷爷花钱可不是那么懂得精打细算的人，所以奶奶偶尔会和爷爷吵架。后来奶奶生病住院，县城里的医院没有治疗条件，医生推荐去市里治疗，我爷爷直接把奶奶送往市人民医院，虽然医生说只能定期透析多活些日子，我爷爷也坚持治疗，希望能治好。住院期间也问奶奶喜欢吃的东西，买给她吃，平日里她也舍不得给自己花钱。
-　隔壁的奶奶听说身体不好，我得打电话问下。 &ndash;记于杭州江畔云庐 2016年8月4日星期四凌晨3:40……
+                                夜半梦回初醒，梦着和邻家女孩初中一起上学补课的日子，感觉那么无忧无虑和惬意。
+关于太爷爷 　在我最早对死亡有明显的意识是在2012年9月左右，我太爷爷去世，经常有人提起都说他很长寿。那天我请假回家参加太爷爷的丧事，我们那里有个风俗——丧事晚上会请说书的先生说大半夜书，下面的孝子贤孙跪倒一片，后半夜就是孝子贤孙给死去的亲人在路上撒钱。那晚我和大人们跪了大半夜。（应该中国的很多地方都有这种风俗） 对太爷爷的记忆随着时间的推移轮廓变得逐渐模糊，不算太高，看起来有点瘦，生活基本上都是自理，只有过年的时候亲戚朋友会塞上几百块钱。每年大学的暑假都会先回家休息一个月，然后再去学校实验室集训一个月。那年暑假，我太爷爷正好摔跤了，然后每天我和爷爷吃饭前，爷爷都让我去给太爷爷送饭。小时候太爷爷一直对我很好，经常来我家串个门，看会儿电视，翻翻族谱，找到自己的名字，然后弓着背回去了。有时还会给我带点好吃的，比如山里姑爹送来的柿子，还无花果-直到有一天送饭才发现是他在屋旁自己种的无花果。摔倒的那个月，太爷爷生活不能自理，我赵赵姑爹会骑个自行车隔三差五过来帮忙洗下被套，打扰卫生，点下蚊香，买点卫生纸之类的。所以我每年回家都会看下这几个姑爹。
+关于奶奶 下面开始讲我的奶奶，我奶奶是个勤快的庄稼人，一天到晚忙着地里除草打药，经常忙到很晚，有时我叫她吃饭才肯回，后来很多亲戚都说她是因劳成疾。老一辈的人都很节省，舍不得花钱，一年到头也没添置几件新衣裳，但我爷爷花钱可不是那么懂得精打细算的人，所以奶奶偶尔会和爷爷吵架。后来奶奶生病住院，县城里的医院没有治疗条件，医生推荐去市里治疗，我爷爷直接把奶奶送往市人民医院，虽然医生说只能定期透析多活些日子，我爷爷也坚持治疗，希望能治好。住院期间也问奶奶喜欢吃的东西，买给她吃，平日里她也舍不得给自己花钱。
+隔壁的奶奶听说身体不好，我得打电话问下。 &ndash;记于杭州江畔云庐 2016年8月4日星期四凌晨3:40……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
                         </article>
@@ -247,8 +195,7 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
                             </div>
                             
                             <div class="post-content">
-                                2016-07-17 星期日 天气☀ 01:07:04
-一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+                                一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
 #define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
 int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif  3 C++11引入了nullptr 来表示空指针……
@@ -301,11 +248,9 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
                             </div>
                             
                             <div class="post-content">
-                                1 找到一个女朋友。 ###Coding
-2 在Github上Commit 3+个项目。
-3 看5本非技术书，看5本技术书集。 - 《李世乭自传》&ndash;在读&hellip; - 《有味》-汪涵 &ndash;读完 - 《Linus Torvalds自传》(中文版)
+                                Coding 1 找到一个女朋友。 2 在Github上Commit 3+个项目。 3 看5本非技术书，看5本技术书集。 - 《李世乭自传》&ndash;在读&hellip; - 《有味》-汪涵 &ndash;读完 - 《Linus Torvalds自传》(中文版)
 - 《Operating Systems Design &amp; Implementation 3rd Edition》 &ndash;计划读
-###TRAVEL 云南旅游一次，大理，丽江。（八月份）
+TRAVEL 云南旅游一次，大理，丽江。（八月份）
 去一次西藏旅游。（国庆节）……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/2016-plans/">阅读全文</a></p>
@@ -337,6 +282,62 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 最后，我们在Preferences-key bindings-user里面自定义一个快捷键，可以快速输出html。 &gt;//4 markdown_html预览 { &ldquo;keys&rdquo;: [&ldquo;alt+c&rdquo;], &ldquo;command&rdquo;: &ldquo;markdown_preview&rdquo;, &ldquo;args&rdquo;: {&ldquo;target&rdquo;: &ldquo;browser&rdquo;, &ldquo;parser&rdquo;:&ldquo;markdown&rdquo;} },……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/" title="Sublime Text 3 UML" >Sublime Text 3 UML</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年5月15日 14:19:58
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件 &gt;@startuml
+skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&gt; Alice : Hello, how are you Consolas Alice -&gt; Bob : Fine, thank you, and you? @enduml
+2 安装步骤 2.1 下载[graphviz-2.38.zip ](http://www.graphviz.org/Download_windows.php)(`注：我用的是Windows,如果是其他操作系统选择对应版本`) 目前最新版是graphviz-2.38(2016年5月15日) 解压到系统的某一目录，然后添加到系统环境变量(如下图),重启OS后生效： 3 安装ST3插件sublime_diagram_plugin 通过Preferences-&gt;browse packages进入插件安装包，下载完成后重启ST3: &gt;git clone https://github.……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/" title="Sublime Text3 C语言插件" >Sublime Text3 C语言插件</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年5月14日 15:20:30
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。 &gt;//1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
+3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved
+4 DocBlockr 自动生成函数注释，在不同参数之间切换可以用tab. 5 AllAutocomplete AllAutocomplete可以对打开的所有文件的变量名进行提示。sublime默认只对当前打开的文件的变量进行提示。
+6 CTags 可以在函数的声明和定义自检来回跳转了，首先需要下载Ctags，比如我存在D盘的根目录下，之后需要在Sublime中配置路径
+然后就可以用ctrl+shift+左键，跳转到定义处了，ctrl+shift+右键。如果不习惯用鼠标可以ctrl+&gt;跳转到定义，ctrl+&lt;返回。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
                         </article>
                     
                     
@@ -436,14 +437,6 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
     </li>
     
@@ -452,23 +445,31 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -505,7 +506,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
     </li>
     
     <li>

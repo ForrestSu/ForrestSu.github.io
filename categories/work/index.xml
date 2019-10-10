@@ -18,13 +18,13 @@
       
       <guid>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</guid>
       <description>preface 最近Boss 开了例会，谈了下公司的发展史。听着挺有意思，于是决定记录下来。
-###</description>
+##</description>
     </item>
     
     <item>
       <title>2018 年会-Plan</title>
       <link>https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/</link>
-      <pubDate>Wed, 09 Oct 2019 21:14:22 +0800</pubDate>
+      <pubDate>Thu, 15 Mar 2018 21:14:22 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/</guid>
       <description>plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
@@ -43,7 +43,7 @@
     <item>
       <title>2018年会</title>
       <link>https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/</link>
-      <pubDate>Wed, 09 Oct 2019 21:10:25 +0800</pubDate>
+      <pubDate>Thu, 15 Mar 2018 21:10:25 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/</guid>
       <description>2018-03-09 记于十三陵 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
@@ -99,11 +99,10 @@ Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么
     <item>
       <title>工作会议</title>
       <link>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</link>
-      <pubDate>Thu, 24 Aug 2017 01:02:34 +0800</pubDate>
+      <pubDate>Fri, 04 Aug 2017 01:02:34 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</guid>
-      <description>2017-08-04
-1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ 工作重心： &amp;gt;(1) 系统性能测试 &amp;gt;(2) 商品期货 (+期货高频) &amp;gt;(3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend )
+      <description>1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ 工作重心： &amp;gt;(1) 系统性能测试 &amp;gt;(2) 商品期货 (+期货高频) &amp;gt;(3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend )
 2 期货高频模块 (1) 策略执行的优先级 策略的执行顺序的先后顺序，对执行结果的影响。 (2) 限制完成的Job CTP 会不断重试. (3) 金额＞10000的都需要用逗号分隔
 3 业务了解 (营利模式） 公募基金：收管理费 对冲基金：2倍的管理费 + 20~40%的收益分成
 4 排查问题 我们在遇到一个比较难的问题时，往往会先问搜索引擎，然后确实感觉自己 Handle 不了，就会考虑向上级反馈。 (1) 问题的反馈 倍增效应： 当一个问题由底层开发人员逐级向上反馈时，问题会变得越来越严重。 政治问题： 当问题反馈到管理层时，他们在意的是政治问题：这个问题是谁的问题?</description>
@@ -135,32 +134,11 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     <item>
       <title>工作重心梳理</title>
       <link>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</link>
-      <pubDate>Mon, 26 Jun 2017 22:53:22 +0800</pubDate>
+      <pubDate>Fri, 09 Jun 2017 22:53:22 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</guid>
-      <description>20170609 星期五 天气 ☼
-1 目前的工作模块划分data-20170609 Team1 : z(Teamleader) (10人左右)
+      <description>1 目前的工作模块划分data-20170609 Team1 : z(Teamleader) (10人左右)
    Module front-developers backend developers     1 T0Service huoyanfeng、liuchengbo sunquan   2 Risk liuwei、zhangyue liuwei、zhangyue   3 Account Management guoyuzhen guoyuzhen   4 Quotes konghairong lizhijian   期货高频 yantao yantao   衍生数据计算 - lizhijian    测试：1人　HR&amp;amp;财务：1人 Team2 : App(Andriod &amp;amp;&amp;amp; IOS) Team (4~5 人) Team3 : Trading Team (5人左右) Team4 : 金工数据 Team (4人左右)</description>
-    </item>
-    
-    <item>
-      <title>QDII转换机工作汇总</title>
-      <link>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</link>
-      <pubDate>Fri, 07 Apr 2017 17:59:22 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</guid>
-      <description>QDII转换机工作汇总 孙权 2017-03-21 17:35:12
-[TOC]
-1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
-操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下:
- qdii_archivehq (境外行情归档，境外业务日期自动切换)
- qdii_baseinfo (一系列彭博行情文件转换任务)
- qdii_fix (FIX转换任务)
- qdii_futhsfix (境外FIX期货报盘)
- qdii_hsfix (恒生FIX转换任务)
- qdii_realhq (彭博实时行情任务，聚源行情转换任务)
- qdii_reuterhq (路透Xtra3000行情转换)
- qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)</description>
     </item>
     
     <item>
@@ -182,8 +160,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       <pubDate>Sat, 01 Apr 2017 07:50:23 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/</guid>
-      <description>Today 2017-02-20
-1 瓶颈期 1.1 周围环境 最近两天看了程序员的年终总结，还有自己所在团队小组部分人的离开。他们都是比我早来1年、2年、3年的同事(我导师2016年4月走的)，我能感觉到再呆2年估计也是和他们一样面对同样的问题（26/7也要回去成家立业，稳定的过日子了。） 我对金融业务的不太感兴趣，去年领导也给我谈过个人的职业规划。(在这边可能技术层面就只能到目前这样了，如果想搞业务这边还是可以继续待下去的。)而我对技术更感兴趣。
+      <description>1 瓶颈期 1.1 周围环境 最近两天看了程序员的年终总结，还有自己所在团队小组部分人的离开。他们都是比我早来1年、2年、3年的同事(我导师2016年4月走的)，我能感觉到再呆2年估计也是和他们一样面对同样的问题（26/7也要回去成家立业，稳定的过日子了。） 我对金融业务的不太感兴趣，去年领导也给我谈过个人的职业规划。(在这边可能技术层面就只能到目前这样了，如果想搞业务这边还是可以继续待下去的。)而我对技术更感兴趣。
 1.2 自我感觉 总体感觉，每天都在做重复的工作，老的架构，将要淘汰的开发语言。但我个人希望做一些有趣的事，接触点新东西。 做的境外的系统，感觉有点闭门造车，做完都没有很好的环境测试，等到客户上线就怕有大的调整，而且感觉做的东西没有人用就没有成就感。 1.3 优点 境外的业务文档写的比较清晰，国外大的系统都相对比较开放，基本都支持统一的接口（比如FIX），解决问题效率也高。
 2 主流技术发展迅速 　说到技术，不得不说当前软件技术的飞速发展，实在是超乎了我们的想象： 1.一年前，我还认为，HTML5无非就是html加几个新的标签嘛，然而现在的h5，能做游戏，能做App，能做网站，能做各种酷炫的特效，这些都是HTML4的技术标准无法实现的，用几个HTML标签，你能做出来？ 2.一年前，我还认为，Javascript不就是个浏览器脚本语言嘛，然而现在的js，不仅能做app，能做游戏，甚至能做服务器，能做数据库，不只是能做，而且各大厂都开始支持js技术。谁能想到，当年大学课堂上，老师一带而过的浏览器脚本语言，如今已经火便整个互联网？ 3.一年前，我还不知道什么是大数据，而现在，在这个信息量爆炸的时代，大数据早不是什么新鲜事情了，身边处处都是大数据，像Docker，Hadoop这样的技术，早就已经耳熟能详了。 4.一年前，做一个网站的前端，需要用到的技术可能是Html，JQuery；一年后，做一个网站的前端，需要用到的技术可能是HTML5，Css3，es6，Angular，bootstrap&amp;hellip;&amp;hellip;
 一年前，JDK的版本还是1.7，tomcat还是7，Spring还是3，Hibernate还是4，而现在&amp;hellip;所有的技术的版本号都升了，都或多或少的加入了很多新的特性来支持我们当前这个信息时代的需要，如果说，我们停止了学习，那我们技术上的思想和思维，就会完全跟不上这个时代的需要，最终只会被淘汰掉。学习一个新技术，不是多难的事，只需要在有空的时候，大致了解一下它是做什么的，有什么特性，如果有兴趣，再写个Demo来研究研究，当你真的搞懂一个非常的技术的框架的时候，你会非常赞叹这个框架的创作人的这个成果。</description>
@@ -195,11 +172,30 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       <pubDate>Mon, 27 Mar 2017 11:19:05 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</guid>
-      <description> 工作流程 一、 梳理工作流程 　售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。
+      <description>工作流程 一、 梳理工作流程 　售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。
 二、 还需要熟悉的模块 　消息机制、主推，共享内存插件。
 　后续会涉及消息主推，UFX消息插件的开发。
 三、不足 　中间件相关的插件，具体实现还需了解。
-当你要辞职时，应该把你觉得应该能学到的东西都学到了，然后出去 以后不要后悔就行。 </description>
+总结 当你要辞职时，应该把你觉得应该能学到的东西都学到了，然后出去 以后不要后悔就行。</description>
+    </item>
+    
+    <item>
+      <title>QDII转换机工作汇总</title>
+      <link>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Tue, 21 Mar 2017 17:35:12 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</guid>
+      <description>1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
+操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下:
+ qdii_archivehq (境外行情归档，境外业务日期自动切换)
+ qdii_baseinfo (一系列彭博行情文件转换任务)
+ qdii_fix (FIX转换任务)
+ qdii_futhsfix (境外FIX期货报盘)
+ qdii_hsfix (恒生FIX转换任务)
+ qdii_realhq (彭博实时行情任务，聚源行情转换任务)
+ qdii_reuterhq (路透Xtra3000行情转换)
+ qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)
+   下面有 √ 的任务需要代码走读。</description>
     </item>
     
   </channel>

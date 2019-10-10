@@ -6,20 +6,10 @@
     <description>Recent content in Java on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Oct 2019 11:02:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Nov 2018 17:28:19 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>java 注解</title>
-      <link>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</link>
-      <pubDate>Thu, 10 Oct 2019 11:02:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
-      <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
-2 自定义注解 </description>
-    </item>
     
     <item>
       <title>Zookeeper-Kafka-Cluster-Deployment-Plan</title>
@@ -31,6 +21,16 @@
 Zookeeper工作方式
  Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
 说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</description>
+    </item>
+    
+    <item>
+      <title>java 注解</title>
+      <link>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Wed, 10 Oct 2018 11:02:25 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
+      <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
+2 自定义注解 </description>
     </item>
     
     <item>

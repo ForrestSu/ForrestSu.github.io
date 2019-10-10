@@ -71,26 +71,24 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/" title="最好的告别" >最好的告别</a>
+                                    <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分" >午夜梦醒十分</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 20:24:56
+                               2018年9月17日 06:02:12
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/readingnotes">ReadingNotes</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                当我们谈论衰老与死亡这个话题，那么远却又那么近，确实这个话题有些悲伤，很多时候都刻意让自己不去想，但是我们必须得面对，或早或晚。以防那天突然来临，我们不至于恍然不知所措。 1 About Aging
-2 Do Something？ 我们还面对一个貌似简单的谜题：当我们年老、体弱、不能照顾自己的时候，是什么使得生活值得过下去？
-3 What should I do?……
+                                梦到我爷爷在不久的未来将离我而去，梦里是那么真实，是一个穿T恤的夏天，在我家门口的大红枣树下，还记得红枣树是奶奶刚嫁到我家时种下的；梦里未来的我已攒够了7位数的积蓄，开始组建自己的家；梦里是我爷爷肾好像得了急性炎症，匆忙之间就离开了，来不及说一声再见，我看着树上挂着一颗颗熟透的红枣，瞬间眼睛湿润了！ 今年抽个空，去给爷爷做个健康体检。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
                         </article>
                     
                     
@@ -98,52 +96,28 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017" >travel-2017</a>
+                                    <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" >kafka安装</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 20:21:25
+                               2018年7月31日 10:34:54
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/travel">Travel</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                 一、 想去的地方  龙门古镇 （浙江杭州）  ……
+                                Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
+启动zookeeper服务 bin/zkServer.sh start
+kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
+dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下  启动zookeeper
+bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broker） ``` 启动kafka服务器（broker）……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门" >Seastar 入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年10月9日 19:36:04
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
-由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
-具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）
-对应的解决方案，在接下来的数十年中很流行，它将放弃舒适但低效的同步服务器设计，并转而采用 新型服务器设计 - 异步或事件驱动，服务器设计。 事件驱动的服务器只有一个线程，或者更准确地说，每个CPU有一个线程。这个单线程运行一个紧密的循环，在每次迭代中检查，使用poll()（或更有效epoll）用于许多打开的文件描述符上的新事件，例如套接字。例如，一个事件可以是一个可读的套接字（新数据已经从远程端到达）或变得可写（我们可以在这个连接上发送更多的数据）。应用程序通过执行一些非阻塞操作来处理此事件，修改一个或多个文件描述符并保持其对此连接状态的了解。 然而，异步服务器应用程序的作者在今天仍面临着两大挑战：……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
                         </article>
                     
                     
@@ -155,7 +129,7 @@
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 19:34:23
+                               2018年6月9日 19:34:23
                             </date>
                             
                             <div class="post-meta">
@@ -180,25 +154,27 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/" title="是的，我不想再回家乡了" >是的，我不想再回家乡了</a>
+                                    <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习" >git 源码学习</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 19:30:12
+                               2018年6月3日 23:57:22
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                2017年，我从毕业到工作的第三个年头，这一年开始慢慢对一些事，有不同的看法和理解，开始关心我们周遭的社会，慢慢的开始变得成熟；开始质疑大人们曾经苦口婆心的建议，发现很多时候他们说的并不对；开始有自己的想法，参考优秀人的建议；开始自己做选择，。
-是的，我不想再回家乡了！因为那里你看不到出路，大家都把希望寄托于下一代，觉得自己吃饭睡觉打打麻将活着就好。 亲缘关系维系的圈子迟早会慢慢瓦解，我也不想去花时间去维继这三大姑六大婶的关系，不想去掺和看似热闹的红白喜事；只想有三五知心好友常聚聚会，谈谈最近开心或者烦恼的事。你也许会觉得这不就是我们一直以来的生活，这么做简直就是忘本、是背叛呀！ 是的，我本无根，利益为本，相互之间利益依存，遵守契约才是本，当然这不是他(她) 们的错， 家乡，……
+                                Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
+Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
+Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
+.dircache └── objects ├── 00 ├── 01 ├── .……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
                         </article>
                     
                     
@@ -206,24 +182,26 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/" title="《有味》汪涵" >《有味》汪涵</a>
+                                    <a href="https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/" title="how to use protobuf Reflection?" >how to use protobuf Reflection?</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 19:28:27
+                               2018年4月27日 21:56:39
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/readingnotes">ReadingNotes</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                2016-04-07 第一次看到《有味》(汪涵)的这本书是在高三的时候，上午第二节课做完午间操，都会路过书店，当时只是走马观花看了一下，最近才在「微信读书」上看完了。 汪涵生于苏州，自幼随父母到湖南湘潭生活，毕业于湖南广电，积极上进，成就了今天的汪涵。看完整本书，如果汪涵非常喜欢手工艺品，喜欢琴棋书画。 男生小时候都喜欢自己做点什么，比如砍个树杈做弹弓，找根竹竿做吊杆，我记得我小时候喜欢自己做过一个风铃，在海边捡的贝壳，要爷爷在山上砍的大约10cm的竹筒。然后我就一个劲的在竹筒上钻孔，引线，最后悬挂在床帘上，有风时可以看到贝壳随风摆动(感觉非常有成就感)。……
+                                最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
+1 reflection in C++ 在c++中使用protobuf 反射
+package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc .……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/">阅读全文</a></p>
                         </article>
                     
                     
@@ -231,36 +209,11 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/" title="计算机系统组成" >计算机系统组成</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/" title="25岁的迷茫" >25岁的迷茫</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 19:25:19
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 不用goto! 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" title="异步编程" >异步编程</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年10月9日 19:24:50
+                               2018年4月15日 19:50:09
                             </date>
                             
                             <div class="post-meta">
@@ -271,9 +224,9 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
                             </div>
                             
                             <div class="post-content">
-                                我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。  ……
+                                25岁的迷茫 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">阅读全文</a></p>
                         </article>
                     
                     
@@ -281,25 +234,34 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/" title="ubuntu 16.10升级体验" >ubuntu 16.10升级体验</a>
+                                    <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan" >2018 年会-Plan</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年10月9日 19:20:45
+                               2018年3月15日 21:14:22
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制 custom 的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
-vlc中文字幕乱码 将字体改为arial unicode ms即可。……
+                                plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
+平行世界，未来已来。
+区块链，比特币
+1 我们现在在做的 ems2.0 Al 日常运维。
+正准备做的 ems3.0 seastar dpdk coroutine&hellip;
+我想做 ：
+理财平台
+智能投顾
+大数据
+语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
+通过这一次年会，我也发现了一些我不喜欢的……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/">阅读全文</a></p>
                         </article>
                     
                     
@@ -307,24 +269,102 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/" title="Spark 读取mysql" >Spark 读取mysql</a>
+                                    <a href="https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/" title="2018年会" >2018年会</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2019年2月26日 17:42:00
+                               2018年3月15日 21:10:25
                             </date>
                             
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/bigdata">BigData</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
                                 
                             </div>
                             
                             <div class="post-content">
-                                package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&quot;${this.getClass.getSimpleName}&quot;).setMaster(&quot;local&quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.read.format(&quot;jdbc&quot;) .option(&quot;url&quot;, &quot;jdbc:mysql://192.168.0.151:3306/spark&quot;) .……
+                                2018-03-09 记于十三陵 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
+平行世界，未来已来。
+区块链，比特币
+1 我们现在在做的 ems2.0 Al 日常运维。
+正准备做的 ems3.0 seastar dpdk coroutine&hellip;
+我想做 ：
+理财平台
+智能投顾
+大数据
+#
+语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
+通过这一次年会，我也发现了一些我不喜欢的。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/" title="Thinking coroutine thread async" >Thinking coroutine thread async</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年2月8日 22:32:16
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/" title="2018 Vision Hubble" >2018 Vision Hubble</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年2月5日 02:21:10
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1990年4月24日 Hubble Space Telescope
+Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&rdquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&hellip;(哈哈)&rdquo;
+很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠落悬崖。涉及生存的时候，会拼命努力，去追求。
+现在环境好了，每天都睡的很好，但是越是需要危机感。做技术是需要有存量的，就像爬山，觉得洪水只能淹没到山脚，爬到半山腰就好了；如果爬到山顶，那么洪水淹到半山腰也行；如果还有余力,造一架直升飞机也行。技术没有止境，尽力追求完美。
+那么，2018 需要做点什么呢？是的，我们需要做一个亚毫秒级的高性能交易系统。
+Vision-2018 high availability, high throughput, low latency。 1. 亚毫秒级，更一致的延时控制；
+2. 更灵活，更线性化的横向扩展；
+3. 更高效的编程模型与调试手段，提高软件质量。
+(与硬件结合的通信体系)
+CTO 给这个项目叫做：Hubble项目
+Grouping 我们划分了如下调研方向，每个方向成立一个小组：
+在这个过程中提升个人的领导力，提升个人的能力和价值。
+Innovation 我们迄今为止没有做任何创新，就连1比特的创新也没有，我们做的只不过是不断学习别人的成果，根据实际的应用场景，用来解决自己遇到的问题，仅此而已。
+但是总得做点什么吧! 比如成就感，要有愿景，最好是做出点能算的上是创新的东西。年轻，有很多种可能性。
+Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么过剩下的日子？
+在低头赶路的同时，别忘了抬头看看天。
+最近基本都在学git, 有时间写一写。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
                         </article>
                     
                     
@@ -430,14 +470,6 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
     </li>
     
@@ -446,23 +478,31 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -499,7 +539,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
     </li>
     
     <li>

@@ -63,7 +63,7 @@ FAE
     <item>
       <title>搭建CUDA 环境（GPU）</title>
       <link>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</link>
-      <pubDate>Sun, 20 Aug 2017 23:02:59 +0800</pubDate>
+      <pubDate>Mon, 12 Jun 2017 10:24:33 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</guid>
       <description>1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)

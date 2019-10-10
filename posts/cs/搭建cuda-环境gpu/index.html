@@ -11,10 +11,10 @@
     <meta property="og:title" content="搭建CUDA 环境（GPU） - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2017-08-20T23:02:59&#43;08:00">
+    <meta property="article:published_time" content="2017-06-12T10:24:33&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2017-08-20T23:02:59&#43;08:00">
+    <meta property="article:modified_time" content="2017-06-12T10:24:33&#43;08:00">
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
     <meta name="description" content="搭建CUDA 环境（GPU）">
@@ -75,22 +75,14 @@
 <ul>
 <li><a href="#1-preface">1 Preface</a>
 <ul>
-<li>
-<ul>
 <li><a href="#1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
 </ul></li>
-</ul></li>
 <li><a href="#2-cuda-环境搭建">2 CUDA 环境搭建</a>
-<ul>
-<li>
 <ul>
 <li><a href="#2-1-download">2.1 Download</a></li>
 <li><a href="#2-2-检查是否成功安装">2.2 检查是否成功安装</a></li>
 </ul></li>
-</ul></li>
 <li><a href="#3-data-interaction">3 Data Interaction</a>
-<ul>
-<li>
 <ul>
 <li><a href="#3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</a>
 <ul>
@@ -99,17 +91,10 @@
 <li><a href="#3-释放内存">(3) 释放内存</a></li>
 </ul></li>
 </ul></li>
-</ul></li>
 <li><a href="#4-cuda-demos">4 CUDA-Demos</a>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#4-1-vector-add">4.1 Vector Add</a></li>
-</ul></li>
 <li><a href="#4-2-matrix-calculation">4.2 Matrix Calculation</a></li>
-</ul></li>
 </ul></li>
 <li><a href="#5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</a></li>
 <li><a href="#reference">Reference</a></li>
@@ -226,7 +211,7 @@
                             <h1 class="post-title">搭建CUDA 环境（GPU）</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2017年8月20日 23:02:59
+                            2017年6月12日 10:24:33
                         </date>
                         
                         <div class="post-meta">
@@ -256,7 +241,7 @@
 <p> 　　最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(<code>10 thread</code>)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。
 　　下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)</p>
 
-<h4 id="1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</h4>
+<h3 id="1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</h3>
 
 <p><img src="/images/nvida-gpu.png" alt="nvida-gpu" /></p>
 
@@ -269,19 +254,19 @@
 
 <h2 id="2-cuda-环境搭建">2 CUDA 环境搭建</h2>
 
-<h4 id="2-1-download">2.1 Download</h4>
+<h3 id="2-1-download">2.1 Download</h3>
 
 <p>nvidia <a href="https://developer.nvidia.com/cuda-toolkit">cuda-toolkit</a>
 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。
 <img src="/images/cuda-toolkit-sdk.png" alt="cuda-toolkit-sdk" /></p>
 
-<h4 id="2-2-检查是否成功安装">2.2 检查是否成功安装</h4>
+<h3 id="2-2-检查是否成功安装">2.2 检查是否成功安装</h3>
 
 <p>安装完成后，检查是否成功安装。<br />
 (1) cmd 中输入 <code>nvcc -V</code>, 查看 nvcc 版本。<br />
 (2) 执行 <strong>deviceQuery.exe</strong> 可以查看显卡设备:</p>
 
-<pre><code>λ deviceQuery
+<pre><code class="language-cpp">λ deviceQuery
 deviceQuery Starting...
 
  CUDA Device Query (Runtime API) version (CUDART static linking)
@@ -323,7 +308,7 @@ Device 0: &quot;NVS 510&quot;
 
 <p>(3)执行 <strong>bandwidthTest.exe</strong>,看到 <code>Result - Pass</code></p>
 
-<pre><code>λ bandwidthTest
+<pre><code class="language-cpp">λ bandwidthTest
 [CUDA Bandwidth Test] - Starting...
 Running on...
 
@@ -350,13 +335,13 @@ Result = PASS
 
 <h2 id="3-data-interaction">3 Data Interaction</h2>
 
-<h4 id="3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</h4>
+<h3 id="3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</h3>
 
 <p> 　CPU 和 GPU 有各自独立的内存空间，在 GPU 中不能直接访问 CPU 端的代码，反之也一样。<br />
 这时候最直接的方式就是<strong>数据拷贝</strong>: 在计算前将数据从 CPU 复制到 GPU 端，以 GPU 内存指针的方式传递给 GPU 的内存空间进行读写操作，计算完后将计算结果复制回 CPU 端。下面我们看下一个Sample Project 的代码 <code>bandwidthTest</code><br />
 <strong>函数功能</strong>：测试device to device (or device &lt;==&gt; host)拷贝数据的带宽。</p>
 
-<h5 id="1-动态申请连续的内存块">(1) 动态申请连续的内存块</h5>
+<h4 id="1-动态申请连续的内存块">(1) 动态申请连续的内存块</h4>
 
 <pre><code class="language-cpp">/**char *d_idata: device input data
  * char *h_odata: host output data
@@ -367,7 +352,7 @@ Result = PASS
   cudaError_t cudaMalloc((void **) &amp;d_idata, memSize);
 </code></pre>
 
-<h5 id="2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</h5>
+<h4 id="2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</h4>
 
 <pre><code class="language-cpp">  // sync CopyData from Device to Host 
   cudaError_t cudaMemcpy(void *dst, const void *src,size_t memSize, cudaMemcpyDeviceToHost);
@@ -379,7 +364,7 @@ Result = PASS
 <p>数据从device 拷贝回 host 是一个同步数据拷贝。</p>
 </blockquote>
 
-<h5 id="3-释放内存">(3) 释放内存</h5>
+<h4 id="3-释放内存">(3) 释放内存</h4>
 
 <pre><code class="language-cpp">  //释放 host 上的内存
   cudaError_t cudaFreeHost(h_odata);
@@ -394,7 +379,7 @@ Result = PASS
 
 <p>下面来看个简单的 GPU 计算向量加法的例子。</p>
 
-<h5 id="4-1-vector-add">4.1 Vector Add</h5>
+<h3 id="4-1-vector-add">4.1 Vector Add</h3>
 
 <p>CUDA Kernel function: 这段代码只能在GPU上执行，不能在CPU上执行。<br />
 下面来看一个内核函数的例子：</p>
@@ -428,7 +413,7 @@ CUDA 专门定义了一个 C 语言扩展用以调用内核函数。语法如下
 <pre><code class="language-cpp">// Launch the Vector Add CUDA Kernel
     int threadsPerBlock = 256;
     int blocksPerGrid =(numElements + threadsPerBlock - 1) / threadsPerBlock;
-   
+
     vectorAdd&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(d_A, d_B, d_C, numElements);
 
     err = cudaGetLastError();
@@ -445,7 +430,7 @@ num_threads 表示单个 Block 内启动的线程数。</p>
 <p>*向量的减法、乘法类似*。</p>
 </blockquote>
 
-<h4 id="4-2-matrix-calculation">4.2 Matrix Calculation</h4>
+<h3 id="4-2-matrix-calculation">4.2 Matrix Calculation</h3>
 
 <p><code>next post write</code></p>
 
@@ -475,11 +460,6 @@ SP:  Stream Processor 流处理器<br />
 DRAM： 缓存</p>
 </blockquote>
 
-<p>@Author: sunquan<br />
-@DateTime 2017-06-12 T10:24:33+0800
-@email: sunquana@gmail.com
-Copyright@2017</p>
-
                         </div>
 
                         
@@ -493,13 +473,13 @@ Copyright@2017</p>
         
         <li><a href="/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">程序员如何留Email？</a></li>
         
-        <li><a href="/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/">优美的句子</a></li>
+        <li><a href="/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/">工作重心梳理</a></li>
         
-        <li><a href="/posts/diary/%E5%BD%93%E4%B8%8B%E7%9A%84%E6%97%B6%E5%85%89/">当下的时光</a></li>
+        <li><a href="/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/">C&#43;&#43;11 std::function 和 std::bind</a></li>
         
-        <li><a href="/posts/life/%E5%85%B3%E4%BA%8E%E7%BC%96%E7%A8%8B/">关于编程</a></li>
+        <li><a href="/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/">关于亲情</a></li>
         
-        <li><a href="/posts/life/%E5%AD%A6%E4%BA%86%E7%AE%97%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/">学了算法有什么用？</a></li>
+        <li><a href="/posts/readingnotes/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/">「Silicon Valley 4 」观后感</a></li>
         
     </ul>
 </div>
@@ -551,14 +531,6 @@ Copyright@2017</p>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="求职计划">求职计划</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cs/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
     </li>
     
@@ -567,23 +539,31 @@ Copyright@2017</p>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2016%E5%B9%B4-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="2016年-个人总结">2016年-个人总结</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/aboutme/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="java 注解">java 注解</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史">公司的成长史</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/" title="Seastar 入门">Seastar 入门</a>
     </li>
     
 </ul>
@@ -620,7 +600,7 @@ Copyright@2017</p>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(8)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
     </li>
     
     <li>
