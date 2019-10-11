@@ -18,8 +18,7 @@
       
       <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
       <description>Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
-Multithreading-with-ZeroMQ &amp;nbsp; ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。</description>
+Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。</description>
     </item>
     
     <item>
@@ -48,7 +47,7 @@ vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;quot;abc&amp;quot;); str.pus
       
       <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/</guid>
       <description>1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &amp;hellip;
-#include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.2, &#39;w&#39;, 7); cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; return 0; } int f(int a, char b , double c) { cout&amp;lt;&amp;lt;&amp;quot;a==&amp;quot;&amp;lt;&amp;lt; a &amp;lt;&amp;lt;&amp;quot;,b==&amp;quot; &amp;lt;&amp;lt;b &amp;lt;&amp;lt; &amp;quot;,c==&amp;quot;&amp;lt;&amp;lt;c &amp;lt;&amp;lt;endl; return 0; }  2 std::function std::function 可以用来定义一个函数</description>
+#include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.</description>
     </item>
     
     <item>
@@ -88,9 +87,9 @@ unique_ptr </description>
       <pubDate>Fri, 24 Feb 2017 17:29:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</guid>
-      <description> ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+      <description>ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;amp;0xff03 hex(节点号)&amp;amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;sys/ipc.h&amp;gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&amp;quot;usage: keyfile\n&amp;quot;); return 0; } printf(&amp;quot;%s\n&amp;quot;,argv[0]); printf(&amp;quot;ftok=0x%x\n&amp;quot;,ftok(argv[1],1) ); return 0; }  </description>
+Usage #include &amp;lt;stdio.</description>
     </item>
     
     <item>

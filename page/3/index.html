@@ -10,7 +10,7 @@
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -66,6 +66,32 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/" title="Thinking coroutine thread async" >Thinking coroutine thread async</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年2月8日 22:32:16
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -127,13 +153,7 @@ Vision-2018 high availability, high throughput, low latency。 1. 亚毫秒级�
 3. 更高效的编程模型与调试手段，提高软件质量。
 (与硬件结合的通信体系)
 CTO 给这个项目叫做：Hubble项目
-Grouping 我们划分了如下调研方向，每个方向成立一个小组：
-在这个过程中提升个人的领导力，提升个人的能力和价值。
-Innovation 我们迄今为止没有做任何创新，就连1比特的创新也没有，我们做的只不过是不断学习别人的成果，根据实际的应用场景，用来解决自己遇到的问题，仅此而已。
-但是总得做点什么吧! 比如成就感，要有愿景，最好是做出点能算的上是创新的东西。年轻，有很多种可能性。
-Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么过剩下的日子？
-在低头赶路的同时，别忘了抬头看看天。
-最近基本都在学git, 有时间写一写。……
+Grouping 我们划分了如下调研方向，每个方向成立一个小组：……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
                         </article>
@@ -159,8 +179,7 @@ Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么
                             
                             <div class="post-content">
                                 Preface 　欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。
-Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。
-Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可能会用matlabplot 来绘图，再geek一点的就用Τex这种国际上通用的玩法了。 之前用过 highcharts, 潜意识下数据可视化 找一个强大的JS库就好了， 可以快速出成品。咨询tqd, 推荐使用baidu的echarts，看完官网 examples，感觉好强大，官方入门文档还是蛮不错的！ 配合Demo，2小时就可以学完基本的API。……
+Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
                         </article>
@@ -187,7 +206,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
                             <div class="post-content">
                                 2018-01-03 Wed 13:00 huamao center 2 floor 备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
 谈话记录 谈话主要以QA的方式展开,如下:
-基本面 luke: 你是什么时候来公司的？ sq: 今年4月10日，来名策有8个月了。 luke: 在恒生工作了几年？ sq: 算上实习期 共2年。 luke: 在恒生的工作怎么样？是不是学到了很多东西？ sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。 luke: 恒生不是也有中间件吗？ sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。 luke: 当初在恒生你也是跟张前平做事的？ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。 &hellip;找到一个咖啡厅坐下&hellip;. luke: 学校里数学学得怎么样？ sq：有点偏科，就数学稍微学得好点。 luke: 如果这行要继续做下去，主要还是靠兴趣，你是从高中开始编程还是大学？ sq: 大学，感觉老师C语言课讲得很好！然后跟老师进了实验室；准备课件、组织比赛。 luke: 你觉得计算机的本质是什么？或者说操作系统的本质？ sq: cpu，内存，寄存器?……
+基本面 luke: 你是什么时候来公司的？ sq: 今年4月10日，来名策有8个月了。 luke: 在恒生工作了几年？ sq: 算上实习期 共2年。 luke: 在恒生的工作怎么样？是不是学到了很多东西？ sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。 luke: 恒生不是也有中间件吗？ sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。 luke: 当初在恒生你也是跟张前平做事的？ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。 &hellip;找到一个咖啡厅坐下&hellip;.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/work/talk-with-cto/">阅读全文</a></p>
                         </article>
@@ -240,8 +259,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
                                 Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
 Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉，老板的谈吐之间，很多价值观都有认同感。用着自己熟悉和喜欢的语言Unix C/C++，开发效率很高，CTO和同事有时候会搞个技术分享会，很有在学校实验室的感觉。 7月初开始调研cuda，并实现期货高频的参数计算，真金白银实盘开始测试，一个月陆续亏损10W，Boss遂决定做AI基金。
 Life 在帝都有3个大学同学，4月份刚来的时候，就在同学那里下榻，平时有事没事就一起聚聚，唱唱歌，聚聚餐，周边自驾游，业余生活也丰富了不少，很是惬意，心存感恩和敬畏。 7月29日参加2017张北草原音乐节，音乐人的歌很嗨，草原的天很蓝，花也美。 10月1日，带爷爷在北京畅游了2日，去了天安门。爷爷说：“人民大会堂会场好小，感觉没有新闻联播里的大。” 去颐和园“爬山”，这时候要是懂点历史就好了! 长城爬了北八楼，万木枯荣，还是更喜欢夏日的温热和青葱。 老板隔三差五带我们出去搓一顿，打打牙祭，尤其钟爱大龙虾，哈哈。 参加了一场小朋友的Artists Show，应该努力活的像个小孩。
-Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。
-###Lan Skills 工作中最常用的语言unix C/C++， python，java。开始感觉到语言其实只是一门工具，创意和想法很重要，还要有营利模式。 业余时间尝试了一门全栈语言 Red，跨平台能力很强，代码可以在 linux android，ios， windows运行。 后续打算了解下Go和perl。看过别人用 perl 做数据分析。……
+Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/aboutme/%E6%88%91%E7%9A%842017%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/">阅读全文</a></p>
                         </article>
@@ -276,7 +294,7 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件" >中兴程序员事件</a>
+                                    <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件" >中兴程序员事件</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -291,14 +309,10 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
                             </div>
                             
                             <div class="post-content">
-                                前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！ 互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。 我估计不少人会遇到没工作的情况，但大部分人扛一扛就过去了。随着社会的发展，人的工作年限会越来越长，要有长期的规划和路径，什么阶段做什么阶段的事情，天下没有一劳永逸的事情。
-环境永远是变化的，人生如练功，一份功一份松，松了一环之后，再往紧处练，层层而上。功力越深，无论环境如何变化，实力越强的人，越不容易被击败。
-这种实力当然不仅仅是某个领域的技术，如果只专注于细节不看趋势，趋势没了，再好的技术也就没用了。所以始于技术，陷于业务，忠于盈利。
-我始终认为，人过四十，工作应该是一种需求，而不是压力。我现在每天工作的时候都特别开心，阅读产品，看代码，写东西，带领大家往前冲，是一种享受。
-这个世界是不相信眼泪的，马云说：要是哭有用，那我每天哭！
-昨天在图书馆一个头发斑白的老大爷在用电脑查阅资料，我想如果等我老了，我希望用这种方式度过余生。想法会随时间改变，谁知道呢-_-……
+                                <p>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
+互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。</p>……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/">阅读全文</a></p>
                         </article>
                     
                     
@@ -325,33 +339,6 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
 是的，我不想再回家乡了！因为那里你看不到出路，大家都把希望寄托于下一代，觉得自己吃饭睡觉打打麻将活着就好。 亲缘关系维系的圈子迟早会慢慢瓦解，我也不想去花时间去维继这三大姑六大婶的关系，不想去掺和看似热闹的红白喜事；只想有三五知心好友常聚聚会，谈谈最近开心或者烦恼的事。你也许会觉得这不就是我们一直以来的生活，这么做简直就是忘本、是背叛呀！ 是的，我本无根，利益为本，相互之间利益依存，遵守契约才是本，当然这不是他(她) 们的错， 家乡，……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/" title="帝都生活杂感(2)" >帝都生活杂感(2)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年11月21日 23:51:27
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                20171121 星期二 生活杂感　Efficiency 　有时候给了别人很大期望，展现在别人面前你很能干，那是你全身心投入做一件事的时候，开足了120码，你就会发现你的效率很高。 一旦你分心去忙其他的事的时候(炒股)，你就会发现开始力不从心，分配的工作开始不能按期完成，一拖再拖。最近一个很厉害的同事离职，去了一家做 Ｍanless Driving 的创业公司，很多事都得我去handle，不能像以前，上面有个人替你扛着，安静的“划水”了。
-Just Alive 　外卖，快递小哥，这群活在底层的“工人”，他们在北京一无所有，只有一条命把握在自己手上，但是他们维持着整个北京城的光鲜，让我们感觉幸福的活着。等到下次 20 大召开的时候，他们还是被“禁止进入”北京城。
-Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危机就开始发芽。有时候想想自己还是一无所有，但能够给予的时候也是很快乐。现在所面临的领域也是一无所知，需要解决的问题也无从下手，所以忘掉你引以为傲的武功招式，此时此刻一切归零，像一个新手一样从头再来。切记！……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/">阅读全文</a></p>
                         </article>
                     
                     
@@ -469,6 +456,10 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -478,10 +469,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -502,7 +489,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -526,7 +513,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -554,7 +541,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -582,7 +569,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -614,6 +601,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -636,6 +625,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -646,12 +637,29 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

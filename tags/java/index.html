@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="Java">
         
     <meta name="author" content="">
@@ -97,8 +97,7 @@
                             <div class="post-content">
                                 Zookeeper+Kafka集群搭建方案 date: 2018-10-30 19:50 Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
 Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
-说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
                             </div>
                         </article>
@@ -146,7 +145,7 @@ Zookeeper工作方式
                             
                             <div class="post-content">
                                 什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。
-// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&quot;-&gt;&quot;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.……
+// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;); Method ms[] = c.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/">阅读全文</a></p>
                             </div>
                         </article>
@@ -192,6 +191,10 @@ Zookeeper工作方式
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -201,10 +204,6 @@ Zookeeper工作方式
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -225,7 +224,7 @@ Zookeeper工作方式
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -249,7 +248,7 @@ Zookeeper工作方式
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -277,7 +276,7 @@ Zookeeper工作方式
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -305,7 +304,7 @@ Zookeeper工作方式
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -337,6 +336,8 @@ Zookeeper工作方式
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -359,6 +360,8 @@ Zookeeper工作方式
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -369,12 +372,29 @@ Zookeeper工作方式
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

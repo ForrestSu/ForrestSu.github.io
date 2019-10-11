@@ -10,7 +10,7 @@
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -71,6 +71,32 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析" >Git原理分析</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年3月9日 11:24:45
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。 &gt;git init &gt;git add number.txt
+此时在.git 下会产生一个index文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" title="Linux 服务端编程（一）" >Linux 服务端编程（一）</a>
                                 </h1>
                             </header>
@@ -86,9 +112,9 @@
                             </div>
                             
                             <div class="post-content">
-                                 ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+                                ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;0xff03 hex(节点号)&amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage #include &lt;stdio.h&gt; #include &lt;sys/ipc.h&gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&quot;usage: keyfile\n&quot;); return 0; } printf(&quot;%s\n&quot;,argv[0]); printf(&quot;ftok=0x%x\n&quot;,ftok(argv[1],1) ); return 0; }  ……
+Usage #include &lt;stdio.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
                         </article>
@@ -138,12 +164,29 @@ Usage #include &lt;stdio.h&gt; #include &lt;sys/ipc.h&gt; int main(int argc,char
                             </div>
                             
                             <div class="post-content">
-                                C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。
-Quan Sun(孙权) Web
-https://forrestsu.github.io
-Email
-sunquana@gmail.com
-Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，Git 快速学习和解决问题的能力  Experience  2015.07 - 现在，软件工程师, Hundsun Company, HangZhou. 2011.09 - 2015.06，就读于湖南农业大学，计算机专业。  Awards  2014.10 湖南省第十届“蓝狐网络杯”大学生计算机程序设计省赛 一等奖 2014.03 获得湖南农业大学程序设计竞赛一等奖 2013.05 获得湖南农业大学信息科学技术学院logo设计大赛一等奖  Publications  2015.……
+                                <p>C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。</p>
+
+<h2 id="quan-sun-孙权">Quan Sun(孙权)</h2>
+
+<p><strong>Web</strong><br />
+　　<a href="https://forrestsu.github.io">https://forrestsu.github.io</a><br />
+<strong>Email</strong><br />
+　　sunquana@gmail.com</p>
+
+<h2 id="skill">Skill</h2>
+
+<ul>
+<li>编程语言: C/C++, Java, Python.</li>
+<li>熟悉Linux命令，服务端编程，Git</li>
+<li>快速学习和解决问题的能力</li>
+</ul>
+
+<h2 id="experience">Experience</h2>
+
+<ul>
+<li>2015.07 - 现在，软件工程师, <a href="http://www.hundsun.com/">Hundsun</a> Company, HangZhou.</li>
+<li>2011.09 - 2015.06，就读于湖南农业大学，计算机专业。</li>
+</ul>……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/about/">阅读全文</a></p>
                         </article>
@@ -256,8 +299,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
 我的不足之处 1 演讲或者给别人分享的时候：&lt;我声音太小&gt; 2017-02-08 &gt;声音要大一点。（不然声音太小，会显得很没有底气）
 2 &lt;不够谦逊&gt; 2017-08-07 &gt; (1) 务必时刻保持一颗谦虚的心，背后多言他人的溢美之词，我只需取其善者而从之，不善者而改之。 (2) 也不能自己的想法强加给别人，我只需要管好我自己。(己所不欲，勿施于人; 穷则独善其身) (3) 毕竟写点业务代码也没啥难的，都有成熟的解决方案，我的眼光应该放的更长远，有发牢骚的时间，还不如看看框架和底层 (发挥算法还没荒废了)。 (4) 时常反思自己的一言一行，换位思考。(慎言笃行)
 3 &lt;有点拖延症&gt; 2017-08-07 &gt; 想写的文章一直拖着，没有抽点时间去写。
-待补充&hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*
-我待改进的地方 2017-07-06 1 遇到问题，先google，如果没找到好的解决方案，可以咨询CTO（可采用微信或者 Email的方式） 一般CTO都很乐意被别人问问题的 (当然弱鸡问题除外)。 切记。……
+待补充&hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/aboutme/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/">阅读全文</a></p>
                         </article>
@@ -284,7 +326,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
                             <div class="post-content">
                                 本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。
 1 StartUp  Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip  2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64
-3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.conf配置: 2 复制并注释掉fastcgi_param,修改/scripts为$document_root 3.2 php配置文件 1 复制php.ini-development到php.ini 启用以下dll： php_bz2.……
+3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/">阅读全文</a></p>
                         </article>
@@ -311,37 +353,9 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
                             <div class="post-content">
                                 上一篇主要入门了 XSL，这一课来进一步学习XSL。
 1 语法 (1) xsl:if 元素 语法：
-&lt;xsl:if test=&quot;expression&quot;&gt; ... ...如果条件成立则输出... ... &lt;/xsl:if&gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。
- &lt;xsl:for-each select=&quot;catalog/cd&quot;&gt; &lt;xsl:if test=&quot;price = 10&quot;&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:if&gt; &lt;/xsl:for-each&gt;  (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法……
+&lt;xsl:if test=&quot;expression&quot;&gt; ... ...如果条件成立则输出... ... &lt;/xsl:if&gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/" title="XSL 语言" >XSL 语言</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年1月18日 14:08:31
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。
-XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件：
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;cdcatalog.xsl&quot;?&gt; &lt;!-- &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;readline.xsl&quot;?&gt;--&gt; &lt;catalog&gt; &lt;cd&gt; &lt;title&gt;你好&lt;/title&gt; &lt;artist&gt;Bob Zhang&lt;/artist&gt; &lt;country&gt;USA&lt;/country&gt; &lt;company&gt;Columbia&lt;/company&gt; &lt;price&gt;9.9&lt;/price&gt; &lt;year&gt;1985&lt;/year&gt; &lt;/cd&gt; &lt;cd&gt; &lt;title&gt;Happy in the Rain&lt;/title&gt; &lt;artist&gt;Alice&lt;/artist&gt; &lt;country&gt;USA&lt;/country&gt; &lt;company&gt;Columbia&lt;/company&gt; &lt;price&gt;10.……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/">阅读全文</a></p>
                         </article>
                     
                     
@@ -473,6 +487,10 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -482,10 +500,6 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -506,7 +520,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -530,7 +544,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -558,7 +572,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -586,7 +600,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -618,6 +632,8 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -640,6 +656,8 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -650,12 +668,29 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

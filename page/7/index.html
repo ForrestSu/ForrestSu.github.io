@@ -10,7 +10,7 @@
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -66,6 +66,33 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" title="win下ssh指定密码登陆" >win下ssh指定密码登陆</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年5月29日 21:02:22
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
+3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -144,8 +171,7 @@ Analysis Advantage Analysis： zeroMQ……
 3 添加环境变量sudo vi /etc/profile
  export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
  4
- [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.xpm Terminal=false StartupNotify=true Type=Application Categories=Application;Development;
- ……
+ [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">阅读全文</a></p>
                         </article>
@@ -171,8 +197,7 @@ Analysis Advantage Analysis： zeroMQ……
                             
                             <div class="post-content">
                                 1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:
- sudo dpkg &ndash;add-architecture i386 sudo apt-get update……
+ 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">阅读全文</a></p>
                         </article>
@@ -227,7 +252,7 @@ Analysis Advantage Analysis： zeroMQ……
                             
                             <div class="post-content">
                                 1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor. Since you didn&rsquo;t mention which compiler you&rsquo;re using, I&rsquo;ll assume it&rsquo;s GCC but the steps will be similar for other compilers.……
+2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
                         </article>
@@ -308,35 +333,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 unique_ptr ……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/" title="恒生一年半工作体验" >恒生一年半工作体验</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年4月7日 17:51:39
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                前言  我是2015年6月毕业就来到恒生电子工作，算上3个月实习期，到今天(2017-02-21)将近有2年光景。 先简单介绍下我这边的工作情况：我工作的部门是恒生起步比较早的部门—资产管理事业部（隶属于资产管理事业部&lt;下面有研发一二三四、投资一部、投资二部共6个子部门&gt;）。 每个部门都有一个到多个产品，一个产品即一个BU。比如我所在的投资二部目前有4个小BU（资管SQL版本，非标1.0，非标2.0，QDII境外投资）资管SQL是逐渐被O32的替换的产品，QDII也是拿了O32一个版本来独立开发的。 我所在的团队，主要包含以下小组: 风控、日终、交易、报盘、查询、周边。 我这边主要负责：报盘+部分交易+部分周边。 周边主要包括 UFX/EI统一接入（C++编写）。
-1 工作方面  最近一年来，是经常加班，任务稍微有点多，总体感觉还好。基本都是需求搞好业务分析，形成业务文档，然后Jun哥搞好前期的业务设计。 整体评估，然后把具体的修改点(增加的模块)都列出来。最后分工到个人。(详细的业务流程就不讲了)
-2 技术  技术基本都是沿用O32老的三层架构。 前端 采用Delphi实现界面要素(委托、查询、参数调整等界面。) 中间件 采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件) 中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。 后端 主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。
-其他 (1) 共享内存 &gt; 共享内存主要有两大块：前台共享内存,采用一个单独的dll来实现，具体使用时用导出接口，数据初始化时加载向后台发送请求，全量加载后台实体表数据。后台共享内存,主要采用linux的shm实现，用一个结构体管理共享内存，每张表有一块连续的内存空间，每次定位时先找到这张表的起始地址。 主要涉及的操作（增加一条记录，更新一条记录，标记一条记录已删除）
-(2) 消息中心 消息中心就是一个订阅+发布的功能。(典型的观察者消费者模型) 启动时加载后台一系列消息主题，等待观察者订阅。当有新消息到来，推送给对应的消息订阅者。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
                         </article>
                     
                     
@@ -468,6 +464,10 @@ unique_ptr ……
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -477,10 +477,6 @@ unique_ptr ……
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -501,7 +497,7 @@ unique_ptr ……
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -525,7 +521,7 @@ unique_ptr ……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -553,7 +549,7 @@ unique_ptr ……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -581,7 +577,7 @@ unique_ptr ……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -613,6 +609,8 @@ unique_ptr ……
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -635,6 +633,8 @@ unique_ptr ……
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -645,12 +645,29 @@ unique_ptr ……
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

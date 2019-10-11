@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="CPP">
         
     <meta name="author" content="">
@@ -96,8 +96,7 @@
                             
                             <div class="post-content">
                                 Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
-Multithreading-with-ZeroMQ &nbsp; ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
+Preface &nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
                             </div>
                         </article>
@@ -168,7 +167,7 @@ vector&lt;char*&gt; str; str.push_back(&quot;abc&quot;); str.push_back(&quot;123
                             
                             <div class="post-content">
                                 1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &hellip;
-#include &lt;functional&gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.2, 'w', 7); cout&lt;&lt;x&lt;&lt;endl; return 0; } int f(int a, char b , double c) { cout&lt;&lt;&quot;a==&quot;&lt;&lt; a &lt;&lt;&quot;,b==&quot; &lt;&lt;b &lt;&lt; &quot;,c==&quot;&lt;&lt;c &lt;&lt;endl; return 0; }  2 std::function std::function 可以用来定义一个函数……
+#include &lt;functional&gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/">阅读全文</a></p>
                             </div>
                         </article>
@@ -264,9 +263,9 @@ unique_ptr ……
                             </div>
                             
                             <div class="post-content">
-                                 ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+                                ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;0xff03 hex(节点号)&amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage #include &lt;stdio.h&gt; #include &lt;sys/ipc.h&gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&quot;usage: keyfile\n&quot;); return 0; } printf(&quot;%s\n&quot;,argv[0]); printf(&quot;ftok=0x%x\n&quot;,ftok(argv[1],1) ); return 0; }  ……
+Usage #include &lt;stdio.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
                             </div>
                         </article>
@@ -361,6 +360,10 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -370,10 +373,6 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -394,7 +393,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -418,7 +417,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -446,7 +445,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -474,7 +473,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -506,6 +505,8 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -528,6 +529,8 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -538,12 +541,29 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

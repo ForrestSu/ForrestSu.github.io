@@ -48,6 +48,15 @@
     </item>
     
     <item>
+      <title>AboutMe</title>
+      <link>https://forrestsu.github.io/categories/aboutme/</link>
+      <pubDate>Thu, 27 Sep 2018 09:41:29 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/aboutme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Life</title>
       <link>https://forrestsu.github.io/categories/life/</link>
       <pubDate>Mon, 17 Sep 2018 06:08:12 +0800</pubDate>
@@ -66,11 +75,11 @@
     </item>
     
     <item>
-      <title>ReadingNotes</title>
-      <link>https://forrestsu.github.io/categories/readingnotes/</link>
-      <pubDate>Sat, 09 Jun 2018 19:34:23 +0800</pubDate>
+      <title>杂谈</title>
+      <link>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/categories/readingnotes/</guid>
+      <guid>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     
@@ -111,15 +120,6 @@
     </item>
     
     <item>
-      <title>AboutMe</title>
-      <link>https://forrestsu.github.io/categories/aboutme/</link>
-      <pubDate>Mon, 01 Jan 2018 01:42:05 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/aboutme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Languages</title>
       <link>https://forrestsu.github.io/categories/languages/</link>
       <pubDate>Mon, 18 Dec 2017 18:27:08 +0800</pubDate>
@@ -129,11 +129,11 @@
     </item>
     
     <item>
-      <title>杂谈</title>
-      <link>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</link>
-      <pubDate>Sun, 17 Dec 2017 11:05:25 +0800</pubDate>
+      <title>ReadingNotes</title>
+      <link>https://forrestsu.github.io/categories/readingnotes/</link>
+      <pubDate>Tue, 10 Oct 2017 11:23:08 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://forrestsu.github.io/categories/readingnotes/</guid>
       <description></description>
     </item>
     

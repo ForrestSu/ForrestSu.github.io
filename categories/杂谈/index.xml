@@ -6,23 +6,41 @@
     <description>Recent content in 杂谈 on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 17 Dec 2017 11:05:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 May 2018 19:34:23 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>关于股市</title>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
+      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/about-stock.png&#34; alt=&#34;about-stock&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+
+&lt;p&gt;　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>中兴程序员事件</title>
-      <link>https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
       <pubDate>Sun, 17 Dec 2017 11:05:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
-      <description>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！ 互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。 我估计不少人会遇到没工作的情况，但大部分人扛一扛就过去了。随着社会的发展，人的工作年限会越来越长，要有长期的规划和路径，什么阶段做什么阶段的事情，天下没有一劳永逸的事情。
-环境永远是变化的，人生如练功，一份功一份松，松了一环之后，再往紧处练，层层而上。功力越深，无论环境如何变化，实力越强的人，越不容易被击败。
-这种实力当然不仅仅是某个领域的技术，如果只专注于细节不看趋势，趋势没了，再好的技术也就没用了。所以始于技术，陷于业务，忠于盈利。
-我始终认为，人过四十，工作应该是一种需求，而不是压力。我现在每天工作的时候都特别开心，阅读产品，看代码，写东西，带领大家往前冲，是一种享受。
-这个世界是不相信眼泪的，马云说：要是哭有用，那我每天哭！
-昨天在图书馆一个头发斑白的老大爷在用电脑查阅资料，我想如果等我老了，我希望用这种方式度过余生。想法会随时间改变，谁知道呢-_-</description>
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
+      <description>&lt;p&gt;前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
+互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>一个关于合伙吃饭的问题</title>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 18 Oct 2016 23:42:39 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>最近和4～5个同事经常一起在外面吃饭，因为要充卡买单，所以每个人都出了100，然后充卡，一起消费。 那么问题来了，可能某个同事有一天请假了，就需要向这个同事返一定的金额，这个金额应该是多少？（注：吃饭的人一定是合伙出钱的人） A 本次消费金额/本次吃饭人数 B 本次消费金额/合伙出钱的总人数 答案 A要保证资金池里面，每个人的剩余金额均相等。</description>
     </item>
     
   </channel>

@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="Library">
         
     <meta name="author" content="">
@@ -124,8 +124,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
                             <div class="post-content">
                                 Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
-Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
-.dircache └── objects ├── 00 ├── 01 ├── .……
+Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
                             </div>
                         </article>
@@ -228,7 +227,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 (2) 解压 &gt;tar -zxvf zeromq-4.2.1.tar.gz
 (3) 编译安装 &gt; 执行configure文件：./configure 编译： make 安装： make install
 2 编写样例代码 server端代码：server.cpp
-#include &lt;stdio.h&gt; #include &lt;unistd.h&gt; #include &lt;string.h&gt; #include &lt;assert.h&gt; #include &lt;zmq.h&gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &quot;tcp://*:5555&quot;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&quot;Received Hello\n&quot;); sleep (1); // Do some 'work' zmq_send (responder, &quot;World&quot;, 5, 0); } return 0; }  client端代码：client.……
+#include &lt;stdio.h&gt; #include &lt;unistd.h&gt; #include &lt;string.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
                             </div>
                         </article>
@@ -274,6 +273,10 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -283,10 +286,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -307,7 +306,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -331,7 +330,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -359,7 +358,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -387,7 +386,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -419,6 +418,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -441,6 +442,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -451,12 +454,29 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

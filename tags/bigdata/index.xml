@@ -17,7 +17,7 @@
       <pubDate>Tue, 26 Feb 2019 17:42:00 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/</guid>
-      <description>package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&amp;quot;${this.getClass.getSimpleName}&amp;quot;).setMaster(&amp;quot;local&amp;quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.read.format(&amp;quot;jdbc&amp;quot;) .option(&amp;quot;url&amp;quot;, &amp;quot;jdbc:mysql://192.168.0.151:3306/spark&amp;quot;) .</description>
+      <description>package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&amp;quot;${this.getClass.getSimpleName}&amp;quot;).setMaster(&amp;quot;local&amp;quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.</description>
     </item>
     
   </channel>

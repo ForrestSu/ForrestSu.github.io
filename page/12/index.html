@@ -10,7 +10,7 @@
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -71,6 +71,31 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/" title="Sublime Text 3 设置" >Sublime Text 3 设置</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2016年5月14日 14:13:40
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 User 1 通过快捷键开控制自动换行，在Preferences -&gt;key bindings-User添加如下内容即可。 &gt;{ &ldquo;keys&rdquo;: [&ldquo;ctrl+shift+w&rdquo;], &ldquo;command&rdquo;: &ldquo;toggle_setting&rdquo;, &ldquo;args&rdquo;: {&ldquo;setting&rdquo;: &ldquo;word_wrap&rdquo;} }……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Sublime Text 3 插件安装" >Sublime Text 3 插件安装</a>
                                 </h1>
                             </header>
@@ -86,7 +111,7 @@
                             </div>
                             
                             <div class="post-content">
-                                1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &gt; import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;http://packagecontrol.io/' + pf.replace(&rsquo; &lsquo;, &lsquo;%20&rsquo;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&lsquo;Error validating download (got %s instead of %s), please try manual install&rsquo; % (dh, h)) if dh !……
+                                1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &gt; import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;http://packagecontrol.io/' + pf.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">阅读全文</a></p>
                         </article>
@@ -167,9 +192,7 @@
                                 过些日子计划带父母去香港逛逛，顺便品尝下香港的美食小吃，不能光顾着自己嗨 (不能一人吃饱全家不饿) ，好了不多废话了，下面谈谈签证的问题。
 一、签证分类 1 团队旅游L：
 分为三个月一次或两次、一年一次或两次，每次逗留不超过7天，目前可以自行入关，和G签一样。
-   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2 探亲T：
-分为三种：
-   三个月一次有效 在香港或澳门逗留不超过14天 20元/每签     三个月多次有效 自首次进入香港或澳门起累计逗留不超过90天 100元/每签   一年多次有效 持证人每次在香港或者澳门逗留不超过90天 100元/每签    3 商务S：……
+   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2 探亲T：……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/%E5%85%B3%E4%BA%8E%E9%A6%99%E6%B8%AF%E6%97%85%E6%B8%B8%E7%AD%BE%E8%AF%81/">阅读全文</a></p>
                         </article>
@@ -270,6 +293,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -279,10 +306,6 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -303,7 +326,7 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -327,7 +350,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -355,7 +378,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -383,7 +406,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -415,6 +438,8 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -437,6 +462,8 @@
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -447,12 +474,29 @@
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

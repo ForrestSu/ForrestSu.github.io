@@ -19,8 +19,7 @@
       <guid>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</guid>
       <description>1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
 3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
-5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.</description>
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.</description>
     </item>
     
   </channel>

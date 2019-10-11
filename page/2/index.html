@@ -10,7 +10,7 @@
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -90,6 +90,35 @@
 摩西奶奶 说：人生只有一次，去做自己喜欢的事。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市" >关于股市</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年5月9日 19:34:23
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88">杂谈</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                <p><img src="/images/about-stock.png" alt="about-stock" /></p>
+
+<h2 id="preface">Preface</h2>
+
+<p>　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。</p>……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/">阅读全文</a></p>
                         </article>
                     
                     
@@ -314,36 +343,9 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
                                 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。
 　Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
 由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
-具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）
-对应的解决方案，在接下来的数十年中很流行，它将放弃舒适但低效的同步服务器设计，并转而采用 新型服务器设计 - 异步或事件驱动，服务器设计。 事件驱动的服务器只有一个线程，或者更准确地说，每个CPU有一个线程。这个单线程运行一个紧密的循环，在每次迭代中检查，使用poll()（或更有效epoll）用于许多打开的文件描述符上的新事件，例如套接字。例如，一个事件可以是一个可读的套接字（新数据已经从远程端到达）或变得可写（我们可以在这个连接上发送更多的数据）。应用程序通过执行一些非阻塞操作来处理此事件，修改一个或多个文件描述符并保持其对此连接状态的了解。 然而，异步服务器应用程序的作者在今天仍面临着两大挑战：……
+具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/" title="Thinking coroutine thread async" >Thinking coroutine thread async</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年2月8日 22:32:16
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
-异步编程……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">阅读全文</a></p>
                         </article>
                     
                     
@@ -454,6 +456,10 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -463,10 +469,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -487,7 +489,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -511,7 +513,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -539,7 +541,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -567,7 +569,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -599,6 +601,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -621,6 +625,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -631,12 +637,29 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

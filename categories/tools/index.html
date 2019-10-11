@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="golang,go语言,go语言笔记,飞雪无情,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
     <meta name="description" content="Tools">
         
     <meta name="author" content="">
@@ -144,8 +144,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
                             <div class="post-content">
                                 1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
 3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
-5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.……
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
                             </div>
                         </article>
@@ -169,7 +168,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
                             
                             <div class="post-content">
                                 1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor. Since you didn&rsquo;t mention which compiler you&rsquo;re using, I&rsquo;ll assume it&rsquo;s GCC but the steps will be similar for other compilers.……
+2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
                             </div>
                         </article>
@@ -247,8 +246,7 @@ Todoist：待办事项列表及任务管理器……
                             <div class="post-content">
                                 1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容： &gt;{ &ldquo;color_scheme&rdquo;: &ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&rdquo;, &ldquo;draw_centered&rdquo;: false, &ldquo;line_numbers&rdquo;: true, &ldquo;highlight_line&rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &ldquo;wrap_width&rdquo;:0 }
 最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。 &gt;git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
-然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。 &gt;{ &ldquo;enable_mathjax&rdquo;: true, &ldquo;enable_highlight&rdquo;: true }
-最后，我们在Preferences-key bindings-user里面自定义一个快捷键，可以快速输出html。 &gt;//4 markdown_html预览 { &ldquo;keys&rdquo;: [&ldquo;alt+c&rdquo;], &ldquo;command&rdquo;: &ldquo;markdown_preview&rdquo;, &ldquo;args&rdquo;: {&ldquo;target&rdquo;: &ldquo;browser&rdquo;, &ldquo;parser&rdquo;:&ldquo;markdown&rdquo;} },……
+然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。 &gt;{ &ldquo;enable_mathjax&rdquo;: true, &ldquo;enable_highlight&rdquo;: true }……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
                             </div>
                         </article>
@@ -272,8 +270,7 @@ Todoist：待办事项列表及任务管理器……
                             
                             <div class="post-content">
                                 1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件 &gt;@startuml
-skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&gt; Alice : Hello, how are you Consolas Alice -&gt; Bob : Fine, thank you, and you? @enduml
-2 安装步骤 2.1 下载[graphviz-2.38.zip ](http://www.graphviz.org/Download_windows.php)(`注：我用的是Windows,如果是其他操作系统选择对应版本`) 目前最新版是graphviz-2.38(2016年5月15日) 解压到系统的某一目录，然后添加到系统环境变量(如下图),重启OS后生效： 3 安装ST3插件sublime_diagram_plugin 通过Preferences-&gt;browse packages进入插件安装包，下载完成后重启ST3: &gt;git clone https://github.……
+skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&gt; Alice : Hello, how are you Consolas Alice -&gt; Bob : Fine, thank you, and you?……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/">阅读全文</a></p>
                             </div>
                         </article>
@@ -297,10 +294,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
                             
                             <div class="post-content">
                                 0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。 &gt;//1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
-3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved
-4 DocBlockr 自动生成函数注释，在不同参数之间切换可以用tab. 5 AllAutocomplete AllAutocomplete可以对打开的所有文件的变量名进行提示。sublime默认只对当前打开的文件的变量进行提示。
-6 CTags 可以在函数的声明和定义自检来回跳转了，首先需要下载Ctags，比如我存在D盘的根目录下，之后需要在Sublime中配置路径
-然后就可以用ctrl+shift+左键，跳转到定义处了，ctrl+shift+右键。如果不习惯用鼠标可以ctrl+&gt;跳转到定义，ctrl+&lt;返回。……
+3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
                             </div>
                         </article>
@@ -389,6 +383,10 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
@@ -398,10 +396,6 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
     </li>
     
     <li>
@@ -422,7 +416,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(5)</a>
+        <a href="https://forrestsu.github.io/categories/aboutme/">aboutme(6)</a>
     </li>
     
     <li>
@@ -446,7 +440,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/diary/">diary(7)</a>
+        <a href="https://forrestsu.github.io/categories/diary/">diary(6)</a>
     </li>
     
     <li>
@@ -474,7 +468,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(8)</a>
+        <a href="https://forrestsu.github.io/categories/readingnotes/">readingnotes(7)</a>
     </li>
     
     <li>
@@ -502,7 +496,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+        <a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈(3)</a>
     </li>
     
 </ul>
@@ -534,6 +528,8 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/git/">git</a>
     
+    <a href="https://forrestsu.github.io/tags/hint/">hint</a>
+    
     <a href="https://forrestsu.github.io/tags/hundsun/">hundsun</a>
     
     <a href="https://forrestsu.github.io/tags/java/">java</a>
@@ -556,6 +552,8 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh</a>
     
+    <a href="https://forrestsu.github.io/tags/stock/">stock</a>
+    
     <a href="https://forrestsu.github.io/tags/todolist/">todolist</a>
     
     <a href="https://forrestsu.github.io/tags/tools/">tools</a>
@@ -566,12 +564,29 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/work/">work</a>
     
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈</a>
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款</a>
     
 </div>
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

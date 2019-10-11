@@ -32,8 +32,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
       <guid>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
       <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
-Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
-.dircache └── objects ├── 00 ├── 01 ├── .</description>
+Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</description>
     </item>
     
     <item>
@@ -80,7 +79,7 @@ uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首�
 (2) 解压 &amp;gt;tar -zxvf zeromq-4.2.1.tar.gz
 (3) 编译安装 &amp;gt; 执行configure文件：./configure 编译： make 安装： make install
 2 编写样例代码 server端代码：server.cpp
-#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;zmq.h&amp;gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &amp;quot;tcp://*:5555&amp;quot;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&amp;quot;Received Hello\n&amp;quot;); sleep (1); // Do some &#39;work&#39; zmq_send (responder, &amp;quot;World&amp;quot;, 5, 0); } return 0; }  client端代码：client.</description>
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.</description>
     </item>
     
   </channel>

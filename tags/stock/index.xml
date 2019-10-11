@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stock on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/stock/</link>
+    <description>Recent content in stock on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 09 May 2018 19:34:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于股市</title>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
+      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/about-stock.png&#34; alt=&#34;about-stock&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+
+&lt;p&gt;　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

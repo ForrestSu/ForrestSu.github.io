@@ -27,7 +27,7 @@ msgsnd() msgrcv() 函数  </description>
       <pubDate>Tue, 26 Feb 2019 17:42:00 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/bigdata/spark-%E8%AF%BB%E5%8F%96mysql/</guid>
-      <description>package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&amp;quot;${this.getClass.getSimpleName}&amp;quot;).setMaster(&amp;quot;local&amp;quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.read.format(&amp;quot;jdbc&amp;quot;) .option(&amp;quot;url&amp;quot;, &amp;quot;jdbc:mysql://192.168.0.151:3306/spark&amp;quot;) .</description>
+      <description>package com.spark.imports import org.apache.spark.sql.DataFrame import org.apache.spark.sql.hive.HiveContext import org.apache.spark.{SparkConf, SparkContext} object ImportMysql { def main(args: Array[String]): Unit = { val conf = new SparkConf().setAppName(s&amp;quot;${this.getClass.getSimpleName}&amp;quot;).setMaster(&amp;quot;local&amp;quot;) val sc = new SparkContext(conf) val sqlContext = new HiveContext(sc) val frame: DataFrame = sqlContext.</description>
     </item>
     
     <item>
@@ -37,8 +37,7 @@ msgsnd() msgrcv() 函数  </description>
       
       <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
       <description>Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
-Multithreading-with-ZeroMQ &amp;nbsp; ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。</description>
+Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。</description>
     </item>
     
     <item>
@@ -49,8 +48,7 @@ Multithreading-with-ZeroMQ &amp;nbsp; ZeroMQ有可能是编写多线程应用的
       <guid>https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/</guid>
       <description>Zookeeper+Kafka集群搭建方案 date: 2018-10-30 19:50 Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
 Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
-说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</description>
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。</description>
     </item>
     
     <item>
@@ -61,6 +59,21 @@ Zookeeper工作方式
       <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
       <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
 2 自定义注解 </description>
+    </item>
+    
+    <item>
+      <title>慎独</title>
+      <link>https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/</link>
+      <pubDate>Thu, 27 Sep 2018 09:41:29 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/aboutme/%E6%85%8E%E7%8B%AC/</guid>
+      <description>1 progress 1 Make your own decisions
+慢慢看的人越来越多，得注意尽量避免个人的主观因素，以免误人子弟！_
+2 后续思考 应该做更标准的东西，每个客户拿到的发布包应该一样。就像肯德基麦当劳，你在哪里吃的口味都一样。
+3 应该做更互联网一点的东西。
+4 有些人是很固执的，总觉得别人回答他的问题是理所应当，我逐渐体会到王垠曾经有过的感受，当你好心帮助别人成长，别人却因为理解不了反过来打击你！暴露了自己的弱点，下意识的自我保护。
+切记！切记！切记！ 只能有极少数人才能真正得到你的帮助，因为你自己时间有限，还得自己成长！
+可能确实是我的方式不对，今后只有遇到自己适合帮助的人，才可以花点时间；与其帮助那些不虚心，又自大的人，还不如看看博客来的舒畅！</description>
     </item>
     
     <item>
@@ -95,19 +108,6 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
     </item>
     
     <item>
-      <title>关于股市</title>
-      <link>https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
-      <pubDate>Sat, 09 Jun 2018 19:34:23 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/readingnotes/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
-      <description>Preface 　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来GuShi就是“反常”的，也许这才是GuShi独有的魅力。
-Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」这样个说法就是听起来正确的诡辩论，但也陈述了一个事实：这个市场确实80%的人都是亏钱的，就像这个世界80%的财富把握在20%的人手上一样(近似正态分布)，我们大部分人都位于6个Sigma之内。 那么为什么会造成这种现象呢？一般的说法是：“市场等各方面信息的不对称造成的”。我们进一步追根溯源：“什么信息会对GuShi产生波动？这些信息的来源又是哪？” 那么问题的根源到这里就显而易见了。
- 每个人都力求运用自己的资本生产出最大的价值。一般而言，他不会是为了促进公共利益，也不知道促进多少。他只考虑自己的安全，自己的所得。正是这样，他由一只看不见的手引导着，实现着他自己并不打算实现的目标。与有意地促进相比，在追求他自己利益的过程中，往往能够更加有效地促进社会的公益。 &amp;ndash;Adam Smith
- Stock Price 高维世界与一维价值这世界上用一个能源，以及在不确定条件下如何决策？  Can we double-win in market 　很多人觉得这个市场有一方盈，就必有一方亏。但是从长期、宏观上看，由于不断有公司的利润和新的血液进入市场，不一定总得有人亏。 随着人民币的发行，人们货币的持有量会逐渐增多，单位货币的购买力会逐渐下降，当然央行会保证这个进程会缓慢进行，防止出现经济危机。 最好学点儿理财吧，我爸妈唯一知道的就是把钱放银行，拿手的*理财方式*大概就是麻将了吧！我感觉很难去改变他们的想法，但是我们可以去改变自己。 基金，外汇，股票都是我们可以尝试的理财方式，只不过回报率和风险不一样。可以肯定的是，高回报必然伴随着高风险，按照自己能够接受的风险系数选择自己的理财方式即可。
-声明：本文主要写一些个人的想法，如有不正确的地方，欢迎回复，深入探讨^_*。</description>
-    </item>
-    
-    <item>
       <title>git 源码学习</title>
       <link>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sun, 03 Jun 2018 23:57:22 +0800</pubDate>
@@ -115,8 +115,7 @@ Feeling 　有一个笑话说：「你不入市，就跑赢了90%的散户！」
       <guid>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
       <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
-Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
-.dircache └── objects ├── 00 ├── 01 ├── .</description>
+Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</description>
     </item>
     
     <item>
@@ -127,6 +126,19 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，
       <guid>https://forrestsu.github.io/posts/life/what-do-you-want/</guid>
       <description>1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
 摩西奶奶 说：人生只有一次，去做自己喜欢的事。</description>
+    </item>
+    
+    <item>
+      <title>关于股市</title>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
+      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/about-stock.png&#34; alt=&#34;about-stock&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+
+&lt;p&gt;　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -225,8 +237,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
       <description>这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。
 　Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
 由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
-具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）
-对应的解决方案，在接下来的数十年中很流行，它将放弃舒适但低效的同步服务器设计，并转而采用 新型服务器设计 - 异步或事件驱动，服务器设计。 事件驱动的服务器只有一个线程，或者更准确地说，每个CPU有一个线程。这个单线程运行一个紧密的循环，在每次迭代中检查，使用poll()（或更有效epoll）用于许多打开的文件描述符上的新事件，例如套接字。例如，一个事件可以是一个可读的套接字（新数据已经从远程端到达）或变得可写（我们可以在这个连接上发送更多的数据）。应用程序通过执行一些非阻塞操作来处理此事件，修改一个或多个文件描述符并保持其对此连接状态的了解。 然而，异步服务器应用程序的作者在今天仍面临着两大挑战：</description>
+具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）</description>
     </item>
     
     <item>
@@ -270,13 +281,7 @@ Vision-2018 high availability, high throughput, low latency。 1. 亚毫秒级�
 3. 更高效的编程模型与调试手段，提高软件质量。
 (与硬件结合的通信体系)
 CTO 给这个项目叫做：Hubble项目
-Grouping 我们划分了如下调研方向，每个方向成立一个小组：
-在这个过程中提升个人的领导力，提升个人的能力和价值。
-Innovation 我们迄今为止没有做任何创新，就连1比特的创新也没有，我们做的只不过是不断学习别人的成果，根据实际的应用场景，用来解决自己遇到的问题，仅此而已。
-但是总得做点什么吧! 比如成就感，要有愿景，最好是做出点能算的上是创新的东西。年轻，有很多种可能性。
-Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么过剩下的日子？
-在低头赶路的同时，别忘了抬头看看天。
-最近基本都在学git, 有时间写一写。</description>
+Grouping 我们划分了如下调研方向，每个方向成立一个小组：</description>
     </item>
     
     <item>
@@ -286,8 +291,7 @@ Conclusion 人生就像一场旅程，你看过什么样的风景，打算怎么
       
       <guid>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>Preface 　欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。
-Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。
-Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可能会用matlabplot 来绘图，再geek一点的就用Τex这种国际上通用的玩法了。 之前用过 highcharts, 潜意识下数据可视化 找一个强大的JS库就好了， 可以快速出成品。咨询tqd, 推荐使用baidu的echarts，看完官网 examples，感觉好强大，官方入门文档还是蛮不错的！ 配合Demo，2小时就可以学完基本的API。</description>
+Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。</description>
     </item>
     
     <item>
@@ -298,7 +302,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
       <guid>https://forrestsu.github.io/posts/work/talk-with-cto/</guid>
       <description>2018-01-03 Wed 13:00 huamao center 2 floor 备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
 谈话记录 谈话主要以QA的方式展开,如下:
-基本面 luke: 你是什么时候来公司的？ sq: 今年4月10日，来名策有8个月了。 luke: 在恒生工作了几年？ sq: 算上实习期 共2年。 luke: 在恒生的工作怎么样？是不是学到了很多东西？ sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。 luke: 恒生不是也有中间件吗？ sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。 luke: 当初在恒生你也是跟张前平做事的？ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。 &amp;hellip;找到一个咖啡厅坐下&amp;hellip;. luke: 学校里数学学得怎么样？ sq：有点偏科，就数学稍微学得好点。 luke: 如果这行要继续做下去，主要还是靠兴趣，你是从高中开始编程还是大学？ sq: 大学，感觉老师C语言课讲得很好！然后跟老师进了实验室；准备课件、组织比赛。 luke: 你觉得计算机的本质是什么？或者说操作系统的本质？ sq: cpu，内存，寄存器?</description>
+基本面 luke: 你是什么时候来公司的？ sq: 今年4月10日，来名策有8个月了。 luke: 在恒生工作了几年？ sq: 算上实习期 共2年。 luke: 在恒生的工作怎么样？是不是学到了很多东西？ sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。 luke: 恒生不是也有中间件吗？ sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。 luke: 当初在恒生你也是跟张前平做事的？ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。 &amp;hellip;找到一个咖啡厅坐下&amp;hellip;.</description>
     </item>
     
     <item>
@@ -319,8 +323,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
       <description>Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
 Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉，老板的谈吐之间，很多价值观都有认同感。用着自己熟悉和喜欢的语言Unix C/C++，开发效率很高，CTO和同事有时候会搞个技术分享会，很有在学校实验室的感觉。 7月初开始调研cuda，并实现期货高频的参数计算，真金白银实盘开始测试，一个月陆续亏损10W，Boss遂决定做AI基金。
 Life 在帝都有3个大学同学，4月份刚来的时候，就在同学那里下榻，平时有事没事就一起聚聚，唱唱歌，聚聚餐，周边自驾游，业余生活也丰富了不少，很是惬意，心存感恩和敬畏。 7月29日参加2017张北草原音乐节，音乐人的歌很嗨，草原的天很蓝，花也美。 10月1日，带爷爷在北京畅游了2日，去了天安门。爷爷说：“人民大会堂会场好小，感觉没有新闻联播里的大。” 去颐和园“爬山”，这时候要是懂点历史就好了! 长城爬了北八楼，万木枯荣，还是更喜欢夏日的温热和青葱。 老板隔三差五带我们出去搓一顿，打打牙祭，尤其钟爱大龙虾，哈哈。 参加了一场小朋友的Artists Show，应该努力活的像个小孩。
-Growing up 2017年1月31日，和当年高一的同学(glp&amp;amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。
-###Lan Skills 工作中最常用的语言unix C/C++， python，java。开始感觉到语言其实只是一门工具，创意和想法很重要，还要有营利模式。 业余时间尝试了一门全栈语言 Red，跨平台能力很强，代码可以在 linux android，ios， windows运行。 后续打算了解下Go和perl。看过别人用 perl 做数据分析。</description>
+Growing up 2017年1月31日，和当年高一的同学(glp&amp;amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。</description>
     </item>
     
     <item>
@@ -334,16 +337,12 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;amp;syk)去一中
     
     <item>
       <title>中兴程序员事件</title>
-      <link>https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
       <pubDate>Sun, 17 Dec 2017 11:05:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/diary/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
-      <description>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！ 互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。 我估计不少人会遇到没工作的情况，但大部分人扛一扛就过去了。随着社会的发展，人的工作年限会越来越长，要有长期的规划和路径，什么阶段做什么阶段的事情，天下没有一劳永逸的事情。
-环境永远是变化的，人生如练功，一份功一份松，松了一环之后，再往紧处练，层层而上。功力越深，无论环境如何变化，实力越强的人，越不容易被击败。
-这种实力当然不仅仅是某个领域的技术，如果只专注于细节不看趋势，趋势没了，再好的技术也就没用了。所以始于技术，陷于业务，忠于盈利。
-我始终认为，人过四十，工作应该是一种需求，而不是压力。我现在每天工作的时候都特别开心，阅读产品，看代码，写东西，带领大家往前冲，是一种享受。
-这个世界是不相信眼泪的，马云说：要是哭有用，那我每天哭！
-昨天在图书馆一个头发斑白的老大爷在用电脑查阅资料，我想如果等我老了，我希望用这种方式度过余生。想法会随时间改变，谁知道呢-_-</description>
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
+      <description>&lt;p&gt;前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
+互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -377,8 +376,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
 2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
 body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后，如何对文本自身进行样式化？
-3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&amp;rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。
-body { font-family: &amp;quot;Helvetica&amp;quot;, &amp;quot;Arial&amp;quot;, sans-serif; }  如果你想要用一款衬线字体，可以试试 ”Georgia“。 在让我们的文字更有吸引力力的同时，接下来继续让它更具有可读性。</description>
+3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&amp;rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。</description>
     </item>
     
     <item>
@@ -493,8 +491,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
       <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</guid>
       <description>1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ 工作重心： &amp;gt;(1) 系统性能测试 &amp;gt;(2) 商品期货 (+期货高频) &amp;gt;(3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend )
 2 期货高频模块 (1) 策略执行的优先级 策略的执行顺序的先后顺序，对执行结果的影响。 (2) 限制完成的Job CTP 会不断重试. (3) 金额＞10000的都需要用逗号分隔
-3 业务了解 (营利模式） 公募基金：收管理费 对冲基金：2倍的管理费 + 20~40%的收益分成
-4 排查问题 我们在遇到一个比较难的问题时，往往会先问搜索引擎，然后确实感觉自己 Handle 不了，就会考虑向上级反馈。 (1) 问题的反馈 倍增效应： 当一个问题由底层开发人员逐级向上反馈时，问题会变得越来越严重。 政治问题： 当问题反馈到管理层时，他们在意的是政治问题：这个问题是谁的问题?</description>
+3 业务了解 (营利模式） 公募基金：收管理费 对冲基金：2倍的管理费 + 20~40%的收益分成</description>
     </item>
     
     <item>
@@ -600,8 +597,7 @@ vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;quot;abc&amp;quot;); str.pus
       <guid>https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</guid>
       <description>2017-07-28
 Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会讲很多东西，虽然有很多不理解，但是潜意识里面还是非常认同，很多观点能产生共鸣。 我是 2017年 4 月 10 日入职一个40人左右的小型创业公司，到今天(20170608)差不多快2个月，创业公司能迫使你成长的更加快 :)。 有时候，很多事需要你自己去 handle ！
-1 Business Driven 　公司都是由业务驱动的，而且是那些赚钱的业务决定了这个公司成长有多快，走多远。 技术往往是第一生产力，我们要能够 Perceive (感知)新技术，看是否能够对当下的业务有提升。 &amp;gt; (1) 不要为追求新技术而用新技术，要以业务需求为主导来采用新技术。 &amp;gt; (2) 新技术层出不穷，还没等我们掌握，又有新的技术出现了，感觉handle不过来。 &amp;gt; (3) 工作中有时间要去了解新技术，新思路，新方法，要敢于尝试，去做一些事。 &amp;gt; (4) 业余时间参加 技术沙龙、开发者大会 也是极好的。
-2 对风控模块的理解 　有时候看问题得拨开云雾，看清本质，解决关键问题。 风控应该是一个模式匹配引擎，支持语法解析，可以动态生成规则，添加规则。比如股票需要检查哪些规则，可以采用树形结构来管理这些规则。</description>
+1 Business Driven 　公司都是由业务驱动的，而且是那些赚钱的业务决定了这个公司成长有多快，走多远。 技术往往是第一生产力，我们要能够 Perceive (感知)新技术，看是否能够对当下的业务有提升。 &amp;gt; (1) 不要为追求新技术而用新技术，要以业务需求为主导来采用新技术。 &amp;gt; (2) 新技术层出不穷，还没等我们掌握，又有新的技术出现了，感觉handle不过来。 &amp;gt; (3) 工作中有时间要去了解新技术，新思路，新方法，要敢于尝试，去做一些事。 &amp;gt; (4) 业余时间参加 技术沙龙、开发者大会 也是极好的。</description>
     </item>
     
     <item>
@@ -632,8 +628,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       <guid>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</guid>
       <description>1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)
 1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612)  CUDA Toolkit on x86_32 is unsupported
- 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.2 检查是否成功安装 安装完成后，检查是否成功安装。
-(1) cmd 中输入 nvcc -V, 查看 nvcc 版本。</description>
+ 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.</description>
     </item>
     
     <item>
@@ -653,7 +648,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       
       <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std-function-%E5%92%8C-std-bind/</guid>
       <description>1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &amp;hellip;
-#include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.2, &#39;w&#39;, 7); cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; return 0; } int f(int a, char b , double c) { cout&amp;lt;&amp;lt;&amp;quot;a==&amp;quot;&amp;lt;&amp;lt; a &amp;lt;&amp;lt;&amp;quot;,b==&amp;quot; &amp;lt;&amp;lt;b &amp;lt;&amp;lt; &amp;quot;,c==&amp;quot;&amp;lt;&amp;lt;c &amp;lt;&amp;lt;endl; return 0; }  2 std::function std::function 可以用来定义一个函数</description>
+#include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.</description>
     </item>
     
     <item>
@@ -687,8 +682,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
 brief synopsis of story 　一个老是受班上同学欺负的瘦弱小男孩，因为拥有一种特殊能力而强大：他能「偷别人的影子」，因而能看见他人心事，听见人们心中不愿意说出口的秘密。他开始成为需要帮助者的心灵伙伴，为每个偷来的影子点亮生命的小小光芒。 某年灿烂的夏天，他在海边邂逅一位又聋又哑的女孩克雷尔。他该如何用自己的能力帮助她？他将如何信守与她共许的承诺？ 一个会用风筝写出「我想你」的女孩啊，让人永远都忘不了。 随着大学毕业，男孩按部就班医院实习，然后慢慢成长为一名优秀的医生，实习期间，和同为实习生的苏菲产生了爱情，但是没过多久，其间他帮助他的好友吕克实现了成为一名医生的梦想。一次偶然的机会，吕克考前要去海边散心，要男孩一同前往，这让男孩想起了儿时就喜欢的克雷尔，回来之后苏菲就和男孩回到了之前的朋友关系。 吕克也发现自己并不喜欢当医生，后来吕克就开始追求苏菲，男孩的母亲因为身患重病，在约好要来男孩的城市那天离开了人世，而他母亲早已安排好自己的后事。男孩回到家参加了母亲的葬礼，辗转通过海边的老人修好了克雷尔的风筝，又问到了克雷尔现在在学校当一名老师，男孩通过伊凡找到了克雷尔，最后男孩在克雷尔楼下放飞了儿时的风筝，就像童话故事里那样在一起了。故事完
 self-feeling 　这本小说的男主人公是没有名字的，就连他居住的城市也是没有名字的。虽然跨越国界与种族，但是也能从中找到一部分自己童年的影子，那些造就了我们的性格，影响我们未来的瞬间。 故事中的“我”是一个衷于自己最初的想法，从一而终，一开始似乎就知道自己内心真正想要的是什么的人，衷于自己的初恋，衷于自己医学事业。 而他的好友吕克却截然相反： (1) 一开始讨厌做面包，追求自己的内心的想法想成为一名医生，当有机会终于快要成为一名医生，发现教科书，考试并不是自己想要的生活，还不如好吃的面包更让人满足，还是毅然回去成为一名面包师。 (2) 吕克在医学课自习时，喜欢上了安娜贝拉，后来发现她并不是自己喜欢的女生(问题是双方的)，后面在“我”和苏菲分手后，吕克追求苏菲成为情侣。
 　吕克更看重亲情，想要陪妹妹一起度过圣诞夜，选择回到自己的父母身边。 而”我“却更看重自己的事业(工作)和自己想要的爱情，随着年龄的增长，“我”的母亲在一个普通的早晨悄然离开人世，以至于都没能见上最后一面，正如「子欲养而亲不待」。这似乎是我们在外漂泊打拼的年轻人时常会担心的一件事，那么遥远又那么近。所以我会把握一些眼下稍纵即逝的机会，尽量回报父母，不要指望将来有的是时间这种自我麻痹的托词。
-summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，追求自己想要的事业和爱情，更加独立。吕克则更注重自己的家人、亲情。 当然这是两种截然不同的人生，没有对与错。多种多样的选择演绎着不一样的人生，构成了我们这个纷繁多彩的世界。
-欢迎评论，指出其中的不足。 读书·百味人生 孙权 记于北京2017-06-05晚8:12 北花园</description>
+summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，追求自己想要的事业和爱情，更加独立。吕克则更注重自己的家人、亲情。 当然这是两种截然不同的人生，没有对与错。多种多样的选择演绎着不一样的人生，构成了我们这个纷繁多彩的世界。</description>
     </item>
     
     <item>
@@ -699,8 +693,7 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
       <guid>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</guid>
       <description>1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
 3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.1、如果想通过程序输入ssh密码，那么就要模拟TTY，或者让ssh认为你的输入是直接来自TTY 2.2、或者，你干脆自己实现个最简单的ssh协议吧 2.3、程序模拟TTY，一般会直接采用expact库，这里一般采用python脚本。 3、登录之后，和ssh交互需要通过管道进行。
-5 What I want 　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.</description>
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.</description>
     </item>
     
     <item>
@@ -735,8 +728,7 @@ Analysis Advantage Analysis： zeroMQ</description>
 3 添加环境变量sudo vi /etc/profile
  export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
  4
- [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.xpm Terminal=false StartupNotify=true Type=Application Categories=Application;Development;
- </description>
+ [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.</description>
     </item>
     
     <item>
@@ -746,8 +738,7 @@ Analysis Advantage Analysis： zeroMQ</description>
       
       <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</guid>
       <description>1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:
- sudo dpkg &amp;ndash;add-architecture i386 sudo apt-get update</description>
+ 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:</description>
     </item>
     
     <item>
@@ -770,7 +761,7 @@ Analysis Advantage Analysis： zeroMQ</description>
       
       <guid>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</guid>
       <description>1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor. Since you didn&amp;rsquo;t mention which compiler you&amp;rsquo;re using, I&amp;rsquo;ll assume it&amp;rsquo;s GCC but the steps will be similar for other compilers.</description>
+2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor.</description>
     </item>
     
     <item>
@@ -811,9 +802,7 @@ unique_ptr </description>
       <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</guid>
       <description>前言  我是2015年6月毕业就来到恒生电子工作，算上3个月实习期，到今天(2017-02-21)将近有2年光景。 先简单介绍下我这边的工作情况：我工作的部门是恒生起步比较早的部门—资产管理事业部（隶属于资产管理事业部&amp;lt;下面有研发一二三四、投资一部、投资二部共6个子部门&amp;gt;）。 每个部门都有一个到多个产品，一个产品即一个BU。比如我所在的投资二部目前有4个小BU（资管SQL版本，非标1.0，非标2.0，QDII境外投资）资管SQL是逐渐被O32的替换的产品，QDII也是拿了O32一个版本来独立开发的。 我所在的团队，主要包含以下小组: 风控、日终、交易、报盘、查询、周边。 我这边主要负责：报盘+部分交易+部分周边。 周边主要包括 UFX/EI统一接入（C++编写）。
 1 工作方面  最近一年来，是经常加班，任务稍微有点多，总体感觉还好。基本都是需求搞好业务分析，形成业务文档，然后Jun哥搞好前期的业务设计。 整体评估，然后把具体的修改点(增加的模块)都列出来。最后分工到个人。(详细的业务流程就不讲了)
-2 技术  技术基本都是沿用O32老的三层架构。 前端 采用Delphi实现界面要素(委托、查询、参数调整等界面。) 中间件 采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件) 中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。 后端 主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。
-其他 (1) 共享内存 &amp;gt; 共享内存主要有两大块：前台共享内存,采用一个单独的dll来实现，具体使用时用导出接口，数据初始化时加载向后台发送请求，全量加载后台实体表数据。后台共享内存,主要采用linux的shm实现，用一个结构体管理共享内存，每张表有一块连续的内存空间，每次定位时先找到这张表的起始地址。 主要涉及的操作（增加一条记录，更新一条记录，标记一条记录已删除）
-(2) 消息中心 消息中心就是一个订阅+发布的功能。(典型的观察者消费者模型) 启动时加载后台一系列消息主题，等待观察者订阅。当有新消息到来，推送给对应的消息订阅者。</description>
+2 技术  技术基本都是沿用O32老的三层架构。 前端 采用Delphi实现界面要素(委托、查询、参数调整等界面。) 中间件 采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件) 中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。 后端 主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。</description>
     </item>
     
     <item>
@@ -826,7 +815,7 @@ unique_ptr </description>
 (2) 解压 &amp;gt;tar -zxvf zeromq-4.2.1.tar.gz
 (3) 编译安装 &amp;gt; 执行configure文件：./configure 编译： make 安装： make install
 2 编写样例代码 server端代码：server.cpp
-#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;zmq.h&amp;gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &amp;quot;tcp://*:5555&amp;quot;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&amp;quot;Received Hello\n&amp;quot;); sleep (1); // Do some &#39;work&#39; zmq_send (responder, &amp;quot;World&amp;quot;, 5, 0); } return 0; }  client端代码：client.</description>
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.</description>
     </item>
     
     <item>
@@ -835,9 +824,7 @@ unique_ptr </description>
       <pubDate>Sat, 01 Apr 2017 09:11:12 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/life/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6%E5%AF%BC%E5%B8%88-%E8%B4%BA%E8%80%81%E5%B8%88/</guid>
-      <description>我大学 学的「计算机科学与技术专业」，是在大一的时候，想听听其他老师上的专业课(C language），然后就去旁听了贺老师的课，这一去就一发不可收拾， Oh my God! 怎么会有这么有趣的老师，然后就经常翘掉英语课，高数课&amp;hellip; 在大一下学期的时候，贺老师带领的 ACM 实验室招新，举办了一次程序设计竞赛，按年级排名，然后侥幸进入了贺老师的实验室，然后 ACM 就伴我走过了整个大学生涯（基本上每年暑假都留校1.3个月左右）。 在实验室的日子里，天天研究算法，我主要钻研的是 动态规划和 博弈论，其他基础算法。在这里 我学会了 如何自己去获取学习资料，从而快速掌握新的东西。 其实学会如何学习才是最重要的技能 。 在大四的时候，我跟系主任戴老师关系还可以，还经常跟他开玩笑。然后做毕设的时候跟他说：我要选贺老师作为毕业导师（因为跨专业，需要系主任点头）。 戴老师也很愉快的答应了。 记得选毕业课题的时候，贺老师说：如果没有好的方向的话，可以研究下judge core(hustoj 的判题核心：华中科的人写的，洋洋洒洒一个文件2000多行C代码 →_→)。 然后就在休息的时候和贺老师坐在一起，逐行看代码，遇到不懂的unix api 就一边百度。现在每每回想起，都能感到温暖。
-　真的感谢生命中能够遇到这么好的你们，感觉这是上天对我的眷顾。
-贺老语录 1 break 是废了武功的goto。 2 C++中的引用是废了武功的指针。</description>
+      <description>我大学 学的「计算机科学与技术专业」，是在大一的时候，想听听其他老师上的专业课(C language），然后就去旁听了贺老师的课，这一去就一发不可收拾， Oh my God! 怎么会有这么有趣的老师，然后就经常翘掉英语课，高数课&amp;hellip; 在大一下学期的时候，贺老师带领的 ACM 实验室招新，举办了一次程序设计竞赛，按年级排名，然后侥幸进入了贺老师的实验室，然后 ACM 就伴我走过了整个大学生涯（基本上每年暑假都留校1.3个月左右）。 在实验室的日子里，天天研究算法，我主要钻研的是 动态规划和 博弈论，其他基础算法。在这里 我学会了 如何自己去获取学习资料，从而快速掌握新的东西。 其实学会如何学习才是最重要的技能 。 在大四的时候，我跟系主任戴老师关系还可以，还经常跟他开玩笑。然后做毕设的时候跟他说：我要选贺老师作为毕业导师（因为跨专业，需要系主任点头）。 戴老师也很愉快的答应了。 记得选毕业课题的时候，贺老师说：如果没有好的方向的话，可以研究下judge core(hustoj 的判题核心：华中科的人写的，洋洋洒洒一个文件2000多行C代码 →_→)。 然后就在休息的时候和贺老师坐在一起，逐行看代码，遇到不懂的unix api 就一边百度。现在每每回想起，都能感到温暖。</description>
     </item>
     
     <item>
@@ -903,9 +890,7 @@ php.ini 中修改配置为全路径，重启Nginx问题解决： &amp;gt; extens
  qdii_futhsfix (境外FIX期货报盘)
  qdii_hsfix (恒生FIX转换任务)
  qdii_realhq (彭博实时行情任务，聚源行情转换任务)
- qdii_reuterhq (路透Xtra3000行情转换)
- qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)
-   下面有 √ 的任务需要代码走读。</description>
+ qdii_reuterhq (路透Xtra3000行情转换)</description>
     </item>
     
     <item>
@@ -949,9 +934,9 @@ php.ini 中修改配置为全路径，重启Nginx问题解决： &amp;gt; extens
       <pubDate>Fri, 24 Feb 2017 17:29:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</guid>
-      <description> ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+      <description>ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;amp;0xff03 hex(节点号)&amp;amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;sys/ipc.h&amp;gt; int main(int argc,char* argv[]) { if(argc!=2) { puts(&amp;quot;usage: keyfile\n&amp;quot;); return 0; } printf(&amp;quot;%s\n&amp;quot;,argv[0]); printf(&amp;quot;ftok=0x%x\n&amp;quot;,ftok(argv[1],1) ); return 0; }  </description>
+Usage #include &amp;lt;stdio.</description>
     </item>
     
     <item>
@@ -969,12 +954,29 @@ Usage #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;sys/ipc.h&amp;gt; int ma
       <pubDate>Tue, 14 Feb 2017 23:39:53 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/about/</guid>
-      <description>C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。
-Quan Sun(孙权) Web
-https://forrestsu.github.io
-Email
-sunquana@gmail.com
-Skill  编程语言: C/C++, Java, Python. 熟悉Linux命令，服务端编程，Git 快速学习和解决问题的能力  Experience  2015.07 - 现在，软件工程师, Hundsun Company, HangZhou. 2011.09 - 2015.06，就读于湖南农业大学，计算机专业。  Awards  2014.10 湖南省第十届“蓝狐网络杯”大学生计算机程序设计省赛 一等奖 2014.03 获得湖南农业大学程序设计竞赛一等奖 2013.05 获得湖南农业大学信息科学技术学院logo设计大赛一等奖  Publications  2015.</description>
+      <description>&lt;p&gt;C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。&lt;/p&gt;
+
+&lt;h2 id=&#34;quan-sun-孙权&#34;&gt;Quan Sun(孙权)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Web&lt;/strong&gt;&lt;br /&gt;
+　　&lt;a href=&#34;https://forrestsu.github.io&#34;&gt;https://forrestsu.github.io&lt;/a&gt;&lt;br /&gt;
+&lt;strong&gt;Email&lt;/strong&gt;&lt;br /&gt;
+　　sunquana@gmail.com&lt;/p&gt;
+
+&lt;h2 id=&#34;skill&#34;&gt;Skill&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;编程语言: C/C++, Java, Python.&lt;/li&gt;
+&lt;li&gt;熟悉Linux命令，服务端编程，Git&lt;/li&gt;
+&lt;li&gt;快速学习和解决问题的能力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2015.07 - 现在，软件工程师, &lt;a href=&#34;http://www.hundsun.com/&#34;&gt;Hundsun&lt;/a&gt; Company, HangZhou.&lt;/li&gt;
+&lt;li&gt;2011.09 - 2015.06，就读于湖南农业大学，计算机专业。&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -1023,8 +1025,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
 我的不足之处 1 演讲或者给别人分享的时候：&amp;lt;我声音太小&amp;gt; 2017-02-08 &amp;gt;声音要大一点。（不然声音太小，会显得很没有底气）
 2 &amp;lt;不够谦逊&amp;gt; 2017-08-07 &amp;gt; (1) 务必时刻保持一颗谦虚的心，背后多言他人的溢美之词，我只需取其善者而从之，不善者而改之。 (2) 也不能自己的想法强加给别人，我只需要管好我自己。(己所不欲，勿施于人; 穷则独善其身) (3) 毕竟写点业务代码也没啥难的，都有成熟的解决方案，我的眼光应该放的更长远，有发牢骚的时间，还不如看看框架和底层 (发挥算法还没荒废了)。 (4) 时常反思自己的一言一行，换位思考。(慎言笃行)
 3 &amp;lt;有点拖延症&amp;gt; 2017-08-07 &amp;gt; 想写的文章一直拖着，没有抽点时间去写。
-待补充&amp;hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*
-我待改进的地方 2017-07-06 1 遇到问题，先google，如果没找到好的解决方案，可以咨询CTO（可采用微信或者 Email的方式） 一般CTO都很乐意被别人问问题的 (当然弱鸡问题除外)。 切记。</description>
+待补充&amp;hellip; 感谢那些指出我缺点的人，你们始终是我前行路上的灯塔 *_*</description>
     </item>
     
     <item>
@@ -1035,7 +1036,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
       <guid>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</guid>
       <description>本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。
 1 StartUp  Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip  2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64
-3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.conf配置: 2 复制并注释掉fastcgi_param,修改/scripts为$document_root 3.2 php配置文件 1 复制php.ini-development到php.ini 启用以下dll： php_bz2.</description>
+3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.</description>
     </item>
     
     <item>
@@ -1046,8 +1047,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
       <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/</guid>
       <description>上一篇主要入门了 XSL，这一课来进一步学习XSL。
 1 语法 (1) xsl:if 元素 语法：
-&amp;lt;xsl:if test=&amp;quot;expression&amp;quot;&amp;gt; ... ...如果条件成立则输出... ... &amp;lt;/xsl:if&amp;gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。
- &amp;lt;xsl:for-each select=&amp;quot;catalog/cd&amp;quot;&amp;gt; &amp;lt;xsl:if test=&amp;quot;price = 10&amp;quot;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;quot;title&amp;quot;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;quot;artist&amp;quot;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/xsl:if&amp;gt; &amp;lt;/xsl:for-each&amp;gt;  (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法</description>
+&amp;lt;xsl:if test=&amp;quot;expression&amp;quot;&amp;gt; ... ...如果条件成立则输出... ... &amp;lt;/xsl:if&amp;gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。</description>
     </item>
     
     <item>
@@ -1058,7 +1058,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。</description>
       <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/</guid>
       <description>1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。
 XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件：
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;?xml-stylesheet type=&amp;quot;text/xsl&amp;quot; href=&amp;quot;cdcatalog.xsl&amp;quot;?&amp;gt; &amp;lt;!-- &amp;lt;?xml-stylesheet type=&amp;quot;text/xsl&amp;quot; href=&amp;quot;readline.xsl&amp;quot;?&amp;gt;--&amp;gt; &amp;lt;catalog&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;你好&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Bob Zhang&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;9.9&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;Happy in the Rain&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Alice&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;10.</description>
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;?xml-stylesheet type=&amp;quot;text/xsl&amp;quot; href=&amp;quot;cdcatalog.xsl&amp;quot;?&amp;gt; &amp;lt;!-- &amp;lt;?xml-stylesheet type=&amp;quot;text/xsl&amp;quot; href=&amp;quot;readline.xsl&amp;quot;?&amp;gt;--&amp;gt; &amp;lt;catalog&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;你好&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Bob Zhang&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;9.</description>
     </item>
     
     <item>
@@ -1070,8 +1070,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
       <description>1 前言  右上颌一年前长了一颗智齿，当时刚萌出的时候还有点小发炎，现在感觉越长越歪，刷牙也刷不到，而且每次吃饭都会食物卡在智齿上。听同事说几分钟就能拔掉，所以先到Google了「杭州拔智齿&amp;hellip;」相关的话题，然后找到了知乎的一个帖子，看了下回复，就找到了一位姓廖医生（门诊就挂她的号）。
 2 门诊检查  在风和日丽的一个早上（2016-12月17日星期六），就去杭州口腔医院挂号、直奔５楼，廖医生建议先拍个片子。  看完片子，廖医生说：“四颗埋伏智齿，只有一颗萌出了一点，其他3颗都还在牙肉里，下面两颗牙槽神经线比较近，每颗难度和风险都不小，门诊拔除的话可能风险比较高，每次只能拔1~2颗，建议住院全麻一次性拔除！”我犹豫又思索了一会儿，还是决定一次性拔了算了，免得后面智齿继续长的话，东西都吃不了。（之前看到知乎上的贴子说老美拔智齿都是全麻的）。在和廖医生沟通了手术先关的事项后，决定20号住院21号手术。于是给领导打了个电话说明了原由，请了4天假。然后给我妈打电话来杭州来照顾我三天，顺便来杭州玩一下。
 3 手术  第一天(20号)，医生会问下病史，各种化验胸片心电图，手术医生和麻醉医生找你谈话签字。 第二天中午12点左右，我换好病服，进入手术室（这是我自记事以来生平第一次进手术室），医生话了几句家常就迷迷糊糊的睡着了，然后一觉醒来，只听见旁边有声音再说：“醒了，睁眼了！”（有点像电影里的剧情）“手术过程很顺利，四颗智齿全部拔除！” 医生说。听完这句，我正想合上还没完全睁开的双眼继续睡，医生说：“不要睡着，不断的伸腿，收腿，直到没有睡意！” 其间感觉不到明显的疼痛，一直用抽纸擦除口中带血的唾液。就这样在观察室度过了4小时回到了普通病房。 晚上隔壁一个病友的妈妈送来的一盒温牛奶和2瓶酸奶，吃完就在走廊上散步。 第三天，挂盐水，脸部还是有轻微的肿，护士MM又拿了一袋冰袋敷了下。 第四天，照旧挂盐水，办出院手续，结账出院。 整个手术下来，基本上没有明显的疼痛，手术后第一个周六(手术后第10天)去医院拆完缝线，回来就能吃米饭了，感觉恢复的挺好。 全麻拔牙体验  第一次全麻手术，手术前还是有些许忐忑不安的，然后在知乎上也搜了相关的帖子，发现老美基本都是全麻拔智齿，也基本打消了我的疑虑。 拔牙的时候是一觉睡过去的，基本没有感觉。大约2个小时后醒来，就躺在观察室的病床上，没有明显的痛感，脸颊有轻微的肿，说话不利索，唾液里还会有血。醒来5~6个小时后就能喝点牛奶(或者酸奶)了，很想吃东西，但是嘴巴只能张一点，因为下面两颗智齿都没有长出来，创口有缝线。 晚上睡觉只能仰睡，脸腮还会有隐隐的痛，睡觉的时候偶尔就会醒来，不过第二个晚上就好很多了。住院期间，廖医生都会带医务人员来查房，问下有什么不适，感觉还是蛮体贴温馨的。 整个全麻手术下来，基本没有明显的疼痛感，术后恢复的也很顺利。非常感谢廖医生^_^。
-插曲  和隔壁的病友妹子聊天，她问我拔完有没有感觉到痛，我说基本不怎么痛。妹子说：我恢复的比她快，然后妹子第三天就出院了。（囧）
-感悟  十天只能喝稀饭的日子里，不能咀嚼，感觉吃什么都没有味道，有些东西只有在你要失去的时候才察觉到要好好珍惜，就像大学的日子，到了大四才觉得大学真好，可是转眼就要各奔东西。后面得经常锻炼身体，别整天坐在办公司码代码。</description>
+插曲  和隔壁的病友妹子聊天，她问我拔完有没有感觉到痛，我说基本不怎么痛。妹子说：我恢复的比她快，然后妹子第三天就出院了。（囧）</description>
     </item>
     
     <item>
@@ -1090,7 +1089,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
       
       <guid>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</guid>
       <description>什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。
-// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;quot;Javass.c10.HelloWorld&amp;quot;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&amp;quot;-&amp;gt;&amp;quot;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.</description>
+// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;quot;Javass.c10.HelloWorld&amp;quot;); Method ms[] = c.</description>
     </item>
     
     <item>
@@ -1118,10 +1117,10 @@ Todoist：待办事项列表及任务管理器</description>
     
     <item>
       <title>一个关于合伙吃饭的问题</title>
-      <link>https://forrestsu.github.io/posts/diary/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 18 Oct 2016 23:42:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/diary/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>最近和4～5个同事经常一起在外面吃饭，因为要充卡买单，所以每个人都出了100，然后充卡，一起消费。 那么问题来了，可能某个同事有一天请假了，就需要向这个同事返一定的金额，这个金额应该是多少？（注：吃饭的人一定是合伙出钱的人） A 本次消费金额/本次吃饭人数 B 本次消费金额/合伙出钱的总人数 答案 A要保证资金池里面，每个人的剩余金额均相等。</description>
     </item>
     
@@ -1155,8 +1154,7 @@ Todoist：待办事项列表及任务管理器</description>
 一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
 &amp;gt;git checkout dev-feature &amp;gt;git merge master
 　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
-二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。
-三、冲突解决 　如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。 在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用git add命令去更新这些内容的索引(index), 然后，你无需执行 git commit ，只要执行: &amp;gt;$ git rebase &amp;ndash;continue</description>
+二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。</description>
     </item>
     
     <item>
@@ -1245,8 +1243,7 @@ TRAVEL 云南旅游一次，大理，丽江。（八月份）
       <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/</guid>
       <description>1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容： &amp;gt;{ &amp;ldquo;color_scheme&amp;rdquo;: &amp;ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&amp;rdquo;, &amp;ldquo;draw_centered&amp;rdquo;: false, &amp;ldquo;line_numbers&amp;rdquo;: true, &amp;ldquo;highlight_line&amp;rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &amp;ldquo;wrap_width&amp;rdquo;:0 }
 最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。 &amp;gt;git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
-然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。 &amp;gt;{ &amp;ldquo;enable_mathjax&amp;rdquo;: true, &amp;ldquo;enable_highlight&amp;rdquo;: true }
-最后，我们在Preferences-key bindings-user里面自定义一个快捷键，可以快速输出html。 &amp;gt;//4 markdown_html预览 { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;alt+c&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;markdown_preview&amp;rdquo;, &amp;ldquo;args&amp;rdquo;: {&amp;ldquo;target&amp;rdquo;: &amp;ldquo;browser&amp;rdquo;, &amp;ldquo;parser&amp;rdquo;:&amp;ldquo;markdown&amp;rdquo;} },</description>
+然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。 &amp;gt;{ &amp;ldquo;enable_mathjax&amp;rdquo;: true, &amp;ldquo;enable_highlight&amp;rdquo;: true }</description>
     </item>
     
     <item>
@@ -1256,8 +1253,7 @@ TRAVEL 云南旅游一次，大理，丽江。（八月份）
       
       <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-uml/</guid>
       <description>1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件 &amp;gt;@startuml
-skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bob -&amp;gt; Alice : Hello, how are you Consolas Alice -&amp;gt; Bob : Fine, thank you, and you? @enduml
-2 安装步骤 2.1 下载[graphviz-2.38.zip ](http://www.graphviz.org/Download_windows.php)(`注：我用的是Windows,如果是其他操作系统选择对应版本`) 目前最新版是graphviz-2.38(2016年5月15日) 解压到系统的某一目录，然后添加到系统环境变量(如下图),重启OS后生效： 3 安装ST3插件sublime_diagram_plugin 通过Preferences-&amp;gt;browse packages进入插件安装包，下载完成后重启ST3: &amp;gt;git clone https://github.</description>
+skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bob -&amp;gt; Alice : Hello, how are you Consolas Alice -&amp;gt; Bob : Fine, thank you, and you?</description>
     </item>
     
     <item>
@@ -1267,10 +1263,7 @@ skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bo
       
       <guid>https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/</guid>
       <description>0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&amp;gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。 &amp;gt;//1.Alignment 代码自动对齐 { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;alt+d&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;alignment&amp;rdquo; }
-3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved
-4 DocBlockr 自动生成函数注释，在不同参数之间切换可以用tab. 5 AllAutocomplete AllAutocomplete可以对打开的所有文件的变量名进行提示。sublime默认只对当前打开的文件的变量进行提示。
-6 CTags 可以在函数的声明和定义自检来回跳转了，首先需要下载Ctags，比如我存在D盘的根目录下，之后需要在Sublime中配置路径
-然后就可以用ctrl+shift+左键，跳转到定义处了，ctrl+shift+右键。如果不习惯用鼠标可以ctrl+&amp;gt;跳转到定义，ctrl+&amp;lt;返回。</description>
+3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.cpp文件显示高亮都用cimproved</description>
     </item>
     
     <item>
@@ -1288,7 +1281,7 @@ skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bo
       <pubDate>Thu, 12 May 2016 13:17:06 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
-      <description>1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &amp;gt; import urllib.request,os,hashlib; h = &amp;lsquo;2915d1851351e5ee549c20394736b442&amp;rsquo; + &amp;lsquo;8bc59f460fa1548d1514676163dafc88&amp;rsquo;; pf = &amp;lsquo;Package Control.sublime-package&amp;rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;lsquo;http://packagecontrol.io/&#39; + pf.replace(&amp;rsquo; &amp;lsquo;, &amp;lsquo;%20&amp;rsquo;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&amp;lsquo;Error validating download (got %s instead of %s), please try manual install&amp;rsquo; % (dh, h)) if dh !</description>
+      <description>1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可： &amp;gt; import urllib.request,os,hashlib; h = &amp;lsquo;2915d1851351e5ee549c20394736b442&amp;rsquo; + &amp;lsquo;8bc59f460fa1548d1514676163dafc88&amp;rsquo;; pf = &amp;lsquo;Package Control.sublime-package&amp;rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;lsquo;http://packagecontrol.io/&#39; + pf.</description>
     </item>
     
     <item>
@@ -1321,9 +1314,7 @@ skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bo
       <description>过些日子计划带父母去香港逛逛，顺便品尝下香港的美食小吃，不能光顾着自己嗨 (不能一人吃饱全家不饿) ，好了不多废话了，下面谈谈签证的问题。
 一、签证分类 1 团队旅游L：
 分为三个月一次或两次、一年一次或两次，每次逗留不超过7天，目前可以自行入关，和G签一样。
-   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2 探亲T：
-分为三种：
-   三个月一次有效 在香港或澳门逗留不超过14天 20元/每签     三个月多次有效 自首次进入香港或澳门起累计逗留不超过90天 100元/每签   一年多次有效 持证人每次在香港或者澳门逗留不超过90天 100元/每签    3 商务S：</description>
+   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2 探亲T：</description>
     </item>
     
   </channel>
