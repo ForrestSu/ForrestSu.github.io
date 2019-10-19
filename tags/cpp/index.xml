@@ -6,10 +6,24 @@
     <description>Recent content in CPP on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 02 Nov 2018 17:29:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 24 Oct 2019 21:30:35 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;的一些缺点</title>
+      <link>https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/</link>
+      <pubDate>Thu, 24 Oct 2019 21:30:35 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/</guid>
+      <description>C++的一些缺点 最近抽空学习了下 Go 语言，发现 Go 语言的确解决了C/C++语言中的很多问题；
+ 没有class，以及class 的继承；
+ 比如动手写个简单的C++ class，先写好： 构造函数，析构函数，参数构造顺序，析构顺序，拷贝构造函数，移动构造函数&amp;hellip;balaba&amp;hellip; 这着实让人有点头大； 还有我们校招面试题出现的父子类继承，问变量的初始化顺序？ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次， 在编译时决定。
+ 很多函数都是工具类函数，有些时候直接写在当前class里面，其他模块就不好复用了；
+  为了复用，不得不写成 static func()放在hpp文件里；但是记得加上inline？？
+ 有些C开发，慢慢开始写C++，后来有退回去不再使用C++，比如zeromq 的作者。  Go 语言没有class，感觉一下子清净了， 因为经常看到别人做一个C++的模块，上来就把继承，多态，设计模式搞起来；</description>
+    </item>
     
     <item>
       <title>Multithreading-with-ZeroMQ</title>

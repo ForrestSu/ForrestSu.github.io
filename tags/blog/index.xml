@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/blog/</link>
+    <description>Recent content in blog on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 13 Oct 2016 18:04:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Blog for Me</title>
+      <link>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/</link>
+      <pubDate>Thu, 13 Oct 2016 18:04:13 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/</guid>
+      <description>这个小站将以技术分享学习为主，当然也同样会记录我生活的喜怒哀乐， 作为我小小人生的一个旁观者，也许若干年后回头看，会有别样的心情。</description>
+    </item>
+    
+  </channel>
+</rss>

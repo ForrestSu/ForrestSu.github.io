@@ -35,18 +35,6 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
     </item>
     
     <item>
-      <title>yii2&#43;nginx problems</title>
-      <link>https://forrestsu.github.io/posts/web/yii2&#43;nginx-problems/</link>
-      <pubDate>Thu, 23 Mar 2017 09:12:08 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/web/yii2&#43;nginx-problems/</guid>
-      <description>一直都在用Apache来搭建php环境，最近改用Nginx来搭建服务器，毕竟nginx1.10.3才4M不到。
-打开yii2主页面，启动报错： &amp;gt;Call to undefined function mb_strlen() 的解决方法
-检查是否启用mbstring.dll 控制台输入：php -m 发现mbstring已启用。
-php.ini 中修改配置为全路径，重启Nginx问题解决： &amp;gt; extension_dir = &amp;ldquo;D:/Portable/php-7.1.1x64/ext&amp;rdquo;</description>
-    </item>
-    
-    <item>
       <title>如何配置nginx php7(windows)</title>
       <link>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</link>
       <pubDate>Wed, 01 Feb 2017 21:39:21 +0800</pubDate>

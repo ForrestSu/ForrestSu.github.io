@@ -17,7 +17,7 @@
       <pubDate>Mon, 18 Dec 2017 18:27:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</guid>
-      <description>1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被当成地址对待 。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。</description>
+      <description>1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。</description>
     </item>
     
     <item>
