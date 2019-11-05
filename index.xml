@@ -42,8 +42,12 @@
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/todo/</guid>
-      <description> 20170224  1 linux epoll 2 select 和 epoll 的区别 3 System v消息队列
-msgsnd() msgrcv() 函数  </description>
+      <description> 20170224  libaio
+ 1 linux epoll
+ 2 select 和 epoll 的区别
+ 3 System v消息队列
+ msgsnd() msgrcv() 函数
+  </description>
     </item>
     
     <item>
