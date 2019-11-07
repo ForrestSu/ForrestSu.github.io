@@ -154,7 +154,7 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</d
       <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/about-stock.png&#34; alt=&#34;about-stock&#34; /&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/about-stock.jpg&#34; alt=&#34;about-stock&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
 
@@ -805,13 +805,16 @@ uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首�
     </item>
     
     <item>
-      <title>c&#43;&#43; 11智能指针</title>
-      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</link>
+      <title>C&#43;&#43;11之 shared_ptr 原理分析</title>
+      <link>https://forrestsu.github.io/posts/cpp/shared_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-11%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</guid>
-      <description> 1 概要 C++ 11 包含了智能指针，需要包含头文件#include &amp;lt;memory&amp;gt;
-unique_ptr </description>
+      <guid>https://forrestsu.github.io/posts/cpp/shared_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <description>1 概要 C++ 11 包含了以下 3 种常用的智能指针：
+ std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可
+原理分析 1 shared_ptr
+2 make_shared()
+3 enable_shared_from_this</description>
     </item>
     
     <item>
