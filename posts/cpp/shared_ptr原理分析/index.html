@@ -83,7 +83,7 @@
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            148
+                            2039
                         </div>
                         
                         <div class="post-meta">
@@ -102,31 +102,102 @@
                         <div class="post-content">
                             
 
-<h2 id="1-概要">1 概要</h2>
+<h2 id="1-preface">1 Preface</h2>
+
+<p>软件工程遇到的问题都可以通过增加一个<code>中间层</code>来解决, 智能指针也是基于这样的思想；</p>
 
 <p>C++ 11 包含了以下 3 种常用的智能指针：</p>
 
 <ul>
-<li>std::unique_ptr<T></li>
-<li>std::shared_ptr<T></li>
-<li>std::weak_ptr<T></li>
+<li>std::unique_ptr</li>
+<li>std::shared_ptr</li>
+<li>std::weak_ptr</li>
 </ul>
 
 <p>包含头文件 <code>#include &lt;memory&gt;</code> 即可</p>
 
-<h2 id="原理分析">原理分析</h2>
+<h2 id="2-原理分析">2 原理分析</h2>
 
-<p>1 shared_ptr</p>
+<h3 id="2-1-shared-ptr">2.1 shared_ptr</h3>
+
+<p>直接用 shared_ptr 管理一个堆上的裸指针对象：</p>
+
+<pre><code class="language-cpp">std::shared_ptr&lt;Good&gt; gp1(new Good());
+</code></pre>
 
 <p><img src="/images/shared_ptr.png" alt="shared_ptr" /></p>
 
-<p>2 make_shared<T>()</p>
+<h3 id="2-2-make-shared-t">2.2 make_shared&lt;T&gt;()</h3>
+
+<p>推荐使用 make_shared 来创建对象:
+好处1: 把指针计数器和对象一次性<code>一起分配</code>；提高内存分配效率。
+好处2: 提高数据的局部性，引用计数和对象可能在同一内存页中(甚至是 same cache line)。</p>
+
+<pre><code class="language-cpp">std::shared_ptr&lt;Good&gt; gp1 = std::make_shared&lt;Good&gt;();
+</code></pre>
 
 <p><img src="/images/make_shared.png" alt="make_shared" /></p>
 
-<p>3 enable_shared_from_this</p>
+<h3 id="2-3-enable-shared-from-this">2.3 enable_shared_from_this</h3>
+
+<pre><code class="language-cpp">struct Good : std::enable_shared_from_this&lt;Good&gt; // 注意：继承
+{
+public:
+	std::shared_ptr&lt;Good&gt; getptr() {
+		return shared_from_this();
+	}
+	~Good() { std::cout &lt;&lt; &quot;Good::~Good() called&quot; &lt;&lt; std::endl; }
+};
+
+// Good: the two shared_ptr's share the same object
+std::shared_ptr&lt;Good&gt; gp1 = std::make_shared&lt;Good&gt;();
+std::shared_ptr&lt;Good&gt; gp2 = gp1-&gt;getptr();
+std::cout &lt;&lt; &quot;gp2.use_count() = &quot; &lt;&lt; gp2.use_count() &lt;&lt; '\n'; // output 2
+</code></pre>
+
+<p>c++ 为了解决class内部, 使用自身class的智能指针的问题，引入了<code>enable_shared_from_this</code>,<br />
+enable_shared_from_this 这个类只包含一个 weak_ptr&lt;T&gt; 成员对象(16 bytes),<br />
+当每次调用<code>shared_from_this()</code>, 就通过 <code>weak_ptr</code> 提升创建一个 <code>shared_ptr</code> 对象。</p>
+
+<p>其内存模型如下：</p>
 
 <p><img src="/images/enable_shared_from_this.png" alt="enable_shared_from_this" /></p>
+
+<h2 id="3-对象字节数">3 对象字节数</h2>
+
+<p>a&gt; shared_ptr， weak_ptr 由于内部都只包含两个pointer，所以都是 <code>16 bytes</code>;</p>
+
+<p>b&gt; control_block&lt;T*&gt; 包含两个 atomic_llong 和一个指针，所以是 <code>24 bytes</code>;</p>
+
+<p>c&gt; 特别地，如果采用 make_shared 来分配智能指针，不考虑内存对其的前提下，<br />
+   control_block&lt;T*&gt; 占用空间为 <code>16 + sizeof(T)</code></p>
+
+<h2 id="4-shared-ptr-和-weak-ptr-实现的细节">4 shared_ptr 和 weak_ptr 实现的细节</h2>
+
+<ul>
+<li><p>当每次有新的 shared_ptr 生成时，会增加 _Sp_counted_base 的 _M_use_count (+1);</p></li>
+
+<li><p>当每次有新的 weak_ptr 生成时，会增加 _Sp_counted_base 的 _M_weak_count (+1);</p></li>
+
+<li><p>通过weak_ptr<x>::lock()函数可以获取x对象的强引用（shared_ptr）。<br />
+<code>通过判断 !expired(){return _M_use_count == 0;}, 那么可以提升成功。</code></p></li>
+
+<li><p>对应的，shared_ptr 析构时，会调用 _Sp_counted_base 的 _M_release 来使 _M_use_count (-1);</p></li>
+
+<li><p>weak_ptr 析构时，会调用 _Sp_counted_base 的 _M_release 来使 _M_weak_count (-1);</p></li>
+
+<li><p>当 _M_use_count 的数量为 0 的时候 就会释放，原始的对象(用户自定义对象) 的内存，但是不会释放
+_Sp_counted_base 的内存。</p></li>
+
+<li><p>当 _M_use_count 和 _M_weak_count 都为 0 的时候， 才会释放 _Sp_counted_base 的内存。</p></li>
+</ul>
+
+<h2 id="5-problems">5 Problems</h2>
+
+<p>❓<em>make_shared 对象的内存可能无法及时回收？</em></p>
+
+<p>make_shared 只分配一次内存, 这看起来很好. 减少了内存分配的开销。
+问题来了, weak_ptr 会保持控制块(强引用, 以及弱引用的信息)的生命周期, 而因此连带着保持了对象分配的内存, 只有最后一个 weak_ptr 离开作用域时, 内存才会被释放. 原本强引用减为 0 时就可以释放的内存, 现在变为了强引用, 若引用都减为 0 时才能释放, 意外的延迟了内存释放的时间. 这对于内存要求高的场景来说, 是一个需要注意的问题. 关于这个问题可以看这里 <a href="http://lanzkron.wordpress.com/2012/04/22/make_shared-almost-a-silver-bullet">make_shared, almost a silver bullet</a></p>
 
                         </div>
 

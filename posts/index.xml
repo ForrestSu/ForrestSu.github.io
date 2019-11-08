@@ -796,11 +796,11 @@ uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首�
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cpp/shared_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
-      <description>1 概要 C++ 11 包含了以下 3 种常用的智能指针：
+      <description>1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
+C++ 11 包含了以下 3 种常用的智能指针：
  std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可
-原理分析 1 shared_ptr
-2 make_shared()
-3 enable_shared_from_this</description>
+2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
+std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good());  2.</description>
     </item>
     
     <item>
