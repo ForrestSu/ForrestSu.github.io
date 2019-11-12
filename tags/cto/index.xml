@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTO on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/cto/</link>
+    <description>Recent content in CTO on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 08 Jan 2018 00:19:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/cto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Talk with cto</title>
+      <link>https://forrestsu.github.io/posts/work/talk-with-cto/</link>
+      <pubDate>Mon, 08 Jan 2018 00:19:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/work/talk-with-cto/</guid>
+      <description>2018-01-03 Wed 13:00 北京华贸中心 2 floor
+备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
+谈话记录 谈话主要以QA的方式展开,如下:
+基本面 luke: 你是什么时候来公司的？
+sq: 今年4月10日，来名策有8个月了。
+luke: 在恒生工作了几年？
+sq: 算上实习期 共2年。
+luke: 在恒生的工作怎么样？是不是学到了很多东西？
+sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
+luke: 恒生不是也有中间件吗？
+sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
+luke: 当初在恒生你也是跟张前平做事的？</description>
+    </item>
+    
+  </channel>
+</rss>

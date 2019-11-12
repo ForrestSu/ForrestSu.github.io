@@ -198,7 +198,7 @@
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            5008
+                            4993
                         </div>
                         
                         <div class="post-meta">
@@ -284,9 +284,9 @@ wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.12-1.1.0.tgz
 <p>(1) 下载 <code>zookeeper-3.4.10.tar.gz</code></p>
 
 <p>(2) 在 master 节点上安装 zookeeper<br />
-    解压安装包，并复制配置文件</p>
+解压安装包，并复制配置文件</p>
 
-<pre><code># 在master节点上
+<pre><code class="language-sh"># 在master节点上
 [opadm@master ~]$ tar -xzvf zookeeper-3.4.10.tar.gz
 [opadm@master ~]$ cd zookeeper-3.4.10/conf/
 [opadm@master conf]$ cp zoo_sample.cfg zoo.cfg
@@ -297,10 +297,9 @@ wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.12-1.1.0.tgz
 
 <p>修改内容如下：</p>
 
-<pre><code>...
-# dataDir 最好不要在 /tmp 下
+<pre><code class="language-sh"># dataDir 最好不要在 /tmp 下
 dataDir=/tmp/zookeeper
-...
+
 # the port at which the clients will connect
 clientPort=2181
 
@@ -308,7 +307,6 @@ clientPort=2181
 server.0=master:8001:8002
 server.1=worker1:8001:8002
 server.2=worker2:8001:8002
-...
 </code></pre>
 
 <p>(4) 在 dataDir 目录下创建 data 文件夹 和 myid 文件（内容为0）</p>
@@ -333,9 +331,8 @@ server.2=worker2:8001:8002
 [opadm@worker1 ~]$ mkdir /tmp/zookeeper/data/
 [opadm@worker1 ~]$ touch /tmp/zookeeper/myid
 [opadm@worker1 ~]$ echo 1 &gt; /tmp/zookeeper/myid
-</code></pre>
 
-<pre><code># 登录 worker2
+# 登录 worker2
 [opadm@worker2 ~]$ mkdir /tmp/zookeeper/data/
 [opadm@worker2 ~]$ touch /tmp/zookeeper/myid
 [opadm@worker2 ~]$ echo 2 &gt; /tmp/zookeeper/myid
@@ -345,8 +342,8 @@ server.2=worker2:8001:8002
 
 <p>(1) 下载 kafka_2.11-0.10.0.1.tar.gz</p>
 
-<p>(2) 在 master 节点上安装 kafka（一个broker）
-解压安装包</p>
+<p>(2) 在 master 节点上安装 kafka（一个broker）<br />
+解压安装包:</p>
 
 <pre><code># 在master节点上
 &gt; [opadm@master ~]$ tar -xzvf kafka_2.11-0.10.0.1.tar.gz
@@ -361,9 +358,8 @@ server.2=worker2:8001:8002
 
 <p>修改内容如下：</p>
 
-<pre><code>...
-# master为0
-broker.id=0    
+<pre><code># master为0
+broker.id=0
 ...
 # 连接
 zookeeper.connect=master:2181,worker1:2181,worker2:2181
@@ -383,7 +379,7 @@ delete.topic.enable=true
 
 <h3 id="三-启动集群和测试">三、 启动集群和测试</h3>
 
-<p>** 注：启动时：先启动 zookeeper，后启动 kafka；关闭时：先关闭 kafka，后关闭zookeeper **</p>
+<p><strong>注：启动时：先启动 zookeeper，后启动 kafka；关闭时：先关闭 kafka，后关闭zookeeper</strong></p>
 
 <p>(1) 分别在每个节点上启动 zookeeper</p>
 
@@ -665,6 +661,8 @@ delete.topic.enable=true
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
   
+  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
@@ -719,7 +717,7 @@ delete.topic.enable=true
   
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
-  <a href="https://forrestsu.github.io/tags/work/">Work(12)</a>
+  <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
   
   <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
   
