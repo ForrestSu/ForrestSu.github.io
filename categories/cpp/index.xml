@@ -60,11 +60,11 @@ vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;quot;abc&amp;quot;); str.pus
     </item>
     
     <item>
-      <title>C&#43;&#43;11之 shared_ptr 原理分析</title>
-      <link>https://forrestsu.github.io/posts/cpp/shared_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <title>C&#43;&#43;11之智能指针-原理分析</title>
+      <link>https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/shared_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
 C++ 11 包含了以下 3 种常用的智能指针：
  std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可

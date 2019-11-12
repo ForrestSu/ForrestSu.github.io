@@ -71,6 +71,33 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/" title="XSL 语言(2)" >XSL 语言(2)</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年1月18日 15:56:07
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                上一篇主要入门了 XSL，这一课来进一步学习XSL。
+1 语法 (1) xsl:if 元素 语法：
+&lt;xsl:if test=&quot;expression&quot;&gt; ... ...如果条件成立则输出... ... &lt;/xsl:if&gt;  如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/" title="XSL 语言" >XSL 语言</a>
                                 </h1>
                             </header>
@@ -296,33 +323,6 @@ Todoist：待办事项列表及任务管理器……
                         </article>
                     
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick" >git cherry-pick</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月12日 01:10:59
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &gt;git cherry-pick ee99d9a
-如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
-2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。 解决完冲突后: 《完》……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
-                        </article>
-                    
-                    
                     
 
 
@@ -422,6 +422,10 @@ Todoist：待办事项列表及任务管理器……
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点">C&#43;&#43;的一些缺点</a>
     </li>
     
@@ -457,10 +461,6 @@ Todoist：待办事项列表及任务管理器……
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -481,6 +481,8 @@ Todoist：待办事项列表及任务管理器……
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/java/">Java (3)</a></li>
   
@@ -539,6 +541,8 @@ Todoist：待办事项列表及任务管理器……
   
   <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
   
+  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
   
   <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -559,11 +563,15 @@ Todoist：待办事项列表及任务管理器……
   
   <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   
   <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/select/">select(1)</a>
   
   <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
   
@@ -578,6 +586,10 @@ Todoist：待办事项列表及任务管理器……
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   

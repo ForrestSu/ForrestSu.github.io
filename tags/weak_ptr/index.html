@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.58.3" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>weak_ptr | 程序员的冷浪漫</title>
+    <meta property="og:title" content="weak_ptr - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
+    <meta name="description" content="weak_ptr">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="https://forrestsu.github.io/tags/weak_ptr/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/weak_ptr/index.xml" title="程序员的冷浪漫" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">weak_ptr</span>
+                        的文章
+                    </h3>
+                    
+
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">C&#43;&#43;11之智能指针-原理分析</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年4月7日 20:54:00
+                            </date>
+                            <div class="post-meta">
+                                <span>| 字数 </span>
+                                4454
+                            </div>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/cpp">CPP</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
+C++ 11 包含了以下 3 种常用的智能指针：
+ std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &lt;memory&gt; 即可
+2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
+std::shared_ptr&lt;Good&gt; gp1(new Good());  2.……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+
+
+                </div>
+            </div>
+
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点">C&#43;&#43;的一些缺点</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="Java 注解">Java 注解</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+<ul class="widget-list">
+  
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (2)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (6)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (3)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (3)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
+  
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+<div class="tagcloud">
+  
+  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+  
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  
+  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(10)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
+  
+  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+  
+  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+  
+  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/java/">Java(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+  
+  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+  
+  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+  
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+  
+  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/select/">select(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+  
+  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+  
+  <a href="https://forrestsu.github.io/tags/work/">Work(12)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+  
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
+
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+
+</body>
+</html>
