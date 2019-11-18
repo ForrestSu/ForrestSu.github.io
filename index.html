@@ -71,63 +71,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型" >五种 IO 模型</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年11月11日 17:41:47
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/io">IO</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点" >C&#43;&#43;的一些缺点</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2019年10月24日 21:30:35
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/languages">Languages</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                C++的一些缺点 最近抽空学习了下 Go 语言，发现 Go 语言的确解决了C/C++语言中的很多问题；
- 没有class，以及class 的继承；
- 比如动手写个简单的C++ class，先写好： 构造函数，析构函数，参数构造顺序，析构顺序，拷贝构造函数，移动构造函数&hellip;balaba&hellip; 这着实让人有点头大； 还有我们校招面试题出现的父子类继承，问变量的初始化顺序？ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次， 在编译时决定。
- 很多函数都是工具类函数，有些时候直接写在当前class里面，其他模块就不好复用了；
-  为了复用，不得不写成 static func()放在hpp文件里；但是记得加上inline？？
- 有些C开发，慢慢开始写C++，后来有退回去不再使用C++，比如zeromq 的作者。  Go 语言没有class，感觉一下子清净了， 因为经常看到别人做一个C++的模块，上来就把继承，多态，设计模式搞起来；……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？" >MySQL: 一条SQL语句是如何执行的？</a>
                                 </h1>
                             </header>
@@ -152,6 +95,61 @@
                     
                     
 		    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型" >五种 IO 模型</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2019年3月11日 17:41:47
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/io">IO</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
+我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
+2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)" >Red Black Tree (01)</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年11月19日 15:00:28
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。
+ 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -203,32 +201,6 @@ Zookeeper工作方式
  Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="Java 注解" >Java 注解</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年10月10日 11:02:25
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                 注解的发展历史 JavaDoc&mdash;&ndash;&gt;EjbDoclet&mdash;&gt;XDoclet&mdash;-&gt;annotation ####1 用注解减少IDE警告信息 &gt;@java.lang.SuppressWarnings(value=&ldquo;unchecked“)
-2 自定义注解 ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/">阅读全文</a></p>
                         </article>
                     
                     
@@ -317,6 +289,31 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
                         </article>
                     
                     
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年6月9日 20:29:57
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/">阅读全文</a></p>
+                        </article>
+                    
+                    
                     
 
 
@@ -397,15 +394,15 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点">C&#43;&#43;的一些缺点</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
     <li>
@@ -414,10 +411,6 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
     
     <li>
         <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="Java 注解">Java 注解</a>
     </li>
     
     <li>
@@ -436,6 +429,10 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -445,7 +442,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
         <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
   
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
   
@@ -459,9 +456,9 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
   
@@ -510,7 +507,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(10)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
   
@@ -526,7 +523,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(3)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -543,6 +540,8 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
   
   <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   

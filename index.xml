@@ -6,35 +6,10 @@
     <description>Recent content on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 11 Nov 2019 17:41:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2019 20:12:34 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>五种 IO 模型</title>
-      <link>https://forrestsu.github.io/posts/io/io-model/</link>
-      <pubDate>Mon, 11 Nov 2019 17:41:47 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/io/io-model/</guid>
-      <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。</description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43;的一些缺点</title>
-      <link>https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/</link>
-      <pubDate>Thu, 24 Oct 2019 21:30:35 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/</guid>
-      <description>C++的一些缺点 最近抽空学习了下 Go 语言，发现 Go 语言的确解决了C/C++语言中的很多问题；
- 没有class，以及class 的继承；
- 比如动手写个简单的C++ class，先写好： 构造函数，析构函数，参数构造顺序，析构顺序，拷贝构造函数，移动构造函数&amp;hellip;balaba&amp;hellip; 这着实让人有点头大； 还有我们校招面试题出现的父子类继承，问变量的初始化顺序？ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次， 在编译时决定。
- 很多函数都是工具类函数，有些时候直接写在当前class里面，其他模块就不好复用了；
-  为了复用，不得不写成 static func()放在hpp文件里；但是记得加上inline？？
- 有些C开发，慢慢开始写C++，后来有退回去不再使用C++，比如zeromq 的作者。  Go 语言没有class，感觉一下子清净了， 因为经常看到别人做一个C++的模块，上来就把继承，多态，设计模式搞起来；</description>
-    </item>
     
     <item>
       <title>MySQL: 一条SQL语句是如何执行的？</title>
@@ -62,6 +37,29 @@
     </item>
     
     <item>
+      <title>五种 IO 模型</title>
+      <link>https://forrestsu.github.io/posts/io/io-model/</link>
+      <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/io/io-model/</guid>
+      <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
+我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
+2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。</description>
+    </item>
+    
+    <item>
+      <title>Red Black Tree (01)</title>
+      <link>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</link>
+      <pubDate>Mon, 19 Nov 2018 15:00:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</guid>
+      <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。
+ 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：</description>
+    </item>
+    
+    <item>
       <title>Multithreading-with-ZeroMQ</title>
       <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
       <pubDate>Fri, 02 Nov 2018 17:29:51 +0800</pubDate>
@@ -80,16 +78,6 @@ Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入�
       <description>Zookeeper+Kafka集群搭建方案 date: 2018-10-30 19:50 Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
 Zookeeper工作方式
  Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。</description>
-    </item>
-    
-    <item>
-      <title>Java 注解</title>
-      <link>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</link>
-      <pubDate>Wed, 10 Oct 2018 11:02:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
-      <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
-2 自定义注解 </description>
     </item>
     
     <item>
@@ -603,7 +591,11 @@ vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;quot;abc&amp;quot;); str.pus
       <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
-      <description>…… 大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 …… 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ ⋯⋯ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。 …… 本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。 …… 待续</description>
+      <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。
+博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！
+程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。
+本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。
+待续</description>
     </item>
     
     <item>

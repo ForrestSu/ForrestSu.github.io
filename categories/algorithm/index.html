@@ -80,15 +80,15 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/">关于博弈论</a>
+                                    <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">Red Black Tree (01)</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                                2017年7月16日 17:14:54
+                                2018年11月19日 15:00:28
                             </date>
                             <div class="post-meta">
                                 <span>| 字数 </span>
-                                339
+                                2014
                             </div>
                             
                             <div class="post-meta meta-category">
@@ -99,7 +99,41 @@
                             </div>
                             
                             <div class="post-content">
-                                …… 大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 …… 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ ⋯⋯ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。 …… 本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。 …… 待续……
+                                1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。
+ 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/">关于博弈论</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2017年7月16日 17:14:54
+                            </date>
+                            <div class="post-meta">
+                                <span>| 字数 </span>
+                                329
+                            </div>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。
+博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！
+程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。
+本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。
+待续……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/">阅读全文</a></p>
                             </div>
                         </article>
@@ -159,15 +193,15 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点">C&#43;&#43;的一些缺点</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
     <li>
@@ -176,10 +210,6 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
     
     <li>
         <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="Java 注解">Java 注解</a>
     </li>
     
     <li>
@@ -198,6 +228,10 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -207,7 +241,7 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
         <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
   
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
   
@@ -221,9 +255,9 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
   
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
   
@@ -272,7 +306,7 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(10)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
   
@@ -288,7 +322,7 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(3)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -305,6 +339,8 @@ dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品
   <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
   
   <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   

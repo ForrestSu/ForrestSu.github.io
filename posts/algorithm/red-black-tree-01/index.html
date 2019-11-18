@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>C&#43;&#43;的一些缺点 | 程序员的冷浪漫</title>
-    <meta property="og:title" content="C&#43;&#43;的一些缺点 - 程序员的冷浪漫">
+    <title>Red Black Tree (01) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Red Black Tree (01) - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2019-10-24T21:30:35&#43;08:00">
+    <meta property="article:published_time" content="2018-11-19T15:00:28&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2019-10-24T21:30:35&#43;08:00">
+    <meta property="article:modified_time" content="2018-11-19T15:00:28&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
-    <meta name="description" content="C&#43;&#43;的一些缺点">
+    <meta name="description" content="Red Black Tree (01)">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
@@ -73,7 +73,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#c-的一些缺点">C++的一些缺点</a></li>
+<li><a href="#1-bst">1 BST</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#红黑树的特征">红黑树的特征</a></li>
+<li><a href="#程序编码">程序编码</a></li>
+<li><a href="#problem">Problem</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -184,20 +188,20 @@
                 <div class="res-cons">
                     <article class="post">
                         <header>
-                            <h1 class="post-title">C&#43;&#43;的一些缺点</h1>
+                            <h1 class="post-title">Red Black Tree (01)</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2019年10月24日 21:30:35
+                            2018年11月19日 15:00:28
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            932
+                            2014
                         </div>
                         
                         <div class="post-meta">
                             <span>|</span>
                             
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/languages">Languages</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a></span>
                             
                         </div>
                         
@@ -216,50 +220,108 @@
                         <div class="post-content">
                             
 
-<h2 id="c-的一些缺点">C++的一些缺点</h2>
+<h2 id="1-bst">1 BST</h2>
 
-<p>最近抽空学习了下 Go 语言，发现 Go 语言的确解决了C/C++语言中的很多问题；</p>
+<p>BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。</p>
 
-<ul>
-<li><p>没有class，以及class 的继承；</p></li>
-
-<li><p>比如动手写个简单的C++ class，先写好：
-构造函数，析构函数，参数构造顺序，析构顺序，拷贝构造函数，移动构造函数&hellip;balaba&hellip;
-这着实让人有点头大；
-还有我们校招面试题出现的父子类继承，问变量的初始化顺序？
-C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次， 在编译时决定。</p></li>
-
-<li><p>很多函数都是工具类函数，有些时候直接写在当前class里面，其他模块就不好复用了；</p></li>
-</ul>
-
-<p>为了复用，不得不写成 static func()放在hpp文件里；但是记得加上inline？？</p>
+<h2 id="conclusion">Conclusion</h2>
 
 <ul>
-<li>有些C开发，慢慢开始写C++，后来有退回去不再使用C++，比如zeromq 的作者。</li>
+<li>BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。<br /></li>
+<li>一棵具有 N 个 node 的 BST 树高(height)取值范围为：<code>logN ≤ height ≤ N</code></li>
 </ul>
 
-<p>Go 语言没有class，感觉一下子清净了，
-因为经常看到别人做一个C++的模块，上来就把继承，多态，设计模式搞起来；</p>
+<p>因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。</p>
 
-<p>可能就是一个小功能, 过度使用设计模式，这种代码初学者看起来很高深，
-维护起来头大~，当项目有新功能时，感觉整个设计又不能用了，就又开始refactor。</p>
+<h2 id="红黑树的特征">红黑树的特征</h2>
+
+<p>红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助<code>颜色控制</code>，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：</p>
+
+<p><img src="/images/red-black-tree.png" alt="rb-tree" /></p>
+
+<p>上图：最短的path为3（最右路径：26-41-47），其余路径最长只能是6（最左路径：26-17-14-10-7-3）。若遮住NIL和颜色，此即为BST。</p>
+
+<p>有原本在BST中指向NULL的指针，在RBT中，全部指向了NIL。</p>
+
+<p>什么是NIL？NIL是永远为<code>黑色</code>，并且实际占有内存的节点，因为占有内存，因此能够以 <code>node-&gt;color</code> 的方式获得某个节点的颜色（若使用NULL则没有办法），这样的设计将在后续介绍如何于RBT中Insert（新增资料）与Delete（删除资料）时派上用场。</p>
+
+<p>接下来看RBT的五项特征：</p>
+
+<blockquote>
+<p>1 RBT 中的每一个节点不是黑色就是红色。<br />
+2 root 一定是黑色。<br />
+3 每一个叶子节点 <code>leaf node</code>（也就是NIL）一定是黑色。<br />
+4 如果某个 node 是红色，那么其两个 child 必定是黑色，不能有两个红色 node 相连，如上图中的node(17)、node(30)。<br />
+ <em>若某个 node 为黑色，其 child 的颜色没有限制，如上图中的 node(38)、node(26)、node(21)。</em><br />
+5 站在任何一个 node 上，所有从该 node 走到其任意 descendant leaf 的path上的<code>黑色 node 数</code>必定相同。</p>
 
 <ul>
-<li><p>Go 做了垃圾自动回收，现在很多语言都有GC功能，内存申请释放也很令人头大，
-虽然C++引入了 shared_ptr, weak_ptr, unique_ptr, 但是面临对象循环引用，当工程的规模越来越大，
-智能指针用起来也很令人头大，不得不消耗更多的脑细胞，思考好哪些地方用shared_ptr，哪些地方用weak_ptr，理清楚对象间的引用关系；当然循环引用可能导致OOM。</p></li>
-
-<li><p>在google 的编程规范里面也是不建议使用智能指针的；
-就算用了智能指针，程序员还是需要细致的处理多层级相互引用，以及释放顺序的问题；
-我记得当初快毕业的时候，参加金山C++面试，面试官问我用过智能指针没有？</p></li>
-
-<li><p>c/c++ h文件写声明写一遍, cpp实现再写一遍，经常修改内部接口时，就有点头大，加个入参都得改两处；</p></li>
+<li>如上图，站在node（14）上，所有从node（14）走向其descendant leaves（也就是NIL）的路径上之黑色node数必为3：</li>
+<li>path1:14(b)-10&reg;-7(b)-3&reg;-NIL(b)；<br /></li>
+<li>path2:14(b)-10&reg;-7(b)-NIL(b)；<br /></li>
+<li>path3:14(b)-10&reg;-12(b)-NIL(b)；<br /></li>
+<li>path4:14(b)-16(b)-15&reg;-NIL(b)；<br /></li>
+<li>path5:14(b)-16(b)-NIL(b)；<br /></li>
 </ul>
+</blockquote>
 
-<p>最后Go 语言没有class，回归 数据结构 + func，让整个代码结构平坦起来，提高了模块复用性；
-而继承树代码结构，只能按照继承树方向复用； 当然AOP支持代码横向复用。</p>
+<p>其中，第 4 点和 第 5 点比较难理解:<br />
+第4点：红色节点的孩子只能为黑色节点，黑色节点的孩子则没有这个约束（但是有第5点约束）。<br />
+第5点：站在任何一个节点上，从该 node 到所有叶子节点路径上的<code>黑色节点数</code> 必定相同。</p>
 
-<p>以上都是个人3年多来，写C++的一些感受，如有偏颇，还望在评论区指正 ^_- 。</p>
+<h2 id="程序编码">程序编码</h2>
+
+<p>实际的程序实现上，会把所有NIL视为同一个NIL，并把根的父母指向NIL，以节省存储空间。</p>
+
+<p><img src="/images/red-black-tree-imp.png" alt="rb-tree-imp" /></p>
+
+<p>class TreeNode与class RBT之资料成员（数据成员）程序范例如下：</p>
+
+<pre><code class="language-cpp">// C++ code
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class RBT;
+class TreeNode{
+private:
+    TreeNode *leftchild;
+    TreeNode *rightchild;
+    TreeNode *parent;
+    std::string element;
+    int key;
+    int color;         // 0: Red, 1: Black; using type:bool is ok
+    friend RBT;
+    ...
+}
+class RBT{
+private:
+    TreeNode *root;
+    TreeNode *neel;    // 为NIL, 常被称为哨兵(sentinel)
+    ...
+}
+</code></pre>
+
+<p>（为了避开某些IDE将NIL设置成保留关键字（保留关键字，例如template，while，struct等等），因此使用neel。）<br />
+为求画面简洁，往后的篇幅里将把RBT示意图中的NIL隐藏起来，只显示RBT中的内部节点，就像下图，不过心里要记得，RBT无时无刻都被NIL充满着。</p>
+
+<p><img src="/images/red-black-tree-simple.png" alt="rb-tree-simple" /></p>
+
+<p>以上便是RBT之初探，最重要的事实：就时间复杂度而言，RBT能够被视为平衡的BST，所有操作皆能在时间复杂度为O（logN）内完成。</p>
+
+<p>在接下来，将依序介绍Rotation，Insert与Delete。</p>
+
+<h2 id="problem">Problem</h2>
+
+<blockquote>
+<p>为什么map 不使用 avl-tree, 而使用rb-tree?</p>
+</blockquote>
+
+<p>avl-tree 是高度平衡的 BST, 查询效率为O(logN), avl-tree 所有节点的左右子树高度差不超过1。
+当有大量插入(or 删除)需求的时候，为了维持高度平衡，需要大量节点旋转调整，成本比较高。</p>
+
+<p>在map/set等内核数据结构中，大量使用的是rb-tree， rb-tree 查询复杂度也是 O(logN)。
+rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当有大量插入(or 删除)需求的时候，节点调整的代价相对较低。
+所以这也是一种 trade-off。</p>
 
                         </div>
 
@@ -272,15 +334,15 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/cs/how-is-a-sql-statement-executed-by-mysql/">MySQL: 一条SQL语句是如何执行的？</a></li>
-        
-        <li><a href="/todo/">TodoList</a></li>
-        
         <li><a href="/posts/cpp/multithreading-with-zeromq/">Multithreading-with-ZeroMQ</a></li>
         
         <li><a href="/posts/java/zookeeper-kafka-cluster-deployment-plan/">Zookeeper-Kafka-Cluster-Deployment-Plan</a></li>
         
-        <li><a href="/posts/java/java-%E6%B3%A8%E8%A7%A3/">Java 注解</a></li>
+        <li><a href="/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/">慎独</a></li>
+        
+        <li><a href="/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">午夜梦醒十分</a></li>
+        
+        <li><a href="/posts/library/kafka%E5%AE%89%E8%A3%85/">kafka安装</a></li>
         
     </ul>
 </div>
@@ -290,7 +352,7 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/cpp">cpp</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/rb-tree">rb-tree</a></li>
                                 
                             </ul>
                             
@@ -328,15 +390,15 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/languages/c&#43;&#43;%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BC%BA%E7%82%B9/" title="C&#43;&#43;的一些缺点">C&#43;&#43;的一些缺点</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
     <li>
@@ -345,10 +407,6 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
     
     <li>
         <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/" title="Java 注解">Java 注解</a>
     </li>
     
     <li>
@@ -367,6 +425,10 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
+    <li>
+        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -376,7 +438,7 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
         <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
   
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
   
@@ -390,9 +452,9 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
   
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
   
@@ -441,7 +503,7 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(10)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
   
@@ -457,7 +519,7 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(3)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -474,6 +536,8 @@ C++ 全局静态变量的析构顺序？ 这个问题在工作中遇到几次，
   <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
   
   <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   

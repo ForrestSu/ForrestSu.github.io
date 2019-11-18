@@ -6,28 +6,10 @@
     <description>Recent content in Categories on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 11 Nov 2019 17:41:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 11 Oct 2019 20:12:34 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>IO</title>
-      <link>https://forrestsu.github.io/categories/io/</link>
-      <pubDate>Mon, 11 Nov 2019 17:41:47 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/io/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Languages</title>
-      <link>https://forrestsu.github.io/categories/languages/</link>
-      <pubDate>Thu, 24 Oct 2019 21:30:35 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/languages/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>CS</title>
@@ -44,6 +26,24 @@
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/todolist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IO</title>
+      <link>https://forrestsu.github.io/categories/io/</link>
+      <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/io/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://forrestsu.github.io/categories/algorithm/</link>
+      <pubDate>Mon, 19 Nov 2018 15:00:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/algorithm/</guid>
       <description></description>
     </item>
     
@@ -129,6 +129,15 @@
     </item>
     
     <item>
+      <title>Languages</title>
+      <link>https://forrestsu.github.io/categories/languages/</link>
+      <pubDate>Mon, 18 Dec 2017 18:27:08 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/languages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ReadingNotes</title>
       <link>https://forrestsu.github.io/categories/readingnotes/</link>
       <pubDate>Tue, 10 Oct 2017 11:23:08 +0800</pubDate>
@@ -152,15 +161,6 @@
       <pubDate>Sun, 20 Aug 2017 18:31:18 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/diary/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithm</title>
-      <link>https://forrestsu.github.io/categories/algorithm/</link>
-      <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/algorithm/</guid>
       <description></description>
     </item>
     

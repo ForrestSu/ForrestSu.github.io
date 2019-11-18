@@ -23,16 +23,6 @@ Zookeeper工作方式
     </item>
     
     <item>
-      <title>Java 注解</title>
-      <link>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</link>
-      <pubDate>Wed, 10 Oct 2018 11:02:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/java/java-%E6%B3%A8%E8%A7%A3/</guid>
-      <description> 注解的发展历史 JavaDoc&amp;mdash;&amp;ndash;&amp;gt;EjbDoclet&amp;mdash;&amp;gt;XDoclet&amp;mdash;-&amp;gt;annotation ####1 用注解减少IDE警告信息 &amp;gt;@java.lang.SuppressWarnings(value=&amp;ldquo;unchecked“)
-2 自定义注解 </description>
-    </item>
-    
-    <item>
       <title>java 反射机制(1)</title>
       <link>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</link>
       <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
