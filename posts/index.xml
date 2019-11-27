@@ -91,6 +91,17 @@ Zookeeper工作方式
     </item>
     
     <item>
+      <title>eventfd 入门</title>
+      <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
+      <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
+      <description>1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
+man eventfd
+#include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。</description>
+    </item>
+    
+    <item>
       <title>kafka安装</title>
       <link>https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/</link>
       <pubDate>Tue, 31 Jul 2018 10:34:54 +0800</pubDate>

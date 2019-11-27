@@ -6,10 +6,21 @@
     <description>Recent content in Linux on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 13 May 2017 15:22:38 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 12 Aug 2018 01:50:45 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>eventfd 入门</title>
+      <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
+      <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
+      <description>1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
+man eventfd
+#include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。</description>
+    </item>
     
     <item>
       <title>ubuntu 16.10安装eclipse 4.6</title>

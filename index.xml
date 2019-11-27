@@ -28,11 +28,10 @@
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/todo/</guid>
-      <description> 20170224  libaio
- 1 linux epoll
- 2 select 和 epoll 的区别
- 3 System v消息队列
- msgsnd() msgrcv() 函数
+      <description> 20170224  1 libaio
+ 2 linux epoll 3 select 和 epoll 的区别 3 System v消息队列
+msgsnd() msgrcv() 函数
+ 5 eventfd demo
   </description>
     </item>
     
@@ -102,6 +101,17 @@ Zookeeper工作方式
       
       <guid>https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/</guid>
       <description>梦到我爷爷在不久的未来将离我而去，梦里是那么真实，是一个穿T恤的夏天，在我家门口的大红枣树下，还记得红枣树是奶奶刚嫁到我家时种下的；梦里未来的我已攒够了7位数的积蓄，开始组建自己的家；梦里是我爷爷肾好像得了急性炎症，匆忙之间就离开了，来不及说一声再见，我看着树上挂着一颗颗熟透的红枣，瞬间眼睛湿润了！ 今年抽个空，去给爷爷做个健康体检。</description>
+    </item>
+    
+    <item>
+      <title>eventfd 入门</title>
+      <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
+      <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
+      <description>1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
+man eventfd
+#include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。</description>
     </item>
     
     <item>

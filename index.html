@@ -264,6 +264,33 @@ Zookeeper工作方式
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门" >eventfd 入门</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年8月12日 01:50:45
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
+man eventfd
+#include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" >kafka安装</a>
                                 </h1>
                             </header>
@@ -286,31 +313,6 @@ dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改�
 bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broker） ``` 启动kafka服务器（broker）……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年6月9日 20:29:57
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/">阅读全文</a></p>
                         </article>
                     
                     
@@ -422,15 +424,15 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
     </li>
     
 </ul>
@@ -464,7 +466,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
   
@@ -517,6 +519,8 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
   
   <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -531,7 +535,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(3)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
