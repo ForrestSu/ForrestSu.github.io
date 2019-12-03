@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HighAvailable on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/highavailable/</link>
+    <description>Recent content in HighAvailable on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 27 Nov 2019 23:59:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/categories/highavailable/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>etcd 服务注册与发现（一）</title>
+      <link>https://forrestsu.github.io/posts/highavailable/etcd-high-available/</link>
+      <pubDate>Wed, 27 Nov 2019 23:59:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/highavailable/etcd-high-available/</guid>
+      <description>1 Preface 最近 C++ 后台微服务组件，考虑使用etcd集群，替换 zookeeper 集群。
+这篇先讨论实现服务的注册与发现，节点的上线和下线通知。后面讨论服务的负载均衡。
+ etcd基于raft协议，通过复制日志文件的方式来保证数据的强一致性。 在etcd之前，常用的是基于 paxos 协议的 zookeeper。
+ 2 etcd 介绍 etcd是一个golang编写的分布式、高可用的一致性键值存储系统，用于提供可靠的分布式键值(key-value)存储、配置共享和服务发现等功能。 etcd可以用于存储关键数据和实现分布式调度，在现代化的集群运行中能够起到关键性的作用。
+2.1 etcd 应用场景  服务注册，发现 负载均衡等  3 服务注册与发现-方案 我们的微服务采用C++编写，一种思路是考虑使用 etcd v3 C/C++ Client API 和ectd 直接通信；</description>
+    </item>
+    
+    <item>
+      <title>Zookeeper&#43;Kafka集群搭建方案</title>
+      <link>https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/</link>
+      <pubDate>Tue, 30 Oct 2018 19:50:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
+      <description>Preface Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
+Zookeeper工作方式
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2019-10-11T20:12:34+08:00</lastmod>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/etcd/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/highavailable/etcd-high-available/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/highavailable/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/zookeeper/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
   </url>
   
   <url>
@@ -18,22 +53,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2019-10-11T20:12:34+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/sql/</loc>
-    <lastmod>2019-10-11T20:12:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2019-10-11T20:12:34+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2019-10-11T20:12:34+08:00</lastmod>
   </url>
   
@@ -108,18 +128,18 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/java/</loc>
-    <lastmod>2018-11-02T17:28:19+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/cluster/</loc>
+    <lastmod>2018-10-30T19:50:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/java/</loc>
-    <lastmod>2018-11-02T17:28:19+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/kafka/</loc>
+    <lastmod>2018-10-30T19:50:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/</loc>
-    <lastmod>2018-11-02T17:28:19+08:00</lastmod>
+    <loc>https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/</loc>
+    <lastmod>2018-10-30T19:50:19+08:00</lastmod>
   </url>
   
   <url>
@@ -138,12 +158,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/life/</loc>
+    <loc>https://forrestsu.github.io/categories/life/</loc>
     <lastmod>2018-09-17T06:08:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/life/</loc>
+    <loc>https://forrestsu.github.io/tags/life/</loc>
     <lastmod>2018-09-17T06:08:12+08:00</lastmod>
   </url>
   
@@ -178,12 +198,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/library/</loc>
+    <loc>https://forrestsu.github.io/tags/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/library/</loc>
+    <loc>https://forrestsu.github.io/categories/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
@@ -303,12 +323,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/web/</loc>
+    <loc>https://forrestsu.github.io/categories/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/web/</loc>
+    <loc>https://forrestsu.github.io/tags/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
@@ -343,12 +363,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/languages/</loc>
+    <loc>https://forrestsu.github.io/categories/languages/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/languages/</loc>
+    <loc>https://forrestsu.github.io/tags/languages/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url>
   
@@ -398,12 +418,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
@@ -413,12 +433,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/tools/</loc>
+    <loc>https://forrestsu.github.io/categories/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/tools/</loc>
+    <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
@@ -810,6 +830,16 @@
   <url>
     <loc>https://forrestsu.github.io/posts/readingnotes/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2016-12-11T00:46:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/java/</loc>
+    <lastmod>2016-12-07T23:28:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/java/</loc>
+    <lastmod>2016-12-07T23:28:21+08:00</lastmod>
   </url>
   
   <url>

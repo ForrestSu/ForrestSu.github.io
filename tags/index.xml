@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Oct 2019 20:12:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2019 23:59:19 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>etcd</title>
+      <link>https://forrestsu.github.io/tags/etcd/</link>
+      <pubDate>Wed, 27 Nov 2019 23:59:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/etcd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zookeeper</title>
+      <link>https://forrestsu.github.io/tags/zookeeper/</link>
+      <pubDate>Wed, 27 Nov 2019 23:59:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/zookeeper/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>sql</title>
@@ -75,11 +93,20 @@
     </item>
     
     <item>
-      <title>Java</title>
-      <link>https://forrestsu.github.io/tags/java/</link>
-      <pubDate>Fri, 02 Nov 2018 17:28:19 +0800</pubDate>
+      <title>cluster</title>
+      <link>https://forrestsu.github.io/tags/cluster/</link>
+      <pubDate>Tue, 30 Oct 2018 19:50:19 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/tags/java/</guid>
+      <guid>https://forrestsu.github.io/tags/cluster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka</title>
+      <link>https://forrestsu.github.io/tags/kafka/</link>
+      <pubDate>Tue, 30 Oct 2018 19:50:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/kafka/</guid>
       <description></description>
     </item>
     
@@ -111,7 +138,7 @@
     </item>
     
     <item>
-      <title>Linux</title>
+      <title>linux</title>
       <link>https://forrestsu.github.io/tags/linux/</link>
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
       
@@ -395,6 +422,15 @@
       <pubDate>Wed, 08 Feb 2017 15:58:52 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://forrestsu.github.io/tags/java/</link>
+      <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/java/</guid>
       <description></description>
     </item>
     

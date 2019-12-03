@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Red Black Tree(02) Rotation | 程序员的冷浪漫</title>
-    <meta property="og:title" content="Red Black Tree(02) Rotation - 程序员的冷浪漫">
+    <title>etcd 服务注册与发现（一） | 程序员的冷浪漫</title>
+    <meta property="og:title" content="etcd 服务注册与发现（一） - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2019-11-19T15:00:28&#43;08:00">
+    <meta property="article:published_time" content="2019-11-27T23:59:19&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2019-11-19T15:00:28&#43;08:00">
+    <meta property="article:modified_time" content="2019-11-27T23:59:19&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
-    <meta name="description" content="Red Black Tree(02) Rotation">
+    <meta name="description" content="etcd 服务注册与发现（一）">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/algorithm/red-black-tree-02/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/highavailable/etcd-high-available/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
@@ -73,7 +73,18 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-bst">1 BST</a></li>
+<li><a href="#1-preface">1 Preface</a></li>
+<li><a href="#2-etcd-介绍">2 etcd 介绍</a>
+<ul>
+<li><a href="#2-1-etcd-应用场景">2.1 etcd 应用场景</a></li>
+</ul></li>
+<li><a href="#3-服务注册与发现-方案">3 服务注册与发现-方案</a>
+<ul>
+<li><a href="#3-1-方案一-使用etcd-client-api">3.1 方案一: 使用etcd Client API</a></li>
+<li><a href="#3-2-方案二-采用zetcd-将zookeeper请求转换为etcd请求">3.2 方案二: 采用zetcd, 将zookeeper请求转换为etcd请求</a></li>
+</ul></li>
+<li><a href="#4-总结">4 总结</a></li>
+<li><a href="#5-reference">5 Reference</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -184,20 +195,20 @@
                 <div class="res-cons">
                     <article class="post">
                         <header>
-                            <h1 class="post-title">Red Black Tree(02) Rotation</h1>
+                            <h1 class="post-title">etcd 服务注册与发现（一）</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2019年11月19日 15:00:28
+                            2019年11月27日 23:59:19
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            4
+                            2670
                         </div>
                         
                         <div class="post-meta">
                             <span>|</span>
                             
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/highavailable">HighAvailable</a></span>
                             
                         </div>
                         
@@ -216,7 +227,159 @@
                         <div class="post-content">
                             
 
-<h2 id="1-bst">1 BST</h2>
+<h2 id="1-preface">1 Preface</h2>
+
+<p>最近 C++ 后台微服务组件，考虑使用etcd集群，替换 zookeeper 集群。<br />
+这篇先讨论实现服务的注册与发现，节点的上线和下线通知。后面讨论服务的负载均衡。</p>
+
+<blockquote>
+<p>etcd基于raft协议，通过复制日志文件的方式来保证数据的强一致性。
+在etcd之前，常用的是基于 paxos 协议的 zookeeper。</p>
+</blockquote>
+
+<h2 id="2-etcd-介绍">2 etcd 介绍</h2>
+
+<p><a href="https://github.com/etcd-io/etcd">etcd</a>是一个golang编写的分布式、高可用的一致性键值存储系统，用于提供可靠的分布式键值(key-value)存储、配置共享和服务发现等功能。
+etcd可以用于存储关键数据和实现分布式调度，在现代化的集群运行中能够起到关键性的作用。</p>
+
+<h3 id="2-1-etcd-应用场景">2.1 etcd 应用场景</h3>
+
+<ul>
+<li>服务注册，发现</li>
+<li>负载均衡等</li>
+</ul>
+
+<h2 id="3-服务注册与发现-方案">3 服务注册与发现-方案</h2>
+
+<p>我们的微服务采用C++编写，一种思路是考虑使用 etcd v3 C/C++ Client API 和ectd 直接通信；<br />
+另一个思路就是考虑兼容zookeeper。</p>
+
+<h3 id="3-1-方案一-使用etcd-client-api">3.1 方案一: 使用etcd Client API</h3>
+
+<p><img src="/images/uv_ectd_client.jpg" alt="uv_ectd_client" />
+etcd 采用golang 编写，v3版本通信采用grpc API，即(HTTP2+protobuf);<br />
+官方只维护了go语言版本的client库, 可以找到C/C++ 非官方的client 开发库：</p>
+
+<p><strong>C libraries</strong></p>
+
+<ul>
+<li><a href="https://github.com/apache/celix/tree/develop/etcdlib">apache/celix/etcdlib</a> - Supports v2</li>
+<li><a href="https://github.com/jdarcy/etcd-api">jdarcy/etcd-api</a> - Supports v2</li>
+<li><a href="https://github.com/shafreeck/cetcd">shafreeck/cetcd</a> - Supports v2</li>
+</ul>
+
+<p><strong>C++ libraries</strong></p>
+
+<ul>
+<li><a href="https://github.com/edwardcapriolo/etcdcpp">edwardcapriolo/etcdcpp</a> - Supports v2</li>
+<li><a href="https://github.com/suryanathan/etcdcpp">suryanathan/etcdcpp</a> - Supports v2 (with waits)</li>
+<li><a href="https://github.com/nokia/etcd-cpp-api">nokia/etcd-cpp-api</a> - Supports v2</li>
+<li><a href="https://github.com/nokia/etcd-cpp-apiv3">nokia/etcd-cpp-apiv3</a> - Supports v3</li>
+</ul>
+
+<p>那么现阶段，可以使用的有nokia/etcd-cpp-apiv3，使用etcd-cpp-apiv3和etcd进行通信。</p>
+
+<p><strong>编译</strong><br />
+etcd-cpp-apiv3 依赖 boost(v1.61.0)，cpprestsdk，grpc, protobuf，微软的cpprestsdk在centos没有安装包，需要先编译安装。</p>
+
+<pre><code class="language-cpp">// reading a value
+etcd::Client etcd(&quot;http://127.0.0.1:4001&quot;);
+pplx::task&lt;etcd::Response&gt; response_task = etcd.get(&quot;/test/key1&quot;);
+try
+{
+    etcd::Response response = response_task.get(); // can throw
+    if (response.is_ok())
+    std::cout &lt;&lt; &quot;successful read, value=&quot; &lt;&lt; response.value().as_string();
+    else
+    std::cout &lt;&lt; &quot;operation failed, details: &quot; &lt;&lt; response.error_message();
+}
+catch (std::ecxeption const &amp; ex)
+{
+    std::cerr &lt;&lt; &quot;communication problem, details: &quot; &lt;&lt; ex.what();
+}
+</code></pre>
+
+<p>观察一个节点的状态：</p>
+
+<pre><code class="language-cpp">  etcd::Watcher watcher(&quot;http://127.0.0.1:2379&quot;, &quot;/test&quot;, printResponse);
+  etcd.set(&quot;/test/key&quot;, &quot;42&quot;); /* print response will be called */
+  etcd.set(&quot;/test/key&quot;, &quot;43&quot;); /* print response will be called */
+  watcher.Cancel();
+  /* print response will NOT be called, since watch is already cancelled */
+  etcd.set(&quot;/test/key&quot;, &quot;43&quot;); 
+</code></pre>
+
+<p>优点:<br />
+不需要引入一个独立的服务组件。<br />
+缺点:<br />
+(1) 将etcd client 内嵌在uv服务中, 增加了耦合性；<br />
+(2) 需要引入多个第三方库：boost, cpprestsdk, grpc等。</p>
+
+<h3 id="3-2-方案二-采用zetcd-将zookeeper请求转换为etcd请求">3.2 方案二: 采用zetcd, 将zookeeper请求转换为etcd请求</h3>
+
+<p>zetcd 兼容zookeeper协议，可采用zetcd和etcd 进行通信，而客户端仍然采用zookeeper client API。</p>
+
+<p><img src="/images/uv_zetcd_etcd.jpg" alt="uv_zetcd_etcd" /></p>
+
+<p>1 先启动 etcd 服务</p>
+
+<blockquote>
+<p>etcd</p>
+</blockquote>
+
+<p>2 然后启动zetcd</p>
+
+<blockquote>
+<p>go get github.com/etcd-io/zetcd/cmd/zetcd<br />
+zetcd &ndash;zkaddr 0.0.0.0:2181 &ndash;endpoints localhost:2379</p>
+</blockquote>
+
+<p>参数说明：</p>
+
+<ul>
+<li>&ndash;zkaddr  侦听一个地址为zookeeper 客户端提供服务</li>
+<li>&ndash;endpoints etcd3供客户端连接的地址，如果是多个地址，用英文逗号分隔</li>
+</ul>
+
+<p>3 我们可以用<code>zkctl</code> 测试工具，监控节点状态：</p>
+
+<blockquote>
+<p>go get github.com/etcd-io/zetcd/cmd/zkctl<br />
+zkctl watch /xc/demo</p>
+</blockquote>
+
+<p>4 启动我们的服务，并配置zookeeper的地址为zetcd 侦听的IP地址：</p>
+
+<blockquote>
+<p>uvframe start /etc/uvframe/demo.xml<br />
+uvframe start /etc/uvframe/demo01.xml</p>
+</blockquote>
+
+<p><strong>测试结果</strong></p>
+
+<p>经过上面的测试，可以正常通过 UVZookeeper + zetcd，实现服务的注册与发现，以及节点的掉线/上线通知。</p>
+
+<p><strong>优点：</strong><br />
+1 使用现有UvZookeeper模板类，即可做到服务的注册与发现。<br />
+2 使用独立的组件能够松耦合。<br />
+<strong>缺点：</strong><br />
+需要引入一个独立第三方组件zetcd。</p>
+
+<h2 id="4-总结">4 总结</h2>
+
+<p>上面我们调研了2种方案对接etcd，由于之前我们把 zookeeper client 集成到了 libuv 的 loop 中，
+第二个方案能够兼容我们现有的业务模块，而无需修改代码。
+通过 zetcd，我们的服务既支持 zookeeper 集群，又能采用etcd集群。</p>
+
+<h2 id="5-reference">5 Reference</h2>
+
+<ul>
+<li><a href="https://github.com/etcd-io/etcd">etcd</a></li>
+<li><a href="https://github.com/etcd-io/zetcd">zetcd</a></li>
+<li><a href="https://github.com/nokia/etcd-cpp-apiv3">nokia/etcd-cpp-apiv3</a> - Supports v3</li>
+</ul>
+
+<p>《完》</p>
 
                         </div>
 
@@ -229,7 +392,7 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/algorithm/red-black-tree-01/">Red Black Tree (01)</a></li>
+        <li><a href="/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">Zookeeper&#43;Kafka集群搭建方案</a></li>
         
         <li><a href="/posts/cs/how-is-a-sql-statement-executed-by-mysql/">MySQL: 一条SQL语句是如何执行的？</a></li>
         
@@ -237,7 +400,7 @@
         
         <li><a href="/posts/io/io-model/">五种 IO 模型</a></li>
         
-        <li><a href="/posts/cpp/multithreading-with-zeromq/">Multithreading-with-ZeroMQ</a></li>
+        <li><a href="/posts/algorithm/red-black-tree-01/">Red Black Tree (01)</a></li>
         
     </ul>
 </div>
@@ -247,7 +410,9 @@
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/rb-tree">rb-tree</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/etcd">etcd</a></li>
+                                
+                                <li><a href="https://forrestsu.github.io/tags/zookeeper">zookeeper</a></li>
                                 
                             </ul>
                             
@@ -285,11 +450,7 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-02/" title="Red Black Tree(02) Rotation">Red Black Tree(02) Rotation</a>
+        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
     <li>
@@ -301,11 +462,15 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
+        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
     </li>
     
     <li>
@@ -317,11 +482,11 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
+        <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
+        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
     </li>
     
 </ul>
@@ -333,7 +498,7 @@
         <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
   
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
   
@@ -345,9 +510,11 @@
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+  
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
@@ -355,7 +522,7 @@
   
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
   
@@ -396,6 +563,8 @@
   
   <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
@@ -408,13 +577,19 @@
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
   
   <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -422,7 +597,7 @@
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(3)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -432,7 +607,7 @@
   
   <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(2)</a>
+  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   
@@ -461,6 +636,8 @@
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
   <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  
+  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
   
   <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
   

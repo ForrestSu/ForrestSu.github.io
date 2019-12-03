@@ -71,6 +71,33 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/" title="关于亲情" >关于亲情</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年6月9日 07:23:53
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 　趁亲人还在身边，趁你和他(她)们在一起的时候，多聊聊天，多出去看看世界，多吃点他(她)们没有吃过的东西；这样万一某天他(她)们突然离去时，希望你不会哭。或者我离开时，也不会留下太多遗憾，毕竟生命很渺小有很脆弱。
+　而伤病面前，任何关心得言语和举动都会直达心肺，形成暖流。 在这种事情面前，我觉得可以试试和他们多坐下来聊天，聊平常事带给他们正能量，而且有几个举措会暖人心，第一是握手而谈，第二是拍肩抚背。只能从小事关心，让他们感到温暖。
+ ……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/readingnotes/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/" title="「Silicon Valley 4 」观后感" >「Silicon Valley 4 」观后感</a>
                                 </h1>
                             </header>
@@ -313,33 +340,6 @@ Analysis Advantage Analysis： zeroMQ……
                         </article>
                     
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门" >libuv入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年4月19日 14:05:47
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。
-uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。
-//main.cpp #include &lt;cstdlib&gt; #include &lt;uv.h&gt; #include &lt;assert.h&gt; #include &lt;time.h&gt; #include &lt;iostream&gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&lt;&lt;&quot;count==&quot;&lt;&lt;count++&lt;&lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;timer); assert(r==0); // 0 cout&lt;&lt;uv_is_active((uv_handle_t*) &amp;timer)&lt;&lt;endl; // 0 cout&lt;&lt; uv_is_closing((uv_handle_t*) &amp;timer)&lt;&lt;endl; cout&lt;&lt;&quot;start &quot;&lt;&lt;time(NULL)&lt;&lt;endl; r = uv_timer_start(&amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&lt;&lt;&quot;r=&quot;&lt;&lt;r&lt;&lt;endl; return 0; }  ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                        </article>
-                    
-                    
                     
 
 
@@ -452,6 +452,10 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
     </li>
     
@@ -468,7 +472,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
+        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
     </li>
     
     <li>
@@ -485,10 +489,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <li>
         <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
 </ul>
@@ -512,9 +512,11 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+  
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
@@ -563,6 +565,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   
   <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
@@ -575,6 +579,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
   
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
@@ -583,7 +589,9 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -591,7 +599,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -630,6 +638,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
   <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  
+  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
   
   <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
   

@@ -71,6 +71,35 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" >kafka安装</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年7月31日 10:34:54
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
+启动zookeeper服务 bin/zkServer.sh start
+kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
+dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下  启动zookeeper
+bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broker） ``` 启动kafka服务器（broker）……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
                                 </h1>
                             </header>
@@ -311,42 +340,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
                         </article>
                     
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/" title="2018年会" >2018年会</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年3月15日 21:10:25
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                2018-03-09 记于十三陵 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
-平行世界，未来已来。
-区块链，比特币
-1 我们现在在做的 ems2.0 Al 日常运维。
-正准备做的 ems3.0 seastar dpdk coroutine&hellip;
-我想做 ：
-理财平台
-智能投顾
-大数据
-#
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
-通过这一次年会，我也发现了一些我不喜欢的。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/">阅读全文</a></p>
-                        </article>
-                    
-                    
                     
 
 
@@ -438,6 +431,10 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
     </li>
     
@@ -454,7 +451,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/java/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper-Kafka-Cluster-Deployment-Plan">Zookeeper-Kafka-Cluster-Deployment-Plan</a>
+        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
     </li>
     
     <li>
@@ -471,10 +468,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <li>
         <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding">Simple Binary Encoding</a>
     </li>
     
 </ul>
@@ -498,9 +491,11 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+  
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
   
@@ -549,6 +544,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
@@ -561,6 +558,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
   
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
@@ -569,7 +568,9 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
   
   <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
   
@@ -577,7 +578,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -616,6 +617,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
   <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  
+  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
   
   <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
   
