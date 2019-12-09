@@ -280,21 +280,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </item>
     
     <item>
-      <title>金融软件系统的演进</title>
-      <link>https://forrestsu.github.io/posts/architecture/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/</link>
-      <pubDate>Thu, 08 Feb 2018 22:17:59 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/architecture/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/</guid>
-      <description>金融行业也在 考虑服务化架构转型
-从传统的 三层 到微服务架构 而微服务的都采用Docker容器化部署，
-服务节点的 注册与发现 感觉现在接触的节点 和ali的Dubbo的provider comsumer 好像，应该是个 微型的Dubbo
-考虑 服务编程更加 异步化
-FAE
-1 带着问题去阅读源代码 2 动手实践 调试内核 eclispe O0 3 兴趣 兴趣 兴趣
-今天接到移动客服的电话，我已经记不清这是第几次建议我更换套餐了！这次我想好好了解下，她们为何乐此不疲？ 还没等她照本宣科式的念完28元的套餐优惠信息时，我说：「我一直不在本省，你赠送的优惠我很多用不了！」客服:「那你为什么不换号码？balabala」 我想：出个省还要换手机号？你萌知不知道现在换个手机号有多麻烦？而且你给我推荐业务能不能走点心？我想你们设定了这么多框框，迟早会把自己框在里面！</description>
-    </item>
-    
-    <item>
       <title>2018 Vision Hubble</title>
       <link>https://forrestsu.github.io/posts/work/2018-vision-hubble/</link>
       <pubDate>Mon, 05 Feb 2018 02:21:10 +0800</pubDate>

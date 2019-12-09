@@ -138,7 +138,7 @@
     </item>
     
     <item>
-      <title>linux</title>
+      <title>Linux</title>
       <link>https://forrestsu.github.io/tags/linux/</link>
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
       
@@ -183,15 +183,6 @@
     </item>
     
     <item>
-      <title>CS</title>
-      <link>https://forrestsu.github.io/tags/cs/</link>
-      <pubDate>Thu, 08 Feb 2018 22:17:59 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/cs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Web</title>
       <link>https://forrestsu.github.io/tags/web/</link>
       <pubDate>Fri, 12 Jan 2018 01:04:49 +0800</pubDate>
@@ -206,6 +197,15 @@
       <pubDate>Mon, 08 Jan 2018 00:19:26 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/tags/cto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CS</title>
+      <link>https://forrestsu.github.io/tags/cs/</link>
+      <pubDate>Sat, 06 Jan 2018 15:38:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/cs/</guid>
       <description></description>
     </item>
     

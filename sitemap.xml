@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
+    <loc>https://forrestsu.github.io/tags/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/todolist/</loc>
+    <loc>https://forrestsu.github.io/categories/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -113,12 +113,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/cpp/</loc>
+    <loc>https://forrestsu.github.io/categories/cpp/</loc>
     <lastmod>2018-11-02T17:29:51+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/cpp/</loc>
+    <loc>https://forrestsu.github.io/tags/cpp/</loc>
     <lastmod>2018-11-02T17:29:51+08:00</lastmod>
   </url>
   
@@ -183,12 +183,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/linux/</loc>
+    <loc>https://forrestsu.github.io/tags/linux/</loc>
     <lastmod>2018-08-12T01:50:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/linux/</loc>
+    <loc>https://forrestsu.github.io/categories/linux/</loc>
     <lastmod>2018-08-12T01:50:45+08:00</lastmod>
   </url>
   
@@ -243,12 +243,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/architecture/</loc>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <loc>https://forrestsu.github.io/tags/architecture/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
   
@@ -273,12 +273,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/work/</loc>
+    <loc>https://forrestsu.github.io/categories/work/</loc>
     <lastmod>2018-03-15T21:14:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/work/</loc>
+    <loc>https://forrestsu.github.io/tags/work/</loc>
     <lastmod>2018-03-15T21:14:22+08:00</lastmod>
   </url>
   
@@ -300,16 +300,6 @@
   <url>
     <loc>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</loc>
     <lastmod>2018-02-08T22:32:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/cs/</loc>
-    <lastmod>2018-02-08T22:17:59+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/architecture/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/</loc>
-    <lastmod>2018-02-08T22:17:59+08:00</lastmod>
   </url>
   
   <url>
@@ -340,6 +330,11 @@
   <url>
     <loc>https://forrestsu.github.io/posts/work/talk-with-cto/</loc>
     <lastmod>2018-01-08T00:19:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/cs/</loc>
+    <lastmod>2018-01-06T15:38:19+08:00</lastmod>
   </url>
   
   <url>
@@ -468,12 +463,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/diary/</loc>
+    <loc>https://forrestsu.github.io/tags/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/diary/</loc>
+    <loc>https://forrestsu.github.io/categories/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url>
   
@@ -718,12 +713,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/git/</loc>
+    <loc>https://forrestsu.github.io/categories/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
+    <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
@@ -833,12 +828,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/java/</loc>
+    <loc>https://forrestsu.github.io/tags/java/</loc>
     <lastmod>2016-12-07T23:28:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/java/</loc>
+    <loc>https://forrestsu.github.io/categories/java/</loc>
     <lastmod>2016-12-07T23:28:21+08:00</lastmod>
   </url>
   

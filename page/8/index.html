@@ -71,33 +71,6 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门" >libuv入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年4月19日 14:05:47
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。
-uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。
-//main.cpp #include &lt;cstdlib&gt; #include &lt;uv.h&gt; #include &lt;assert.h&gt; #include &lt;time.h&gt; #include &lt;iostream&gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&lt;&lt;&quot;count==&quot;&lt;&lt;count++&lt;&lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;timer); assert(r==0); // 0 cout&lt;&lt;uv_is_active((uv_handle_t*) &amp;timer)&lt;&lt;endl; // 0 cout&lt;&lt; uv_is_closing((uv_handle_t*) &amp;timer)&lt;&lt;endl; cout&lt;&lt;&quot;start &quot;&lt;&lt;time(NULL)&lt;&lt;endl; r = uv_timer_start(&amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&lt;&lt;&quot;r=&quot;&lt;&lt;r&lt;&lt;endl; return 0; }  ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-explicit/" title="C&#43;&#43; explicit" >C&#43;&#43; explicit</a>
                                 </h1>
                             </header>
@@ -347,6 +320,37 @@ std::shared_ptr&lt;Good&gt; gp1(new Good());  2.……
                         </article>
                     
                     
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/" title="Docker install Ubuntu" >Docker install Ubuntu</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年3月21日 16:55:52
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
+当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
+2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
+然后点击next.
+安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
+3 启动 双击Docker Quickstart Terminal 启动即可。
+4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
+                        </article>
+                    
+                    
                     
 
 
@@ -513,7 +517,7 @@ std::shared_ptr&lt;Good&gt; gp1(new Good());  2.……
   
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/cs/">CS (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
   
@@ -578,7 +582,7 @@ std::shared_ptr&lt;Good&gt; gp1(new Good());  2.……
   
   <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
   
-  <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
+  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
   <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
   
@@ -606,7 +610,7 @@ std::shared_ptr&lt;Good&gt; gp1(new Good());  2.……
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
