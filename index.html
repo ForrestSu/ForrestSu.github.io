@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -124,6 +124,36 @@
                     
                     
 		    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)" >什么是鸭子类型(duck typing)</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2019年8月10日 19:34:23
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/go">Go</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 duck type  &ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&rdquo;
+我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。
+ 比如在 python 中，有很多 file-like 的东西，比如 StringIO, GzipFile, socket; 它们有很多相同的方法，我们把它们当作文件使用。
+鸭子类型在动态语言中经常使用，非常灵活，使得 python 不像java那样专门去弄一大堆的设计模式。
+2 例子 下面举例用duck typing来实现多态：
+#coding=utf-8 class Duck: def quack(self): print &quot;Quaaaaaack!……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/go/duck-type/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -289,33 +319,6 @@ Zookeeper工作方式
                         </article>
                     
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门" >eventfd 入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年8月12日 01:50:45
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
-man eventfd
-#include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
-                        </article>
-                    
-                    
                     
 
 
@@ -404,6 +407,10 @@ man eventfd
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
@@ -431,10 +438,6 @@ man eventfd
         <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -455,6 +458,8 @@ man eventfd
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -521,6 +526,8 @@ man eventfd
   
   <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
   
+  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
   <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
@@ -543,7 +550,7 @@ man eventfd
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   

@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
+    <meta name="generator" content="Hugo 0.59.1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -66,6 +66,33 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门" >eventfd 入门</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年8月12日 01:50:45
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
+man eventfd
+#include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -305,41 +332,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
                         </article>
                     
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan" >2018 年会-Plan</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年3月15日 21:14:22
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
-平行世界，未来已来。
-区块链，比特币
-1 我们现在在做的 ems2.0 Al 日常运维。
-正准备做的 ems3.0 seastar dpdk coroutine&hellip;
-我想做 ：
-理财平台
-智能投顾
-大数据
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
-通过这一次年会，我也发现了一些我不喜欢的……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/">阅读全文</a></p>
-                        </article>
-                    
-                    
                     
 
 
@@ -439,6 +431,10 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
@@ -466,10 +462,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
         <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -490,6 +482,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (1)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -556,6 +550,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
   
+  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
   <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
@@ -578,7 +574,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
