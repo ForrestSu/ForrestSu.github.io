@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on 程序员的冷浪漫</title>
@@ -6,10 +6,23 @@
     <description>Recent content in Go on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Aug 2019 19:34:23 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2019 18:10:48 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go 反射</title>
+      <link>https://forrestsu.github.io/posts/go/reflection-in-go/</link>
+      <pubDate>Tue, 17 Dec 2019 18:10:48 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/reflection-in-go/</guid>
+      <description>1 Preface  反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。
+ 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如google 的 protobuf。
+如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。
+在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：
+ Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为C语言的void *)</description>
+    </item>
     
     <item>
       <title>什么是鸭子类型(duck typing)</title>

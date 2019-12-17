@@ -3,24 +3,24 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>how to use protobuf Reflection? | 程序员的冷浪漫</title>
-    <meta property="og:title" content="how to use protobuf Reflection? - 程序员的冷浪漫">
+    <title>Go 反射 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Go 反射 - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2018-04-27T21:56:39&#43;08:00">
+    <meta property="article:published_time" content="2019-12-17T18:10:48&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2018-04-27T21:56:39&#43;08:00">
+    <meta property="article:modified_time" content="2019-12-17T18:10:48&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
-    <meta name="description" content="how to use protobuf Reflection?">
+    <meta name="description" content="Go 反射">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/go/reflection-in-go/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
@@ -73,8 +73,10 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-reflection-in-c">1 reflection in C++</a></li>
-<li><a href="#2-reflection-in-java">2 reflection in Java</a></li>
+<li><a href="#1-preface">1 Preface</a></li>
+<li><a href="#2-go-反射">2 Go 反射</a></li>
+<li><a href="#3-完整代码">3 完整代码</a></li>
+<li><a href="#4-总结">4 总结</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -185,20 +187,20 @@
                 <div class="res-cons">
                     <article class="post">
                         <header>
-                            <h1 class="post-title">how to use protobuf Reflection?</h1>
+                            <h1 class="post-title">Go 反射</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2018年4月27日 21:56:39
+                            2019年12月17日 18:10:48
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            4161
+                            1662
                         </div>
                         
                         <div class="post-meta">
                             <span>|</span>
                             
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/go">Go</a></span>
                             
                         </div>
                         
@@ -217,157 +219,126 @@
                         <div class="post-content">
                             
 
-<p>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。</p>
+<h2 id="1-preface">1 Preface</h2>
 
-<h2 id="1-reflection-in-c">1 reflection in C++</h2>
+<blockquote>
+<p>反射是程序在<code>运行时</code>检查变量和值, 并获取到它们的类型的能力。</p>
+</blockquote>
 
-<p>在c++中使用protobuf 反射</p>
+<p>很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射，
+但是第三方库实现了反射特性, 比如google 的 protobuf。</p>
 
-<pre><code class="language-proto">package com.sunquan;
+<p>如果支持反射，解决某些场景的问题，可以变得简单。
+比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。</p>
 
-message Login 
-{
-    optional int64 userid = 1;
-    optional string username = 2; // name
-    optional string password = 3; // passwd
-    optional string email = 4;
-    optional string nickname = 5;
-    // etc ... 
+<p>在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：</p>
+
+<ul>
+<li><a href="/posts/java/java-reflection/">Java-反射机制</a></li>
+<li><a href="/posts/library/reflection-in-protobuf-cpp-java/">protobuf-反射</a></li>
+</ul>
+
+<h2 id="2-go-反射">2 Go 反射</h2>
+
+<p>Go语言中使用空的接口，表示任一类型(可以理解为C语言的<code>void *</code>)</p>
+
+<p>Go 反射的包，主要用到以下API：</p>
+
+<ul>
+<li>reflect.Type 和 reflect.Value</li>
+<li>reflect.Kind</li>
+<li>NumField()和Field()方法</li>
+<li>Int()和String()方法</li>
+</ul>
+
+<p>(1) 获取对象的类型</p>
+
+<blockquote>
+<p>var tp reflect.Type = reflect.TypeOf(p)</p>
+</blockquote>
+
+<p>(2) 获取对象的值</p>
+
+<blockquote>
+<p>var v reflect.Value = reflect.ValueOf(p)</p>
+</blockquote>
+
+<h2 id="3-完整代码">3 完整代码</h2>
+
+<p>完整代码如下：</p>
+
+<pre><code class="language-go">package reflection
+
+import (
+    &quot;fmt&quot;
+    &quot;reflect&quot;
+    &quot;testing&quot;
+)
+
+type order struct {
+    orderId    int
+    customName string
 }
-</code></pre>
 
-<p>&nbsp;  C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。</p>
+func reflectStruct(p interface{}) {
+    // 获取类型
+    tp := reflect.TypeOf(p)
+    v := reflect.ValueOf(p)
+    fmt.Println(&quot;Type &quot;, tp)
+    fmt.Println(v)
 
-<pre><code class="language-cpp">/**
- * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以调用该消息的 New() 方法来构造这种类型的可变消息。
- * @param FullMsgName  eg: com.sunquan.Login
- * @return if fail return NULL
- */
-const google::protobuf::Message* ParseUtil::FindMsgProtoType(const std::string&amp; FullMsgName)
-{
-    google::protobuf::Message* pFactory = NULL;
-    auto pDesc = google::protobuf::DescriptorPool::generated_pool()-&gt;FindMessageTypeByName(FullMsgName);
-    if (pDesc)
-    {
-        // Calling this method twice with the same Descriptor returns the same object.
-        pFactory = google::protobuf::MessageFactory::generated_factory()-&gt;GetPrototype(pDesc);
-    } else
-        std::cerr &lt;&lt; &quot;can't find new desc:&quot; &lt;&lt; FullMsgName &lt;&lt; std::endl;
-    return pFactory;
-}
-</code></pre>
+    k := tp.Kind()
+    // Kind = struct Size = 24
+    fmt.Println(&quot;Kind =&quot;, k, &quot;Size =&quot;, tp.Size())
 
-<p>当我们通过消息原型new一个可变的消息对象，就可以对消息进行动态赋值了，如下：</p>
-
-<pre><code>int ParseUtil::ReflectionTest() {
-    std::string fullname = &quot;com.sunquan.Login&quot;;
-    const google::protobuf::Message* pMsgFactory = FindMsgProtoType(fullname);
-    if (pMsgFactory == NULL){
-       std::cerr &lt;&lt; &quot;CreateMessage() fail!&quot; &lt;&lt;std::endl;
-       return 0;
-    }
-    //new mutable msg
-    google::protobuf::Message* pMsg = pMsgFactory-&gt;New();
-
-    const google::protobuf::Descriptor *pdesc = pMsgFactory-&gt;GetDescriptor();
-    const google::protobuf::Reflection *refl = pMsgFactory-&gt;GetReflection();
-
-    // 动态查找一个 FieldDesc
-    std::string fieldname = &quot;username&quot;;
-    const google::protobuf::FieldDescriptor* pfield = pdesc-&gt;FindFieldByName(fieldname);
-    if (pfield) {
-        // 暂不支持 repeat 类型
-        if (pfield-&gt;is_repeated()) {
-            std::cerr &lt;&lt; &quot;repeat field is not support!&quot; &lt;&lt; fieldname &lt;&lt; std::endl;
-            continue;
-        }
-        switch (pfield-&gt;cpp_type()) {
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT32:
-            //if(oneRow[i].type() == QVariant::Date)
-            refl-&gt;SetInt32(pMsg, pfield, 100);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT64:
-            refl-&gt;SetInt64(pMsg, pfield, 100LL);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT32:
-            refl-&gt;SetUInt32(pMsg, pfield, 100);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT64:
-            refl-&gt;SetUInt64(pMsg, pfield, 100ULL);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_DOUBLE:
-            refl-&gt;SetDouble(pMsg, pfield, 100.89);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_FLOAT:
-            refl-&gt;SetFloat(pMsg, pfield, 100.98);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_BOOL:
-            refl-&gt;SetBool(pMsg, pfield, true);
-            break;
-        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_STRING:
-            refl-&gt;SetString(pMsg, pfield, &quot;name&quot;);
-            break;
-        default:
-            //NoSupport CPPTYPE_ENUM/CPPTYPE_MESSAGE
-            std::cout &lt;&lt; &quot;UnSupport Type=&quot; &lt;&lt; pfield-&gt;type_name() &lt;&lt; std::endl;
-            break;
-        }
-    }
-    //if no longer use, please remember delete &quot;pMsg&quot;
-    if (pMsg) delete pMsg;
-    return 0;
-}
-</code></pre>
-
-<h2 id="2-reflection-in-java">2 reflection in Java</h2>
-
-<p>在Java中使用的protobuf反射。
-1 已知消息名称，查找到该消息类型的 Descriptor，然后根据序列化的字节码，动态构建对象。</p>
-
-<pre><code class="language-java">
-	public static void Reflect_Parse()
-	{
-		Login req = Login.newBuilder()
-		        .setUserid(100)
-		        .setUsername(&quot;Alice&quot;)
-		        .setEmail(&quot;Alice123@gmail.com&quot;)
-		        .setNickname(&quot;爱丽丝&quot;)
-	    		.setPassword(Digest.getStringMD5(&quot;A123456&quot;))
-	    		.build();
-		ByteString data = req.toByteString();
-		
-		try {
-		    //根据消息名称查找 Descriptor, DynamicMessage工厂 根据指定的 Descriptor 产生消息 object
-            String magname = &quot;Login&quot;;
-            Descriptor desc = DemoProtos.getDescriptor().findMessageTypeByName(magname);
-
-            if (desc != null) {
-                // com.sunquan.zmqproto.Login
-                System.out.println(desc.getFullName());
-                DynamicMessage msg = DynamicMessage.parseFrom(desc, data);
-                System.out.println(msg.toString());
-            } else {
-                System.out.println(&quot;Can't find msg desc: &quot; + magname);
+    // 如果为结构体类型
+    if tp.Kind() == reflect.Struct {
+        val := reflect.ValueOf(p)
+        // 获取字段个数
+        fmt.Println(&quot;field count:&quot;, val.NumField())
+        // 遍历每一个字段
+        for i := 0; i &lt; val.NumField(); i++ {
+            element := val.Field(i)
+            fmt.Println(&quot;type:&quot;, element.Kind(), &quot;value:&quot;, element)
+            switch element.Kind() {
+            case reflect.Int:
+                //提取对应的值，为对应的类型
+                id := element.Int()
+                fmt.Printf(&quot;===&gt; is_int %T %d \n&quot;, id, id)
+            case reflect.String:
+                str := element.String()
+                fmt.Printf(&quot;===&gt; is_string %T %s&quot;, str, str)
+            default:
+                fmt.Println(&quot;type is not support:&quot;, element.Kind())
             }
-            //底层的实现: 每个消息自身都实现了 自己的  getDescriptor() 接口
-            Descriptor desc_direct = Login.getDescriptor();
-		} catch (InvalidProtocolBufferException e) {
-			e.printStackTrace();
-		}
-	}
+        }
+    }
+}
+
+//Clear is better than clever.  Reflection is never clear.
+func TestReflection(t *testing.T) {
+    o := order{
+        orderId:    10,
+        customName: &quot;Alice&quot;,
+    }
+    reflectStruct(o)
+}
 </code></pre>
 
-<p>2 预先准备好所有可能的消息，动态解析
- 把所有可能的消息的 Descriptor 加入到 Map，然后从Map中查找。</p>
+<h2 id="4-总结">4 总结</h2>
 
-<pre><code class="language-java">   private Map&lt;MsgType, Descriptor&gt; typeMap = new TreeMap&lt;MsgType, Descriptor&gt;();
-   typeMap.put(MsgType.LOGINREP, LoginRep.getDescriptor());
-   typeMap.put(MsgType.INSERTORDERREP, InsertOrderRep.getDescriptor());
-   typeMap.put(MsgType.CANCELORDERREP, CancelOrderRep.getDescriptor());
-</code></pre>
+<p>反射很强大，我们可以在合适的场景下使用它，比如输出结构体内部数据，
+根据Schema生成SQL语句等。</p>
 
-<p>3 动态修改消息字段值
-wait</p>
+<p>但是我们有时候需要保证代码的清晰，以及效率; 在关键路径上斟酌使用。</p>
+
+<p>借用<code>Rob Pike</code> 关于reflection的格言作为本文的结束。</p>
+
+<blockquote>
+<p>Clear is better than clever. Reflection is never clear.</p>
+</blockquote>
+
+<p>《完》</p>
 
                         </div>
 
@@ -380,15 +351,15 @@ wait</p>
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/library/redis-%E5%85%A5%E9%97%A8/">Redis 入门</a></li>
+        <li><a href="/posts/highavailable/etcd-high-available/">etcd 服务注册与发现（一）</a></li>
         
-        <li><a href="/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a></li>
+        <li><a href="/posts/cs/how-is-a-sql-statement-executed-by-mysql/">MySQL: 一条SQL语句是如何执行的？</a></li>
         
-        <li><a href="/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a></li>
+        <li><a href="/todo/">TodoList</a></li>
         
-        <li><a href="/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">异步编程</a></li>
+        <li><a href="/posts/go/duck-type/">什么是鸭子类型(duck typing)</a></li>
         
-        <li><a href="/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a></li>
+        <li><a href="/posts/io/io-model/">五种 IO 模型</a></li>
         
     </ul>
 </div>
@@ -398,7 +369,7 @@ wait</p>
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/library">Library</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/"></a></li>
                                 
                             </ul>
                             
@@ -436,6 +407,10 @@ wait</p>
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
@@ -471,10 +446,6 @@ wait</p>
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -496,7 +467,7 @@ wait</p>
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -536,6 +507,8 @@ wait</p>
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
+  
+  <a href="https://forrestsu.github.io/tags/">Tags(1)</a>
   
   <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
   
@@ -587,7 +560,7 @@ wait</p>
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   

@@ -7,20 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>金融软件系统的演进 | 程序员的冷浪漫</title>
-    <meta property="og:title" content="金融软件系统的演进 - 程序员的冷浪漫">
+    <title>Java 反射机制(1) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Java 反射机制(1) - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2018-02-08T22:17:59&#43;08:00">
+    <meta property="article:published_time" content="2016-12-07T23:28:21&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2018-02-08T22:17:59&#43;08:00">
+    <meta property="article:modified_time" content="2016-12-07T23:28:21&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
-    <meta name="description" content="金融软件系统的演进">
+    <meta name="description" content="Java 反射机制(1)">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/architecture/%E9%87%91%E8%9E%8D%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E8%BF%9B/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/java/java-reflection/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
@@ -69,7 +69,14 @@
 <div id="body">
         
         <div id="virtual_toc_list" style="display: none">
-            
+            <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#什么是反射">什么是反射</a></li>
+</ul></li>
+</ul>
+</nav>
         </div>
         <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
             <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
@@ -177,20 +184,20 @@
                 <div class="res-cons">
                     <article class="post">
                         <header>
-                            <h1 class="post-title">金融软件系统的演进</h1>
+                            <h1 class="post-title">Java 反射机制(1)</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2018年2月8日 22:17:59
+                            2016年12月7日 23:28:21
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            353
+                            2603
                         </div>
                         
                         <div class="post-meta">
                             <span>|</span>
                             
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
                             
                         </div>
                         
@@ -207,24 +214,138 @@
                         </div>
                         
                         <div class="post-content">
-                            <p>金融行业也在 考虑服务化架构转型</p>
+                            
 
-<p>从传统的 三层  到微服务架构
-而微服务的都采用Docker容器化部署，</p>
+<h2 id="什么是反射">什么是反射</h2>
 
-<p>服务节点的 注册与发现
-感觉现在接触的节点 和ali的Dubbo的provider comsumer 好像，应该是个 微型的Dubbo</p>
+<p>反射（Reflection）是java的特征之一。</p>
 
-<p>考虑 服务编程更加 异步化</p>
+<blockquote>
+<p>1 能够在运行时动态检查类自身的类和方法。<br />
+2 能够获得java类中各个成员的名称并显示出来。</p>
+</blockquote>
 
-<p>FAE</p>
+<p>javaBean是reflection的实际运用之一。</p>
 
-<p>1 带着问题去阅读源代码
-2 动手实践   调试内核 eclispe O0
-3 兴趣 兴趣 兴趣</p>
+<pre><code class="language-java">// src/HelloWorld.java
+public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        try {
+            Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;);
+            Method ms[] = c.getDeclaredMethods();
+            for (Method a : ms) {
+                System.out.println(a.getName()+&quot;-&gt;&quot;+a.getReturnType().getName());
+            }
 
-<p>今天接到移动客服的电话，我已经记不清这是第几次建议我更换套餐了！这次我想好好了解下，她们为何乐此不疲？ 还没等她照本宣科式的念完28元的套餐优惠信息时，我说：「我一直不在本省，你赠送的优惠我很多用不了！」客服:「那你为什么不换号码？balabala」
-我想：出个省还要换手机号？你萌知不知道现在换个手机号有多麻烦？而且你给我推荐业务能不能走点心？我想你们设定了这么多框框，迟早会把自己框在里面！</p>
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+</code></pre>
+
+<p>二、动态构造一个类，并动态调用其方法</p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+        try {
+            Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;);
+            Class paramtype[] = new Class[2];
+            paramtype[0] = Integer.TYPE;//int 
+            paramtype[1] = String.class;
+
+            Constructor cs = c.getConstructor(paramtype);
+            Object param[] = new Object[2];
+            param[0] = 100;
+            param[1] = &quot;sunquan&quot;;
+            //dynamic create one Class
+            Object hellwd = cs.newInstance(param);
+            System.out.println( hellwd.toString());
+
+            //动态构造一个方法
+            Class methodParamType[] = new Class[1];
+            methodParamType[0] = Integer.class;//int   
+            Method MgetName = c.getMethod(&quot;getName&quot;, methodParamType);
+            Object mParam[] =new Object[1];
+            mParam[0] = 10000;
+
+            //入参(该类的实例,方法 实参列表) ret是该方法的返回值
+            Object ret= MgetName.invoke(hellwd, mParam);
+            System.out.println(ret);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+</code></pre>
+
+<p>三、反射方式使用多维数组</p>
+
+<pre><code class="language-java">public static void main(String[] args) {
+        int dimens[]= new int[]{4,5,6};
+        //反射: 创建一个三维数组
+        Object arr = Array.newInstance(Integer.TYPE,dimens);
+         
+        //二维数组
+        Object twoDimen= Array.get(arr, 1);
+        //一位数组
+        Object oneDimen= Array.get(twoDimen,1);
+        //给元素a[1][1][1]赋值
+        Array.set(oneDimen, 1, 100);
+        int a[][][] = (int [][][]) arr;
+        System.out.println(a[1][1][1]+&quot;===&quot;+a[1][1][2]);
+    }
+</code></pre>
+
+<p>3F 实现一个类,似于JavaBean反射动态实例化一个类</p>
+
+<pre><code class="language-java">public class JavaBeanDemo {
+    /**
+     * 实现: 写一个通用的工具方法 传入一个包含值的map&lt;key-对象属性名,value-值&gt;
+     * 传入任意的model，构造一个对象实例，然后把map中的值赋给该实例。
+     * @param map 字段名和值
+     * @param cls 类信息
+     * @return 返回cls类实例
+     */
+    public Object Reflection(Map map, Class cls) throws Exception {
+        Object obj = null;
+        // 1 首先创建该类的实例
+        obj = cls.newInstance();
+        // 2 然后通过反射拿到这个对象的所有属性
+        Field fd[] = cls.getDeclaredFields();
+
+        // 3 遍历对象属性,给对象实例赋值
+        for (Field onefd : fd) {
+            String fieldname = onefd.getName();
+            // 如果存在该字段
+            if (map.containsKey(fieldname)) {
+                Class fieldtype = onefd.getType();
+                String setName = &quot;set&quot;+ fieldname.substring(0, 1).toUpperCase() + fieldname.substring(1);
+                // System.out.println(setName);
+                Method md = cls.getMethod(setName, fieldtype);
+                // 调用方法给属性赋值
+                md.invoke(obj, map.get(fieldname));
+            }
+        }
+        // 4 返回该实例
+        return obj;
+    }
+
+    public static void main(String[] args) {
+        JavaBeanDemo sq = new JavaBeanDemo();
+        HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;uuid&quot;, 100);
+        map.put(&quot;name&quot;, &quot;sunquan&quot;);
+        map.put(&quot;grade&quot;, 98.99);
+        Model mdl;
+        try {
+            mdl =(Model) sq.Reflection(map, Model.class);
+            System.out.println(mdl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
 
                         </div>
 
@@ -237,15 +358,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/">计算机系统组成</a></li>
+        <li><a href="/posts/tools/my-chrome-plugin/">My Chrome Plugin</a></li>
         
-        <li><a href="/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">蒙特卡罗搜索树(译)</a></li>
+        <li><a href="/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/">访问git网页排版紊乱</a></li>
         
-        <li><a href="/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">搭建CUDA 环境（GPU）</a></li>
+        <li><a href="/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/">一个关于合伙吃饭的问题</a></li>
         
-        <li><a href="/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">程序员如何留Email？</a></li>
+        <li><a href="/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/">First Blog for Me</a></li>
         
-        <li><a href="/posts/work/2018-vision-hubble/">2018 Vision Hubble</a></li>
+        <li><a href="/archives/">归档</a></li>
         
     </ul>
 </div>
@@ -255,7 +376,7 @@
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/cs">CS</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/java">Java</a></li>
                                 
                             </ul>
                             
@@ -293,11 +414,19 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
     </li>
     
     <li>
@@ -324,14 +453,6 @@
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -347,11 +468,13 @@
   
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/cs/">CS (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+  
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -392,6 +515,8 @@
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
   
+  <a href="https://forrestsu.github.io/tags/">Tags(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
   
   <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
@@ -412,11 +537,13 @@
   
   <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
   
-  <a href="https://forrestsu.github.io/tags/cs/">CS(5)</a>
+  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
   <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
   
   <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+  
+  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
   
   <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
   
@@ -440,7 +567,7 @@
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   

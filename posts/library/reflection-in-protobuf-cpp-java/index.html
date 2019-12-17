@@ -3,24 +3,24 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>java 反射机制(1) | 程序员的冷浪漫</title>
-    <meta property="og:title" content="java 反射机制(1) - 程序员的冷浪漫">
+    <title>Reflection in protobuf (C&#43;&#43;/Java) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Reflection in protobuf (C&#43;&#43;/Java) - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2016-12-07T23:28:21&#43;08:00">
+    <meta property="article:published_time" content="2018-04-27T21:56:39&#43;08:00">
         
         
-    <meta property="article:modified_time" content="2016-12-07T23:28:21&#43;08:00">
+    <meta property="article:modified_time" content="2018-04-27T21:56:39&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
-    <meta name="description" content="java 反射机制(1)">
+    <meta name="description" content="Reflection in protobuf (C&#43;&#43;/Java)">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
@@ -73,7 +73,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#什么是反射">什么是反射</a></li>
+<li><a href="#1-reflection-in-c">1 reflection in C++</a></li>
+<li><a href="#2-reflection-in-java">2 reflection in Java</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -184,20 +185,20 @@
                 <div class="res-cons">
                     <article class="post">
                         <header>
-                            <h1 class="post-title">java 反射机制(1)</h1>
+                            <h1 class="post-title">Reflection in protobuf (C&#43;&#43;/Java)</h1>
                         </header>
                         <date class="post-meta meta-date">
-                            2016年12月7日 23:28:21
+                            2018年4月27日 21:56:39
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            2614
+                            4161
                         </div>
                         
                         <div class="post-meta">
                             <span>|</span>
                             
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/java">Java</a></span>
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/library">Library</a></span>
                             
                         </div>
                         
@@ -216,132 +217,157 @@
                         <div class="post-content">
                             
 
-<h2 id="什么是反射">什么是反射</h2>
+<p>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。</p>
 
-<p>反射（Reflection）是java的特征之一。
-1 能够在运行时动态检查类自身的类和方法。
-2 能够获得java类中各个成员的名称并显示出来。
-javaBean是reflection的实际运用之一。</p>
+<h2 id="1-reflection-in-c">1 reflection in C++</h2>
 
-<pre><code class="language-java">// src/Javass/c10/HelloWorld.java
-public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		try {
-			Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;);
-			Method ms[] = c.getDeclaredMethods();
-			for (Method a : ms) {
-				System.out.println(a.getName()+&quot;-&gt;&quot;+a.getReturnType().getName());
-			}
+<p>在c++中使用protobuf 反射</p>
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-</code></pre>
+<pre><code class="language-proto">package com.sunquan;
 
-<p>二、动态构造一个类，并动态调用其方法</p>
-
-<pre><code class="language-java">public static void main(String[] args) {
-		try {
-			Class c = Class.forName(&quot;Javass.c10.HelloWorld&quot;);
-			Class paramtype[] = new Class[2];
-			paramtype[0] = Integer.TYPE;//int 
-			paramtype[1] = String.class;
-
-			Constructor cs = c.getConstructor(paramtype);
-			Object param[] = new Object[2];
-			param[0] = 100;
-			param[1] = &quot;sunquan&quot;;
-			//dynamic create one Class
-			Object hellwd = cs.newInstance(param);
-		    System.out.println( hellwd.toString()); 
-		    
-		    //动态构造一个方法
-		    Class methodParamType[] = new Class[1];
-		    methodParamType[0] = Integer.class;//int   
-		    Method MgetName = c.getMethod(&quot;getName&quot;, methodParamType);
-		    Object mParam[] =new Object[1];
-		    mParam[0] = 10000;
-		    
-		    //入参(该类的实例,方法 实参列表) ret是该方法的返回值
-		    Object ret= MgetName.invoke(hellwd, mParam);
-		    System.out.println(ret);
-		    
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-</code></pre>
-
-<p>三、反射方式使用多维数组</p>
-
-<pre><code class="language-java">public static void main(String[] args) {
-		int dimens[]= new int[]{4,5,6};
-		//反射: 创建一个三维数组
-		Object arr = Array.newInstance(Integer.TYPE,dimens);
-		 
-		//二维数组
-		Object twoDimen= Array.get(arr, 1);
-		//一位数组
-		Object oneDimen= Array.get(twoDimen,1);
-		//给元素a[1][1][1]赋值
-		Array.set(oneDimen, 1, 100);
-		int a[][][] = (int [][][]) arr;
-		System.out.println(a[1][1][1]+&quot;===&quot;+a[1][1][2]);
-	}
-</code></pre>
-
-<p>3F 实现一个类,似于JavaBean反射动态实例化一个类</p>
-
-<pre><code class="language-java">public class JavaBeanDemo {
-	/**
-	 * 实现: 写一个通用的工具方法 传入一个包含值的map&lt;key-对象属性名,value-值&gt;
-	 * 传入任意的model，构造一个对象实例，然后把map中的值赋给该实例。
-	 * @param map 字段名和值
-	 * @param cls 类信息
-	 * @return 返回cls类实例
-	 */
-	public Object Reflection(Map map, Class cls) throws Exception {
-		Object obj = null;
-		// 1 首先创建该类的实例
-		obj = cls.newInstance();
-		// 2 然后通过反射拿到这个对象的所有属性
-		Field fd[] = cls.getDeclaredFields();
-
-		// 3 遍历对象属性,给对象实例赋值
-		for (Field onefd : fd) {
-			String fieldname = onefd.getName();
-			// 如果存在该字段
-			if (map.containsKey(fieldname)) {
-				Class fieldtype = onefd.getType();
-				String setName = &quot;set&quot;+ fieldname.substring(0, 1).toUpperCase() + fieldname.substring(1);
-				// System.out.println(setName);
-				Method md = cls.getMethod(setName, fieldtype);
-				// 调用方法给属性赋值
-				md.invoke(obj, map.get(fieldname));
-			}
-		}
-		// 4 返回该实例
-		return obj;
-	}
-
-	public static void main(String[] args) {
-		JavaBeanDemo sq = new JavaBeanDemo();
-		HashMap&lt;String, Object&gt; map = new HashMap&lt;&gt;();
-		map.put(&quot;uuid&quot;, 100);
-		map.put(&quot;name&quot;, &quot;sunquan&quot;);
-		map.put(&quot;grade&quot;, 98.99);
-		Model mdl;
-		try {
-			mdl =(Model) sq.Reflection(map, Model.class);
-			System.out.println(mdl);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+message Login 
+{
+    optional int64 userid = 1;
+    optional string username = 2; // name
+    optional string password = 3; // passwd
+    optional string email = 4;
+    optional string nickname = 5;
+    // etc ... 
 }
 </code></pre>
+
+<p>&nbsp;  C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。</p>
+
+<pre><code class="language-cpp">/**
+ * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以调用该消息的 New() 方法来构造这种类型的可变消息。
+ * @param FullMsgName  eg: com.sunquan.Login
+ * @return if fail return NULL
+ */
+const google::protobuf::Message* ParseUtil::FindMsgProtoType(const std::string&amp; FullMsgName)
+{
+    google::protobuf::Message* pFactory = NULL;
+    auto pDesc = google::protobuf::DescriptorPool::generated_pool()-&gt;FindMessageTypeByName(FullMsgName);
+    if (pDesc)
+    {
+        // Calling this method twice with the same Descriptor returns the same object.
+        pFactory = google::protobuf::MessageFactory::generated_factory()-&gt;GetPrototype(pDesc);
+    } else
+        std::cerr &lt;&lt; &quot;can't find new desc:&quot; &lt;&lt; FullMsgName &lt;&lt; std::endl;
+    return pFactory;
+}
+</code></pre>
+
+<p>当我们通过消息原型new一个可变的消息对象，就可以对消息进行动态赋值了，如下：</p>
+
+<pre><code>int ParseUtil::ReflectionTest() {
+    std::string fullname = &quot;com.sunquan.Login&quot;;
+    const google::protobuf::Message* pMsgFactory = FindMsgProtoType(fullname);
+    if (pMsgFactory == NULL){
+       std::cerr &lt;&lt; &quot;CreateMessage() fail!&quot; &lt;&lt;std::endl;
+       return 0;
+    }
+    //new mutable msg
+    google::protobuf::Message* pMsg = pMsgFactory-&gt;New();
+
+    const google::protobuf::Descriptor *pdesc = pMsgFactory-&gt;GetDescriptor();
+    const google::protobuf::Reflection *refl = pMsgFactory-&gt;GetReflection();
+
+    // 动态查找一个 FieldDesc
+    std::string fieldname = &quot;username&quot;;
+    const google::protobuf::FieldDescriptor* pfield = pdesc-&gt;FindFieldByName(fieldname);
+    if (pfield) {
+        // 暂不支持 repeat 类型
+        if (pfield-&gt;is_repeated()) {
+            std::cerr &lt;&lt; &quot;repeat field is not support!&quot; &lt;&lt; fieldname &lt;&lt; std::endl;
+            continue;
+        }
+        switch (pfield-&gt;cpp_type()) {
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT32:
+            //if(oneRow[i].type() == QVariant::Date)
+            refl-&gt;SetInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT64:
+            refl-&gt;SetInt64(pMsg, pfield, 100LL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT32:
+            refl-&gt;SetUInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT64:
+            refl-&gt;SetUInt64(pMsg, pfield, 100ULL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_DOUBLE:
+            refl-&gt;SetDouble(pMsg, pfield, 100.89);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_FLOAT:
+            refl-&gt;SetFloat(pMsg, pfield, 100.98);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_BOOL:
+            refl-&gt;SetBool(pMsg, pfield, true);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_STRING:
+            refl-&gt;SetString(pMsg, pfield, &quot;name&quot;);
+            break;
+        default:
+            //NoSupport CPPTYPE_ENUM/CPPTYPE_MESSAGE
+            std::cout &lt;&lt; &quot;UnSupport Type=&quot; &lt;&lt; pfield-&gt;type_name() &lt;&lt; std::endl;
+            break;
+        }
+    }
+    //if no longer use, please remember delete &quot;pMsg&quot;
+    if (pMsg) delete pMsg;
+    return 0;
+}
+</code></pre>
+
+<h2 id="2-reflection-in-java">2 reflection in Java</h2>
+
+<p>在Java中使用的protobuf反射。
+1 已知消息名称，查找到该消息类型的 Descriptor，然后根据序列化的字节码，动态构建对象。</p>
+
+<pre><code class="language-java">
+	public static void Reflect_Parse()
+	{
+		Login req = Login.newBuilder()
+		        .setUserid(100)
+		        .setUsername(&quot;Alice&quot;)
+		        .setEmail(&quot;Alice123@gmail.com&quot;)
+		        .setNickname(&quot;爱丽丝&quot;)
+	    		.setPassword(Digest.getStringMD5(&quot;A123456&quot;))
+	    		.build();
+		ByteString data = req.toByteString();
+		
+		try {
+		    //根据消息名称查找 Descriptor, DynamicMessage工厂 根据指定的 Descriptor 产生消息 object
+            String magname = &quot;Login&quot;;
+            Descriptor desc = DemoProtos.getDescriptor().findMessageTypeByName(magname);
+
+            if (desc != null) {
+                // com.sunquan.zmqproto.Login
+                System.out.println(desc.getFullName());
+                DynamicMessage msg = DynamicMessage.parseFrom(desc, data);
+                System.out.println(msg.toString());
+            } else {
+                System.out.println(&quot;Can't find msg desc: &quot; + magname);
+            }
+            //底层的实现: 每个消息自身都实现了 自己的  getDescriptor() 接口
+            Descriptor desc_direct = Login.getDescriptor();
+		} catch (InvalidProtocolBufferException e) {
+			e.printStackTrace();
+		}
+	}
+</code></pre>
+
+<p>2 预先准备好所有可能的消息，动态解析
+ 把所有可能的消息的 Descriptor 加入到 Map，然后从Map中查找。</p>
+
+<pre><code class="language-java">   private Map&lt;MsgType, Descriptor&gt; typeMap = new TreeMap&lt;MsgType, Descriptor&gt;();
+   typeMap.put(MsgType.LOGINREP, LoginRep.getDescriptor());
+   typeMap.put(MsgType.INSERTORDERREP, InsertOrderRep.getDescriptor());
+   typeMap.put(MsgType.CANCELORDERREP, CancelOrderRep.getDescriptor());
+</code></pre>
+
+<p>3 动态修改消息字段值
+wait</p>
 
                         </div>
 
@@ -354,15 +380,15 @@ public static void main(String[] args) {
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/tools/my-chrome-plugin/">My Chrome Plugin</a></li>
+        <li><a href="/posts/library/redis-%E5%85%A5%E9%97%A8/">Redis 入门</a></li>
         
-        <li><a href="/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/">访问git网页排版紊乱</a></li>
+        <li><a href="/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a></li>
         
-        <li><a href="/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/">一个关于合伙吃饭的问题</a></li>
+        <li><a href="/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a></li>
         
-        <li><a href="/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/">First Blog for Me</a></li>
+        <li><a href="/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">异步编程</a></li>
         
-        <li><a href="/archives/">归档</a></li>
+        <li><a href="/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a></li>
         
     </ul>
 </div>
@@ -372,7 +398,7 @@ public static void main(String[] args) {
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/java">Java</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/library">Library</a></li>
                                 
                             </ul>
                             
@@ -410,6 +436,10 @@ public static void main(String[] args) {
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
@@ -445,10 +475,6 @@ public static void main(String[] args) {
         <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -470,7 +496,7 @@ public static void main(String[] args) {
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (2)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -510,6 +536,8 @@ public static void main(String[] args) {
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
+  
+  <a href="https://forrestsu.github.io/tags/">Tags(1)</a>
   
   <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
   
@@ -561,7 +589,7 @@ public static void main(String[] args) {
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   

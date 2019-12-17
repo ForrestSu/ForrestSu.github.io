@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 程序员的冷浪漫</title>
@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Nov 2019 23:59:19 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2019 18:10:48 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go 反射</title>
+      <link>https://forrestsu.github.io/posts/go/reflection-in-go/</link>
+      <pubDate>Tue, 17 Dec 2019 18:10:48 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/reflection-in-go/</guid>
+      <description>1 Preface  反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。
+ 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如google 的 protobuf。
+如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。
+在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：
+ Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为C语言的void *)</description>
+    </item>
     
     <item>
       <title>etcd 服务注册与发现（一）</title>
@@ -185,11 +198,11 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</d
     </item>
     
     <item>
-      <title>how to use protobuf Reflection?</title>
-      <link>https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/</link>
+      <title>Reflection in protobuf (C&#43;&#43;/Java)</title>
+      <link>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</link>
       <pubDate>Fri, 27 Apr 2018 21:56:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/</guid>
+      <guid>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</guid>
       <description>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
 1 reflection in C++ 在c++中使用protobuf 反射
 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc .</description>
@@ -1084,13 +1097,16 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     </item>
     
     <item>
-      <title>java 反射机制(1)</title>
-      <link>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</link>
+      <title>Java 反射机制(1)</title>
+      <link>https://forrestsu.github.io/posts/java/java-reflection/</link>
       <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/java/java-%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B61/</guid>
-      <description>什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。
-// src/Javass/c10/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;quot;Javass.c10.HelloWorld&amp;quot;); Method ms[] = c.</description>
+      <guid>https://forrestsu.github.io/posts/java/java-reflection/</guid>
+      <description>什么是反射 反射（Reflection）是java的特征之一。
+ 1 能够在运行时动态检查类自身的类和方法。
+2 能够获得java类中各个成员的名称并显示出来。
+ javaBean是reflection的实际运用之一。
+// src/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;quot;Javass.c10.HelloWorld&amp;quot;); Method ms[] = c.</description>
     </item>
     
     <item>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 程序员的冷浪漫</title>
@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Nov 2019 23:59:19 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Dec 2019 18:10:48 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go</title>
+      <link>https://forrestsu.github.io/categories/go/</link>
+      <pubDate>Tue, 17 Dec 2019 18:10:48 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/go/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HighAvailable</title>
@@ -35,15 +44,6 @@
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/todolist/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://forrestsu.github.io/categories/go/</link>
-      <pubDate>Sat, 10 Aug 2019 19:34:23 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/go/</guid>
       <description></description>
     </item>
     

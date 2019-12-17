@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Library on 程序员的冷浪漫</title>
@@ -36,11 +36,11 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</d
     </item>
     
     <item>
-      <title>how to use protobuf Reflection?</title>
-      <link>https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/</link>
+      <title>Reflection in protobuf (C&#43;&#43;/Java)</title>
+      <link>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</link>
       <pubDate>Fri, 27 Apr 2018 21:56:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/how-to-use-protobuf-reflection-/</guid>
+      <guid>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</guid>
       <description>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
 1 reflection in C++ 在c++中使用protobuf 反射
 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc .</description>
