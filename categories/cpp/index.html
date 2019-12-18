@@ -12,7 +12,7 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
     <meta name="description" content="CPP">
         
     <meta name="author" content="">
@@ -43,7 +43,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -84,11 +84,11 @@
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                                2018年11月2日 17:29:51
+                                2018年10月30日 19:50:51
                             </date>
                             <div class="post-meta">
                                 <span>| 字数 </span>
-                                2404
+                                2304
                             </div>
                             
                             <div class="post-meta meta-category">
@@ -99,8 +99,10 @@
                             </div>
                             
                             <div class="post-content">
-                                Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。……
+                                本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
                                 <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
                             </div>
                         </article>
@@ -387,6 +389,10 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select 实现超时机制">Go select 实现超时机制</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
     </li>
     
@@ -422,10 +428,6 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
         <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -447,7 +449,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -488,8 +490,6 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
   
-  <a href="https://forrestsu.github.io/tags/">Tags(1)</a>
-  
   <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
   
   <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
@@ -508,7 +508,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -540,7 +540,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -554,9 +554,11 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   
+  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/select/">select(1)</a>
+  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
   
   <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
   
@@ -565,6 +567,8 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
   
@@ -579,6 +583,8 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
   <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  
+  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
   
   <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
   

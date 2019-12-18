@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zeromq on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/zeromq/</link>
+    <description>Recent content in zeromq on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 30 Oct 2018 19:50:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/zeromq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Multithreading-with-ZeroMQ</title>
+      <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
+      <pubDate>Tue, 30 Oct 2018 19:50:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
+      <description>本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。</description>
+    </item>
+    
+  </channel>
+</rss>

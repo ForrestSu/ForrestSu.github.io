@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构</title>
-    <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务、软件架构">
+    <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </title>
+    <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go ">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, go语言">
+    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
     <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -41,7 +41,7 @@
                         </a>
                     </h1>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务、软件架构</p>
+                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -66,6 +66,36 @@
 
             <div class="col-8" id="main">
                 <div class="res-cons">
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select 实现超时机制" >Go select 实现超时机制</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2019年12月18日 20:19:15
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/go">Go</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？
+在 select 中加入一个 timer channel
+ case rc2 := &lt;-time.After(d):
+ After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。
+完整代码如下：
+// 采用 select 实现超时 func TestSelectTimeOut(t *testing.……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/go/select-in-go/">阅读全文</a></p>
+                        </article>
+                    
                     
 		    
                         <article class="post">
@@ -247,7 +277,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                               2018年11月2日 17:29:51
+                               2018年10月30日 19:50:51
                             </date>
                             
                             <div class="post-meta">
@@ -258,8 +288,10 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
                             </div>
                             
                             <div class="post-content">
-                                Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。……
+                                本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
                         </article>
@@ -289,37 +321,6 @@ Zookeeper工作方式
  Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独" >慎独</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年9月27日 09:41:29
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6">浮生若梦</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 progress 1 Make your own decisions
-慢慢看的人越来越多，得注意尽量避免个人的主观因素，以免误人子弟！_
-2 后续思考 应该做更标准的东西，每个客户拿到的发布包应该一样。就像肯德基麦当劳，你在哪里吃的口味都一样。
-3 应该做更互联网一点的东西。
-4 有些人是很固执的，总觉得别人回答他的问题是理所应当，我逐渐体会到王垠曾经有过的感受，当你好心帮助别人成长，别人却因为理解不了反过来打击你！暴露了自己的弱点，下意识的自我保护。
-切记！切记！切记！ 只能有极少数人才能真正得到你的帮助，因为你自己时间有限，还得自己成长！
-可能确实是我的方式不对，今后只有遇到自己适合帮助的人，才可以花点时间；与其帮助那些不虚心，又自大的人，还不如看看博客来的舒畅！……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/">阅读全文</a></p>
                         </article>
                     
                     
@@ -403,6 +404,10 @@ Zookeeper工作方式
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select 实现超时机制">Go select 实现超时机制</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
     </li>
     
@@ -438,10 +443,6 @@ Zookeeper工作方式
         <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -463,7 +464,7 @@ Zookeeper工作方式
   
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
   
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
   
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
   
@@ -504,8 +505,6 @@ Zookeeper工作方式
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
   
-  <a href="https://forrestsu.github.io/tags/">Tags(1)</a>
-  
   <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
   
   <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
@@ -524,7 +523,7 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -556,7 +555,7 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -570,9 +569,11 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
   
+  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/select/">select(1)</a>
+  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
   
   <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
   
@@ -581,6 +582,8 @@ Zookeeper工作方式
   <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
   
@@ -595,6 +598,8 @@ Zookeeper工作方式
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
   <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  
+  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
   
   <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
   

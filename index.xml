@@ -6,10 +6,24 @@
     <description>Recent content on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Dec 2019 18:10:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go select 实现超时机制</title>
+      <link>https://forrestsu.github.io/posts/go/select-in-go/</link>
+      <pubDate>Wed, 18 Dec 2019 20:19:15 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/select-in-go/</guid>
+      <description>1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？
+在 select 中加入一个 timer channel
+ case rc2 := &amp;lt;-time.After(d):
+ After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。
+完整代码如下：
+// 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
+    </item>
     
     <item>
       <title>Go 反射</title>
@@ -101,11 +115,13 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     <item>
       <title>Multithreading-with-ZeroMQ</title>
       <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
-      <pubDate>Fri, 02 Nov 2018 17:29:51 +0800</pubDate>
+      <pubDate>Tue, 30 Oct 2018 19:50:51 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
-      <description>Multithreading-with-ZeroMQ date: 2018-10-30 19:50 本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 底部点击阅读原文：http://zguide.zeromq.org/page:all#Multithreading-with-ZeroMQ
-Preface &amp;nbsp; ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 &amp;nbsp; 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。</description>
+      <description>本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。</description>
     </item>
     
     <item>
@@ -443,12 +459,13 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
     </item>
     
     <item>
-      <title>蒙特卡罗搜索树(译)</title>
+      <title>(译) 蒙特卡罗搜索树</title>
       <link>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</link>
       <pubDate>Fri, 20 Oct 2017 00:54:53 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</guid>
-      <description>今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)！原文在这[阅读原文](http://mcts.ai)。  1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
+      <description>今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
+原文在这阅读原文。 1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
 2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
  Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。</description>
     </item>
