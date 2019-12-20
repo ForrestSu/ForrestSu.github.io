@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Go select 实现超时机制</title>
+      <title>Go select多路复用, 实现超时机制</title>
       <link>https://forrestsu.github.io/posts/go/select-in-go/</link>
       <pubDate>Wed, 18 Dec 2019 20:19:15 +0800</pubDate>
       
@@ -32,10 +32,10 @@
       
       <guid>https://forrestsu.github.io/posts/go/reflection-in-go/</guid>
       <description>1 Preface  反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。
- 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如google 的 protobuf。
+ 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如 google 的 protobuf。
 如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。
 在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：
- Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为C语言的void *)</description>
+ Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为Any, 或者Java 中的 Object)</description>
     </item>
     
     <item>
@@ -68,12 +68,17 @@
       <pubDate>Sat, 10 Aug 2019 19:34:23 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/go/duck-type/</guid>
-      <description>1 duck type  &amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;
-我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。
- 比如在 python 中，有很多 file-like 的东西，比如 StringIO, GzipFile, socket; 它们有很多相同的方法，我们把它们当作文件使用。
-鸭子类型在动态语言中经常使用，非常灵活，使得 python 不像java那样专门去弄一大堆的设计模式。
-2 例子 下面举例用duck typing来实现多态：
-#coding=utf-8 class Duck: def quack(self): print &amp;quot;Quaaaaaack!</description>
+      <description>&lt;h2 id=&#34;1-duck-type&#34;&gt;1 duck type&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/hk-victoria-harbor-duck.jpg&#34; alt=&#34;duck-type&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;br /&gt;
+我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;比如在 python 中，有很多 &lt;code&gt;file-like&lt;/code&gt; 的东西，比如 StringIO, GzipFile, socket;
+它们有很多相同的方法，我们把它们当作文件使用。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -194,7 +194,7 @@
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            1662
+                            1671
                         </div>
                         
                         <div class="post-meta">
@@ -226,7 +226,7 @@
 </blockquote>
 
 <p>很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射，
-但是第三方库实现了反射特性, 比如google 的 protobuf。</p>
+但是第三方库实现了反射特性, 比如 google 的 protobuf。</p>
 
 <p>如果支持反射，解决某些场景的问题，可以变得简单。
 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。</p>
@@ -240,7 +240,7 @@
 
 <h2 id="2-go-反射">2 Go 反射</h2>
 
-<p>Go语言中使用空的接口，表示任一类型(可以理解为C语言的<code>void *</code>)</p>
+<p>Go语言中使用空的接口，表示任一类型(可以理解为Any, 或者Java 中的 Object)</p>
 
 <p>Go 反射的包，主要用到以下API：</p>
 
@@ -318,7 +318,7 @@ func reflectStruct(p interface{}) {
 //Clear is better than clever.  Reflection is never clear.
 func TestReflection(t *testing.T) {
     o := order{
-        orderId:    10,
+        orderId: 10,
         customName: &quot;Alice&quot;,
     }
     reflectStruct(o)
@@ -332,7 +332,7 @@ func TestReflection(t *testing.T) {
 
 <p>但是我们有时候需要保证代码的清晰，以及效率; 在关键路径上斟酌使用。</p>
 
-<p>借用<code>Rob Pike</code> 关于reflection的格言作为本文的结束。</p>
+<p>借用<code>Rob Pike</code> 关于 reflection 的格言作为本文的结束。</p>
 
 <blockquote>
 <p>Clear is better than clever. Reflection is never clear.</p>
@@ -407,7 +407,7 @@ func TestReflection(t *testing.T) {
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select 实现超时机制">Go select 实现超时机制</a>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
     <li>
@@ -558,7 +558,7 @@ func TestReflection(t *testing.T) {
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   

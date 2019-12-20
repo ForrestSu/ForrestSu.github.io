@@ -76,6 +76,7 @@
 <li><a href="#1-duck-type">1 duck type</a></li>
 <li><a href="#2-例子">2 例子</a></li>
 <li><a href="#duck-type-in-go">duck type in Go</a></li>
+<li><a href="#参考">参考</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -193,7 +194,7 @@
                         </date>
                         <div class="post-meta">
                             <span>| 字数 </span>
-                            1343
+                            1374
                         </div>
                         
                         <div class="post-meta">
@@ -216,9 +217,9 @@
                         </div>
                         
                         <div class="post-content">
-                            
+                            <h2 id="1-duck-type">1 duck type</h2>
 
-<h2 id="1-duck-type">1 duck type</h2>
+<p><img src="/images/hk-victoria-harbor-duck.jpg" alt="duck-type" /></p>
 
 <blockquote>
 <p>&ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&rdquo;<br />
@@ -275,48 +276,49 @@ print 'bar'
 <pre><code class="language-go">package duck_type
 
 import (
-	&quot;fmt&quot;
-	&quot;testing&quot;
+    &quot;fmt&quot;
+    &quot;testing&quot;
 )
 
 type Programmer interface {
-	WriteHelloWorld() string
+    WriteHelloWorld() string
 }
 
 type GoProgrammer struct {
 }
 
 func (g *GoProgrammer) WriteHelloWorld() string {
-	return &quot;fmt.Println(\&quot;Hello World\&quot;)&quot;
+    return &quot;fmt.Println(\&quot;Hello World\&quot;)&quot;
 }
 
 type JavaProgrammer struct {
 }
 
 func (j *JavaProgrammer) WriteHelloWorld() string {
-	return &quot;System.out.Println(\&quot;Hello World\&quot;)&quot;
+    return &quot;System.out.Println(\&quot;Hello World\&quot;)&quot;
 }
 
 //Duck type entry
 func PrintHelloWorld(p Programmer) {
-	fmt.Printf(&quot;%T, %s\n&quot;, p, p.WriteHelloWorld())
+    fmt.Printf(&quot;%T, %s\n&quot;, p, p.WriteHelloWorld())
 }
 
 func TestDuckType(t *testing.T) {
-	g := new(GoProgrammer)
-	t.Log(g.WriteHelloWorld())
+    g := new(GoProgrammer)
+    t.Log(g.WriteHelloWorld())
 
-	j := new(JavaProgrammer)
-	t.Log(j.WriteHelloWorld())
+    j := new(JavaProgrammer)
+    t.Log(j.WriteHelloWorld())
 
-	//duck type, 入参数只能为Pointer
-	PrintHelloWorld(g)
-	PrintHelloWorld(j)
+    //duck type, 入参数只能为Pointer
+    PrintHelloWorld(g)
+    PrintHelloWorld(j)
 }
 </code></pre>
 
-<p>《完》</p>
+<h2 id="参考">参考</h2>
 
+<p>题图：hongkong-victoria-harbor-duck</p>
                         </div>
 
                         
@@ -384,7 +386,7 @@ func TestDuckType(t *testing.T) {
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select 实现超时机制">Go select 实现超时机制</a>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
     <li>
@@ -535,7 +537,7 @@ func TestDuckType(t *testing.T) {
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
