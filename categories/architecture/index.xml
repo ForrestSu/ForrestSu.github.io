@@ -12,29 +12,33 @@
     
     
     <item>
-      <title>异步编程</title>
-      <link>https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</link>
+      <title>异步编程之 CPS</title>
+      <link>https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/</link>
       <pubDate>Fri, 20 Apr 2018 22:44:50 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</guid>
-      <description>Preface 我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。</description>
+      <guid>https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/</guid>
+      <description>1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
+CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
+现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
+1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
+square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y = sqrt (add (square x) (square y))  然后我们将其改造成 CPS 的方式，如下：</description>
     </item>
     
     <item>
       <title>25岁的迷茫</title>
-      <link>https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</link>
+      <link>https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</link>
       <pubDate>Sun, 15 Apr 2018 19:50:09 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</guid>
       <description>25岁的迷茫 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。</description>
     </item>
     
     <item>
       <title>Seastar 入门</title>
-      <link>https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/</link>
+      <link>https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 27 Feb 2018 14:00:04 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/</guid>
       <description>这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。
 　Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
 由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
@@ -43,20 +47,20 @@
     
     <item>
       <title>Thinking coroutine thread async</title>
-      <link>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</link>
+      <link>https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/</link>
       <pubDate>Thu, 08 Feb 2018 22:32:16 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/</guid>
       <description>从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
 异步编程</description>
     </item>
     
     <item>
       <title>Thinking micro-service Architecture</title>
-      <link>https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/</link>
+      <link>https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/</link>
       <pubDate>Mon, 15 May 2017 14:41:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/</guid>
       <description>前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
 Analysis Advantage Analysis： zeroMQ</description>
     </item>

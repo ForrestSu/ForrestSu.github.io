@@ -88,12 +88,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/todolist/</loc>
+    <loc>https://forrestsu.github.io/categories/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
+    <loc>https://forrestsu.github.io/tags/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -130,6 +130,21 @@
   <url>
     <loc>https://forrestsu.github.io/posts/io/io-model/</loc>
     <lastmod>2019-03-11T17:41:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/linux/</loc>
+    <lastmod>2018-12-25T17:33:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/syscall/</loc>
+    <lastmod>2018-12-25T17:33:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/linux/restart-syscall/</loc>
+    <lastmod>2018-12-25T17:33:53+08:00</lastmod>
   </url>
   
   <url>
@@ -218,16 +233,6 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/linux/</loc>
-    <lastmod>2018-08-12T01:50:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/linux/</loc>
-    <lastmod>2018-08-12T01:50:45+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
@@ -243,7 +248,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</loc>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/simple-binary-encoding/</loc>
     <lastmod>2018-06-09T20:29:57+08:00</lastmod>
   </url>
   
@@ -278,22 +283,27 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/architecture/</loc>
-    <lastmod>2018-04-20T22:44:50+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/categories/architecture/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://forrestsu.github.io/tags/cps/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</loc>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/</loc>
+    <lastmod>2018-04-20T22:44:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</loc>
+    <lastmod>2018-04-15T19:50:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/architecture/</loc>
     <lastmod>2018-04-15T19:50:09+08:00</lastmod>
   </url>
   
@@ -333,12 +343,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2018-02-27T14:00:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/</loc>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/</loc>
     <lastmod>2018-02-08T22:32:16+08:00</lastmod>
   </url>
   
@@ -398,12 +408,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/languages/</loc>
+    <loc>https://forrestsu.github.io/categories/languages/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/languages/</loc>
+    <loc>https://forrestsu.github.io/tags/languages/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url>
   
@@ -468,12 +478,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/tools/</loc>
+    <loc>https://forrestsu.github.io/categories/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/tools/</loc>
+    <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
@@ -643,13 +653,23 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/</loc>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/</loc>
     <lastmod>2017-05-15T14:41:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/ubuntu/</loc>
+    <lastmod>2017-05-13T15:22:38+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/</loc>
     <lastmod>2017-05-13T15:22:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/teamviewer/</loc>
+    <lastmod>2017-05-12T23:52:34+08:00</lastmod>
   </url>
   
   <url>
@@ -753,12 +773,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/git/</loc>
+    <loc>https://forrestsu.github.io/categories/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
+    <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
@@ -815,11 +835,6 @@
   <url>
     <loc>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2016%E5%B9%B4/</loc>
     <lastmod>2017-02-13T11:04:13+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/</loc>
-    <lastmod>2017-02-12T01:50:45+08:00</lastmod>
   </url>
   
   <url>
@@ -959,6 +974,11 @@
   
   <url>
     <loc>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</loc>
+    <lastmod>2016-07-17T01:11:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/nullptr/</loc>
     <lastmod>2016-07-17T01:11:00+08:00</lastmod>
   </url>
   

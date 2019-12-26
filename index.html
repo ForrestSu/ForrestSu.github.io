@@ -250,6 +250,34 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall" >系统调用之 restart_syscall</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年12月25日 17:33:53
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br />
+<img src="/images/unix_restart_syscall.png" alt="restart_syscall" /></p>
+
+<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)" >Red Black Tree (01)</a>
                                 </h1>
                             </header>
@@ -299,33 +327,6 @@ Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编�
 Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案" >Zookeeper&#43;Kafka集群搭建方案</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年10月30日 19:50:19
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/highavailable">HighAvailable</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Preface Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
-Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
                         </article>
                     
                     
@@ -433,6 +434,10 @@ Zookeeper工作方式
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -442,10 +447,6 @@ Zookeeper工作方式
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -516,7 +517,7 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -528,7 +529,9 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -560,7 +563,7 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -588,6 +591,10 @@ Zookeeper工作方式
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -595,6 +602,8 @@ Zookeeper工作方式
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   

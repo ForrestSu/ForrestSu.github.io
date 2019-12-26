@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nullptr on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/nullptr/</link>
+    <description>Recent content in nullptr on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 17 Jul 2016 01:11:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/nullptr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C&#43;&#43;关于NULL、0、nullptr</title>
+      <link>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</link>
+      <pubDate>Sun, 17 Jul 2016 01:11:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</guid>
+      <description>一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+#define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
+int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
+#ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif  3 C++11引入了nullptr 来表示空指针</description>
+    </item>
+    
+  </channel>
+</rss>

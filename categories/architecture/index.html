@@ -80,7 +80,7 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">异步编程</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">异步编程之 CPS</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -88,7 +88,7 @@
                             </date>
                             <div class="post-meta">
                                 <span>| 字数 </span>
-                                60
+                                1407
                             </div>
                             
                             <div class="post-meta meta-category">
@@ -99,15 +99,19 @@
                             </div>
                             
                             <div class="post-content">
-                                Preface 我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">阅读全文</a></p>
+                                1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
+CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
+现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
+1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
+square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))  然后我们将其改造成 CPS 的方式，如下：……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
                             </div>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -127,14 +131,14 @@
                             
                             <div class="post-content">
                                 25岁的迷茫 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">阅读全文</a></p>
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">阅读全文</a></p>
                             </div>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">Seastar 入门</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/">Seastar 入门</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -157,14 +161,14 @@
 　Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I / O，磁盘I / O以及其他事件的复杂组合。
 由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。
 具有同步设计的服务器仍然具有令人不满意的性能，并且随着并发连接数量的增长而缩小。1999年，Dan Kigel普及了“C10K问题”—— 需要在一台服务器上有效处理 10,000个并发连接 —— 其中大多数是缓慢, 甚至是不活跃。（大四的时候,美团面试官也问过我这个问题）……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/seastar-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
                             </div>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">Thinking coroutine thread async</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">Thinking coroutine thread async</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -185,14 +189,14 @@
                             <div class="post-content">
                                 从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
 异步编程……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-coroutine-thread-async/">阅读全文</a></p>
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">阅读全文</a></p>
                             </div>
                         </article>
                     
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">Thinking micro-service Architecture</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/">Thinking micro-service Architecture</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -213,7 +217,7 @@
                             <div class="post-content">
                                 前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
 Analysis Advantage Analysis： zeroMQ……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">阅读全文</a></p>
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/">阅读全文</a></p>
                             </div>
                         </article>
                     
@@ -266,6 +270,10 @@ Analysis Advantage Analysis： zeroMQ……
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -275,10 +283,6 @@ Analysis Advantage Analysis： zeroMQ……
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -349,7 +353,7 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -361,7 +365,9 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -393,7 +399,7 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -421,6 +427,10 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -428,6 +438,8 @@ Analysis Advantage Analysis： zeroMQ……
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   

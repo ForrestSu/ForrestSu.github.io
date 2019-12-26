@@ -7,27 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Thinking micro-service Architecture | 程序员的冷浪漫</title>
-    <meta property="og:title" content="Thinking micro-service Architecture - 程序员的冷浪漫">
+    <title>CPS | 程序员的冷浪漫</title>
+    <meta property="og:title" content="CPS - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2017-05-15T14:41:51&#43;08:00">
-        
-        
-    <meta property="article:modified_time" content="2017-05-15T14:41:51&#43;08:00">
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
-    <meta name="description" content="Thinking micro-service Architecture">
+    <meta name="description" content="CPS">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">
+    <meta property="og:url" content="https://forrestsu.github.io/tags/cps/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
     
-        <link rel="stylesheet" href="/css/prism.css">
-    
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/cps/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -36,6 +31,7 @@
     
     
 </head>
+
 
 <body>
 <header id="header" class="clearfix">
@@ -67,220 +63,61 @@
 
 
 <div id="body">
-        
-        <div id="virtual_toc_list" style="display: none">
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#analysis">Analysis</a></li>
-</ul></li>
-</ul>
-</nav>
-        </div>
-        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
-            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
-                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
-                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
-            </header>
-            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
-        
-            </div>
-        </div>
-        <style type="text/css">
-            #float_toc_div {
-                position: fixed;
-                display: none;
-                 
-                height: auto;
-                font-size: 13px;
-            }
-        
-            #toc_list a:hover,
-            #toc_list a:active {
-                color: #ba3925;
-            }
-        </style>
-        <script>
-            window.onload = function () {
-                let tocNavElem = document.getElementById("TableOfContents");
-                let floatTocDivElem = document.getElementById("float_toc_div");
-                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
-                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
-                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
-                var useFloatToc = false;
-
-                if (floatTocWidth >= 100 && useFloatToc) {
-                    useFloatToc = true;
-                    document.getElementById("toc_list").appendChild(tocNavElem);
-                    floatTocDivElem.style.display = 'block';
-                    floatTocDivElem.style.width = floatTocWidth + 'px';
-                    top();
-                    floatTocDivElem.style.left = '0px';
-
-                    function top() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
-                        }
-                    }
-
-                    function ishide() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.display = 'block';
-                        }
-                    }
-
-                    window.onscroll = function () {
-                        ishide();
-                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
-                            top();
-                        }
-                    };
-
-                    window.onresize = function () {
-                        ishide();
-                    }
-
-                    document.getElementById("toc_btn_open").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "none":
-                                document.getElementById("toc_btn_close").style.display = "";
-                                tocListElem.style.display = "";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-
-                    document.getElementById("toc_btn_close").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "":
-                                document.getElementById("toc_btn_close").style.display = "none";
-                                tocListElem.style.display = "none";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-                } else {
-                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
-                    fixedTocElem.appendChild(tocNavElem);
-                    fixedTocElem.parentElement.style.display = "";
-                }
-                document.getElementById("virtual_toc_list").remove();
-            };   
-        </script>
-        
     <div class="container">
         <div class="col-group">
 
             <div class="col-8" id="main">
                 <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">Thinking micro-service Architecture</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2017年5月15日 14:41:51
-                        </date>
-                        <div class="post-meta">
-                            <span>| 字数 </span>
-                            155
-                        </div>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
-                        </div>
-                        
-                        
-                        <div class="clear" style="display: none">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h2 id="前言">前言</h2>
-
-<p>　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。
-　目前常用的解决方案:  消息MQ: ZeroMQ、RabbitMQ   数据协议： protobuf、json
- 数据持久化： Redis、MongoDB
- 框架： Libuv</p>
-
-<h2 id="analysis">Analysis</h2>
-
-<p>Advantage Analysis：
-<strong>zeroMQ</strong></p>
-
-                        </div>
-
-                        
-
-
-                        
-
-<div class="post-archive">
-    <h2>See Also</h2>
-    <ul class="listing">
-        
-        <li><a href="/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">ubuntu 16.10安装eclipse 4.6</a></li>
-        
-        <li><a href="/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">ubuntu 16.10安装teamviewer12</a></li>
-        
-        <li><a href="/posts/life/talk-with-yuanyuan/">talk with Yuanyuan</a></li>
-        
-        <li><a href="/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">Eclipse 4.6 support c&#43;&#43;11</a></li>
-        
-        <li><a href="/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a></li>
-        
-    </ul>
-</div>
-
-
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://forrestsu.github.io/tags/architecture">Architecture</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
                     
-    
+                    <h3 class="archive-title">
+                        包含标签
+                        <span class="keyword">CPS</span>
+                        的文章
+                    </h3>
+                    
 
-    
-    
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= "ForrestSu/ForrestSu.github.io"
-            issue-term="title"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
-    </div>
-    
+                    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">异步编程之 CPS</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2018年4月20日 22:44:50
+                            </date>
+                            <div class="post-meta">
+                                <span>| 字数 </span>
+                                1407
+                            </div>
+                            
+                            <div class="post-meta meta-category">
+                                |
+                                
+                                    <a href="https://forrestsu.github.io/categories/architecture">Architecture</a>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
+CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
+现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
+1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
+square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))  然后我们将其改造成 CPS 的方式，如下：……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
+                            </div>
+                        </article>
+                    
+
+                    
+
+
+
+
+
                 </div>
             </div>
+
             <div id="secondary">
     <section class="widget">
         <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
@@ -320,6 +157,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -329,10 +170,6 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -403,7 +240,7 @@
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -415,7 +252,9 @@
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -447,7 +286,7 @@
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -475,6 +314,10 @@
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -482,6 +325,8 @@
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   
@@ -547,23 +392,6 @@
 </footer>
 
 
-    
-    <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
@@ -571,6 +399,7 @@
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
 
 
 

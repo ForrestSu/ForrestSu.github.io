@@ -71,6 +71,33 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案" >Zookeeper&#43;Kafka集群搭建方案</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2018年10月30日 19:50:19
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/highavailable">HighAvailable</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                Preface Zookeeper是一个高性能分布式应用协调服务 - Naming Service - 配置管理 - Leader Election - 服务发现 - 同步 - Group Service - Barrier - 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) - 两阶段提交
+Zookeeper工作方式
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独" >慎独</a>
                                 </h1>
                             </header>
@@ -183,7 +210,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/simple-binary-encoding/" title="Simple Binary Encoding" >Simple Binary Encoding</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -200,7 +227,7 @@ bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broke
                             <div class="post-content">
                                 金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/simple-binary-encoding/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/simple-binary-encoding/">阅读全文</a></p>
                         </article>
                     
                     
@@ -310,31 +337,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc .……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" title="异步编程" >异步编程</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年4月20日 22:44:50
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/architecture">Architecture</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Preface 我们所掌握的自以为傲的很多知识或者技能，在可见的未来将会被更新或者淘汰， 也许是在明天，或许几年，谁知道呢。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">阅读全文</a></p>
                         </article>
                     
                     
@@ -453,6 +455,10 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -462,10 +468,6 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -536,7 +538,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -548,7 +550,9 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -580,7 +584,7 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -608,6 +612,10 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -615,6 +623,8 @@ package com.sunquan; message Login { optional int64 userid = 1; optional string 
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   

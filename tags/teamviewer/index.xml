@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TeamViewer on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/teamviewer/</link>
+    <description>Recent content in TeamViewer on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 12 May 2017 23:52:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/teamviewer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu 16.10安装teamviewer12</title>
+      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</link>
+      <pubDate>Fri, 12 May 2017 23:52:34 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</guid>
+      <description>1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
+ 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:</description>
+    </item>
+    
+  </channel>
+</rss>

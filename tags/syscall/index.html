@@ -7,22 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Linux | 程序员的冷浪漫</title>
-    <meta property="og:title" content="Linux - 程序员的冷浪漫">
+    <title>syscall | 程序员的冷浪漫</title>
+    <meta property="og:title" content="syscall - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
         
     <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
-    <meta name="description" content="Linux">
+    <meta name="description" content="syscall">
         
     <meta name="author" content="">
-    <meta property="og:url" content="https://forrestsu.github.io/tags/linux/">
+    <meta property="og:url" content="https://forrestsu.github.io/tags/syscall/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
     
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/linux/index.xml" title="程序员的冷浪漫" />
+    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/syscall/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -71,7 +71,7 @@
                     
                     <h3 class="archive-title">
                         包含标签
-                        <span class="keyword">Linux</span>
+                        <span class="keyword">syscall</span>
                         的文章
                     </h3>
                     
@@ -80,15 +80,15 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">eventfd 入门</a>
+                                    <a href="https://forrestsu.github.io/posts/linux/restart-syscall/">系统调用之 restart_syscall</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
-                                2018年8月12日 01:50:45
+                                2018年12月25日 17:33:53
                             </date>
                             <div class="post-meta">
                                 <span>| 字数 </span>
-                                1309
+                                394
                             </div>
                             
                             <div class="post-meta meta-category">
@@ -99,97 +99,11 @@
                             </div>
                             
                             <div class="post-content">
-                                1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
-man eventfd
-#include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);  eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">ubuntu 16.10安装eclipse 4.6</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年5月13日 15:22:38
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                457
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/linux">Linux</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1.下载jdk , jdk-8u131-linux-x64.tar.gz 2 建立 sudo mkdir /usr/lib/java
-3 添加环境变量sudo vi /etc/profile
- export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
- 4
- [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">ubuntu 16.10安装teamviewer12</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年5月12日 23:52:34
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                243
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/linux">Linux</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/">ubuntu 16.10升级体验</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年2月12日 01:50:45
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                217
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/linux">Linux</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 自定义Ctrl+space切换输入法 如下图选择custom 然后定制 custom 的快捷键即可。 http://ppa.launchpad.net/noobslab/icons/ubuntu/pool/main/u/ultra-flat-icons-orange/ultra-flat-icons-orange_1.3.2~xenial~Noobslab.com.tar.gz
-vlc中文字幕乱码 将字体改为arial unicode ms即可。……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%8D%87%E7%BA%A7%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
+                                <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br />
+<img src="/images/unix_restart_syscall.png" alt="restart_syscall" /></p>
+
+<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+                                <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
                             </div>
                         </article>
                     
@@ -242,6 +156,10 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -251,10 +169,6 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -325,7 +239,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -337,7 +251,9 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -369,7 +285,7 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -397,6 +313,10 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -404,6 +324,8 @@ vlc中文字幕乱码 将字体改为arial unicode ms即可。……
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   

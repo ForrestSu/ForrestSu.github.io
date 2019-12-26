@@ -71,6 +71,33 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/" title="搭建CUDA 环境（GPU）" >搭建CUDA 环境（GPU）</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                               2017年6月12日 10:24:33
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)
+1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612)  CUDA Toolkit on x86_32 is unsupported
+ 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.……
+                            </div>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/" title="工作重心梳理" >工作重心梳理</a>
                                 </h1>
                             </header>
@@ -260,7 +287,7 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/" title="Thinking micro-service Architecture" >Thinking micro-service Architecture</a>
+                                    <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/" title="Thinking micro-service Architecture" >Thinking micro-service Architecture</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -278,7 +305,7 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
                                 前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
 Analysis Advantage Analysis： zeroMQ……
                             </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/thinking-micro-service-architecture/">阅读全文</a></p>
+                            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/">阅读全文</a></p>
                         </article>
                     
                     
@@ -308,32 +335,6 @@ Analysis Advantage Analysis： zeroMQ……
  [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.……
                             </div>
                             <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/" title="ubuntu 16.10安装teamviewer12" >ubuntu 16.10安装teamviewer12</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年5月12日 23:52:34
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/linux">Linux</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">阅读全文</a></p>
                         </article>
                     
                     
@@ -473,6 +474,10 @@ Analysis Advantage Analysis： zeroMQ……
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
     </li>
     
@@ -482,10 +487,6 @@ Analysis Advantage Analysis： zeroMQ……
     
     <li>
         <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
     </li>
     
 </ul>
@@ -556,7 +557,7 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
   
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(5)</a>
+  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
   
   <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
   
@@ -568,7 +569,9 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+  
+  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
   
   <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
   
@@ -600,7 +603,7 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
   
-  <a href="https://forrestsu.github.io/tags/linux/">Linux(4)</a>
+  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
   
   <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
   
@@ -628,6 +631,10 @@ Analysis Advantage Analysis： zeroMQ……
   
   <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+  
+  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
   
   <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
@@ -635,6 +642,8 @@ Analysis Advantage Analysis： zeroMQ……
   <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+  
+  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   
