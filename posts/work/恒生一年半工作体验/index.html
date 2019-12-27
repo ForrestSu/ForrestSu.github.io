@@ -245,25 +245,25 @@
 <h2 id="2-技术">2 技术</h2>
 
 <p>  　技术基本都是沿用O32老的三层架构。
-<strong>前端</strong>
+<strong>前端</strong><br />
 　　采用Delphi实现界面要素(委托、查询、参数调整等界面。)
-<strong>中间件</strong>
+<strong>中间件</strong><br />
 　　采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件)
 　　中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。
-<strong>后端</strong>
+<strong>后端</strong><br />
 　　主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。</p>
 
-<p><strong>其他</strong>
-<strong>(1) 共享内存</strong>
+<p><strong>其他</strong><br />
+<strong>(1) 共享内存</strong><br />
  &gt; 共享内存主要有两大块：<strong>前台共享内存</strong>,采用一个单独的dll来实现，具体使用时用导出接口，数据初始化时加载向后台发送请求，全量加载后台实体表数据。<strong>后台共享内存</strong>,主要采用linux的shm实现，用一个结构体管理共享内存，每张表有一块连续的内存空间，每次定位时先找到这张表的起始地址。
 主要涉及的操作（增加一条记录，更新一条记录，标记一条记录已删除）</p>
 
-<p><strong>(2) 消息中心</strong>
+<p><strong>(2) 消息中心</strong><br />
 　　消息中心就是一个订阅+发布的功能。(典型的观察者消费者模型) 启动时加载后台一系列消息主题，等待观察者订阅。当有新消息到来，推送给对应的消息订阅者。</p>
 
-<p><strong>后续涉及</strong>
-　　 后续会涉及消息主推，UFX消息插件的开发。
-<strong>我个人不成熟的小想法</strong>
+<p><strong>后续涉及</strong><br />
+　　 后续会涉及消息主推，UFX消息插件的开发。<br />
+<strong>我个人不成熟的小想法</strong><br />
 &gt; 我想：如果HS的消息中间件能设计成一个类似于 MQ 的库，我想用起来应该非常舒服（效率应该会提升几个数量级）。</p>
 
 <h2 id="3-生活">3 生活</h2>
@@ -313,15 +313,15 @@
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/">离职前</a></li>
-        
-        <li><a href="/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">QDII转换机工作汇总</a></li>
-        
         <li><a href="/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a></li>
         
         <li><a href="/posts/life/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6%E5%AF%BC%E5%B8%88-%E8%B4%BA%E8%80%81%E5%B8%88/">我的大学导师 (贺老师)</a></li>
         
+        <li><a href="/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/">离职前</a></li>
+        
         <li><a href="/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/">恒生工作梳理</a></li>
+        
+        <li><a href="/posts/cpp/posix-pthread-1/">posix-pthread (1)</a></li>
         
     </ul>
 </div>
@@ -331,7 +331,9 @@
                             
                             <ul class="clearfix">
                                 
-                                <li><a href="https://forrestsu.github.io/tags/work">Work</a></li>
+                                <li><a href="https://forrestsu.github.io/tags/hundsun">Hundsun</a></li>
+                                
+                                <li><a href="https://forrestsu.github.io/tags/feeling">Feeling</a></li>
                                 
                             </ul>
                             
@@ -506,11 +508,13 @@
   
   <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
   
+  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+  
   <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
   
   <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
   
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(1)</a>
+  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
   
   <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
   
@@ -562,7 +566,7 @@
   
   <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
   
-  <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
   
   <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
   
@@ -570,7 +574,7 @@
   
   <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
   
-  <a href="https://forrestsu.github.io/tags/work/">Work(11)</a>
+  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
   
   <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
   

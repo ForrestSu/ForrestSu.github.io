@@ -88,12 +88,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
+    <loc>https://forrestsu.github.io/tags/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/todolist/</loc>
+    <loc>https://forrestsu.github.io/categories/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -208,12 +208,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/life/</loc>
+    <loc>https://forrestsu.github.io/tags/life/</loc>
     <lastmod>2018-09-17T06:08:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/life/</loc>
+    <loc>https://forrestsu.github.io/categories/life/</loc>
     <lastmod>2018-09-17T06:08:12+08:00</lastmod>
   </url>
   
@@ -238,12 +238,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/library/</loc>
+    <loc>https://forrestsu.github.io/categories/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/library/</loc>
+    <loc>https://forrestsu.github.io/tags/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
@@ -363,12 +363,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/web/</loc>
+    <loc>https://forrestsu.github.io/tags/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/web/</loc>
+    <loc>https://forrestsu.github.io/categories/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
@@ -463,12 +463,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
@@ -478,12 +478,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/tools/</loc>
+    <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/tools/</loc>
+    <loc>https://forrestsu.github.io/categories/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
@@ -723,6 +723,16 @@
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/tags/feeling/</loc>
+    <lastmod>2017-04-07T17:51:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/hundsun/</loc>
+    <lastmod>2017-04-07T17:51:39+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2017-04-07T17:51:39+08:00</lastmod>
   </url>
@@ -740,11 +750,6 @@
   <url>
     <loc>https://forrestsu.github.io/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/</loc>
     <lastmod>2017-04-01T07:50:23+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/hundsun/</loc>
-    <lastmod>2017-03-27T11:19:05+08:00</lastmod>
   </url>
   
   <url>
@@ -773,12 +778,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
+    <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/git/</loc>
+    <loc>https://forrestsu.github.io/categories/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
@@ -793,12 +798,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/travel/</loc>
+    <loc>https://forrestsu.github.io/categories/travel/</loc>
     <lastmod>2017-02-20T20:21:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/travel/</loc>
+    <loc>https://forrestsu.github.io/tags/travel/</loc>
     <lastmod>2017-02-20T20:21:25+08:00</lastmod>
   </url>
   

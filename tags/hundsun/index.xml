@@ -6,10 +6,24 @@
     <description>Recent content in hundsun on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Mar 2017 11:19:05 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Apr 2017 17:51:39 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/hundsun/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>恒生一年半工作体验</title>
+      <link>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Fri, 07 Apr 2017 17:51:39 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</guid>
+      <description>前言  我是2015年6月毕业就来到恒生电子工作，算上3个月实习期，到今天(2017-02-21)将近有2年光景。 先简单介绍下我这边的工作情况：我工作的部门是恒生起步比较早的部门—资产管理事业部（隶属于资产管理事业部&amp;lt;下面有研发一二三四、投资一部、投资二部共6个子部门&amp;gt;）。 每个部门都有一个到多个产品，一个产品即一个BU。比如我所在的投资二部目前有4个小BU（资管SQL版本，非标1.0，非标2.0，QDII境外投资）资管SQL是逐渐被O32的替换的产品，QDII也是拿了O32一个版本来独立开发的。 我所在的团队，主要包含以下小组: 风控、日终、交易、报盘、查询、周边。 我这边主要负责：报盘+部分交易+部分周边。 周边主要包括 UFX/EI统一接入（C++编写）。
+1 工作方面  最近一年来，是经常加班，任务稍微有点多，总体感觉还好。基本都是需求搞好业务分析，形成业务文档，然后Jun哥搞好前期的业务设计。 整体评估，然后把具体的修改点(增加的模块)都列出来。最后分工到个人。(详细的业务流程就不讲了)
+2 技术  技术基本都是沿用O32老的三层架构。 前端
+采用Delphi实现界面要素(委托、查询、参数调整等界面。) 中间件
+采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件) 中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。 后端
+主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。</description>
+    </item>
     
     <item>
       <title>恒生工作梳理</title>
