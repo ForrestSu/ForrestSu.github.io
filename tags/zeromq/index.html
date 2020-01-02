@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,16 +11,15 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="zeromq">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/tags/zeromq/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/zeromq/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -34,7 +32,7 @@
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -61,65 +59,66 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        包含标签
+        <span class="keyword">zeromq</span>
+        的文章
+    </h3>
+    
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                    <h3 class="archive-title">
-                        包含标签
-                        <span class="keyword">zeromq</span>
-                        的文章
-                    </h3>
-                    
-
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">Multithreading-with-ZeroMQ</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2018年10月30日 19:50:51
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                2304
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/cpp">CPP</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">Multithreading-with-ZeroMQ</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年10月30日 19:50:51
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            2299
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
+            
+        </div>
+        
+        <div class="post-content">
+            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
 Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
 它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
 Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
+        </div>
+    </article>
+    
 
-                    
-
-
+    
 
 
+
+
+
+</div>
 
                 </div>
-            </div>
 
-            <div id="secondary">
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -177,182 +176,182 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -380,14 +379,14 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -395,7 +394,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -404,6 +403,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
 
 
 
-
 </body>
+
 </html>

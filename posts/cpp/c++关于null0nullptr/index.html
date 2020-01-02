@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,23 +10,20 @@
     <meta property="og:title" content="C&#43;&#43;关于NULL、0、nullptr - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2016-07-17T01:11:00&#43;08:00">
+    <meta property="article:published_time" content='2016-07-17T01:11:00&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2016-07-17T01:11:00&#43;08:00">
+    <meta property="article:modified_time" content='2016-07-17T01:11:00&#43;08:00'>
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="C&#43;&#43;关于NULL、0、nullptr">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -37,8 +33,9 @@
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -65,227 +62,209 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-        
-        <div id="virtual_toc_list" style="display: none">
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#一-关于null-0-nullptr">一 关于NULL、0、nullptr</a></li>
-<li><a href="#二-在c-中使用null的风险">二 在C++中使用NULL的风险</a></li>
-<li><a href="#三-总结">三 总结</a></li>
-</ul></li>
-</ul>
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-null0nullptr">一 关于NULL、0、nullptr</a></li>
+    <li><a href="#-cnull">二 在C++中使用NULL的风险</a></li>
+    <li><a href="#-">三 总结</a></li>
+  </ul>
 </nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">C&#43;&#43;关于NULL、0、nullptr</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年7月17日 01:11:00
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            825
         </div>
-        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
-            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
-                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
-                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
-            </header>
-            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
         
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
             </div>
         </div>
-        <style type="text/css">
-            #float_toc_div {
-                position: fixed;
-                display: none;
-                 
-                height: auto;
-                font-size: 13px;
-            }
         
-            #toc_list a:hover,
-            #toc_list a:active {
-                color: #ba3925;
-            }
-        </style>
-        <script>
-            window.onload = function () {
-                let tocNavElem = document.getElementById("TableOfContents");
-                let floatTocDivElem = document.getElementById("float_toc_div");
-                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
-                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
-                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
-                var useFloatToc = false;
-
-                if (floatTocWidth >= 100 && useFloatToc) {
-                    useFloatToc = true;
-                    document.getElementById("toc_list").appendChild(tocNavElem);
-                    floatTocDivElem.style.display = 'block';
-                    floatTocDivElem.style.width = floatTocWidth + 'px';
-                    top();
-                    floatTocDivElem.style.left = '0px';
-
-                    function top() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
-                        }
-                    }
-
-                    function ishide() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.display = 'block';
-                        }
-                    }
-
-                    window.onscroll = function () {
-                        ishide();
-                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
-                            top();
-                        }
-                    };
-
-                    window.onresize = function () {
-                        ishide();
-                    }
-
-                    document.getElementById("toc_btn_open").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "none":
-                                document.getElementById("toc_btn_close").style.display = "";
-                                tocListElem.style.display = "";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-
-                    document.getElementById("toc_btn_close").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "":
-                                document.getElementById("toc_btn_close").style.display = "none";
-                                tocListElem.style.display = "none";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-                } else {
-                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
-                    fixedTocElem.appendChild(tocNavElem);
-                    fixedTocElem.parentElement.style.display = "";
-                }
-                document.getElementById("virtual_toc_list").remove();
-            };   
-        </script>
-        
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">C&#43;&#43;关于NULL、0、nullptr</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2016年7月17日 01:11:00
-                        </date>
-                        <div class="post-meta">
-                            <span>| 字数 </span>
-                            782
-                        </div>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cpp">CPP</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
-                        </div>
-                        
-                        
-                        <div class="clear" style="display: none">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h2 id="一-关于null-0-nullptr">一 关于NULL、0、nullptr</h2>
-
+        <div class="post-content">
+            <h2 id="-null0nullptr">一 关于NULL、0、nullptr</h2>
 <p>1 在<strong>C语言</strong>中NULL被定义为：一个void* 指针，指向的地址为0。</p>
-
-<pre><code class="language-c">#define NULL ((void *)0)
-</code></pre>
-
-<p>所以在C语言中我们通常会写出如下语句</p>
-
-<pre><code class="language-c">int *i = NULL;
-foo_t *f = NULL;
-</code></pre>
-
-<p>2 而在C++中，NULL会被定义为0</p>
-
-<pre><code class="language-cpp">#ifndef __cplusplus
-#define NULL ((void *)0)
-#else   /* C++ */
-#define NULL 0
-#endif
-</code></pre>
-
-<p>3 C++11引入了nullptr 来表示空指针</p>
-
-<h2 id="二-在c-中使用null的风险">二 在C++中使用NULL的风险</h2>
-
-<pre><code class="language-cpp">//func1
-int mycall(char *a, char *b)
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#</span><span style="color:#75715e">define NULL ((void *)0)</span><span style="color:#75715e">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>所以在C语言中我们通常会写出如下语句</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>i <span style="color:#f92672">=</span> NULL;
+foo_t <span style="color:#f92672">*</span>f <span style="color:#f92672">=</span> NULL;
+</code></pre></td></tr></table>
+</div>
+</div><p>2 而在C++中，NULL会被定义为0</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#</span><span style="color:#75715e">ifndef __cplusplus</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define NULL ((void *)0)</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">else   </span><span style="color:#75715e">/* C++ */</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define NULL 0</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">endif</span><span style="color:#75715e">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>3 C++11引入了nullptr 来表示空指针</p>
+<h2 id="-cnull">二 在C++中使用NULL的风险</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//func1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">mycall</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>b)
 {
-    cout&lt;&lt;&quot;char pointer!&quot;&lt;&lt;endl;
+    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">char pointer!</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
 }
-//func2
-int mycall(char *a, int b)
+<span style="color:#75715e">//func2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">mycall</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a, <span style="color:#66d9ef">int</span> b)
 {
-    cout&lt;&lt;&quot;int !&quot;&lt;&lt;endl;
+    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">int !</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
 }
-// func3
-int mycall(char *a,nullptr_t nullp)
+<span style="color:#75715e">// func3
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">mycall</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a,nullptr_t nullp)
 {
-    cout&lt;&lt;&quot;nullptr !&quot;&lt;&lt;endl;
+    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">nullptr !</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
 }
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-    char *a,*b;
-    mycall(a,b); //char pointer!
-//优先调用func2，没有func2则调用func1或func3；func1和func3同时存在则报错ambiguous
-    mycall(a,NULL);//int !
-//优先调用func3，没有func3则调用func1，绝不会调用func2。
-    mycall(a,nullptr);//nullptr !
-    return 0;
+    <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>a,<span style="color:#f92672">*</span>b;
+    mycall(a,b); <span style="color:#75715e">//char pointer!
+</span><span style="color:#75715e"></span><span style="color:#75715e">//优先调用func2，没有func2则调用func1或func3；func1和func3同时存在则报错ambiguous
+</span><span style="color:#75715e"></span>    mycall(a,NULL);<span style="color:#75715e">//int !
+</span><span style="color:#75715e"></span><span style="color:#75715e">//优先调用func3，没有func3则调用func1，绝不会调用func2。
+</span><span style="color:#75715e"></span>    mycall(a,<span style="color:#66d9ef">nullptr</span>);<span style="color:#75715e">//nullptr !
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-
-<h2 id="三-总结">三 总结</h2>
-
-<p><strong>在写纯C时</strong><br />
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="-">三 总结</h2>
+<p><strong>在写纯C时</strong><br>
 (1) 给指针变量赋空指针可以使用<code>NULL</code></p>
-
-<p><strong>在写C++时</strong><br />
-(1) 不要使用NULL， 如果真要使用那就写个0，或者自己定义一个宏 <code>#define iZERO 0</code><br />
+<p><strong>在写C++时</strong><br>
+(1) 不要使用NULL， 如果真要使用那就写个0，或者自己定义一个宏 <code>#define iZERO 0</code><br>
 (2) 使用空指针时请用<code>nullptr</code></p>
 
-                        </div>
+        </div>
 
-                        
+        
 
 
-                        
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -305,17 +284,17 @@ int main()
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://forrestsu.github.io/tags/nullptr">nullptr</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/nullptr'>nullptr</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -330,11 +309,13 @@ int main()
       </script>
     </div>
     
+</div>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -392,182 +373,182 @@ int main()
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -595,14 +576,14 @@ int main()
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -610,11 +591,6 @@ int main()
 
     
     <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],
@@ -622,12 +598,11 @@ int main()
                 }
             };
     </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -637,4 +612,5 @@ int main()
 
 
 </body>
+
 </html>

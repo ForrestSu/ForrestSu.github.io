@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,23 +10,20 @@
     <meta property="og:title" content="Red Black Tree (01) - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2018-11-19T15:00:28&#43;08:00">
+    <meta property="article:published_time" content='2018-11-19T15:00:28&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2018-11-19T15:00:28&#43;08:00">
+    <meta property="article:modified_time" content='2018-11-19T15:00:28&#43;08:00'>
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="Red Black Tree (01)">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -37,8 +33,9 @@
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -65,270 +62,211 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-        
-        <div id="virtual_toc_list" style="display: none">
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-bst">1 BST</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#红黑树的特征">红黑树的特征</a></li>
-<li><a href="#程序编码">程序编码</a></li>
-<li><a href="#problem">Problem</a></li>
-</ul></li>
-</ul>
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-bst">1 BST</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#heading">红黑树的特征</a></li>
+    <li><a href="#heading-1">程序编码</a></li>
+    <li><a href="#problem">Problem</a></li>
+  </ul>
 </nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">Red Black Tree (01)</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年11月19日 15:00:28
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            2039
         </div>
-        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
-            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
-                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
-                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
-            </header>
-            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
         
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
             </div>
         </div>
-        <style type="text/css">
-            #float_toc_div {
-                position: fixed;
-                display: none;
-                 
-                height: auto;
-                font-size: 13px;
-            }
         
-            #toc_list a:hover,
-            #toc_list a:active {
-                color: #ba3925;
-            }
-        </style>
-        <script>
-            window.onload = function () {
-                let tocNavElem = document.getElementById("TableOfContents");
-                let floatTocDivElem = document.getElementById("float_toc_div");
-                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
-                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
-                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
-                var useFloatToc = false;
-
-                if (floatTocWidth >= 100 && useFloatToc) {
-                    useFloatToc = true;
-                    document.getElementById("toc_list").appendChild(tocNavElem);
-                    floatTocDivElem.style.display = 'block';
-                    floatTocDivElem.style.width = floatTocWidth + 'px';
-                    top();
-                    floatTocDivElem.style.left = '0px';
-
-                    function top() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
-                        }
-                    }
-
-                    function ishide() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.display = 'block';
-                        }
-                    }
-
-                    window.onscroll = function () {
-                        ishide();
-                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
-                            top();
-                        }
-                    };
-
-                    window.onresize = function () {
-                        ishide();
-                    }
-
-                    document.getElementById("toc_btn_open").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "none":
-                                document.getElementById("toc_btn_close").style.display = "";
-                                tocListElem.style.display = "";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-
-                    document.getElementById("toc_btn_close").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "":
-                                document.getElementById("toc_btn_close").style.display = "none";
-                                tocListElem.style.display = "none";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-                } else {
-                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
-                    fixedTocElem.appendChild(tocNavElem);
-                    fixedTocElem.parentElement.style.display = "";
-                }
-                document.getElementById("virtual_toc_list").remove();
-            };   
-        </script>
-        
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">Red Black Tree (01)</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2018年11月19日 15:00:28
-                        </date>
-                        <div class="post-meta">
-                            <span>| 字数 </span>
-                            2014
-                        </div>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
-                        </div>
-                        
-                        
-                        <div class="clear" style="display: none">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h2 id="1-bst">1 BST</h2>
-
+        <div class="post-content">
+            <h2 id="1-bst">1 BST</h2>
 <p>BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <ul>
-<li>BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。<br /></li>
+<li>BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。</li>
 <li>一棵具有 N 个 node 的 BST 树高(height)取值范围为：<code>logN ≤ height ≤ N</code></li>
 </ul>
-
 <p>因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。</p>
-
-<h2 id="红黑树的特征">红黑树的特征</h2>
-
+<h2 id="heading">红黑树的特征</h2>
 <p>红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助<code>颜色控制</code>，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：</p>
-
-<p><img src="/images/red-black-tree.png" alt="rb-tree" /></p>
-
+<p><img src="/images/red-black-tree.png" alt="rb-tree"></p>
 <p>上图：最短的path为3（最右路径：26-41-47），其余路径最长只能是6（最左路径：26-17-14-10-7-3）。若遮住NIL和颜色，此即为BST。</p>
-
 <p>有原本在BST中指向NULL的指针，在RBT中，全部指向了NIL。</p>
-
 <p>什么是NIL？NIL是永远为<code>黑色</code>，并且实际占有内存的节点，因为占有内存，因此能够以 <code>node-&gt;color</code> 的方式获得某个节点的颜色（若使用NULL则没有办法），这样的设计将在后续介绍如何于RBT中Insert（新增资料）与Delete（删除资料）时派上用场。</p>
-
 <p>接下来看RBT的五项特征：</p>
-
 <blockquote>
-<p>1 RBT 中的每一个节点不是黑色就是红色。<br />
-2 root 一定是黑色。<br />
-3 每一个叶子节点 <code>leaf node</code>（也就是NIL）一定是黑色。<br />
-4 如果某个 node 是红色，那么其两个 child 必定是黑色，不能有两个红色 node 相连，如上图中的node(17)、node(30)。<br />
- <em>若某个 node 为黑色，其 child 的颜色没有限制，如上图中的 node(38)、node(26)、node(21)。</em><br />
+<p>1 RBT 中的每一个节点不是黑色就是红色。<br>
+2 root 一定是黑色。<br>
+3 每一个叶子节点 <code>leaf node</code>（也就是NIL）一定是黑色。<br>
+4 如果某个 node 是红色，那么其两个 child 必定是黑色，不能有两个红色 node 相连，如上图中的node(17)、node(30)。<br>
+<em>若某个 node 为黑色，其 child 的颜色没有限制，如上图中的 node(38)、node(26)、node(21)。</em><br>
 5 站在任何一个 node 上，所有从该 node 走到其任意 descendant leaf 的path上的<code>黑色 node 数</code>必定相同。</p>
-
 <ul>
 <li>如上图，站在node（14）上，所有从node（14）走向其descendant leaves（也就是NIL）的路径上之黑色node数必为3：</li>
-<li>path1:14(b)-10&reg;-7(b)-3&reg;-NIL(b)；<br /></li>
-<li>path2:14(b)-10&reg;-7(b)-NIL(b)；<br /></li>
-<li>path3:14(b)-10&reg;-12(b)-NIL(b)；<br /></li>
-<li>path4:14(b)-16(b)-15&reg;-NIL(b)；<br /></li>
-<li>path5:14(b)-16(b)-NIL(b)；<br /></li>
+<li>path1:14(b)-10(r)-7(b)-3(r)-NIL(b)；</li>
+<li>path2:14(b)-10(r)-7(b)-NIL(b)；</li>
+<li>path3:14(b)-10(r)-12(b)-NIL(b)；</li>
+<li>path4:14(b)-16(b)-15(r)-NIL(b)；</li>
+<li>path5:14(b)-16(b)-NIL(b)；</li>
 </ul>
 </blockquote>
-
-<p>其中，第 4 点和 第 5 点比较难理解:<br />
-第4点：红色节点的孩子只能为黑色节点，黑色节点的孩子则没有这个约束（但是有第5点约束）。<br />
+<p>其中，第 4 点和 第 5 点比较难理解:<br>
+第4点：红色节点的孩子只能为黑色节点，黑色节点的孩子则没有这个约束（但是有第5点约束）。<br>
 第5点：站在任何一个节点上，从该 node 到所有叶子节点路径上的<code>黑色节点数</code> 必定相同。</p>
-
-<h2 id="程序编码">程序编码</h2>
-
+<h2 id="heading-1">程序编码</h2>
 <p>实际的程序实现上，会把所有NIL视为同一个NIL，并把根的父母指向NIL，以节省存储空间。</p>
-
-<p><img src="/images/red-black-tree-imp.png" alt="rb-tree-imp" /></p>
-
+<p><img src="/images/red-black-tree-imp.png" alt="rb-tree-imp"></p>
 <p>class TreeNode与class RBT之资料成员（数据成员）程序范例如下：</p>
-
-<pre><code class="language-cpp">// C++ code
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-
-class RBT;
-class TreeNode{
-private:
-    TreeNode *leftchild;
-    TreeNode *rightchild;
-    TreeNode *parent;
-    std::string element;
-    int key;
-    int color;         // 0: Red, 1: Black; using type:bool is ok
-    friend RBT;
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// C++ code
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RBT</span>;
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TreeNode</span>{
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    TreeNode <span style="color:#f92672">*</span>leftchild;
+    TreeNode <span style="color:#f92672">*</span>rightchild;
+    TreeNode <span style="color:#f92672">*</span>parent;
+    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string element;
+    <span style="color:#66d9ef">int</span> key;
+    <span style="color:#66d9ef">int</span> color;         <span style="color:#75715e">// 0: Red, 1: Black; using type:bool is ok
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">friend</span> RBT;
     ...
 }
-class RBT{
-private:
-    TreeNode *root;
-    TreeNode *neel;    // 为NIL, 常被称为哨兵(sentinel)
-    ...
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RBT</span>{
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+    TreeNode <span style="color:#f92672">*</span>root;
+    TreeNode <span style="color:#f92672">*</span>neel;    <span style="color:#75715e">// 为NIL, 常被称为哨兵(sentinel)
+</span><span style="color:#75715e"></span>    ...
 }
-</code></pre>
-
-<p>（为了避开某些IDE将NIL设置成保留关键字（保留关键字，例如template，while，struct等等），因此使用neel。）<br />
+</code></pre></td></tr></table>
+</div>
+</div><p>（为了避开某些IDE将NIL设置成保留关键字（保留关键字，例如template，while，struct等等），因此使用neel。）<br>
 为求画面简洁，往后的篇幅里将把RBT示意图中的NIL隐藏起来，只显示RBT中的内部节点，就像下图，不过心里要记得，RBT无时无刻都被NIL充满着。</p>
-
-<p><img src="/images/red-black-tree-simple.png" alt="rb-tree-simple" /></p>
-
+<p><img src="/images/red-black-tree-simple.png" alt="rb-tree-simple"></p>
 <p>以上便是RBT之初探，最重要的事实：就时间复杂度而言，RBT能够被视为平衡的BST，所有操作皆能在时间复杂度为O（logN）内完成。</p>
-
 <p>在接下来，将依序介绍Rotation，Insert与Delete。</p>
-
 <h2 id="problem">Problem</h2>
-
 <blockquote>
 <p>为什么map 不使用 avl-tree, 而使用rb-tree?</p>
 </blockquote>
-
 <p>avl-tree 是高度平衡的 BST, 查询效率为O(logN), avl-tree 所有节点的左右子树高度差不超过1。
 当有大量插入(or 删除)需求的时候，为了维持高度平衡，需要大量节点旋转调整，成本比较高。</p>
-
 <p>在map/set等内核数据结构中，大量使用的是rb-tree， rb-tree 查询复杂度也是 O(logN)。
 rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当有大量插入(or 删除)需求的时候，节点调整的代价相对较低。
 所以这也是一种 trade-off。</p>
 
-                        </div>
+        </div>
 
-                        
+        
 
 
-                        
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -348,17 +286,17 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://forrestsu.github.io/tags/rb-tree">rb-tree</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/rb-tree'>rb-tree</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -373,11 +311,13 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
       </script>
     </div>
     
+</div>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -435,182 +375,182 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -638,14 +578,14 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -653,11 +593,6 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
 
     
     <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],
@@ -665,12 +600,11 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
                 }
             };
     </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -680,4 +614,5 @@ rb-tree的平衡性要比 avl-tree 差一些，但是这也带来了好处：当
 
 
 </body>
+
 </html>

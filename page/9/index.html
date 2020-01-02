@@ -1,23 +1,22 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+	<meta name="generator" content="Hugo 0.62.1" />
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go ">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
-    <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="专注于IT互联网，金融行业 ，C&#43;&#43;、Golang、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -30,7 +29,7 @@
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -59,267 +58,273 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
+                <div class="col-8" id="main">
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/" title="恒生工作梳理" >恒生工作梳理</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月27日 11:19:05
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                工作流程 一、 梳理工作流程 　售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。
-二、 还需要熟悉的模块 　消息机制、主推，共享内存插件。
-　后续会涉及消息主推，UFX消息插件的开发。
-三、不足 　中间件相关的插件，具体实现还需了解。
-总结 当你要辞职时，应该把你觉得应该能学到的东西都学到了，然后出去 以后不要后悔就行。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/" title="posix-pthread (1)" >posix-pthread (1)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月22日 17:48:27
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cpp">CPP</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                进程和线程api对比 | 进程 | 线程 | | &mdash;&mdash;&mdash;&mdash;- |:&mdash;&mdash;&mdash;&mdash;-:| | pid_t | thread_t |
-| fork | pthread_create |
-| waitpid | pthread_jion |
-| exit | pthread_exit | |在main函数中调用return| 在线程函数中调用return | | 僵进程 | 僵线程| |wait_pid | pthread_jion| | | pthread_detach | |kill | pthread_cancel|……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/" title="QDII转换机工作汇总" >QDII转换机工作汇总</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月21日 17:35:12
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/" title="posix-pthread (1)">posix-pthread (1)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年3月22日 17:48:27
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            进程和线程api对比    进程 线程     pid_t thread_t   fork pthread_create   waitpid pthread_jion   exit pthread_exit   在main函数中调用return 在线程函数中调用return   僵进程 僵线程   wait_pid pthread_jion    pthread_detach   kill pthread_cancel    知识点 1 使用pthread_detach 方法脱离一个线程就不会产生僵线程。 2 获取当前县城id 3 pthread_cancel可以杀死一个执行中的线程。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/" title="QDII转换机工作汇总">QDII转换机工作汇总</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年3月21日 17:35:12
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
 操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下:
- qdii_archivehq (境外行情归档，境外业务日期自动切换)
- qdii_baseinfo (一系列彭博行情文件转换任务)
- qdii_fix (FIX转换任务)
- qdii_futhsfix (境外FIX期货报盘)
- qdii_hsfix (恒生FIX转换任务)
- qdii_realhq (彭博实时行情任务，聚源行情转换任务)
- qdii_reuterhq (路透Xtra3000行情转换)……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/" title="Docker install Ubuntu" >Docker install Ubuntu</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月21日 16:55:52
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/tools">Tools</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
+ qdii_archivehq (境外行情归档，境外业务日期自动切换) qdii_baseinfo (一系列彭博行情文件转换任务) qdii_fix (FIX转换任务) qdii_futhsfix (境外FIX期货报盘) qdii_hsfix (恒生FIX转换任务) qdii_realhq (彭博实时行情任务，聚源行情转换任务) qdii_reuterhq (路透Xtra3000行情转换) qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)   下面有 √ 的任务需要代码走读。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/" title="Docker install Ubuntu">Docker install Ubuntu</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年3月21日 16:55:52
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
 当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
 2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
 然后点击next.
 安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
 3 启动 双击Docker Quickstart Terminal 启动即可。
-4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu: docker pull ubuntu 查看镜像: docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" title="程序员如何留Email？" >程序员如何留Email？</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月12日 22:21:45
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密 &gt; echo 邮箱号 | base64
-我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析" >Git原理分析</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年3月9日 11:24:45
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                 Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。 &gt;git init &gt;git add number.txt
-此时在.git 下会产生一个index文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" title="Linux 服务端编程（一）" >Linux 服务端编程（一）</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年2月24日 17:29:28
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cpp">CPP</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
+4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu:  docker pull ubuntu 查看镜像:  docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" title="程序员如何留Email？">程序员如何留Email？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年3月12日 22:21:45
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密
+ echo 邮箱号 | base64
+ 我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析">Git原理分析</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年3月9日 11:24:45
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。
+ git init git add number.txt
+ 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" title="Linux 服务端编程（一）">Linux 服务端编程（一）</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年2月24日 17:29:28
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;0xff03 hex(节点号)&amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage #include &lt;stdio.……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017" >travel-2017</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年2月20日 20:21:25
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/travel">Travel</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                 一、 想去的地方  龙门古镇 （浙江杭州）  ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2016%E5%B9%B4/" title="工作总结-2016年" >工作总结-2016年</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年2月13日 11:04:13
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6">浮生若梦</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                前言 　今年是来恒生的第二年（如果算上实习的话）……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2016%E5%B9%B4/">阅读全文</a></p>
-                        </article>
-                    
-                    
-                    
+Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年2月20日 20:21:25
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/travel'>Travel</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            一、 想去的地方  龙门古镇 （浙江杭州）  ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2016%E5%B9%B4/" title="工作总结-2016年">工作总结-2016年</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年2月13日 11:04:13
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            前言 　今年是来恒生的第二年（如果算上实习的话）……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2016%E5%B9%B4/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/" title="2017新年计划">2017新年计划</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年2月10日 11:03:56
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            时间：2017年1月26~ 2017年2月3日
+1月26日 计划和同学聚会
+1月27日 除夕
+1月28日 初一，在家呆着。
+1月29日 时间：2017年1月26~ 2017年2月3日
+1月26日 计划和同学聚会
+1月27日 除夕
+1月28日 初一，在家呆着。
+1月29日……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/2017%E6%96%B0%E5%B9%B4%E8%AE%A1%E5%88%92/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/" title="个人的优点与不足">个人的优点与不足</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年2月8日 15:58:52
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            我的优点 好像还没发现什么优点&hellip; &gt;_&lt;
+我的不足之处 1 演讲或者给别人分享的时候：&lt;我声音太小&gt; 2017-02-08
+ 声音要大一点。（不然声音太小，会显得很没有底气）
+ 2 &lt;不够谦逊&gt; 2017-08-07
+ (1) 务必时刻保持一颗谦虚的心，背后多言他人的溢美之词，我只需取其善者而从之，不善者而改之。 (2) 也不能自己的想法强加给别人，我只需要管好我自己。(己所不欲，勿施于人; 穷则独善其身) (3) 毕竟写点业务代码也没啥难的，都有成熟的解决方案，我的眼光应该放的更长远，有发牢骚的时间，还不如看看框架和底层 (发挥算法还没荒废了)。 (4) 时常反思自己的一言一行，换位思考。(慎言笃行)
+ 3 &lt;有点拖延症&gt; 2017-08-07
+ 想写的文章一直拖着，没有抽点时间去写。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3/">阅读全文</a></p>
+    </article>
+    
+    
 
 
 
@@ -413,12 +418,13 @@ Usage #include &lt;stdio.……
 
 
 
-                </div>
-            </div>
+</div>
 
-            <div id="secondary">
+                </div>
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -476,182 +482,182 @@ Usage #include &lt;stdio.……
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -679,14 +685,14 @@ Usage #include &lt;stdio.……
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -694,7 +700,7 @@ Usage #include &lt;stdio.……
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -703,6 +709,6 @@ Usage #include &lt;stdio.……
 
 
 
-
 </body>
+
 </html>

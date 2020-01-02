@@ -1,23 +1,22 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+	<meta name="generator" content="Hugo 0.62.1" />
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go ">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
-    <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="专注于IT互联网，金融行业 ，C&#43;&#43;、Golang、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -30,7 +29,7 @@
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -59,276 +58,270 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
+                <div class="col-8" id="main">
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/" title="一个关于合伙吃饭的问题" >一个关于合伙吃饭的问题</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年10月18日 23:42:39
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88">杂谈</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                最近和4～5个同事经常一起在外面吃饭，因为要充卡买单，所以每个人都出了100，然后充卡，一起消费。 那么问题来了，可能某个同事有一天请假了，就需要向这个同事返一定的金额，这个金额应该是多少？（注：吃饭的人一定是合伙出钱的人） A 本次消费金额/本次吃饭人数 B 本次消费金额/合伙出钱的总人数 答案 A要保证资金池里面，每个人的剩余金额均相等。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/" title="First Blog for Me" >First Blog for Me</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年10月13日 18:04:13
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6">浮生若梦</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                这个小站将以技术分享学习为主，当然也同样会记录我生活的喜怒哀乐， 作为我小小人生的一个旁观者，也许若干年后回头看，会有别样的心情。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/first-blog-for-me/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/archives/" title="归档" >归档</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月26日 00:23:04
-                            </date>
-                            
-                            <div class="post-content">
-                                ……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/archives/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick" >git cherry-pick</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月12日 01:10:59
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： &gt;git cherry-pick ee99d9a
-如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick">git cherry-pick</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年9月12日 01:10:59
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用：
+ git cherry-pick ee99d9a
+ 如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
 2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。 解决完冲突后: 《完》……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别" >git merge 和git rebase的区别</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年9月11日 23:57:14
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/git">Git</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别">git merge 和git rebase的区别</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年9月11日 23:57:14
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
 一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改：
-&gt;git checkout dev-feature &gt;git merge master
-　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
+ git checkout dev-feature git merge master
+ 　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
 二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化" >背包九讲01-关于常数的优化</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年8月28日 01:13:01
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/algorithm">Algorithm</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化">背包九讲01-关于常数的优化</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月28日 01:13:01
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程：
-dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品  1 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候我们只需要计算出dp[V-cn]的值就可以停止循环了。进一步，当处理第i个物品时只需要循环到： 　备注：原作者手误把公式中ｃi+1写成了ｗi。 2 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。 最后：基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。 代码如下：
+1  dp[v]=max(dp[v],dp[v-ci]+wi);//i表示第i个物品   1 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候我们只需要计算出dp[V-cn]的值就可以停止循环了。进一步，当处理第i个物品时只需要循环到： 　备注：原作者手误把公式中ｃi+1写成了ｗi。 2 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。 **最后：**基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。 代码如下：
 /** nyoj: 654*/ //c header #include &lt;cstdlib&gt; #include &lt;cstdio&gt; #include &lt;cstring&gt; //cpp header #include &lt;iostream&gt; #include &lt;vector&gt; #include &lt;algorithm&gt; #include &lt;string&gt; using namespace std; #define M 1100000 //Max bag's Capacity #define N 120 //Max Item's amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&lt;int,int&gt; ppi; /**Cap is the bag's Capacity; SumCost is the sum of Item's cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements return x.……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/" title="年中总结" >年中总结</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年8月19日 00:43:54
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/diary">Diary</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                我今年23岁，从毕业到今天(2016-08-18)，大约来杭州工作也有一年时间了。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/" title="年中总结">年中总结</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月19日 00:43:54
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/diary'>Diary</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            我今年23岁，从毕业到今天(2016-08-18)，大约来杭州工作也有一年时间了。
 工作上 今天晚上7:30领导半年度谈话，浑浑噩噩又过了半年，没有了寒暑假的日子感觉就是度年如日，自从我导师离职，加入到QD小组快有3～4月了，感觉工作任务有点多，但是整体还好。后续还需要提高工作效率。凌总问我以后是想走业务路线还是技术路线？答曰：还没想好！应该是时候规划一下了。 下半年主要是境外期货业务。
 生活上 生活上整体还好，这半年都宅在房子里，西湖都没去几次～说来惭愧。体重长胖了几斤。大约每两周用微信给爷爷打一次电话。
 学习上 计划看十本书 现在大约看了5本，每周计划写一次的博客只写了几篇，计划旅游还没有着落。看了一部美剧(囧)。后面得规划下时间。 ~记于江畔云庐 2016-08-19 00:28~……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/" title="晓松奇谈" >晓松奇谈</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年8月6日 21:11:50
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/readingnotes">ReadingNotes</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                历史不是镜子，历史是精子，牺牲亿万，才有一个活到今天。人生不是故事，人生是事故，摸爬滚打，才不辜负功名尘土。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="忆往事-梦醒十分" >忆往事-梦醒十分</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年8月4日 03:04:52
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/diary">Diary</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                夜半梦回初醒，梦着和邻家女孩初中一起上学补课的日子，感觉那么无忧无虑和惬意。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/" title="晓松奇谈">晓松奇谈</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月6日 21:11:50
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/readingnotes'>ReadingNotes</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            历史不是镜子，历史是精子，牺牲亿万，才有一个活到今天。人生不是故事，人生是事故，摸爬滚打，才不辜负功名尘土。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="忆往事-梦醒十分">忆往事-梦醒十分</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月4日 03:04:52
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/diary'>Diary</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            夜半梦回初醒，梦着和邻家女孩初中一起上学补课的日子，感觉那么无忧无虑和惬意。
 关于太爷爷 　在我最早对死亡有明显的意识是在2012年9月左右，我太爷爷去世，经常有人提起都说他很长寿。那天我请假回家参加太爷爷的丧事，我们那里有个风俗——丧事晚上会请说书的先生说大半夜书，下面的孝子贤孙跪倒一片，后半夜就是孝子贤孙给死去的亲人在路上撒钱。那晚我和大人们跪了大半夜。（应该中国的很多地方都有这种风俗） 对太爷爷的记忆随着时间的推移轮廓变得逐渐模糊，不算太高，看起来有点瘦，生活基本上都是自理，只有过年的时候亲戚朋友会塞上几百块钱。每年大学的暑假都会先回家休息一个月，然后再去学校实验室集训一个月。那年暑假，我太爷爷正好摔跤了，然后每天我和爷爷吃饭前，爷爷都让我去给太爷爷送饭。小时候太爷爷一直对我很好，经常来我家串个门，看会儿电视，翻翻族谱，找到自己的名字，然后弓着背回去了。有时还会给我带点好吃的，比如山里姑爹送来的柿子，还无花果-直到有一天送饭才发现是他在屋旁自己种的无花果。摔倒的那个月，太爷爷生活不能自理，我赵赵姑爹会骑个自行车隔三差五过来帮忙洗下被套，打扰卫生，点下蚊香，买点卫生纸之类的。所以我每年回家都会看下这几个姑爹。
 关于奶奶 下面开始讲我的奶奶，我奶奶是个勤快的庄稼人，一天到晚忙着地里除草打药，经常忙到很晚，有时我叫她吃饭才肯回，后来很多亲戚都说她是因劳成疾。老一辈的人都很节省，舍不得花钱，一年到头也没添置几件新衣裳，但我爷爷花钱可不是那么懂得精打细算的人，所以奶奶偶尔会和爷爷吵架。后来奶奶生病住院，县城里的医院没有治疗条件，医生推荐去市里治疗，我爷爷直接把奶奶送往市人民医院，虽然医生说只能定期透析多活些日子，我爷爷也坚持治疗，希望能治好。住院期间也问奶奶喜欢吃的东西，买给她吃，平日里她也舍不得给自己花钱。
 隔壁的奶奶听说身体不好，我得打电话问下。 &ndash;记于杭州江畔云庐 2016年8月4日星期四凌晨3:40……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/" title="C&#43;&#43;关于NULL、0、nullptr" >C&#43;&#43;关于NULL、0、nullptr</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2016年7月17日 01:11:00
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cpp">CPP</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
-#define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
-int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
-#ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif  3 C++11引入了nullptr 来表示空指针……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">阅读全文</a></p>
-                        </article>
-                    
-                    
-                    
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/" title="C&#43;&#43;关于NULL、0、nullptr">C&#43;&#43;关于NULL、0、nullptr</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年7月17日 01:11:00
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+1  #define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
+1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
+1 2 3 4 5  #ifndef __cplusplus#define NULL ((void *)0)#else /* C++ */#define NULL 0#endif  3 C++11引入了nullptr 来表示空指针……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/" title="PCLint9安装_(软件质量之道)">PCLint9安装_(软件质量之道)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年6月4日 17:35:23
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            目前官网最新版是PCLint9.0L(2016-6-3) 2. 接下来弹出PCLint的配置程序，点击下一步开始配置。 ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/travel/2016-plans/" title="2016-Plans">2016-Plans</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年6月3日 22:22:05
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/travel'>Travel</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Coding 1 找到一个女朋友。 2 在Github上Commit 3+个项目。 3 看5本非技术书，看5本技术书集。
+ 《李世乭自传》&ndash;在读&hellip; 《有味》-汪涵 &ndash;读完 《Linus Torvalds自传》(中文版) 《Operating Systems Design &amp; Implementation 3rd Edition》 &ndash;计划读  TRAVEL 云南旅游一次，大理，丽江。（八月份）
+去一次西藏旅游。（国庆节）……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/2016-plans/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/" title="Sublime Text 3 Markdown">Sublime Text 3 Markdown</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年5月16日 00:22:06
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容：
+ { &ldquo;color_scheme&rdquo;: &ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&rdquo;, &ldquo;draw_centered&rdquo;: false, &ldquo;line_numbers&rdquo;: true, &ldquo;highlight_line&rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &ldquo;wrap_width&rdquo;:0 }
+ 最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
+ git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
+ 然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
+    </article>
+    
+    
 
 
 
@@ -402,12 +395,13 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 
 
 
-                </div>
-            </div>
+</div>
 
-            <div id="secondary">
+                </div>
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -465,182 +459,182 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -668,14 +662,14 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -683,7 +677,7 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -692,6 +686,6 @@ int *i = NULL; foo_t *f = NULL;  2 而在C++中，NULL会被定义为0
 
 
 
-
 </body>
+
 </html>

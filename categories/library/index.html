@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,16 +11,15 @@
     <meta property="og:type" content="article">
         
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="Library">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/categories/library/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/categories/library/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -34,7 +32,7 @@
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -61,214 +59,219 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        分类
+        <span class="keyword">Library</span>
+        中的文章
+    </h3>
+    
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-                    <h3 class="archive-title">
-                        分类
-                        <span class="keyword">Library</span>
-                        中的文章
-                    </h3>
-                    
-
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">kafka安装</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2018年7月31日 10:34:54
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                315
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">kafka安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年7月31日 10:34:54
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            312
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
 启动zookeeper服务 bin/zkServer.sh start
 kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
-dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下  启动zookeeper
-bin/zookeeper-server-start.sh config/zk.properties  启动kafka服务器（broker） ``` 启动kafka服务器（broker）……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">git 源码学习</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2018年6月3日 23:57:22
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                393
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
+dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper
+bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker）
+启动kafka服务器（broker） ……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">git 源码学习</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年6月3日 23:57:22
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            393
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
 Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">Reflection in protobuf (C&#43;&#43;/Java)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2018年4月27日 21:56:39
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                4161
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">Reflection in protobuf (C&#43;&#43;/Java)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年4月27日 21:56:39
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            4245
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
 1 reflection in C++ 在c++中使用protobuf 反射
-package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc .……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/">Redis 入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年5月16日 15:19:29
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                264
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 登陆 redis-cli 远程访问： &gt; $ redis-cli -h host -p port -a password
-2 常用命令 redis 127.0.0.1:6379&gt; COMMAND KEY_NAME (1) 查找key的类型 type key
+1 2 3 4 5 6 7 8 9 10 11  package com.sunquan;message Login { optional int64 userid = 1; optional string username = 2; // name  optional string password = 3; // passwd  optional string email = 4; optional string nickname = 5; // etc .……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/">Redis 入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年5月16日 15:19:29
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            254
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 登陆 redis-cli 远程访问：
+ $ redis-cli -h host -p port -a password
+ 2 常用命令 redis 127.0.0.1:6379&gt; COMMAND KEY_NAME (1) 查找key的类型  type key
 查找 keys *oob* 列出所有包含oob的key
-1) hash 集合 &gt;HMSET sqkey name &ldquo;redis tutorial&rdquo; description &ldquo;redis basic commands for caching&rdquo; likes 20 visitors 23000……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年4月19日 14:05:47
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                867
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。
+ hash 集合   HMSET sqkey name &ldquo;redis tutorial&rdquo; description &ldquo;redis basic commands for caching&rdquo; likes 20 visitors 23000……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">libuv入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月19日 14:05:47
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            912
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。
 uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。
-//main.cpp #include &lt;cstdlib&gt; #include &lt;uv.h&gt; #include &lt;assert.h&gt; #include &lt;time.h&gt; #include &lt;iostream&gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&lt;&lt;&quot;count==&quot;&lt;&lt;count++&lt;&lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;timer); assert(r==0); // 0 cout&lt;&lt;uv_is_active((uv_handle_t*) &amp;timer)&lt;&lt;endl; // 0 cout&lt;&lt; uv_is_closing((uv_handle_t*) &amp;timer)&lt;&lt;endl; cout&lt;&lt;&quot;start &quot;&lt;&lt;time(NULL)&lt;&lt;endl; r = uv_timer_start(&amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&lt;&lt;&quot;r=&quot;&lt;&lt;r&lt;&lt;endl; return 0; }  ……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2017年4月2日 20:24:37
-                            </date>
-                            <div class="post-meta">
-                                <span>| 字数 </span>
-                                1470
-                            </div>
-                            
-                            <div class="post-meta meta-category">
-                                |
-                                
-                                    <a href="https://forrestsu.github.io/categories/library">Library</a>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz
-(2) 解压 &gt;tar -zxvf zeromq-4.2.1.tar.gz
-(3) 编译安装 &gt; 执行configure文件：./configure 编译： make 安装： make install
-2 编写样例代码 server端代码：server.cpp
-#include &lt;stdio.h&gt; #include &lt;unistd.h&gt; #include &lt;string.……
-                                <p class="readmore"><a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
-                            </div>
-                        </article>
-                    
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  //main.……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">zeromq 入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月2日 20:24:37
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            1553
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/library'>Library</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz
+(2) 解压
+ tar -zxvf zeromq-4.2.1.tar.gz
+ (3) 编译安装
+ 执行configure文件：./configure 编译： make 安装： make install
+ 2 编写样例代码 server端代码：server.cpp
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23  #include &lt;stdio.……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+        </div>
+    </article>
+    
 
-                    
+    
 
 
 
 
+
+</div>
 
                 </div>
-            </div>
 
-            <div id="secondary">
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -326,182 +329,182 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -529,14 +532,14 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -544,7 +547,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -553,6 +556,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 
 
 
-
 </body>
+
 </html>

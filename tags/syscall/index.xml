@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>syscall on 程序员的冷浪漫</title>
@@ -17,9 +17,8 @@
       <pubDate>Tue, 25 Dec 2018 17:33:53 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/linux/restart-syscall/</guid>
-      <description>&lt;p&gt;在我们使用&lt;code&gt;strace -p pid&lt;/code&gt; 的时候，经常会遇到如下情景：&lt;br /&gt;
-&lt;img src=&#34;https://forrestsu.github.io/images/unix_restart_syscall.png&#34; alt=&#34;restart_syscall&#34; /&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;在我们使用&lt;code&gt;strace -p pid&lt;/code&gt; 的时候，经常会遇到如下情景：&lt;br&gt;
+&lt;img src=&#34;https://forrestsu.github.io/images/unix_restart_syscall.png&#34; alt=&#34;restart_syscall&#34;&gt;&lt;/p&gt;
 &lt;p&gt;restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?&lt;/p&gt;</description>
     </item>
     

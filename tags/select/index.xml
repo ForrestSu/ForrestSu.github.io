@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>select on 程序员的冷浪漫</title>
@@ -22,7 +22,7 @@
  case rc2 := &amp;lt;-time.After(d):
  After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。
 完整代码如下：
-// 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  // 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
     </item>
     
     <item>

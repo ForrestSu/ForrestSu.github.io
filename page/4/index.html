@@ -1,23 +1,22 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
+	<meta name="generator" content="Hugo 0.62.1" />
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go ">
     <meta property="og:type" content="website">
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
-    <meta name="description" content="专注于IT互联网，包括但不限于Go语言(golang)、Java、Python、项目管理、软件架构等">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="专注于IT互联网，金融行业 ，C&#43;&#43;、Golang、Java、Python、项目管理、软件架构等">
     <meta property="og:url" content="https://forrestsu.github.io/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -30,7 +29,7 @@
 
 
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -59,292 +58,263 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
+                <div class="col-8" id="main">
                     
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/work/talk-with-cto/" title="Talk with cto" >Talk with cto</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年1月8日 00:19:26
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/work">Work</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                2018-01-03 Wed 13:00 北京华贸中心 2 floor
-备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
-谈话记录 谈话主要以QA的方式展开,如下:
-基本面 luke: 你是什么时候来公司的？
-sq: 今年4月10日，来名策有8个月了。
-luke: 在恒生工作了几年？
-sq: 算上实习期 共2年。
-luke: 在恒生的工作怎么样？是不是学到了很多东西？
-sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
-luke: 恒生不是也有中间件吗？
-sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
-luke: 当初在恒生你也是跟张前平做事的？……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/work/talk-with-cto/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/" title="计算机系统组成" >计算机系统组成</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年1月6日 15:38:19
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 不用goto 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/" title="工作总结-2017年" >工作总结-2017年</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2018年1月1日 01:42:05
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6">浮生若梦</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/" title="计算机系统组成">计算机系统组成</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年1月6日 15:38:19
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 不用goto 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/" title="工作总结-2017年">工作总结-2017年</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年1月1日 01:42:05
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
 Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉，老板的谈吐之间，很多价值观都有认同感。用着自己熟悉和喜欢的语言Unix C/C++，开发效率很高，CTO和同事有时候会搞个技术分享会，很有在学校实验室的感觉。 7月初开始调研cuda，并实现期货高频的参数计算，真金白银实盘开始测试，一个月陆续亏损10W，Boss遂决定做AI基金。
 Life 在帝都有3个大学同学，4月份刚来的时候，就在同学那里下榻，平时有事没事就一起聚聚，唱唱歌，聚聚餐，周边自驾游，业余生活也丰富了不少，很是惬意，心存感恩和敬畏。 7月29日参加2017张北草原音乐节，音乐人的歌很嗨，草原的天很蓝，花也美。 10月1日，带爷爷在北京畅游了2日，去了天安门。爷爷说：“人民大会堂会场好小，感觉没有新闻联播里的大。” 去颐和园“爬山”，这时候要是懂点历史就好了! 长城爬了北八楼，万木枯荣，还是更喜欢夏日的温热和青葱。 老板隔三差五带我们出去搓一顿，打打牙祭，尤其钟爱大龙虾，哈哈。 参加了一场小朋友的Artists Show，应该努力活的像个小孩。
 Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/" title="谈谈mutable/unmutable传值/传地址" >谈谈mutable/unmutable传值/传地址</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年12月18日 18:27:08
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/languages">Languages</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件" >中兴程序员事件</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年12月17日 11:05:25
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88">杂谈</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                <p>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/" title="谈谈mutable/unmutable传值/传地址">谈谈mutable/unmutable传值/传地址</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年12月18日 18:27:08
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/languages'>Languages</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/" title="中兴程序员事件">中兴程序员事件</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年12月17日 11:05:25
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
 互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。</p>……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/" title="是的，我不想再回家乡了" >是的，我不想再回家乡了</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年11月26日 21:19:12
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                2017年，我从毕业到工作的第三个年头，这一年开始慢慢对一些事，有不同的看法和理解，开始关心我们周遭的社会，慢慢的开始变得成熟；开始质疑大人们曾经苦口婆心的建议，发现很多时候他们说的并不对；开始有自己的想法，参考优秀人的建议；开始自己做选择，。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/" title="是的，我不想再回家乡了">是的，我不想再回家乡了</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年11月26日 21:19:12
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            2017年，我从毕业到工作的第三个年头，这一年开始慢慢对一些事，有不同的看法和理解，开始关心我们周遭的社会，慢慢的开始变得成熟；开始质疑大人们曾经苦口婆心的建议，发现很多时候他们说的并不对；开始有自己的想法，参考优秀人的建议；开始自己做选择，。
 是的，我不想再回家乡了！因为那里你看不到出路，大家都把希望寄托于下一代，觉得自己吃饭睡觉打打麻将活着就好。 亲缘关系维系的圈子迟早会慢慢瓦解，我也不想去花时间去维继这三大姑六大婶的关系，不想去掺和看似热闹的红白喜事；只想有三五知心好友常聚聚会，谈谈最近开心或者烦恼的事。你也许会觉得这不就是我们一直以来的生活，这么做简直就是忘本、是背叛呀！ 是的，我本无根，利益为本，相互之间利益依存，遵守契约才是本，当然这不是他(她) 们的错， 家乡，……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/" title="帝都生活杂感(2)" >帝都生活杂感(2)</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年11月21日 23:51:27
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/life">Life</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                20171121 星期二 生活杂感　Efficiency 　有时候给了别人很大期望，展现在别人面前你很能干，那是你全身心投入做一件事的时候，开足了120码，你就会发现你的效率很高。 一旦你分心去忙其他的事的时候(炒股)，你就会发现开始力不从心，分配的工作开始不能按期完成，一拖再拖。最近一个很厉害的同事离职，去了一家做 Ｍanless Driving 的创业公司，很多事都得我去handle，不能像以前，上面有个人替你扛着，安静的“划水”了。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/" title="帝都生活杂感(2)">帝都生活杂感(2)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年11月21日 23:51:27
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            20171121 星期二 生活杂感　Efficiency 　有时候给了别人很大期望，展现在别人面前你很能干，那是你全身心投入做一件事的时候，开足了120码，你就会发现你的效率很高。 一旦你分心去忙其他的事的时候(炒股)，你就会发现开始力不从心，分配的工作开始不能按期完成，一拖再拖。最近一个很厉害的同事离职，去了一家做 Ｍanless Driving 的创业公司，很多事都得我去handle，不能像以前，上面有个人替你扛着，安静的“划水”了。
 Just Alive 　外卖，快递小哥，这群活在底层的“工人”，他们在北京一无所有，只有一条命把握在自己手上，但是他们维持着整个北京城的光鲜，让我们感觉幸福的活着。等到下次 20 大召开的时候，他们还是被“禁止进入”北京城。
 Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危机就开始发芽。有时候想想自己还是一无所有，但能够给予的时候也是很快乐。现在所面临的领域也是一无所知，需要解决的问题也无从下手，所以忘掉你引以为傲的武功招式，此时此刻一切归零，像一个新手一样从头再来。切记！……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/" title="Web Design in 4 minutes" >Web Design in 4 minutes</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年10月26日 23:44:48
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/" title="Web Design in 4 minutes">Web Design in 4 minutes</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年10月26日 23:44:48
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/web'>Web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
 1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
 2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
-body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后，如何对文本自身进行样式化？
+1 2 3 4  body { margin: 0 auto; max-width: 50em; }   在对文本块进行样式化后，如何对文本自身进行样式化？
 3 Font family 浏览器缺省的(英文)字体是 &ldquo;Times&rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/" title="(译) 蒙特卡罗搜索树" >(译) 蒙特卡罗搜索树</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年10月20日 00:54:53
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/" title="(译) 蒙特卡罗搜索树">(译) 蒙特卡罗搜索树</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年10月20日 00:54:53
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
 原文在这阅读原文。 1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
 2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
  Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="下一个求职计划" >下一个求职计划</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                               2017年10月12日 11:19:27
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6">浮生若梦</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1 先定一个求职方向
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="下一个求职计划">下一个求职计划</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年10月12日 11:19:27
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 先定一个求职方向
 2 经常补充自己的简历。
 放在github.io 上面……
-                            </div>
-                            <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/">阅读全文</a></p>
-                        </article>
-                    
-                    
-                    
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/" title="编译-链接-笔记(1)">编译-链接-笔记(1)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年10月10日 11:23:08
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/readingnotes'>ReadingNotes</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 函数的调用是用栈实现的，C常用的函数调用方式cdecl，c++采用一种新的thiscall 方式，主要是用于类成员的调用。
+2 cdecl 参数压栈是从右向左，参数出栈由调用方 维护。
+3 stdcall的参数出栈由 被调用的函数自己维护。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/">阅读全文</a></p>
+    </article>
+    
+    
 
 
 
@@ -438,12 +408,13 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
 
 
 
-                </div>
-            </div>
+</div>
 
-            <div id="secondary">
+                </div>
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -501,182 +472,182 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -704,14 +675,14 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -719,7 +690,7 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -728,6 +699,6 @@ body { margin: 0 auto; max-width: 50em; }  在对*文本块*进行样式化后�
 
 
 
-
 </body>
+
 </html>

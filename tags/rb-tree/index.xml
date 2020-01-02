@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>rb-tree on 程序员的冷浪漫</title>
@@ -18,8 +18,7 @@
       
       <guid>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</guid>
       <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。
- 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
 红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：</description>
     </item>
     

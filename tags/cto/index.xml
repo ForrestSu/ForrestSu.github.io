@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTO on 程序员的冷浪漫</title>
@@ -28,7 +28,8 @@ luke: 在恒生的工作怎么样？是不是学到了很多东西？
 sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
 luke: 恒生不是也有中间件吗？
 sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
-luke: 当初在恒生你也是跟张前平做事的？</description>
+luke: 当初在恒生你也是跟张前平做事的？
+sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。</description>
     </item>
     
   </channel>

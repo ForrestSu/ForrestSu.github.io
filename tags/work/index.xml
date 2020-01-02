@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Work on 程序员的冷浪漫</title>
@@ -45,8 +45,7 @@
 理财平台
 智能投顾
 大数据
-#
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
+ 语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
 通过这一次年会，我也发现了一些我不喜欢的。</description>
     </item>
     
@@ -57,7 +56,7 @@
       
       <guid>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</guid>
       <description>preface 最近Boss 开了例会，谈了下公司的发展史。听着挺有意思，于是决定记录下来。
-##</description>
+ </description>
     </item>
     
     <item>
@@ -67,16 +66,15 @@
       
       <guid>https://forrestsu.github.io/posts/work/2018-vision-hubble/</guid>
       <description>1990年4月24日 Hubble Space Telescope
-Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&amp;rdquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&amp;hellip;(哈哈)&amp;rdquo;
+Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&amp;ldquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&amp;hellip;(哈哈)&amp;rdquo;
 很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠落悬崖。涉及生存的时候，会拼命努力，去追求。
 现在环境好了，每天都睡的很好，但是越是需要危机感。做技术是需要有存量的，就像爬山，觉得洪水只能淹没到山脚，爬到半山腰就好了；如果爬到山顶，那么洪水淹到半山腰也行；如果还有余力,造一架直升飞机也行。技术没有止境，尽力追求完美。
 那么，2018 需要做点什么呢？是的，我们需要做一个亚毫秒级的高性能交易系统。
-Vision-2018 high availability, high throughput, low latency。 1. 亚毫秒级，更一致的延时控制；
-2. 更灵活，更线性化的横向扩展；
-3. 更高效的编程模型与调试手段，提高软件质量。
+Vision-2018 high availability, high throughput, low latency。
+ 亚毫秒级，更一致的延时控制； 更灵活，更线性化的横向扩展； 更高效的编程模型与调试手段，提高软件质量。
 (与硬件结合的通信体系)
-CTO 给这个项目叫做：Hubble项目
-Grouping 我们划分了如下调研方向，每个方向成立一个小组：</description>
+CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：
+在这个过程中提升个人的领导力，提升个人的能力和价值。</description>
     </item>
     
     <item>
@@ -85,8 +83,9 @@ Grouping 我们划分了如下调研方向，每个方向成立一个小组：</
       <pubDate>Fri, 04 Aug 2017 01:02:34 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</guid>
-      <description>1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ 工作重心： &amp;gt;(1) 系统性能测试 &amp;gt;(2) 商品期货 (+期货高频) &amp;gt;(3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend )
-2 期货高频模块 (1) 策略执行的优先级 策略的执行顺序的先后顺序，对执行结果的影响。 (2) 限制完成的Job CTP 会不断重试. (3) 金额＞10000的都需要用逗号分隔
+      <description>1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ **工作重心：**
+ (1) 系统性能测试 (2) 商品期货 (+期货高频) (3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend )
+ 2 期货高频模块 (1) 策略执行的优先级 策略的执行顺序的先后顺序，对执行结果的影响。 (2) 限制完成的Job CTP 会不断重试. (3) 金额＞10000的都需要用逗号分隔
 3 业务了解 (营利模式） 公募基金：收管理费 对冲基金：2倍的管理费 + 20~40%的收益分成</description>
     </item>
     
@@ -109,7 +108,8 @@ Grouping 我们划分了如下调研方向，每个方向成立一个小组：</
       <guid>https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</guid>
       <description>2017-07-28
 Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会讲很多东西，虽然有很多不理解，但是潜意识里面还是非常认同，很多观点能产生共鸣。 我是 2017年 4 月 10 日入职一个40人左右的小型创业公司，到今天(20170608)差不多快2个月，创业公司能迫使你成长的更加快 :)。 有时候，很多事需要你自己去 handle ！
-1 Business Driven 　公司都是由业务驱动的，而且是那些赚钱的业务决定了这个公司成长有多快，走多远。 技术往往是第一生产力，我们要能够 Perceive (感知)新技术，看是否能够对当下的业务有提升。 &amp;gt; (1) 不要为追求新技术而用新技术，要以业务需求为主导来采用新技术。 &amp;gt; (2) 新技术层出不穷，还没等我们掌握，又有新的技术出现了，感觉handle不过来。 &amp;gt; (3) 工作中有时间要去了解新技术，新思路，新方法，要敢于尝试，去做一些事。 &amp;gt; (4) 业余时间参加 技术沙龙、开发者大会 也是极好的。</description>
+1 Business Driven 　公司都是由业务驱动的，而且是那些赚钱的业务决定了这个公司成长有多快，走多远。 技术往往是第一生产力，我们要能够 Perceive (感知)新技术，看是否能够对当下的业务有提升。
+ (1) 不要为追求新技术而用新技术，要以业务需求为主导来采用新技术。 (2) 新技术层出不穷，还没等我们掌握，又有新的技术出现了，感觉handle不过来。 (3) 工作中有时间要去了解新技术，新思路，新方法，要敢于尝试，去做一些事。 (4) 业余时间参加 技术沙龙、开发者大会 也是极好的。</description>
     </item>
     
     <item>
@@ -119,7 +119,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       
       <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</guid>
       <description>1 目前的工作模块划分data-20170609 Team1 : z(Teamleader) (10人左右)
-   Module front-developers backend developers     1 T0Service huoyanfeng、liuchengbo sunquan   2 Risk liuwei、zhangyue liuwei、zhangyue   3 Account Management guoyuzhen guoyuzhen   4 Quotes konghairong lizhijian   期货高频 yantao yantao   衍生数据计算 - lizhijian    测试：1人　HR&amp;amp;财务：1人 Team2 : App(Andriod &amp;amp;&amp;amp; IOS) Team (4~5 人) Team3 : Trading Team (5人左右) Team4 : 金工数据 Team (4人左右)</description>
+   Module front-developers backend developers     1 T0Service huoyanfeng、liuchengbo sunquan   2 Risk liuwei、zhangyue liuwei、zhangyue   3 Account Management guoyuzhen guoyuzhen   4 Quotes konghairong lizhijian   期货高频 yantao yantao   衍生数据计算 - lizhijian   测试：1人　HR&amp;amp;财务：1人     Team2 : App(Andriod &amp;amp;&amp;amp; IOS) Team (4~5 人)     Team3 : Trading Team (5人左右)     Team4 : 金工数据 Team (4人左右)      2 2017下半年的工作重心 近期已经完成的 Task List： 1 ZMQ 消息1帧改为2帧，第1帧 改为主题，第2帧传递数据。（需要考虑smooth migration） 2 银河策略宝： 客户端cache 优化，需要考虑去除中间件。</description>
     </item>
     
     <item>
@@ -134,10 +134,9 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
 　做的境外的系统，感觉有点闭门造车，做完都没有很好的环境测试，等到客户上线就怕有大的调整，而且感觉做的东西没有人用就没有成就感。
 1.3 优点 　境外的业务文档写的比较清晰，国外大的系统都相对比较开放，基本都支持统一的接口（比如FIX），解决问题效率也高。
 2 主流技术发展迅速 说到技术，不得不说当前软件技术的飞速发展，实在是超乎了我们的想象：
- 一年前，我还认为，HTML5无非就是html加几个新的标签嘛，然而现在的h5，能做游戏，能做App，能做网站，能做各种酷炫的特效，这些都是HTML4的技术标准无法实现的，用几个HTML标签，你能做出来？
- 一年前，我还认为，Javascript不就是个浏览器脚本语言嘛，然而现在的js，不仅能做app，能做游戏，甚至能做服务器，能做数据库，不只是能做，而且各大厂都开始支持js技术。谁能想到，当年大学课堂上，老师一带而过的浏览器脚本语言，如今已经火便整个互联网？
- 一年前，我还不知道什么是大数据，而现在，在这个信息量爆炸的时代，大数据早不是什么新鲜事情了，身边处处都是大数据，像Docker，Hadoop这样的技术，早就已经耳熟能详了。
- 一年前，做一个网站的前端，需要用到的技术可能是Html，JQuery；一年后，做一个网站的前端，需要用到的技术可能是HTML5，Css3，es6，Angular，bootstrap&amp;hellip;&amp;hellip;</description>
+  一年前，我还认为，HTML5无非就是html加几个新的标签嘛，然而现在的h5，能做游戏，能做App，能做网站，能做各种酷炫的特效，这些都是HTML4的技术标准无法实现的，用几个HTML标签，你能做出来？
+  一年前，我还认为，Javascript不就是个浏览器脚本语言嘛，然而现在的js，不仅能做app，能做游戏，甚至能做服务器，能做数据库，不只是能做，而且各大厂都开始支持js技术。谁能想到，当年大学课堂上，老师一带而过的浏览器脚本语言，如今已经火便整个互联网？
+  一年前，我还不知道什么是大数据，而现在，在这个信息量爆炸的时代，大数据早不是什么新鲜事情了，身边处处都是大数据，像Docker，Hadoop这样的技术，早就已经耳熟能详了。</description>
     </item>
     
     <item>
@@ -148,13 +147,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
       <guid>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</guid>
       <description>1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
 操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下:
- qdii_archivehq (境外行情归档，境外业务日期自动切换)
- qdii_baseinfo (一系列彭博行情文件转换任务)
- qdii_fix (FIX转换任务)
- qdii_futhsfix (境外FIX期货报盘)
- qdii_hsfix (恒生FIX转换任务)
- qdii_realhq (彭博实时行情任务，聚源行情转换任务)
- qdii_reuterhq (路透Xtra3000行情转换)</description>
+ qdii_archivehq (境外行情归档，境外业务日期自动切换) qdii_baseinfo (一系列彭博行情文件转换任务) qdii_fix (FIX转换任务) qdii_futhsfix (境外FIX期货报盘) qdii_hsfix (恒生FIX转换任务) qdii_realhq (彭博实时行情任务，聚源行情转换任务) qdii_reuterhq (路透Xtra3000行情转换) qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)   下面有 √ 的任务需要代码走读。</description>
     </item>
     
   </channel>

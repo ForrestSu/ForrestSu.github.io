@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,23 +10,20 @@
     <meta property="og:title" content="XSL 语言 - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2017-01-18T14:08:31&#43;08:00">
+    <meta property="article:published_time" content='2017-01-18T14:08:31&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2017-01-18T14:08:31&#43;08:00">
+    <meta property="article:modified_time" content='2017-01-18T14:08:31&#43;08:00'>
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="XSL 语言">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -37,8 +33,9 @@
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -65,282 +62,274 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-        
-        <div id="virtual_toc_list" style="display: none">
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-introduction">1 Introduction</a></li>
-<li><a href="#2-语法">2 语法</a></li>
-</ul></li>
-</ul></li>
-</ul>
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-introduction">1 Introduction</a></li>
+        <li><a href="#2-">2 语法</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">XSL 语言</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年1月18日 14:08:31
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            3022
         </div>
-        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
-            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
-                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
-                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
-            </header>
-            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
         
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/web'>Web</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
             </div>
         </div>
-        <style type="text/css">
-            #float_toc_div {
-                position: fixed;
-                display: none;
-                 
-                height: auto;
-                font-size: 13px;
-            }
         
-            #toc_list a:hover,
-            #toc_list a:active {
-                color: #ba3925;
-            }
-        </style>
-        <script>
-            window.onload = function () {
-                let tocNavElem = document.getElementById("TableOfContents");
-                let floatTocDivElem = document.getElementById("float_toc_div");
-                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
-                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
-                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
-                var useFloatToc = false;
-
-                if (floatTocWidth >= 100 && useFloatToc) {
-                    useFloatToc = true;
-                    document.getElementById("toc_list").appendChild(tocNavElem);
-                    floatTocDivElem.style.display = 'block';
-                    floatTocDivElem.style.width = floatTocWidth + 'px';
-                    top();
-                    floatTocDivElem.style.left = '0px';
-
-                    function top() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
-                        }
-                    }
-
-                    function ishide() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.display = 'block';
-                        }
-                    }
-
-                    window.onscroll = function () {
-                        ishide();
-                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
-                            top();
-                        }
-                    };
-
-                    window.onresize = function () {
-                        ishide();
-                    }
-
-                    document.getElementById("toc_btn_open").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "none":
-                                document.getElementById("toc_btn_close").style.display = "";
-                                tocListElem.style.display = "";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-
-                    document.getElementById("toc_btn_close").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "":
-                                document.getElementById("toc_btn_close").style.display = "none";
-                                tocListElem.style.display = "none";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-                } else {
-                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
-                    fixedTocElem.appendChild(tocNavElem);
-                    fixedTocElem.parentElement.style.display = "";
-                }
-                document.getElementById("virtual_toc_list").remove();
-            };   
-        </script>
-        
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">XSL 语言</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2017年1月18日 14:08:31
-                        </date>
-                        <div class="post-meta">
-                            <span>| 字数 </span>
-                            2967
-                        </div>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/web">Web</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
-                        </div>
-                        
-                        
-                        <div class="clear" style="display: none">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h3 id="1-introduction">1 Introduction</h3>
-
-<p>XSL 指扩展样式表语言（EXtensible Stylesheet Language）。<br />
+        <div class="post-content">
+            <h3 id="1-introduction">1 Introduction</h3>
+<p>XSL 指扩展样式表语言（EXtensible Stylesheet Language）。<br>
 XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件：</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;cdcatalog.xsl&quot;?&gt;
-&lt;!--
-&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;readline.xsl&quot;?&gt;--&gt;
-&lt;catalog&gt;
-  &lt;cd&gt;
-    &lt;title&gt;你好&lt;/title&gt;
-    &lt;artist&gt;Bob Zhang&lt;/artist&gt;
-    &lt;country&gt;USA&lt;/country&gt;
-    &lt;company&gt;Columbia&lt;/company&gt;
-    &lt;price&gt;9.9&lt;/price&gt;
-    &lt;year&gt;1985&lt;/year&gt;
-  &lt;/cd&gt;
-  &lt;cd&gt;
-    &lt;title&gt;Happy in the Rain&lt;/title&gt;
-    &lt;artist&gt;Alice&lt;/artist&gt;
-    &lt;country&gt;USA&lt;/country&gt;
-    &lt;company&gt;Columbia&lt;/company&gt;
-    &lt;price&gt;10.00&lt;/price&gt;
-    &lt;year&gt;1985&lt;/year&gt;
-  &lt;/cd&gt;
-  &lt;cd&gt;
-    &lt;title&gt;A litte Boy&lt;/title&gt;
-    &lt;artist&gt;Jhon&lt;/artist&gt;
-    &lt;country&gt;USA&lt;/country&gt;
-    &lt;company&gt;Columbia&lt;/company&gt;
-    &lt;price&gt;12.20&lt;/price&gt;
-    &lt;year&gt;1985&lt;/year&gt;
-  &lt;/cd&gt;
-&lt;/catalog&gt;
-</code></pre>
-
-<h3 id="2-语法">2 语法</h3>
-
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#75715e">&lt;?xml-stylesheet type=&#34;text/xsl&#34; href=&#34;cdcatalog.xsl&#34;?&gt;</span>
+<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">
+</span><span style="color:#75715e">&lt;?xml</span><span style="color:#75715e">-</span><span style="color:#75715e">stylesheet type=&#34;text/xsl&#34; href=&#34;readline.xsl&#34;?&gt;</span><span style="color:#75715e">--&gt;</span>
+<span style="color:#f92672">&lt;catalog</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>你好<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Bob Zhang<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>9.9<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+  <span style="color:#f92672">&lt;/cd&gt;</span>
+  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>Happy in the Rain<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Alice<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>10.00<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+  <span style="color:#f92672">&lt;/cd&gt;</span>
+  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>A litte Boy<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Jhon<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>12.20<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+  <span style="color:#f92672">&lt;/cd&gt;</span>
+<span style="color:#f92672">&lt;/catalog&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-">2 语法</h3>
 <blockquote>
-<p>XSL 样式表由一个或多套被称为模板（template）的规则组成。<br />
+<p>XSL 样式表由一个或多套被称为模板（template）的规则组成。<br>
 每个模板含有当某个指定的节点被匹配时所应用的规则。</p>
 </blockquote>
-
 <p>下面来看一个简单的xsl文档：(xmlns 是 XML Namespaces的缩写。)</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;ISO-8859-1&#34;?&gt;</span>
+<span style="color:#f92672">&lt;xsl:stylesheet</span> <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;1.0&#34;</span>
+<span style="color:#a6e22e">xmlns:xsl=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/XSL/Transform&#34;</span><span style="color:#f92672">&gt;</span>
 
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
-&lt;xsl:stylesheet version=&quot;1.0&quot;
-xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+<span style="color:#f92672">&lt;xsl:template</span> <span style="color:#a6e22e">match=</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">&lt;html</span><span style="color:#f92672">&gt;</span>
+ <span style="color:#f92672">&lt;body</span><span style="color:#f92672">&gt;</span>
+   <span style="color:#f92672">&lt;h2</span><span style="color:#f92672">&gt;</span>My CD Collection<span style="color:#f92672">&lt;/h2&gt;</span>
+   <span style="color:#f92672">&lt;table</span> <span style="color:#a6e22e">border=</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
+     <span style="color:#f92672">&lt;tr</span> <span style="color:#a6e22e">bgcolor=</span><span style="color:#e6db74">&#34;#9acd32&#34;</span><span style="color:#f92672">&gt;</span>
+       <span style="color:#f92672">&lt;th</span><span style="color:#f92672">&gt;</span>Title<span style="color:#f92672">&lt;/th&gt;</span>
+       <span style="color:#f92672">&lt;th</span><span style="color:#f92672">&gt;</span>Artist<span style="color:#f92672">&lt;/th&gt;</span>
+     <span style="color:#f92672">&lt;/tr&gt;</span>
+     <span style="color:#f92672">&lt;tr</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;td</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/title&#34;</span><span style="color:#f92672">/&gt;</span><span style="color:#f92672">&lt;/td&gt;</span>
+    	<span style="color:#f92672">&lt;td</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/artist&#34;</span><span style="color:#f92672">/&gt;</span><span style="color:#f92672">&lt;/td&gt;</span>
+     <span style="color:#f92672">&lt;/tr&gt;</span>
+   <span style="color:#f92672">&lt;/table&gt;</span>
+ <span style="color:#f92672">&lt;/body&gt;</span>
+ <span style="color:#f92672">&lt;/html&gt;</span>
+<span style="color:#f92672">&lt;/xsl:template&gt;</span>
 
-&lt;xsl:template match=&quot;/&quot;&gt;
- &lt;html&gt;
- &lt;body&gt;
-   &lt;h2&gt;My CD Collection&lt;/h2&gt;
-   &lt;table border=&quot;1&quot;&gt;
-     &lt;tr bgcolor=&quot;#9acd32&quot;&gt;
-       &lt;th&gt;Title&lt;/th&gt;
-       &lt;th&gt;Artist&lt;/th&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-        &lt;td&gt;&lt;xsl:value-of select=&quot;catalog/cd/title&quot;/&gt;&lt;/td&gt;
-    	&lt;td&gt;&lt;xsl:value-of select=&quot;catalog/cd/artist&quot;/&gt;&lt;/td&gt;
-     &lt;/tr&gt;
-   &lt;/table&gt;
- &lt;/body&gt;
- &lt;/html&gt;
-&lt;/xsl:template&gt;
-
-&lt;/xsl:stylesheet&gt;
-</code></pre>
-
-<p><a href="xsl:stylesheet">xsl:stylesheet</a>，定义此文档是一个 XSLT 样式表文档（连同版本号和 XSLT 命名空间属性）<br />
-* <strong>(1) <a href="xsl:template">xsl:template</a></strong> 元素
+<span style="color:#f92672">&lt;/xsl:stylesheet&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="xsl:stylesheet">xsl:stylesheet</a>，定义此文档是一个 XSLT 样式表文档（连同版本号和 XSLT 命名空间属性）</p>
+<ul>
+<li><strong>(1) <a href="xsl:template">xsl:template</a></strong> 元素
 <a href="xsl:template">xsl:template</a> 元素定义了一个模板。
-而 match=&ldquo;/&rdquo; 属性则把此模板与 XML 源文档的根相联系。
-* <strong>(2) <a href="xsl:value-of">xsl:value-of</a></strong> 元素
-  元素用于提取某个选定节点的值，并把值添加到转换的输出流中。
-select 属性的值是一个 XPath 表达式。此表达式的工作方式类似于定位某个文件系统。
-* <strong>(3) <a href="xsl:for-each">xsl:for-each</a></strong> 元素
-<a href="xsl:for-each">xsl:for-each</a> 元素可用于选取指定的节点集中的每个 XML 元素。</p>
-
+而 match=&rdquo;/&rdquo; 属性则把此模板与 XML 源文档的根相联系。</li>
+<li><strong>(2) <a href="xsl:value-of">xsl:value-of</a></strong> 元素
+元素用于提取某个选定节点的值，并把值添加到转换的输出流中。
+select 属性的值是一个 XPath 表达式。此表达式的工作方式类似于定位某个文件系统。</li>
+<li><strong>(3) <a href="xsl:for-each">xsl:for-each</a></strong> 元素
+<a href="xsl:for-each">xsl:for-each</a> 元素可用于选取指定的节点集中的每个 XML 元素。</li>
+</ul>
 <pre><code>      &lt;xsl:for-each select=&quot;catalog/cd&quot;&gt;
       &lt;tr&gt;
         &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt;
         &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;/xsl:for-each&gt;
-</code></pre>
-
-<p>在for-each中过滤，语法: <code>[artist='Bob Dylan']</code>
+</code></pre><p>在for-each中过滤，语法: <code>[artist='Bob Dylan']</code>
 合法的比较运算符：
 <code>= (等于)</code>     <code>!= (不等于)</code>     <code>&lt; (小于)</code>     <code>&gt; (大于)</code></p>
-
 <pre><code>   &lt;xsl:for-each select=&quot;catalog/cd[artist='Bob Dylan']&quot;&gt;
    &lt;tr&gt;
       &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt;
       &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt;
    &lt;/tr&gt;
    &lt;/xsl:for-each&gt;
-</code></pre>
-
-<ul>
-<li><p><strong>(4) <a href="xsl:sort">xsl:sort</a></strong> 元素
-如需对结果进行排序，只要简单地在 XSL 文件中的 <a href="xsl:for-each">xsl:for-each</a> 元素内部添加一个 <a href="xsl:sort">xsl:sort</a> 元素。</p>
-
-<pre><code>  &lt;xsl:for-each select=&quot;catalog/cd&quot;&gt;
-  &lt;xsl:sort select=&quot;artist&quot;/&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;/xsl:for-each&gt;
-</code></pre></li>
+</code></pre><ul>
+<li><strong>(4) <a href="xsl:sort">xsl:sort</a></strong> 元素
+如需对结果进行排序，只要简单地在 XSL 文件中的 <a href="xsl:for-each">xsl:for-each</a> 元素内部添加一个 <a href="xsl:sort">xsl:sort</a> 元素。</li>
 </ul>
+<pre><code>      &lt;xsl:for-each select=&quot;catalog/cd&quot;&gt;
+      &lt;xsl:sort select=&quot;artist&quot;/&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;xsl:value-of select=&quot;title&quot;/&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;xsl:value-of select=&quot;artist&quot;/&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/xsl:for-each&gt;
+</code></pre>
+        </div>
 
-                        </div>
-
-                        
+        
 
 
-                        
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -360,17 +349,17 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://forrestsu.github.io/tags/web">Web</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/web'>Web</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -385,11 +374,13 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
       </script>
     </div>
     
+</div>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -447,182 +438,182 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -650,14 +641,14 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -665,11 +656,6 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
 
     
     <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],
@@ -677,12 +663,11 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
                 }
             };
     </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -692,4 +677,5 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
 
 
 </body>
+
 </html>

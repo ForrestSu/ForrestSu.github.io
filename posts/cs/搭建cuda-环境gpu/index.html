@@ -3,7 +3,6 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.58.3" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,23 +10,20 @@
     <meta property="og:title" content="搭建CUDA 环境（GPU） - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content="2017-06-12T10:24:33&#43;08:00">
+    <meta property="article:published_time" content='2017-06-12T10:24:33&#43;08:00'>
         
         
-    <meta property="article:modified_time" content="2017-06-12T10:24:33&#43;08:00">
+    <meta property="article:modified_time" content='2017-06-12T10:24:33&#43;08:00'>
         
-    <meta name="Keywords" content="C&#43;&#43;, seastar, libuv, golang">
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="搭建CUDA 环境（GPU）">
         
-    <meta name="author" content="">
+    <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    
-        <link rel="stylesheet" href="/css/prism.css">
-    
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -37,8 +33,9 @@
     
 </head>
 
+
 <body>
-<header id="header" class="clearfix">
+    <header id="header" class="clearfix">
     <div class="container">
         <div class="col-group">
             <div class="site-name ">
@@ -65,411 +62,442 @@
     </div>
 </header>
 
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
 
-<div id="body">
-        
-        <div id="virtual_toc_list" style="display: none">
-            <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#1-preface">1 Preface</a>
-<ul>
-<li><a href="#1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
-</ul></li>
-<li><a href="#2-cuda-环境搭建">2 CUDA 环境搭建</a>
-<ul>
-<li><a href="#2-1-download">2.1 Download</a></li>
-<li><a href="#2-2-检查是否成功安装">2.2 检查是否成功安装</a></li>
-</ul></li>
-<li><a href="#3-data-interaction">3 Data Interaction</a>
-<ul>
-<li><a href="#3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</a>
-<ul>
-<li><a href="#1-动态申请连续的内存块">(1) 动态申请连续的内存块</a></li>
-<li><a href="#2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</a></li>
-<li><a href="#3-释放内存">(3) 释放内存</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#4-cuda-demos">4 CUDA-Demos</a>
-<ul>
-<li><a href="#4-1-vector-add">4.1 Vector Add</a></li>
-<li><a href="#4-2-matrix-calculation">4.2 Matrix Calculation</a></li>
-</ul></li>
-<li><a href="#5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-preface">1 Preface</a>
+      <ul>
+        <li><a href="#11--nvidia-">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-cuda-">2 CUDA 环境搭建</a>
+      <ul>
+        <li><a href="#21-download">2.1 Download</a></li>
+        <li><a href="#22-">2.2 检查是否成功安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-data-interaction">3 Data Interaction</a>
+      <ul>
+        <li><a href="#31-cpu--gpu-">3.1 CPU 和 GPU 之间的如何进行数据交互?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-cuda-demos">4 CUDA-Demos</a>
+      <ul>
+        <li><a href="#41-vector-add">4.1 Vector Add</a></li>
+        <li><a href="#42-matrix-calculation">4.2 Matrix Calculation</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-cpu--gpu-">5 CPU 的多线程与 GPU 的对应关系</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">搭建CUDA 环境（GPU）</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月12日 10:24:33
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            4494
         </div>
-        <div id="float_toc_div" style="margin: 10px;border: 1px solid gray;z-index:99999;display: none;">
-            <header style="background-color: #f3f3f3;color: black;border-bottom: 1px solid gray;padding: 10px 10px 10px 10px;">
-                <strong id="toc_btn_open" style="color: black;font-size: large;">目录</strong>
-                <strong id="toc_btn_close" style="color: black;font-size: large;float: right">╳</strong>
-            </header>
-            <div id="toc_list" style="background-color: #f3f3f3;color: black;padding: 10px;">
         
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
             </div>
         </div>
-        <style type="text/css">
-            #float_toc_div {
-                position: fixed;
-                display: none;
-                 
-                height: auto;
-                font-size: 13px;
-            }
         
-            #toc_list a:hover,
-            #toc_list a:active {
-                color: #ba3925;
-            }
-        </style>
-        <script>
-            window.onload = function () {
-                let tocNavElem = document.getElementById("TableOfContents");
-                let floatTocDivElem = document.getElementById("float_toc_div");
-                let tocListElem = floatTocDivElem.getElementsByTagName('div')[0];
-                let colGroupElem = document.getElementById("body").getElementsByClassName("col-group")[0]
-                let floatTocWidth = (document.body.clientWidth - colGroupElem.offsetWidth) / 2 - 16;
-                var useFloatToc = false;
-
-                if (floatTocWidth >= 100 && useFloatToc) {
-                    useFloatToc = true;
-                    document.getElementById("toc_list").appendChild(tocNavElem);
-                    floatTocDivElem.style.display = 'block';
-                    floatTocDivElem.style.width = floatTocWidth + 'px';
-                    top();
-                    floatTocDivElem.style.left = '0px';
-
-                    function top() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.top = window.innerHeight / 9 + 'px';
-                        }
-                    }
-
-                    function ishide() {
-                        if (document.getElementsByClassName('container')[0].offsetWidth <= 720) {
-                            floatTocDivElem.style.top = '0px';
-                        } else {
-                            floatTocDivElem.style.display = 'block';
-                        }
-                    }
-
-                    window.onscroll = function () {
-                        ishide();
-                        if ((document.documentElement.scrollTop != 0) && (floatTocDivElem.style.display == 'block')) {
-                            top();
-                        }
-                    };
-
-                    window.onresize = function () {
-                        ishide();
-                    }
-
-                    document.getElementById("toc_btn_open").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "none":
-                                document.getElementById("toc_btn_close").style.display = "";
-                                tocListElem.style.display = "";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "1px solid gray";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-
-                    document.getElementById("toc_btn_close").addEventListener('click', function () {
-                        switch (tocListElem.style.display) {
-                            case "":
-                                document.getElementById("toc_btn_close").style.display = "none";
-                                tocListElem.style.display = "none";
-                                floatTocDivElem.getElementsByTagName("header")[0].style.borderBottom = "";
-                                break;
-                            default:
-                                break;
-                        }
-                    }, false);
-                } else {
-                    let fixedTocElem = document.getElementsByClassName("toc-article")[0];
-                    fixedTocElem.appendChild(tocNavElem);
-                    fixedTocElem.parentElement.style.display = "";
-                }
-                document.getElementById("virtual_toc_list").remove();
-            };   
-        </script>
-        
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">搭建CUDA 环境（GPU）</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2017年6月12日 10:24:33
-                        </date>
-                        <div class="post-meta">
-                            <span>| 字数 </span>
-                            4349
-                        </div>
-                        
-                        <div class="post-meta">
-                            <span>|</span>
-                            
-                                <span class="meta-category"><a href="https://forrestsu.github.io/categories/cs">CS</a></span>
-                            
-                        </div>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
-                        </div>
-                        
-                        
-                        <div class="clear" style="display: none">
-                            <div class="toc-article">
-                                <div class="toc-title">文章目录</div>
-                            </div>
-                        </div>
-                        
-                        <div class="post-content">
-                            
-
-<h2 id="1-preface">1 Preface</h2>
-
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
 <p> 　　最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(<code>10 thread</code>)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。
 　　下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)</p>
-
-<h3 id="1-1-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</h3>
-
-<p><img src="/images/nvida-gpu.png" alt="nvida-gpu" /></p>
-
+<h3 id="11--nvidia-">1.1 首先确认配置的 Nvidia 显卡型号</h3>
+<p><img src="/images/nvida-gpu.png" alt="nvida-gpu"></p>
 <p>官网查看CUDA兼容的GPU型号<a href="https://developer.nvidia.com/cuda-gpus">cuda-gpu</a> <code>(20170612)</code>
-<img src="/images/nvida-gpu-platform.png" alt="nvida-gpu-platform" /></p>
-
+<img src="/images/nvida-gpu-platform.png" alt="nvida-gpu-platform"></p>
 <blockquote>
 <p>CUDA Toolkit on x86_32 is unsupported</p>
 </blockquote>
-
-<h2 id="2-cuda-环境搭建">2 CUDA 环境搭建</h2>
-
-<h3 id="2-1-download">2.1 Download</h3>
-
+<h2 id="2-cuda-">2 CUDA 环境搭建</h2>
+<h3 id="21-download">2.1 Download</h3>
 <p>nvidia <a href="https://developer.nvidia.com/cuda-toolkit">cuda-toolkit</a>
 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。
-<img src="/images/cuda-toolkit-sdk.png" alt="cuda-toolkit-sdk" /></p>
-
-<h3 id="2-2-检查是否成功安装">2.2 检查是否成功安装</h3>
-
-<p>安装完成后，检查是否成功安装。<br />
-(1) cmd 中输入 <code>nvcc -V</code>, 查看 nvcc 版本。<br />
+<img src="/images/cuda-toolkit-sdk.png" alt="cuda-toolkit-sdk"></p>
+<h3 id="22-">2.2 检查是否成功安装</h3>
+<p>安装完成后，检查是否成功安装。<br>
+(1) cmd 中输入 <code>nvcc -V</code>, 查看 nvcc 版本。<br>
 (2) 执行 <strong>deviceQuery.exe</strong> 可以查看显卡设备:</p>
-
-<pre><code class="language-cpp">λ deviceQuery
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#960050;background-color:#1e0010">λ</span> deviceQuery
 deviceQuery Starting...
 
- CUDA Device Query (Runtime API) version (CUDART static linking)
+ CUDA Device Query (Runtime API) version (CUDART <span style="color:#66d9ef">static</span> linking)
 
-Detected 1 CUDA Capable device(s)
+Detected <span style="color:#ae81ff">1</span> CUDA Capable device(s)
 
-Device 0: &quot;NVS 510&quot;
-  CUDA Driver Version / Runtime Version          8.0 / 8.0
-  CUDA Capability Major/Minor version number:    3.0
-  Total amount of global memory:                 2048 MBytes (2147483648 bytes)
-  ( 1) Multiprocessors, (192) CUDA Cores/MP:     192 CUDA Cores
-  GPU Max Clock rate:                            797 MHz (0.80 GHz)
-  Memory Clock rate:                             891 Mhz
-  Memory Bus Width:                              128-bit
-  L2 Cache Size:                                 262144 bytes
-  Maximum Texture Dimension Size (x,y,z)         1D=(65536), 2D=(65536, 65536), 3D=(4096, 4096, 4096)
-  Maximum Layered 1D Texture Size, (num) layers  1D=(16384), 2048 layers
-  Maximum Layered 2D Texture Size, (num) layers  2D=(16384, 16384), 2048 layers
-  Total amount of constant memory:               65536 bytes
-  Total amount of shared memory per block:       49152 bytes
-  Total number of registers available per block: 65536
-  Warp size:                                     32
-  Maximum number of threads per multiprocessor:  2048
-  Maximum number of threads per block:           1024
-  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
-  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
-  Maximum memory pitch:                          2147483647 bytes
-  Texture alignment:                             512 bytes
-  Concurrent copy and kernel execution:          Yes with 1 copy engine(s)
+Device <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">NVS 510</span><span style="color:#e6db74">&#34;</span>
+  CUDA Driver Version <span style="color:#f92672">/</span> Runtime Version          <span style="color:#ae81ff">8.0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">8.0</span>
+  CUDA Capability Major<span style="color:#f92672">/</span>Minor version number:    <span style="color:#ae81ff">3.0</span>
+  Total amount of global memory:                 <span style="color:#ae81ff">2048</span> MBytes (<span style="color:#ae81ff">2147483648</span> bytes)
+  ( <span style="color:#ae81ff">1</span>) Multiprocessors, (<span style="color:#ae81ff">192</span>) CUDA Cores<span style="color:#f92672">/</span>MP:     <span style="color:#ae81ff">192</span> CUDA Cores
+  GPU Max Clock rate:                            <span style="color:#ae81ff">797</span> MHz (<span style="color:#ae81ff">0.80</span> GHz)
+  Memory Clock rate:                             <span style="color:#ae81ff">891</span> Mhz
+  Memory Bus Width:                              <span style="color:#ae81ff">128</span><span style="color:#f92672">-</span>bit
+  L2 Cache Size:                                 <span style="color:#ae81ff">262144</span> bytes
+  Maximum Texture Dimension Size (x,y,z)         <span style="color:#ae81ff">1</span>D<span style="color:#f92672">=</span>(<span style="color:#ae81ff">65536</span>), <span style="color:#ae81ff">2</span>D<span style="color:#f92672">=</span>(<span style="color:#ae81ff">65536</span>, <span style="color:#ae81ff">65536</span>), <span style="color:#ae81ff">3</span>D<span style="color:#f92672">=</span>(<span style="color:#ae81ff">4096</span>, <span style="color:#ae81ff">4096</span>, <span style="color:#ae81ff">4096</span>)
+  Maximum Layered <span style="color:#ae81ff">1</span>D Texture Size, (num) layers  <span style="color:#ae81ff">1</span>D<span style="color:#f92672">=</span>(<span style="color:#ae81ff">16384</span>), <span style="color:#ae81ff">2048</span> layers
+  Maximum Layered <span style="color:#ae81ff">2</span>D Texture Size, (num) layers  <span style="color:#ae81ff">2</span>D<span style="color:#f92672">=</span>(<span style="color:#ae81ff">16384</span>, <span style="color:#ae81ff">16384</span>), <span style="color:#ae81ff">2048</span> layers
+  Total amount of constant memory:               <span style="color:#ae81ff">65536</span> bytes
+  Total amount of shared memory per block:       <span style="color:#ae81ff">49152</span> bytes
+  Total number of registers available per block: <span style="color:#ae81ff">65536</span>
+  Warp size:                                     <span style="color:#ae81ff">32</span>
+  Maximum number of threads per multiprocessor:  <span style="color:#ae81ff">2048</span>
+  Maximum number of threads per block:           <span style="color:#ae81ff">1024</span>
+  Max dimension size of a <span style="color:#66d9ef">thread</span> block (x,y,z)<span style="color:#f92672">:</span> (<span style="color:#ae81ff">1024</span>, <span style="color:#ae81ff">1024</span>, <span style="color:#ae81ff">64</span>)
+  Max dimension size of a grid size    (x,y,z)<span style="color:#f92672">:</span> (<span style="color:#ae81ff">2147483647</span>, <span style="color:#ae81ff">65535</span>, <span style="color:#ae81ff">65535</span>)
+  Maximum memory pitch:                          <span style="color:#ae81ff">2147483647</span> bytes
+  Texture alignment:                             <span style="color:#ae81ff">512</span> bytes
+  Concurrent copy and kernel execution:          Yes with <span style="color:#ae81ff">1</span> copy engine(s)
   Run time limit on kernels:                     Yes
   Integrated GPU sharing Host Memory:            No
-  Support host page-locked memory mapping:       Yes
-  Alignment requirement for Surfaces:            Yes
+  Support host page<span style="color:#f92672">-</span>locked memory mapping:       Yes
+  Alignment requirement <span style="color:#66d9ef">for</span> Surfaces:            Yes
   Device has ECC support:                        Disabled
-  CUDA Device Driver Mode (TCC or WDDM):         WDDM (Windows Display Driver Model)
-  Device supports Unified Addressing (UVA):      Yes
-  Device PCI Domain ID / Bus ID / location ID:   0 / 3 / 0
-</code></pre>
-
-<p>(3)执行 <strong>bandwidthTest.exe</strong>,看到 <code>Result - Pass</code></p>
-
-<pre><code class="language-cpp">λ bandwidthTest
-[CUDA Bandwidth Test] - Starting...
+  CUDA Device Driver Mode (TCC or WDDM)<span style="color:#f92672">:</span>         WDDM (Windows Display Driver Model)
+  Device supports Unified Addressing (UVA)<span style="color:#f92672">:</span>      Yes
+  Device PCI Domain ID <span style="color:#f92672">/</span> Bus ID <span style="color:#f92672">/</span> location ID:   <span style="color:#ae81ff">0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>(3)执行 <strong>bandwidthTest.exe</strong>,看到 <code>Result - Pass</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#960050;background-color:#1e0010">λ</span> bandwidthTest
+[CUDA Bandwidth Test] <span style="color:#f92672">-</span> Starting...
 Running on...
 
- Device 0: NVS 510
+ Device <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span> NVS <span style="color:#ae81ff">510</span>
  Quick Mode
 
- Host to Device Bandwidth, 1 Device(s)
+ Host to Device Bandwidth, <span style="color:#ae81ff">1</span> Device(s)
  PINNED Memory Transfers
-   Transfer Size (Bytes)        Bandwidth(MB/s)
-   33554432                     5861.3
+   Transfer Size (Bytes)        Bandwidth(MB<span style="color:#f92672">/</span>s)
+   <span style="color:#ae81ff">33554432</span>                     <span style="color:#ae81ff">5861.3</span>
 
- Device to Host Bandwidth, 1 Device(s)
+ Device to Host Bandwidth, <span style="color:#ae81ff">1</span> Device(s)
  PINNED Memory Transfers
-   Transfer Size (Bytes)        Bandwidth(MB/s)
-   33554432                     6536.8
+   Transfer Size (Bytes)        Bandwidth(MB<span style="color:#f92672">/</span>s)
+   <span style="color:#ae81ff">33554432</span>                     <span style="color:#ae81ff">6536.8</span>
 
- Device to Device Bandwidth, 1 Device(s)
+ Device to Device Bandwidth, <span style="color:#ae81ff">1</span> Device(s)
  PINNED Memory Transfers
-   Transfer Size (Bytes)        Bandwidth(MB/s)
-   33554432                     20376.2
+   Transfer Size (Bytes)        Bandwidth(MB<span style="color:#f92672">/</span>s)
+   <span style="color:#ae81ff">33554432</span>                     <span style="color:#ae81ff">20376.2</span>
 
-Result = PASS
-</code></pre>
-
-<h2 id="3-data-interaction">3 Data Interaction</h2>
-
-<h3 id="3-1-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</h3>
-
-<p> 　CPU 和 GPU 有各自独立的内存空间，在 GPU 中不能直接访问 CPU 端的代码，反之也一样。<br />
-这时候最直接的方式就是<strong>数据拷贝</strong>: 在计算前将数据从 CPU 复制到 GPU 端，以 GPU 内存指针的方式传递给 GPU 的内存空间进行读写操作，计算完后将计算结果复制回 CPU 端。下面我们看下一个Sample Project 的代码 <code>bandwidthTest</code><br />
+Result <span style="color:#f92672">=</span> PASS
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-data-interaction">3 Data Interaction</h2>
+<h3 id="31-cpu--gpu-">3.1 CPU 和 GPU 之间的如何进行数据交互?</h3>
+<p> 　CPU 和 GPU 有各自独立的内存空间，在 GPU 中不能直接访问 CPU 端的代码，反之也一样。<br>
+这时候最直接的方式就是<strong>数据拷贝</strong>: 在计算前将数据从 CPU 复制到 GPU 端，以 GPU 内存指针的方式传递给 GPU 的内存空间进行读写操作，计算完后将计算结果复制回 CPU 端。下面我们看下一个Sample Project 的代码 <code>bandwidthTest</code><br>
 <strong>函数功能</strong>：测试device to device (or device &lt;==&gt; host)拷贝数据的带宽。</p>
-
-<h4 id="1-动态申请连续的内存块">(1) 动态申请连续的内存块</h4>
-
-<pre><code class="language-cpp">/**char *d_idata: device input data
- * char *h_odata: host output data
- */
-  // Host 上动态申请内存
-  cudaError_t cudaHostAlloc((void **)&amp;h_odata, memSize, bWriteCombined);
-  // device 上动态申请内存
-  cudaError_t cudaMalloc((void **) &amp;d_idata, memSize);
-</code></pre>
-
-<h4 id="2-数据拷贝-host-device">(2) 数据拷贝( host &lt;==&gt; device)</h4>
-
-<pre><code class="language-cpp">  // sync CopyData from Device to Host 
-  cudaError_t cudaMemcpy(void *dst, const void *src,size_t memSize, cudaMemcpyDeviceToHost);
-  // async CopyData from Host to Device (line 791)
-  cudaError_t cudaMemcpyAsync(void *dst, const void *src,size_t memSize, cudaMemcpyHostToDevice, 0);
-</code></pre>
-
-<blockquote>
+<h4 id="1-">(1) 动态申请连续的内存块</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">/**char *d_idata: device input data
+</span><span style="color:#75715e"> * char *h_odata: host output data
+</span><span style="color:#75715e"> */</span>
+  <span style="color:#75715e">// Host 上动态申请内存
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaHostAlloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>h_odata, memSize, bWriteCombined);
+  <span style="color:#75715e">// device 上动态申请内存
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaMalloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>d_idata, memSize);
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2--host--device">(2) 数据拷贝( host &lt;==&gt; device)</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">// sync CopyData from Device to Host 
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaMemcpy</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>dst, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>src,size_t memSize, cudaMemcpyDeviceToHost);
+  <span style="color:#75715e">// async CopyData from Host to Device (line 791)
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaMemcpyAsync</span>(<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>dst, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>src,size_t memSize, cudaMemcpyHostToDevice, <span style="color:#ae81ff">0</span>);
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>数据从device 拷贝回 host 是一个同步数据拷贝。</p>
 </blockquote>
-
-<h4 id="3-释放内存">(3) 释放内存</h4>
-
-<pre><code class="language-cpp">  //释放 host 上的内存
-  cudaError_t cudaFreeHost(h_odata);
-  //释放 device 上的内存
-  cudaError_t cudaFree(d_idata);
-</code></pre>
-
-<p>注：(1) 每个函数都需用宏 <code>checkCudaErrors()</code> 来检查返回值。<br />
+<h4 id="3-">(3) 释放内存</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">//释放 host 上的内存
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaFreeHost</span>(h_odata);
+  <span style="color:#75715e">//释放 device 上的内存
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaFree</span>(d_idata);
+</code></pre></td></tr></table>
+</div>
+</div><p>注：(1) 每个函数都需用宏 <code>checkCudaErrors()</code> 来检查返回值。<br>
 (2) 有3个宏：<code>HOST_TO_DEVICE</code>、<code>DEVICE_TO_HOST</code>、<code>DEVICE_TO_DEVICE</code></p>
-
 <h2 id="4-cuda-demos">4 CUDA-Demos</h2>
-
 <p>下面来看个简单的 GPU 计算向量加法的例子。</p>
-
-<h3 id="4-1-vector-add">4.1 Vector Add</h3>
-
-<p>CUDA Kernel function: 这段代码只能在GPU上执行，不能在CPU上执行。<br />
+<h3 id="41-vector-add">4.1 Vector Add</h3>
+<p>CUDA Kernel function: 这段代码只能在GPU上执行，不能在CPU上执行。<br>
 下面来看一个内核函数的例子：</p>
-
-<pre><code class="language-cpp">/* CUDA Kernel Device code
-*/
-__global__ void vectorAdd(const float *A, const float *B, float *C, int numElements)
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">/* CUDA Kernel Device code
+</span><span style="color:#75715e">*/</span>
+__global__ <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">vectorAdd</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>A, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>B, <span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>C, <span style="color:#66d9ef">int</span> numElements)
 {
-    /* build-in variable
-     *  blockDim 每个线程块需要启动的线程总数
-     *  blockIdx 线程块编号,从0开始编号
-     *  threadIdx  线程ID,每个线程块内从0开始编号
-     */
-    int i = blockDim.x * blockIdx.x + threadIdx.x;
+    <span style="color:#75715e">/* build-in variable
+</span><span style="color:#75715e">     *  blockDim 每个线程块需要启动的线程总数
+</span><span style="color:#75715e">     *  blockIdx 线程块编号,从0开始编号
+</span><span style="color:#75715e">     *  threadIdx  线程ID,每个线程块内从0开始编号
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> blockDim.x <span style="color:#f92672">*</span> blockIdx.x <span style="color:#f92672">+</span> threadIdx.x;
 
-    if (i &lt; numElements) //防止数组越界!!!
-    {
-        C[i] = A[i] + B[i];
+    <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&lt;</span> numElements) <span style="color:#75715e">//防止数组越界!!!
+</span><span style="color:#75715e"></span>    {
+        C[i] <span style="color:#f92672">=</span> A[i] <span style="color:#f92672">+</span> B[i];
     }
 }
-</code></pre>
-
-<blockquote>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>其中 <code>__global__</code> 告诉编译器生成的是GPU代码而不是 CPU 代码，并且这段代码在 CPU 上是全局可见的。</p>
 </blockquote>
-
-<p>如何在 CPU 端调用内核函数？<br />
+<p>如何在 CPU 端调用内核函数？<br>
 CUDA 专门定义了一个 C 语言扩展用以调用内核函数。语法如下：
-<code>kernel_function&lt;&lt;&lt; num_blocks, num_threads&gt;&gt;&gt;(params, param2, ...)</code></p>
+<code> kernel_function&lt;&lt;&lt; num_blocks, num_threads&gt;&gt;&gt;(params, param2, ...)</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">// Launch the Vector Add CUDA Kernel
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> threadsPerBlock <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>;
+    <span style="color:#66d9ef">int</span> blocksPerGrid <span style="color:#f92672">=</span>(numElements <span style="color:#f92672">+</span> threadsPerBlock <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> threadsPerBlock;
 
-<pre><code class="language-cpp">// Launch the Vector Add CUDA Kernel
-    int threadsPerBlock = 256;
-    int blocksPerGrid =(numElements + threadsPerBlock - 1) / threadsPerBlock;
+    vectorAdd<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>blocksPerGrid, threadsPerBlock<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span>(d_A, d_B, d_C, numElements);
 
-    vectorAdd&lt;&lt;&lt;blocksPerGrid, threadsPerBlock&gt;&gt;&gt;(d_A, d_B, d_C, numElements);
-
-    err = cudaGetLastError();
-</code></pre>
-
-<blockquote>
-<p>其中：num_blocks 告诉 GPU 启动线程块的数量；<br />
+    err <span style="color:#f92672">=</span> cudaGetLastError();
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>其中：num_blocks 告诉 GPU 启动线程块的数量；<br>
 num_threads 表示单个 Block 内启动的线程数。</p>
 </blockquote>
-
-<p><img src="/images/thread-block.png" alt="thread-block" /></p>
-
+<p><img src="/images/thread-block.png" alt="thread-block"></p>
 <blockquote>
-<p>*向量的减法、乘法类似*。</p>
+<p><em>向量的减法、乘法类似</em>。</p>
 </blockquote>
-
-<h3 id="4-2-matrix-calculation">4.2 Matrix Calculation</h3>
-
+<h3 id="42-matrix-calculation">4.2 Matrix Calculation</h3>
 <p><code>next post write</code></p>
-
-<h2 id="5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</h2>
-
+<h2 id="5-cpu--gpu-">5 CPU 的多线程与 GPU 的对应关系</h2>
 <ul>
 <li>CPU 单线程 / GPU 多线程</li>
 <li>CPU 多线程 / GPU 多线程 (注意内存的使用)</li>
 </ul>
-
 <blockquote>
 <p>GPU 是典型的 SPMD (即单指令多数据模型)。</p>
 </blockquote>
-
 <h2 id="reference">Reference</h2>
-
-<p>[1] <a href="http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">Nvidia 开发者文档</a><br />
-[2] <a href="http://blog.csdn.net/kyocen/article/details/51424161">vs2013下编写你的第一个CUDA程序</a>　<em>简单的方式：可以直接新建 CUDA 8.0 的project</em><br />
-[3] CUDA并行程序设计：GPU编程指南· Shane Cook 著<br />
-[4] GeForce GTX 280 GPU<br />
-<img src="/images/geforce-gtx-208-gpu-with-240.png" alt="geforce-gtx-208-gpu-with-240" /></p>
-
+<p>[1] <a href="http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">Nvidia 开发者文档</a><br>
+[2] <a href="http://blog.csdn.net/kyocen/article/details/51424161">vs2013下编写你的第一个CUDA程序</a>　<em>简单的方式：可以直接新建 CUDA 8.0 的project</em><br>
+[3] CUDA并行程序设计：GPU编程指南· Shane Cook 著<br>
+[4] GeForce GTX 280 GPU<br>
+<img src="/images/geforce-gtx-208-gpu-with-240.png" alt="geforce-gtx-208-gpu-with-240"></p>
 <blockquote>
-<p>名词解释：<br />
-SM:  Streaming Multiprocessor 流处理簇<br />
-SP:  Stream Processor 流处理器<br />
+<p>名词解释：<br>
+SM:  Streaming Multiprocessor 流处理簇<br>
+SP:  Stream Processor 流处理器<br>
 DRAM： 缓存</p>
 </blockquote>
 
-                        </div>
+        </div>
 
-                        
+        
 
 
-                        
+        
 
 <div class="post-archive">
     <h2>See Also</h2>
@@ -489,17 +517,17 @@ DRAM： 缓存</p>
 </div>
 
 
-                        <div class="post-meta meta-tags">
-                            
-                            <ul class="clearfix">
-                                
-                                <li><a href="https://forrestsu.github.io/tags/cs">CS</a></li>
-                                
-                            </ul>
-                            
-                        </div>
-                    </article>
-                    
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/cs'>CS</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
     
 
     
@@ -514,11 +542,13 @@ DRAM： 缓存</p>
       </script>
     </div>
     
+</div>
+
                 </div>
-            </div>
-            <div id="secondary">
+
+                <div id="secondary">
     <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
       <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
@@ -576,182 +606,182 @@ DRAM： 缓存</p>
     
 
     <section class="widget">
-        <h3 class="widget-title"> <a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
-  
+    
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
-  
+    
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
-  
+    
 </ul>
     </section>
 
     <section class="widget">
         <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
 <div class="tagcloud">
-  
-  <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
-  
-  <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
-  
-  <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
-  
-  <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
-  
-  <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
-  
-  <a href="https://forrestsu.github.io/tags/ubuntu/">Ubuntu(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
-  
-  <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
-  
-  <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
-  
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
 </div>
     </section>
 
@@ -779,14 +809,14 @@ DRAM： 缓存</p>
         </ul>
     </section>
 </div>
+            </div>
         </div>
     </div>
-</div>
-<footer id="footer">
+    <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="https://forrestsu.github.io">程序员的冷浪漫 By </a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">yibcs</a>.
-
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
 </footer>
@@ -794,11 +824,6 @@ DRAM： 缓存</p>
 
     
     <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
         window.MathJax = {
             tex2jax: {
                 inlineMath: [['$', '$']],
@@ -806,12 +831,11 @@ DRAM： 缓存</p>
                 }
             };
     </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
 
 
 
@@ -821,4 +845,5 @@ DRAM： 缓存</p>
 
 
 </body>
+
 </html>

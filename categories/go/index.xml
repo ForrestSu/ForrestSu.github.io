@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on 程序员的冷浪漫</title>
@@ -22,7 +22,7 @@
  case rc2 := &amp;lt;-time.After(d):
  After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。
 完整代码如下：
-// 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  // 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
     </item>
     
     <item>
@@ -45,14 +45,11 @@
       
       <guid>https://forrestsu.github.io/posts/go/duck-type/</guid>
       <description>&lt;h2 id=&#34;1-duck-type&#34;&gt;1 duck type&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/hk-victoria-harbor-duck.jpg&#34; alt=&#34;duck-type&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/hk-victoria-harbor-duck.jpg&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;br /&gt;
+&lt;p&gt;&amp;quot;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;br&gt;
 我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。&lt;/p&gt;
 &lt;/blockquote&gt;
-
 &lt;p&gt;比如在 python 中，有很多 &lt;code&gt;file-like&lt;/code&gt; 的东西，比如 StringIO, GzipFile, socket;
 它们有很多相同的方法，我们把它们当作文件使用。&lt;/p&gt;</description>
     </item>

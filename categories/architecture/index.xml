@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Architecture on 程序员的冷浪漫</title>
@@ -21,7 +21,7 @@
 CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
 现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
 1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
-square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y = sqrt (add (square x) (square y))  然后我们将其改造成 CPS 的方式，如下：</description>
+1 2 3 4 5 6 7 8  square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：</description>
     </item>
     
     <item>
