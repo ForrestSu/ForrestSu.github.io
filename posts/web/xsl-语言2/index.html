@@ -116,14 +116,14 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-">1 语法</a>
+    <li><a href="#1-语法">1 语法</a>
       <ul>
-        <li><a href="#1--xslif-">(1)   元素</a></li>
-        <li><a href="#2--xslchoose-">(2)   元素</a></li>
-        <li><a href="#3--xslapply-templates-">(3)   元素</a></li>
+        <li><a href="#1--xslif-元素"><strong>(1)  <a href="xsl:if">xsl:if</a></strong> 元素</a></li>
+        <li><a href="#2--xslchoose-元素"><strong>(2)  <a href="xsl:choose">xsl:choose</a></strong> 元素</a></li>
+        <li><a href="#3--xslapply-templates-元素"><strong>(3)  <a href="xsl:apply-templates">xsl:apply-templates</a></strong> 元素</a></li>
       </ul>
     </li>
-    <li><a href="#heading">补充</a></li>
+    <li><a href="#补充">补充</a></li>
   </ul>
 </nav>
     </div>
@@ -162,8 +162,8 @@
         
         <div class="post-content">
             <p>上一篇主要入门了 XSL，这一课来进一步学习XSL。</p>
-<h2 id="1-">1 语法</h2>
-<h3 id="1--xslif-"><strong>(1)  <a href="xsl:if">xsl:if</a></strong> 元素</h3>
+<h2 id="1-语法">1 语法</h2>
+<h3 id="1--xslif-元素"><strong>(1)  <a href="xsl:if">xsl:if</a></strong> 元素</h3>
 <p>语法：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -190,7 +190,7 @@
         &lt;/tr&gt;
       &lt;/xsl:if&gt;
       &lt;/xsl:for-each&gt;
-</code></pre><h3 id="2--xslchoose-"><strong>(2)  <a href="xsl:choose">xsl:choose</a></strong> 元素</h3>
+</code></pre><h3 id="2--xslchoose-元素"><strong>(2)  <a href="xsl:choose">xsl:choose</a></strong> 元素</h3>
 <p><a href="xsl:choose">xsl:choose</a> 元素用于结合 <a href="xsl:when">xsl:when</a> 和 <a href="xsl:otherwise">xsl:otherwise</a> 来表达多重条件测试。可以理解成C语言里面的条件分支case when。
 语法</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -208,24 +208,24 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;xsl:choose</span><span style="color:#f92672">&gt;</span>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;xsl:choose&gt;</span>
   <span style="color:#f92672">&lt;xsl:when</span> <span style="color:#a6e22e">test=</span><span style="color:#e6db74">&#34;expression1&#34;</span><span style="color:#f92672">&gt;</span>
     ... 输出 ...
   <span style="color:#f92672">&lt;/xsl:when&gt;</span>
   <span style="color:#f92672">&lt;xsl:when</span> <span style="color:#a6e22e">test=</span><span style="color:#e6db74">&#34;expression2&#34;</span><span style="color:#f92672">&gt;</span>
     ... 输出 ...
   <span style="color:#f92672">&lt;/xsl:when&gt;</span>
-  <span style="color:#f92672">&lt;xsl:otherwise</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;xsl:otherwise&gt;</span>
     ... 输出 ....
   <span style="color:#f92672">&lt;/xsl:otherwise&gt;</span>
 <span style="color:#f92672">&lt;/xsl:choose&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="3--xslapply-templates-"><strong>(3)  <a href="xsl:apply-templates">xsl:apply-templates</a></strong> 元素</h3>
+</div><h3 id="3--xslapply-templates-元素"><strong>(3)  <a href="xsl:apply-templates">xsl:apply-templates</a></strong> 元素</h3>
 <p>&lt;xsl:apply-templates &gt; 元素可把一个模板应用于当前的元素或者当前元素的子节点。</p>
 <pre><code>&lt;xsl:apply-templates select=&quot;//fix/header/group&quot; mode=&quot;fieldmode&quot;/&gt;
 &lt;xsl:template mode=&quot;fieldmode&quot; match=&quot;group&quot;&gt;
-</code></pre><h2 id="heading">补充</h2>
+</code></pre><h2 id="补充">补充</h2>
 <p>xsl中 text() 与 . 的区别在于：text()是目前节点位置下的文本节点，而. 是取目前节点位置下所有层次的文本节点</p>
 
         </div>
@@ -402,7 +402,7 @@
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -440,7 +440,7 @@
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -517,6 +517,8 @@
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

@@ -163,14 +163,14 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">*</span><span style="color:#f92672">&gt;</span> str;
-   str.push_back(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">abc</span><span style="color:#e6db74">&#34;</span>);
-   str.push_back(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">123</span><span style="color:#e6db74">&#34;</span>);
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">*&gt;</span> str;
+   str.push_back(<span style="color:#e6db74">&#34;abc&#34;</span>);
+   str.push_back(<span style="color:#e6db74">&#34;123&#34;</span>);
 
    <span style="color:#75715e">//按照 C-style 来访问vector
-</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span><span style="color:#f92672">*</span> ptr<span style="color:#f92672">=</span> str.data();
-   <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span>;<span style="color:#f92672">+</span><span style="color:#f92672">+</span>i)
-    printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ptr[i]);
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> ptr<span style="color:#f92672">=</span> str.data();
+   <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span>;<span style="color:#f92672">++</span>i)
+    printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ptr[i]);
 </code></pre></td></tr></table>
 </div>
 </div><p>2</p>
@@ -349,7 +349,7 @@
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -387,7 +387,7 @@
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -464,6 +464,8 @@
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

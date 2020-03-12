@@ -182,22 +182,22 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;functional&gt;</span><span style="color:#75715e">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;functional&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
-<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>placeholders;
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std<span style="color:#f92672">::</span>placeholders;
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">char</span>, <span style="color:#66d9ef">double</span>);
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
     <span style="color:#75715e">// 翻转参数顺序
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> frev <span style="color:#f92672">=</span> bind(f, _3, _2, _1);
-    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> frev(<span style="color:#ae81ff">1.2</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">w</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">7</span>);
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>x<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+    <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> frev(<span style="color:#ae81ff">1.2</span>, <span style="color:#e6db74">&#39;w&#39;</span>, <span style="color:#ae81ff">7</span>);
+    cout<span style="color:#f92672">&lt;&lt;</span>x<span style="color:#f92672">&lt;&lt;</span>endl;
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">char</span> b , <span style="color:#66d9ef">double</span> c)
 {
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">a==</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> a <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,b==</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>b <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">,c==</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>c <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;a==&#34;</span><span style="color:#f92672">&lt;&lt;</span> a <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;,b==&#34;</span> <span style="color:#f92672">&lt;&lt;</span>b <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;,c==&#34;</span><span style="color:#f92672">&lt;&lt;</span>c <span style="color:#f92672">&lt;&lt;</span>endl;
     <span style="color:#66d9ef">return</span>  <span style="color:#ae81ff">0</span>;
 }
 </code></pre></td></tr></table>
@@ -247,9 +247,9 @@
     function<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>(<span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span>)<span style="color:#f92672">&gt;</span> func1<span style="color:#f92672">=</span> add;
     function<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>(<span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span>)<span style="color:#f92672">&gt;</span> func2<span style="color:#f92672">=</span> mod;
     function<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>(<span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span>)<span style="color:#f92672">&gt;</span> func3<span style="color:#f92672">=</span> divide();
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>func1(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>func2(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>func3(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span>func1(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span>func2(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span>func3(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>)<span style="color:#f92672">&lt;&lt;</span>endl;
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></td></tr></table>
@@ -429,7 +429,7 @@
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -467,7 +467,7 @@
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -544,6 +544,8 @@
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

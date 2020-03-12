@@ -117,11 +117,11 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#preface">Preface</a></li>
-    <li><a href="#heading">说明</a></li>
-    <li><a href="#-zookeeper">一、 安装zookeeper</a></li>
-    <li><a href="#-kafka">二、 安装Kafka</a>
+    <li><a href="#说明">说明</a></li>
+    <li><a href="#一-安装zookeeper">一、 安装zookeeper</a></li>
+    <li><a href="#二-安装kafka">二、 安装Kafka</a>
       <ul>
-        <li><a href="#-">三、 启动集群和测试</a></li>
+        <li><a href="#三-启动集群和测试">三、 启动集群和测试</a></li>
       </ul>
     </li>
   </ul>
@@ -186,7 +186,7 @@
 </ul>
 <p><img src="/images/kafka-zookeeper-cluster.png" alt="kafka-zookeeper-cluster"></p>
 <p>与Kafka读写操作不一样，Kafka只有Leader提供读写操作。</p>
-<h2 id="heading">说明</h2>
+<h2 id="说明">说明</h2>
 <p>搭建zookeeper和Kafka集群：
 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</p>
 <p>主机规划：<br>
@@ -219,7 +219,7 @@ wget http://mirror.bit.edu.cn/apache/kafka/1.1.0/kafka_2.12-1.1.0.tgz
 192.168.0.153 worker2
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="-zookeeper">一、 安装zookeeper</h2>
+</div><h2 id="一-安装zookeeper">一、 安装zookeeper</h2>
 <p>(1) 下载 <code>zookeeper-3.4.10.tar.gz</code></p>
 <p>(2) 在 master 节点上安装 zookeeper<br>
 解压安装包，并复制配置文件</p>
@@ -288,7 +288,7 @@ server.2<span style="color:#f92672">=</span>worker2:8001:8002
 [opadm@worker2 ~]$ mkdir /tmp/zookeeper/data/
 [opadm@worker2 ~]$ touch /tmp/zookeeper/myid
 [opadm@worker2 ~]$ echo 2 &gt; /tmp/zookeeper/myid
-</code></pre><h2 id="-kafka">二、 安装Kafka</h2>
+</code></pre><h2 id="二-安装kafka">二、 安装Kafka</h2>
 <p>(1) 下载 kafka_2.11-0.10.0.1.tar.gz</p>
 <p>(2) 在 master 节点上安装 kafka（一个broker）<br>
 解压安装包:</p>
@@ -312,7 +312,7 @@ delete.topic.enable=true
 [opadm@master ~]$ scp -r kafka_2.11-0.10.0.1/ worker1:~/
 [opadm@master ~]$ scp -r kafka_2.11-0.10.0.1/ worker2:~/
 </code></pre><p>并修改每个节点对应的 server.properties 文件的 broker.id： master为0，worker1为1，worker2为2</p>
-<h3 id="-">三、 启动集群和测试</h3>
+<h3 id="三-启动集群和测试">三、 启动集群和测试</h3>
 <p><strong>注：启动时：先启动 zookeeper，后启动 kafka；关闭时：先关闭 kafka，后关闭zookeeper</strong></p>
 <p>(1) 分别在每个节点上启动 zookeeper</p>
 <pre><code># 在master节点上
@@ -560,7 +560,7 @@ delete.topic.enable=true
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -598,7 +598,7 @@ delete.topic.enable=true
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -675,6 +675,8 @@ delete.topic.enable=true
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

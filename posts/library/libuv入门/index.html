@@ -190,33 +190,33 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat);
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//main.cpp
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;uv.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;assert.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;uv.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;assert.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;time.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timer_cb</span>(uv_timer_t <span style="color:#f92672">*</span>handlei)
 {
    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
-   cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">count==</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>count<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+   cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;count==&#34;</span><span style="color:#f92672">&lt;&lt;</span>count<span style="color:#f92672">++&lt;&lt;</span>endl;
 }
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
     <span style="color:#66d9ef">int</span> r;
     uv_timer_t timer;
     r <span style="color:#f92672">=</span> uv_timer_init(uv_default_loop(),<span style="color:#f92672">&amp;</span>timer);
-    assert(r<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>);
+    assert(r<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>);
     <span style="color:#75715e">// 0
-</span><span style="color:#75715e"></span>    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>uv_is_active((uv_handle_t<span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>timer)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+</span><span style="color:#75715e"></span>    cout<span style="color:#f92672">&lt;&lt;</span>uv_is_active((uv_handle_t<span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>timer)<span style="color:#f92672">&lt;&lt;</span>endl;
     <span style="color:#75715e">// 0
-</span><span style="color:#75715e"></span>    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> uv_is_closing((uv_handle_t<span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>timer)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">start </span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>time(NULL)<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+</span><span style="color:#75715e"></span>    cout<span style="color:#f92672">&lt;&lt;</span> uv_is_closing((uv_handle_t<span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>timer)<span style="color:#f92672">&lt;&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;start &#34;</span><span style="color:#f92672">&lt;&lt;</span>time(NULL)<span style="color:#f92672">&lt;&lt;</span>endl;
 
     r <span style="color:#f92672">=</span> uv_timer_start(<span style="color:#f92672">&amp;</span>timer, timer_cb, <span style="color:#ae81ff">5000</span>, <span style="color:#ae81ff">1000</span>);
     r <span style="color:#f92672">=</span> uv_run(uv_default_loop(),UV_RUN_DEFAULT);
-    cout<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r=</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>r<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>endl;
+    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;r=&#34;</span><span style="color:#f92672">&lt;&lt;</span>r<span style="color:#f92672">&lt;&lt;</span>endl;
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></td></tr></table>
@@ -237,7 +237,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat);
         
         <li><a href="/posts/cpp/c&#43;&#43;-explicit/">C&#43;&#43; explicit</a></li>
         
-        <li><a href="/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">C&#43;&#43;11之智能指针-原理分析</a></li>
+        <li><a href="/posts/cpp/deep-in-smart-pointer-cpp/">深入理解C&#43;&#43;11智能指针</a></li>
         
         <li><a href="/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/">恒生一年半工作体验</a></li>
         
@@ -396,7 +396,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat);
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -434,7 +434,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat);
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -511,6 +511,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat);
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

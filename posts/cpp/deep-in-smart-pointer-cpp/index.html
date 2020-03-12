@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>C&#43;&#43;11之智能指针-原理分析 | 程序员的冷浪漫</title>
-    <meta property="og:title" content="C&#43;&#43;11之智能指针-原理分析 - 程序员的冷浪漫">
+    <title>深入理解C&#43;&#43;11智能指针 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="深入理解C&#43;&#43;11智能指针 - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2017-04-07T20:54:00&#43;08:00'>
@@ -16,10 +16,10 @@
     <meta property="article:modified_time" content='2017-04-07T20:54:00&#43;08:00'>
         
     <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
-    <meta name="description" content="C&#43;&#43;11之智能指针-原理分析">
+    <meta name="description" content="深入理解C&#43;&#43;11智能指针">
         
     <meta name="author" content="ForrestSun">
-    <meta property="og:url" content="https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -117,18 +117,19 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#1-preface">1 Preface</a></li>
-    <li><a href="#2-">2 原理分析</a>
+    <li><a href="#2-原理分析">2 原理分析</a>
       <ul>
-        <li><a href="#21-shared-ptr">2.1 shared_ptr</a></li>
-        <li><a href="#22-make-sharedt">2.2 make_shared\<T\>()</a></li>
-        <li><a href="#23-enable-shared-from-this">2.3 enable_shared_from_this</a></li>
-        <li><a href="#24-unique-ptr">2.4 unique_ptr</a></li>
+        <li><a href="#21-shared_ptr">2.1 shared_ptr</a></li>
+        <li><a href="#22-weak_ptr">2.2 weak_ptr</a></li>
+        <li><a href="#23-make_sharedt">2.3 make_shared&lt;T&gt;()</a></li>
+        <li><a href="#24-enable_shared_from_this">2.4 enable_shared_from_this</a></li>
+        <li><a href="#25-unique_ptr">2.5 unique_ptr</a></li>
       </ul>
     </li>
-    <li><a href="#3-64-bit-system">3 对象字节数（64 bit system）</a></li>
-    <li><a href="#4-shared-ptr--weak-ptr-">4 shared_ptr 和 weak_ptr 实现的细节</a></li>
+    <li><a href="#3-对象字节数64-bit-system">3 对象字节数（64 bit system）</a></li>
+    <li><a href="#4-shared_ptr-和-weak_ptr-实现的细节">4 shared_ptr 和 weak_ptr 实现的细节</a></li>
     <li><a href="#5-problems">5 Problems</a></li>
-    <li><a href="#heading">附录</a></li>
+    <li><a href="#附录">附录</a></li>
   </ul>
 </nav>
     </div>
@@ -136,14 +137,14 @@
 
     <article class="post">
         <header>
-            <h1 class="post-title">C&#43;&#43;11之智能指针-原理分析</h1>
+            <h1 class="post-title">深入理解C&#43;&#43;11智能指针</h1>
         </header>
         <date class="post-meta meta-date">
             2017年4月7日 20:54:00
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            4551
+            5347
         </div>
         
         <div class="post-meta">
@@ -175,19 +176,57 @@
 <li>std::weak_ptr</li>
 </ul>
 <p>包含头文件 <code>#include &lt;memory&gt;</code> 即可</p>
-<h2 id="2-">2 原理分析</h2>
-<h3 id="21-shared-ptr">2.1 shared_ptr</h3>
+<h2 id="2-原理分析">2 原理分析</h2>
+<h3 id="21-shared_ptr">2.1 shared_ptr</h3>
 <p>直接用 shared_ptr 管理一个堆上的裸指针对象：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1(<span style="color:#66d9ef">new</span> Good());
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1(<span style="color:#66d9ef">new</span> Good());
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/images/std_shared_ptr.png" alt="shared_ptr"></p>
-<h3 id="22-make-sharedt">2.2 make_shared&lt;T&gt;()</h3>
+<h3 id="22-weak_ptr">2.2 weak_ptr</h3>
+<p><strong>为什么会有 weak_ptr?</strong><br>
+因为 shared_ptr 是对象的强引用，一旦发生循环引用，对象就无法析构；
+weak_ptr 出现就是为了解决循环引用的问题，打个不恰当的比喻：weak_ptr就像寄生虫，shared_ptr就是宿主。</p>
+<p>weak_ptr 和 shared_ptr 内存结构相同(1 个原始对象指针 + ctrl_block_t 指针)；</p>
+<p><strong>不同之处在于：</strong></p>
+<p>(1) 不直接使用 weak_ptr 进行对象的各种操作<br>
+每次使用 weak_ptr 时，提升一个shared_ptr<!-- raw HTML omitted -->, 然后使用shared_ptr; 但是如果提升失败，表示对象已经析构。</p>
+<p>(2) 负责管理不同对象的生命周期<br>
+shared_ptr 管理 <code>T*对象</code>的生命周期，而 weak_ptr 管理 <code>ctrl_block_t*</code> 的生命周期。</p>
+<p>(3) 不对称<br>
+shared_ptr 可以构造对象产生(make_shared<!-- raw HTML omitted -->() 或 shared_ptr(T*))，或者 weak_ptr 提升。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> wp;
+shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> sp <span style="color:#f92672">=</span> wp.lock(); <span style="color:#75715e">//提升
+</span></code></pre></td></tr></table>
+</div>
+</div><p>weak_ptr<!-- raw HTML omitted --> 通过拷贝 shared_ptr<!-- raw HTML omitted --> 构造得到，或者直接拷贝(或移动构造)其他的 weak_ptr<!-- raw HTML omitted -->。<br>
+<strong>也就是说, 第一个<code>有效的</code>weak_ptr<!-- raw HTML omitted --> 一定从 shared_ptr<!-- raw HTML omitted --> 拷贝得到的。</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> sp;
+weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> wp <span style="color:#f92672">=</span> sp;  <span style="color:#75715e">// 拷贝 shared_ptr 构造
+</span><span style="color:#75715e"></span>weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> wp1 <span style="color:#f92672">=</span> wp; <span style="color:#75715e">// 拷贝 weak_ptr 构造 
+</span><span style="color:#75715e"></span>weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> wp2 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>move(wp1); <span style="color:#75715e">//weak_ptr move构造
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="23-make_sharedt">2.3 make_shared&lt;T&gt;()</h3>
 <p>推荐使用 make_shared 来创建对象:
 好处1: 把指针计数器和对象一次性<code>一起分配</code>；提高内存分配效率。
 好处2: 提高数据的局部性，引用计数和对象可能在同一内存页中(甚至是 same cache line)。</p>
@@ -196,11 +235,11 @@
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="/images/std_make_shared.png" alt="make_shared"></p>
-<h3 id="23-enable-shared-from-this">2.3 enable_shared_from_this</h3>
+<h3 id="24-enable_shared_from_this">2.4 enable_shared_from_this</h3>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -218,19 +257,19 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Good</span> <span style="color:#f92672">:</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> <span style="color:#75715e">// 注意：继承
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Good</span> <span style="color:#f92672">:</span> std<span style="color:#f92672">::</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> <span style="color:#75715e">// 注意：继承
 </span><span style="color:#75715e"></span>{
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-	std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> getptr() {
+	std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> getptr() {
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shared_from_this</span>();
 	}
-	<span style="color:#f92672">~</span>Good() { std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Good::~Good() called</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>endl; }
+	<span style="color:#f92672">~</span>Good() { std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Good::~Good() called&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl; }
 };
 
 <span style="color:#75715e">// Good: the two shared_ptr&#39;s share the same object
-</span><span style="color:#75715e"></span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
-std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp2 <span style="color:#f92672">=</span> gp1<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>getptr();
-std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">gp2.use_count() = </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> gp2.use_count() <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">\n</span><span style="color:#e6db74">&#39;</span>; <span style="color:#75715e">// output 2
+</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
+std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp2 <span style="color:#f92672">=</span> gp1<span style="color:#f92672">-&gt;</span>getptr();
+std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;gp2.use_count() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> gp2.use_count() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>; <span style="color:#75715e">// output 2
 </span></code></pre></td></tr></table>
 </div>
 </div><p>c++ 为了解决class内部, 使用自身class的智能指针的问题，引入了<code>enable_shared_from_this</code>,<br>
@@ -238,16 +277,16 @@ enable_shared_from_this 这个类只包含一个 weak_ptr&lt;T&gt; 成员对象(
 当每次调用<code>shared_from_this()</code>, 就通过 <code>weak_ptr</code> 提升创建一个 <code>shared_ptr</code> 对象。</p>
 <p>其内存模型如下：</p>
 <p><img src="/images/std_enable_shared_from_this.png" alt="enable_shared_from_this"></p>
-<h3 id="24-unique-ptr">2.4 unique_ptr</h3>
+<h3 id="25-unique_ptr">2.5 unique_ptr</h3>
 <p>unique_ptr 管理独占的指针对象;</p>
 <p><img src="/images/std_unique_ptr_internal.gif" alt="unique_ptr_internal"></p>
-<h2 id="3-64-bit-system">3 对象字节数（64 bit system）</h2>
+<h2 id="3-对象字节数64-bit-system">3 对象字节数（64 bit system）</h2>
 <p>a&gt; shared_ptr， weak_ptr 由于内部都只包含两个pointer，所以都是 <code>16 bytes</code>;</p>
 <p>b&gt; control_block&lt;T*&gt; 包含两个 atomic_llong 和一个指针，所以是 <code>24 bytes</code>;</p>
 <p>c&gt; 特别地，如果采用 make_shared 来分配智能指针，不考虑内存对其的前提下，<br>
 control_block&lt;T*&gt; 占用空间为 <code>16 + sizeof(T)</code></p>
 <p>d&gt; unique_ptr 内部有一个 tuple&lt;T*,functor_class&gt;, 所以只占用 <code>8 bytes</code> ;</p>
-<h2 id="4-shared-ptr--weak-ptr-">4 shared_ptr 和 weak_ptr 实现的细节</h2>
+<h2 id="4-shared_ptr-和-weak_ptr-实现的细节">4 shared_ptr 和 weak_ptr 实现的细节</h2>
 <ul>
 <li>
 <p>当每次有新的 shared_ptr 生成时，会增加 _Sp_counted_base 的 _M_use_count (+1);</p>
@@ -276,8 +315,8 @@ _Sp_counted_base 的内存。</p>
 <h2 id="5-problems">5 Problems</h2>
 <p>❓<em>make_shared 对象的内存可能无法及时回收？</em></p>
 <p>make_shared 只分配一次内存, 这看起来很好. 减少了内存分配的开销。
-问题来了, weak_ptr 会保持控制块(强引用, 以及弱引用的信息)的生命周期, 而因此连带着保持了对象分配的内存, 只有最后一个 weak_ptr 离开作用域时, 内存才会被释放. 原本强引用减为 0 时就可以释放的内存, 现在变为了强引用, 若引用都减为 0 时才能释放, 意外的延迟了内存释放的时间. 这对于内存要求高的场景来说, 是一个需要注意的问题. 关于这个问题可以看这里 <a href="http://lanzkron.wordpress.com/2012/04/22/make_shared-almost-a-silver-bullet">make_shared, almost a silver bullet</a></p>
-<h2 id="heading">附录</h2>
+问题来了, weak_ptr 会保持控制块(强引用, 以及弱引用的信息)的生命周期, 而因此连带着保持了对象分配的内存, 只有最后一个 weak_ptr 离开作用域时, 内存才会被释放. 原本强引用减为 0 时就可以释放的内存, 现在变为了强引用, 弱引用都减为 0 时才能释放, 意外的延迟了内存释放的时间. 这对于内存要求高的场景来说, 是一个需要注意的问题. 关于这个问题可以看这里 <a href="http://lanzkron.wordpress.com/2012/04/22/make_shared-almost-a-silver-bullet">make_shared, almost a silver bullet</a></p>
+<h2 id="附录">附录</h2>
 <p>测试代码:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -327,50 +366,50 @@ _Sp_counted_base 的内存。</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#</span><span style="color:#75715e">pragma pack(1)</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#pragma pack(1)
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;memory&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>shared_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span> sp <span style="color:#f92672">=</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>make_shared<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">123</span><span style="color:#e6db74">&#34;</span>);
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof  std::shared_ptr&lt;string&gt; </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span>(sp);
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(int) </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>) <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>  <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">, sizeof(string) </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span>(std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string);
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(_Atomic_word) </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span>(_Atomic_word);
+    std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> sp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;123&#34;</span>);
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof  std::shared_ptr&lt;string&gt; &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span>(sp);
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(int) &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">int</span>) <span style="color:#f92672">&lt;&lt;</span>  <span style="color:#e6db74">&#34;, sizeof(string) &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span>(std<span style="color:#f92672">::</span>string);
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(_Atomic_word) &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span>(_Atomic_word);
 
     sp.get();
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> size std::__shared_count(8) = </span><span style="color:#e6db74">&#34;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span>(std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__shared_count<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__default_lock_policy<span style="color:#f92672">&gt;</span>(sp.get()));
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> size std::__shared_count(8) = &#34;</span>
+        <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span>(std<span style="color:#f92672">::</span>__shared_count<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>__default_lock_policy<span style="color:#f92672">&gt;</span>(sp.get()));
 
-    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>_Sp_counted_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">*</span>,std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_ptr;
+    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>_Sp_counted_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">*</span>,std<span style="color:#f92672">::</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_ptr;
 
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_ptr size :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_ptr);
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_ptr size :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_ptr);
 
-    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>_Sp_counted_ptr_inplace<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>allocator<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_in_place;
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_in_place :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_in_place);
+    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>_Sp_counted_ptr_inplace<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, std<span style="color:#f92672">::</span>allocator<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>, std<span style="color:#f92672">::</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_in_place;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_in_place :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_in_place);
 
-    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>_Sp_counted_ptr_inplace<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span>, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>allocator<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_in_place_char;
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_in_place_char :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_in_place_char);
+    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>_Sp_counted_ptr_inplace<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span>, std<span style="color:#f92672">::</span>allocator<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>, std<span style="color:#f92672">::</span>__default_lock_policy<span style="color:#f92672">&gt;</span> counter_in_place_char;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> counter_in_place_char :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (counter_in_place_char);
 
-    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span> from_this;
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> from_this :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (from_this);
+    <span style="color:#66d9ef">typedef</span> std<span style="color:#f92672">::</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> from_this;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> from_this (equals weak_ptr&lt;T&gt;):&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (from_this);
 
-    <span style="color:#66d9ef">typedef</span>  std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>weak_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span> weak_ptr_tp;
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> weak_ptr_tp :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (weak_ptr_tp);
+    <span style="color:#66d9ef">typedef</span>  std<span style="color:#f92672">::</span>weak_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> weak_ptr_tp;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> weak_ptr_tp :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (weak_ptr_tp);
 
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>unique_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span> up <span style="color:#f92672">=</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>make_unique<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">hello</span><span style="color:#e6db74">&#34;</span>);
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(up) :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (up); <span style="color:#75715e">// 8 bytes
+    std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span> up <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;hello&#34;</span>);
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(up) :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (up); <span style="color:#75715e">// 8 bytes
 </span><span style="color:#75715e"></span>
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>__uniq_ptr_impl<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>default_delete<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> unique_imp;
+    std<span style="color:#f92672">::</span>__uniq_ptr_impl<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string, std<span style="color:#f92672">::</span>default_delete<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;&gt;</span> unique_imp;
 
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(unique_imp) :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (unique_imp); <span style="color:#75715e">// 8 bytes
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(unique_imp) :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (unique_imp); <span style="color:#75715e">// 8 bytes
 </span><span style="color:#75715e"></span>
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>tuple<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">*</span>, std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>default_delete<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> tup;
-    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(tuple&lt;pointer, deleter()&gt;) :</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">sizeof</span> (tup); <span style="color:#75715e">// 8 bytes
-</span><span style="color:#75715e"></span>    std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cout <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+    std<span style="color:#f92672">::</span>tuple<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">*</span>, std<span style="color:#f92672">::</span>default_delete<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;&gt;</span> tup;
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> sizeof(tuple&lt;pointer, deleter()&gt;) :&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">sizeof</span> (tup); <span style="color:#75715e">// 8 bytes
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
     <span style="color:#66d9ef">return</span>  <span style="color:#ae81ff">0</span>;
 }
-<span style="color:#75715e">#</span><span style="color:#75715e">pragma pack()</span><span style="color:#75715e">
+<span style="color:#75715e">#pragma pack()
 </span></code></pre></td></tr></table>
 </div>
 </div><p>输出结果：</p>
@@ -404,7 +443,7 @@ _Sp_counted_base 的内存。</p>
 </span><span style="color:#75715e"> counter_ptr size :24
 </span><span style="color:#75715e"> counter_in_place :20
 </span><span style="color:#75715e"> counter_in_place_char :17
-</span><span style="color:#75715e"> from_this :16
+</span><span style="color:#75715e"> from_this (equals weak_ptr&lt;T&gt;):16
 </span><span style="color:#75715e"> weak_ptr_tp :16
 </span><span style="color:#75715e"> sizeof(up) :8
 </span><span style="color:#75715e"> sizeof(unique_imp) :8
@@ -412,7 +451,8 @@ _Sp_counted_base 的内存。</p>
 </span><span style="color:#75715e">*/</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><p>last update: 2020-03-12 13:00:00 by sunquan</p>
+
         </div>
 
         
@@ -593,7 +633,7 @@ _Sp_counted_base 的内存。</p>
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -631,7 +671,7 @@ _Sp_counted_base 的内存。</p>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -708,6 +748,8 @@ _Sp_counted_base 的内存。</p>
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

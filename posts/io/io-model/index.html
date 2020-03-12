@@ -117,7 +117,7 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#1--preface">1  Preface</a></li>
-    <li><a href="#2--io-">2 五种 I/O 模型</a>
+    <li><a href="#2-五种-io-模型">2 五种 I/O 模型</a>
       <ul>
         <li><a href="#21-blocking-io">2.1 blocking I/O</a></li>
         <li><a href="#22-non-blocking-io">2.2 non-blocking IO</a></li>
@@ -142,7 +142,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            4313
+            4215
         </div>
         
         <div class="post-meta">
@@ -170,7 +170,7 @@
 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。</p>
 <p>我们这里讨论的背景是Linux环境下的network IO，
 本文参考 <code>Richard Stevens</code> 2003 年的传世之作 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。</p>
-<h2 id="2--io-">2 五种 I/O 模型</h2>
+<h2 id="2-五种-io-模型">2 五种 I/O 模型</h2>
 <ul>
 <li>blocking I/O</li>
 <li>nonblocking I/O</li>
@@ -181,9 +181,9 @@
 <p>再说一下IO发生时涉及的对象和步骤。</p>
 <p>对于一个network IO (这里我们以read举例)，它会涉及到两个系统对象，一个是调用这个IO的process (or thread)，另一个就是系统内核(kernel)。当一个read操作发生时，它会经历两个阶段：</p>
 <blockquote>
+</blockquote>
 <p>1 等待数据准备 (Waiting for the data to be ready)<br>
 2 将数据从内核拷贝到进程中 (Copying the data from the kernel to the process)</p>
-</blockquote>
 <p>记住这两点很重要，因为这些IO Model的区别就是在两个阶段上各有不同的情况。</p>
 <h3 id="21-blocking-io">2.1 blocking I/O</h3>
 <p>在linux中，默认情况下所有的socket都是blocking，一个典型的读操作流程大概是这样：</p>
@@ -214,7 +214,7 @@
 <p>linux下的asynchronous IO其实用得很少。先看一下它的流程：</p>
 <p><img src="/images/io_asynchronous.png" alt="asynchronous-IO"></p>
 <!-- raw HTML omitted -->
-<p>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了，并且数据已经写入指定的buffer中了。</p>
+<p>用户进程发起read操作之后，立刻就可以开始去做其它的事。而另一方面，从kernel的角度，当它受到一个asynchronous read之后，首先它会立刻返回，所以不会对用户进程产生任何block。然后，kernel会等待数据准备完成，然后将数据拷贝到用户内存，当这一切都完成之后，kernel会给用户进程发送一个signal，告诉它read操作完成了。</p>
 <h2 id="3-conclusion">3 Conclusion</h2>
 <p>到目前为止，已经将 五种IO Model都介绍完了。现在回过头来回答最初的那几个问题：blocking和non-blocking的区别在哪，synchronous IO和asynchronous IO的区别在哪。
 先回答最简单的这个：blocking vs non-blocking。前面的介绍中其实已经很明确的说明了这两者的区别。调用blocking IO会一直block住对应的进程直到操作完成，而non-blocking IO在kernel还准备数据的情况下会立刻返回。</p>
@@ -223,19 +223,18 @@
 <p>A synchronous I/O operation causes the requesting process to be blocked until that I/O operation completes;<br>
 An asynchronous I/O operation does not cause the requesting process to be blocked;</p>
 </blockquote>
-<p>两者的区别就在于 synchronous IO 做 <code>IO operation</code> 的时候会将process阻塞。按照这个定义，之前所述的blocking IO，non-blocking IO，IO multiplexing都属于synchronous IO。有人可能会说，non-blocking IO并没有被block啊。这里有个非常 “狡猾” 的地方，定义中所指的 &ldquo;IO operation&rdquo; 是指真实的IO操作，就是例子中的recvfrom这个system call。non-blocking IO在执行recvfrom这个system call的时候，如果kernel的数据没有准备好，这时候不会block进程。但是，当kernel中数据准备好的时候，recvfrom会将数据从kernel拷贝到用户内存中，这个时候进程是被block了，在这段时间内，进程是被block的。而asynchronous IO则不一样，当进程发起IO 操作之后，就直接返回再也不理睬了，直到kernel发送一个信号，告诉进程说IO完成。在这整个过程中，进程完全没有被block。</p>
+<p>两者的区别就在于synchronous IO做”IO operation”的时候会将process阻塞。按照这个定义，之前所述的blocking IO，non-blocking IO，IO multiplexing都属于synchronous IO。有人可能会说，non-blocking IO并没有被block啊。这里有个非常“狡猾”的地方，定义中所指的”IO operation”是指真实的IO操作，就是例子中的recvfrom这个system call。non-blocking IO在执行recvfrom这个system call的时候，如果kernel的数据没有准备好，这时候不会block进程。但是，当kernel中数据准备好的时候，recvfrom会将数据从kernel拷贝到用户内存中，这个时候进程是被block了，在这段时间内，进程是被block的。而asynchronous IO则不一样，当进程发起IO 操作之后，就直接返回再也不理睬了，直到kernel发送一个信号，告诉进程说IO完成。在这整个过程中，进程完全没有被block。</p>
 <p>各个IO Model的比较如图所示：</p>
 <p><img src="/images/io_comparison_io_models.png" alt="comparison-five-IO"></p>
 <!-- raw HTML omitted -->
 <p>经过上面的介绍，会发现non-blocking IO和asynchronous IO的区别还是很明显的。在non-blocking IO中，虽然进程大部分时间都不会被block，但是它仍然要求进程去主动的check，并且当数据准备完成以后，也需要进程主动的再次调用recvfrom来将数据拷贝到用户内存。而asynchronous IO则完全不同。它就像是用户进程将整个IO操作交给了他人（kernel）完成，然后他人做完后发信号通知。在此期间，用户进程不需要去检查IO操作的状态，也不需要主动的去拷贝数据。</p>
 <blockquote>
-<p>最后，再举一个不是很恰当的例子来说明这五种 IO Model:<br>
-有A，B，C，D，E 五个人在钓鱼：<br>
+<p>最后，再举几个不是很恰当的例子来说明这四个IO Model:<br>
+有A，B，C，D四个人在钓鱼：<br>
 A 用的是最老式的鱼竿，所以呢，得一直守着，等到鱼上钩了再拉杆；<br>
 B 的鱼竿有个功能，能够显示是否有鱼上钩，所以呢，B就和旁边的MM聊天，隔会再看看有没有鱼上钩，有的话就迅速拉杆；<br>
 C 用的鱼竿和B差不多，但他想了一个好办法，就是同时放好几根鱼竿，然后守在旁边，一旦有显示说鱼上钩了，它就将对应的鱼竿拉起来；<br>
-D 用的鱼竿比B多一个功能，不仅能够显示是否有鱼上钩，还支持蓝牙功能，所以呢，D就安心和旁边的MM聊天，当蓝牙手环震动时，就迅速拉杆；<br>
-E 是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。</p>
+D 是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓上来了，就给D发个短信。</p>
 </blockquote>
 <h2 id="reference">Reference</h2>
 <section class="footnotes" role="doc-endnotes">
@@ -425,7 +424,7 @@ E 是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -463,7 +462,7 @@ E 是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -540,6 +539,8 @@ E 是个有钱人，干脆雇了一个人帮他钓鱼，一旦那个人把鱼钓
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

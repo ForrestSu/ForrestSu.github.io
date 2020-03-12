@@ -62,11 +62,11 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     </item>
     
     <item>
-      <title>C&#43;&#43;11之智能指针-原理分析</title>
-      <link>https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <title>深入理解C&#43;&#43;11智能指针</title>
+      <link>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</link>
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/smart_ptr%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</guid>
       <description>1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
 C++ 11 包含了以下 3 种常用的智能指针：
  std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可
@@ -101,9 +101,9 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &amp;lt;stdio.</description>
       
       <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</guid>
       <description>一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
-1  #define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
+1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
 1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
-1 2 3 4 5  #ifndef __cplusplus#define NULL ((void *)0)#else /* C++ */#define NULL 0#endif  3 C++11引入了nullptr 来表示空指针</description>
+1 2 3 4 5  #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */#define NULL 0 #endif   3 C++11引入了nullptr 来表示空指针</description>
     </item>
     
     <item>

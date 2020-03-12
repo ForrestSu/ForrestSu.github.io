@@ -118,7 +118,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#ftok">ftok()函数</a></li>
+        <li><a href="#ftok函数">ftok()函数</a></li>
         <li><a href="#usage">Usage</a></li>
       </ul>
     </li>
@@ -159,7 +159,7 @@
         </div>
         
         <div class="post-content">
-            <h3 id="ftok">ftok()函数</h3>
+            <h3 id="ftok函数">ftok()函数</h3>
 <p>系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。
 <strong>函数原型</strong>：key_t ftok( const char * fname, int id );  <code>(id&gt;0)</code>
 fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。</p>
@@ -186,18 +186,18 @@ ftok 返回值组成：<code>hex(id)&amp;0xff</code>03 <code>hex(节点号)&amp;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;sys/ipc.h&gt;</span><span style="color:#75715e">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/ipc.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc,<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> argv[])
 {
-  <span style="color:#66d9ef">if</span>(argc<span style="color:#f92672">!</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+  <span style="color:#66d9ef">if</span>(argc<span style="color:#f92672">!=</span><span style="color:#ae81ff">2</span>)
   {
-      puts(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">usage: keyfile</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+      puts(<span style="color:#e6db74">&#34;usage: keyfile</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
       <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
   }
-   printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,argv[<span style="color:#ae81ff">0</span>]);
-   printf(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ftok=0x%x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ftok(argv[<span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">1</span>) );
+   printf(<span style="color:#e6db74">&#34;%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,argv[<span style="color:#ae81ff">0</span>]);
+   printf(<span style="color:#e6db74">&#34;ftok=0x%x</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,ftok(argv[<span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">1</span>) );
    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></td></tr></table>
@@ -377,7 +377,7 @@ ftok 返回值组成：<code>hex(id)&amp;0xff</code>03 <code>hex(节点号)&amp;
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -415,7 +415,7 @@ ftok 返回值组成：<code>hex(id)&amp;0xff</code>03 <code>hex(节点号)&amp;
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -492,6 +492,8 @@ ftok 返回值组成：<code>hex(id)&amp;0xff</code>03 <code>hex(节点号)&amp;
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

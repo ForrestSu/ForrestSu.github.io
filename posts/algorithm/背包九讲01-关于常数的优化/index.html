@@ -116,7 +116,9 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">关于一个常数优化的问题</a></li>
+    <li><a href="#preface">Preface</a></li>
+    <li><a href="#关于一个常数优化的问题">关于一个常数优化的问题</a></li>
+    <li><a href="#更进一步优化物品顺序">更进一步优化————物品顺序</a></li>
   </ul>
 </nav>
     </div>
@@ -131,7 +133,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1705
+            1903
         </div>
         
         <div class="post-meta">
@@ -154,91 +156,164 @@
         </div>
         
         <div class="post-content">
-            <p>　　01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。<em>（也适用于恰好装满容量为V的01背包问题）</em>
+            <h2 id="preface">Preface</h2>
+<p>01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。<em>（也适用于恰好装满容量为V的01背包问题）</em>
 <code>说明:大写字母V表示背包的容量。</code></p>
-<h2 id="heading">关于一个常数优化的问题</h2>
+<h2 id="关于一个常数优化的问题">关于一个常数优化的问题</h2>
 <p>前提：如果我们最后只想计算出dp[V]的值，根据动归方程：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> dp[v]<span style="color:#f92672">=</span>max(dp[v],dp[v<span style="color:#f92672">-</span>ci]<span style="color:#f92672">+</span>wi);<span style="color:#75715e">//i表示第i个物品
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> dp[v]<span style="color:#f92672">=</span>max(dp[v], dp[v<span style="color:#f92672">-</span>ci]<span style="color:#f92672">+</span>wi);<span style="color:#75715e">//i表示第i个物品
 </span></code></pre></td></tr></table>
 </div>
-</div><p>1 当计算到第n个物品时，我们只需要知道dp[V-c<code>n</code>]的值是多少，也就是说计算第n-1个物品的时候我们只需要计算出dp[V-c<code>n</code>]的值就可以停止循环了。进一步，当处理第i个物品时只需要循环到：
+</div><p>当计算到第n个物品时，我们只需要知道dp[V-c<code>n</code>]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-c<code>n</code>]，我们一旦到达下标 V-c<code>n</code>，即可提前中止当前(n-1物品的)循环。</p>
+<p>也就是说，当处理第i个物品时只需要循环到：
 <img src="/images/formula-pack.png" alt="formula-pack"></p>
-<p>　　<code>备注：原作者手误把公式中ｃi+1写成了ｗi。</code>
-2 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。
-**最后：**基于上面两步优化，我在网上找个题目(<code>nyoj654</code>)来验证下正确性,运行结果如下。
+<p><em>备注：原作者手误把公式中ｃi+1写成了ｗi。</em></p>
+<h2 id="更进一步优化物品顺序">更进一步优化————物品顺序</h2>
+<p>在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。</p>
+<p><strong>最后：</strong> 基于上面两步优化，我在网上找个题目(<code>nyoj654</code>)来验证下正确性,运行结果如下。
 <img src="/images/run-result.png" alt="run-result"></p>
 <p><img src="/images/cost-time-rank.png" alt="cost-time-rank"></p>
 <p><strong>代码如下：</strong></p>
-<pre><code>/** nyoj: 654*/
-//c header
-#include &lt;cstdlib&gt;
-#include &lt;cstdio&gt;
-#include &lt;cstring&gt;
-//cpp header
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;algorithm&gt;
-#include &lt;string&gt;
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">/** nyoj: 654*/</span>
+<span style="color:#75715e">//c header
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#75715e">//cpp header
+</span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#75715e">#define M 1100000 </span><span style="color:#75715e">//Max bag&#39;s Capacity
+</span><span style="color:#75715e"></span><span style="color:#75715e">#define N 120 </span><span style="color:#75715e">//Max Item&#39;s amount
+</span><span style="color:#75715e"></span><span style="color:#75715e">#define CLS(x,v) memset(x,v,sizeof(x))
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">typedef</span> pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>,<span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ppi;
 
-using namespace std;
-#define M 1100000 //Max bag's Capacity
-#define N 120 //Max Item's amount
-#define CLS(x,v) memset(x,v,sizeof(x))
-typedef pair&lt;int,int&gt; ppi;
-
-/**Cap is the bag's Capacity; SumCost is the sum of Item's cost*/
-int dp[M],Cap,SumCost;
-/** first is cost ,second is weight*/
-int cmp(ppi x,ppi y)
+<span style="color:#75715e">/**Cap is the bag&#39;s Capacity; SumCost is the sum of Item&#39;s cost*/</span>
+<span style="color:#66d9ef">int</span> dp[M],Cap,SumCost;
+<span style="color:#75715e">/** first is cost ,second is weight*/</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">cmp</span>(ppi x,ppi y)
 {
-    //return true will be Swap elements
-    return x.first&gt;y.first;
+    <span style="color:#75715e">//return true will be Swap elements
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> x.first<span style="color:#f92672">&gt;</span>y.first;
 }
-int ZeroOnePack(int cost,int weight)
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ZeroOnePack</span>(<span style="color:#66d9ef">int</span> cost,<span style="color:#66d9ef">int</span> weight)
 {
-    SumCost-=cost;
-    int bound=max(Cap-SumCost,cost);
-    for(int v=Cap;v&gt;=bound;--v)
-        dp[v]=max(dp[v],dp[v-cost]+weight);
+    SumCost<span style="color:#f92672">-=</span>cost;
+    <span style="color:#66d9ef">int</span> bound<span style="color:#f92672">=</span>max(Cap<span style="color:#f92672">-</span>SumCost,cost);
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> v<span style="color:#f92672">=</span>Cap;v<span style="color:#f92672">&gt;=</span>bound;<span style="color:#f92672">--</span>v)
+        dp[v]<span style="color:#f92672">=</span>max(dp[v],dp[v<span style="color:#f92672">-</span>cost]<span style="color:#f92672">+</span>weight);
 }
-int solve(vector&lt;ppi&gt; &amp;Items)
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">solve</span>(vector<span style="color:#f92672">&lt;</span>ppi<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&amp;</span>Items)
 {
-    CLS(dp,0);
-    for(int i=0;i&lt;Items.size();i++)
+    CLS(dp,<span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>Items.size();i<span style="color:#f92672">++</span>)
         ZeroOnePack(Items[i].first,Items[i].second);
-    //return Answer
-    return dp[Cap];
+    <span style="color:#75715e">//return Answer
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> dp[Cap];
 }
 
-int main()
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
 {
-    int T,n,cost,weight;
-    vector&lt;ppi&gt;Items;
-    //large input take effect obviously
-    ios::sync_with_stdio(false);
-    scanf(&quot;%d&quot;,&amp;T);
-    while(T--)
+    <span style="color:#66d9ef">int</span> T,n,cost,weight;
+    vector<span style="color:#f92672">&lt;</span>ppi<span style="color:#f92672">&gt;</span>Items;
+    <span style="color:#75715e">//large input take effect obviously
+</span><span style="color:#75715e"></span>    ios<span style="color:#f92672">::</span>sync_with_stdio(false);
+    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>T);
+    <span style="color:#66d9ef">while</span>(T<span style="color:#f92672">--</span>)
     {
-        scanf(&quot;%d%d&quot;,&amp;n,&amp;Cap);
-        SumCost=0;
+        scanf(<span style="color:#e6db74">&#34;%d%d&#34;</span>,<span style="color:#f92672">&amp;</span>n,<span style="color:#f92672">&amp;</span>Cap);
+        SumCost<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
         Items.clear();
-        for(int i=0;i&lt;n;i++)
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
         {
-            scanf(&quot;%d%d&quot;,&amp;cost,&amp;weight);
-            SumCost+=cost;
+            scanf(<span style="color:#e6db74">&#34;%d%d&#34;</span>,<span style="color:#f92672">&amp;</span>cost,<span style="color:#f92672">&amp;</span>weight);
+            SumCost<span style="color:#f92672">+=</span>cost;
             Items.push_back(make_pair(cost,weight));
         }
         sort(Items.begin(),Items.end(),cmp);
-        printf(&quot;Max experience: %d\n&quot;,solve(Items));
+        printf(<span style="color:#e6db74">&#34;Max experience: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>,solve(Items));
     }
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre><p>题目链接：http://acm.nyist.net/JudgeOnline/problem.php?pid=654</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>题目链接: <a href="http://acm.nyist.net/JudgeOnline/problem.php?pid=654">http://acm.nyist.net/JudgeOnline/problem.php?pid=654</a></p>
 
         </div>
 
@@ -269,7 +344,7 @@ int main()
             
             <ul class="clearfix">
                 
-                <li><a href='https://forrestsu.github.io/tags/algorithm'>Algorithm</a></li>
+                <li><a href='https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98'>背包问题</a></li>
                 
             </ul>
             
@@ -414,7 +489,7 @@ int main()
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -452,7 +527,7 @@ int main()
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -529,6 +604,8 @@ int main()
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

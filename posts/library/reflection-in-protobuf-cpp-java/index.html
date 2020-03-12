@@ -174,7 +174,7 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-proto" data-lang="proto"><span style="color:#f92672">package</span> com<span style="color:#f92672">.</span>sunquan;<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Login</span> <span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>{<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">int64</span> userid <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
@@ -213,16 +213,16 @@
 </span><span style="color:#75715e"> * @param FullMsgName  eg: com.sunquan.Login
 </span><span style="color:#75715e"> * @return if fail return NULL
 </span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">const</span> google<span style="color:#f92672">:</span><span style="color:#f92672">:</span>protobuf<span style="color:#f92672">:</span><span style="color:#f92672">:</span>Message<span style="color:#f92672">*</span> ParseUtil<span style="color:#f92672">:</span><span style="color:#f92672">:</span>FindMsgProtoType(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>string<span style="color:#f92672">&amp;</span> FullMsgName)
+<span style="color:#66d9ef">const</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Message<span style="color:#f92672">*</span> ParseUtil<span style="color:#f92672">::</span>FindMsgProtoType(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> FullMsgName)
 {
-    google<span style="color:#f92672">:</span><span style="color:#f92672">:</span>protobuf<span style="color:#f92672">:</span><span style="color:#f92672">:</span>Message<span style="color:#f92672">*</span> pFactory <span style="color:#f92672">=</span> NULL;
-    <span style="color:#66d9ef">auto</span> pDesc <span style="color:#f92672">=</span> google<span style="color:#f92672">:</span><span style="color:#f92672">:</span>protobuf<span style="color:#f92672">:</span><span style="color:#f92672">:</span>DescriptorPool<span style="color:#f92672">:</span><span style="color:#f92672">:</span>generated_pool()<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>FindMessageTypeByName(FullMsgName);
+    google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Message<span style="color:#f92672">*</span> pFactory <span style="color:#f92672">=</span> NULL;
+    <span style="color:#66d9ef">auto</span> pDesc <span style="color:#f92672">=</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>DescriptorPool<span style="color:#f92672">::</span>generated_pool()<span style="color:#f92672">-&gt;</span>FindMessageTypeByName(FullMsgName);
     <span style="color:#66d9ef">if</span> (pDesc)
     {
         <span style="color:#75715e">// Calling this method twice with the same Descriptor returns the same object.
-</span><span style="color:#75715e"></span>        pFactory <span style="color:#f92672">=</span> google<span style="color:#f92672">:</span><span style="color:#f92672">:</span>protobuf<span style="color:#f92672">:</span><span style="color:#f92672">:</span>MessageFactory<span style="color:#f92672">:</span><span style="color:#f92672">:</span>generated_factory()<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>GetPrototype(pDesc);
+</span><span style="color:#75715e"></span>        pFactory <span style="color:#f92672">=</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>MessageFactory<span style="color:#f92672">::</span>generated_factory()<span style="color:#f92672">-&gt;</span>GetPrototype(pDesc);
     } <span style="color:#66d9ef">else</span>
-        std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>cerr <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">can&#39;t find new desc:</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> FullMsgName <span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span> std<span style="color:#f92672">:</span><span style="color:#f92672">:</span>endl;
+        std<span style="color:#f92672">::</span>cerr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;can&#39;t find new desc:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> FullMsgName <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
     <span style="color:#66d9ef">return</span> pFactory;
 }
 </code></pre></td></tr></table>
@@ -325,34 +325,34 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
-	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Reflect_Parse</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Reflect_Parse</span><span style="color:#f92672">()</span>
 	<span style="color:#f92672">{</span>
-		Login req <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">newBuilder</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+		Login req <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">newBuilder</span><span style="color:#f92672">()</span>
 		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setUserid</span><span style="color:#f92672">(</span>100<span style="color:#f92672">)</span>
 		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Alice&#34;</span><span style="color:#f92672">)</span>
 		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setEmail</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Alice123@gmail.com&#34;</span><span style="color:#f92672">)</span>
 		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setNickname</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;爱丽丝&#34;</span><span style="color:#f92672">)</span>
-	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>Digest<span style="color:#f92672">.</span><span style="color:#a6e22e">getStringMD5</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A123456&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
-	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-		ByteString data <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">toByteString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>Digest<span style="color:#f92672">.</span><span style="color:#a6e22e">getStringMD5</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A123456&#34;</span><span style="color:#f92672">))</span>
+	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+		ByteString data <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">toByteString</span><span style="color:#f92672">();</span>
 		
 		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
 		    <span style="color:#75715e">//根据消息名称查找 Descriptor, DynamicMessage工厂 根据指定的 Descriptor 产生消息 object
 </span><span style="color:#75715e"></span>            String magname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Login&#34;</span><span style="color:#f92672">;</span>
-            Descriptor desc <span style="color:#f92672">=</span> DemoProtos<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findMessageTypeByName</span><span style="color:#f92672">(</span>magname<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            Descriptor desc <span style="color:#f92672">=</span> DemoProtos<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">().</span><span style="color:#a6e22e">findMessageTypeByName</span><span style="color:#f92672">(</span>magname<span style="color:#f92672">);</span>
 
-            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>desc <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>desc <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
                 <span style="color:#75715e">// com.sunquan.zmqproto.Login
-</span><span style="color:#75715e"></span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">.</span><span style="color:#a6e22e">getFullName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-                DynamicMessage msg <span style="color:#f92672">=</span> DynamicMessage<span style="color:#f92672">.</span><span style="color:#a6e22e">parseFrom</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">,</span> data<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">.</span><span style="color:#a6e22e">getFullName</span><span style="color:#f92672">());</span>
+                DynamicMessage msg <span style="color:#f92672">=</span> DynamicMessage<span style="color:#f92672">.</span><span style="color:#a6e22e">parseFrom</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
             <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Can&#39;t find msg desc: &#34;</span> <span style="color:#f92672">+</span> magname<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Can&#39;t find msg desc: &#34;</span> <span style="color:#f92672">+</span> magname<span style="color:#f92672">);</span>
             <span style="color:#f92672">}</span>
             <span style="color:#75715e">//底层的实现: 每个消息自身都实现了 自己的  getDescriptor() 接口
-</span><span style="color:#75715e"></span>            Descriptor desc_direct <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</span><span style="color:#75715e"></span>            Descriptor desc_direct <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">();</span>
 		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InvalidProtocolBufferException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-			e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
 		<span style="color:#f92672">}</span>
 	<span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
@@ -367,10 +367,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">   <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;</span> typeMap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">LOGINREP</span><span style="color:#f92672">,</span> LoginRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">INSERTORDERREP</span><span style="color:#f92672">,</span> InsertOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">CANCELORDERREP</span><span style="color:#f92672">,</span> CancelOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">   <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;</span> typeMap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;();</span>
+   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">LOGINREP</span><span style="color:#f92672">,</span> LoginRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
+   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">INSERTORDERREP</span><span style="color:#f92672">,</span> InsertOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
+   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">CANCELORDERREP</span><span style="color:#f92672">,</span> CancelOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>3 动态修改消息字段值
@@ -550,7 +550,7 @@ wait</p>
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -588,7 +588,7 @@ wait</p>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -665,6 +665,8 @@ wait</p>
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>

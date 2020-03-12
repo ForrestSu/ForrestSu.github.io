@@ -116,42 +116,42 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-">1 概述</a></li>
-    <li><a href="#2-">2 转换任务逻辑</a>
+    <li><a href="#1-概述">1 概述</a></li>
+    <li><a href="#2-转换任务逻辑">2 转换任务逻辑</a>
       <ul>
-        <li><a href="#-">境外行情归档/ 境外业务日期自动切换</a></li>
-        <li><a href="#fix-">FIX转换任务 √</a></li>
-        <li><a href="#fix">恒生FIX转换任务</a></li>
-        <li><a href="#fix-1">境外FIX期货报盘</a></li>
-        <li><a href="#--1">境外统一期货报盘(含委托、成交、行情) √</a></li>
-        <li><a href="#10">彭博资讯文件导入（10个）√</a></li>
-        <li><a href="#3">实时行情任务（3个）√</a></li>
-        <li><a href="#-svc-qdiirealhqsvc-qdii-blcoaction-">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</a></li>
+        <li><a href="#境外行情归档-境外业务日期自动切换">境外行情归档/ 境外业务日期自动切换</a></li>
+        <li><a href="#fix转换任务-">FIX转换任务 √</a></li>
+        <li><a href="#恒生fix转换任务">恒生FIX转换任务</a></li>
+        <li><a href="#境外fix期货报盘">境外FIX期货报盘</a></li>
+        <li><a href="#境外统一期货报盘含委托成交行情-">境外统一期货报盘(含委托、成交、行情) √</a></li>
+        <li><a href="#彭博资讯文件导入10个">彭博资讯文件导入（10个）√</a></li>
+        <li><a href="#实时行情任务3个">实时行情任务（3个）√</a></li>
+        <li><a href="#后台服务-svc_qdiirealhqsvc_qdii_blcoaction-">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</a></li>
       </ul>
     </li>
-    <li><a href="#3-">3 小工具</a>
+    <li><a href="#3-小工具">3 小工具</a>
       <ul>
-        <li><a href="#fixfixrep">FIX回报重演工具（Fixrep）</a></li>
-        <li><a href="#fixsimulator">FixSimulator模拟成交工具</a></li>
-        <li><a href="#fix-2">FIX日志解析工具</a></li>
-        <li><a href="#sapior--xlsx">彭博SAPI行情下载工具（or  XLSX模板获取）</a></li>
+        <li><a href="#fix回报重演工具fixrep">FIX回报重演工具（Fixrep）</a></li>
+        <li><a href="#fixsimulator模拟成交工具">FixSimulator模拟成交工具</a></li>
+        <li><a href="#fix日志解析工具">FIX日志解析工具</a></li>
+        <li><a href="#彭博sapi行情下载工具or--xlsx模板获取">彭博SAPI行情下载工具（or  XLSX模板获取）</a></li>
       </ul>
     </li>
-    <li><a href="#4-ufxei">4 UFX/EI交易</a>
+    <li><a href="#4-ufxei交易">4 UFX/EI交易</a>
       <ul>
-        <li><a href="#ei">EI交易服务</a></li>
-        <li><a href="#ufx">UFX交易服务</a></li>
+        <li><a href="#ei交易服务">EI交易服务</a></li>
+        <li><a href="#ufx交易服务">UFX交易服务</a></li>
       </ul>
     </li>
-    <li><a href="#5-">5 问题分析</a></li>
-    <li><a href="#6-">6 其他</a>
+    <li><a href="#5-问题分析">5 问题分析</a></li>
+    <li><a href="#6-其他">6 其他</a>
       <ul>
-        <li><a href="#nyfix">NYFIX对接相关</a></li>
-        <li><a href="#asar">ASAR相关问题排查思路</a></li>
-        <li><a href="#heading">其他</a></li>
+        <li><a href="#nyfix对接相关">NYFIX对接相关</a></li>
+        <li><a href="#asar相关问题排查思路">ASAR相关问题排查思路</a></li>
+        <li><a href="#其他">其他</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">参考文档</a></li>
+    <li><a href="#参考文档">参考文档</a></li>
   </ul>
 </nav>
     </div>
@@ -189,7 +189,7 @@
         </div>
         
         <div class="post-content">
-            <h2 id="1-">1 概述</h2>
+            <h2 id="1-概述">1 概述</h2>
 <p> 　目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。<br>
 操作手册《QDII操作手册－转换机部分.docx》 <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> 、设计文档 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。清单如下:</p>
 <ul>
@@ -205,31 +205,31 @@
 <blockquote>
 <p>下面有 <code>√</code> 的任务需要代码走读。</p>
 </blockquote>
-<h2 id="2-">2 转换任务逻辑</h2>
-<h3 id="-">境外行情归档/ 境外业务日期自动切换</h3>
+<h2 id="2-转换任务逻辑">2 转换任务逻辑</h2>
+<h3 id="境外行情归档-境外业务日期自动切换">境外行情归档/ 境外业务日期自动切换</h3>
 <p><strong>境外行情归档</strong><br>
 首次启动检查境外非期货市场是否有历史行情（tstockinfo每个市场只保留一天的行情数据），有历史行情则进行行情填充（sp_qdii_makeup_stockinfo）。<br>
 然后任务一直检查是否有市场闭市，然后执行行情归档操作（sp_qdii_market_store）<br>
 <strong>境外业务日期自动切换</strong><br>
 线程1 负责循环调用存储过程：sp_qdii_marketbusintrance（根据市场和品种进行业务日期的切换）<br>
 线程2 负责循环调用存储过程：sp_qdii_businentrancefuture（期货基金业务初始化）</p>
-<h3 id="fix-">FIX转换任务 √</h3>
+<h3 id="fix转换任务-">FIX转换任务 √</h3>
 <p>功能：<br>
 (1) 负责进行境外股票、期货的委托报送，确认和成交<br>
 (2) 支持合笔与分笔委托报单<br>
 参考文档：《FIX转换机详细设计.docx》</p>
-<h3 id="fix">恒生FIX转换任务</h3>
+<h3 id="恒生fix转换任务">恒生FIX转换任务</h3>
 <p>　　逻辑与《FIX转换任务》类似。<br>
 区别：FIX转换任务调用的是appia.dll收发FIX报文，恒生FIX转换机采用的是HSFIX引擎。</p>
 <blockquote>
 <p>注意：HSFIX执行路径不能含中文，否则启动会报错，报错截图详见QDII操作手册<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 </blockquote>
-<h3 id="fix-1">境外FIX期货报盘</h3>
+<h3 id="境外fix期货报盘">境外FIX期货报盘</h3>
 <p>逻辑和《HSFIX转换机》类似，只是调用的后台服务不同。</p>
-<h3 id="--1">境外统一期货报盘(含委托、成交、行情) √</h3>
+<h3 id="境外统一期货报盘含委托成交行情-">境外统一期货报盘(含委托、成交、行情) √</h3>
 <p>目前支持香港SP柜台。<br>
 详见《SharpPoint报盘详细设计.docx》<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
-<h3 id="10">彭博资讯文件导入（10个）√</h3>
+<h3 id="彭博资讯文件导入10个">彭博资讯文件导入（10个）√</h3>
 <p>逻辑：IniVar(Load)→Parse→CheckData→Import，主要更新的表：tstockinfo，tstockmarketinfo，thisstockinfo<br>
 （1）加载基础数据，初始化数据库连接；<br>
 （2）Parse从csv文件中读取一行数据；<br>
@@ -282,7 +282,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="3">实时行情任务（3个）√</h3>
+<h3 id="实时行情任务3个">实时行情任务（3个）√</h3>
 <p><strong>彭博实时行情任务</strong>：<br>
 　　主要通过Bloomberg DesktopAPI的库，向彭博终端订阅实时行情。<br>
 回调接口SessionProcessEvent来接收事件消息、实时行情，并放入行情队列hqMemoData。<br>
@@ -300,7 +300,7 @@
 <blockquote>
 <p>导入样例文件：<code>HKQuotes.dbf</code></p>
 </blockquote>
-<h3 id="-svc-qdiirealhqsvc-qdii-blcoaction-">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</h3>
+<h3 id="后台服务-svc_qdiirealhqsvc_qdii_blcoaction-">后台服务 (svc_qdiirealhq、svc_qdii_blcoaction) √</h3>
 <p>**实时行情服务：**svc_qdiirealhq<br>
 　逻辑：前台传入 <code>|</code> 分隔的批量行情数据包，服务每次解析一条，根据前台传入标志isSaveToDB=0, 则把行情写入共享内存ChangeStockHq()；
 否则调用RefreshDBStkInfo()更新数据库行情(更新停牌标志和涨跌停价格)，主要更新的表：tstockinfo，tstockmarketinfo。</p>
@@ -309,8 +309,8 @@
 逻辑：该服务每次处理一条公司行为数据，然后插入(或更新)到tcorpactioninfo表中。<br>
 　svc_qdii_singlecoac:  支持的Reuter公司行为数据类型：红股、红利、红利选择、资本回报、股份拆分、股份合并、派送红股、配股。<br>
 逻辑：和svc_qdii_blcoaction类似。</p>
-<h2 id="3-">3 小工具</h2>
-<h3 id="fixfixrep">FIX回报重演工具（Fixrep）</h3>
+<h2 id="3-小工具">3 小工具</h2>
+<h3 id="fix回报重演工具fixrep">FIX回报重演工具（Fixrep）</h3>
 <p>Description：<br>
 　　一个模拟券商：主要通过读取 Appia Engine 的日志数据，然后接收appia engine 发送的委托数据,和日志中的委托数据进行对比，匹配成功则发送对应的执行报告。<br>
 实现逻辑：
@@ -319,27 +319,27 @@
 <p>SVN:  \QDII\trunk\developtools\Fixrep<br>
 Doc:  \QDII\trunk\developtools\Fixrep\FIX回报重演工具使用说明.pdf</p>
 </blockquote>
-<h3 id="fixsimulator">FixSimulator模拟成交工具</h3>
+<h3 id="fixsimulator模拟成交工具">FixSimulator模拟成交工具</h3>
 <p>Description：<br>
 　　FIX模拟成交工具：支持恒生FIX转换机、FIX转换机。</p>
 <blockquote>
 <p>SVN:  \QDII\trunk\developtools\FixSimulator<br>
 Doc:  \QDII\trunk\developtools\FixSimulator\README.pdf</p>
 </blockquote>
-<h3 id="fix-2">FIX日志解析工具</h3>
+<h3 id="fix日志解析工具">FIX日志解析工具</h3>
 <p><a href="http://192.168.52.26:6001">Log Analysis</a></p>
-<h3 id="sapior--xlsx">彭博SAPI行情下载工具（or  XLSX模板获取）</h3>
+<h3 id="彭博sapi行情下载工具or--xlsx模板获取">彭博SAPI行情下载工具（or  XLSX模板获取）</h3>
 <p>彭博SAPI行情工具需要客户购买彭博的SAPI接口才能使用；如果没有购买，就采用Excel模板通过彭博Excel插件来获取资讯和行情数据。<br>
 彭博SAPI行情使用请参考《彭博取数工具操作手册.docx》<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup><br>
 XLSX模板</p>
 <blockquote>
 <p>svn路径：Install\BloombergExcel导出模板</p>
 </blockquote>
-<h2 id="4-ufxei">4 UFX/EI交易</h2>
-<h3 id="ei">EI交易服务</h3>
+<h2 id="4-ufxei交易">4 UFX/EI交易</h2>
+<h3 id="ei交易服务">EI交易服务</h3>
 <p>EI作用是在ASAR外面再封装一层,给HS内部其他系统，可以用功能号的方式调用。</p>
-<h3 id="ufx">UFX交易服务</h3>
-<h2 id="5-">5 问题分析</h2>
+<h3 id="ufx交易服务">UFX交易服务</h3>
+<h2 id="5-问题分析">5 问题分析</h2>
 <p>以下是我解决或遇到的几个问题，个人觉得比较有意思，和大家分享一下，希望能有帮助。<br>
 （1）头文件未引用（source:<code>lizp</code>）<br>
 问题分析：</p>
@@ -380,8 +380,8 @@ sqlca头文件里面使用了一个全局变量，当工程加入cpp文件时，
 C++同一个文件有多处声明，在编译期报错；声明分散在多个文件，每个文件最多一个，则链接为SO时报错。</p>
 </blockquote>
 <p>解决办法：CPP头文件引用前定义一个宏，当在cpp文件编译的时候，该全局变量在宏展开的时候会加上extern。</p>
-<h2 id="6-">6 其他</h2>
-<h3 id="nyfix">NYFIX对接相关</h3>
+<h2 id="6-其他">6 其他</h2>
+<h3 id="nyfix对接相关">NYFIX对接相关</h3>
 <p>NYFIX网络的对接、券商的测试流程，参考文档《NYFIX对接分享.pptx》<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup><br>
 开发自测可采用上面提到的 <a href="#fixsimulator">FIX模拟成交</a><br>
 使用引擎的启动参考脚本如下：(内含手册)</p>
@@ -394,7 +394,7 @@ C++同一个文件有多处声明，在编译期报错；声明分散在多个�
 <p>Broker FIX Test scripts(Template2016).xlsx
 svn路径：Documents\QDII券商测试-2016</p>
 </blockquote>
-<h3 id="asar">ASAR相关问题排查思路</h3>
+<h3 id="asar相关问题排查思路">ASAR相关问题排查思路</h3>
 <p>一般中间件的常见问题是： 比如AS服务起不来？<br>
 检查：一般升级完AS服务，需要用asar用户执行命令：</p>
 <blockquote>
@@ -410,12 +410,12 @@ svn路径：Documents\QDII券商测试-2016</p>
 <p><strong>B 如果是个别服务起不来</strong><br>
 检查消息中心是否已经成功启动。如果已启动，再根据对应的日志，看是什么错误。<br>
 经常出现Oracle库下面的xxx.so找不到，但是locate又能查到这个so，这时候检查asar用户是否有访问该so的权限即可。</p>
-<h3 id="heading">其他</h3>
+<h3 id="其他">其他</h3>
 <p>如果后续有新增转换任务，请同步在文档**《QDII操作手册－转换机部分.docx》**中补充对应的操作文档。</p>
 <blockquote>
 <p>本次培训的所有文档将上传至svn：Documents\D6.培训资料\07.QDII功能\转换机_交接内容[孙权]</p>
 </blockquote>
-<h2 id="heading-1">参考文档</h2>
+<h2 id="参考文档">参考文档</h2>
 <blockquote>
 <p>《QDII报盘详细设计.docx》<br>
 《SharpPoint报盘详细设计.docx》<br>
@@ -614,7 +614,7 @@ svn：Documents\D2.Designs\05.模块设计\01.转换机（报盘&amp;行情）\0
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
     
@@ -652,7 +652,7 @@ svn：Documents\D2.Designs\05.模块设计\01.转换机（报盘&amp;行情）\0
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -729,6 +729,8 @@ svn：Documents\D2.Designs\05.模块设计\01.转换机（报盘&amp;行情）\0
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
 </div>
     </section>
