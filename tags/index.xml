@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:09:07 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SIGABRT</title>
+      <link>https://forrestsu.github.io/tags/sigabrt/</link>
+      <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/sigabrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>std::thread</title>
+      <link>https://forrestsu.github.io/tags/stdthread/</link>
+      <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/stdthread/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unwound stack</title>
+      <link>https://forrestsu.github.io/tags/unwound-stack/</link>
+      <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/unwound-stack/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>select</title>
@@ -426,7 +453,7 @@
     </item>
     
     <item>
-      <title>Hundsun</title>
+      <title>hundsun</title>
       <link>https://forrestsu.github.io/tags/hundsun/</link>
       <pubDate>Fri, 07 Apr 2017 17:51:39 +0800</pubDate>
       

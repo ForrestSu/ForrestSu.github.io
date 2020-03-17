@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.66.0" />
+	<meta name="generator" content="Hugo 0.62.1" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,6 +65,31 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月15日 11:09:07
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
+为了方便理解，下面给一个例子：
+1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt;#include &lt;thread&gt;void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">阅读全文</a></p>
+    </article>
     
     <article class="post">
         <header>
@@ -304,32 +329,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年10月30日 19:50:19
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/highavailable'>HighAvailable</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface Zookeeper是一个高性能分布式应用协调服务
- Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交  Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
-说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -411,6 +410,10 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -446,10 +449,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -463,7 +462,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -554,7 +553,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -588,9 +587,13 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -609,6 +612,8 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

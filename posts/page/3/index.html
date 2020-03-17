@@ -71,6 +71,35 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/" title="异步编程之 CPS">异步编程之 CPS</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年4月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
+CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
+现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
+1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
+1 2 3 4 5 6 7 8  square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/" title="25岁的迷茫">25岁的迷茫</a>
             </h1>
         </header>
@@ -329,43 +358,6 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/talk-with-cto/" title="Talk with cto">Talk with cto</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年1月8日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            2018-01-03 Wed 13:00 北京华贸中心 2 floor
-备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
-谈话记录 谈话主要以QA的方式展开,如下:
-基本面 luke: 你是什么时候来公司的？
-sq: 今年4月10日，来名策有8个月了。
-luke: 在恒生工作了几年？
-sq: 算上实习期 共2年。
-luke: 在恒生的工作怎么样？是不是学到了很多东西？
-sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
-luke: 恒生不是也有中间件吗？
-sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
-luke: 当初在恒生你也是跟张前平做事的？
-sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/talk-with-cto/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -464,6 +456,10 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -499,10 +495,6 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -516,7 +508,7 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -607,7 +599,7 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -641,9 +633,13 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -662,6 +658,8 @@ sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他�
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

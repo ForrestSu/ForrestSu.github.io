@@ -78,6 +78,35 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">不建议使用std::thread</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月15日 11:09:07
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            1746
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
+为了方便理解，下面给一个例子：
+1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt;#include &lt;thread&gt;void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">Multithreading-with-ZeroMQ</a>
             </h1>
         </header>
@@ -325,44 +354,37 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
         
         <div class="post-content">
             一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
-1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
+1  #define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
 1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
-1 2 3 4 5  #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */#define NULL 0 #endif   3 C++11引入了nullptr 来表示空指针……
+1 2 3 4 5  #ifndef __cplusplus#define NULL ((void *)0)#else /* C++ */#define NULL 0#endif  3 C++11引入了nullptr 来表示空指针……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">阅读全文</a></p>
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">PCLint9安装_(软件质量之道)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年6月4日 17:35:23
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            58
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
-            
-        </div>
-        
-        <div class="post-content">
-            目前官网最新版是PCLint9.0L(2016-6-3) 2. 接下来弹出PCLint的配置程序，点击下一步开始配置。 ……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">阅读全文</a></p>
-        </div>
-    </article>
-    
 
     
 
 
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="https://forrestsu.github.io/categories/cpp/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/cpp/page/2/">2</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://forrestsu.github.io/categories/cpp/page/2/">下一页</a>
+    </li>
+    
+</ol>
 
 
 
@@ -383,6 +405,10 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
@@ -420,10 +446,6 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -437,7 +459,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -528,7 +550,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -562,9 +584,13 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -583,6 +609,8 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

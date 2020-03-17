@@ -48,7 +48,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
       
       <guid>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</guid>
       <description>1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor.</description>
+2 支持C++ 11 There&#39;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&#39;s language processor.</description>
     </item>
     
     <item>

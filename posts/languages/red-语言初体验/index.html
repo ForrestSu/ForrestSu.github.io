@@ -116,8 +116,8 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-red-语言特性">1 red 语言特性</a></li>
-    <li><a href="#2-尝试做个计算器">2 尝试做个计算器</a></li>
+    <li><a href="#1-red-">1 red 语言特性</a></li>
+    <li><a href="#2-">2 尝试做个计算器</a></li>
   </ul>
 </nav>
     </div>
@@ -157,7 +157,7 @@
         <div class="post-content">
             <p>我第一次听到 red 这门语言是在2017-07-20，是通过陈天的一篇关于 red 的文章。正好趁十一，闲得浮生几日，来入个门。下面步入正题：
 red 目前最新的版本是0.6.3 (2017-10-05)</p>
-<h2 id="1-red-语言特性">1 red 语言特性</h2>
+<h2 id="1-red-">1 red 语言特性</h2>
 <p>我们首先来看下 red 语言的一些特性：</p>
 <ul>
 <li>
@@ -179,7 +179,7 @@ red 目前提供了大约50多种常用类型，而且能够赋值时自动识�
 red 可执行程序只有1.1M左右，cool！</p>
 </li>
 </ul>
-<h2 id="2-尝试做个计算器">2 尝试做个计算器</h2>
+<h2 id="2-">2 尝试做个计算器</h2>
 <p>光说不练假把式，我们来仿写一个 Apple 计算器。</p>
 <p><img src="/images/red-calculator-rendering.png" alt="red-calculator-rendering">
 代码实现：</p>
@@ -291,11 +291,11 @@ red 可执行程序只有1.1M左右，cool！</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Red [
-    Title<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;计算器&#34;</span>
-	Author<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ForrestSu&#34;</span>
-	Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">2017-10-04</span>
-	Version<span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0.0</span>
-	purpose<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;模仿Apple计算器&#34;</span>
+    Title<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">计算器&#34;</span>
+	Author<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ForrestSu&#34;</span>
+	Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">2017</span><span style="color:#ae81ff">-10</span><span style="color:#ae81ff">-04</span>
+	Version<span style="color:#f92672">:</span> <span style="color:#ae81ff">1.0</span><span style="color:#ae81ff">.0</span>
+	purpose<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">模仿Apple计算器&#34;</span>
 	File<span style="color:#f92672">:</span> 	 <span style="color:#f92672">%applecalc.red
 </span><span style="color:#f92672">	Needs:	 &#39;View
 </span><span style="color:#f92672">]
@@ -317,11 +317,11 @@ red 可执行程序只有1.1M左右，cool！</p>
 	; 为此三类我们定义了三个样式，分别是 num_btn,func_btn,op_btn 。num_btn,func_btn,op_btn 。
 	style btn<span style="color:#f92672">:</span> base white<span style="color:#f92672">-</span>gray <span style="color:#ae81ff">60</span>x50 font<span style="color:#f92672">-</span>size <span style="color:#ae81ff">16</span> draw [pen gray box <span style="color:#ae81ff">0x0</span> <span style="color:#ae81ff">60</span>x50]
 	style num_btn<span style="color:#f92672">:</span> btn white<span style="color:#f92672">-</span>gray[
-	    ; 「C<span style="color:#f92672">/</span>AC」按键上面的文字会在 <span style="color:#e6db74">&#34;AC&#34;</span> 和 <span style="color:#e6db74">&#34;C&#34;</span> 之间切换：
+	    ; 「C<span style="color:#f92672">/</span>AC」按键上面的文字会在 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">AC&#34;</span> 和 <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">C&#34;</span> 之间切换：
 		; <span style="color:#f92672">*</span> AC 用来清除「当前状态」。
 		; <span style="color:#f92672">*</span> C 用来清除当前画面，使得画面显示<span style="color:#ae81ff">0</span>。
 		; 当数字键被按下之后，画面上有数字了，「C<span style="color:#f92672">/</span>AC」键就会显示「C」
-		c_btn<span style="color:#f92672">/</span>text<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;C&#34;</span>
+		c_btn<span style="color:#f92672">/</span>text<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">C&#34;</span>
 	    ; 小数点是否已经被按过
 		either not is_point<span style="color:#f92672">?</span> [
 		  display<span style="color:#f92672">/</span>data<span style="color:#f92672">:</span> value2<span style="color:#f92672">:</span> value2 <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> load face<span style="color:#f92672">/</span>text
@@ -338,16 +338,16 @@ red 可执行程序只有1.1M左右，cool！</p>
 	style op_btn<span style="color:#f92672">:</span> btn orange font<span style="color:#f92672">-</span>color white [
 	    value2<span style="color:#f92672">:</span> display<span style="color:#f92672">/</span>data
 		value1<span style="color:#f92672">:</span> switch last_op [
-			<span style="color:#e6db74">&#34;÷&#34;</span> [ value1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> value2 ]
-			<span style="color:#e6db74">&#34;x&#34;</span> [ value1 <span style="color:#f92672">*</span> value2]
-			<span style="color:#e6db74">&#34;-&#34;</span> [ value1 <span style="color:#f92672">-</span> value2]
-			<span style="color:#e6db74">&#34;+&#34;</span> [ value1 <span style="color:#f92672">+</span> value2]
-			<span style="color:#e6db74">&#34;=&#34;</span> [ value2]
+			<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">÷&#34;</span> [ value1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> value2 ]
+			<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">x&#34;</span> [ value1 <span style="color:#f92672">*</span> value2]
+			<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">-&#34;</span> [ value1 <span style="color:#f92672">-</span> value2]
+			<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">+&#34;</span> [ value1 <span style="color:#f92672">+</span> value2]
+			<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">=&#34;</span> [ value2]
 		]
 		if none<span style="color:#f92672">?</span> value1 [ value1<span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> ]
 		; 计算完了是否把 value2 清空 
 		value2<span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>
-		is_point<span style="color:#f92672">?:</span> false
+		is_point<span style="color:#f92672">?</span><span style="color:#f92672">:</span> false
 		last_op<span style="color:#f92672">:</span> face<span style="color:#f92672">/</span>text ;记录此次按下的符号
 	    display<span style="color:#f92672">/</span>data<span style="color:#f92672">:</span> value1
 	]
@@ -355,42 +355,42 @@ red 可执行程序只有1.1M左右，cool！</p>
 	space <span style="color:#ae81ff">0x0</span>
 	display<span style="color:#f92672">:</span> text gray <span style="color:#ae81ff">240</span>x50 font<span style="color:#f92672">-</span>color white font<span style="color:#f92672">-</span>size <span style="color:#ae81ff">30</span> right data <span style="color:#ae81ff">0</span> 
 	return 
-	c_btn<span style="color:#f92672">:</span> func_btn <span style="color:#e6db74">&#34;AC&#34;</span> [
-	    either <span style="color:#e6db74">&#34;AC&#34;</span> <span style="color:#f92672">=</span> face<span style="color:#f92672">/</span>text [
-		; 当上面的字样是”AC<span style="color:#e6db74">&#34;时，表示要清除内存，把 is-point?、value1、op、value2
-</span><span style="color:#e6db74">		; 这四个值都恢复到原状。但因为出现 &#34;</span>AC<span style="color:#e6db74">&#34; 表示已经出现过 &#34;</span>C<span style="color:#e6db74">&#34;，而处理&#34;</span>C<span style="color:#e6db74">&#34; 的时候
+	c_btn<span style="color:#f92672">:</span> func_btn <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">AC&#34;</span> [
+	    either <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">AC&#34;</span> <span style="color:#f92672">=</span> face<span style="color:#f92672">/</span>text [
+		; 当上面的字样是”AC<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">时，表示要清除内存，把 is-point?、value1、op、value2
+</span><span style="color:#e6db74">		; 这四个值都恢复到原状。但因为出现 &#34;</span>AC<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> 表示已经出现过 &#34;</span>C<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">，而处理&#34;</span>C<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> 的时候
 </span><span style="color:#e6db74">		; 会把 value2 和 is-point? 复原，所以这里只要复原 value1 和 op 即可。
 </span><span style="color:#e6db74">	       value1: 0
-</span><span style="color:#e6db74">           last_op: &#34;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">           last_op: &#34;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">
 </span><span style="color:#e6db74">	    ][
 </span><span style="color:#e6db74">		    display/data: 0
 </span><span style="color:#e6db74">			value2: 0
 </span><span style="color:#e6db74">			is_point?: false
-</span><span style="color:#e6db74">			; 按下&#34;</span>C<span style="color:#e6db74">&#34;之后，上面的字样会变成&#34;</span>AC<span style="color:#e6db74">&#34;
-</span><span style="color:#e6db74">			face/text: &#34;</span>AC<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">			; 按下&#34;</span>C<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">之后，上面的字样会变成&#34;</span>AC<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">			face/text: &#34;</span>AC<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">
 </span><span style="color:#e6db74">		]
 </span><span style="color:#e6db74">	]
-</span><span style="color:#e6db74">	func_btn &#34;</span><span style="color:#f92672">+/-</span><span style="color:#e6db74">&#34; [
+</span><span style="color:#e6db74">	func_btn &#34;</span><span style="color:#f92672">+</span><span style="color:#f92672">/</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> [
 </span><span style="color:#e6db74">	   ; 如果第一个字符是减号，就去除减号
-</span><span style="color:#e6db74">	    either #&#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34; = display/text/1 [
+</span><span style="color:#e6db74">	    either #&#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> = display/text/1 [
 </span><span style="color:#e6db74">	       remove display/text
-</span><span style="color:#e6db74">		][ insert display/text #&#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34; ]
+</span><span style="color:#e6db74">		][ insert display/text #&#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> ]
 </span><span style="color:#e6db74">	]
-</span><span style="color:#e6db74">	func_btn &#34;</span>%<span style="color:#e6db74">&#34; [
+</span><span style="color:#e6db74">	func_btn &#34;</span>%<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> [
 </span><span style="color:#e6db74">		display/data: display/data / 100.0
 </span><span style="color:#e6db74">	]
-</span><span style="color:#e6db74">	op_btn &#34;</span>÷<span style="color:#e6db74">&#34; return 
-</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">7</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">8</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">9</span><span style="color:#e6db74">&#34; op_btn &#34;</span>x<span style="color:#e6db74">&#34; return
-</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">4</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">5</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">6</span><span style="color:#e6db74">&#34; op_btn &#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34; return
-</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">2</span><span style="color:#e6db74">&#34; num_btn &#34;</span><span style="color:#ae81ff">3</span><span style="color:#e6db74">&#34; op_btn &#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; return
-</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">0</span><span style="color:#e6db74">&#34; 120x50 draw [ pen gray box 0x0 120x50 ]
+</span><span style="color:#e6db74">	op_btn &#34;</span>÷<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> return 
+</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">7</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">8</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">9</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> op_btn &#34;</span>x<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> return
+</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">4</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">5</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">6</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> op_btn &#34;</span><span style="color:#f92672">-</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> return
+</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">2</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> num_btn &#34;</span><span style="color:#ae81ff">3</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> op_btn &#34;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> return
+</span><span style="color:#e6db74">	num_btn &#34;</span><span style="color:#ae81ff">0</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> 120x50 draw [ pen gray box 0x0 120x50 ]
 </span><span style="color:#e6db74">	num_btn &#34;</span>.&#34; [
 		if not is_point<span style="color:#f92672">?</span> [
-		   append display<span style="color:#f92672">/</span>text <span style="color:#e6db74">&#34;.&#34;</span>
-		   is_point<span style="color:#f92672">?:</span> true
+		   append display<span style="color:#f92672">/</span>text <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.&#34;</span>
+		   is_point<span style="color:#f92672">?</span><span style="color:#f92672">:</span> true
 		]
 	]
-	op_btn <span style="color:#e6db74">&#34;=&#34;</span>
+	op_btn <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">=&#34;</span>
 ]
 	
 </code></pre></td></tr></table>
@@ -474,6 +474,10 @@ Amazing,  so sexy！
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -509,10 +513,6 @@ Amazing,  so sexy！
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -526,7 +526,7 @@ Amazing,  so sexy！
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -617,7 +617,7 @@ Amazing,  so sexy！
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -651,9 +651,13 @@ Amazing,  so sexy！
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -672,6 +676,8 @@ Amazing,  so sexy！
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

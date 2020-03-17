@@ -116,11 +116,11 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-前言">1 前言</a></li>
-    <li><a href="#2-安装">2 安装</a></li>
-    <li><a href="#3-启动">3 启动</a></li>
-    <li><a href="#4-登陆">4 登陆</a></li>
-    <li><a href="#5-安装ubuntu">5 安装ubuntu</a></li>
+    <li><a href="#1-">1 前言</a></li>
+    <li><a href="#2-">2 安装</a></li>
+    <li><a href="#3-">3 启动</a></li>
+    <li><a href="#4-">4 登陆</a></li>
+    <li><a href="#5-ubuntu">5 安装ubuntu</a></li>
   </ul>
 </nav>
     </div>
@@ -158,11 +158,11 @@
         </div>
         
         <div class="post-content">
-            <h2 id="1-前言">1 前言</h2>
+            <h2 id="1-">1 前言</h2>
 <p>Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。
 体验过的老司机说一下（Win10 14316），现在还不！稳！定！</p>
 <p>当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.</p>
-<h2 id="2-安装">2 安装</h2>
+<h2 id="2-">2 安装</h2>
 <p>访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。</p>
 <p><img src="/images/docker-website.png" alt="docker-website"></p>
 <p><img src="/images/docker-icon.png" alt="docker-icon"></p>
@@ -170,13 +170,13 @@
 <p><img src="/images/docker-install-screenshots.png" alt="docker-install-screenshots"></p>
 <p>安装完之后启动Docker Quickstart Terminal.
 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）</p>
-<h2 id="3-启动">3 启动</h2>
+<h2 id="3-">3 启动</h2>
 <p>双击Docker Quickstart Terminal 启动即可。</p>
 <p><img src="/images/cmd-run-docker.png" alt="cmd-run-docker"></p>
-<h2 id="4-登陆">4 登陆</h2>
+<h2 id="4-">4 登陆</h2>
 <p>使用我们自己的终端登陆，用户：docker 密码：tcuser
 <img src="/images/cmder-run-docker.png" alt="cmder-run-docker"></p>
-<h2 id="5-安装ubuntu">5 安装ubuntu</h2>
+<h2 id="5-ubuntu">5 安装ubuntu</h2>
 <p>下载最新的ubuntu: <code> docker pull ubuntu</code>
 查看镜像: <code> docker images</code>
 启动容器。docker run -t -i ubuntu:latest //bin/bash</p>
@@ -250,6 +250,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -285,10 +289,6 @@
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -302,7 +302,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -393,7 +393,7 @@
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -427,9 +427,13 @@
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -448,6 +452,8 @@
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

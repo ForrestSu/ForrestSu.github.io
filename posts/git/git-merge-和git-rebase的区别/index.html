@@ -118,11 +118,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#一git-merge-branchname">一、git merge [branchName]</a></li>
+        <li><a href="#git-merge-branchname">一、git merge [branchName]</a></li>
       </ul>
     </li>
-    <li><a href="#二git-rebase-branchname">二、git rebase [branchName]</a></li>
-    <li><a href="#三冲突解决">三、冲突解决</a></li>
+    <li><a href="#git-rebase-branchname">二、git rebase [branchName]</a></li>
+    <li><a href="#heading">三、冲突解决</a></li>
   </ul>
 </nav>
     </div>
@@ -161,7 +161,7 @@
         
         <div class="post-content">
             <p>　　最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。</p>
-<h3 id="一git-merge-branchname">一、git merge [branchName]</h3>
+<h3 id="git-merge-branchname">一、git merge [branchName]</h3>
 <p>　　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是<code>master</code>，另一个是<code>dev-feature</code>。(如下图)
 <img src="/images/git-two-branch.png" alt="git-two-branch"></p>
 <p>我们在dev-feature 分支，想同步master的通用修改：</p>
@@ -171,11 +171,11 @@ git merge master</p>
 </blockquote>
 <p><img src="/images/git-two-branch-merge.png" alt="git-two-branch-merge"></p>
 <p>　　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。</p>
-<h2 id="二git-rebase-branchname">二、git rebase [branchName]</h2>
+<h2 id="git-rebase-branchname">二、git rebase [branchName]</h2>
 <p>　　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行<strong><code>git rebase master</code></strong>，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的<strong>后续修改</strong>依次应用于master分支。
 　　Git会把C4和C6节点回收，可以用git gc查看。</p>
 <p><img src="/images/git-rebase-master-show.png" alt="git-rebase-master-show"></p>
-<h2 id="三冲突解决">三、冲突解决</h2>
+<h2 id="heading">三、冲突解决</h2>
 <p>　　如果变基过程中发生冲突(比如我们修改了文件的同一行)!然后我们找到下图中标记的地方，修改代码解决冲突。
 　　在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决冲突；在解决完冲突后，用<strong>git add</strong>命令去更新这些内容的索引(index), 然后，你<strong>无需执行 git commit</strong> ，只要执行:</p>
 <blockquote>
@@ -263,6 +263,10 @@ git merge master</p>
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -298,10 +302,6 @@ git merge master</p>
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -315,7 +315,7 @@ git merge master</p>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -406,7 +406,7 @@ git merge master</p>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -440,9 +440,13 @@ git merge master</p>
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -461,6 +465,8 @@ git merge master</p>
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

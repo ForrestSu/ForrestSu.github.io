@@ -170,20 +170,20 @@
 <p>1 安装vc14
 2 解压nginx到<code>D:\Portable\nginx-1.10.3</code>
 3 解压Php到<code>D:\Portable\php-7.1.1x64</code></p>
-<h4 id="3-修改配置文件">3 修改配置文件</h4>
-<h5 id="31-nginx-配置文件">3.1 nginx 配置文件</h5>
+<h4 id="3-">3 修改配置文件</h4>
+<h5 id="31-nginx-">3.1 nginx 配置文件</h5>
 <p>1 修改nginx.conf配置:
 <img src="/images/win-nginx-config.png" alt="win-nginx-config"></p>
 <p>2 复制并注释掉fastcgi_param,修改<code>/scripts</code>为<code>$document_root</code>
 <img src="/images/win-php-with-nginx-config.png" alt="win-php-with-nginx-config"></p>
-<h5 id="32-php配置文件">3.2 php配置文件</h5>
+<h5 id="32-php">3.2 php配置文件</h5>
 <p>1 复制php.ini-development到php.ini 启用以下dll：
 php_bz2.dll、php_curl.dll、php_gd2.dll、php_mbstring.dll、php_openssl.dll、php_pdo_mysql.dll、php_pdo_pgsql.dll</p>
 <p>2 修改extension_dir 配置的路径：</p>
 <blockquote>
 <p>extension_dir = &ldquo;D:/Portable/php-7.1.1x64/ext&rdquo;</p>
 </blockquote>
-<h4 id="4-创建bat启动脚本">4 创建Bat启动脚本</h4>
+<h4 id="4-bat">4 创建Bat启动脚本</h4>
 <p><img src="/images/win-nginx-directory.png" alt="win-nginx-directory"></p>
 <p>start_nginx.bat</p>
 <pre><code>@echo off
@@ -202,7 +202,7 @@ taskkill /F /IM nginx.exe &gt; nul
 echo Stopping PHP FastCGI...
 taskkill /F /IM php-cgi.exe &gt; nul
 ::exit
-</code></pre><h4 id="5-测试脚本">5 测试脚本</h4>
+</code></pre><h4 id="5-">5 测试脚本</h4>
 <pre><code>&lt;?php
     echo &quot;hello world&quot;;  
     echo phpinfo();  
@@ -277,6 +277,10 @@ taskkill /F /IM php-cgi.exe &gt; nul
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -312,10 +316,6 @@ taskkill /F /IM php-cgi.exe &gt; nul
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -329,7 +329,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -420,7 +420,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -454,9 +454,13 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -475,6 +479,8 @@ taskkill /F /IM php-cgi.exe &gt; nul
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

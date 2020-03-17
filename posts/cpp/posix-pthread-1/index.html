@@ -118,9 +118,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#进程和线程api对比">进程和线程api对比</a></li>
-        <li><a href="#知识点">知识点</a></li>
-        <li><a href="#线程结束">线程结束</a></li>
+        <li><a href="#api">进程和线程api对比</a></li>
+        <li><a href="#heading">知识点</a></li>
+        <li><a href="#heading-1">线程结束</a></li>
       </ul>
     </li>
   </ul>
@@ -160,7 +160,7 @@
         </div>
         
         <div class="post-content">
-            <h3 id="进程和线程api对比">进程和线程api对比</h3>
+            <h3 id="api">进程和线程api对比</h3>
 <table>
 <thead>
 <tr>
@@ -207,12 +207,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="知识点">知识点</h3>
+<h3 id="heading">知识点</h3>
 <p>1 使用pthread_detach  方法脱离一个线程就不会产生僵线程。
 2 获取当前县城id
 <img src="/images/pthread_self.png" alt="pthread_self"></p>
 <p>3 pthread_cancel可以杀死一个执行中的线程。</p>
-<h3 id="线程结束">线程结束</h3>
+<h3 id="heading-1">线程结束</h3>
 <p>自杀： pthread_exit ,在线程入口函数中调用return.
 他杀： pthread_cancel</p>
 
@@ -285,6 +285,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -320,10 +324,6 @@
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -337,7 +337,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -428,7 +428,7 @@
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -462,9 +462,13 @@
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -483,6 +487,8 @@
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

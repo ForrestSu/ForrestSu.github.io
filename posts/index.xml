@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:09:07 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>不建议使用std::thread</title>
+      <link>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</link>
+      <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</guid>
+      <description>1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
+为了方便理解，下面给一个例子：
+1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &amp;lt;stdexcept&amp;gt;#include &amp;lt;thread&amp;gt;void foo() { throw std::runtime_error(&amp;#34;foo&amp;#34;); } int main() { std::thread t(foo); t.</description>
+    </item>
     
     <item>
       <title>Go select多路复用, 实现超时机制</title>
@@ -618,7 +629,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
       
       <guid>https://forrestsu.github.io/posts/life/%E5%AD%A6%E4%BA%86%E7%AE%97%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</guid>
       <description>前言 　大学4年，基本上一直都在学习算法，大四的时候写过Android APP(校园助手)! 那算法到底有什么用呢? 面试官又经常会问，那么工作中又能用多少？下面我主要根据自己的经历和感受来说下自己的观点，抛砖引玉，不足之处还望各位看官指出 :) 。
-如果你也懂算法 　如果你也懂算法，用起API来就是看山不是山，写完整个程序就知道 程序的瓶颈在哪，该如何想办法去优化。 如果你也懂算法，当各大电商推出满几百减多少的活动时，你可以用背包来挑选物品，获得最大价值的商品组合。 如果你也懂算法，当房间里的东西摆放得凌乱不堪时，你可以用 Huffman Coding 的思路来摆放你的物品。 如果你也懂算法，你可以从Hall&amp;rsquo;s marriage theorem 中理解现实中的婚姻模型，去追求一段稳定的婚姻。
+如果你也懂算法 　如果你也懂算法，用起API来就是看山不是山，写完整个程序就知道 程序的瓶颈在哪，该如何想办法去优化。 如果你也懂算法，当各大电商推出满几百减多少的活动时，你可以用背包来挑选物品，获得最大价值的商品组合。 如果你也懂算法，当房间里的东西摆放得凌乱不堪时，你可以用 Huffman Coding 的思路来摆放你的物品。 如果你也懂算法，你可以从Hall&#39;s marriage theorem 中理解现实中的婚姻模型，去追求一段稳定的婚姻。
 总结 　用 0 和 1，你可以创建一个属于你的世界；在 GPU 里，你可以策马扬鞭，指挥千军万马，到达你所向往的远方。</description>
     </item>
     
@@ -853,7 +864,7 @@ Analysis Advantage Analysis： zeroMQ</description>
       
       <guid>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</guid>
       <description>1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor.</description>
+2 支持C++ 11 There&#39;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&#39;s language processor.</description>
     </item>
     
     <item>
@@ -1222,7 +1233,7 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
 也就是说，当处理第i个物品时只需要循环到： 备注：原作者手误把公式中ｃi+1写成了ｗi。
 更进一步优化————物品顺序 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。
 最后： 基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。 代码如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  /** nyoj: 654*/ //c header #include &amp;lt;cstdlib&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;//cpp header #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;string&amp;gt; using namespace std; #define M 1100000 //Max bag&amp;#39;s Capacity #define N 120 //Max Item&amp;#39;s amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&amp;lt;int,int&amp;gt; ppi; /**Cap is the bag&amp;#39;s Capacity; SumCost is the sum of Item&amp;#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements  return x.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  /** nyoj: 654*/ //c header #include &amp;lt;cstdlib&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;//cpp header #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;string&amp;gt; using namespace std; #define M 1100000 //Max bag&amp;#39;s Capacity #define N 120 //Max Item&amp;#39;s amount #define CLS(x,v) memset(x,v,sizeof(x))typedef pair&amp;lt;int,int&amp;gt; ppi; /**Cap is the bag&amp;#39;s Capacity; SumCost is the sum of Item&amp;#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements  return x.</description>
     </item>
     
     <item>
@@ -1265,9 +1276,9 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
       
       <guid>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</guid>
       <description>一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
-1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
+1  #define NULL ((void *)0)  所以在C语言中我们通常会写出如下语句
 1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
-1 2 3 4 5  #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */#define NULL 0 #endif   3 C++11引入了nullptr 来表示空指针</description>
+1 2 3 4 5  #ifndef __cplusplus#define NULL ((void *)0)#else /* C++ */#define NULL 0#endif  3 C++11引入了nullptr 来表示空指针</description>
     </item>
     
     <item>

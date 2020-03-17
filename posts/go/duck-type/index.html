@@ -117,9 +117,9 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#1-duck-type">1 duck type</a></li>
-    <li><a href="#2-例子">2 例子</a></li>
+    <li><a href="#2-">2 例子</a></li>
     <li><a href="#duck-type-in-go">duck type in Go</a></li>
-    <li><a href="#参考">参考</a></li>
+    <li><a href="#heading">参考</a></li>
   </ul>
 </nav>
     </div>
@@ -166,7 +166,7 @@
 <p>比如在 python 中，有很多 <code>file-like</code> 的东西，比如 StringIO, GzipFile, socket;
 它们有很多相同的方法，我们把它们当作文件使用。</p>
 <p>鸭子类型在动态语言中经常使用，非常灵活，使得 python 不像java那样专门去弄一大堆的设计模式。</p>
-<h2 id="2-例子">2 例子</h2>
+<h2 id="2-">2 例子</h2>
 <p>下面举例用duck typing来实现多态：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -196,15 +196,15 @@
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#coding=utf-8  </span>
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Duck</span>:  
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quack</span>(self):  
-        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Quaaaaaack!&#34;</span>  
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Quaaaaaack!</span><span style="color:#e6db74">&#34;</span>  
   
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bird</span>:  
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quack</span>(self):  
-        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;bird imitate duck.&#34;</span>  
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">bird imitate duck.</span><span style="color:#e6db74">&#34;</span>  
   
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Doge</span>:  
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">quack</span>(self):  
-        <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;doge imitate duck.&#34;</span>  
+        <span style="color:#66d9ef">print</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">doge imitate duck.</span><span style="color:#e6db74">&#34;</span>  
   
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">in_the_forest</span>(duck):  
     duck<span style="color:#f92672">.</span>quack()  
@@ -230,11 +230,11 @@ doge <span style="color:#f92672">=</span> Doge()
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys  
   
-sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#39;stdout.log&#39;</span>, <span style="color:#e6db74">&#39;a&#39;</span>) <span style="color:#75715e">#只要是file-like,不管是什么类型  </span>
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;foo&#39;</span>  
+sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</span> open(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">stdout.log</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">a</span><span style="color:#e6db74">&#39;</span>) <span style="color:#75715e">#只要是file-like,不管是什么类型  </span>
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">foo</span><span style="color:#e6db74">&#39;</span>  
   
 sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>__stdout__ <span style="color:#75715e">#恢复  </span>
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#39;bar&#39;</span>  
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">bar</span><span style="color:#e6db74">&#39;</span>  
 </code></pre></td></tr></table>
 </div>
 </div><p>这样就把输出流给写入到文件了。</p>
@@ -327,7 +327,7 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
 }
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="参考">参考</h2>
+</div><h2 id="heading">参考</h2>
 <p>题图：hongkong-victoria-harbor-duck</p>
         </div>
 
@@ -398,6 +398,10 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -433,10 +437,6 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
         <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -450,7 +450,7 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -541,7 +541,7 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -575,9 +575,13 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
     
@@ -596,6 +600,8 @@ sys<span style="color:#f92672">.</span>stdout <span style="color:#f92672">=</spa
     <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

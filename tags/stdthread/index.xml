@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>std::thread on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/stdthread/</link>
+    <description>Recent content in std::thread on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 15 Mar 2020 11:09:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/stdthread/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>不建议使用std::thread</title>
+      <link>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</link>
+      <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</guid>
+      <description>1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
+为了方便理解，下面给一个例子：
+1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &amp;lt;stdexcept&amp;gt;#include &amp;lt;thread&amp;gt;void foo() { throw std::runtime_error(&amp;#34;foo&amp;#34;); } int main() { std::thread t(foo); t.</description>
+    </item>
+    
+  </channel>
+</rss>
