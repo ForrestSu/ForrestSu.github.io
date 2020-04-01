@@ -41,7 +41,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -66,6 +66,87 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月31日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。
+AC自动机算法分为3步：(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程。
+代码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171  #include &lt;iostream&gt;#include &lt;string&gt;#include &lt;vector&gt;#include &lt;cstring&gt;#include &lt;cassert&gt;#include &lt;deque&gt;using namespace std; #define MAXN 127  struct Trie { char ch; int is_word; // 0:not-word 1:is-word  int is_marked; //是否已经计数 0-未计数 1-已计数  Trie *fail_ptr; Trie *next[MAXN]; int data1; }; struct Trie* create_node(char ch, int level) { Trie *node = (Trie*) malloc(sizeof(Trie)); memset(node, 0, sizeof(Trie)); node-&gt;ch = ch; node-&gt;data1 = level; node-&gt;is_word = 0; node-&gt;is_marked = 0; node-&gt;fail_ptr = nullptr; return node; } bool insert_tree(Trie *root, std::string &amp;words) { Trie *cur = root; for (size_t i = 0; i &lt; words.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/ac-automation/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 最近在学习 seastar 的源码，发现Avi大神的代码，真是令人拍案叫绝。而在编程领域里，称得上是完美的东西很少，递归算是一个。
+下面我把其中的片段罗列出来，与君共赏。
+1 future/promise 对象模型以及生命周期 2 future.then()支持无限的链式调用 3 将tuple展开为一个参数列表，调用lambda函数 4 future 从支持1个参数，到支持0个参数，以及支持任意个参数 5 如何使用 future+promise 实现一个 semaphore 我们先来看一下代码：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  class semaphore { private: size_t _count; std::list&lt;std::pair&lt;promise&lt;&gt;, size_t&gt;&gt; _wait_list; public: semaphore(size_t count = 1) : _count(count) {} future&lt;&gt; wait(size_t nr = 1) { if (_count &gt;= nr &amp;&amp; _wait_list.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 在谈异步编程之前，我们先来回顾一下，在常见的编程范式中, 一般怎么进行异步编程。
+   编程范式 异步的实现方式 优点 缺点     面向过程 Callback 通用流程和代码复用 callback比较隐晦,有一定的学习成本; 随着业务增长会使callback增多,难以理解和维护   面向对象 Interface 通用流程和代码复用, 接口更加清晰 实现特定的接口增加了耦合性; 当现有接口不满足时，为了向后兼容，不得不添加新的接口。   函数式 lambda表达式 简洁,代码块级重用,参数类型和个数没有约束 &hellip;   泛型编程 &hellip; &hellip; &hellip;    举个例子, 比如Nginx的http模块有11个阶段, 应该在哪个阶段实现, 哪个阶段实现比较好?……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/">阅读全文</a></p>
+    </article>
+    
     
     
     <article class="post">
@@ -269,88 +350,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年12月25日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
-<img src="/images/unix_restart_syscall.png" alt="restart_syscall"></p>
-<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年11月19日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
-红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年10月30日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
-Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
-它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
-Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -395,7 +394,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -431,6 +430,18 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -458,18 +469,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -479,9 +478,9 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -521,7 +520,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -536,9 +535,11 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -570,11 +571,13 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -594,15 +597,21 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -650,9 +659,13 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

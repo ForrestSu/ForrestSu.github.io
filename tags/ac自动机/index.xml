@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AC自动机 on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</link>
+    <description>Recent content in AC自动机 on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 31 Mar 2020 18:06:58 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>多模匹配之AC自动机</title>
+      <link>https://forrestsu.github.io/posts/algorithm/ac-automation/</link>
+      <pubDate>Tue, 31 Mar 2020 18:06:58 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/ac-automation/</guid>
+      <description>1 Preface Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。
+AC自动机算法分为3步：(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程。
+代码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171  #include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;cstring&amp;gt;#include &amp;lt;cassert&amp;gt;#include &amp;lt;deque&amp;gt;using namespace std; #define MAXN 127  struct Trie { char ch; int is_word; // 0:not-word 1:is-word  int is_marked; //是否已经计数 0-未计数 1-已计数  Trie *fail_ptr; Trie *next[MAXN]; int data1; }; struct Trie* create_node(char ch, int level) { Trie *node = (Trie*) malloc(sizeof(Trie)); memset(node, 0, sizeof(Trie)); node-&amp;gt;ch = ch; node-&amp;gt;data1 = level; node-&amp;gt;is_word = 0; node-&amp;gt;is_marked = 0; node-&amp;gt;fail_ptr = nullptr; return node; } bool insert_tree(Trie *root, std::string &amp;amp;words) { Trie *cur = root; for (size_t i = 0; i &amp;lt; words.</description>
+    </item>
+    
+  </channel>
+</rss>

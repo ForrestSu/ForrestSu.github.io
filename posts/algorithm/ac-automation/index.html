@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>多模匹配之AC自动机 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="多模匹配之AC自动机 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-31T18:06:58&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-31T18:06:58&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="多模匹配之AC自动机">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/algorithm/ac-automation/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-preface">1 Preface</a></li>
+    <li><a href="#代码实现">代码实现</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">多模匹配之AC自动机</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月31日 18:06:58
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            3682
+        </div>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
+<p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
+<h2 id="代码实现">代码实现</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">143
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">144
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">145
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">146
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">147
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">148
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">149
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">150
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">151
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">152
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">153
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">154
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">155
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">156
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">157
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">158
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">159
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">160
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">161
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">170
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">171
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;deque&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#75715e">#define MAXN 127
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Trie</span> {
+    <span style="color:#66d9ef">char</span> ch;
+    <span style="color:#66d9ef">int</span> is_word; <span style="color:#75715e">// 0:not-word 1:is-word
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> is_marked; <span style="color:#75715e">//是否已经计数 0-未计数 1-已计数
+</span><span style="color:#75715e"></span>    Trie <span style="color:#f92672">*</span>fail_ptr;
+    Trie <span style="color:#f92672">*</span>next[MAXN];
+    <span style="color:#66d9ef">int</span> data1;
+};
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Trie</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">create_node</span>(<span style="color:#66d9ef">char</span> ch, <span style="color:#66d9ef">int</span> level) {
+    Trie <span style="color:#f92672">*</span>node <span style="color:#f92672">=</span> (Trie<span style="color:#f92672">*</span>) malloc(<span style="color:#66d9ef">sizeof</span>(Trie));
+    memset(node, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(Trie));
+    node<span style="color:#f92672">-&gt;</span>ch <span style="color:#f92672">=</span> ch;
+    node<span style="color:#f92672">-&gt;</span>data1 <span style="color:#f92672">=</span> level;
+    node<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    node<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    node<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+    <span style="color:#66d9ef">return</span> node;
+}
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">insert_tree</span>(Trie <span style="color:#f92672">*</span>root, std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>words) {
+    Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> root;
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> words.length(); <span style="color:#f92672">++</span>i) {
+        <span style="color:#66d9ef">int8_t</span> ch <span style="color:#f92672">=</span> words[i];
+        Trie <span style="color:#f92672">*</span>child <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>next[ch];
+        <span style="color:#66d9ef">if</span> (child <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span>) {
+            child <span style="color:#f92672">=</span> create_node(ch, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+            cur<span style="color:#f92672">-&gt;</span>next[ch] <span style="color:#f92672">=</span> child;
+        }
+        cur <span style="color:#f92672">=</span> child;
+    }
+    cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#75715e">/***
+</span><span style="color:#75715e"> * (1) 按层(BFS搜索)维护失败指针，(失败指针是存在于Tire树上的一个元素节点而已)
+</span><span style="color:#75715e"> * (2) 每层节点负责维护下一层的失败指针
+</span><span style="color:#75715e"> * (3) 根节点的失败指针指向nil
+</span><span style="color:#75715e"> * (4) 根的第一层儿子的失败指针都指向root
+</span><span style="color:#75715e"> * (5) 每一层怎么为下一层找到失败指针呢?
+</span><span style="color:#75715e"> *     a. 先拿到一个儿子S，拿出自身的失败指针P；
+</span><span style="color:#75715e"> *     b. 判断该失败指针P是否也有同名的儿子S&#39;呢？
+</span><span style="color:#75715e"> *     c. 如果有，则把S的失败指针指向 S&#39;,停止；
+</span><span style="color:#75715e"> *     d. 如果没有，P=P-》fail_ptr上，重复步骤(b)
+</span><span style="color:#75715e"> * @param root
+</span><span style="color:#75715e"> * @return
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">build_fail_ptr</span>(Trie <span style="color:#f92672">*</span>root) {
+    <span style="color:#75715e">//这个nullptr在后面也作为一个搜索终止条件
+</span><span style="color:#75715e"></span>    root<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+    std<span style="color:#f92672">::</span>deque<span style="color:#f92672">&lt;</span>Trie<span style="color:#f92672">*&gt;</span> Q;
+    Q.push_back(root);
+    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>Q.empty()) {
+        Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> Q.front();
+        Q.pop_front();
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MAXN; i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>next[i] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+                Trie <span style="color:#f92672">*</span>child <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>next[i];
+                Q.push_back(child);
+                <span style="color:#75715e">// 为child节点维护失败指针
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cur <span style="color:#f92672">==</span> root) {
+                    child<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> root;
+                    printf(<span style="color:#e6db74">&#34;child %c pointer root!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, child<span style="color:#f92672">-&gt;</span>ch);
+                } <span style="color:#66d9ef">else</span> {
+                    <span style="color:#75715e">//if layer 2, 3...
+</span><span style="color:#75715e"></span>                    Trie <span style="color:#f92672">*</span>ptrfail <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>fail_ptr;
+                    assert(ptrfail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>);
+                    <span style="color:#75715e">// 链式查找
+</span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">while</span> (ptrfail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+                        <span style="color:#75715e">// same name child occur, got it!
+</span><span style="color:#75715e"></span>                        <span style="color:#66d9ef">if</span> (ptrfail<span style="color:#f92672">-&gt;</span>next[child<span style="color:#f92672">-&gt;</span>ch] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+                            ptrfail <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>next[child<span style="color:#f92672">-&gt;</span>ch];
+                            printf(<span style="color:#e6db74">&#34;为[%c]找到失败指针&lt;%c&gt;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, child<span style="color:#f92672">-&gt;</span>ch, ptrfail<span style="color:#f92672">-&gt;</span>ch);
+                            <span style="color:#66d9ef">break</span>;
+                        }
+                        ptrfail <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>fail_ptr;
+                    }
+                    <span style="color:#75715e">//如果没有找到,则把当前元素的失败指针指向
+</span><span style="color:#75715e"></span>                    child<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> (ptrfail <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">?</span> root : ptrfail);
+                }
+            }
+        }
+    }
+    <span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#75715e">/**
+</span><span style="color:#75715e"> * 返回有几种模式串出现过
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">search</span>(Trie <span style="color:#f92672">*</span>root, string matchs) {
+    <span style="color:#66d9ef">int</span> iCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    size_t idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    Trie<span style="color:#f92672">*</span> cur <span style="color:#f92672">=</span> root;
+    <span style="color:#66d9ef">while</span> (idx <span style="color:#f92672">&lt;</span> matchs.length()) {
+        <span style="color:#66d9ef">char</span> ch <span style="color:#f92672">=</span> matchs[idx<span style="color:#f92672">++</span>];
+        <span style="color:#75715e">// match it
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>next[ch] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+            cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>next[ch];
+            <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">&amp;&amp;</span> cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+                iCount<span style="color:#f92672">++</span>;
+                cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//marked
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">//printf(&#34;matchs &lt;%c&gt;\n&#34;, ch);
+</span><span style="color:#75715e"></span>            }
+        } <span style="color:#66d9ef">else</span> {
+           <span style="color:#75715e">//失配,当前已匹配串,检查其所有后缀串是否出现可能匹配的单词
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">while</span> (cur <span style="color:#f92672">!=</span> root) {
+                cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>fail_ptr;
+                <span style="color:#75715e">// 针对后缀串计数
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">&amp;&amp;</span> cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+                    iCount<span style="color:#f92672">++</span>;
+                    cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//marked
+</span><span style="color:#75715e"></span>                    <span style="color:#75715e">//printf(&#34;suffix matchs &lt;%c&gt;\n&#34;, ch);
+</span><span style="color:#75715e"></span>                }
+            }
+        }
+    }
+    printf(<span style="color:#e6db74">&#34;search(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">) occur %d.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, matchs.c_str(), iCount);
+    <span style="color:#66d9ef">return</span> iCount;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show</span>(Trie <span style="color:#f92672">*</span>root) {
+    <span style="color:#75715e">// TODO 按层打印
+</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>deque<span style="color:#f92672">&lt;</span>Trie<span style="color:#f92672">*&gt;</span> Q;
+    Q.push_back(root);
+    <span style="color:#66d9ef">int</span> max_level <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>Q.empty()) {
+        Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> Q.front();
+        <span style="color:#66d9ef">if</span> (max_level <span style="color:#f92672">&lt;</span> cur<span style="color:#f92672">-&gt;</span>data1) {
+            max_level <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>data1;
+            printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">level %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, max_level);
+        }
+        printf(<span style="color:#e6db74">&#34;%c &lt;word:%d&gt;&#34;</span>, cur<span style="color:#f92672">-&gt;</span>ch, cur<span style="color:#f92672">-&gt;</span>is_word);
+        Q.pop_front();
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MAXN; <span style="color:#f92672">++</span>i) {
+            <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>next[i] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+                Q.push_back(cur<span style="color:#f92672">-&gt;</span>next[i]);
+            }
+        }
+    }
+    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+    printf(<span style="color:#e6db74">&#34;%lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#66d9ef">sizeof</span>(Trie));
+    Trie <span style="color:#f92672">*</span>root <span style="color:#f92672">=</span> create_node(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#ae81ff">0</span>);
+    {
+        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;she&#34;</span>;
+        insert_tree(root, words);
+    }
+    {
+        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;he&#34;</span>;
+        insert_tree(root, words);
+    }
+    show(root);
+    build_fail_ptr(root);
+    {
+        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sher&#34;</span>;
+        search(root, words);
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<p>测试题目 HDU2222</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/archi-seastar/seastar-beauty-code/">Seastar 代码之美</a></li>
+        
+        <li><a href="/posts/archi-seastar/the-beauty-code-of-async/">异步编程之美-future/promise</a></li>
+        
+        <li><a href="/posts/cpp/not-use-std-thread/">不建议使用std::thread</a></li>
+        
+        <li><a href="/posts/go/select-in-go/">Go select多路复用, 实现超时机制</a></li>
+        
+        <li><a href="/posts/go/reflection-in-go/">Go 反射</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA'>AC自动机</a></li>
+                
+                <li><a href='https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D'>多模匹配</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+
+</html>

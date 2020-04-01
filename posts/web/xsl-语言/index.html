@@ -44,7 +44,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -119,7 +119,7 @@
     <li>
       <ul>
         <li><a href="#1-introduction">1 Introduction</a></li>
-        <li><a href="#2-">2 语法</a></li>
+        <li><a href="#2-语法">2 语法</a></li>
       </ul>
     </li>
   </ul>
@@ -198,37 +198,37 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#75715e">&lt;?xml-stylesheet type=&#34;text/xsl&#34; href=&#34;cdcatalog.xsl&#34;?&gt;</span>
-<span style="color:#75715e">&lt;!--</span><span style="color:#75715e">
-</span><span style="color:#75715e">&lt;?xml</span><span style="color:#75715e">-</span><span style="color:#75715e">stylesheet type=&#34;text/xsl&#34; href=&#34;readline.xsl&#34;?&gt;</span><span style="color:#75715e">--&gt;</span>
-<span style="color:#f92672">&lt;catalog</span><span style="color:#f92672">&gt;</span>
-  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>你好<span style="color:#f92672">&lt;/title&gt;</span>
-    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Bob Zhang<span style="color:#f92672">&lt;/artist&gt;</span>
-    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
-    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
-    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>9.9<span style="color:#f92672">&lt;/price&gt;</span>
-    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+<span style="color:#75715e">&lt;!--
+</span><span style="color:#75715e">&lt;?xml-stylesheet type=&#34;text/xsl&#34; href=&#34;readline.xsl&#34;?&gt;--&gt;</span>
+<span style="color:#f92672">&lt;catalog&gt;</span>
+  <span style="color:#f92672">&lt;cd&gt;</span>
+    <span style="color:#f92672">&lt;title&gt;</span>你好<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist&gt;</span>Bob Zhang<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price&gt;</span>9.9<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
   <span style="color:#f92672">&lt;/cd&gt;</span>
-  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>Happy in the Rain<span style="color:#f92672">&lt;/title&gt;</span>
-    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Alice<span style="color:#f92672">&lt;/artist&gt;</span>
-    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
-    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
-    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>10.00<span style="color:#f92672">&lt;/price&gt;</span>
-    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+  <span style="color:#f92672">&lt;cd&gt;</span>
+    <span style="color:#f92672">&lt;title&gt;</span>Happy in the Rain<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist&gt;</span>Alice<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price&gt;</span>10.00<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
   <span style="color:#f92672">&lt;/cd&gt;</span>
-  <span style="color:#f92672">&lt;cd</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;title</span><span style="color:#f92672">&gt;</span>A litte Boy<span style="color:#f92672">&lt;/title&gt;</span>
-    <span style="color:#f92672">&lt;artist</span><span style="color:#f92672">&gt;</span>Jhon<span style="color:#f92672">&lt;/artist&gt;</span>
-    <span style="color:#f92672">&lt;country</span><span style="color:#f92672">&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
-    <span style="color:#f92672">&lt;company</span><span style="color:#f92672">&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
-    <span style="color:#f92672">&lt;price</span><span style="color:#f92672">&gt;</span>12.20<span style="color:#f92672">&lt;/price&gt;</span>
-    <span style="color:#f92672">&lt;year</span><span style="color:#f92672">&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
+  <span style="color:#f92672">&lt;cd&gt;</span>
+    <span style="color:#f92672">&lt;title&gt;</span>A litte Boy<span style="color:#f92672">&lt;/title&gt;</span>
+    <span style="color:#f92672">&lt;artist&gt;</span>Jhon<span style="color:#f92672">&lt;/artist&gt;</span>
+    <span style="color:#f92672">&lt;country&gt;</span>USA<span style="color:#f92672">&lt;/country&gt;</span>
+    <span style="color:#f92672">&lt;company&gt;</span>Columbia<span style="color:#f92672">&lt;/company&gt;</span>
+    <span style="color:#f92672">&lt;price&gt;</span>12.20<span style="color:#f92672">&lt;/price&gt;</span>
+    <span style="color:#f92672">&lt;year&gt;</span>1985<span style="color:#f92672">&lt;/year&gt;</span>
   <span style="color:#f92672">&lt;/cd&gt;</span>
 <span style="color:#f92672">&lt;/catalog&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="2-">2 语法</h3>
+</div><h3 id="2-语法">2 语法</h3>
 <blockquote>
 <p>XSL 样式表由一个或多套被称为模板（template）的规则组成。<br>
 每个模板含有当某个指定的节点被匹配时所应用的规则。</p>
@@ -266,17 +266,17 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
 <span style="color:#a6e22e">xmlns:xsl=</span><span style="color:#e6db74">&#34;http://www.w3.org/1999/XSL/Transform&#34;</span><span style="color:#f92672">&gt;</span>
 
 <span style="color:#f92672">&lt;xsl:template</span> <span style="color:#a6e22e">match=</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">&gt;</span>
- <span style="color:#f92672">&lt;html</span><span style="color:#f92672">&gt;</span>
- <span style="color:#f92672">&lt;body</span><span style="color:#f92672">&gt;</span>
-   <span style="color:#f92672">&lt;h2</span><span style="color:#f92672">&gt;</span>My CD Collection<span style="color:#f92672">&lt;/h2&gt;</span>
+ <span style="color:#f92672">&lt;html&gt;</span>
+ <span style="color:#f92672">&lt;body&gt;</span>
+   <span style="color:#f92672">&lt;h2&gt;</span>My CD Collection<span style="color:#f92672">&lt;/h2&gt;</span>
    <span style="color:#f92672">&lt;table</span> <span style="color:#a6e22e">border=</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">&gt;</span>
      <span style="color:#f92672">&lt;tr</span> <span style="color:#a6e22e">bgcolor=</span><span style="color:#e6db74">&#34;#9acd32&#34;</span><span style="color:#f92672">&gt;</span>
-       <span style="color:#f92672">&lt;th</span><span style="color:#f92672">&gt;</span>Title<span style="color:#f92672">&lt;/th&gt;</span>
-       <span style="color:#f92672">&lt;th</span><span style="color:#f92672">&gt;</span>Artist<span style="color:#f92672">&lt;/th&gt;</span>
+       <span style="color:#f92672">&lt;th&gt;</span>Title<span style="color:#f92672">&lt;/th&gt;</span>
+       <span style="color:#f92672">&lt;th&gt;</span>Artist<span style="color:#f92672">&lt;/th&gt;</span>
      <span style="color:#f92672">&lt;/tr&gt;</span>
-     <span style="color:#f92672">&lt;tr</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;td</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/title&#34;</span><span style="color:#f92672">/&gt;</span><span style="color:#f92672">&lt;/td&gt;</span>
-    	<span style="color:#f92672">&lt;td</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/artist&#34;</span><span style="color:#f92672">/&gt;</span><span style="color:#f92672">&lt;/td&gt;</span>
+     <span style="color:#f92672">&lt;tr&gt;</span>
+        <span style="color:#f92672">&lt;td&gt;&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/title&#34;</span><span style="color:#f92672">/&gt;&lt;/td&gt;</span>
+    	<span style="color:#f92672">&lt;td&gt;&lt;xsl:value-of</span> <span style="color:#a6e22e">select=</span><span style="color:#e6db74">&#34;catalog/cd/artist&#34;</span><span style="color:#f92672">/&gt;&lt;/td&gt;</span>
      <span style="color:#f92672">&lt;/tr&gt;</span>
    <span style="color:#f92672">&lt;/table&gt;</span>
  <span style="color:#f92672">&lt;/body&gt;</span>
@@ -393,6 +393,18 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -420,18 +432,6 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -441,9 +441,9 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -483,7 +483,7 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -498,9 +498,11 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -532,11 +534,13 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -556,15 +560,21 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -612,9 +622,13 @@ select 属性的值是一个 XPath 表达式。此表达式的工作方式类似
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

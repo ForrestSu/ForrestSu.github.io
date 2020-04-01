@@ -44,7 +44,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -118,12 +118,12 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#1-package-controlhttpspackagecontrolioinstallation">1 安装package control包管理器</a></li>
-        <li><a href="#2-theme-sodahttpsgithubcombuymeasodasoda-theme">2 安装theme-soda主题</a></li>
-        <li><a href="#3-converttoutf8httpsgithubcomseanliangconverttoutf8">3 ConvertToUTF8</a></li>
-        <li><a href="#4-emmethttpsgithubcomsergecheemmet-sublime-pyv8">4 Emmet (+PyV8)</a></li>
-        <li><a href="#5-wordcounthttpsgithubcomtitobouzoutwordcount">5 WordCount</a></li>
-        <li><a href="#6-hexviewerhttpsgithubcomfacelessuserhexviewer">6 HexViewer</a></li>
+        <li><a href="#1-安装package-controlhttpspackagecontrolioinstallation包管理器">1 安装<a href="https://packagecontrol.io/installation">package control</a>包管理器</a></li>
+        <li><a href="#2-安装theme-sodahttpsgithubcombuymeasodasoda-theme主题">2 安装<a href="https://github.com/buymeasoda/soda-theme/">theme-soda</a>主题</a></li>
+        <li><a href="#3-converttoutf8httpsgithubcomseanliangconverttoutf8">3 <a href="https://github.com/seanliang/ConvertToUTF8">ConvertToUTF8</a></a></li>
+        <li><a href="#4-emmethttpsgithubcomsergecheemmet-sublime-pyv8">4 <a href="https://github.com/sergeche/emmet-sublime">Emmet</a> (+PyV8)</a></li>
+        <li><a href="#5-wordcounthttpsgithubcomtitobouzoutwordcount">5 <a href="https://github.com/titoBouzout/WordCount">WordCount</a></a></li>
+        <li><a href="#6-hexviewerhttpsgithubcomfacelessuserhexviewer">6 <a href="https://github.com/facelessuser/HexViewer">HexViewer</a></a></li>
       </ul>
     </li>
   </ul>
@@ -163,13 +163,13 @@
         </div>
         
         <div class="post-content">
-            <h3 id="1-package-controlhttpspackagecontrolioinstallation">1 安装<a href="https://packagecontrol.io/installation">package control</a>包管理器</h3>
+            <h3 id="1-安装package-controlhttpspackagecontrolioinstallation包管理器">1 安装<a href="https://packagecontrol.io/installation">package control</a>包管理器</h3>
 <p>可通过命令行的方式和手工下载的方式，按 <code>ctrl+\</code> `进入控制台，输入下面的命令，然后重启st即可：</p>
 <blockquote>
 <p>import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;<a href="http://packagecontrol.io/'">http://packagecontrol.io/'</a> + pf.replace(&rsquo; &lsquo;, &lsquo;%20&rsquo;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&lsquo;Error validating download (got %s instead of %s), please try manual install&rsquo; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &lsquo;wb&rsquo; ).write(by)</p>
 </blockquote>
 <p>下面的插件都可以通过 ctrl+shift+p ,输入插件名安装，通过package control 方便统一管理，统一升级。还可以自己通过git下载，自己定期升级。</p>
-<h3 id="2-theme-sodahttpsgithubcombuymeasodasoda-theme">2 安装<a href="https://github.com/buymeasoda/soda-theme/">theme-soda</a>主题</h3>
+<h3 id="2-安装theme-sodahttpsgithubcombuymeasodasoda-theme主题">2 安装<a href="https://github.com/buymeasoda/soda-theme/">theme-soda</a>主题</h3>
 <p>点击“Preferences-&gt;Browse Packages”，在打开的文件目录中启动cmd，输入下面的命令，下载插件。</p>
 <blockquote>
 <p>git clone <a href="https://github.com/buymeasoda/soda-theme/">https://github.com/buymeasoda/soda-theme/</a> &ldquo;Theme - Soda&rdquo;</p>
@@ -257,6 +257,18 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -284,18 +296,6 @@
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -305,9 +305,9 @@
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -347,7 +347,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -362,9 +362,11 @@
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -396,11 +398,13 @@
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -420,15 +424,21 @@
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -476,9 +486,13 @@
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

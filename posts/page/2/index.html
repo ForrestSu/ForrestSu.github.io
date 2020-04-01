@@ -41,7 +41,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -66,6 +66,88 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年12月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
+<img src="/images/unix_restart_syscall.png" alt="restart_syscall"></p>
+<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年11月19日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年10月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
+    </article>
+    
     
     
     <article class="post">
@@ -261,86 +343,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年6月3日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
-摩西奶奶 说：人生只有一次，去做自己喜欢的事。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年5月9日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p><img src="/images/about-stock.jpg" alt="about-stock"></p>
-<h2 id="preface">Preface</h2>
-<p>　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/" title="Reflection in protobuf (C&#43;&#43;/Java)">Reflection in protobuf (C&#43;&#43;/Java)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月27日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
-1 reflection in C++ 在c++中使用protobuf 反射
-1 2 3 4 5 6 7 8 9 10 11  package com.sunquan;message Login { optional int64 userid = 1; optional string username = 2; // name  optional string password = 3; // passwd  optional string email = 4; optional string nickname = 5; // etc .……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -396,7 +398,7 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -432,6 +434,18 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -459,18 +473,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -480,9 +482,9 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -522,7 +524,7 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -537,9 +539,11 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -571,11 +575,13 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -595,15 +601,21 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -651,9 +663,13 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

@@ -44,7 +44,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -170,20 +170,20 @@
 <p>1 安装vc14
 2 解压nginx到<code>D:\Portable\nginx-1.10.3</code>
 3 解压Php到<code>D:\Portable\php-7.1.1x64</code></p>
-<h4 id="3-">3 修改配置文件</h4>
-<h5 id="31-nginx-">3.1 nginx 配置文件</h5>
+<h4 id="3-修改配置文件">3 修改配置文件</h4>
+<h5 id="31-nginx-配置文件">3.1 nginx 配置文件</h5>
 <p>1 修改nginx.conf配置:
 <img src="/images/win-nginx-config.png" alt="win-nginx-config"></p>
 <p>2 复制并注释掉fastcgi_param,修改<code>/scripts</code>为<code>$document_root</code>
 <img src="/images/win-php-with-nginx-config.png" alt="win-php-with-nginx-config"></p>
-<h5 id="32-php">3.2 php配置文件</h5>
+<h5 id="32-php配置文件">3.2 php配置文件</h5>
 <p>1 复制php.ini-development到php.ini 启用以下dll：
 php_bz2.dll、php_curl.dll、php_gd2.dll、php_mbstring.dll、php_openssl.dll、php_pdo_mysql.dll、php_pdo_pgsql.dll</p>
 <p>2 修改extension_dir 配置的路径：</p>
 <blockquote>
 <p>extension_dir = &ldquo;D:/Portable/php-7.1.1x64/ext&rdquo;</p>
 </blockquote>
-<h4 id="4-bat">4 创建Bat启动脚本</h4>
+<h4 id="4-创建bat启动脚本">4 创建Bat启动脚本</h4>
 <p><img src="/images/win-nginx-directory.png" alt="win-nginx-directory"></p>
 <p>start_nginx.bat</p>
 <pre><code>@echo off
@@ -202,7 +202,7 @@ taskkill /F /IM nginx.exe &gt; nul
 echo Stopping PHP FastCGI...
 taskkill /F /IM php-cgi.exe &gt; nul
 ::exit
-</code></pre><h4 id="5-">5 测试脚本</h4>
+</code></pre><h4 id="5-测试脚本">5 测试脚本</h4>
 <pre><code>&lt;?php
     echo &quot;hello world&quot;;  
     echo phpinfo();  
@@ -277,6 +277,18 @@ taskkill /F /IM php-cgi.exe &gt; nul
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -304,18 +316,6 @@ taskkill /F /IM php-cgi.exe &gt; nul
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -325,9 +325,9 @@ taskkill /F /IM php-cgi.exe &gt; nul
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -367,7 +367,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -382,9 +382,11 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -416,11 +418,13 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -440,15 +444,21 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -496,9 +506,13 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

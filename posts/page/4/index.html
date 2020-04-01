@@ -41,7 +41,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -66,6 +66,93 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/" title="Thinking coroutine thread async">Thinking coroutine thread async</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/" title="2018 Vision Hubble">2018 Vision Hubble</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1990年4月24日 Hubble Space Telescope
+Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&ldquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&hellip;(哈哈)&rdquo;
+很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠落悬崖。涉及生存的时候，会拼命努力，去追求。
+现在环境好了，每天都睡的很好，但是越是需要危机感。做技术是需要有存量的，就像爬山，觉得洪水只能淹没到山脚，爬到半山腰就好了；如果爬到山顶，那么洪水淹到半山腰也行；如果还有余力,造一架直升飞机也行。技术没有止境，尽力追求完美。
+那么，2018 需要做点什么呢？是的，我们需要做一个亚毫秒级的高性能交易系统。
+Vision-2018 high availability, high throughput, low latency。
+ 亚毫秒级，更一致的延时控制； 更灵活，更线性化的横向扩展； 更高效的编程模型与调试手段，提高软件质量。
+(与硬件结合的通信体系)
+CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：
+在这个过程中提升个人的领导力，提升个人的能力和价值。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/" title="echarts 数据可视化-初体验">echarts 数据可视化-初体验</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年1月12日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/web'>Web</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 　欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。
+Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。
+Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可能会用matlabplot 来绘图，再geek一点的就用Τex这种国际上通用的玩法了。 之前用过 highcharts, 潜意识下数据可视化 找一个强大的JS库就好了， 可以快速出成品。咨询tqd, 推荐使用baidu的echarts，看完官网 examples，感觉好强大，官方入门文档还是蛮不错的！ 配合Demo，2小时就可以学完基本的API。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
+    </article>
+    
     
     
     <article class="post">
@@ -262,90 +349,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/" title="Web Design in 4 minutes">Web Design in 4 minutes</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年10月26日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/web'>Web</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
-1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
-2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
-1 2 3 4  body { margin: 0 auto; max-width: 50em; }   在对文本块进行样式化后，如何对文本自身进行样式化？
-3 Font family 浏览器缺省的(英文)字体是 &ldquo;Times&rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/" title="(译) 蒙特卡罗搜索树">(译) 蒙特卡罗搜索树</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年10月20日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
-原文在这阅读原文。 1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
-2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
- Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/" title="下一个求职计划">下一个求职计划</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年10月12日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 先定一个求职方向
-2 经常补充自己的简历。
-放在github.io 上面……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -422,7 +425,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -458,6 +461,18 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -485,18 +500,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -506,9 +509,9 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -548,7 +551,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -563,9 +566,11 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -597,11 +602,13 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -621,15 +628,21 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -677,9 +690,13 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

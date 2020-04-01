@@ -6,10 +6,64 @@
     <description>Recent content in Tags on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2020 11:09:07 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2020 18:06:58 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AC自动机</title>
+      <link>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</link>
+      <pubDate>Tue, 31 Mar 2020 18:06:58 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>多模匹配</title>
+      <link>https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/</link>
+      <pubDate>Tue, 31 Mar 2020 18:06:58 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>future</title>
+      <link>https://forrestsu.github.io/tags/future/</link>
+      <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>promise</title>
+      <link>https://forrestsu.github.io/tags/promise/</link>
+      <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/promise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reactive</title>
+      <link>https://forrestsu.github.io/tags/reactive/</link>
+      <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/reactive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>seastar</title>
+      <link>https://forrestsu.github.io/tags/seastar/</link>
+      <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/seastar/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>SIGABRT</title>
@@ -228,11 +282,11 @@
     </item>
     
     <item>
-      <title>Architecture</title>
-      <link>https://forrestsu.github.io/tags/architecture/</link>
+      <title>杂谈</title>
+      <link>https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/</link>
       <pubDate>Sun, 15 Apr 2018 19:50:09 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/tags/architecture/</guid>
+      <guid>https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     
@@ -251,6 +305,15 @@
       <pubDate>Thu, 15 Mar 2018 21:14:22 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/tags/work/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Architecture</title>
+      <link>https://forrestsu.github.io/tags/architecture/</link>
+      <pubDate>Thu, 08 Feb 2018 22:32:16 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/architecture/</guid>
       <description></description>
     </item>
     
@@ -453,7 +516,7 @@
     </item>
     
     <item>
-      <title>hundsun</title>
+      <title>Hundsun</title>
       <link>https://forrestsu.github.io/tags/hundsun/</link>
       <pubDate>Fri, 07 Apr 2017 17:51:39 +0800</pubDate>
       

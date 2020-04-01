@@ -44,7 +44,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -118,18 +118,18 @@
   <ul>
     <li><a href="#1-preface">1 Preface</a>
       <ul>
-        <li><a href="#11--nvidia-">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
+        <li><a href="#11-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</a></li>
       </ul>
     </li>
-    <li><a href="#2-cuda-">2 CUDA 环境搭建</a>
+    <li><a href="#2-cuda-环境搭建">2 CUDA 环境搭建</a>
       <ul>
         <li><a href="#21-download">2.1 Download</a></li>
-        <li><a href="#22-">2.2 检查是否成功安装</a></li>
+        <li><a href="#22-检查是否成功安装">2.2 检查是否成功安装</a></li>
       </ul>
     </li>
     <li><a href="#3-data-interaction">3 Data Interaction</a>
       <ul>
-        <li><a href="#31-cpu--gpu-">3.1 CPU 和 GPU 之间的如何进行数据交互?</a></li>
+        <li><a href="#31-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</a></li>
       </ul>
     </li>
     <li><a href="#4-cuda-demos">4 CUDA-Demos</a>
@@ -138,7 +138,7 @@
         <li><a href="#42-matrix-calculation">4.2 Matrix Calculation</a></li>
       </ul>
     </li>
-    <li><a href="#5-cpu--gpu-">5 CPU 的多线程与 GPU 的对应关系</a></li>
+    <li><a href="#5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
@@ -180,19 +180,19 @@
             <h2 id="1-preface">1 Preface</h2>
 <p> 　　最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(<code>10 thread</code>)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。
 　　下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)</p>
-<h3 id="11--nvidia-">1.1 首先确认配置的 Nvidia 显卡型号</h3>
+<h3 id="11-首先确认配置的-nvidia-显卡型号">1.1 首先确认配置的 Nvidia 显卡型号</h3>
 <p><img src="/images/nvida-gpu.png" alt="nvida-gpu"></p>
 <p>官网查看CUDA兼容的GPU型号<a href="https://developer.nvidia.com/cuda-gpus">cuda-gpu</a> <code>(20170612)</code>
 <img src="/images/nvida-gpu-platform.png" alt="nvida-gpu-platform"></p>
 <blockquote>
 <p>CUDA Toolkit on x86_32 is unsupported</p>
 </blockquote>
-<h2 id="2-cuda-">2 CUDA 环境搭建</h2>
+<h2 id="2-cuda-环境搭建">2 CUDA 环境搭建</h2>
 <h3 id="21-download">2.1 Download</h3>
 <p>nvidia <a href="https://developer.nvidia.com/cuda-toolkit">cuda-toolkit</a>
 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。
 <img src="/images/cuda-toolkit-sdk.png" alt="cuda-toolkit-sdk"></p>
-<h3 id="22-">2.2 检查是否成功安装</h3>
+<h3 id="22-检查是否成功安装">2.2 检查是否成功安装</h3>
 <p>安装完成后，检查是否成功安装。<br>
 (1) cmd 中输入 <code>nvcc -V</code>, 查看 nvcc 版本。<br>
 (2) 执行 <strong>deviceQuery.exe</strong> 可以查看显卡设备:</p>
@@ -245,7 +245,7 @@ deviceQuery Starting...
 
 Detected <span style="color:#ae81ff">1</span> CUDA Capable device(s)
 
-Device <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">NVS 510</span><span style="color:#e6db74">&#34;</span>
+Device <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;NVS 510&#34;</span>
   CUDA Driver Version <span style="color:#f92672">/</span> Runtime Version          <span style="color:#ae81ff">8.0</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">8.0</span>
   CUDA Capability Major<span style="color:#f92672">/</span>Minor version number:    <span style="color:#ae81ff">3.0</span>
   Total amount of global memory:                 <span style="color:#ae81ff">2048</span> MBytes (<span style="color:#ae81ff">2147483648</span> bytes)
@@ -332,11 +332,11 @@ Result <span style="color:#f92672">=</span> PASS
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="3-data-interaction">3 Data Interaction</h2>
-<h3 id="31-cpu--gpu-">3.1 CPU 和 GPU 之间的如何进行数据交互?</h3>
+<h3 id="31-cpu-和-gpu-之间的如何进行数据交互">3.1 CPU 和 GPU 之间的如何进行数据交互?</h3>
 <p> 　CPU 和 GPU 有各自独立的内存空间，在 GPU 中不能直接访问 CPU 端的代码，反之也一样。<br>
 这时候最直接的方式就是<strong>数据拷贝</strong>: 在计算前将数据从 CPU 复制到 GPU 端，以 GPU 内存指针的方式传递给 GPU 的内存空间进行读写操作，计算完后将计算结果复制回 CPU 端。下面我们看下一个Sample Project 的代码 <code>bandwidthTest</code><br>
 <strong>函数功能</strong>：测试device to device (or device &lt;==&gt; host)拷贝数据的带宽。</p>
-<h4 id="1-">(1) 动态申请连续的内存块</h4>
+<h4 id="1-动态申请连续的内存块">(1) 动态申请连续的内存块</h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -352,12 +352,12 @@ Result <span style="color:#f92672">=</span> PASS
 </span><span style="color:#75715e"> * char *h_odata: host output data
 </span><span style="color:#75715e"> */</span>
   <span style="color:#75715e">// Host 上动态申请内存
-</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaHostAlloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>h_odata, memSize, bWriteCombined);
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaHostAlloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">**</span>)<span style="color:#f92672">&amp;</span>h_odata, memSize, bWriteCombined);
   <span style="color:#75715e">// device 上动态申请内存
-</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaMalloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>) <span style="color:#f92672">&amp;</span>d_idata, memSize);
+</span><span style="color:#75715e"></span>  cudaError_t <span style="color:#a6e22e">cudaMalloc</span>((<span style="color:#66d9ef">void</span> <span style="color:#f92672">**</span>) <span style="color:#f92672">&amp;</span>d_idata, memSize);
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="2--host--device">(2) 数据拷贝( host &lt;==&gt; device)</h4>
+</div><h4 id="2-数据拷贝-host--device">(2) 数据拷贝( host &lt;==&gt; device)</h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -375,7 +375,7 @@ Result <span style="color:#f92672">=</span> PASS
 </div><blockquote>
 <p>数据从device 拷贝回 host 是一个同步数据拷贝。</p>
 </blockquote>
-<h4 id="3-">(3) 释放内存</h4>
+<h4 id="3-释放内存">(3) 释放内存</h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -456,7 +456,7 @@ CUDA 专门定义了一个 C 语言扩展用以调用内核函数。语法如下
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> threadsPerBlock <span style="color:#f92672">=</span> <span style="color:#ae81ff">256</span>;
     <span style="color:#66d9ef">int</span> blocksPerGrid <span style="color:#f92672">=</span>(numElements <span style="color:#f92672">+</span> threadsPerBlock <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> threadsPerBlock;
 
-    vectorAdd<span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">&lt;</span>blocksPerGrid, threadsPerBlock<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span>(d_A, d_B, d_C, numElements);
+    vectorAdd<span style="color:#f92672">&lt;&lt;&lt;</span>blocksPerGrid, threadsPerBlock<span style="color:#f92672">&gt;&gt;&gt;</span>(d_A, d_B, d_C, numElements);
 
     err <span style="color:#f92672">=</span> cudaGetLastError();
 </code></pre></td></tr></table>
@@ -471,7 +471,7 @@ num_threads 表示单个 Block 内启动的线程数。</p>
 </blockquote>
 <h3 id="42-matrix-calculation">4.2 Matrix Calculation</h3>
 <p><code>next post write</code></p>
-<h2 id="5-cpu--gpu-">5 CPU 的多线程与 GPU 的对应关系</h2>
+<h2 id="5-cpu-的多线程与-gpu-的对应关系">5 CPU 的多线程与 GPU 的对应关系</h2>
 <ul>
 <li>CPU 单线程 / GPU 多线程</li>
 <li>CPU 多线程 / GPU 多线程 (注意内存的使用)</li>
@@ -561,6 +561,18 @@ DRAM： 缓存</p>
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -588,18 +600,6 @@ DRAM： 缓存</p>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -609,9 +609,9 @@ DRAM： 缓存</p>
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -651,7 +651,7 @@ DRAM： 缓存</p>
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -666,9 +666,11 @@ DRAM： 缓存</p>
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -700,11 +702,13 @@ DRAM： 缓存</p>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -724,15 +728,21 @@ DRAM： 缓存</p>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -780,9 +790,13 @@ DRAM： 缓存</p>
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

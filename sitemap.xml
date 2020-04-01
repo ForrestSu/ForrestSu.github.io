@@ -3,17 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2020-03-15T11:09:07+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/cpp/</loc>
-    <lastmod>2020-03-15T11:09:07+08:00</lastmod>
+    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/algorithm/ac-automation/</loc>
+    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/future/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/promise/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/reactive/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/seastar/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/</loc>
+    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/</loc>
+    <lastmod>2020-03-26T13:11:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/cpp/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url>
   
@@ -28,22 +88,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2020-03-15T11:09:07+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/unwound-stack/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</loc>
-    <lastmod>2020-03-15T11:09:07+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url>
   
@@ -113,17 +163,22 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
-    <lastmod>2019-10-10T11:28:08+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/categories/todolist/</loc>
+    <lastmod>2019-10-10T11:28:08+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/todo/</loc>
+    <lastmod>2019-10-10T11:28:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -170,11 +225,6 @@
   <url>
     <loc>https://forrestsu.github.io/posts/linux/restart-syscall/</loc>
     <lastmod>2018-12-25T17:33:53+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
-    <lastmod>2018-11-19T15:00:28+08:00</lastmod>
   </url>
   
   <url>
@@ -258,12 +308,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/library/</loc>
+    <loc>https://forrestsu.github.io/tags/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/library/</loc>
+    <loc>https://forrestsu.github.io/categories/library/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url>
   
@@ -303,11 +353,6 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2018-04-20T22:44:50+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/cps/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
@@ -318,12 +363,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</loc>
+    <loc>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</loc>
     <lastmod>2018-04-15T19:50:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/architecture/</loc>
+    <loc>https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2018-04-15T19:50:09+08:00</lastmod>
   </url>
   
@@ -363,8 +408,13 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/architecture-thinking/seastar-%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-started/</loc>
     <lastmod>2018-02-27T14:00:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/architecture/</loc>
+    <lastmod>2018-02-08T22:32:16+08:00</lastmod>
   </url>
   
   <url>
@@ -383,12 +433,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/web/</loc>
+    <loc>https://forrestsu.github.io/tags/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/web/</loc>
+    <loc>https://forrestsu.github.io/categories/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url>
   
@@ -483,12 +533,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url>
   
@@ -498,12 +548,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/tools/</loc>
+    <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/tools/</loc>
+    <loc>https://forrestsu.github.io/categories/tools/</loc>
     <lastmod>2017-10-10T10:40:28+08:00</lastmod>
   </url>
   
@@ -533,12 +583,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/diary/</loc>
+    <loc>https://forrestsu.github.io/tags/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/diary/</loc>
+    <loc>https://forrestsu.github.io/categories/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url>
   
@@ -798,12 +848,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
+    <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/git/</loc>
+    <loc>https://forrestsu.github.io/categories/git/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   

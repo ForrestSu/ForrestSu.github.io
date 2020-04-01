@@ -44,7 +44,7 @@
                         程序员的冷浪漫
                     </a>
                 
-                <p class="description">专注于分布式, 低延时, 高并发, 分布式服务, 软件架构 C&#43;&#43;/Go </p>
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
@@ -119,7 +119,7 @@
     <li><a href="#1-preface">1 Preface</a>
       <ul>
         <li><a href="#11-cps-in-haskell">1.1 CPS in Haskell</a></li>
-        <li><a href="#12-cps">1.2 CPS用于非阻塞编程</a></li>
+        <li><a href="#12-cps用于非阻塞编程">1.2 CPS用于非阻塞编程</a></li>
         <li><a href="#13-cps-in-go">1.3 CPS in Go</a></li>
       </ul>
     </li>
@@ -181,14 +181,14 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">square <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">square <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> Double
 square x <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> x
 
-add <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double
+add <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> Double <span style="color:#f92672">-&gt;</span> Double
 add x y <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> y
 
-pythagorean <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double
-pythagorean x y <span style="color:#f92672">=</span> sqrt <span style="color:#f92672">(</span>add <span style="color:#f92672">(</span>square x<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>square y<span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+pythagorean <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> Double <span style="color:#f92672">-&gt;</span> Double
+pythagorean x y <span style="color:#f92672">=</span> sqrt <span style="color:#f92672">(</span>add <span style="color:#f92672">(</span>square x<span style="color:#f92672">)</span>  <span style="color:#f92672">(</span>square y<span style="color:#f92672">))</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然后我们将其改造成 CPS 的方式，如下：</p>
@@ -210,23 +210,23 @@ pythagorean x y <span style="color:#f92672">=</span> sqrt <span style="color:#f9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">add_cps <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span>
-add_cps x y <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> k <span style="color:#f92672">(</span>add x y<span style="color:#f92672">)</span>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">add_cps <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> Double <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">((</span>Double <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span>
+add_cps x y <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-&gt;</span> k <span style="color:#f92672">(</span>add x y<span style="color:#f92672">)</span>
 
-square_cps <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span>
-square_cps x <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> k <span style="color:#f92672">(</span>square x<span style="color:#f92672">)</span>
+square_cps <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">((</span>Double <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span>
+square_cps x <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-&gt;</span> k <span style="color:#f92672">(</span>square x<span style="color:#f92672">)</span>
 
-pythagoras_cps <span style="color:#f92672">:</span><span style="color:#f92672">:</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">(</span><span style="color:#f92672">(</span>Double <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> r<span style="color:#f92672">)</span>
-pythagoras_cps x y <span style="color:#f92672">=</span> sqrt <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>
-    square_cps x $ <span style="color:#960050;background-color:#1e0010">\</span>x_squared <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>
-    square_cps y $ <span style="color:#960050;background-color:#1e0010">\</span>y_squared <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>
+pythagoras_cps <span style="color:#f92672">::</span> Double <span style="color:#f92672">-&gt;</span> Double <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">((</span>Double <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> r<span style="color:#f92672">)</span>
+pythagoras_cps x y <span style="color:#f92672">=</span> sqrt <span style="color:#960050;background-color:#1e0010">\</span>k <span style="color:#f92672">-&gt;</span>
+    square_cps x $ <span style="color:#960050;background-color:#1e0010">\</span>x_squared <span style="color:#f92672">-&gt;</span>
+    square_cps y $ <span style="color:#960050;background-color:#1e0010">\</span>y_squared <span style="color:#f92672">-&gt;</span>
     add_cps x_squared y_squared $ k
 
 main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     pythagoras_cps 3 4 print
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="12-cps">1.2 CPS用于非阻塞编程</h3>
+</div><h3 id="12-cps用于非阻塞编程">1.2 CPS用于非阻塞编程</h3>
 <p>Node.js 是用于JavaScript的高性能服务器端平台，其中禁止了阻塞过程。<br>
 因为NodeJs 底层是采用 libuv 做的支撑；</p>
 <p>libuv 是一个纯 C 语言实现的 Reactor 库, 里面大量使用 CPS 。</p>
@@ -280,7 +280,7 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/posts/architecture-thinking/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a></li>
+        <li><a href="/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">25岁的迷茫</a></li>
         
         <li><a href="/posts/cpp/c&#43;&#43;-raii/">C&#43;&#43; RAII</a></li>
         
@@ -338,6 +338,18 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -365,18 +377,6 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -386,9 +386,9 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -428,7 +428,7 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
     
@@ -443,9 +443,11 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(4)</a>
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -477,11 +479,13 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hundsun/">hundsun(2)</a>
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
@@ -501,15 +505,21 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
@@ -557,9 +567,13 @@ main <span style="color:#f92672">=</span> <span style="color:#66d9ef">do</span>
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
