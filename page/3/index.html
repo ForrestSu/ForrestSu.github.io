@@ -69,55 +69,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年6月3日 23:04:10
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
-摩西奶奶 说：人生只有一次，去做自己喜欢的事。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年5月9日 19:34:23
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p><img src="/images/about-stock.jpg" alt="about-stock"></p>
-<h2 id="preface">Preface</h2>
-<p>　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/" title="Reflection in protobuf (C&#43;&#43;/Java)">Reflection in protobuf (C&#43;&#43;/Java)</a>
             </h1>
         </header>
@@ -329,6 +280,62 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-started/">阅读全文</a></p>
     </article>
     
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/" title="Thinking coroutine thread async">Thinking coroutine thread async</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月8日 22:32:16
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/" title="2018 Vision Hubble">2018 Vision Hubble</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月5日 02:21:10
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1990年4月24日 Hubble Space Telescope
+Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&ldquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&hellip;(哈哈)&rdquo;
+很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠落悬崖。涉及生存的时候，会拼命努力，去追求。
+现在环境好了，每天都睡的很好，但是越是需要危机感。做技术是需要有存量的，就像爬山，觉得洪水只能淹没到山脚，爬到半山腰就好了；如果爬到山顶，那么洪水淹到半山腰也行；如果还有余力,造一架直升飞机也行。技术没有止境，尽力追求完美。
+那么，2018 需要做点什么呢？是的，我们需要做一个亚毫秒级的高性能交易系统。
+Vision-2018 high availability, high throughput, low latency。
+ 亚毫秒级，更一致的延时控制； 更灵活，更线性化的横向扩展； 更高效的编程模型与调试手段，提高软件质量。
+(与硬件结合的通信体系)
+CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：
+在这个过程中提升个人的领导力，提升个人的能力和价值。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
+    </article>
+    
     
 
 
@@ -392,7 +399,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/12/">12</a>
         </li>
         
     
@@ -432,14 +439,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -467,6 +466,14 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
+    <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -478,7 +485,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -569,8 +576,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
-    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -595,13 +600,9 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
-    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -609,7 +610,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

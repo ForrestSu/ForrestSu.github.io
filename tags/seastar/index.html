@@ -78,64 +78,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/">Seastar 代码之美</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月26日 23:11:26
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            851
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/architecture'>Architecture</a>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface 最近在学习 seastar 的源码，发现Avi大神的代码，真是令人拍案叫绝。而在编程领域里，称得上是完美的东西很少，递归算是一个。
-下面我把其中的片段罗列出来，与君共赏。
-1 future/promise 对象模型以及生命周期 2 future.then()支持无限的链式调用 3 将tuple展开为一个参数列表，调用lambda函数 4 future 从支持1个参数，到支持0个参数，以及支持任意个参数 5 如何使用 future+promise 实现一个 semaphore 我们先来看一下代码：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  class semaphore { private: size_t _count; std::list&lt;std::pair&lt;promise&lt;&gt;, size_t&gt;&gt; _wait_list; public: semaphore(size_t count = 1) : _count(count) {} future&lt;&gt; wait(size_t nr = 1) { if (_count &gt;= nr &amp;&amp; _wait_list.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/">异步编程之美-future/promise</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月26日 13:11:26
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            398
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/architecture'>Architecture</a>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface 在谈异步编程之前，我们先来回顾一下，在常见的编程范式中, 一般怎么进行异步编程。
-   编程范式 异步的实现方式 优点 缺点     面向过程 Callback 通用流程和代码复用 callback比较隐晦,有一定的学习成本; 随着业务增长会使callback增多,难以理解和维护   面向对象 Interface 通用流程和代码复用, 接口更加清晰 实现特定的接口增加了耦合性; 当现有接口不满足时，为了向后兼容，不得不添加新的接口。   函数式 lambda表达式 简洁,代码块级重用,参数类型和个数没有约束 &hellip;   泛型编程 &hellip; &hellip; &hellip;    举个例子, 比如Nginx的http模块有11个阶段, 应该在哪个阶段实现, 哪个阶段实现比较好?……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-started/">Seastar 入门</a>
             </h1>
         </header>
@@ -193,14 +135,6 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/" title="Seastar 代码之美">Seastar 代码之美</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/" title="异步编程之美-future/promise">异步编程之美-future/promise</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -228,6 +162,14 @@
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
+    <li>
+        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+    </li>
+    
 </ul>
     </section>
 
@@ -239,7 +181,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -330,8 +272,6 @@
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
-    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -356,13 +296,9 @@
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/promise/">promise(2)</a>
-    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -370,7 +306,7 @@
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

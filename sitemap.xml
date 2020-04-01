@@ -38,41 +38,6 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/future/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/promise/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/reactive/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/seastar/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-beauty-code/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/archi-seastar/the-beauty-code-of-async/</loc>
-    <lastmod>2020-03-26T13:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/categories/cpp/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url>
@@ -353,6 +318,11 @@
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <lastmod>2018-04-20T22:44:50+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/tags/cps/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url>
@@ -405,6 +375,11 @@
   <url>
     <loc>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</loc>
     <lastmod>2018-03-10T19:01:18+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/seastar/</loc>
+    <lastmod>2018-02-27T14:00:04+08:00</lastmod>
   </url>
   
   <url>
