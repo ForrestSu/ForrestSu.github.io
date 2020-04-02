@@ -133,7 +133,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            3719
+            3685
         </div>
         
         <div class="post-meta">
@@ -157,9 +157,9 @@
         
         <div class="post-content">
             <h2 id="1-preface">1 Preface</h2>
-<p><img src="/images/algo-ac-automation.png" alt="duck-type"></p>
 <p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
 <p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
+<p><img src="/images/algo-ac-automation.png" alt="duck-type"></p>
 <p>大学时候写的比较多，最近面试被问到了，回答的不完整，这里实现一遍。</p>
 <h2 id="代码实现">代码实现</h2>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -328,36 +328,30 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">162
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">163
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">164
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">165
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">166
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">167
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">168
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">169
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstring&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cassert&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;deque&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 <span style="color:#75715e">#define MAXN 127
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Trie</span> {
     <span style="color:#66d9ef">char</span> ch;
-    <span style="color:#66d9ef">int</span> is_word; <span style="color:#75715e">// 0:not-word 1:is-word
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> is_marked; <span style="color:#75715e">//是否已经计数 0-未计数 1-已计数
+    <span style="color:#66d9ef">int</span> is_word; <span style="color:#75715e">// 标记是否为一个单词 0-No 1-Yes (如果使用累加，则支持重复计数)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> is_marked; <span style="color:#75715e">// 是否已经计数 0-未计数 1-已计数
 </span><span style="color:#75715e"></span>    Trie <span style="color:#f92672">*</span>fail_ptr;
     Trie <span style="color:#f92672">*</span>next[MAXN];
-    <span style="color:#66d9ef">int</span> data1;
+    <span style="color:#66d9ef">int</span> data;
 };
 
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Trie</span><span style="color:#f92672">*</span> <span style="color:#a6e22e">create_node</span>(<span style="color:#66d9ef">char</span> ch, <span style="color:#66d9ef">int</span> level) {
     Trie <span style="color:#f92672">*</span>node <span style="color:#f92672">=</span> (Trie<span style="color:#f92672">*</span>) malloc(<span style="color:#66d9ef">sizeof</span>(Trie));
     memset(node, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">sizeof</span>(Trie));
     node<span style="color:#f92672">-&gt;</span>ch <span style="color:#f92672">=</span> ch;
-    node<span style="color:#f92672">-&gt;</span>data1 <span style="color:#f92672">=</span> level;
+    node<span style="color:#f92672">-&gt;</span>data <span style="color:#f92672">=</span> level;
     node<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     node<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     node<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
@@ -379,6 +373,22 @@
     <span style="color:#66d9ef">return</span> true;
 }
 
+<span style="color:#75715e">// 链式查找失败指针并返回, 未找到返回缺省值(一般为root)
+</span><span style="color:#75715e"></span>Trie<span style="color:#f92672">*</span> <span style="color:#a6e22e">do_find_fail_ptr</span>(Trie <span style="color:#f92672">*</span>cur, <span style="color:#66d9ef">int</span> ch, Trie <span style="color:#f92672">*</span>default_ptr) {
+    Trie <span style="color:#f92672">*</span>result <span style="color:#f92672">=</span> default_ptr;
+    Trie <span style="color:#f92672">*</span>ptrfail <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>fail_ptr;
+    <span style="color:#75715e">// 链式查找:一直追溯到root
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> (ptrfail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+        <span style="color:#75715e">// same name child occur, got it!
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (ptrfail<span style="color:#f92672">-&gt;</span>next[ch] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
+            result <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>next[ch];
+            printf(<span style="color:#e6db74">&#34;为[%c]找到失败指针&lt;%c&gt;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, ch, result<span style="color:#f92672">-&gt;</span>ch);
+            <span style="color:#66d9ef">break</span>;
+        }
+        ptrfail <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>fail_ptr;
+    }
+    <span style="color:#66d9ef">return</span> result;
+}
 <span style="color:#75715e">/***
 </span><span style="color:#75715e"> * (1) 按层(BFS搜索)维护失败指针，(失败指针是存在于Tire树上的一个元素节点而已)
 </span><span style="color:#75715e"> * (2) 每层节点负责维护下一层的失败指针
@@ -401,77 +411,61 @@
         <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MAXN; i<span style="color:#f92672">++</span>) {
             <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>next[i] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
                 Trie <span style="color:#f92672">*</span>child <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>next[i];
-                Q.push_back(child);
                 <span style="color:#75715e">// 为child节点维护失败指针
-</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cur <span style="color:#f92672">==</span> root) {
-                    child<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> root;
-                    printf(<span style="color:#e6db74">&#34;child %c pointer root!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, child<span style="color:#f92672">-&gt;</span>ch);
-                } <span style="color:#66d9ef">else</span> {
-                    <span style="color:#75715e">//if layer 2, 3...
-</span><span style="color:#75715e"></span>                    Trie <span style="color:#f92672">*</span>ptrfail <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>fail_ptr;
-                    assert(ptrfail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>);
-                    <span style="color:#75715e">// 链式查找
-</span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">while</span> (ptrfail <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
-                        <span style="color:#75715e">// same name child occur, got it!
-</span><span style="color:#75715e"></span>                        <span style="color:#66d9ef">if</span> (ptrfail<span style="color:#f92672">-&gt;</span>next[child<span style="color:#f92672">-&gt;</span>ch] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
-                            ptrfail <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>next[child<span style="color:#f92672">-&gt;</span>ch];
-                            printf(<span style="color:#e6db74">&#34;为[%c]找到失败指针&lt;%c&gt;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, child<span style="color:#f92672">-&gt;</span>ch, ptrfail<span style="color:#f92672">-&gt;</span>ch);
-                            <span style="color:#66d9ef">break</span>;
-                        }
-                        ptrfail <span style="color:#f92672">=</span> ptrfail<span style="color:#f92672">-&gt;</span>fail_ptr;
-                    }
-                    <span style="color:#75715e">//如果没有找到,则把当前元素的失败指针指向
-</span><span style="color:#75715e"></span>                    child<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> (ptrfail <span style="color:#f92672">==</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">?</span> root : ptrfail);
-                }
+</span><span style="color:#75715e"></span>                child<span style="color:#f92672">-&gt;</span>fail_ptr <span style="color:#f92672">=</span> do_find_fail_ptr(cur, child<span style="color:#f92672">-&gt;</span>ch, root);
+                <span style="color:#75715e">// 把child 加入队列
+</span><span style="color:#75715e"></span>                Q.push_back(child);
             }
         }
     }
     <span style="color:#66d9ef">return</span> true;
 }
 
+<span style="color:#75715e">// 检查是否为一个单词, 并返回数量
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">do_check_and_return_cnt</span>(Trie <span style="color:#f92672">*</span>cur) {
+    <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">&amp;&amp;</span> cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#75715e">// marked it
+</span><span style="color:#75715e"></span>        cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+        printf(<span style="color:#e6db74">&#34;match ch &lt;%c&gt;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, cur<span style="color:#f92672">-&gt;</span>ch);
+        <span style="color:#66d9ef">return</span> cur<span style="color:#f92672">-&gt;</span>is_word;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
 <span style="color:#75715e">/**
-</span><span style="color:#75715e"> * 返回有几种模式串出现过
+</span><span style="color:#75715e"> *  返回有几种模式串出现过
 </span><span style="color:#75715e"> */</span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">search</span>(Trie <span style="color:#f92672">*</span>root, string matchs) {
     <span style="color:#66d9ef">int</span> iCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> root;
     size_t idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    Trie<span style="color:#f92672">*</span> cur <span style="color:#f92672">=</span> root;
     <span style="color:#66d9ef">while</span> (idx <span style="color:#f92672">&lt;</span> matchs.length()) {
-        <span style="color:#66d9ef">char</span> ch <span style="color:#f92672">=</span> matchs[idx<span style="color:#f92672">++</span>];
+        <span style="color:#66d9ef">int</span> ch <span style="color:#f92672">=</span> matchs[idx<span style="color:#f92672">++</span>];
         <span style="color:#75715e">// match it
 </span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>next[ch] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span>) {
             cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>next[ch];
-            <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">&amp;&amp;</span> cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-                iCount<span style="color:#f92672">++</span>;
-                cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//marked
-</span><span style="color:#75715e"></span>                <span style="color:#75715e">//printf(&#34;matchs &lt;%c&gt;\n&#34;, ch);
-</span><span style="color:#75715e"></span>            }
+            iCount <span style="color:#f92672">+=</span> do_check_and_return_cnt(cur);
         } <span style="color:#66d9ef">else</span> {
-           <span style="color:#75715e">//失配,当前已匹配串,检查其所有后缀串是否出现可能匹配的单词
+            <span style="color:#75715e">//失配:当前已匹配串,检查其所有后缀子串,因为中间可能有模式串
 </span><span style="color:#75715e"></span>            <span style="color:#66d9ef">while</span> (cur <span style="color:#f92672">!=</span> root) {
                 cur <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>fail_ptr;
                 <span style="color:#75715e">// 针对后缀串计数
-</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> (cur<span style="color:#f92672">-&gt;</span>is_word <span style="color:#f92672">&amp;&amp;</span> cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-                    iCount<span style="color:#f92672">++</span>;
-                    cur<span style="color:#f92672">-&gt;</span>is_marked <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">//marked
-</span><span style="color:#75715e"></span>                    <span style="color:#75715e">//printf(&#34;suffix matchs &lt;%c&gt;\n&#34;, ch);
-</span><span style="color:#75715e"></span>                }
+</span><span style="color:#75715e"></span>                iCount <span style="color:#f92672">+=</span> do_check_and_return_cnt(cur);
             }
         }
     }
-    printf(<span style="color:#e6db74">&#34;search(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">) occur %d.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, matchs.c_str(), iCount);
+    printf(<span style="color:#e6db74">&#34;search(&lt;%s&gt;) occur %d times!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, matchs.c_str(), iCount);
     <span style="color:#66d9ef">return</span> iCount;
 }
 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show</span>(Trie <span style="color:#f92672">*</span>root) {
-    <span style="color:#75715e">// TODO 按层打印
-</span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>deque<span style="color:#f92672">&lt;</span>Trie<span style="color:#f92672">*&gt;</span> Q;
+<span style="color:#75715e">// 按层打印Trie树
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show</span>(Trie <span style="color:#f92672">*</span>root) {
+    std<span style="color:#f92672">::</span>deque<span style="color:#f92672">&lt;</span>Trie<span style="color:#f92672">*&gt;</span> Q;
     Q.push_back(root);
     <span style="color:#66d9ef">int</span> max_level <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
     <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>Q.empty()) {
         Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> Q.front();
-        <span style="color:#66d9ef">if</span> (max_level <span style="color:#f92672">&lt;</span> cur<span style="color:#f92672">-&gt;</span>data1) {
-            max_level <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>data1;
+        <span style="color:#66d9ef">if</span> (max_level <span style="color:#f92672">&lt;</span> cur<span style="color:#f92672">-&gt;</span>data) {
+            max_level <span style="color:#f92672">=</span> cur<span style="color:#f92672">-&gt;</span>data;
             printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">level %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, max_level);
         }
         printf(<span style="color:#e6db74">&#34;%c &lt;word:%d&gt;&#34;</span>, cur<span style="color:#f92672">-&gt;</span>ch, cur<span style="color:#f92672">-&gt;</span>is_word);
@@ -482,26 +476,22 @@
             }
         }
     }
-    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">--------</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 }
 
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
     printf(<span style="color:#e6db74">&#34;%lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#66d9ef">sizeof</span>(Trie));
     Trie <span style="color:#f92672">*</span>root <span style="color:#f92672">=</span> create_node(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#ae81ff">0</span>);
     {
-        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;she&#34;</span>;
-        insert_tree(root, words);
-    }
-    {
-        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;he&#34;</span>;
-        insert_tree(root, words);
+        string words[] <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;she&#34;</span>, <span style="color:#e6db74">&#34;he&#34;</span> };
+        insert_tree(root, words[<span style="color:#ae81ff">0</span>]);
+        insert_tree(root, words[<span style="color:#ae81ff">1</span>]);
     }
     show(root);
     build_fail_ptr(root);
-    {
-        string words <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sher&#34;</span>;
-        search(root, words);
-    }
+
+    string matchs <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sher&#34;</span>;
+    search(root, matchs);
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
 </code></pre></td></tr></table>

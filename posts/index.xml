@@ -18,10 +18,9 @@
       
       <guid>https://forrestsu.github.io/posts/algorithm/ac-automation/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/algo-ac-automation.png&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。&lt;/p&gt;
 &lt;p&gt;AC自动机算法分为3步：&lt;strong&gt;(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;大学时候写的比较多，最近面试被问到了，回答的不完整，这里实现一遍。&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/algo-ac-automation.png&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -93,11 +92,11 @@
       
       <guid>https://forrestsu.github.io/posts/go/duck-type/</guid>
       <description>&lt;h2 id=&#34;1-duck-type&#34;&gt;1 duck type&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/hk-victoria-harbor-duck.jpg&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;br&gt;
-我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/hk-victoria-harbor-duck.jpg&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;
 &lt;p&gt;比如在 python 中，有很多 &lt;code&gt;file-like&lt;/code&gt; 的东西，比如 StringIO, GzipFile, socket;
 它们有很多相同的方法，我们把它们当作文件使用。&lt;/p&gt;</description>
     </item>
