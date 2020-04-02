@@ -20,7 +20,21 @@
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。&lt;/p&gt;
 &lt;p&gt;AC自动机算法分为3步：&lt;strong&gt;(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/algo-ac-automation.png&#34; alt=&#34;duck-type&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/algo-ac-automation.png&#34; alt=&#34;ac-automation&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Seastar之future/promise</title>
+      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</link>
+      <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</guid>
+      <description>1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
+Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
+Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
+(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
+(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
+为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。</description>
     </item>
     
     <item>

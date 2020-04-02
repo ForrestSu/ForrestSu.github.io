@@ -133,7 +133,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            3685
+            3705
         </div>
         
         <div class="post-meta">
@@ -159,7 +159,7 @@
             <h2 id="1-preface">1 Preface</h2>
 <p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
 <p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
-<p><img src="/images/algo-ac-automation.png" alt="duck-type"></p>
+<p><img src="/images/algo-ac-automation.png" alt="ac-automation"></p>
 <p>大学时候写的比较多，最近面试被问到了，回答的不完整，这里实现一遍。</p>
 <h2 id="代码实现">代码实现</h2>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -358,7 +358,7 @@
     <span style="color:#66d9ef">return</span> node;
 }
 
-<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">insert_tree</span>(Trie <span style="color:#f92672">*</span>root, std<span style="color:#f92672">::</span>string <span style="color:#f92672">&amp;</span>words) {
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">insert_tree</span>(Trie <span style="color:#f92672">*</span>root, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> words) {
     Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> root;
     <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> words.length(); <span style="color:#f92672">++</span>i) {
         <span style="color:#66d9ef">int8_t</span> ch <span style="color:#f92672">=</span> words[i];
@@ -434,7 +434,7 @@
 <span style="color:#75715e">/**
 </span><span style="color:#75715e"> *  返回有几种模式串出现过
 </span><span style="color:#75715e"> */</span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">search</span>(Trie <span style="color:#f92672">*</span>root, string matchs) {
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">search</span>(Trie <span style="color:#f92672">*</span>root, <span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> matchs) {
     <span style="color:#66d9ef">int</span> iCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
     Trie <span style="color:#f92672">*</span>cur <span style="color:#f92672">=</span> root;
     size_t idx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
@@ -512,6 +512,8 @@
     <h2>See Also</h2>
     <ul class="listing">
         
+        <li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar之future/promise</a></li>
+        
         <li><a href="/posts/cpp/not-use-std-thread/">不建议使用std::thread</a></li>
         
         <li><a href="/posts/go/select-in-go/">Go select多路复用, 实现超时机制</a></li>
@@ -519,8 +521,6 @@
         <li><a href="/posts/go/reflection-in-go/">Go 反射</a></li>
         
         <li><a href="/posts/highavailable/etcd-high-available/">etcd 服务注册与发现（一）</a></li>
-        
-        <li><a href="/posts/cs/how-is-a-sql-statement-executed-by-mysql/">MySQL: 一条SQL语句是如何执行的？</a></li>
         
     </ul>
 </div>
@@ -576,6 +576,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -607,10 +611,6 @@
         <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -622,7 +622,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -713,6 +713,8 @@
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -737,9 +739,13 @@
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -747,7 +753,7 @@
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

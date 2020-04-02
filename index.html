@@ -87,9 +87,37 @@
             <h2 id="1-preface">1 Preface</h2>
 <p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
 <p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
-<p><img src="/images/algo-ac-automation.png" alt="duck-type"></p>……
+<p><img src="/images/algo-ac-automation.png" alt="ac-automation"></p>……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/ac-automation/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月26日 23:11:26
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
+Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
+Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
+(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
+(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
+为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">阅读全文</a></p>
     </article>
     
     <article class="post">
@@ -304,31 +332,6 @@
         <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年11月19日 15:00:28
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
-红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -414,6 +417,10 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -445,10 +452,6 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
         <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -460,7 +463,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -551,6 +554,8 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -575,9 +580,13 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -585,7 +594,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

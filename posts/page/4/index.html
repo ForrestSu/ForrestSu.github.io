@@ -71,6 +71,40 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/" title="2018 Vision Hubble">2018 Vision Hubble</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月5日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1990年4月24日 Hubble Space Telescope
+Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&ldquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&hellip;(哈哈)&rdquo;
+很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠落悬崖。涉及生存的时候，会拼命努力，去追求。
+现在环境好了，每天都睡的很好，但是越是需要危机感。做技术是需要有存量的，就像爬山，觉得洪水只能淹没到山脚，爬到半山腰就好了；如果爬到山顶，那么洪水淹到半山腰也行；如果还有余力,造一架直升飞机也行。技术没有止境，尽力追求完美。
+那么，2018 需要做点什么呢？是的，我们需要做一个亚毫秒级的高性能交易系统。
+Vision-2018 high availability, high throughput, low latency。
+ 亚毫秒级，更一致的延时控制； 更灵活，更线性化的横向扩展； 更高效的编程模型与调试手段，提高软件质量。
+(与硬件结合的通信体系)
+CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：
+在这个过程中提升个人的领导力，提升个人的能力和价值。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/" title="echarts 数据可视化-初体验">echarts 数据可视化-初体验</a>
             </h1>
         </header>
@@ -318,34 +352,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/" title="(译) 蒙特卡罗搜索树">(译) 蒙特卡罗搜索树</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年10月20日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
-原文在这阅读原文。 1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
-2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
- Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -462,6 +468,10 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -493,10 +503,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -508,7 +514,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -599,6 +605,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -623,9 +631,13 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -633,7 +645,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

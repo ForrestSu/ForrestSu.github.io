@@ -69,6 +69,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年11月19日 15:00:28
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
+Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
+红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
             </h1>
         </header>
@@ -295,31 +320,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
         <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年5月9日 19:34:23
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p><img src="/images/about-stock.jpg" alt="about-stock"></p>
-<h2 id="preface">Preface</h2>
-<p>　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -416,6 +416,10 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
@@ -447,10 +451,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
         <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -462,7 +462,7 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -553,6 +553,8 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
@@ -577,9 +579,13 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
@@ -587,7 +593,7 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(1)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
