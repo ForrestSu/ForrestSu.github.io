@@ -139,7 +139,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1400
+            1487
         </div>
         
         <div class="post-meta">
@@ -182,15 +182,17 @@ future_state 堆对象作为一个桥梁，为 future 和 promise 建立了联�
 是调用 future 的 private 构造函数构造的。</p>
 <p><img src="/images/seastar-future-promise-class-diagram.png" alt="f-p-class-diagram"></p>
 <h2 id="4-fp-调用时序图">4 f/p 调用时序图</h2>
-<p>下面来看看 Seastar f/p 调用的时序图：</p>
-<p><img src="/images/seastar-future-promise-timing-diagram.png" alt="f-p-timing-diagram"></p>
-<p>所谓 continuation，在这里就是一个 task 的单链表，一个task内链着一个task;</p>
-<p>future.then() 可以看成一个中间人，他会定义一个新的 promiseA，并产生 futureA，
-把 this，promiseA 转移到一个 lambda_task 内，最后返回 futureA。</p>
+<p>下面来看看 Seastar f/p 调用的时序图：<br>
+<img src="/images/seastar-future-promise-timing-diagram.png" alt="f-p-timing-diagram"></p>
+<p>Continuation在这里可以理解为：一个 task 的单链表，一个task内链着一个task;
+<img src="/images/seastar-each-loop.png" alt="f-p-each-loop">
+f/p是成对使用的，相同颜色的f/p表示一对，因为他们操作同一个future_state；<br>
+future.then() 可以看成一个中间人，他会定义一个新的 promiseA，并产生 futureA，
+把 this，promiseA 转移到一个 lambda_task 内，最后返回futureA。</p>
 <h2 id="5-对象占用的空间">5 对象占用的空间</h2>
 <p>我们可以看到 future/promise 对象都只有1个指针成员，所以大小都是 8 bytes；<br>
-所以调用 move 操作只需要 copy 一个指针即可，可谓是非常高效的设计。</p>
-<p>future_state为堆对象，占用的字节会多一些，这里具体计算。</p>
+而且这两个对象在定义之后，是需要被 move 到不同的lambda_task之中的，可谓是非常高效的设计。</p>
+<p>future_state占用的字节会多一些，这里不具体计算。</p>
 <h2 id="6-对象生命周期">6 对象生命周期</h2>
 <p>一般来说, promise 对象在产生后，会被move到一个 lambda_task 里面，<br>
 lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对象生命周期随之结束。<br>
@@ -199,8 +201,9 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
 <blockquote>
 <p>(1) promise 对象会构造一个future对象，同时 future_state 的所有权也会转交给future对象；<br>
 (2) promise 会先于 future 对象消亡，满足严格的偏序关系。<br>
-(3) future.then() 会将传入的lambda，当前的future自身，所有权都转移到一个更大的 lambda_W 之中，
-将这个 lambda_W 放入 future_state 的task成员上，然后等待时机被调度。</p>
+(3) future.then() 会将传入的lambda + 当前的future自身 + 局部定义的promise，
+这3个对象的所有权都转移到一个更大的 lambda_W 之中，
+最后将这个还未ready的 lambda_W 放入 future_state 的task成员上，然后等待时机被调度。</p>
 </blockquote>
 <h2 id="qa">QA</h2>
 <p><em>最后问个问题：future_state之为啥要用future前缀命名?</em><br>
