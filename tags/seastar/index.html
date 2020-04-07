@@ -78,7 +78,40 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">Seastar之future/promise</a>
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月7日 23:06:23
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            393
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/architecture'>Architecture</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 核间通信 Seastar核间通信，只要采用 2 个 eventfd，用于线程间通信。
+而每个线程绑定一个core，所以我们这里称之为核间通信。示意图如下：
+这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。
+具体指责划分如下：
+ (1) w0 用于其他 core 主动发送 task给当前 core；
+(2) w1 收取w0上的, 并在当前core上执行，然后把执行结果写入r1；
+(3) r0 core0 侦听所有r0 eventfd，然后执行上面的task；……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise (1)</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -86,7 +119,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1487
+            1605
         </div>
         
         <div class="post-meta meta-category">
@@ -163,11 +196,15 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
     </li>
     
     <li>
@@ -198,10 +235,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -213,7 +246,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -284,6 +317,10 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
@@ -344,7 +381,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

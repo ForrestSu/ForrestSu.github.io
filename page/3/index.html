@@ -69,6 +69,30 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年6月3日 23:04:10
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
+摩西奶奶 说：人生只有一次，去做自己喜欢的事。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/" title="关于股市">关于股市</a>
             </h1>
         </header>
@@ -305,30 +329,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-started/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/" title="Thinking coroutine thread async">Thinking coroutine thread async</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年2月8日 22:32:16
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
-异步编程……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -392,7 +392,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/12/">12</a>
+            <a href="https://forrestsu.github.io/page/13/">13</a>
         </li>
         
     
@@ -428,11 +428,15 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
     </li>
     
     <li>
@@ -463,10 +467,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -478,7 +478,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -549,6 +549,10 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
@@ -609,7 +613,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

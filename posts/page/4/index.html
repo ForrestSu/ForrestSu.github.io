@@ -71,6 +71,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/" title="Thinking coroutine thread async">Thinking coroutine thread async</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            从最开始的C语言，同步编程，后来工作了，慢慢开始写异步代码，逐渐有了一些自己的思考和想法。同样都是写业务代码，如何写出高性能，易维护，简洁的 code？ 现有的编程框架有哪些局限性？ 我们来回顾下，业务代码中一个常见的模型：生产者消费者(围笑)! 我们来看下生产者消费者最简单的情况： 一个生产者线程，一个消费者线程，一个共享的queue，为了防止并发冲突，再加上 lock/semaphore 。 随着业务接口慢慢增多，一个接口每次都搞 2个线程，线程数和queue 也线性增加，写代码就慢慢变成了 copy/paste。总得想点什么办法吧！ 于是搞个异步, 我们就写自己数据处理函数。
+异步编程……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/" title="2018 Vision Hubble">2018 Vision Hubble</a>
             </h1>
         </header>
@@ -323,35 +349,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/" title="Web Design in 4 minutes">Web Design in 4 minutes</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年10月26日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/web'>Web</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
-1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
-2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
-1 2 3 4  body { margin: 0 auto; max-width: 50em; }   在对文本块进行样式化后，如何对文本自身进行样式化？
-3 Font family 浏览器缺省的(英文)字体是 &ldquo;Times&rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/web/web-design-in-4-minutes/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -428,7 +425,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -464,11 +461,15 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar之future/promise">Seastar之future/promise</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
     </li>
     
     <li>
@@ -499,10 +500,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -514,7 +511,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -585,6 +582,10 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
@@ -645,7 +646,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(2)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

@@ -3,27 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/communication/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/core/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/seastar/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
     <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/categories/algorithm/</loc>
-    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2020-03-31T18:06:58+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
     <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url>
   
@@ -38,11 +63,6 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/future/</loc>
     <lastmod>2020-03-26T23:11:26+08:00</lastmod>
   </url>
@@ -54,11 +74,6 @@
   
   <url>
     <loc>https://forrestsu.github.io/tags/reactive/</loc>
-    <lastmod>2020-03-26T23:11:26+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/seastar/</loc>
     <lastmod>2020-03-26T23:11:26+08:00</lastmod>
   </url>
   

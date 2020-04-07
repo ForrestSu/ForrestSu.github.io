@@ -6,13 +6,28 @@
     <description>Recent content in Architecture on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 Mar 2020 23:11:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 23:06:23 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Seastar之future/promise</title>
+      <title>Seastar 之核间通信 (2)</title>
+      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</link>
+      <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</guid>
+      <description>1 核间通信 Seastar核间通信，只要采用 2 个 eventfd，用于线程间通信。
+而每个线程绑定一个core，所以我们这里称之为核间通信。示意图如下：
+这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。
+具体指责划分如下：
+ (1) w0 用于其他 core 主动发送 task给当前 core；
+(2) w1 收取w0上的, 并在当前core上执行，然后把执行结果写入r1；
+(3) r0 core0 侦听所有r0 eventfd，然后执行上面的task；</description>
+    </item>
+    
+    <item>
+      <title>Seastar 之 future/promise (1)</title>
       <link>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
