@@ -69,6 +69,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" title="win下ssh指定密码登陆">win下ssh指定密码登陆</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年5月29日 21:02:22
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
+3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/" title="Redis 入门">Redis 入门</a>
             </h1>
         </header>
@@ -294,34 +319,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/" title="恒生一年半工作体验">恒生一年半工作体验</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年4月7日 17:51:39
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            前言  我是2015年6月毕业就来到恒生电子工作，算上3个月实习期，到今天(2017-02-21)将近有2年光景。 先简单介绍下我这边的工作情况：我工作的部门是恒生起步比较早的部门—资产管理事业部（隶属于资产管理事业部&lt;下面有研发一二三四、投资一部、投资二部共6个子部门&gt;）。 每个部门都有一个到多个产品，一个产品即一个BU。比如我所在的投资二部目前有4个小BU（资管SQL版本，非标1.0，非标2.0，QDII境外投资）资管SQL是逐渐被O32的替换的产品，QDII也是拿了O32一个版本来独立开发的。 我所在的团队，主要包含以下小组: 风控、日终、交易、报盘、查询、周边。 我这边主要负责：报盘+部分交易+部分周边。 周边主要包括 UFX/EI统一接入（C++编写）。
-1 工作方面  最近一年来，是经常加班，任务稍微有点多，总体感觉还好。基本都是需求搞好业务分析，形成业务文档，然后Jun哥搞好前期的业务设计。 整体评估，然后把具体的修改点(增加的模块)都列出来。最后分工到个人。(详细的业务流程就不讲了)
-2 技术  技术基本都是沿用O32老的三层架构。 前端
-采用Delphi实现界面要素(委托、查询、参数调整等界面。) 中间件
-采用研发中心的Fbase中间件：以插件的形式开发，插件下挂载对应的业务组件(典型的如proc插件) 中间件主要含有3个主要插件：T2，F2插件(类似于tcp和udp,具体的底层我不太了解) 负责消息按功能号发送，后端调用服务负载均衡。Log插件主要用于异步记录日志。 后端
-主要使用：C/C++ proc*c 来访问 Oracle。还采用共享内存 和信号量实现了一个内存表(主要用来加载热表数据)。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -435,6 +432,10 @@ C++ 11 包含了以下 3 种常用的智能指针：
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
@@ -470,10 +471,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -485,7 +482,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -550,6 +547,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
@@ -563,6 +562,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
@@ -583,6 +584,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     

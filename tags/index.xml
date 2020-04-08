@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Apr 2020 23:06:23 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2020 13:46:15 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cache</title>
+      <link>https://forrestsu.github.io/tags/cache/</link>
+      <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CPU</title>
+      <link>https://forrestsu.github.io/tags/cpu/</link>
+      <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/cpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hardware</title>
+      <link>https://forrestsu.github.io/tags/hardware/</link>
+      <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/hardware/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>communication</title>

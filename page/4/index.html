@@ -69,6 +69,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-started/" title="Seastar 入门">Seastar 入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年2月27日 14:00:04
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。
+有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。
+2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I/O，磁盘 I/O 以及其他事件的复杂组合。
+由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-started/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-coroutine-thread-async/" title="Thinking coroutine thread async">Thinking coroutine thread async</a>
             </h1>
         </header>
@@ -302,31 +328,6 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
         <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/" title="帝都生活杂感(2)">帝都生活杂感(2)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年11月21日 23:51:27
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            20171121 星期二 生活杂感　Efficiency 　有时候给了别人很大期望，展现在别人面前你很能干，那是你全身心投入做一件事的时候，开足了120码，你就会发现你的效率很高。 一旦你分心去忙其他的事的时候(炒股)，你就会发现开始力不从心，分配的工作开始不能按期完成，一拖再拖。最近一个很厉害的同事离职，去了一家做 Ｍanless Driving 的创业公司，很多事都得我去handle，不能像以前，上面有个人替你扛着，安静的“划水”了。
-Just Alive 　外卖，快递小哥，这群活在底层的“工人”，他们在北京一无所有，只有一条命把握在自己手上，但是他们维持着整个北京城的光鲜，让我们感觉幸福的活着。等到下次 20 大召开的时候，他们还是被“禁止进入”北京城。
-Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危机就开始发芽。有时候想想自己还是一无所有，但能够给予的时候也是很快乐。现在所面临的领域也是一无所知，需要解决的问题也无从下手，所以忘掉你引以为傲的武功招式，此时此刻一切归零，像一个新手一样从头再来。切记！……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -440,6 +441,10 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
@@ -475,10 +480,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -490,7 +491,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -555,6 +556,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
@@ -568,6 +571,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
@@ -588,6 +593,8 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     

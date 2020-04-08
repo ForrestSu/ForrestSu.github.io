@@ -69,6 +69,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月8日 13:46:15
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。
+多处理器结构有两种：
+ (l)对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。
+(2)非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。
+ 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。
+现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者都有32 Kbytes,他的存取速度是最接近于寄存器的。L2 cache一般有 256 Kbytes, L3 Cache 有 8 Mbytes。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
             </h1>
         </header>
@@ -84,13 +112,12 @@
         </div>
         
         <div class="post-content">
-            1 核间通信 Seastar核间通信，只要采用 2 个 eventfd，用于线程间通信。
-而每个线程绑定一个core，所以我们这里称之为核间通信。示意图如下：
+            1 核间通信 Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个SMP 的 core，所以我们这里称之为核间通信。
+Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。
+也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。
+示意图如下：
 这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。
-具体指责划分如下：
- (1) w0 用于其他 core 主动发送 task给当前 core；
-(2) w1 收取w0上的, 并在当前core上执行，然后把执行结果写入r1；
-(3) r0 core0 侦听所有r0 eventfd，然后执行上面的task；……
+具体指责划分如下：……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">阅读全文</a></p>
     </article>
@@ -311,31 +338,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <p class="readmore"><a href="https://forrestsu.github.io/posts/go/duck-type/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年3月11日 17:41:47
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/io'>IO</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -417,6 +419,10 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
@@ -452,10 +458,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -467,7 +469,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -532,6 +534,8 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
@@ -545,6 +549,8 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
@@ -565,6 +571,8 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     

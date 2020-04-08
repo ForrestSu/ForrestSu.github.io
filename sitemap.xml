@@ -4,12 +4,42 @@
   
   <url>
     <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/cache/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/cpu/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/hardware/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-04-08T13:46:15+08:00</lastmod>
   </url>
   
   <url>
@@ -23,22 +53,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/seastar/</loc>
     <lastmod>2020-04-07T23:06:23+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</loc>
-    <lastmod>2020-04-07T23:06:23+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
     <lastmod>2020-04-07T23:06:23+08:00</lastmod>
   </url>
   

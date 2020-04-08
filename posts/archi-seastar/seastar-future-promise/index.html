@@ -177,16 +177,16 @@ Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设
 <p>future 和 promise 都有一个 _state 指针成员，都指向同一个future_state&lt;T&gt;堆对象；<br>
 future_state 堆对象作为一个桥梁，为 future 和 promise 建立了联系；<br>
 同时 future_state 可以携带一个task。如下图所示:</p>
-<p><img src="/images/seastar-future-promise.png" alt="future-promise"></p>
+<p><img src="/images/seastar/f-p-old.png" alt="future-promise-old"></p>
 <h2 id="3-fp-类图">3 f/p 类图</h2>
 <p>详细的类图如下，需要注意一点, promise有一个get_future() 方法，<br>
 是调用 future 的 private 构造函数构造的。</p>
-<p><img src="/images/seastar-future-promise-class-diagram.png" alt="f-p-class-diagram"></p>
+<p><img src="/images/seastar/f-p-class-diagram.png" alt="f-p-class-diagram"></p>
 <h2 id="4-fp-调用时序图">4 f/p 调用时序图</h2>
 <p>下面来看看 Seastar f/p 调用的时序图：<br>
-<img src="/images/seastar-future-promise-timing-diagram.png" alt="f-p-timing-diagram"></p>
+<img src="/images/seastar/f-p-timing-diagram.png" alt="f-p-timing-diagram"></p>
 <p>Continuation在这里可以理解为：一个 task 的单链表，一个task内链着一个task;
-<img src="/images/seastar-each-loop.png" alt="f-p-each-loop">
+<img src="/images/seastar/seastar-each-loop.png" alt="f-p-each-loop">
 f/p是成对使用的，相同颜色的f/p表示一对，因为他们操作同一个future_state；<br>
 future.then() 可以看成一个中间人，他会定义一个新的 promiseA，并产生 futureA，
 把 this，promiseA 转移到一个 lambda_task 内，最后返回futureA。</p>
@@ -197,7 +197,7 @@ future.then() 可以看成一个中间人，他会定义一个新的 promiseA，
 <h2 id="6-future--promise-改进">6 future &amp; promise 改进</h2>
 <p>后面为了减少堆空间占用，作者不再使用 future_state 作为桥梁，而使 f/p 直接建立相互关系，
 并且 future_state 只用于存储 task 和 task 的执行结果 tuple。</p>
-<p><img src="/images/seastar-f-p-smaller-heap-space.png" alt="f-p-smaller-heap"></p>
+<p><img src="/images/seastar/f-p-smaller-heap-space.png" alt="f-p-smaller-heap"></p>
 <h2 id="7-对象生命周期">7 对象生命周期</h2>
 <p>一般来说, promise 对象在产生后，会被move到一个 lambda_task 里面，<br>
 lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对象生命周期随之结束。<br>
@@ -293,6 +293,10 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
@@ -328,10 +332,6 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
         <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -343,7 +343,7 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
     
@@ -408,6 +408,8 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
@@ -421,6 +423,8 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
@@ -441,6 +445,8 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
     
