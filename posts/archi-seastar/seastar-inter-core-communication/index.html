@@ -116,8 +116,10 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-核间通信">1 核间通信</a></li>
-    <li><a href="#2-未完">2 未完&hellip;</a></li>
+    <li><a href="#1-0核和任一个核通信">1 0核和任一个核通信</a></li>
+    <li><a href="#2-任意两个核之间通信">2 任意两个核之间通信</a></li>
+    <li><a href="#3-总结">3 总结</a></li>
+    <li><a href="#qa">QA</a></li>
   </ul>
 </nav>
     </div>
@@ -132,7 +134,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            496
+            1154
         </div>
         
         <div class="post-meta">
@@ -155,24 +157,45 @@
         </div>
         
         <div class="post-content">
-            <h2 id="1-核间通信">1 核间通信</h2>
-<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个SMP 的 core，所以我们这里称之为核间通信。</p>
+            <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
+<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
 <p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
 <p>示意图如下：</p>
 <p><img src="/images/seastar/inter-core-communication.png" alt="f-p-inter-code-communication"></p>
-<p>这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。<br>
-具体指责划分如下：</p>
+<p>这里每一对 (w0, w1) 在内核中的文件指针，都指向同一个文件表, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。</p>
+<p>详细解释一下这个矩阵：</p>
 <blockquote>
 <p>(1) w0 用于其他 core 主动发送 task给当前 core；<br>
 (2) w1 收取w0上的, 并在当前core上执行，然后把执行结果写入r1；<br>
-(3) r0 core0 侦听所有r0 eventfd，然后执行上面的task；</p>
+(3) r0 core-0 侦听所有r0 eventfd，然后执行上面的task；</p>
 </blockquote>
-<p>注意 core0 会接收所有 r0 的 readable 事件。<br>
-总结一下： 目前这个版本值支持 core0 向其他core发送任务，当其他core执行完一个task，就把后续任务发回core0。<br>
-细细品味，这就实现了一个 core 间 task 调度。</p>
-<h2 id="2-未完">2 未完&hellip;</h2>
-
+<p>注意 core-0 会接收所有 r0 的 readable 事件。<br>
+总结一下： 目前这个版本值支持 core-0 向其他core发送任务，当其他core执行完一个task，就把后续任务放入complete队列，并通知r0将其处理。</p>
+<p>这就实现了一个 core 间 task 转发，请细细品味。</p>
+<h2 id="2-任意两个核之间通信">2 任意两个核之间通信</h2>
+<p>上面我们理解了Core-0 向其它核如何发送消息，并且其他核执行完，把结果返回给Core-0。</p>
+<p>细心的你一定发现，Core-0和其他Core 已经不对称了，为啥所有的应答，最后都回到Core-0，不应该是原路返回给请求方吗？<br>
+是的，简单起见，我们先简化一下上面的消息矩阵：</p>
+<p><img src="/images/seastar/eventfd_matrix.jpg" alt="eventfd-matrix"></p>
+<p>其中每个单元格的坐标(x,y), 表示 Core-y 向 Core-x 发送核间消息，
+之后该消息最后要回到Core-y，那么只要 Core-y 把矩阵中列号为 y 的r0(fd)都加入自己的epoll，就可以完美的收到任务完成的通知。</p>
+<h2 id="3-总结">3 总结</h2>
+<p>我们来总结一下：<br>
+(1) Seastar构造了一个 eventfd 的方阵，将每个单元格记做(x,y)，它仅仅只用于核 x 向核 y 发送消息，并将执行完的结果返回给核x。<br>
+(2) 每个单元格中有2个eventfd(w0, r0), 这两个fd都还有一个分身(w1,r1);<br>
+(3) (w0,r0) 仅在线程x中使用，(w1,r1)仅在线程y中使用，即保证 fd 不会跨线程使用；<br>
+(4) 完整的事件通知流为：<code>w0(write) -&gt; w1(recv) -&gt; r1(write) -&gt; r0(recv)</code>；</p>
+<h2 id="qa">QA</h2>
+<p>Q: 在上文中我们提到w1=dup(w0)，为什么要dup出一个新的w1 这个fd呢?<br>
+A: 分离出两个fd为了读写分离，因为读和写是在两个不同的线程。</p>
+<p>《全文完》</p>
+<p>文末尾给出了《Seastar 源码之美》系列文章的目录，希望你能在这个列表里找到自己感兴趣的内容。</p>
+<ul>
+<li><a href="/posts/archi-seastar/seastar-started/">Seastar 入门</a></li>
+<li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise (1)</a></li>
+<li><a href="/posts/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a></li>
+</ul>
         </div>
 
         

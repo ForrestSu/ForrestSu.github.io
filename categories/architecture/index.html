@@ -99,8 +99,8 @@
         <div class="post-content">
             1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。
 多处理器结构有两种：
- (l)对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。
-(2)非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。
+ (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。
+(2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。
  通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。
 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者都有32 Kbytes,他的存取速度是最接近于寄存器的。L2 cache一般有 256 Kbytes, L3 Cache 有 8 Mbytes。……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/">阅读全文</a></p>
@@ -118,7 +118,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            496
+            1154
         </div>
         
         <div class="post-meta meta-category">
@@ -129,12 +129,12 @@
         </div>
         
         <div class="post-content">
-            1 核间通信 Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个SMP 的 core，所以我们这里称之为核间通信。
-Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。
-也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。
-示意图如下：
-这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。
-具体指责划分如下：……
+            <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
+<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
+<p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
+也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
+<p>示意图如下：</p>
+<p><img src="/images/seastar/inter-core-communication.png" alt="f-p-inter-code-communication"></p>……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">阅读全文</a></p>
         </div>
     </article>
@@ -150,7 +150,7 @@ Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1605
+            1707
         </div>
         
         <div class="post-meta meta-category">

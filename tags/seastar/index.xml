@@ -17,12 +17,12 @@
       <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</guid>
-      <description>1 核间通信 Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个SMP 的 core，所以我们这里称之为核间通信。
-Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。
-也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。
-示意图如下：
-这里每一对 (w0, w1) 表示一个 event_fd, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。分离出两个fd为了读写分离，因为读和写是在两个不同的线程。
-具体指责划分如下：</description>
+      <description>&lt;h2 id=&#34;1-0核和任一个核通信&#34;&gt;1 0核和任一个核通信&lt;/h2&gt;
+&lt;p&gt;Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个 SMP 的 core，所以我们这里称之为&lt;strong&gt;核间通信&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
+也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。&lt;/p&gt;
+&lt;p&gt;示意图如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.png&#34; alt=&#34;f-p-inter-code-communication&#34;&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
