@@ -86,7 +86,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1321
+            1697
         </div>
         
         <div class="post-meta meta-category">
@@ -97,8 +97,10 @@
         </div>
         
         <div class="post-content">
-            1 what is eventfd ? eventfd 是 Linux 的一个系统调用，创建一个文件描述符,用于事件通知 (since linux 2.6.22)。
-man eventfd
+            1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。
+它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。
+eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。
+更详细的可以查看 man eventfd
 1 2 3  #include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);   eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
         </div>
