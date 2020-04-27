@@ -134,7 +134,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1337
+            1365
         </div>
         
         <div class="post-meta">
@@ -158,7 +158,7 @@
         
         <div class="post-content">
             <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
-<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
+<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API <code>sched_set_affinity()</code>，绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
 <p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
 <p>示意图如下：</p>
@@ -191,7 +191,7 @@
 A: 分离出两个fd为了读写分离，因为读和写是在两个不同的线程。</p>
 <p>Q: 假如不dup出一个新的w1，会有什么问题？
 A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个不同的struct epoll_event，而且一个线程只关心读，另外一个线程只关心写；直觉上是没有冲突的。<br>
-也就是说，只是用一个fd，保证读写分离的情况下是没问题的，因为就算分离出2个fd, 他们背后还是指向同一个内核文件指针，读写时间都会对2个 fd 产生作用!</p>
+也就是说，只是用一个fd，保证读写分离的情况下是没问题的! 因为就算分离出2个fd，他们背后还是指向同一个内核文件指针，读写事件都会对2个 fd 产生作用!</p>
 <p>《全文完》</p>
 <p>文末尾给出了《Seastar 源码之美》系列文章的目录，希望你能在这个列表里找到自己感兴趣的内容。</p>
 <ul>

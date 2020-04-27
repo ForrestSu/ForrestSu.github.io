@@ -118,7 +118,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1337
+            1365
         </div>
         
         <div class="post-meta meta-category">
@@ -130,7 +130,7 @@
         
         <div class="post-content">
             <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
-<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
+<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API <code>sched_set_affinity()</code>，绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
 <p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
 <p>示意图如下：</p>
