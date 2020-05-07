@@ -119,7 +119,8 @@
     <li><a href="#1-smp-symmetric-multi-processor">1 SMP (Symmetric Multi-Processor)</a></li>
     <li><a href="#2-numa-non-uniform-memory-access-architecture">2 NUMA (Non Uniform Memory Access Architecture)</a></li>
     <li><a href="#3-smp-vs-numa">3 SMP vs. NUMA</a></li>
-    <li><a href="#总结">总结</a></li>
+    <li><a href="#4-cpu-缓存一致性">4 CPU 缓存一致性</a></li>
+    <li><a href="#5-总结">5 总结</a></li>
     <li><a href="#参考">参考</a></li>
     <li><a href="#扩展阅读">扩展阅读</a>
       <ul>
@@ -141,7 +142,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1279
+            1504
         </div>
         
         <div class="post-meta">
@@ -188,7 +189,9 @@
 当然访问远端的NUMA 延迟相对会大一些。</p>
 <h2 id="3-smp-vs-numa">3 SMP vs. NUMA</h2>
 <p><img src="/images/hardware/smp-vs-NUMA.jpg" alt="SMP-vs-NUMA"></p>
-<h2 id="总结">总结</h2>
+<h2 id="4-cpu-缓存一致性">4 CPU 缓存一致性</h2>
+<p>因为在多核CPU时代，CPU有“缓存一致性”原则，也就是说每个处理器（核）都会通过<code>嗅探</code>在总线上传播的数据来检查自己的缓存值是不是过期了。如果过期了，则失效。比如声明 <code>volatile</code>，当变量被修改，则会立即要求写入系统内存。</p>
+<h2 id="5-总结">5 总结</h2>
 <p>NUMA将 Core 和 Memory 细分为多个Node, 每个Node可以简单看成一个 SMP 架构。
 <img src="/images/hardware/NUMA-multi-core.png" alt="Intel-Core-i7-cache"></p>
 <h2 id="参考">参考</h2>
@@ -200,8 +203,15 @@
 <img src="/images/hardware/Intel-Core-i7-cache-architecture.png" alt="Intel-Core-i7-cache"></p>
 <p>在 SMP 的3层cache 结构中：<br>
 (1) L1 cache 分为2类(指令和数据)，只为一个core提供cache;<br>
-(2) L2 cache 向2个core提供cache;<br>
-(3) L3 cache 向所有的 core 提供 cache;</p>
+(2) 每个核心都有自己的 L1缓存 和 L2缓存， 但三级缓存却是一颗 CPU 上所有核心共享的。<br>
+(3) 访问缓存要比内存快很多:</p>
+<blockquote>
+<p>一级缓存只需要 4~5 个时钟周期，<br>
+二级缓存大约 12 个时钟周期；<br>
+三级缓存大约 30 个时钟周期；<br>
+CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
+</blockquote>
+<p>（<em>对于 2GHZ 主频的 CPU 来说，一个时钟周期是 0.5 纳秒</em>）</p>
 <h3 id="2-超线程技术">2) 超线程技术</h3>
 <p>超线程技术(Intel Hyper-Threading)，就是使用特殊的硬件指令，把一个Core当成两个逻辑core 来使用，
 在OS看来，逻辑处理器和实体处理器没有区别，因此OS会把工作线程分派给&quot;2颗&rdquo; 处理器去并行处理。</p>
