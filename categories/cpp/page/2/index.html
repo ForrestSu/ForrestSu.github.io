@@ -78,6 +78,36 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">C&#43;&#43;关于NULL、0、nullptr</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年7月17日 01:11:00
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            825
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
+            
+        </div>
+        
+        <div class="post-content">
+            一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
+1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
+1 2 3 4 5  #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */#define NULL 0 #endif   3 C++11引入了nullptr 来表示空指针……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">PCLint9安装_(软件质量之道)</a>
             </h1>
         </header>
@@ -168,6 +198,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
@@ -183,10 +217,6 @@
         <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -200,7 +230,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -275,7 +305,7 @@
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(7)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -310,6 +340,8 @@
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
     
     <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
     
