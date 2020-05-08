@@ -69,6 +69,35 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月8日 19:55:17
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 什么是 ready_future 如果一个 future 在当下就已经有结果了，不必等到未来某个时刻， 我们把这个 future 称为 ready_future。
+ready_future 的不同之处在于:
+ (1) ready_future 可以单独使用，不必关联一个promise；
+(2) ready_future.then(lambda) 会把传入的lambda立即执行掉， 也就是说这个lambda没有机会放入任务队列；
+(3) 而not_ready_future每次执行，产生的新任务都会被放入任务队列，然后依此取出来执行。
+ 2 ready_future 的执行 ready_future 会依此执行，每一个then都会返回一个新的future：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  void run(){ ready_future&lt;int&gt; fut{&#34;v0&#34;}; fut.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
             </h1>
         </header>
@@ -151,7 +180,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -307,31 +336,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年10月11日 20:12:34
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 MySQL 基本架构 MySQL基本架构示意图 2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
-如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。
-2.1 重要的日志模块：redo log ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -413,6 +417,10 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
     </li>
     
@@ -425,7 +433,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
     </li>
     
     <li>
@@ -448,10 +456,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -463,7 +467,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -602,11 +606,13 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

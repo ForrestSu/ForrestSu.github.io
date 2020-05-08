@@ -69,6 +69,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年10月11日 20:12:34
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 MySQL 基本架构 MySQL基本架构示意图 2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
+如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。
+2.1 重要的日志模块：redo log ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
             </h1>
         </header>
@@ -302,34 +327,6 @@ eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质
         <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年7月31日 10:34:54
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
-启动zookeeper服务 bin/zkServer.sh start
-kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
-dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper
-bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker）
-启动kafka服务器（broker） ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -422,6 +419,10 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
     </li>
     
@@ -434,7 +435,7 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
     </li>
     
     <li>
@@ -457,10 +458,6 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -472,7 +469,7 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -611,11 +608,13 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Seastar 之 future/promise (1) | 程序员的冷浪漫</title>
-    <meta property="og:title" content="Seastar 之 future/promise (1) - 程序员的冷浪漫">
+    <title>Seastar 之 future/promise 原理(1) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Seastar 之 future/promise 原理(1) - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-03-26T23:11:26&#43;08:00'>
@@ -16,7 +16,7 @@
     <meta property="article:modified_time" content='2020-03-26T23:11:26&#43;08:00'>
         
     <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
-    <meta name="description" content="Seastar 之 future/promise (1)">
+    <meta name="description" content="Seastar 之 future/promise 原理(1)">
         
     <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">
@@ -133,14 +133,14 @@
 
     <article class="post">
         <header>
-            <h1 class="post-title">Seastar 之 future/promise (1)</h1>
+            <h1 class="post-title">Seastar 之 future/promise 原理(1)</h1>
         </header>
         <date class="post-meta meta-date">
             2020年3月26日 23:11:26
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1707
+            1732
         </div>
         
         <div class="post-meta">
@@ -221,8 +221,9 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
 <p>文末尾给出了《Seastar 源码之美》系列文章的目录，希望你能在这个列表里找到自己感兴趣的内容。</p>
 <ul>
 <li><a href="/posts/archi-seastar/seastar-started/">Seastar 入门</a></li>
-<li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise (1)</a></li>
+<li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise 原理(1)</a></li>
 <li><a href="/posts/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a></li>
+<li><a href="/posts/archi-seastar/seastar-ready-future/">Seastar 之 ready_future(3)</a></li>
 </ul>
 
         </div>
@@ -300,6 +301,10 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
     </li>
     
@@ -312,7 +317,7 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise (1)">Seastar 之 future/promise (1)</a>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
     </li>
     
     <li>
@@ -335,10 +340,6 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
         <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -350,7 +351,7 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -489,11 +490,13 @@ lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对�
     
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/seastar/">seastar(3)</a>
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
     
