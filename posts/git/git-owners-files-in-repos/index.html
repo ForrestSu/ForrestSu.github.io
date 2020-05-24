@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Git 项目仓库中的 OWNERS 文件 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Git 项目仓库中的 OWNERS 文件 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-05-21T22:21:45&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-05-21T22:21:45&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="Git 项目仓库中的 OWNERS 文件">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        margin: 1.1em 0 0 2em;
+        padding: 0.7em 0.7em 0 0.7em;
+        max-width: 40%;
+        line-height: 1em;
+        float: right;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+     
+</style>
+<div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-git-在开发中的常用术语">1 Git 在开发中的常用术语</a></li>
+    <li><a href="#2-owners-文件">2 OWNERS 文件</a></li>
+    <li><a href="#3-owners">3 OWNERS</a></li>
+    <li><a href="#4-最佳实践">4 最佳实践</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">Git 项目仓库中的 OWNERS 文件</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月21日 22:21:45
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            1286
+        </div>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span> 阅读 </span><span id="busuanzi_value_page_pv"></span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-git-在开发中的常用术语">1 Git 在开发中的常用术语</h2>
+<p>在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下：</p>
+<table>
+<thead>
+<tr>
+<th>terms</th>
+<th>means</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WIP  </td>
+<td>Work in progress, do not merge yet.</td>
+<td>开发中</td>
+</tr>
+<tr>
+<td>LGTM</td>
+<td>Looks good to me.</td>
+<td>Riview 完别人的 PR，没有问题，可以合并了</td>
+</tr>
+<tr>
+<td>PTAL</td>
+<td>Please take a look.</td>
+<td>帮我看下，一般都是请别人 review 自己的 PR</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>Carbon copy</td>
+<td>一般代表抄送别人的意思</td>
+</tr>
+<tr>
+<td>RFC  </td>
+<td>request for comments.</td>
+<td>我觉得这个想法很好, 我们来一起讨论下</td>
+</tr>
+<tr>
+<td>IIRC</td>
+<td>  if I recall correctly.</td>
+<td>如果我没记错</td>
+</tr>
+<tr>
+<td>ACK  </td>
+<td>acknowledgement.</td>
+<td>我确认了或者我接受了,我承认了</td>
+</tr>
+<tr>
+<td>NACK/NAK</td>
+<td>negative acknowledgement.</td>
+<td>我不同意</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-owners-文件">2 OWNERS 文件</h2>
+<p>k8s 使用 <code>owners</code> 文件的灵感来自于<a href="https://chromium.googlesource.com/chromium/src/+/master/docs/code_reviews.md">Chromium OWNERS文件</a></p>
+<p>owners 文件主要是为了解决代码审查过程中的问题：</p>
+<ol>
+<li>项目中代码审查的速度, 受到能够审查代码的人员数量的限制；</li>
+<li>一个人的代码审查的质量受到他们对所审查代码的熟悉程度的限制。</li>
+</ol>
+<h2 id="3-owners">3 OWNERS</h2>
+<p>每个包含一个独立代码或内容单元的目录也可能包含一个OWNERS文件。该文件适用于目录中的所有内容，包括OWNERS文件本身，同级文件和子目录。</p>
+<p>OWNERS 文件使用 YAML 格式，并且支持如下关键字：</p>
+<ul>
+<li>approvers: 一组Github的用户名或者别名，他们能够 <code>/approve</code> 一个 PR</li>
+<li>labels: a list of GitHub labels to automatically apply to a PR</li>
+<li>options: a map of options for how to interpret this OWNERS file, currently only one:
+<ul>
+<li>no_parent_owners: defaults to <code>false</code> if not present; if <code>true</code>, exclude parent OWNERS files. Allows the use case where <code>a/deep/nested/OWNERS</code> file prevents <code>a/OWNERS</code> file from having any effect on <code>a/deep/nested/bit/of/code</code></li>
+</ul>
+</li>
+<li>lreviewers: a list of GitHub usernames or aliases that are good candidates to <code>/lgtm</code> a PR</li>
+</ul>
+<p>一个典型的 OWNERS 文件内容如下：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">approvers</span>:
+  - alice
+  - bob     <span style="color:#75715e"># this is a comment</span>
+<span style="color:#66d9ef">reviewers</span>:
+  - alice
+  - carol   <span style="color:#75715e"># this is another comment</span>
+  - sig-foo <span style="color:#75715e"># this is an alias</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4-最佳实践">4 最佳实践</h2>
+<ul>
+<li>team aliases are used that correspond to sigs</li>
+<li>reviewers 最好多余 approvers</li>
+<li>批准者不在 “reviewers” 区块中</li>
+<li>OWNERS 文件会定期更新 (至少每次发布变更一次)</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<p>See the OWNERS docs at <a href="https://go.k8s.io/owners">https://go.k8s.io/owners</a></p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/archi-seastar/seastar-ready-future/">Seastar 之 ready_future(3)</a></li>
+        
+        <li><a href="/posts/architecture-thinking/cpu-cache/">CPU Cache 架构</a></li>
+        
+        <li><a href="/posts/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a></li>
+        
+        <li><a href="/posts/algorithm/ac-automation/">多模匹配之AC自动机</a></li>
+        
+        <li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise 原理(1)</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://forrestsu.github.io/tags/git'>git</a></li>
+                
+                <li><a href='https://forrestsu.github.io/tags/owners'>owners</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
+        
+        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+</body>
+
+</html>

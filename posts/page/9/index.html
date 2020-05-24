@@ -71,6 +71,33 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门">libuv入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月19日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。
+uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  //main.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-explicit/" title="C&#43;&#43;11 explicit关键字">C&#43;&#43;11 explicit关键字</a>
             </h1>
         </header>
@@ -323,37 +350,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/" title="Docker install Ubuntu">Docker install Ubuntu</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年3月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
-当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
-2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-然后点击next.
-安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。
-4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu:  docker pull ubuntu 查看镜像:  docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -466,6 +462,10 @@ C++ 11 包含了以下 3 种常用的智能指针：
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
     </li>
     
@@ -501,10 +501,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -524,7 +520,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
     
@@ -617,7 +613,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -638,6 +634,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
     

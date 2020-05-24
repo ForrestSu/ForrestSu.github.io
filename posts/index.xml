@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 08 May 2020 19:55:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 22:21:45 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git 项目仓库中的 OWNERS 文件</title>
+      <link>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</link>
+      <pubDate>Thu, 21 May 2020 22:21:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</guid>
+      <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下：
+   terms means 翻译     WIP  Work in progress, do not merge yet. 开发中   LGTM Looks good to me.</description>
+    </item>
     
     <item>
       <title>Seastar 之 ready_future(3)</title>

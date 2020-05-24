@@ -69,6 +69,33 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年8月12日 01:50:45
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。
+它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。
+eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。
+更详细的可以查看 man eventfd
+1 2 3  #include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);   eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
             </h1>
         </header>
@@ -289,39 +316,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan">2018 年会-Plan</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年3月15日 21:14:22
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
-平行世界，未来已来。
-区块链，比特币
-1 我们现在在做的 ems2.0 Al 日常运维。
-正准备做的 ems3.0 seastar dpdk coroutine&hellip;
-我想做 ：
-理财平台
-智能投顾
-大数据
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
-通过这一次年会，我也发现了一些我不喜欢的……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -421,6 +415,10 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
     </li>
     
@@ -456,10 +454,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -479,7 +473,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/git/">Git (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
     
@@ -572,7 +566,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(4)</a>
+    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -593,6 +587,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
     

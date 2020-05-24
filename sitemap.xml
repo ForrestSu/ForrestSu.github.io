@@ -3,17 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-05-08T19:55:17+08:00</lastmod>
+    <loc>https://forrestsu.github.io/categories/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2020-05-08T19:55:17+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/git/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/git/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/owners/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
     <lastmod>2020-05-08T19:55:17+08:00</lastmod>
   </url>
   
@@ -29,11 +54,6 @@
   
   <url>
     <loc>https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/</loc>
-    <lastmod>2020-05-08T19:55:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
     <lastmod>2020-05-08T19:55:17+08:00</lastmod>
   </url>
   
@@ -895,16 +915,6 @@
   <url>
     <loc>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</loc>
     <lastmod>2017-03-12T22:21:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/git/</loc>
-    <lastmod>2017-03-09T11:24:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
-    <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url>
   
   <url>
