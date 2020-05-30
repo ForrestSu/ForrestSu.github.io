@@ -71,6 +71,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/%E5%A6%82%E4%BD%95%E6%8E%8C%E6%8F%A1%E6%89%80%E6%9C%89%E8%AF%AD%E8%A8%80/" title="如何掌握所有语言">如何掌握所有语言</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年7月23日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            2017-07-23 从催添翼那十几页纸的paper中学到了很多，这在我第一份工作面试过程中，几乎起了至关重要的作用。
+垠神最近的一篇博客，掌握所有程序语言，就像金庸笔下的武功高手，最后需要忘记……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%A6%82%E4%BD%95%E6%8E%8C%E6%8F%A1%E6%89%80%E6%9C%89%E8%AF%AD%E8%A8%80/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/" title="c和c&#43;&#43;混用技巧">c和c&#43;&#43;混用技巧</a>
             </h1>
         </header>
@@ -311,32 +337,6 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/" title="C&#43;&#43;11 std::function 和 std::bind">C&#43;&#43;11 std::function 和 std::bind</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年6月9日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &hellip;
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  #include &lt;functional&gt;using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序  auto frev = bind(f, _3, _2, _1); int x = frev(1.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -449,6 +449,10 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
     </li>
     
@@ -484,10 +488,6 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -499,7 +499,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -594,6 +594,8 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
@@ -643,6 +645,8 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     

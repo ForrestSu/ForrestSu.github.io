@@ -69,6 +69,37 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年5月25日 17:28:06
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。<br>
+SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。</p>
+<p>在 Spring 全家桶中, Eureka 是一个微服务注册中心，主要提供服务的注册与发现，另一个功能就是服务配置获取。</p>
+<h2 id="2-eureka-核心概念">2 Eureka 核心概念</h2>
+<p>Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。</p>
+<p>下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。<br>
+整体上可以分为两个主体：<code>Eureka Server</code> 和 <code>Eureka Client</code>。</p>
+<p><img src="/images/spring/eureka-server.png" alt="Eureka"></p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
             </h1>
         </header>
@@ -309,33 +340,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <p class="readmore"><a href="https://forrestsu.github.io/posts/go/select-in-go/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年12月17日 18:10:48
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface  反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。
- 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如 google 的 protobuf。
-如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。
-在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：
- Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为Any, 或者Java 中的 Object)……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/reflection-in-go/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -417,6 +421,10 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
     </li>
     
@@ -452,10 +460,6 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -467,7 +471,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -562,6 +566,8 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
@@ -611,6 +617,8 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     

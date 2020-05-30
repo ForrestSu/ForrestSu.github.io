@@ -71,6 +71,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/" title="C&#43;&#43;11 std::function 和 std::bind">C&#43;&#43;11 std::function 和 std::bind</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月9日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &hellip;
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  #include &lt;functional&gt;using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序  auto frev = bind(f, _3, _2, _1); int x = frev(1.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/" title="关于亲情">关于亲情</a>
             </h1>
         </header>
@@ -317,32 +343,6 @@ Analysis Advantage Analysis： zeroMQ……
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/" title="Eclipse 4.6 support c&#43;&#43;11">Eclipse 4.6 support c&#43;&#43;11</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年4月27日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -455,6 +455,10 @@ Analysis Advantage Analysis： zeroMQ……
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
     </li>
     
@@ -490,10 +494,6 @@ Analysis Advantage Analysis： zeroMQ……
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -505,7 +505,7 @@ Analysis Advantage Analysis： zeroMQ……
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -600,6 +600,8 @@ Analysis Advantage Analysis： zeroMQ……
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
@@ -649,6 +651,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     

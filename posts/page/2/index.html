@@ -71,6 +71,35 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年12月17日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface  反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。
+ 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如 google 的 protobuf。
+如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。
+在之前的文章中，我们了解了如何在 Java/C++ 中使用反射：
+ Java-反射机制 protobuf-反射  2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为Any, 或者Java 中的 Object)……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/reflection-in-go/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/" title="etcd 服务注册与发现（一）">etcd 服务注册与发现（一）</a>
             </h1>
         </header>
@@ -324,31 +353,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/" title="午夜梦醒十分">午夜梦醒十分</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年9月17日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            梦到我爷爷在不久的未来将离我而去，梦里是那么真实，是一个穿T恤的夏天，在我家门口的大红枣树下，还记得红枣树是奶奶刚嫁到我家时种下的；梦里未来的我已攒够了7位数的积蓄，开始组建自己的家；梦里是我爷爷肾好像得了急性炎症，匆忙之间就离开了，来不及说一声再见，我看着树上挂着一颗颗熟透的红枣，瞬间眼睛湿润了！ 今年抽个空，去给爷爷做个健康体检。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -440,6 +444,10 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
     </li>
     
@@ -475,10 +483,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -490,7 +494,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -585,6 +589,8 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
@@ -634,6 +640,8 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     

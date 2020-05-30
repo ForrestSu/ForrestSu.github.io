@@ -3,8 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/eureka/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/registry-center/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url>
   
   <url>
@@ -25,21 +55,6 @@
   <url>
     <loc>https://forrestsu.github.io/tags/owners/</loc>
     <lastmod>2020-05-21T22:21:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2020-05-21T22:21:45+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-05-08T19:55:17+08:00</lastmod>
   </url>
   
   <url>

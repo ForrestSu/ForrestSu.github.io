@@ -71,6 +71,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/" title="Eclipse 4.6 support c&#43;&#43;11">Eclipse 4.6 support c&#43;&#43;11</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月27日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
+2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门">libuv入门</a>
             </h1>
         </header>
@@ -323,33 +349,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/" title="QDII转换机工作汇总">QDII转换机工作汇总</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年3月21日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 概述  目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。
-操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下:
- qdii_archivehq (境外行情归档，境外业务日期自动切换) qdii_baseinfo (一系列彭博行情文件转换任务) qdii_fix (FIX转换任务) qdii_futhsfix (境外FIX期货报盘) qdii_hsfix (恒生FIX转换任务) qdii_realhq (彭博实时行情任务，聚源行情转换任务) qdii_reuterhq (路透Xtra3000行情转换) qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情)   下面有 √ 的任务需要代码走读。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -462,6 +461,10 @@ C++ 11 包含了以下 3 种常用的智能指针：
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
     </li>
     
@@ -497,10 +500,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/reflection-in-go/" title="Go 反射">Go 反射</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -512,7 +511,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
     
@@ -607,6 +606,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
@@ -656,6 +657,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
