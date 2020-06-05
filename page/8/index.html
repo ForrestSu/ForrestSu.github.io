@@ -69,6 +69,30 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/" title="工作重心梳理">工作重心梳理</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月9日 22:53:22
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 目前的工作模块划分data-20170609 Team1 : z(Teamleader) (10人左右)
+   Module front-developers backend developers     1 T0Service huoyanfeng、liuchengbo sunquan   2 Risk liuwei、zhangyue liuwei、zhangyue   3 Account Management guoyuzhen guoyuzhen   4 Quotes konghairong lizhijian   期货高频 yantao yantao   衍生数据计算 - lizhijian   测试：1人　HR&amp;财务：1人     Team2 : App(Andriod &amp;&amp; IOS) Team (4~5 人)     Team3 : Trading Team (5人左右)     Team4 : 金工数据 Team (4人左右)      2 2017下半年的工作重心 近期已经完成的 Task List： 1 ZMQ 消息1帧改为2帧，第1帧 改为主题，第2帧传递数据。（需要考虑smooth migration） 2 银河策略宝： 客户端cache 优化，需要考虑去除中间件。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/" title="C&#43;&#43;11 std::function 和 std::bind">C&#43;&#43;11 std::function 和 std::bind</a>
             </h1>
         </header>
@@ -170,6 +194,59 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/" title="[多线程]1114-按序打印">[多线程]1114-按序打印</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月5日 15:19:02
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/leetcode'>LeetCode</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 题目描述 我们提供了一个类：
+public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void two() { print(&ldquo;two&rdquo;); } public void three() { print(&ldquo;three&rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。
+线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/" title="单链表相关算法">单链表相关算法</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月3日 15:19:02
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/leetcode'>LeetCode</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 单链表的反转，按K反转等各种考点变体。
+处理单链表时， 尽量采用递归实现：
+1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。
+2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。
+1 反转单链表(基础) 单链表结构定义如下：
+1 2 3 4 5 6  // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} };   方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution { public: //尾插法  ListNode* reverseList(ListNode* head) { if(head == NULL || head-&gt;next == NULL) { return head; } auto last = reverseList(head-&gt;next); head-&gt;next-&gt;next = head; head-&gt;next = NULL; return last; //became new head  } };   方法二: 循环实现(头插法) 双指针,头插法:……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" title="win下ssh指定密码登陆">win下ssh指定密码登陆</a>
             </h1>
         </header>
@@ -241,84 +318,6 @@ summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，
 Analysis Advantage Analysis： zeroMQ……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/" title="ubuntu 16.10安装eclipse 4.6">ubuntu 16.10安装eclipse 4.6</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年5月13日 15:22:38
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1.下载jdk , jdk-8u131-linux-x64.tar.gz 2 建立 sudo mkdir /usr/lib/java
-3 添加环境变量sudo vi /etc/profile
- export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
- 4
- [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/" title="ubuntu 16.10安装teamviewer12">ubuntu 16.10安装teamviewer12</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年5月12日 23:52:34
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/" title="talk with Yuanyuan">talk with Yuanyuan</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年5月9日 20:28:51
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 来北京怎么样？ 还习惯吗?
-2 老家哪的？
-3 和杭州相比怎么样？
-4 工作还习惯吗？
-5 还说家乡话？……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/talk-with-yuanyuan/">阅读全文</a></p>
     </article>
     
     
@@ -462,15 +461,15 @@ Analysis Advantage Analysis： zeroMQ……
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
     </li>
     
 </ul>
@@ -482,7 +481,7 @@ Analysis Advantage Analysis： zeroMQ……
         <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
@@ -503,6 +502,8 @@ Analysis Advantage Analysis： zeroMQ……
     <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
@@ -545,6 +546,8 @@ Analysis Advantage Analysis： zeroMQ……
     
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
@@ -573,6 +576,8 @@ Analysis Advantage Analysis： zeroMQ……
     
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
     
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
     
     <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
@@ -585,7 +590,7 @@ Analysis Advantage Analysis： zeroMQ……
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/future/">future(1)</a>
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
     
     <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
     
@@ -606,6 +611,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
     <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
@@ -683,11 +690,15 @@ Analysis Advantage Analysis： zeroMQ……
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     

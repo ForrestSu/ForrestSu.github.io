@@ -111,6 +111,20 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     </item>
     
     <item>
+      <title>双蛋问题(动态规划)</title>
+      <link>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</link>
+      <pubDate>Thu, 19 Mar 2020 14:07:56 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</guid>
+      <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
+T层，n个鸡蛋, 总是先要任选一层, 扔下一个鸡蛋；扔下之后有两个结果：
+ 没碎:则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  因为考虑最坏的情况, 假设我们在第K层扔下第一个鸡蛋，对应的解为：
+ Fk(T,n) = max{F(T-k, n), F(k-1,n-1)} + 1
+ 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数：
+ F(T,N) = min(M1(t,n), M2(t,n), M3(t,n) ,&amp;hellip;, Mk(t,n), &amp;hellip; Mt(t,n))</description>
+    </item>
+    
+    <item>
       <title>不建议使用std::thread</title>
       <link>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</link>
       <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
@@ -910,6 +924,31 @@ self-feeling 　这本小说的男主人公是没有名字的，就连他居住�
 　吕克更看重亲情，想要陪妹妹一起度过圣诞夜，选择回到自己的父母身边。 而”我“却更看重自己的事业(工作)和自己想要的爱情，随着年龄的增长，“我”的母亲在一个普通的早晨悄然离开人世，以至于都没能见上最后一面，正如「子欲养而亲不待」。这似乎是我们在外漂泊打拼的年轻人时常会担心的一件事，那么遥远又那么近。所以我会把握一些眼下稍纵即逝的机会，尽量回报父母，不要指望将来有的是时间这种自我麻痹的托词。
 summary 　男孩自小是单亲家庭，性格内向，考虑自己的感受，追求自己想要的事业和爱情，更加独立。吕克则更注重自己的家人、亲情。 当然这是两种截然不同的人生，没有对与错。多种多样的选择演绎着不一样的人生，构成了我们这个纷繁多彩的世界。
 欢迎评论，指出其中的不足。 读书·百味人生 孙权 记于北京2017-06-05晚8:12 北花园</description>
+    </item>
+    
+    <item>
+      <title>[多线程]1114-按序打印</title>
+      <link>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
+      <pubDate>Mon, 05 Jun 2017 15:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
+      <description>1 题目描述 我们提供了一个类：
+public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。
+线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。</description>
+    </item>
+    
+    <item>
+      <title>单链表相关算法</title>
+      <link>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/</link>
+      <pubDate>Sat, 03 Jun 2017 15:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/</guid>
+      <description>Preface 单链表的反转，按K反转等各种考点变体。
+处理单链表时， 尽量采用递归实现：
+1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。
+2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。
+1 反转单链表(基础) 单链表结构定义如下：
+1 2 3 4 5 6  // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} };   方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution { public: //尾插法  ListNode* reverseList(ListNode* head) { if(head == NULL || head-&amp;gt;next == NULL) { return head; } auto last = reverseList(head-&amp;gt;next); head-&amp;gt;next-&amp;gt;next = head; head-&amp;gt;next = NULL; return last; //became new head  } };   方法二: 循环实现(头插法) 双指针,头插法:</description>
     </item>
     
     <item>
