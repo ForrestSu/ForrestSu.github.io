@@ -282,11 +282,9 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
         
         <div class="post-content">
             1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
-T层，n个鸡蛋, 总是先要任选一层, 扔下一个鸡蛋；扔下之后有两个结果：
- 没碎:则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  因为考虑最坏的情况, 假设我们在第K层扔下第一个鸡蛋，对应的解为：
- Fk(T,n) = max{F(T-k, n), F(k-1,n-1)} + 1
- 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数：
- F(T,N) = min(M1(t,n), M2(t,n), M3(t,n) ,&hellip;, Mk(t,n), &hellip; Mt(t,n))……
+T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果：
+ 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次：
+ cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/">阅读全文</a></p>
     </article>
