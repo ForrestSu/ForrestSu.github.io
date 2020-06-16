@@ -71,6 +71,36 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/" title="使用 CMake 快速制作 RPM 安装包">使用 CMake 快速制作 RPM 安装包</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年1月16日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。
+制作 rpm 包通用的方式是：
+直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。
+今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild)
+下面我们就基于Centos7，尝试使用CMake制作了一个yaml-cpp的RPM包：
+2 添加项目打包信息 在一个项目的 CMakeList.txt 文件尾部, 追加以下内容：……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/select-in-go/" title="Go select多路复用, 实现超时机制">Go select多路复用, 实现超时机制</a>
             </h1>
         </header>
@@ -324,34 +354,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年10月30日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/highavailable'>HighAvailable</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface Zookeeper是一个高性能分布式应用协调服务
- Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交  Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
-说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -495,7 +497,7 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -567,6 +569,8 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
@@ -651,6 +655,8 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     

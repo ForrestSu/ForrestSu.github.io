@@ -69,6 +69,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/" title="搭建CUDA 环境（GPU）">搭建CUDA 环境（GPU）</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月12日 10:24:33
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)
+1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612)  CUDA Toolkit on x86_32 is unsupported
+ 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/" title="工作重心梳理">工作重心梳理</a>
             </h1>
         </header>
@@ -296,30 +321,6 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
         <p class="readmore"><a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/" title="Thinking micro-service Architecture">Thinking micro-service Architecture</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年5月15日 14:41:51
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            前言 　目前微服务架构，基本都是通过消息系统来进行Node与Node之间的通信，开完成数据交互的。 目前常用的解决方案: 消息MQ: ZeroMQ、RabbitMQ 数据协议： protobuf、json 数据持久化： Redis、MongoDB 框架： Libuv
-Analysis Advantage Analysis： zeroMQ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/thinking-micro-service-architecture/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -485,7 +486,7 @@ Analysis Advantage Analysis： zeroMQ……
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -557,6 +558,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
@@ -641,6 +644,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     

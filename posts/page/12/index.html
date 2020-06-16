@@ -71,6 +71,37 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/" title="访问git网页排版紊乱">访问git网页排版紊乱</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年11月6日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            在chrome下用F12查看（右键- &gt; 审察元素）有几个请求TIMED_OUT 了，猜想应该是github的DNS被 GFirewall 污染了。
+解决办法 修改hosts文件，直接通过IP访问github的CDN assets-cdn.github.com，不用域名解析。
+通过 www.ipaddress.com 这个网站查询assets-cdn.github.com的IP地址，然后在hosts中增加一条。
+ 151.101.44.133	assets-cdn.github.com 151.101.12.133	avatars0.githubusercontent.com
+ 然后在控制台刷新下DNS缓存：
+ ipconfig /flushdns
+ 最后访问github.com首页，布局就显示正常了。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/" title="一个关于合伙吃饭的问题">一个关于合伙吃饭的问题</a>
             </h1>
         </header>
@@ -315,31 +346,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/" title="PCLint9安装_(软件质量之道)">PCLint9安装_(软件质量之道)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年6月4日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            目前官网最新版是PCLint9.0L(2016-6-3) 2. 接下来弹出PCLint的配置程序，点击下一步开始配置。 ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -484,7 +490,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -556,6 +562,8 @@
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
@@ -640,6 +648,8 @@
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     

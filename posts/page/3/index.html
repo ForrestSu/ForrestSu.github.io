@@ -71,6 +71,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年10月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/highavailable'>HighAvailable</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface Zookeeper是一个高性能分布式应用协调服务
+ Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交  Zookeeper工作方式
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
+说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/" title="慎独">慎独</a>
             </h1>
         </header>
@@ -315,35 +343,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，…
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/" title="异步编程之 CPS">异步编程之 CPS</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月20日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
-CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
-现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
-1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
-1 2 3 4 5 6 7 8  square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -494,7 +493,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (12)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -566,6 +565,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
     
@@ -650,6 +651,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
