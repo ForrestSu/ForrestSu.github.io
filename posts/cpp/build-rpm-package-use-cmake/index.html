@@ -135,7 +135,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1940
+            2093
         </div>
         
         <div class="post-meta">
@@ -196,6 +196,8 @@ CMake打包的基本原理是：CMake内部有一个<code>cpack</code>工具，�
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">set<span style="color:#f92672">(</span>CPACK_SET_DESTDIR ON<span style="color:#f92672">)</span>
@@ -220,6 +222,8 @@ set<span style="color:#f92672">(</span>CPACK_RPM_FILE_NAME <span style="color:#e
 <span style="color:#75715e"># 设置默认生成器,RPM生成器会构建RPM安装包，其它还有TGZ/ZIP等</span>
 set<span style="color:#f92672">(</span>CPACK_GENERATOR <span style="color:#e6db74">&#34;RPM&#34;</span><span style="color:#f92672">)</span>
 
+<span style="color:#75715e"># 从rpm包中,排除某些路径和文件 (主要为了防止和其他安装包冲突)</span>
+list<span style="color:#f92672">(</span>APPEND CPACK_RPM_EXCLUDE_FROM_AUTO_FILELIST_ADDITION <span style="color:#e6db74">&#34;/usr/lib/systemd&#34;</span> <span style="color:#e6db74">&#34;/usr/lib/systemd/system&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#75715e"># 引入CPack模块,放在CMakeList最后,不能少</span>
 include<span style="color:#f92672">(</span>CPack<span style="color:#f92672">)</span>
 </code></pre></td></tr></table>
