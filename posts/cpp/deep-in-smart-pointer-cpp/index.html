@@ -146,7 +146,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            5806
+            5924
         </div>
         
         <div class="post-meta">
@@ -189,8 +189,10 @@
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1(<span style="color:#66d9ef">new</span> Good());
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/std_shared_ptr.png" alt="shared_ptr"></p>
+</div><p><img src="/images/cpp/shared_ptr.jpg" alt="shared_ptr"></p>
 <h3 id="22-weak_ptr">2.2 weak_ptr</h3>
+<p>weak_ptr类 和 shared_ptr类 的成员变量相同。</p>
+<p><img src="/images/cpp/weak_ptr.jpg" alt="weak_ptr"></p>
 <p><strong>为什么会有 weak_ptr?</strong><br>
 因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构,
 所以 weak_ptr 出现就是为了解决循环引用的问题。<br>
@@ -202,7 +204,7 @@
 <p>(2) 负责管理不同对象的生命周期<br>
 shared_ptr 管理 <code>T*对象</code>的生命周期，而 weak_ptr 管理 <code>ctrl_block_t*</code> 的生命周期。</p>
 <p>(3) 不对称<br>
-shared_ptr 可以构造对象产生(make_shared<!-- raw HTML omitted -->() 或 shared_ptr(T*))，或者 weak_ptr 提升。</p>
+shared_ptr 可以构造对象产生(make_shared<!-- raw HTML omitted -->() 或 shared_ptr(T*))，或者通过 weak_ptr 提升。</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -242,7 +244,7 @@ weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/std_make_shared.png" alt="make_shared"></p>
+</div><p><img src="/images/cpp/make_shared.png" alt="make_shared"></p>
 <h3 id="24-enable_shared_from_this">2.4 enable_shared_from_this</h3>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -261,10 +263,10 @@ weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Good</span> <span style="color:#f92672">:</span> std<span style="color:#f92672">::</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> <span style="color:#75715e">// 注意：继承
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Good</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> std<span style="color:#f92672">::</span>enable_shared_from_this<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> <span style="color:#75715e">// public 继承
 </span><span style="color:#75715e"></span>{
 <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-    std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> getptr() {
+    std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> getInstance() {
         <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">shared_from_this</span>();
     }
     <span style="color:#f92672">~</span>Good() { std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Good::~Good() called&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl; }
@@ -272,18 +274,18 @@ weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;
 
 <span style="color:#75715e">// Good: the two shared_ptr&#39;s share the same object
 </span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
-std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp2 <span style="color:#f92672">=</span> gp1<span style="color:#f92672">-&gt;</span>getptr();
+std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp2 <span style="color:#f92672">=</span> gp1<span style="color:#f92672">-&gt;</span>getInstance();
 std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;gp2.use_count() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> gp2.use_count() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>; <span style="color:#75715e">// output 2
 </span></code></pre></td></tr></table>
 </div>
 </div><p>c++ 为了解决class内部, 使用自身class的智能指针的问题，引入了<code>enable_shared_from_this</code>,<br>
-enable_shared_from_this 这个类只包含一个 weak_ptr&lt;T&gt; 成员对象(16 bytes),<br>
+enable_shared_from_this 这个类只包含一个 weak_ptr&lt;T&gt; 成员对象(16 bytes 2个指针),<br>
 当每次调用<code>shared_from_this()</code>, 就通过 <code>weak_ptr</code> 提升创建一个 <code>shared_ptr</code> 对象。</p>
 <p>其内存模型如下：</p>
-<p><img src="/images/std_enable_shared_from_this.png" alt="enable_shared_from_this"></p>
+<p><img src="/images/cpp/enable_shared_from_this.png" alt="enable_shared_from_this"></p>
 <h3 id="25-unique_ptr">2.5 unique_ptr</h3>
 <p>unique_ptr&lt;&gt; 管理一个独占的指针对象;</p>
-<p><img src="/images/std_unique_ptr_internal.gif" alt="unique_ptr_internal"></p>
+<p><img src="/images/cpp/unique_ptr_internal.gif" alt="unique_ptr_internal"></p>
 <h3 id="26-make_uniquet">2.6 make_unique&lt;T&gt;()</h3>
 <p>make_unique&lt;&gt; 只是 unique_ptr&lt;T&gt;(new T()) 语法糖的包装，
 作用只是为了智能指都有<code>make_xxx</code>一个统一的写法而已。</p>
@@ -331,7 +333,13 @@ _Sp_counted_base 的内存。</p>
 <p>❓* 深挖 unique_ptr 的 tuple 成员对象为啥只占用8个字节？*</p>
 <p>因为 gcc 内部实现tuple采用的是递归继承的方式，对应的继承树为:</p>
 <blockquote>
-<p>tuple&lt;T*,functor()&gt; -&gt; tuple&lt;functor()&gt; -&gt; tuple&lt;&gt;</p>
+<p>tuple&lt;T*,class functor()&gt; -&gt; tuple&lt;class functor()&gt; -&gt; tuple&lt;&gt;</p>
+</blockquote>
+<p>其中仿函数的缺省实现(简化版)：</p>
+<blockquote>
+<p>void operator()(Tp* ptr) const {
+delete ptr;
+}</p>
 </blockquote>
 <p>所以问题的本质是：<strong>继承一个没有任何成员的 class, 并不会增加类的大小！</strong></p>
 <p>❓<em>make_shared 对象的内存可能无法及时回收？</em></p>
