@@ -193,9 +193,8 @@
 <h3 id="22-weak_ptr">2.2 weak_ptr</h3>
 <p>weak_ptr类 和 shared_ptr类 的成员变量相同。</p>
 <p><img src="/images/cpp/weak_ptr.jpg" alt="weak_ptr"></p>
-<p><strong>为什么会有 weak_ptr?</strong><br>
-因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构,
-所以 weak_ptr 出现就是为了解决循环引用的问题。<br>
+<p><strong>为什么需要 weak_ptr?</strong><br>
+因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构, 所以 weak_ptr 出现就是为了<strong>解决循环引用</strong>的问题。<br>
 打个不恰当的比喻：weak_ptr就像寄生虫，shared_ptr就是宿主。</p>
 <p>weak_ptr 和 shared_ptr 内存结构相同(1 个原始对象指针 + ctrl_block_t 指针)；</p>
 <p><strong>不同之处在于：</strong></p>
@@ -480,7 +479,7 @@ delete ptr;
 </span><span style="color:#75715e">*/</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>last update: 2020-03-12 13:00:00 by sunquan</p>
+</div><p>last update: 2020-08-04 17:30:04 by sunquan</p>
 
         </div>
 
