@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/</loc>
+    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2020-05-21T22:21:45+08:00</lastmod>
   </url>
@@ -193,7 +198,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/</loc>
+    <loc>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</loc>
     <lastmod>2020-02-07T17:42:28+08:00</lastmod>
   </url>
   
@@ -299,11 +304,6 @@
   
   <url>
     <loc>https://forrestsu.github.io/todo/</loc>
-    <lastmod>2019-10-10T11:28:08+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url>
   
@@ -498,7 +498,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/</loc>
+    <loc>https://forrestsu.github.io/posts/cpp/raii-in-cpp/</loc>
     <lastmod>2018-04-10T11:01:51+08:00</lastmod>
   </url>
   
@@ -798,7 +798,12 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/</loc>
+    <loc>https://forrestsu.github.io/tags/c&#43;&#43;11/</loc>
+    <lastmod>2017-06-09T16:50:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</loc>
     <lastmod>2017-06-09T16:50:08+08:00</lastmod>
   </url>
   
@@ -908,13 +913,13 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/c&#43;&#43;-explicit/</loc>
-    <lastmod>2017-04-07T23:42:42+08:00</lastmod>
+    <loc>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</loc>
+    <lastmod>2017-04-08T20:42:42+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/tags/c&#43;&#43;11/</loc>
-    <lastmod>2017-04-07T20:54:00+08:00</lastmod>
+    <loc>https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/</loc>
+    <lastmod>2017-04-07T23:42:42+08:00</lastmod>
   </url>
   
   <url>
@@ -973,7 +978,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/posix-pthread-1/</loc>
+    <loc>https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/</loc>
     <lastmod>2017-03-22T17:48:27+08:00</lastmod>
   </url>
   
@@ -1188,7 +1193,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/</loc>
+    <loc>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/</loc>
     <lastmod>2016-07-17T01:11:00+08:00</lastmod>
   </url>
   

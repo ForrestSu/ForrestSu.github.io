@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.74.2" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -85,8 +88,8 @@
         
         <div class="post-content">
             1 Preface  最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正)
-1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612)  CUDA Toolkit on x86_32 is unsupported
- 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定义安装，然后下一步、下一步即可。 2.……
+1.1 首先确认配置的 Nvidia 显卡型号   官网查看CUDA兼容的GPU型号cuda-gpu (20170612)   CUDA Toolkit on x86_32 is unsupported
+ 2 CUDA 环境搭建 2.……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/">阅读全文</a></p>
     </article>
@@ -118,7 +121,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/" title="C&#43;&#43;11 std::function 和 std::bind">C&#43;&#43;11 std::function 和 std::bind</a>
+                <a href="https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/" title="C&#43;&#43;11 std::function 和 std::bind">C&#43;&#43;11 std::function 和 std::bind</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -136,7 +139,7 @@
             1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &hellip;
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  #include &lt;functional&gt;using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序  auto frev = bind(f, _3, _2, _1); int x = frev(1.……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;11-std_function%E5%92%8Cstd_bind/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/">阅读全文</a></p>
     </article>
     
     <article class="post">
@@ -398,7 +401,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/14/">14</a>
         </li>
         
     
@@ -416,6 +419,26 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -470,7 +493,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -479,14 +502,14 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -534,7 +557,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -551,7 +574,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -567,7 +590,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -743,27 +766,6 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

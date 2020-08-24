@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.74.2" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -65,6 +68,34 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/" title="zeromq 入门">zeromq 入门</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月2日 20:24:37
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz
+  (2) 解压
+ tar -zxvf zeromq-4.2.1.tar.gz
+ (3) 编译安装
+ 执行configure文件：./configure 编译： make 安装： make install
+ 2 编写样例代码 server端代码：server.cpp……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/">阅读全文</a></p>
+    </article>
     
     <article class="post">
         <header>
@@ -151,7 +182,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/" title="posix-pthread (1)">posix-pthread (1)</a>
+                <a href="https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/" title="posix 进程 vs. 线程 ">posix 进程 vs. 线程 </a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -166,9 +197,9 @@
         </div>
         
         <div class="post-content">
-            进程和线程api对比    进程 线程     pid_t thread_t   fork pthread_create   waitpid pthread_jion   exit pthread_exit   在main函数中调用return 在线程函数中调用return   僵进程 僵线程   wait_pid pthread_jion    pthread_detach   kill pthread_cancel    知识点 1 使用pthread_detach 方法脱离一个线程就不会产生僵线程。 2 获取当前县城id 3 pthread_cancel可以杀死一个执行中的线程。……
+            进程和线程api对比    进程 线程     pid_t thread_t   fork pthread_create   waitpid pthread_jion   exit pthread_exit   在main函数中调用return 在线程函数中调用return   僵进程 僵线程   wait_pid pthread_jion    pthread_detach   kill pthread_cancel    知识点 1 使用pthread_detach 方法脱离一个线程就不会产生僵线程。 2 获取当前县城id  3 pthread_cancel可以杀死一个执行中的线程。……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/posix-pthread-1/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/">阅读全文</a></p>
     </article>
     
     <article class="post">
@@ -217,10 +248,9 @@
             1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
 当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
 2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-然后点击next.
-安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。
-4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu:  docker pull ubuntu 查看镜像:  docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
+    然后点击next.
+  安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
+3 启动 双击Docker Quickstart Terminal 启动即可。……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
     </article>
@@ -270,7 +300,7 @@
         <div class="post-content">
             Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。
  git init git add number.txt
- 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出 ……
+ 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出  ……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
     </article>
@@ -295,32 +325,9 @@
         <div class="post-content">
             ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。
 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;0xff03 hex(节点号)&amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。
-Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
+样例代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/travel/travel-2017/" title="travel-2017">travel-2017</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年2月20日 20:21:25
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/travel'>Travel</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            一、 想去的地方  龙门古镇 （浙江杭州）  ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/travel-2017/">阅读全文</a></p>
     </article>
     
     
@@ -400,7 +407,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/14/">14</a>
         </li>
         
     
@@ -418,6 +425,26 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -472,7 +499,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -481,14 +508,14 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -536,7 +563,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -553,7 +580,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -569,7 +596,7 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -745,27 +772,6 @@ Usage 1 2 3 4 5 6 7 8 9 10 11 12 13 14  #include &lt;stdio.……
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

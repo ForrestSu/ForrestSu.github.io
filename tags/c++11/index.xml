@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c&#43;&#43;11 on 程序员的冷浪漫</title>
+    <title>C&#43;&#43;11 on 程序员的冷浪漫</title>
     <link>https://forrestsu.github.io/tags/c&#43;&#43;11/</link>
-    <description>Recent content in c&#43;&#43;11 on 程序员的冷浪漫</description>
+    <description>Recent content in C&#43;&#43;11 on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 07 Apr 2017 20:54:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 09 Jun 2017 16:50:08 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/tags/c++11/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;11 std::function 和 std::bind</title>
+      <link>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</link>
+      <pubDate>Fri, 09 Jun 2017 16:50:08 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</guid>
+      <description>1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &amp;hellip;
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  #include &amp;lt;functional&amp;gt;using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序  auto frev = bind(f, _3, _2, _1); int x = frev(1.</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)</title>
+      <link>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</link>
+      <pubDate>Sat, 08 Apr 2017 20:42:42 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</guid>
+      <description>1 引用限定符 学了这么多年C++，今天拜读了Scott Meyes的《more effective cpp》，第一次看到这种写法&amp;hellip;
+引用限定可以让成员函数只能被左值对象调用或者只能被右值对象调用。
+下面举例说明：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  namespace left_value { class Hello { void show() &amp;amp; { std::cout &amp;lt;&amp;lt; &amp;#34;just for left-value\n&amp;#34;; } }; inline void run() { Hello t; t.</description>
+    </item>
     
     <item>
       <title>深入理解C&#43;&#43;11智能指针</title>
@@ -21,7 +43,7 @@
 C++ 11 包含了以下 3 种常用的智能指针：
  std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可
 2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
-1  std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good());   2.</description>
+1  std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good());     2.</description>
     </item>
     
   </channel>

@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -171,13 +174,25 @@
 </div>
 </div><p>当计算到第n个物品时，我们只需要知道dp[V-c<code>n</code>]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-c<code>n</code>]，我们一旦到达下标 V-c<code>n</code>，即可提前中止当前(n-1物品的)循环。</p>
 <p>也就是说，当处理第i个物品时只需要循环到：
-<img src="/images/formula-pack.png" alt="formula-pack"></p>
+
+        <a data-fancybox="gallery" href="/images/formula-pack.png">
+            <img class="mx-auto" alt="formula-pack" src="/images/formula-pack.png" />
+        </a>
+    </p>
 <p><em>备注：原作者手误把公式中ｃi+1写成了ｗi。</em></p>
 <h2 id="更进一步优化物品顺序">更进一步优化————物品顺序</h2>
 <p>在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。</p>
 <p><strong>最后：</strong> 基于上面两步优化，我在网上找个题目(<code>nyoj654</code>)来验证下正确性,运行结果如下。
-<img src="/images/run-result.png" alt="run-result"></p>
-<p><img src="/images/cost-time-rank.png" alt="cost-time-rank"></p>
+
+        <a data-fancybox="gallery" href="/images/run-result.png">
+            <img class="mx-auto" alt="run-result" src="/images/run-result.png" />
+        </a>
+    </p>
+<p>
+        <a data-fancybox="gallery" href="/images/cost-time-rank.png">
+            <img class="mx-auto" alt="cost-time-rank" src="/images/cost-time-rank.png" />
+        </a>
+    </p>
 <p><strong>代码如下：</strong></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -332,7 +347,7 @@
         
         <li><a href="/posts/diary/%E5%BF%86%E5%BE%80%E4%BA%8B-%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/">忆往事-梦醒十分</a></li>
         
-        <li><a href="/posts/cpp/c&#43;&#43;%E5%85%B3%E4%BA%8Enull0nullptr/">C&#43;&#43;关于NULL、0、nullptr</a></li>
+        <li><a href="/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/">C&#43;&#43;关于NULL、0、nullptr</a></li>
         
         <li><a href="/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">PCLint9安装_(软件质量之道)</a></li>
         
@@ -366,6 +381,36 @@
     </div>
     
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -420,7 +465,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -429,14 +474,14 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -484,7 +529,7 @@
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -501,7 +546,7 @@
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -517,7 +562,7 @@
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -693,38 +738,6 @@
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

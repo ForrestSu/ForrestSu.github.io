@@ -32,7 +32,7 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
       
       <guid>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
       <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
-Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
+  Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
 Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</description>
     </item>
     
@@ -78,12 +78,11 @@ uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首�
       
       <guid>https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/</guid>
       <description>1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz
-(2) 解压
+  (2) 解压
  tar -zxvf zeromq-4.2.1.tar.gz
  (3) 编译安装
  执行configure文件：./configure 编译： make 安装： make install
- 2 编写样例代码 server端代码：server.cpp
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23  #include &amp;lt;stdio.</description>
+ 2 编写样例代码 server端代码：server.cpp</description>
     </item>
     
   </channel>

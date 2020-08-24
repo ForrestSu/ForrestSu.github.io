@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -243,7 +246,11 @@ luke: 希望我或者公司 能为你做点什么？<br>
 sq: 多开展几次技术培训哈~<br>
 luke: 没有其他的了？<br>
 sq: en&hellip; 好像没有了.</p>
-<p><img src="/images/talk-with-cto.png" alt="talk-with-cto"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/talk-with-cto.png">
+            <img class="mx-auto" alt="talk-with-cto" src="/images/talk-with-cto.png" />
+        </a>
+    </p>
 
         </div>
 
@@ -296,6 +303,36 @@ sq: en&hellip; 好像没有了.</p>
     </div>
     
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -350,7 +387,7 @@ sq: en&hellip; 好像没有了.</p>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -359,14 +396,14 @@ sq: en&hellip; 好像没有了.</p>
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -414,7 +451,7 @@ sq: en&hellip; 好像没有了.</p>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -431,7 +468,7 @@ sq: en&hellip; 好像没有了.</p>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -447,7 +484,7 @@ sq: en&hellip; 好像没有了.</p>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -623,38 +660,6 @@ sq: en&hellip; 好像没有了.</p>
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

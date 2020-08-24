@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -164,18 +167,38 @@
 <p>当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.</p>
 <h2 id="2-安装">2 安装</h2>
 <p>访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。</p>
-<p><img src="/images/docker-website.png" alt="docker-website"></p>
-<p><img src="/images/docker-icon.png" alt="docker-icon"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/docker-website.png">
+            <img class="mx-auto" alt="docker-website" src="/images/docker-website.png" />
+        </a>
+    </p>
+<p>
+        <a data-fancybox="gallery" href="/images/docker-icon.png">
+            <img class="mx-auto" alt="docker-icon" src="/images/docker-icon.png" />
+        </a>
+    </p>
 <p>然后点击next.</p>
-<p><img src="/images/docker-install-screenshots.png" alt="docker-install-screenshots"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/docker-install-screenshots.png">
+            <img class="mx-auto" alt="docker-install-screenshots" src="/images/docker-install-screenshots.png" />
+        </a>
+    </p>
 <p>安装完之后启动Docker Quickstart Terminal.
 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）</p>
 <h2 id="3-启动">3 启动</h2>
 <p>双击Docker Quickstart Terminal 启动即可。</p>
-<p><img src="/images/cmd-run-docker.png" alt="cmd-run-docker"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/cmd-run-docker.png">
+            <img class="mx-auto" alt="cmd-run-docker" src="/images/cmd-run-docker.png" />
+        </a>
+    </p>
 <h2 id="4-登陆">4 登陆</h2>
 <p>使用我们自己的终端登陆，用户：docker 密码：tcuser
-<img src="/images/cmder-run-docker.png" alt="cmder-run-docker"></p>
+
+        <a data-fancybox="gallery" href="/images/cmder-run-docker.png">
+            <img class="mx-auto" alt="cmder-run-docker" src="/images/cmder-run-docker.png" />
+        </a>
+    </p>
 <h2 id="5-安装ubuntu">5 安装ubuntu</h2>
 <p>下载最新的ubuntu: <code> docker pull ubuntu</code>
 查看镜像: <code> docker images</code>
@@ -233,6 +256,36 @@
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -286,7 +339,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -295,14 +348,14 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -350,7 +403,7 @@
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -367,7 +420,7 @@
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -383,7 +436,7 @@
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -559,38 +612,6 @@
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

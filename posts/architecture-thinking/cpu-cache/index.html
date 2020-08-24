@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -176,7 +179,11 @@
 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度，
 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者都有32 Kbytes,他的存取速度是最接近于寄存器的。L2 cache一般有 256 Kbytes, L3 Cache 有 8 Mbytes。</p>
 <p>如下图：<em>(其中 x6 表示有6个硬件core)</em></p>
-<p><img src="/images/hardware/cpuz-cache.jpg" alt="cpuz-cache"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/hardware/cpuz-cache.jpg">
+            <img class="mx-auto" alt="cpuz-cache" src="/images/hardware/cpuz-cache.jpg" />
+        </a>
+    </p>
 <p>随着物理core的集成工艺不断提升，市场上的服务器CPU 能够看到有32 core,甚至 64 core。
 这时候 SMP 架构的劣势就显现出来了，当发生cache miss时，多个 core 会同时向一个 RAM 请求数据。
 这样主存就有大量的竞争压力，为了提高RAM 的访问效率，NUMA架构就出现了。</p>
@@ -184,23 +191,39 @@
 <p>非统一内存访问(NUMA), NUMA 把一台计算机分成多个节点(node), 每个节点内部拥有多个CPU，
 节点内部使用共有的内存控制器，节点之间是通过互联模块进行连接和信息交互。
 如下图所示：</p>
-<p><img src="/images/hardware/NUMA.png" alt="NUMA"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/hardware/NUMA.png">
+            <img class="mx-auto" alt="NUMA" src="/images/hardware/NUMA.png" />
+        </a>
+    </p>
 <p>当发生 cache-miss, 优先访问本地的记忆体(RAM)，然后才通过<code>NUMA内部的互联互通模块</code>访问远端的NUMA节点。
 当然访问远端的NUMA 延迟相对会大一些。</p>
 <h2 id="3-smp-vs-numa">3 SMP vs. NUMA</h2>
-<p><img src="/images/hardware/smp-vs-NUMA.jpg" alt="SMP-vs-NUMA"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/hardware/smp-vs-NUMA.jpg">
+            <img class="mx-auto" alt="SMP-vs-NUMA" src="/images/hardware/smp-vs-NUMA.jpg" />
+        </a>
+    </p>
 <h2 id="4-cpu-缓存一致性">4 CPU 缓存一致性</h2>
 <p>因为在多核CPU时代，CPU有“缓存一致性”原则，也就是说每个处理器（核）都会通过<code>嗅探</code>在总线上传播的数据来检查自己的缓存值是不是过期了。如果过期了，则失效。比如声明 <code>volatile</code>，当变量被修改，则会立即要求写入系统内存。</p>
 <h2 id="5-总结">5 总结</h2>
 <p>NUMA将 Core 和 Memory 细分为多个Node, 每个Node可以简单看成一个 SMP 架构。
-<img src="/images/hardware/NUMA-multi-core.png" alt="Intel-Core-i7-cache"></p>
+
+        <a data-fancybox="gallery" href="/images/hardware/NUMA-multi-core.png">
+            <img class="mx-auto" alt="Intel-Core-i7-cache" src="/images/hardware/NUMA-multi-core.png" />
+        </a>
+    </p>
 <h2 id="参考">参考</h2>
 <p><a href="https://en.wikipedia.org/wiki/CPU_cache">wiki cpu-cache</a>
 <a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access">wiki NUMA</a></p>
 <h2 id="扩展阅读">扩展阅读</h2>
 <h3 id="1-intel-core-cache">1) Intel Core cache</h3>
 <p>看一个典型的 Intel-Core-i7-cache 的架构图：
-<img src="/images/hardware/Intel-Core-i7-cache-architecture.png" alt="Intel-Core-i7-cache"></p>
+
+        <a data-fancybox="gallery" href="/images/hardware/Intel-Core-i7-cache-architecture.png">
+            <img class="mx-auto" alt="Intel-Core-i7-cache" src="/images/hardware/Intel-Core-i7-cache-architecture.png" />
+        </a>
+    </p>
 <p>在 SMP 的3层cache 结构中：<br>
 (1) L1 cache 分为2类(指令和数据)，只为一个core提供cache;<br>
 (2) 每个核心都有自己的 L1缓存 和 L2缓存， 但三级缓存却是一颗 CPU 上所有核心共享的。<br>
@@ -276,6 +299,36 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -329,7 +382,7 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -338,14 +391,14 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -393,7 +446,7 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -410,7 +463,7 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -426,7 +479,7 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -602,38 +655,6 @@ CPU 访问一次内存通常需要 100 个时钟周期以上。</p>
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -189,10 +192,18 @@
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1(<span style="color:#66d9ef">new</span> Good());
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/cpp/shared_ptr.jpg" alt="shared_ptr"></p>
+</div><p>
+        <a data-fancybox="gallery" href="/images/cpp/shared_ptr.jpg">
+            <img class="mx-auto" alt="shared_ptr" src="/images/cpp/shared_ptr.jpg" />
+        </a>
+    </p>
 <h3 id="22-weak_ptr">2.2 weak_ptr</h3>
 <p>weak_ptr类 和 shared_ptr类 的成员变量相同。</p>
-<p><img src="/images/cpp/weak_ptr.jpg" alt="weak_ptr"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/cpp/weak_ptr.jpg">
+            <img class="mx-auto" alt="weak_ptr" src="/images/cpp/weak_ptr.jpg" />
+        </a>
+    </p>
 <p><strong>为什么需要 weak_ptr?</strong><br>
 因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构, 所以 weak_ptr 出现就是为了<strong>解决循环引用</strong>的问题。<br>
 打个不恰当的比喻：weak_ptr就像寄生虫，shared_ptr就是宿主。</p>
@@ -243,7 +254,11 @@ weak_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span> gp1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Good<span style="color:#f92672">&gt;</span>();
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/cpp/make_shared.png" alt="make_shared"></p>
+</div><p>
+        <a data-fancybox="gallery" href="/images/cpp/make_shared.png">
+            <img class="mx-auto" alt="make_shared" src="/images/cpp/make_shared.png" />
+        </a>
+    </p>
 <h3 id="24-enable_shared_from_this">2.4 enable_shared_from_this</h3>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -281,10 +296,18 @@ std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt
 enable_shared_from_this 这个类只包含一个 weak_ptr&lt;T&gt; 成员对象(16 bytes 2个指针),<br>
 当每次调用<code>shared_from_this()</code>, 就通过 <code>weak_ptr</code> 提升创建一个 <code>shared_ptr</code> 对象。</p>
 <p>其内存模型如下：</p>
-<p><img src="/images/cpp/enable_shared_from_this.png" alt="enable_shared_from_this"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/cpp/enable_shared_from_this.png">
+            <img class="mx-auto" alt="enable_shared_from_this" src="/images/cpp/enable_shared_from_this.png" />
+        </a>
+    </p>
 <h3 id="25-unique_ptr">2.5 unique_ptr</h3>
 <p>unique_ptr&lt;&gt; 管理一个独占的指针对象;</p>
-<p><img src="/images/cpp/unique_ptr_internal.gif" alt="unique_ptr_internal"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/cpp/unique_ptr_internal.gif">
+            <img class="mx-auto" alt="unique_ptr_internal" src="/images/cpp/unique_ptr_internal.gif" />
+        </a>
+    </p>
 <h3 id="26-make_uniquet">2.6 make_unique&lt;T&gt;()</h3>
 <p>make_unique&lt;&gt; 只是 unique_ptr&lt;T&gt;(new T()) 语法糖的包装，
 作用只是为了智能指都有<code>make_xxx</code>一个统一的写法而已。</p>
@@ -539,6 +562,36 @@ delete ptr;
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -592,7 +645,7 @@ delete ptr;
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -601,14 +654,14 @@ delete ptr;
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -656,7 +709,7 @@ delete ptr;
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -673,7 +726,7 @@ delete ptr;
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -689,7 +742,7 @@ delete ptr;
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -865,38 +918,6 @@ delete ptr;
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

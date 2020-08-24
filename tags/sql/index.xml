@@ -17,7 +17,7 @@
       <pubDate>Fri, 11 Oct 2019 20:12:34 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/</guid>
-      <description>1 MySQL 基本架构 MySQL基本架构示意图 2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
+      <description>1 MySQL 基本架构 MySQL基本架构示意图  2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
 如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。
 2.1 重要的日志模块：redo log </description>
     </item>

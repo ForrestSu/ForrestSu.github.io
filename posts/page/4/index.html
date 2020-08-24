@@ -21,11 +21,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/posts/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -125,7 +128,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+                <a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
             </h1>
         </header>
         <date class="post-meta meta-date">
@@ -142,7 +145,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <div class="post-content">
             什么是RAII ? 　RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c&#43;&#43;-raii/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/">阅读全文</a></p>
     </article>
     
     
@@ -323,8 +326,7 @@ Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很
 Vision-2018 high availability, high throughput, low latency。
  亚毫秒级，更一致的延时控制； 更灵活，更线性化的横向扩展； 更高效的编程模型与调试手段，提高软件质量。
 (与硬件结合的通信体系)
-CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：
-在这个过程中提升个人的领导力，提升个人的能力和价值。……
+CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研方向，每个方向成立一个小组：……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-vision-hubble/">阅读全文</a></p>
     </article>
@@ -350,8 +352,7 @@ CTO 给这个项目叫做：Hubble项目  Grouping 我们划分了如下调研�
         
         <div class="post-content">
             Preface 　欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。
-Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。
-Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可能会用matlabplot 来绘图，再geek一点的就用Τex这种国际上通用的玩法了。 之前用过 highcharts, 潜意识下数据可视化 找一个强大的JS库就好了， 可以快速出成品。咨询tqd, 推荐使用baidu的echarts，看完官网 examples，感觉好强大，官方入门文档还是蛮不错的！ 配合Demo，2小时就可以学完基本的API。……
+Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
     </article>
@@ -434,7 +435,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
+            <a href="https://forrestsu.github.io/posts/page/14/">14</a>
         </li>
         
     
@@ -452,6 +453,26 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -506,7 +527,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -515,14 +536,14 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -570,7 +591,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -587,7 +608,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -603,7 +624,7 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -779,27 +800,6 @@ Prepare 当初毕设论文的曲线图还是用Excel 生成的，数学系的可
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

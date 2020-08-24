@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -188,11 +191,19 @@
 <ul>
 <li>正文(inline)中的LaTeX公式用<code>$...$</code>定义</li>
 <li>语句为<code>$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$</code></li>
-<li>显示在当前行内<code>(简书目前不支持mathjax 只好暂时用图片代替了→_→) </code> <img src="/images/md-mathjax-01.png" alt="md-mathjax-01"></li>
+<li>显示在当前行内<code>(简书目前不支持mathjax 只好暂时用图片代替了→_→) </code> 
+        <a data-fancybox="gallery" href="/images/md-mathjax-01.png">
+            <img class="mx-auto" alt="md-mathjax-01" src="/images/md-mathjax-01.png" />
+        </a>
+    </li>
 <li>单独显示(display)的LaTeX公式用<code>$$...$$</code>定义，此时公式居中并放大显示</li>
 <li>语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$</li>
 <li>显示为
-<img src="/images/md-mathjax-02.png" alt="md-mathjax-02"></li>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-02.png">
+            <img class="mx-auto" alt="md-mathjax-02" src="/images/md-mathjax-02.png" />
+        </a>
+    </li>
 <li>下列描述语句中若非特别指出均省略<code>$...$</code></li>
 </ul>
 <h2 id="2-希腊字母">2 希腊字母</h2>
@@ -284,11 +295,19 @@
 <li>
 <p>若需要大写希腊字母，将命令首字母大写即可。
 \Gamma呈现为
-<img src="/images/md-mathjax-03.png" alt="md-mathjax-03"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-03.png">
+            <img class="mx-auto" alt="md-mathjax-03" src="/images/md-mathjax-03.png" />
+        </a>
+    </p>
 </li>
 <li>
 <p>若需要斜体希腊字母，将命令前加上var前缀即可。
-<img src="/images/md-mathjax-04.png" alt="md-mathjax-04"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-04.png">
+            <img class="mx-auto" alt="md-mathjax-04" src="/images/md-mathjax-04.png" />
+        </a>
+    </p>
 </li>
 </ul>
 <h2 id="3-字母修饰">3 字母修饰</h2>
@@ -296,27 +315,71 @@
 <ul>
 <li>上标：<code>^</code></li>
 <li>下标：<code>_</code>
-<img src="/images/md-mathjax-05.png" alt="md-mathjax-05"></li>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-05.png">
+            <img class="mx-auto" alt="md-mathjax-05" src="/images/md-mathjax-05.png" />
+        </a>
+    </li>
 </ul>
 <h3 id="32-矢量">3.2 矢量</h3>
-<p><img src="/images/md-mathjax-06.png" alt="md-mathjax-06"></p>
-<p><img src="/images/md-mathjax-07.png" alt="md-mathjax-07"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-06.png">
+            <img class="mx-auto" alt="md-mathjax-06" src="/images/md-mathjax-06.png" />
+        </a>
+    </p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-07.png">
+            <img class="mx-auto" alt="md-mathjax-07" src="/images/md-mathjax-07.png" />
+        </a>
+    </p>
 <h3 id="33-字体">3.3 字体</h3>
-<p><img src="/images/md-mathjax-08.png" alt="md-mathjax-08"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-08.png">
+            <img class="mx-auto" alt="md-mathjax-08" src="/images/md-mathjax-08.png" />
+        </a>
+    </p>
 <h3 id="34-分组">3.4 分组</h3>
-<p><img src="/images/md-mathjax-09.png" alt="md-mathjax-09"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-09.png">
+            <img class="mx-auto" alt="md-mathjax-09" src="/images/md-mathjax-09.png" />
+        </a>
+    </p>
 <h3 id="35-括号">3.5 括号</h3>
-<p><img src="/images/md-mathjax-10.png" alt="md-mathjax-10"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-10.png">
+            <img class="mx-auto" alt="md-mathjax-10" src="/images/md-mathjax-10.png" />
+        </a>
+    </p>
 <h3 id="36-求和极限与积分">3.6 求和、极限与积分</h3>
-<p><img src="/images/md-mathjax-11.png" alt="md-mathjax-11"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-11.png">
+            <img class="mx-auto" alt="md-mathjax-11" src="/images/md-mathjax-11.png" />
+        </a>
+    </p>
 <h3 id="37-分式与根式">3.7 分式与根式</h3>
-<p><img src="/images/md-mathjax-12.png" alt="md-mathjax-12"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-12.png">
+            <img class="mx-auto" alt="md-mathjax-12" src="/images/md-mathjax-12.png" />
+        </a>
+    </p>
 <h3 id="38-特殊函数">3.8 特殊函数</h3>
-<p><img src="/images/md-mathjax-13.png" alt="md-mathjax-13"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-13.png">
+            <img class="mx-auto" alt="md-mathjax-13" src="/images/md-mathjax-13.png" />
+        </a>
+    </p>
 <h3 id="39-特殊符号">3.9 特殊符号</h3>
-<p><img src="/images/md-mathjax-14.png" alt="md-mathjax-14"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-14.png">
+            <img class="mx-auto" alt="md-mathjax-14" src="/images/md-mathjax-14.png" />
+        </a>
+    </p>
 <h3 id="310-空格">3.10 空格</h3>
-<p><img src="/images/md-mathjax-15.png" alt="md-mathjax-15"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-15.png">
+            <img class="mx-auto" alt="md-mathjax-15" src="/images/md-mathjax-15.png" />
+        </a>
+    </p>
 <h2 id="4-矩阵">4 矩阵</h2>
 <h3 id="41-基本语法">4.1 基本语法</h3>
 <p>起始标记<code>\begin{matrix}</code>，结束标记<code> \end{matrix}</code>
@@ -328,7 +391,11 @@
 0&amp;0&amp;1\\
 \end{matrix}$$
 </code></pre><p>呈现为：
-<img src="/images/md-mathjax-16.png" alt="md-mathjax-16"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-16.png">
+            <img class="mx-auto" alt="md-mathjax-16" src="/images/md-mathjax-16.png" />
+        </a>
+    </p>
 <h3 id="42-矩阵边框">4.2 矩阵边框</h3>
 <ul>
 <li>在起始、结束标记处用下列词替换 <code>matrix</code></li>
@@ -352,9 +419,17 @@
 {a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{mn}}\\
 \end{bmatrix}$$
 </code></pre><p>呈现为：
-<img src="/images/md-mathjax-17.png" alt="md-mathjax-17"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-17.png">
+            <img class="mx-auto" alt="md-mathjax-17" src="/images/md-mathjax-17.png" />
+        </a>
+    </p>
 <h3 id="44-阵列">4.4 阵列</h3>
-<p><img src="/images/md-mathjax-18.png" alt="md-mathjax-18">
+<p>
+        <a data-fancybox="gallery" href="/images/md-mathjax-18.png">
+            <img class="mx-auto" alt="md-mathjax-18" src="/images/md-mathjax-18.png" />
+        </a>
+    
 举例</p>
 <pre><code>$$\begin{array}{c|lll}
 {↓}&amp;{a}&amp;{b}&amp;{c}\\
@@ -363,7 +438,11 @@
 {R_2}&amp;{b}&amp;{c}&amp;{c}\\
 \end{array}$$
 </code></pre><p>呈现为
-<img src="/images/md-mathjax-19.png" alt="md-mathjax-19"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-19.png">
+            <img class="mx-auto" alt="md-mathjax-19" src="/images/md-mathjax-19.png" />
+        </a>
+    </p>
 <h3 id="45-方程组">4.5 方程组</h3>
 <ul>
 <li>需要cases环境：起始、结束处以{cases}声明</li>
@@ -388,7 +467,11 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>呈现为
-<img src="/images/md-mathjax-20.png" alt="md-mathjax-20"></p>
+
+        <a data-fancybox="gallery" href="/images/md-mathjax-20.png">
+            <img class="mx-auto" alt="md-mathjax-20" src="/images/md-mathjax-20.png" />
+        </a>
+    </p>
 <h2 id="5-参考文献">5 参考文献</h2>
 <p><a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">md-mathjax-tutorial-ref</a></p>
 
@@ -444,6 +527,36 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -497,7 +610,7 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -506,14 +619,14 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -561,7 +674,7 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -578,7 +691,7 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -594,7 +707,7 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -770,38 +883,6 @@ a_3x<span style="color:#f92672">+</span>b_3y<span style="color:#f92672">+</span>
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

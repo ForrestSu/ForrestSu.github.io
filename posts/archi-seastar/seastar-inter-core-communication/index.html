@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -134,7 +137,7 @@
         </date>
         <div class="post-meta">
             <span>| 字数 </span>
-            1390
+            1581
         </div>
         
         <div class="post-meta">
@@ -162,7 +165,17 @@
 <p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
 <p>示意图如下：</p>
-<p><img src="/images/seastar/inter-core-communication.png" alt="f-p-inter-code-communication"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/inter-core-communication.jpg">
+            <img class="mx-auto" alt="f-p-inter-code-communication" src="/images/seastar/inter-core-communication.jpg" />
+        </a>
+    </p>
+<p><strong>每一个Core K, 负责矩阵的第K行, 第K列。</strong><br>
+具体表现为:<br>
+<code>1 从第K行所有的 w1 上接收待执行的task, 执行完后写入对于的 r1</code>；
+<code>2 向第K列的 w0 上发送核间task, 同时从第 K 列的 r0 上接收task执行结果</code>；</p>
+<p>干事做事很在行, 列位都是领导。<br>
+<strong>第 K 行是CoreK自己要干的活儿; 而在第K列, CoreK可以给其他的core派活干。</strong></p>
 <p>这里每一对 (w0, w1) 在内核中的文件指针，都指向同一个文件表, 他们的关系是：w1=dup(w0), 同理(r0, r1)也是这样的。</p>
 <p>详细解释一下这个矩阵：</p>
 <blockquote>
@@ -177,9 +190,14 @@
 <p>上面我们理解了Core-0 向其它核如何发送消息，并且其他核执行完，把结果返回给Core-0。</p>
 <p>细心的你一定发现，Core-0和其他Core 已经不对称了，为啥所有的应答，最后都回到Core-0，不应该是原路返回给请求方吗？<br>
 是的，简单起见，我们先简化一下上面的消息矩阵：</p>
-<p><img src="/images/seastar/eventfd_matrix.jpg" alt="eventfd-matrix"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/eventfd_matrix.jpg">
+            <img class="mx-auto" alt="eventfd-matrix" src="/images/seastar/eventfd_matrix.jpg" />
+        </a>
+    </p>
 <p>其中每个单元格的坐标(x,y), 表示 Core-y 向 Core-x 发送核间消息，
 之后该消息最后要回到Core-y，那么只要 Core-y 把矩阵中列号为 y 的r0(fd)都加入自己的epoll，就可以完美的收到任务完成的通知。</p>
+<p>因为核间通信要做到双工，返回消息应答时，按照上图的箭头发方向即可。</p>
 <h2 id="3-总结">3 总结</h2>
 <p>我们来总结一下：<br>
 (1) Seastar构造了一个 eventfd 的方阵，将每个单元格记做(x,y)，它仅仅只用于核 x 向核 y 发送消息，并将执行完的结果返回给核x。<br>
@@ -256,6 +274,36 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -309,7 +357,7 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -318,14 +366,14 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -373,7 +421,7 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -390,7 +438,7 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -406,7 +454,7 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -582,38 +630,6 @@ A: 同一个fd加入两个线程（不同的epoll红黑树中），关联两个�
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

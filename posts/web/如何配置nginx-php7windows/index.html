@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -173,9 +176,17 @@
 <h4 id="3-修改配置文件">3 修改配置文件</h4>
 <h5 id="31-nginx-配置文件">3.1 nginx 配置文件</h5>
 <p>1 修改nginx.conf配置:
-<img src="/images/win-nginx-config.png" alt="win-nginx-config"></p>
+
+        <a data-fancybox="gallery" href="/images/win-nginx-config.png">
+            <img class="mx-auto" alt="win-nginx-config" src="/images/win-nginx-config.png" />
+        </a>
+    </p>
 <p>2 复制并注释掉fastcgi_param,修改<code>/scripts</code>为<code>$document_root</code>
-<img src="/images/win-php-with-nginx-config.png" alt="win-php-with-nginx-config"></p>
+
+        <a data-fancybox="gallery" href="/images/win-php-with-nginx-config.png">
+            <img class="mx-auto" alt="win-php-with-nginx-config" src="/images/win-php-with-nginx-config.png" />
+        </a>
+    </p>
 <h5 id="32-php配置文件">3.2 php配置文件</h5>
 <p>1 复制php.ini-development到php.ini 启用以下dll：
 php_bz2.dll、php_curl.dll、php_gd2.dll、php_mbstring.dll、php_openssl.dll、php_pdo_mysql.dll、php_pdo_pgsql.dll</p>
@@ -184,7 +195,11 @@ php_bz2.dll、php_curl.dll、php_gd2.dll、php_mbstring.dll、php_openssl.dll、
 <p>extension_dir = &ldquo;D:/Portable/php-7.1.1x64/ext&rdquo;</p>
 </blockquote>
 <h4 id="4-创建bat启动脚本">4 创建Bat启动脚本</h4>
-<p><img src="/images/win-nginx-directory.png" alt="win-nginx-directory"></p>
+<p>
+        <a data-fancybox="gallery" href="/images/win-nginx-directory.png">
+            <img class="mx-auto" alt="win-nginx-directory" src="/images/win-nginx-directory.png" />
+        </a>
+    </p>
 <p>start_nginx.bat</p>
 <pre><code>@echo off
 set PHP_FCGI_MAX_REQUESTS=1000
@@ -260,6 +275,36 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -313,7 +358,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -322,14 +367,14 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -377,7 +422,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -394,7 +439,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -410,7 +455,7 @@ taskkill /F /IM php-cgi.exe &gt; nul
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -586,38 +631,6 @@ taskkill /F /IM php-cgi.exe &gt; nul
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

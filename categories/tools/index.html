@@ -21,11 +21,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/categories/tools/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -125,7 +128,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
         </div>
         
         <div class="post-content">
-            1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)   单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为  下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为   若需要斜体希腊字母，将命令前加上var前缀即可。   3 字母修饰 3.……
+            1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)    单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为   下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为    若需要斜体希腊字母，将命令前加上var前缀即可。    3 字母修饰 3.……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/">阅读全文</a></p>
         </div>
     </article>
@@ -181,7 +184,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
         </div>
         
         <div class="post-content">
-            1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。 然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。 最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
+            1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。  然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。  最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
 2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
         </div>
@@ -212,10 +215,9 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
             1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
 当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
 2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-然后点击next.
-安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。
-4 登陆 使用我们自己的终端登陆，用户：docker 密码：tcuser 5 安装ubuntu 下载最新的ubuntu:  docker pull ubuntu 查看镜像:  docker images 启动容器。docker run -t -i ubuntu:latest //bin/bash……
+    然后点击next.
+  安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
+3 启动 双击Docker Quickstart Terminal 启动即可。……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
         </div>
     </article>
@@ -242,7 +244,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
         </div>
         
         <div class="post-content">
-            广告拦截   隐私保护   文档查看   写邮件   书签查找   网页截图工具   Github代码查看   标签页管理   Scroll To Top (offered by AlphaTr)……
+            广告拦截    隐私保护    文档查看    写邮件    书签查找    网页截图工具    Github代码查看    标签页管理        Scroll To Top (offered by AlphaTr)……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/">阅读全文</a></p>
         </div>
     </article>
@@ -269,11 +271,10 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
         </div>
         
         <div class="post-content">
-            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容：
+            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置：  添加如下内容：
  { &ldquo;color_scheme&rdquo;: &ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&rdquo;, &ldquo;draw_centered&rdquo;: false, &ldquo;line_numbers&rdquo;: true, &ldquo;highlight_line&rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &ldquo;wrap_width&rdquo;:0 }
- 最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
- git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
- 然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。……
+ 最后我们新建一个md文件就可以开始写作了^_^  2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
+ git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
         </div>
     </article>
@@ -329,9 +330,9 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
         </div>
         
         <div class="post-content">
-            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
+            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。  1 GitGutter 这个可以左侧实时显示文件的修改  2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
  //1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
- 3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.……
+   3 C Improved 更加丰富的C语言着色方案  然后点击右下角c++，可将*.……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
         </div>
     </article>
@@ -394,6 +395,26 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
 
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -447,7 +468,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -456,14 +477,14 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -511,7 +532,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -528,7 +549,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -544,7 +565,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -720,27 +741,6 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

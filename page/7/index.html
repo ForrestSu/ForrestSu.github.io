@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.74.2" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -159,7 +162,7 @@
         
         <div class="post-content">
             1 用C-style 来访问vector
-1 2 3 4 5 6 7 8  vector&lt;char*&gt; str; str.push_back(&#34;abc&#34;); str.push_back(&#34;123&#34;); //按照 C-style 来访问vector  char** ptr= str.data(); for(int i =0;i&lt;2;++i) printf(&#34;%s\n&#34;,ptr[i]);   2……
+1 2 3 4 5 6 7 8  vector&lt;char*&gt; str; str.push_back(&#34;abc&#34;); str.push_back(&#34;123&#34;); //按照 C-style 来访问vector  char** ptr= str.data(); for(int i =0;i&lt;2;++i) printf(&#34;%s\n&#34;,ptr[i]);   ……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/">阅读全文</a></p>
     </article>
@@ -236,8 +239,8 @@
         
         <div class="post-content">
             大公司就像温水煮青蛙，慢慢的你就不知不觉变成一颗螺丝钉，这也是一般的领导所期望的。
-1 公司的组织结构 以下是个人的愚见，如有高见，不吝留言评论^_* 大公司的特点：就像一个螺丝钉，要求就是:尽管做好自己那块。 优点：工作更规范，更加标准化，流程化，了解的业务更全面，平台更大。 缺点：可能对自己的能力提升很慢，如果不在业余时间自己充实提升自己，就像温水煮青蛙，螺丝钉越钉越牢固。
-小公司的特点：要做的工作更杂，更有挑战性和创新性。 优点：能够学到更多前沿的东西(前提是你肯钻研)，然后还能应用到工作中，每个人承担的东西更多，使用的技术比较新，勇于尝试和创新。 缺点：平台较小，闲下来的时间比较少。……
+1 公司的组织结构 以下是个人的愚见，如有高见，不吝留言评论^_*  大公司的特点：就像一个螺丝钉，要求就是:尽管做好自己那块。 优点：工作更规范，更加标准化，流程化，了解的业务更全面，平台更大。 缺点：可能对自己的能力提升很慢，如果不在业余时间自己充实提升自己，就像温水煮青蛙，螺丝钉越钉越牢固。
+  小公司的特点：要做的工作更杂，更有挑战性和创新性。 优点：能够学到更多前沿的东西(前提是你肯钻研)，然后还能应用到工作中，每个人承担的东西更多，使用的技术比较新，勇于尝试和创新。 缺点：平台较小，闲下来的时间比较少。……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/">阅读全文</a></p>
     </article>
@@ -286,7 +289,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
         </div>
         
         <div class="post-content">
-            1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)   单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为  下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为   若需要斜体希腊字母，将命令前加上var前缀即可。   3 字母修饰 3.……
+            1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)    单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为   下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为    若需要斜体希腊字母，将命令前加上var前缀即可。    3 字母修饰 3.……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/">阅读全文</a></p>
     </article>
@@ -393,7 +396,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/14/">14</a>
         </li>
         
     
@@ -411,6 +414,26 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -465,7 +488,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -474,14 +497,14 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -529,7 +552,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -546,7 +569,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -562,7 +585,7 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -738,27 +761,6 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

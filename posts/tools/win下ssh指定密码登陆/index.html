@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -182,16 +185,28 @@
 3、登录之后，和ssh交互需要通过管道进行。</p>
 <h3 id="5-what-i-want">5 What I want</h3>
 <p>　　由于我想使用其他终端，不想改用putty的终端。继续google之后发现putty是调用plink.exe来进行登录的。继续搜索，发现plink支持命令行模式。
-<img src="/images/win-terminal-cmder.png" alt="win-terminal-cmder"></p>
+
+        <a data-fancybox="gallery" href="/images/win-terminal-cmder.png">
+            <img class="mx-auto" alt="win-terminal-cmder" src="/images/win-terminal-cmder.png" />
+        </a>
+    </p>
 <h3 id="6-my-solution">6 My Solution</h3>
 <p>命令行调用plink.exe登陆(<code>其中 -C 表示压缩传输，-ssh表示采用ssh协议，-pw指定用户密码，-v表示打印日志</code>)</p>
 <blockquote>
 <p>plink -C -ssh -pw password  <a href="mailto:username@192.168.1.184">username@192.168.1.184</a></p>
 </blockquote>
 <p>　　(1) 安装putty.exe，取 <strong>plink.exe</strong> (version 0.69约0.6M)放在我的终端下，采用命令行方式调用。(其实只用到plink.exe)
-<img src="/images/win-putty-exe.png" alt="win-putty-exe"></p>
+
+        <a data-fancybox="gallery" href="/images/win-putty-exe.png">
+            <img class="mx-auto" alt="win-putty-exe" src="/images/win-putty-exe.png" />
+        </a>
+    </p>
 <p>　　(2) 把上面的命令设置一条alias,这样每次可以输入别名来登陆了。
-<img src="/images/win-putty-alias-bat.png" alt="win-putty-alias-bat"></p>
+
+        <a data-fancybox="gallery" href="/images/win-putty-alias-bat.png">
+            <img class="mx-auto" alt="win-putty-alias-bat" src="/images/win-putty-alias-bat.png" />
+        </a>
+    </p>
 <p>但是很悲伤，plink只是个简单的模拟器，并不支持查看输入过的命令（↑↓）。→_→
 进一步探索发现plink是开源的，所以我们可以修改其源代码，使其支持查看历史命令
 下面是我基于0.69,版本上修复（修复了该问题，但是还有个窗口大小改变的问题，后面有时间修复吧）
@@ -253,6 +268,36 @@
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -306,7 +351,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -315,14 +360,14 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -370,7 +415,7 @@
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -387,7 +432,7 @@
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -403,7 +448,7 @@
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -579,38 +624,6 @@
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

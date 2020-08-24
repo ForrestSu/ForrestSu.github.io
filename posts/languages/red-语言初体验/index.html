@@ -24,11 +24,14 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -167,12 +170,20 @@ red 目前最新的版本是0.6.3 (2017-10-05)</p>
 <p>2 跨平台的本地GUI
 看上去像是一门后端的语言，竟然去抢前端的饭碗。而且，妄图支持 osx，windows，android，iOS，一统江湖。是的，就是这么性感。
 <code>突然觉得，如果只想学一门语言，又想成为全栈工程师，red 刚刚好。</code>
-<img src="/images/red-native-gui.png" alt="red-native-gui"></p>
+
+        <a data-fancybox="gallery" href="/images/red-native-gui.png">
+            <img class="mx-auto" alt="red-native-gui" src="/images/red-native-gui.png" />
+        </a>
+    </p>
 </li>
 <li>
 <p>3 red 类型树
 red 目前提供了大约50多种常用类型，而且能够赋值时自动识别类型。
-<img src="/images/red-language-types-tree.png" alt="red-language-types-tree"></p>
+
+        <a data-fancybox="gallery" href="/images/red-language-types-tree.png">
+            <img class="mx-auto" alt="red-language-types-tree" src="/images/red-language-types-tree.png" />
+        </a>
+    </p>
 </li>
 <li>
 <p>4 程序小
@@ -181,7 +192,11 @@ red 可执行程序只有1.1M左右，cool！</p>
 </ul>
 <h2 id="2-尝试做个计算器">2 尝试做个计算器</h2>
 <p>光说不练假把式，我们来仿写一个 Apple 计算器。</p>
-<p><img src="/images/red-calculator-rendering.png" alt="red-calculator-rendering">
+<p>
+        <a data-fancybox="gallery" href="/images/red-calculator-rendering.png">
+            <img class="mx-auto" alt="red-calculator-rendering" src="/images/red-calculator-rendering.png" />
+        </a>
+    
 代码实现：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -402,7 +417,11 @@ Amazing,  so sexy！
 <p>red -t Windows -o red\applecalc.exe red\applecalc.red</p>
 </blockquote>
 <p>最后生成exe可执行文件。(外加一个运行时库 libRedRt.dll)
-<img src="/images/red-packaging-distribution.png" alt="red-packaging-distribution"></p>
+
+        <a data-fancybox="gallery" href="/images/red-packaging-distribution.png">
+            <img class="mx-auto" alt="red-packaging-distribution" src="/images/red-packaging-distribution.png" />
+        </a>
+    </p>
 <p>如果你也感兴趣，可以好好把玩。red 1.0，期待ing&hellip;</p>
 
         </div>
@@ -457,6 +476,36 @@ Amazing,  so sexy！
     
 </div>
 
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
                 </div>
 
                 <div id="secondary">
@@ -510,7 +559,7 @@ Amazing,  so sexy！
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -519,14 +568,14 @@ Amazing,  so sexy！
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -574,7 +623,7 @@ Amazing,  so sexy！
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -591,7 +640,7 @@ Amazing,  so sexy！
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -607,7 +656,7 @@ Amazing,  so sexy！
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -783,38 +832,6 @@ Amazing,  so sexy！
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-    
-    <script type="text/javascript">
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

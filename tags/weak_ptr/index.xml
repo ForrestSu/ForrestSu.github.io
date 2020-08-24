@@ -21,7 +21,7 @@
 C++ 11 包含了以下 3 种常用的智能指针：
  std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &amp;lt;memory&amp;gt; 即可
 2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
-1  std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good());   2.</description>
+1  std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good());     2.</description>
     </item>
     
   </channel>

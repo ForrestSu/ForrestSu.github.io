@@ -40,7 +40,11 @@
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。&lt;/p&gt;
 &lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.png&#34; alt=&#34;f-p-inter-code-communication&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;f-p-inter-code-communication&#34; src=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>

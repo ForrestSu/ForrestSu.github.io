@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.74.2" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -292,9 +295,9 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         
         <div class="post-content">
             今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。
-原文在这阅读原文。 1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
+原文在这阅读原文。  1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
 2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
- Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。……
+   Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/">阅读全文</a></p>
     </article>
@@ -401,7 +404,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/14/">14</a>
         </li>
         
     
@@ -419,6 +422,26 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -473,7 +496,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -482,14 +505,14 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -537,7 +560,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -554,7 +577,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -570,7 +593,7 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -746,27 +769,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

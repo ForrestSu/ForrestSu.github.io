@@ -25,7 +25,11 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
 &lt;p&gt;Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。&lt;/p&gt;
 &lt;p&gt;下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。&lt;br&gt;
 整体上可以分为两个主体：&lt;code&gt;Eureka Server&lt;/code&gt; 和 &lt;code&gt;Eureka Client&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/spring/eureka-server.png&#34; alt=&#34;Eureka&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/spring/eureka-server.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;Eureka&#34; src=&#34;https://forrestsu.github.io/images/spring/eureka-server.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>
@@ -71,7 +75,11 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
 也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。&lt;/p&gt;
 &lt;p&gt;示意图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.png&#34; alt=&#34;f-p-inter-code-communication&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;f-p-inter-code-communication&#34; src=&#34;https://forrestsu.github.io/images/seastar/inter-core-communication.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
     </item>
     
     <item>

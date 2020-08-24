@@ -31,7 +31,7 @@
       
       <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</guid>
       <description>1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序 In case you get the error “wrong architecture i386” you have to execute the following commands:</description>
+ 2 在终端输入teamviewer，即可在终端启动该程序   In case you get the error “wrong architecture i386” you have to execute the following commands:</description>
     </item>
     
   </channel>

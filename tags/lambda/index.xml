@@ -13,10 +13,10 @@
     
     <item>
       <title>C&#43;&#43;14 lambda 用法</title>
-      <link>https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/</link>
+      <link>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</link>
       <pubDate>Fri, 07 Feb 2020 17:42:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/</guid>
+      <guid>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</guid>
       <description>1 嵌套lambda表达式 写一个lambda表达式A，其入参是一个lambda表达式B：
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  #include &amp;lt;cstdio&amp;gt;#include &amp;lt;iostream&amp;gt; namespace example01 { template&amp;lt;typename Func&amp;gt; void run_task(Func &amp;amp;&amp;amp;func) { int arg = 100; printf(&amp;#34;1.</description>
     </item>

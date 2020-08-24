@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
+	<meta name="generator" content="Hugo 0.74.2" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
     <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
-
-
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
     
     
 </head>
@@ -69,6 +72,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/" title="C&#43;&#43;关于NULL、0、nullptr">C&#43;&#43;关于NULL、0、nullptr</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年7月17日 01:11:00
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
+1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
+1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0
+1 2 3 4 5  #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */#define NULL 0 #endif   3 C++11引入了nullptr 来表示空指针……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/" title="PCLint9安装_(软件质量之道)">PCLint9安装_(软件质量之道)</a>
             </h1>
         </header>
@@ -84,7 +113,7 @@
         </div>
         
         <div class="post-content">
-            目前官网最新版是PCLint9.0L(2016-6-3) 2. 接下来弹出PCLint的配置程序，点击下一步开始配置。 ……
+            目前官网最新版是PCLint9.0L(2016-6-3)  2. 接下来弹出PCLint的配置程序，点击下一步开始配置。        ……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/pclint9%E5%AE%89%E8%A3%85_%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%B9%8B%E9%81%93/">阅读全文</a></p>
     </article>
@@ -132,11 +161,10 @@
         </div>
         
         <div class="post-content">
-            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置： 添加如下内容：
+            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置：  添加如下内容：
  { &ldquo;color_scheme&rdquo;: &ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&rdquo;, &ldquo;draw_centered&rdquo;: false, &ldquo;line_numbers&rdquo;: true, &ldquo;highlight_line&rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &ldquo;wrap_width&rdquo;:0 }
- 最后我们新建一个md文件就可以开始写作了^_^ 2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
- git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview
- 然后可以修改MarkdownPreview的settings-user文件,开启部分我们需要的功能。……
+ 最后我们新建一个md文件就可以开始写作了^_^  2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
+ git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
     </article>
@@ -184,9 +212,9 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
         </div>
         
         <div class="post-content">
-            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。 1 GitGutter 这个可以左侧实时显示文件的修改 2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
+            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。  1 GitGutter 这个可以左侧实时显示文件的修改  2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
  //1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
- 3 C Improved 更加丰富的C语言着色方案 然后点击右下角c++，可将*.……
+   3 C Improved 更加丰富的C语言着色方案  然后点击右下角c++，可将*.……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
     </article>
@@ -261,8 +289,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
             华灯初上，时光匆匆，一眨眼来恒生已经8个月了，从刚开始的什么都懵懵懂懂，到现在感觉自己还有好多不懂，就像大四才发现自己还有好多东西需要学，却要离开了。　今天，被主管 LQ 叫去谈话，问是否有意愿参加新项目的开发： 新项目是「境外证券业务，主要面对的客户是券商、信托和银行。你也知道资管SQL版已经10多年了，我们不得不面临的一个问题：产品转型(逐渐被O32替代)，所以我们准备把O32一个停滞的境外业务接管起来，前期(3个月)主要是一个质保的工作，前台是delphi，cres中间件，后台是Oracle ,运行在linux下」。
  每个小组需要抽出一个人来组件一个4~5人的小团队，后续会把当前team的人加进来。zqp(我导师)推荐你来负责报盘这一块的。我说：可以，为什么我导师不来？凌总说：“他有点事&hellip;就是有事 &gt;_&lt; (女生娇羞表情(⊙o⊙)…) 突然感觉有什么事要发生，来恒生1年还差4个月，我们小组走了2个人(sqy在15年10月走的，留下深圳五版让我负责，yaol在2016-4-11就不来公司了)，感觉人事变动有点大。 下面说说我的导师吧！ 我人生中的第一份工作(2015年6月大学毕业)的第一任导师 zqp ,我感觉我很幸运，因为大一点的事都是他担着的，比如： 1. 每周例会的时候，都会把你好的一面说出来； 2. 比如你每次有问题的时候，都会不厌其烦的解答你的疑问。 现在他要离开了，突然间感觉变成了“孤儿”，前方的路还好长,需要你继续前行（就像大学里，实验室的学长毕业离开了，我们变成了学弟学妹眼下的学长，开始给 TA 们备课讲课）!
  现在想想有时候让你多担点事，多指出你的缺点，是不是能够成长的更快一点，毕竟我不能一直呆在象牙塔里，很多事都得学会独自面对。(20170805补记)
-  人生的旅途，我们偶然相遇，然后分开，但是不要伤感，因为我们的征途是星辰大海！
- 记于江畔云庐 2016-04-08 晚22:13……
+    人生的旅途，我们偶然相遇，然后分开，但是不要伤感，因为我们的征途是星辰大海！……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E6%88%91%E7%9A%84%E5%AF%BC%E5%B8%88-%E6%99%A8%E6%9B%A6%E5%88%9D%E8%A7%81/">阅读全文</a></p>
     </article>
@@ -288,32 +315,6 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
             2016-04-07 第一次看到《有味》(汪涵)的这本书是在高三的时候，上午第二节课做完午间操，都会路过书店，当时只是走马观花看了一下，最近才在「微信读书」上看完了。 汪涵生于苏州，自幼随父母到湖南湘潭生活，毕业于湖南广电，积极上进，成就了今天的汪涵。看完整本书，如果汪涵非常喜欢手工艺品，喜欢琴棋书画。 男生小时候都喜欢自己做点什么，比如砍个树杈做弹弓，找根竹竿做吊杆，我记得我小时候喜欢自己做过一个风铃，在海边捡的贝壳，要爷爷在山上砍的大约10cm的竹筒。然后我就一个劲的在竹筒上钻孔，引线，最后悬挂在床帘上，有风时可以看到贝壳随风摆动(感觉非常有成就感)。……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/travel/%E5%85%B3%E4%BA%8E%E9%A6%99%E6%B8%AF%E6%97%85%E6%B8%B8%E7%AD%BE%E8%AF%81/" title="关于香港旅游签证">关于香港旅游签证</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年1月9日 22:21:52
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/travel'>Travel</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            过些日子计划带父母去香港逛逛，顺便品尝下香港的美食小吃，不能光顾着自己嗨 (不能一人吃饱全家不饿) ，好了不多废话了，下面谈谈签证的问题。
-一、签证分类 1 团队旅游L：
-分为三个月一次或两次、一年一次或两次，每次逗留不超过7天，目前可以自行入关，和G签一样。
-   三个月一次有效 在香港或澳门逗留不超过7天 20元/每签     三个月两次有效 在香港或澳门逗留不超过7天 40元/每签   一年一次有效 在香港或澳门逗留不超过7天 20元/每签   一年两次有效 在香港或澳门逗留不超过7天 40元/每签    2 探亲T：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/travel/%E5%85%B3%E4%BA%8E%E9%A6%99%E6%B8%AF%E6%97%85%E6%B8%B8%E7%AD%BE%E8%AF%81/">阅读全文</a></p>
     </article>
     
     
@@ -370,7 +371,20 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
         </li>
         
     
+        
+        
+        <li >
+            <a href="https://forrestsu.github.io/page/14/">14</a>
+        </li>
+        
+    
 
+    
+    
+
+    <li class="next">
+        <a href="https://forrestsu.github.io/page/14/">下一页</a>
+    </li>
     
 </ol>
 
@@ -378,6 +392,26 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
 
 
 </div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
 
                 </div>
 
@@ -432,7 +466,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14_lambda_usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
     </li>
     
 </ul>
@@ -441,14 +475,14 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/categories">分类</a></h3>
+        <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -496,7 +530,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     </section>
 
     <section class="widget">
-        <h3 class="widget-title"><a href="https://forrestsu.github.io/tags">标签</a></h3>
+        <h3 class="widget-title"><a href="/tags">标签</a></h3>
 <div class="tagcloud">
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
@@ -513,7 +547,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">c&#43;&#43;11(1)</a>
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
     <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
     
@@ -529,7 +563,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -705,27 +739,6 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
             </div>
         </div>
     </div>
-    <footer id="footer">
-    <div class="container">
-        &copy; 2020 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>.
-        
-        Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
-        
-    </div>
-</footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 
 </html>

@@ -20,9 +20,9 @@
       <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程：
 1  dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品   当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V-cn，即可提前中止当前(n-1物品的)循环。
-也就是说，当处理第i个物品时只需要循环到： 备注：原作者手误把公式中ｃi+1写成了ｗi。
+也就是说，当处理第i个物品时只需要循环到：  备注：原作者手误把公式中ｃi+1写成了ｗi。
 更进一步优化————物品顺序 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。
-最后： 基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。 代码如下：
+最后： 基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。    代码如下：
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  /** nyoj: 654*/ //c header #include &amp;lt;cstdlib&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;//cpp header #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;string&amp;gt; using namespace std; #define M 1100000 //Max bag&amp;#39;s Capacity #define N 120 //Max Item&amp;#39;s amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&amp;lt;int,int&amp;gt; ppi; /**Cap is the bag&amp;#39;s Capacity; SumCost is the sum of Item&amp;#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements  return x.</description>
     </item>
     

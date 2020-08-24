@@ -19,7 +19,7 @@
       <guid>https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
       <description>Preface Zookeeper是一个高性能分布式应用协调服务
  Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交  Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO  与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
+ Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO    与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
 说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）</description>
     </item>
     
