@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-	<meta name="generator" content="Hugo 0.74.2" />
+	<meta name="generator" content="Hugo 0.74.3" />
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,112 +68,6 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/" title="异步编程之 CPS">异步编程之 CPS</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月20日 22:44:50
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
-CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
-现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
-1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
-1 2 3 4 5 6 7 8  square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/" title="25岁的迷茫">25岁的迷茫</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月15日 19:50:09
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88'>杂谈</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            25岁的迷茫 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月10日 11:01:51
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            什么是RAII ? 　RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan">2018 年会-Plan</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年3月15日 21:14:22
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
-平行世界，未来已来。
-区块链，比特币
-1 我们现在在做的 ems2.0 Al 日常运维。
-正准备做的 ems3.0 seastar dpdk coroutine&hellip;
-我想做 ：
-理财平台
-智能投顾
-大数据
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
-通过这一次年会，我也发现了一些我不喜欢的……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/">阅读全文</a></p>
-    </article>
     
     <article class="post">
         <header>
@@ -337,6 +231,103 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
         <p class="readmore"><a href="https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/">阅读全文</a></p>
     </article>
     
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/" title="计算机系统组成">计算机系统组成</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年1月6日 15:38:19
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 不用goto 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/" title="工作总结-2017年">工作总结-2017年</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年1月1日 01:42:05
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6'>浮生若梦</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
+Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉，老板的谈吐之间，很多价值观都有认同感。用着自己熟悉和喜欢的语言Unix C/C++，开发效率很高，CTO和同事有时候会搞个技术分享会，很有在学校实验室的感觉。 7月初开始调研cuda，并实现期货高频的参数计算，真金白银实盘开始测试，一个月陆续亏损10W，Boss遂决定做AI基金。
+Life 在帝都有3个大学同学，4月份刚来的时候，就在同学那里下榻，平时有事没事就一起聚聚，唱唱歌，聚聚餐，周边自驾游，业余生活也丰富了不少，很是惬意，心存感恩和敬畏。 7月29日参加2017张北草原音乐节，音乐人的歌很嗨，草原的天很蓝，花也美。 10月1日，带爷爷在北京畅游了2日，去了天安门。爷爷说：“人民大会堂会场好小，感觉没有新闻联播里的大。” 去颐和园“爬山”，这时候要是懂点历史就好了! 长城爬了北八楼，万木枯荣，还是更喜欢夏日的温热和青葱。 老板隔三差五带我们出去搓一顿，打打牙祭，尤其钟爱大龙虾，哈哈。 参加了一场小朋友的Artists Show，应该努力活的像个小孩。
+Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/" title="谈谈mutable/unmutable传值/传地址">谈谈mutable/unmutable传值/传地址</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年12月18日 18:27:08
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/languages'>Languages</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/" title="帝都生活杂感(2)">帝都生活杂感(2)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年11月21日 23:51:27
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            20171121 星期二 生活杂感　Efficiency 　有时候给了别人很大期望，展现在别人面前你很能干，那是你全身心投入做一件事的时候，开足了120码，你就会发现你的效率很高。 一旦你分心去忙其他的事的时候(炒股)，你就会发现开始力不从心，分配的工作开始不能按期完成，一拖再拖。最近一个很厉害的同事离职，去了一家做 Ｍanless Driving 的创业公司，很多事都得我去handle，不能像以前，上面有个人替你扛着，安静的“划水”了。
+Just Alive 　外卖，快递小哥，这群活在底层的“工人”，他们在北京一无所有，只有一条命把握在自己手上，但是他们维持着整个北京城的光鲜，让我们感觉幸福的活着。等到下次 20 大召开的时候，他们还是被“禁止进入”北京城。
+Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危机就开始发芽。有时候想想自己还是一无所有，但能够给予的时候也是很快乐。现在所面临的领域也是一无所知，需要解决的问题也无从下手，所以忘掉你引以为傲的武功招式，此时此刻一切归零，像一个新手一样从头再来。切记！……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/">阅读全文</a></p>
+    </article>
+    
     
 
 
@@ -414,7 +405,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/14/">14</a>
+            <a href="https://forrestsu.github.io/page/12/">12</a>
         </li>
         
     
@@ -544,7 +535,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (16)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (13)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
     
@@ -560,11 +551,9 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/work/">Work (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (11)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (4)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/">浮生若梦 (5)</a></li>
     
 </ul>
     </section>
@@ -611,8 +600,6 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
-    <a href="https://forrestsu.github.io/tags/cto/">CTO(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
     
     <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
@@ -635,8 +622,6 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/hint/">hint(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
@@ -649,7 +634,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/life/">Life(16)</a>
+    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
@@ -657,7 +642,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plan/">plan(2)</a>
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
     <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
     
@@ -697,8 +682,6 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/stock/">stock(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
@@ -721,13 +704,11 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
     
-    <a href="https://forrestsu.github.io/tags/work/">Work(10)</a>
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
     <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
-    
-    <a href="https://forrestsu.github.io/tags/%E4%B8%AD%E5%85%B4/">中兴(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
@@ -740,8 +721,6 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/%E6%9D%82%E8%B0%88/">杂谈(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     

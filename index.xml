@@ -316,30 +316,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
     </item>
     
     <item>
-      <title>慎独</title>
-      <link>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/</link>
-      <pubDate>Thu, 27 Sep 2018 09:41:29 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E6%85%8E%E7%8B%AC/</guid>
-      <description>1 progress 1 Make your own decisions
-慢慢看的人越来越多，得注意尽量避免个人的主观因素，以免误人子弟！_
-2 后续思考 应该做更标准的东西，每个客户拿到的发布包应该一样。就像肯德基麦当劳，你在哪里吃的口味都一样。
-3 应该做更互联网一点的东西。
-4 有些人是很固执的，总觉得别人回答他的问题是理所应当，我逐渐体会到王垠曾经有过的感受，当你好心帮助别人成长，别人却因为理解不了反过来打击你！暴露了自己的弱点，下意识的自我保护。
-切记！切记！切记！ 只能有极少数人才能真正得到你的帮助，因为你自己时间有限，还得自己成长！
-可能确实是我的方式不对，今后只有遇到自己适合帮助的人，才可以花点时间；与其帮助那些不虚心，又自大的人，还不如看看博客来的舒畅！</description>
-    </item>
-    
-    <item>
-      <title>午夜梦醒十分</title>
-      <link>https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/</link>
-      <pubDate>Mon, 17 Sep 2018 06:08:12 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/life/%E5%8D%88%E5%A4%9C%E6%A2%A6%E9%86%92%E5%8D%81%E5%88%86/</guid>
-      <description>梦到我爷爷在不久的未来将离我而去，梦里是那么真实，是一个穿T恤的夏天，在我家门口的大红枣树下，还记得红枣树是奶奶刚嫁到我家时种下的；梦里未来的我已攒够了7位数的积蓄，开始组建自己的家；梦里是我爷爷肾好像得了急性炎症，匆忙之间就离开了，来不及说一声再见，我看着树上挂着一颗颗熟透的红枣，瞬间眼睛湿润了！ 今年抽个空，去给爷爷做个健康体检。</description>
-    </item>
-    
-    <item>
       <title>eventfd 入门</title>
       <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
@@ -398,21 +374,6 @@ Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，</d
     </item>
     
     <item>
-      <title>关于股市</title>
-      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</link>
-      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E5%85%B3%E4%BA%8E%E8%82%A1%E5%B8%82/</guid>
-      <description>&lt;p&gt;
-        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/about-stock.jpg&#34;&gt;
-            &lt;img class=&#34;mx-auto&#34; alt=&#34;about-stock&#34; src=&#34;https://forrestsu.github.io/images/about-stock.jpg&#34; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
-&lt;p&gt;　　对于大多数散户来说，刚入市就会有这样一种感觉：「一买就跌，一跌就卖，一卖就涨，一涨就追，一追就套，一套就割，一割就飚，革命尚未成:) 」。看起来股市就是“反常”的，也许这才是股市独有的魅力。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Reflection in protobuf (C&#43;&#43;/Java)</title>
       <link>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</link>
       <pubDate>Fri, 27 Apr 2018 21:56:39 +0800</pubDate>
@@ -434,15 +395,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
 现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
 1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
 1 2 3 4 5 6 7 8  square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：</description>
-    </item>
-    
-    <item>
-      <title>25岁的迷茫</title>
-      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</link>
-      <pubDate>Sun, 15 Apr 2018 19:50:09 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/25%E5%B2%81%E7%9A%84%E8%BF%B7%E8%8C%AB/</guid>
-      <description>25岁的迷茫 慢慢的一年一年，开始慢慢有些焦虑和迷茫，焦虑着未来的不确定，思考着和大多少数人的轨迹一样，追求简简单单的幸福，平凡地过完这一生。有一点小确幸，没有太大的想法，走一步看一步，吭哧吭哧到了25岁，一步一步被时间的齿轮推着向前走。突然让你自己决定走向何方，却又徘徊犹豫，不知该往哪走。</description>
     </item>
     
     <item>
@@ -552,27 +504,6 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
     </item>
     
     <item>
-      <title>Talk with cto</title>
-      <link>https://forrestsu.github.io/posts/work/talk-with-cto/</link>
-      <pubDate>Mon, 08 Jan 2018 00:19:26 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/work/talk-with-cto/</guid>
-      <description>2018-01-03 Wed 13:00 北京华贸中心 2 floor
-备注：采用流水账的方式写下来了，有些地方可能表述有误的，请指正.
-谈话记录 谈话主要以QA的方式展开,如下:
-基本面 luke: 你是什么时候来公司的？
-sq: 今年4月10日，来名策有8个月了。
-luke: 在恒生工作了几年？
-sq: 算上实习期 共2年。
-luke: 在恒生的工作怎么样？是不是学到了很多东西？
-sq: 还可以，主要了解了一些开发流程和规范性的东西，主要感觉开发效率太低，一个消息的改动，前中后台都得修改。
-luke: 恒生不是也有中间件吗？
-sq: 是的，但是都是封装好的，开发的时候也只能看到对应的api，遇到问题还得找研发中心解决。
-luke: 当初在恒生你也是跟张前平做事的？
-sq: 恩，当时我们那个产品部，遇到比较难的技术问题都找他解决的，比如sql死锁，程序Crash等。</description>
-    </item>
-    
-    <item>
       <title>计算机系统组成</title>
       <link>https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</link>
       <pubDate>Sat, 06 Jan 2018 15:38:19 +0800</pubDate>
@@ -600,26 +531,6 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;amp;syk)去一中
       
       <guid>https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</guid>
       <description>1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。</description>
-    </item>
-    
-    <item>
-      <title>中兴程序员事件</title>
-      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</link>
-      <pubDate>Sun, 17 Dec 2017 11:05:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%AD%E5%85%B4%E7%A8%8B%E5%BA%8F%E5%91%98%E4%BA%8B%E4%BB%B6/</guid>
-      <description>&lt;p&gt;前天有人发中兴有个42岁老程序员跳楼了，看完没有太多同情，可能你会觉得我有点冷血！
-互联网行业裁员是再正常不过的事，「Silicon Valley」里面就有很多互联网公司倒闭或者裁员重组，一个事业部的好坏对公司而言主要看业绩和盈利，当利润太低，又明显觉得这种业务模式将要淘汰，公司管理层就会出来调整，如果情况好一点公司会看在过去的业绩让你自己选择转型，或是被拆分重新分配到其他部门。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>是的，我不想再回家乡了</title>
-      <link>https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/</link>
-      <pubDate>Sun, 26 Nov 2017 21:19:12 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/life/%E6%98%AF%E7%9A%84%E6%88%91%E4%B8%8D%E6%83%B3%E5%86%8D%E5%9B%9E%E5%AE%B6%E4%B9%A1%E4%BA%86/</guid>
-      <description>2017年，我从毕业到工作的第三个年头，这一年开始慢慢对一些事，有不同的看法和理解，开始关心我们周遭的社会，慢慢的开始变得成熟；开始质疑大人们曾经苦口婆心的建议，发现很多时候他们说的并不对；开始有自己的想法，参考优秀人的建议；开始自己做选择，。
-是的，我不想再回家乡了！因为那里你看不到出路，大家都把希望寄托于下一代，觉得自己吃饭睡觉打打麻将活着就好。 亲缘关系维系的圈子迟早会慢慢瓦解，我也不想去花时间去维继这三大姑六大婶的关系，不想去掺和看似热闹的红白喜事；只想有三五知心好友常聚聚会，谈谈最近开心或者烦恼的事。你也许会觉得这不就是我们一直以来的生活，这么做简直就是忘本、是背叛呀！ 是的，我本无根，利益为本，相互之间利益依存，遵守契约才是本，当然这不是他(她) 们的错， 家乡，</description>
     </item>
     
     <item>
@@ -656,17 +567,6 @@ Encourage 　生活没有看起来那么美好，只是感觉安逸的时候危�
 原文在这阅读原文。  1 What is MCTS? 　蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。
 2 Basic Algorithm 　基本的MCTS算法很简单：根据模拟当前状态的结果，逐个节点构建搜索树。该过程可以分为以下4个步骤：
    Selection 从根节点Root开始，递归地选择最佳子节点(后面详述)，直到到达叶节点L。 Expansion 如果L不是一个终止节点(游戏未结束)，然后创建一个或多个子节点并选择一个C。 Simulation 从C运行模拟输出，直到达到结果。(注：这里有点拗口，可以简单理解为当前节点输赢的概率） Backpropagation 用上一步得到的结果，反向更新当前搜索路径上的每个节点的值。  补充： (1) 每个节点必须包含两个重要的信息：基于模拟结果的估计值和它被访问的次数。 (2) 在最简单和最高记忆效率的实现中，MCTS将每次迭代添加一个子节点。根据具体的业务场景: 每次迭代添加多个子节点可能更好。</description>
-    </item>
-    
-    <item>
-      <title>下一个求职计划</title>
-      <link>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/</link>
-      <pubDate>Thu, 12 Oct 2017 11:19:27 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%B1%82%E8%81%8C%E8%AE%A1%E5%88%92/</guid>
-      <description>1 先定一个求职方向
-2 经常补充自己的简历。
-放在github.io 上面</description>
     </item>
     
     <item>
@@ -927,17 +827,6 @@ Preface  今天是我参加公司的第二次全体会议，每次 Boss 都会�
     </item>
     
     <item>
-      <title>关于亲情</title>
-      <link>https://forrestsu.github.io/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/</link>
-      <pubDate>Fri, 09 Jun 2017 07:23:53 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/life/%E5%85%B3%E4%BA%8E%E4%BA%B2%E6%83%85/</guid>
-      <description> 　趁亲人还在身边，趁你和他(她)们在一起的时候，多聊聊天，多出去看看世界，多吃点他(她)们没有吃过的东西；这样万一某天他(她)们突然离去时，希望你不会哭。或者我离开时，也不会留下太多遗憾，毕竟生命很渺小有很脆弱。
-  　而伤病面前，任何关心得言语和举动都会直达心肺，形成暖流。 在这种事情面前，我觉得可以试试和他们多坐下来聊天，聊平常事带给他们正能量，而且有几个举措会暖人心，第一是握手而谈，第二是拍肩抚背。只能从小事关心，让他们感到温暖。
- </description>
-    </item>
-    
-    <item>
       <title>「Silicon Valley 4 」观后感</title>
       <link>https://forrestsu.github.io/posts/readingnotes/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
       <pubDate>Tue, 06 Jun 2017 01:10:38 +0800</pubDate>
@@ -1150,23 +1039,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
     </item>
     
     <item>
-      <title>离职前</title>
-      <link>https://forrestsu.github.io/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/</link>
-      <pubDate>Sat, 01 Apr 2017 07:50:23 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/work/%E7%A6%BB%E8%81%8C%E5%89%8D/</guid>
-      <description>1 瓶颈期 1.1 周围环境 　最近两天看了程序员的年终总结，还有自己所在团队小组部分人的离开。他们都是比我早来1年、2年、3年的同事(我导师2016年4月走的)，我能感觉到再呆2年估计也是和他们一样面对同样的问题（26/7也要回去成家立业，稳定的过日子了。）
-　我对金融业务的不太感兴趣，去年领导也给我谈过个人的职业规划。(在这边可能技术层面就只能到目前这样了，如果想搞业务这边还是可以继续待下去的。)而我对技术更感兴趣。
-1.2 自我感觉 　总体感觉，每天都在做重复的工作，老的架构，将要淘汰的开发语言。但我个人希望做一些有趣的事，接触点新东西。
-　做的境外的系统，感觉有点闭门造车，做完都没有很好的环境测试，等到客户上线就怕有大的调整，而且感觉做的东西没有人用就没有成就感。
-1.3 优点 　境外的业务文档写的比较清晰，国外大的系统都相对比较开放，基本都支持统一的接口（比如FIX），解决问题效率也高。
-2 主流技术发展迅速 说到技术，不得不说当前软件技术的飞速发展，实在是超乎了我们的想象：
-  一年前，我还认为，HTML5无非就是html加几个新的标签嘛，然而现在的h5，能做游戏，能做App，能做网站，能做各种酷炫的特效，这些都是HTML4的技术标准无法实现的，用几个HTML标签，你能做出来？
-  一年前，我还认为，Javascript不就是个浏览器脚本语言嘛，然而现在的js，不仅能做app，能做游戏，甚至能做服务器，能做数据库，不只是能做，而且各大厂都开始支持js技术。谁能想到，当年大学课堂上，老师一带而过的浏览器脚本语言，如今已经火便整个互联网？
-  一年前，我还不知道什么是大数据，而现在，在这个信息量爆炸的时代，大数据早不是什么新鲜事情了，身边处处都是大数据，像Docker，Hadoop这样的技术，早就已经耳熟能详了。</description>
-    </item>
-    
-    <item>
       <title>恒生工作梳理</title>
       <link>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</link>
       <pubDate>Mon, 27 Mar 2017 11:19:05 +0800</pubDate>
@@ -1275,7 +1147,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
 &lt;/ul&gt;
 &lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;2015.07 - 现在，软件工程师, &lt;a href=&#34;http://www.hundsun.com/&#34;&gt;Hundsun&lt;/a&gt; Company, HangZhou.&lt;/li&gt;
+&lt;li&gt;2017.04 - 现在，研发工程师, 名策数据, BeiJing&lt;/li&gt;
+&lt;li&gt;2015.07 - 2017.03，软件工程师, &lt;a href=&#34;http://www.hundsun.com/&#34;&gt;Hundsun Technologies Inc&lt;/a&gt;, HangZhou.&lt;/li&gt;
 &lt;li&gt;2011.09 - 2015.06，就读于湖南农业大学，计算机专业。&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
@@ -1415,10 +1288,10 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <item>
       <title>一个关于合伙吃饭的问题</title>
-      <link>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://forrestsu.github.io/posts/life/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Tue, 18 Oct 2016 23:42:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/%E6%9D%82%E8%B0%88/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://forrestsu.github.io/posts/life/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>最近和4～5个同事经常一起在外面吃饭，因为要充卡买单，所以每个人都出了100，然后充卡，一起消费。 那么问题来了，可能某个同事有一天请假了，就需要向这个同事返一定的金额，这个金额应该是多少？（注：吃饭的人一定是合伙出钱的人） A 本次消费金额/本次吃饭人数 B 本次消费金额/合伙出钱的总人数 答案 A要保证资金池里面，每个人的剩余金额均相等。</description>
     </item>
     
@@ -1598,18 +1471,6 @@ skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bo
       <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
       <description>1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可：
  import urllib.request,os,hashlib; h = &amp;lsquo;2915d1851351e5ee549c20394736b442&amp;rsquo; + &amp;lsquo;8bc59f460fa1548d1514676163dafc88&amp;rsquo;; pf = &amp;lsquo;Package Control.sublime-package&amp;rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;lsquo;http://packagecontrol.io/&#39; + pf.</description>
-    </item>
-    
-    <item>
-      <title>我的导师-晨曦初见</title>
-      <link>https://forrestsu.github.io/posts/life/%E6%88%91%E7%9A%84%E5%AF%BC%E5%B8%88-%E6%99%A8%E6%9B%A6%E5%88%9D%E8%A7%81/</link>
-      <pubDate>Fri, 08 Apr 2016 17:11:07 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/life/%E6%88%91%E7%9A%84%E5%AF%BC%E5%B8%88-%E6%99%A8%E6%9B%A6%E5%88%9D%E8%A7%81/</guid>
-      <description>华灯初上，时光匆匆，一眨眼来恒生已经8个月了，从刚开始的什么都懵懵懂懂，到现在感觉自己还有好多不懂，就像大四才发现自己还有好多东西需要学，却要离开了。　今天，被主管 LQ 叫去谈话，问是否有意愿参加新项目的开发： 新项目是「境外证券业务，主要面对的客户是券商、信托和银行。你也知道资管SQL版已经10多年了，我们不得不面临的一个问题：产品转型(逐渐被O32替代)，所以我们准备把O32一个停滞的境外业务接管起来，前期(3个月)主要是一个质保的工作，前台是delphi，cres中间件，后台是Oracle ,运行在linux下」。
- 每个小组需要抽出一个人来组件一个4~5人的小团队，后续会把当前team的人加进来。zqp(我导师)推荐你来负责报盘这一块的。我说：可以，为什么我导师不来？凌总说：“他有点事&amp;hellip;就是有事 &amp;gt;_&amp;lt; (女生娇羞表情(⊙o⊙)…) 突然感觉有什么事要发生，来恒生1年还差4个月，我们小组走了2个人(sqy在15年10月走的，留下深圳五版让我负责，yaol在2016-4-11就不来公司了)，感觉人事变动有点大。 下面说说我的导师吧！ 我人生中的第一份工作(2015年6月大学毕业)的第一任导师 zqp ,我感觉我很幸运，因为大一点的事都是他担着的，比如： 1. 每周例会的时候，都会把你好的一面说出来； 2. 比如你每次有问题的时候，都会不厌其烦的解答你的疑问。 现在他要离开了，突然间感觉变成了“孤儿”，前方的路还好长,需要你继续前行（就像大学里，实验室的学长毕业离开了，我们变成了学弟学妹眼下的学长，开始给 TA 们备课讲课）!
- 现在想想有时候让你多担点事，多指出你的缺点，是不是能够成长的更快一点，毕竟我不能一直呆在象牙塔里，很多事都得学会独自面对。(20170805补记)
-    人生的旅途，我们偶然相遇，然后分开，但是不要伤感，因为我们的征途是星辰大海！</description>
     </item>
     
     <item>

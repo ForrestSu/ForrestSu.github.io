@@ -102,24 +102,6 @@
     </item>
     
     <item>
-      <title>浮生若梦</title>
-      <link>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</link>
-      <pubDate>Thu, 27 Sep 2018 09:41:29 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life</title>
-      <link>https://forrestsu.github.io/categories/life/</link>
-      <pubDate>Mon, 17 Sep 2018 06:08:12 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/life/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Library</title>
       <link>https://forrestsu.github.io/categories/library/</link>
       <pubDate>Tue, 31 Jul 2018 10:34:54 +0800</pubDate>
@@ -129,11 +111,11 @@
     </item>
     
     <item>
-      <title>杂谈</title>
-      <link>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</link>
-      <pubDate>Wed, 09 May 2018 19:34:23 +0800</pubDate>
+      <title>Life</title>
+      <link>https://forrestsu.github.io/categories/life/</link>
+      <pubDate>Sat, 09 Jun 2018 20:29:57 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
+      <guid>https://forrestsu.github.io/categories/life/</guid>
       <description></description>
     </item>
     
@@ -152,6 +134,15 @@
       <pubDate>Fri, 12 Jan 2018 01:04:49 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>浮生若梦</title>
+      <link>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</link>
+      <pubDate>Mon, 01 Jan 2018 01:42:05 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</guid>
       <description></description>
     </item>
     
