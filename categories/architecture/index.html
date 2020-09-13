@@ -256,6 +256,39 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/">浅谈微服务架构、大数据技术</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年6月28日 11:53:25
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            1860
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/architecture'>Architecture</a>
+            
+        </div>
+        
+        <div class="post-content">
+            1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。
+其中: 微服务化主要是对单体应用功能解耦。
+1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式编码方式很难实现的功能提供了模块化的解决方案，使单体服务很容易开发理解和维护。 微服务架构模式使得每个微服务独立部署，开发者不再需要协调其他服务部署对本服务的影响。在此模式下可以加快部署速度，降低服务的耦合。
+1.2 微服务架构缺点 1、微服务应用是分布式系统，复杂度高。多个微服务也会存在分布式事务、数据一致性等问题，对业务开发提出了更高的挑战。
+2、使用微服务处理大数据的计算在数据聚合数据分片等方面处理难度高。微服务间的大量的通信IO会成为计算瓶颈。在数据量不断增大，性能瓶颈愈加明显。
+1.3 微服务架构总结 微服务化的重点是对业务应用的拆分，功能解耦。但并不解决业务应用本身如大规模数据计算等问题。业务拆分对于OLTP型系统较适合（容错、负载均衡、可扩展性）但是对于计算密集型任务，处理能力不足。尤其与集群计算对比不足更加明显。
+2 大数据处理框架现状 目前开源分布式大数据计算引擎有很多选择，批处理如 Spark, Hive, Pig, Flink 等，流计算如 Storm, Samza, Flink, Kafka Stream 等。如果需要同时支持流处理和批处理，有两种主流的选择：一个是Apache Spark，一个是Apache Flink。……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">异步编程之 CPS</a>
             </h1>
         </header>
@@ -466,7 +499,7 @@ Analysis Advantage Analysis： zeroMQ……
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
@@ -528,6 +561,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -592,6 +627,8 @@ Analysis Advantage Analysis： zeroMQ……
     <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     

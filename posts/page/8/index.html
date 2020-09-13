@@ -74,6 +74,33 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" title="win下ssh指定密码登陆">win下ssh指定密码登陆</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年5月29日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
+3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
+4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/" title="Redis 入门">Redis 入门</a>
             </h1>
         </header>
@@ -316,35 +343,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/" title="深入理解C&#43;&#43;11智能指针">深入理解C&#43;&#43;11智能指针</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年4月7日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
-C++ 11 包含了以下 3 种常用的智能指针：
- std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &lt;memory&gt; 即可
-2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
-1  std::shared_ptr&lt;Good&gt; gp1(new Good());     2.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -421,7 +419,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -527,7 +525,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
@@ -589,6 +587,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -653,6 +653,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     

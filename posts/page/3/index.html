@@ -74,6 +74,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年10月30日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
+Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
+它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
+Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
             </h1>
         </header>
@@ -318,41 +346,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan">2018 年会-Plan</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年3月15日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。
-平行世界，未来已来。
-区块链，比特币
-1 我们现在在做的 ems2.0 Al 日常运维。
-正准备做的 ems3.0 seastar dpdk coroutine&hellip;
-我想做 ：
-理财平台
-智能投顾
-大数据
-语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。
-通过这一次年会，我也发现了一些我不喜欢的……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -415,7 +408,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/12/">12</a>
+            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
         </li>
         
     
@@ -521,7 +514,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
@@ -583,6 +576,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
@@ -647,6 +642,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     

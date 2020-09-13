@@ -318,6 +318,21 @@
   </url>
   
   <url>
+    <loc>https://forrestsu.github.io/tags/bigdata/</loc>
+    <lastmod>2019-06-28T11:53:25+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/microservices/</loc>
+    <lastmod>2019-06-28T11:53:25+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/</loc>
+    <lastmod>2019-06-28T11:53:25+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forrestsu.github.io/tags/epoll/</loc>
     <lastmod>2019-03-11T17:41:47+08:00</lastmod>
   </url>
