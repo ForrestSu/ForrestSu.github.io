@@ -74,6 +74,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月6日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码:
+1 2 3 4  int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl;   我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall .……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
             </h1>
         </header>
@@ -349,32 +375,6 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年2月7日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 嵌套lambda表达式 写一个lambda表达式A，其入参是一个lambda表达式B：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  #include &lt;cstdio&gt;#include &lt;iostream&gt; namespace example01 { template&lt;typename Func&gt; void run_task(Func &amp;&amp;func) { int arg = 100; printf(&#34;1.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -475,6 +475,10 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -510,10 +514,6 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -527,7 +527,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -656,6 +656,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -717,6 +719,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

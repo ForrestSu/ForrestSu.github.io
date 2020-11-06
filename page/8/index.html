@@ -72,6 +72,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/" title="单链表相关算法">单链表相关算法</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月3日 15:19:02
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/leetcode'>LeetCode</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 单链表的反转，按K反转等各种考点变体。
+处理单链表时， 尽量采用递归实现：
+1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。
+2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。
+1 反转单链表(基础) 单链表结构定义如下：
+1 2 3 4 5 6  // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} };   方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution { public: //尾插法  ListNode* reverseList(ListNode* head) { if(head == NULL || head-&gt;next == NULL) { return head; } auto last = reverseList(head-&gt;next); head-&gt;next-&gt;next = head; head-&gt;next = NULL; return last; //became new head  } };   方法二: 循环实现(头插法) 双指针,头插法:……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/" title="win下ssh指定密码登陆">win下ssh指定密码登陆</a>
             </h1>
         </header>
@@ -298,29 +326,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/" title="C&#43;&#43;11 explicit关键字">C&#43;&#43;11 explicit关键字</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年4月7日 23:42:42
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            C++中的explicit 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  class Test1 { public: Test1(int n) { num=n; }//普通构造函数 private: int num; }; class Test2 { public: explicit Test2(int n) { num=n; }//explicit(显式)构造函数 private: int num; }; int main() { Test1 t1=12; //隐式调用其构造函数,成功  Test2 t2=12; //编译错误,不能隐式调用其构造函数  Test2 t2(12); //显式调用成功  return 0; }   ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -454,6 +459,10 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -489,10 +498,6 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -506,7 +511,7 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -635,6 +640,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -696,6 +703,8 @@ uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

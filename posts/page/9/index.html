@@ -74,6 +74,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/" title="C&#43;&#43;11 explicit关键字">C&#43;&#43;11 explicit关键字</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年4月7日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            C++中的explicit 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27  class Test1 { public: Test1(int n) { num=n; }//普通构造函数 private: int num; }; class Test2 { public: explicit Test2(int n) { num=n; }//explicit(显式)构造函数 private: int num; }; int main() { Test1 t1=12; //隐式调用其构造函数,成功  Test2 t2=12; //编译错误,不能隐式调用其构造函数  Test2 t2(12); //显式调用成功  return 0; }   ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/" title="深入理解C&#43;&#43;11智能指针">深入理解C&#43;&#43;11智能指针</a>
             </h1>
         </header>
@@ -324,33 +349,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析">Git原理分析</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年3月9日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。
- git init git add number.txt
- 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出  ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -483,6 +481,10 @@ C++ 11 包含了以下 3 种常用的智能指针：
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -518,10 +520,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -535,7 +533,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -664,6 +662,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -725,6 +725,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

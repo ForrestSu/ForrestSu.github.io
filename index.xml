@@ -6,10 +6,20 @@
     <description>Recent content on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 25 May 2020 17:28:06 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2020 11:09:51 +0800</lastBuildDate>
     
 	<atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>g&#43;&#43; -Wall 不提示 narrow-cast 的警告</title>
+      <link>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</link>
+      <pubDate>Fri, 06 Nov 2020 11:09:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</guid>
+      <description>Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码:
+1 2 3 4  int64_t ip = 12345678; std::string str; str = ip; std::cout &amp;lt;&amp;lt; &amp;#34;str = &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; std::endl;   我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall .</description>
+    </item>
     
     <item>
       <title>Eureka 服务注册与发现-原理分析</title>
@@ -1403,10 +1413,10 @@ XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文�
     
     <item>
       <title>C&#43;&#43;关于NULL、0、nullptr</title>
-      <link>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/</link>
+      <link>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</link>
       <pubDate>Sun, 17 Jul 2016 01:11:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/</guid>
+      <guid>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</guid>
       <description>一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。
 1  #define NULL ((void *)0)   所以在C语言中我们通常会写出如下语句
 1 2  int *i = NULL; foo_t *f = NULL;   2 而在C++中，NULL会被定义为0

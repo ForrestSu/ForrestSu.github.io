@@ -74,6 +74,32 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年2月7日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 嵌套lambda表达式 写一个lambda表达式A，其入参是一个lambda表达式B：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39  #include &lt;cstdio&gt;#include &lt;iostream&gt; namespace example01 { template&lt;typename Func&gt; void run_task(Func &amp;&amp;func) { int arg = 100; printf(&#34;1.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/" title="使用 CMake 快速制作 RPM 安装包">使用 CMake 快速制作 RPM 安装包</a>
             </h1>
         </header>
@@ -341,33 +367,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年11月19日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
-红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -479,6 +478,10 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -514,10 +517,6 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -531,7 +530,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -660,6 +659,8 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -721,6 +722,8 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

@@ -81,6 +81,34 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月6日 11:09:51
+        </date>
+        <div class="post-meta">
+            <span>| 字数 </span>
+            989
+        </div>
+        
+        <div class="post-meta meta-category">
+            |
+            
+            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码:
+1 2 3 4  int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl;   我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall .……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">不建议使用std::thread</a>
             </h1>
         </header>
@@ -337,37 +365,6 @@ Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方�
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/">深入理解C&#43;&#43;11智能指针</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年4月7日 20:54:00
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            5924
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/cpp'>CPP</a>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想；
-C++ 11 包含了以下 3 种常用的智能指针：
- std::unique_ptr std::shared_ptr std::weak_ptr  包含头文件 #include &lt;memory&gt; 即可
-2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象：
-1  std::shared_ptr&lt;Good&gt; gp1(new Good());     2.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/">阅读全文</a></p>
-        </div>
-    </article>
-    
 
     
 
@@ -434,6 +431,10 @@ C++ 11 包含了以下 3 种常用的智能指针：
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -469,10 +470,6 @@ C++ 11 包含了以下 3 种常用的智能指针：
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -486,7 +483,7 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -615,6 +612,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -676,6 +675,8 @@ C++ 11 包含了以下 3 种常用的智能指针：
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

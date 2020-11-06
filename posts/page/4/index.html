@@ -74,6 +74,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/" title="C&#43;&#43; RAII">C&#43;&#43; RAII</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年4月10日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            什么是RAII ? 　RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/raii-in-cpp/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/" title="2018 年会-Plan">2018 年会-Plan</a>
             </h1>
         </header>
@@ -333,31 +358,6 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/" title="谈谈mutable/unmutable传值/传地址">谈谈mutable/unmutable传值/传地址</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年12月18日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/languages'>Languages</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -490,6 +490,10 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -525,10 +529,6 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -542,7 +542,7 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -671,6 +671,8 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -732,6 +734,8 @@ Growing up 2017年1月31日，和当年高一的同学(glp&amp;syk)去一中回�
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>narrow cast on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/narrow-cast/</link>
+    <description>Recent content in narrow cast on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 06 Nov 2020 11:09:51 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/narrow-cast/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>g&#43;&#43; -Wall 不提示 narrow-cast 的警告</title>
+      <link>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</link>
+      <pubDate>Fri, 06 Nov 2020 11:09:51 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</guid>
+      <description>Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码:
+1 2 3 4  int64_t ip = 12345678; std::string str; str = ip; std::cout &amp;lt;&amp;lt; &amp;#34;str = &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; std::endl;   我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall .</description>
+    </item>
+    
+  </channel>
+</rss>

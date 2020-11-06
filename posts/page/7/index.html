@@ -74,6 +74,33 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/" title="大公司还是小公司？">大公司还是小公司？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2017年6月27日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/work'>Work</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            大公司就像温水煮青蛙，慢慢的你就不知不觉变成一颗螺丝钉，这也是一般的领导所期望的。
+1 公司的组织结构 以下是个人的愚见，如有高见，不吝留言评论^_*  大公司的特点：就像一个螺丝钉，要求就是:尽管做好自己那块。 优点：工作更规范，更加标准化，流程化，了解的业务更全面，平台更大。 缺点：可能对自己的能力提升很慢，如果不在业余时间自己充实提升自己，就像温水煮青蛙，螺丝钉越钉越牢固。
+  小公司的特点：要做的工作更杂，更有挑战性和创新性。 优点：能够学到更多前沿的东西(前提是你肯钻研)，然后还能应用到工作中，每个人承担的东西更多，使用的技术比较新，勇于尝试和创新。 缺点：平台较小，闲下来的时间比较少。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/" title="谈创业公司的例会">谈创业公司的例会</a>
             </h1>
         </header>
@@ -313,36 +340,6 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/" title="单链表相关算法">单链表相关算法</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年6月3日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/leetcode'>LeetCode</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface 单链表的反转，按K反转等各种考点变体。
-处理单链表时， 尽量采用递归实现：
-1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。
-2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。
-1 反转单链表(基础) 单链表结构定义如下：
-1 2 3 4 5 6  // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} };   方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13  class Solution { public: //尾插法  ListNode* reverseList(ListNode* head) { if(head == NULL || head-&gt;next == NULL) { return head; } auto last = reverseList(head-&gt;next); head-&gt;next-&gt;next = head; head-&gt;next = NULL; return last; //became new head  } };   方法二: 循环实现(头插法) 双指针,头插法:……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%B8%B8%E8%80%83-%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%84%E7%A7%8D%E5%8F%98%E4%BD%93/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -475,6 +472,10 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
     </li>
     
@@ -510,10 +511,6 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
         <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -527,7 +524,7 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -656,6 +653,8 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     
     <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
@@ -717,6 +716,8 @@ public class Foo { public void one() { print(&ldquo;one&rdquo;); } public void t
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     

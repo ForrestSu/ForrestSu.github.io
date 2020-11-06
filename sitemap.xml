@@ -3,12 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://forrestsu.github.io/categories/architecture/</loc>
-    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/wall/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://forrestsu.github.io/categories/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/cpp/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/narrow-cast/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/</loc>
+    <lastmod>2020-11-06T11:09:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://forrestsu.github.io/categories/architecture/</loc>
     <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url>
   
@@ -23,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://forrestsu.github.io/tags/registry-center/</loc>
-    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2020-05-25T17:28:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url>
   
@@ -170,11 +190,6 @@
   <url>
     <loc>https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-03-19T14:07:56+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://forrestsu.github.io/categories/cpp/</loc>
-    <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url>
   
   <url>
@@ -1128,7 +1143,7 @@
   </url>
   
   <url>
-    <loc>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Enull0nullptr/</loc>
+    <loc>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</loc>
     <lastmod>2016-07-17T01:11:00+08:00</lastmod>
   </url>
   
