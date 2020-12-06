@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>wireshark 插件遇到了 tvb():string() 的一个坑？</title>
+      <title>wireshark lua 插件tcp报文分段(desegment)？</title>
       <link>https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/</link>
       <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
       
