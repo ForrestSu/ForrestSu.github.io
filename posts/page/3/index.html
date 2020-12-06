@@ -74,6 +74,131 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月10日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-duck-type">1 duck type</h2>
+<blockquote>
+<p>&ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&rdquo;</p>
+</blockquote>
+<p>我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/hk-victoria-harbor-duck.jpg">
+            <img class="mx-auto" alt="duck-type" src="/images/hk-victoria-harbor-duck.jpg" />
+        </a>
+    </p>
+<p>比如在 python 中，有很多 <code>file-like</code> 的东西，比如 StringIO, GzipFile, socket;
+它们有很多相同的方法，我们把它们当作文件使用。</p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/duck-type/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/" title="浅谈微服务架构、大数据技术">浅谈微服务架构、大数据技术</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年6月28日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。
+其中: 微服务化主要是对单体应用功能解耦。
+1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式编码方式很难实现的功能提供了模块化的解决方案，使单体服务很容易开发理解和维护。 微服务架构模式使得每个微服务独立部署，开发者不再需要协调其他服务部署对本服务的影响。在此模式下可以加快部署速度，降低服务的耦合。
+1.2 微服务架构缺点 1、微服务应用是分布式系统，复杂度高。多个微服务也会存在分布式事务、数据一致性等问题，对业务开发提出了更高的挑战。
+2、使用微服务处理大数据的计算在数据聚合数据分片等方面处理难度高。微服务间的大量的通信IO会成为计算瓶颈。在数据量不断增大，性能瓶颈愈加明显。
+1.3 微服务架构总结 微服务化的重点是对业务应用的拆分，功能解耦。但并不解决业务应用本身如大规模数据计算等问题。业务拆分对于OLTP型系统较适合（容错、负载均衡、可扩展性）但是对于计算密集型任务，处理能力不足。尤其与集群计算对比不足更加明显。
+2 大数据处理框架现状 目前开源分布式大数据计算引擎有很多选择，批处理如 Spark, Hive, Pig, Flink 等，流计算如 Storm, Samza, Flink, Kafka Stream 等。如果需要同时支持流处理和批处理，有两种主流的选择：一个是Apache Spark，一个是Apache Flink。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年3月11日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/io'>IO</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
+我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
+2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2018年12月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
+
+        <a data-fancybox="gallery" href="/images/unix_restart_syscall.png">
+            <img class="mx-auto" alt="restart_syscall" src="/images/unix_restart_syscall.png" />
+        </a>
+    </p>
+<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
             </h1>
         </header>
@@ -238,116 +363,6 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/" title="git 源码学习">git 源码学习</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年6月3日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。
-  Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache
-Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录，……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/life/what-do-you-want/" title="what do you want？">what do you want？</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年6月3日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/life'>Life</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 你真正想要的是什么？这个问题一直在我身边，挥之不去，甚至在你做一些决策时，还挡在你面前，寸步难行。
-摩西奶奶 说：人生只有一次，去做自己喜欢的事。
-  ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/what-do-you-want/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/" title="Reflection in protobuf (C&#43;&#43;/Java)">Reflection in protobuf (C&#43;&#43;/Java)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月27日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。
-1 reflection in C++ 在c++中使用protobuf 反射
-1 2 3 4 5 6 7 8 9 10 11  package com.sunquan;message Login { optional int64 userid = 1; optional string username = 2; // name  optional string password = 3; // passwd  optional string email = 4; optional string nickname = 5; // etc .……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/" title="异步编程之 CPS">异步编程之 CPS</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年4月20日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。
-CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。
-现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。
-1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下：
-1 2 3 4 5 6 7 8  square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y = sqrt (add (square x) (square y))   然后我们将其改造成 CPS 的方式，如下：……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/asynchronous-programming-cps/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -466,6 +481,22 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
     </li>
     
@@ -489,22 +520,6 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -526,7 +541,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -550,7 +565,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -653,9 +668,11 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
@@ -670,6 +687,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
@@ -701,7 +720,7 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
     
     <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
     
@@ -716,6 +735,8 @@ CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     

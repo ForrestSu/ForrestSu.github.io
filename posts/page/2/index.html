@@ -74,6 +74,123 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月31日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
+<p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/algo-ac-automation.png">
+            <img class="mx-auto" alt="ac-automation" src="/images/algo-ac-automation.png" />
+        </a>
+    </p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/ac-automation/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月26日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
+Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
+Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
+(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
+(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
+为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月19日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
+T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果：
+ 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次：
+ cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月15日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
+为了方便理解，下面给一个例子：
+1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt;#include &lt;thread&gt;void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法">C&#43;&#43;14 lambda 用法</a>
             </h1>
         </header>
@@ -242,131 +359,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年8月10日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <h2 id="1-duck-type">1 duck type</h2>
-<blockquote>
-<p>&ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&rdquo;</p>
-</blockquote>
-<p>我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/hk-victoria-harbor-duck.jpg">
-            <img class="mx-auto" alt="duck-type" src="/images/hk-victoria-harbor-duck.jpg" />
-        </a>
-    </p>
-<p>比如在 python 中，有很多 <code>file-like</code> 的东西，比如 StringIO, GzipFile, socket;
-它们有很多相同的方法，我们把它们当作文件使用。</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/duck-type/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/" title="浅谈微服务架构、大数据技术">浅谈微服务架构、大数据技术</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年6月28日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。
-其中: 微服务化主要是对单体应用功能解耦。
-1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式编码方式很难实现的功能提供了模块化的解决方案，使单体服务很容易开发理解和维护。 微服务架构模式使得每个微服务独立部署，开发者不再需要协调其他服务部署对本服务的影响。在此模式下可以加快部署速度，降低服务的耦合。
-1.2 微服务架构缺点 1、微服务应用是分布式系统，复杂度高。多个微服务也会存在分布式事务、数据一致性等问题，对业务开发提出了更高的挑战。
-2、使用微服务处理大数据的计算在数据聚合数据分片等方面处理难度高。微服务间的大量的通信IO会成为计算瓶颈。在数据量不断增大，性能瓶颈愈加明显。
-1.3 微服务架构总结 微服务化的重点是对业务应用的拆分，功能解耦。但并不解决业务应用本身如大规模数据计算等问题。业务拆分对于OLTP型系统较适合（容错、负载均衡、可扩展性）但是对于计算密集型任务，处理能力不足。尤其与集群计算对比不足更加明显。
-2 大数据处理框架现状 目前开源分布式大数据计算引擎有很多选择，批处理如 Spark, Hive, Pig, Flink 等，流计算如 Storm, Samza, Flink, Kafka Stream 等。如果需要同时支持流处理和批处理，有两种主流的选择：一个是Apache Spark，一个是Apache Flink。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年3月11日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/io'>IO</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年12月25日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
-
-        <a data-fancybox="gallery" href="/images/unix_restart_syscall.png">
-            <img class="mx-auto" alt="restart_syscall" src="/images/unix_restart_syscall.png" />
-        </a>
-    </p>
-<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -478,6 +470,22 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
     </li>
     
@@ -501,22 +509,6 @@
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -538,7 +530,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -562,7 +554,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -665,9 +657,11 @@
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
@@ -682,6 +676,8 @@
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
@@ -713,7 +709,7 @@
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
     
     <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
     
@@ -728,6 +724,8 @@
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     

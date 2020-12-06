@@ -72,6 +72,111 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月5日 23:23:47
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。
+那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？
+解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。
+1 2 3 4 5 6 7 8 9 10 11  -- 在入口处 function slicer.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月5日 22:35:47
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。
+于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。
+解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。
+1 2  -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len())   总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月5日 22:15:47
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。
+遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。
+  于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下:
+ The dissector code has no access to pinfo of any other packet than the one currently dissected.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月17日 23:28:06
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 Go 常用工具包推荐  1 [stringer] 为枚举量生成String()方法   go install golang.org/x/tools/cmd/stringer
+  2 GoMock  2 常用开发库   1 http-router
+高性能、可扩展的HTTP路由
+  2 easyjson
+高性能的Json Codec, 适用于有schema的Json数据……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
             </h1>
         </header>
@@ -244,115 +349,6 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
         <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月31日 18:06:58
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <h2 id="1-preface">1 Preface</h2>
-<p>Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。</p>
-<p>AC自动机算法分为3步：<strong>(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程</strong>。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/algo-ac-automation.png">
-            <img class="mx-auto" alt="ac-automation" src="/images/algo-ac-automation.png" />
-        </a>
-    </p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/ac-automation/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月26日 23:11:26
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
-Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
-Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
-(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
-(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
-为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月19日 14:07:56
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
-T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果：
- 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次：
- cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年3月15日 11:09:07
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。
-为了方便理解，下面给一个例子：
-1 2 3 4 5 6 7 8 9 10 11 12 13  // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt;#include &lt;thread&gt;void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -454,6 +450,22 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
     </li>
     
@@ -477,22 +489,6 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -514,7 +510,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -538,7 +534,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -641,9 +637,11 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
@@ -658,6 +656,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
@@ -689,7 +689,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
     
     <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
     
@@ -704,6 +704,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     

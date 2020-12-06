@@ -72,6 +72,114 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/git-cherry-pick/" title="git cherry-pick">git cherry-pick</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年9月12日 01:10:59
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用：
+ git cherry-pick ee99d9a
+   如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
+2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。  解决完冲突后:   《全文完》……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-cherry-pick/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别">git merge 和git rebase的区别</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年9月11日 23:57:14
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
+一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图)  我们在dev-feature 分支，想同步master的通用修改：
+ git checkout dev-feature git merge master
+   　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
+二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化">背包九讲01-关于常数的优化</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月28日 01:13:01
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
+关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程：
+1  dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品   当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V-cn，即可提前中止当前(n-1物品的)循环。
+也就是说，当处理第i个物品时只需要循环到：  备注：原作者手误把公式中ｃi+1写成了ｗi。
+更进一步优化————物品顺序 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。
+最后： 基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。    代码如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  /** nyoj: 654*/ //c header #include &lt;cstdlib&gt;#include &lt;cstdio&gt;#include &lt;cstring&gt;//cpp header #include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;#include &lt;string&gt; using namespace std; #define M 1100000 //Max bag&#39;s Capacity #define N 120 //Max Item&#39;s amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&lt;int,int&gt; ppi; /**Cap is the bag&#39;s Capacity; SumCost is the sum of Item&#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements  return x.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/" title="年中总结">年中总结</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年8月19日 00:43:54
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/diary'>Diary</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            我今年23岁，从毕业到今天(2016-08-18)，大约来杭州工作也有一年时间了。
+工作上 今天晚上7:30领导半年度谈话，浑浑噩噩又过了半年，没有了寒暑假的日子感觉就是度年如日，自从我导师离职，加入到QD小组快有3～4月了，感觉工作任务有点多，但是整体还好。后续还需要提高工作效率。凌总问我以后是想走业务路线还是技术路线？答曰：还没想好！应该是时候规划一下了。 下半年主要是境外期货业务。
+生活上 生活上整体还好，这半年都宅在房子里，西湖都没去几次～说来惭愧。体重长胖了几斤。大约每两周用微信给爷爷打一次电话。
+学习上 计划看十本书 现在大约看了5本，每周计划写一次的博客只写了几篇，计划旅游还没有着落。看了一部美剧(囧)。后面得规划下时间。 ~记于江畔云庐 2016-08-19 00:28~……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E5%B9%B4%E4%B8%AD%E6%80%BB%E7%BB%93/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/readingnotes/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/" title="晓松奇谈">晓松奇谈</a>
             </h1>
         </header>
@@ -218,105 +326,6 @@
         <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/" title="Sublime Text 3 UML">Sublime Text 3 UML</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年5月15日 14:19:58
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件
- @startuml
-skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&gt; Alice : Hello, how are you Consolas Alice -&gt; Bob : Fine, thank you, and you?……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/" title="Sublime Text3 C语言插件">Sublime Text3 C语言插件</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年5月14日 15:20:30
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。  1 GitGutter 这个可以左侧实时显示文件的修改  2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
- //1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
-   3 C Improved 更加丰富的C语言着色方案  然后点击右下角c++，可将*.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/" title="Sublime Text 3 设置">Sublime Text 3 设置</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年5月14日 14:13:40
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 User 1 通过快捷键开控制自动换行，在Preferences -&gt;key bindings-User添加如下内容即可。
- { &ldquo;keys&rdquo;: [&ldquo;ctrl+shift+w&rdquo;], &ldquo;command&rdquo;: &ldquo;toggle_setting&rdquo;, &ldquo;args&rdquo;: {&ldquo;setting&rdquo;: &ldquo;word_wrap&rdquo;} }
- ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/">阅读全文</a></p>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Sublime Text 3 插件安装">Sublime Text 3 插件安装</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年5月12日 13:17:06
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可：
- import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;http://packagecontrol.io/' + pf.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -430,6 +439,22 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
     </li>
     
@@ -453,22 +478,6 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -490,7 +499,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -514,7 +523,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -617,9 +626,11 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
@@ -634,6 +645,8 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
@@ -665,7 +678,7 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
     
     <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
     
@@ -680,6 +693,8 @@ skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     

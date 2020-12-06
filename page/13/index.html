@@ -72,6 +72,105 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/" title="Sublime Text 3 UML">Sublime Text 3 UML</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年5月15日 14:19:58
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件
+ @startuml
+skinparam defaultFontName 宋体 用户 -&gt; Bob: Authentication Request Bob -&gt; Alice : Hello, how are you Consolas Alice -&gt; Bob : Fine, thank you, and you?……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-uml/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/" title="Sublime Text3 C语言插件">Sublime Text3 C语言插件</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年5月14日 15:20:30
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。  1 GitGutter 这个可以左侧实时显示文件的修改  2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
+ //1.Alignment 代码自动对齐 { &ldquo;keys&rdquo;: [&ldquo;alt+d&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; }
+   3 C Improved 更加丰富的C语言着色方案  然后点击右下角c++，可将*.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/" title="Sublime Text 3 设置">Sublime Text 3 设置</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年5月14日 14:13:40
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 User 1 通过快捷键开控制自动换行，在Preferences -&gt;key bindings-User添加如下内容即可。
+ { &ldquo;keys&rdquo;: [&ldquo;ctrl+shift+w&rdquo;], &ldquo;command&rdquo;: &ldquo;toggle_setting&rdquo;, &ldquo;args&rdquo;: {&ldquo;setting&rdquo;: &ldquo;word_wrap&rdquo;} }
+ ……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/" title="Sublime Text 3 插件安装">Sublime Text 3 插件安装</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2016年5月12日 13:17:06
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可：
+ import urllib.request,os,hashlib; h = &lsquo;2915d1851351e5ee549c20394736b442&rsquo; + &lsquo;8bc59f460fa1548d1514676163dafc88&rsquo;; pf = &lsquo;Package Control.sublime-package&rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &lsquo;http://packagecontrol.io/' + pf.……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/readingnotes/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/" title="《有味》汪涵">《有味》汪涵</a>
             </h1>
         </header>
@@ -218,6 +317,22 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark 插件遇到了 tvb():string() 的一个坑？">wireshark 插件遇到了 tvb():string() 的一个坑？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
     </li>
     
@@ -241,22 +356,6 @@
         <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)">Seastar 之 future/promise 原理(1)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/" title="双蛋问题(动态规划)">双蛋问题(动态规划)</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread">不建议使用std::thread</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -278,7 +377,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -302,7 +401,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (11)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -405,9 +504,11 @@
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(1)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
@@ -422,6 +523,8 @@
     <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
     
@@ -453,7 +556,7 @@
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(9)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
     
     <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
     
@@ -468,6 +571,8 @@
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     

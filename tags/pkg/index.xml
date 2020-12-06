@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pkg on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/pkg/</link>
+    <description>Recent content in pkg on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Nov 2020 23:28:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://forrestsu.github.io/tags/pkg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go 常用的包推荐 (持续更新)</title>
+      <link>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</link>
+      <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</guid>
+      <description>1 Go 常用工具包推荐  1 [stringer] 为枚举量生成String()方法   go install golang.org/x/tools/cmd/stringer
+  2 GoMock  2 常用开发库   1 http-router
+高性能、可扩展的HTTP路由
+  2 easyjson
+高性能的Json Codec, 适用于有schema的Json数据</description>
+    </item>
+    
+  </channel>
+</rss>
