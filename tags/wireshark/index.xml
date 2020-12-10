@@ -24,7 +24,7 @@
     </item>
     
     <item>
-      <title>wireshark 插件遇到了 tvb():string() 的一个坑？</title>
+      <title>wireshark lua 插件之 tvb():string()</title>
       <link>https://forrestsu.github.io/posts/tools/wireshark_lua_trap/</link>
       <pubDate>Sat, 05 Dec 2020 22:35:47 +0800</pubDate>
       
