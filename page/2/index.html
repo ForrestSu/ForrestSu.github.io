@@ -72,6 +72,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年4月7日 23:06:23
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
+<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API <code>sched_set_affinity()</code>，绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
+<p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
+也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
+<p>示意图如下：</p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/inter-core-communication.jpg">
+            <img class="mx-auto" alt="f-p-inter-code-communication" src="/images/seastar/inter-core-communication.jpg" />
+        </a>
+    </p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/">阅读全文</a></p>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/algorithm/ac-automation/" title="多模匹配之AC自动机">多模匹配之AC自动机</a>
             </h1>
         </header>
@@ -312,31 +344,6 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
         <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/etcd-high-available/">阅读全文</a></p>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年10月11日 20:12:34
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 MySQL 基本架构 MySQL基本架构示意图  2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
-如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。
-2.1 重要的日志模块：redo log ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/">阅读全文</a></p>
-    </article>
-    
     
 
 
@@ -449,6 +456,10 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
     </li>
     
@@ -484,10 +495,6 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
         <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)">Seastar 之核间通信 (2)</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -497,7 +504,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
         <h3 class="widget-title"><a href="/categories">分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
@@ -614,6 +621,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
@@ -669,6 +678,8 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
     <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
     
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
