@@ -54,10 +54,8 @@
       
       <guid>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</guid>
       <description>1 Go 常用工具包推荐  1 [stringer] 为枚举量生成String()方法   go install golang.org/x/tools/cmd/stringer
-  2 GoMock  2 常用开发库   1 http-router
-高性能、可扩展的HTTP路由
-  2 easyjson
-高性能的Json Codec, 适用于有schema的Json数据</description>
+  2 [pretty] 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印)   go install github.com/kylelemons/godebug
+  3 GoMock  2 常用开发库   1 http-router</description>
     </item>
     
     <item>
@@ -243,7 +241,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
     </item>
     
     <item>
-      <title>Go 反射</title>
+      <title>Golang 反射 (1)</title>
       <link>https://forrestsu.github.io/posts/go/reflection-in-go/</link>
       <pubDate>Tue, 17 Dec 2019 18:10:48 +0800</pubDate>
       
