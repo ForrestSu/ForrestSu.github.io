@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tcp on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/tcp/</link>
+    <description>Recent content in tcp on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 05 Dec 2020 23:23:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wireshark lua 插件tcp报文分段(desegment)？</title>
+      <link>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</link>
+      <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</guid>
+      <description>缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &amp;gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很</description>
+    </item>
+    
+  </channel>
+</rss>

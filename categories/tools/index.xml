@@ -5,46 +5,56 @@
     <link>https://forrestsu.github.io/categories/tools/</link>
     <description>Recent content in Tools on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 05 Dec 2020 23:23:47 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 20 Aug 2023 09:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>wireshark lua 插件tcp报文分段(desegment)？</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/</link>
-      <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
+      <title>zsh 插件推荐</title>
+      <link>https://forrestsu.github.io/posts/tools/zsh-plugins/</link>
+      <pubDate>Sun, 20 Aug 2023 09:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/</guid>
-      <description>缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。
-那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？
-解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。
-1 2 3 4 5 6 7 8 9 10 11  -- 在入口处 function slicer.</description>
+      <guid>https://forrestsu.github.io/posts/tools/zsh-plugins/</guid>
+      <description>1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;amp;&amp;gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &amp;gt; $(brew &amp;ndash;prefix)/share/zsh/site-functions/_goup</description>
     </item>
     
     <item>
-      <title>wireshark lua 插件之 tvb():string()</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_lua_trap/</link>
-      <pubDate>Sat, 05 Dec 2020 22:35:47 +0800</pubDate>
+      <title>Gerrit 使用</title>
+      <link>https://forrestsu.github.io/posts/tools/gerrit-usage/</link>
+      <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_lua_trap/</guid>
-      <description>缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。
-于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。
-解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。
-1 2  -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len())   总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。</description>
+      <guid>https://forrestsu.github.io/posts/tools/gerrit-usage/</guid>
+      <description>前言 Gerrit 是一个免费的、基于网络的团队代码协作(code review)工具。 常用快捷键 快捷键 作用 ? 显示所有快捷键手册 c 快速评论 cmd+s 保存评论 [ 上一个文件 ] 下一个文件 h 显示/隐藏所有评论 f 展开cr文件列表 r 勾选/取消文件的审阅标志 📢注意：因为gerrit提供了丰富的快捷键，如果 chrome 使用了 Vimium 插件， 方法： 点击Vimium插件图标，即可对对应站点禁用 (Keys为空表示该链接下禁用)</description>
     </item>
     
     <item>
-      <title>wireshark插件，如何关联请求应答(如ping协议)？</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/</link>
-      <pubDate>Sat, 05 Dec 2020 22:15:47 +0800</pubDate>
+      <title>Xcode 编译 swift 项目</title>
+      <link>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</link>
+      <pubDate>Sun, 10 Oct 2021 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/</guid>
-      <description>缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。
-遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。
-  于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下:
- The dissector code has no access to pinfo of any other packet than the one currently dissected.</description>
+      <guid>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</guid>
+      <description>常见问题 1 如何调整依赖的系统版本macOS Deployment Target? A: 双击编辑器的项目名，然后调整。 ctrl+b 编译 2 Debug Or Release 编译？ 选择 Product-&amp;gt;Scheme-&amp;gt;Edit Scheme，将编译配置改为 Release。 3 编译后，输出的App路径？ 输出目录：~/Library/Developer/Xcode/DerivedData + 项目名。 比如： ~/Library/Developer/Xcode/DerivedData/Hidden_Bar-xxxx/Build/Products/Debug</description>
+    </item>
+    
+    <item>
+      <title>Docker 简介</title>
+      <link>https://forrestsu.github.io/posts/tools/docker-introduction/</link>
+      <pubDate>Sun, 21 Mar 2021 16:55:52 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/docker-introduction/</guid>
+      <description>&lt;h2 id=&#34;1-前言&#34;&gt;1 前言&lt;/h2&gt;
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/docker/docker-contributors.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;docker&#34; src=&#34;https://forrestsu.github.io/images/docker/docker-contributors.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Git 如何查看 pptx，docx，xlsx 文件的差异？</title>
+      <link>https://forrestsu.github.io/posts/tools/git-diff-ms-office/</link>
+      <pubDate>Thu, 26 Mar 2020 16:22:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/git-diff-ms-office/</guid>
+      <description>1 MS Office 如果作为开发人员，工作场合需要经常使用 MS Office，那么在尝试比较 MS Office 文件时会遇到一些问题。 也许你在问自己：这有什么问题？ 这是：MS Office 将生成 Git 无法比较的二进制文件。 之前在 Windows 平台下，我们使用的文本转换工具，将二进制文件转化为text，然后再diff。 catdoc（用于 Word） xls2csv（用于 Excel） catppt（用于幻灯片） 2 寻找新的方案 目前主要使用MacOS系统，想看看有没有更好的方案？ 通过搜索，发现一个更通用的文本转换工具：textract。它不仅支持Office全家桶，还支</description>
     </item>
     
     <item>
@@ -53,52 +63,7 @@
       <pubDate>Tue, 10 Oct 2017 10:40:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
-      <description>推荐个人最常用的Top10 便携自由(Free)的小软件。
-Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 AutoHotkey 自定义全局热键 clover 资源管理器像浏览器一样显示多窗口 everything 快速查找磁盘文件(支持正则) (V1.3.4.686) Ditto 可以选择的粘贴板工具 GifCam Gif动画录制工具 chrome 及一系列插件 待补充&amp;hellip;  大家如果需要留言，可以直接回复*_*</description>
-    </item>
-    
-    <item>
-      <title>在Markdown中输入数学公式(MathJax)</title>
-      <link>https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/</link>
-      <pubDate>Sun, 25 Jun 2017 19:46:26 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/</guid>
-      <description>1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)    单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为   下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为    若需要斜体希腊字母，将命令前加上var前缀即可。    3 字母修饰 3.</description>
-    </item>
-    
-    <item>
-      <title>win下ssh指定密码登陆</title>
-      <link>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</link>
-      <pubDate>Mon, 29 May 2017 21:02:22 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/</guid>
-      <description>1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
-3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.</description>
-    </item>
-    
-    <item>
-      <title>Eclipse 4.6 support c&#43;&#43;11</title>
-      <link>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</link>
-      <pubDate>Thu, 27 Apr 2017 10:14:35 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/</guid>
-      <description>1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。  然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。  最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&amp;rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&amp;rsquo;s language processor.</description>
-    </item>
-    
-    <item>
-      <title>Docker install Ubuntu</title>
-      <link>https://forrestsu.github.io/posts/tools/docker-install-ubuntu/</link>
-      <pubDate>Tue, 21 Mar 2017 16:55:52 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/docker-install-ubuntu/</guid>
-      <description>1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
-当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
-2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-    然后点击next.
-  安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。</description>
+      <description>推荐个人最常用的Top10 便携自由(Free)的小软件。 Windows cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 AutoHotkey 自定义全局热键 clover 资源管理器像浏览器一样显示多窗口 everything 快速查找磁盘文件(支持正则) (V1.3.4.686) Ditto 可以选择的粘贴板工具 GifCam Gif动画录制工具 chrome 及一系列插件 待补充&amp;hellip; 大家如果需要留言，可以直接回复*_*</description>
     </item>
     
     <item>
@@ -107,62 +72,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
       <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
-      <description>广告拦截    隐私保护    文档查看    写邮件    书签查找    网页截图工具    Github代码查看    标签页管理        Scroll To Top (offered by AlphaTr)</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text 3 Markdown</title>
-      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/</link>
-      <pubDate>Mon, 16 May 2016 00:22:06 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/</guid>
-      <description>1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置：  添加如下内容：
- { &amp;ldquo;color_scheme&amp;rdquo;: &amp;ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&amp;rdquo;, &amp;ldquo;draw_centered&amp;rdquo;: false, &amp;ldquo;line_numbers&amp;rdquo;: true, &amp;ldquo;highlight_line&amp;rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &amp;ldquo;wrap_width&amp;rdquo;:0 }
- 最后我们新建一个md文件就可以开始写作了^_^  2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
- git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text 3 UML</title>
-      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-uml/</link>
-      <pubDate>Sun, 15 May 2016 14:19:58 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-uml/</guid>
-      <description>1 UML图 我们先看用ST3书写脚本生成的UML图效果，写以下脚本保存为test.wsd文件
- @startuml
-skinparam defaultFontName 宋体 用户 -&amp;gt; Bob: Authentication Request Bob -&amp;gt; Alice : Hello, how are you Consolas Alice -&amp;gt; Bob : Fine, thank you, and you?</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text3 C语言插件</title>
-      <link>https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/</link>
-      <pubDate>Sat, 14 May 2016 15:20:30 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/sublime-text3-c%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6/</guid>
-      <description>0 sublime-text-git安装 ctrl+shift+p 输入pci，然后搜索git直接安装即可。 这个插件可以直接使用git命令，很方便，git log 显示所有commit的记录，继续输入还支持搜索哦（介个功能很不错）。  1 GitGutter 这个可以左侧实时显示文件的修改  2 Alignment 官方目前还没更新支持ST3，安装后在Preferences -&amp;gt;key bindings-User中加入如下一句，然后选中c++的代码，按ctrl+d 就可以按等号(=)对齐。
- //1.Alignment 代码自动对齐 { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;alt+d&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;alignment&amp;rdquo; }
-   3 C Improved 更加丰富的C语言着色方案  然后点击右下角c++，可将*.</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text 3 设置</title>
-      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/</link>
-      <pubDate>Sat, 14 May 2016 14:13:40 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E8%AE%BE%E7%BD%AE/</guid>
-      <description>1 User 1 通过快捷键开控制自动换行，在Preferences -&amp;gt;key bindings-User添加如下内容即可。
- { &amp;ldquo;keys&amp;rdquo;: [&amp;ldquo;ctrl+shift+w&amp;rdquo;], &amp;ldquo;command&amp;rdquo;: &amp;ldquo;toggle_setting&amp;rdquo;, &amp;ldquo;args&amp;rdquo;: {&amp;ldquo;setting&amp;rdquo;: &amp;ldquo;word_wrap&amp;rdquo;} }
- </description>
-    </item>
-    
-    <item>
-      <title>Sublime Text 3 插件安装</title>
-      <link>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Thu, 12 May 2016 13:17:06 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/sublime-text-3-%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
-      <description>1 安装package control包管理器 可通过命令行的方式和手工下载的方式，按 ctrl+\ `进入控制台，输入下面的命令，然后重启st即可：
- import urllib.request,os,hashlib; h = &amp;lsquo;2915d1851351e5ee549c20394736b442&amp;rsquo; + &amp;lsquo;8bc59f460fa1548d1514676163dafc88&amp;rsquo;; pf = &amp;lsquo;Package Control.sublime-package&amp;rsquo;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &amp;lsquo;http://packagecontrol.io/&#39; + pf.</description>
+      <description>广告拦截 隐私保护 文档查看 写邮件 书签查找 网页截图工具 Github代码查看 标签页管理 如何将OneTab数据同步到另一台电脑? chrome 插件数据目录： Library/Application Support/Google/Chrome/Default/Local Extension Settings/chphlpgkkbolifaimnlloiipkdnihall 将对应插件的数据 Scroll To Top (offered by AlphaTr) 官网地址 SimpleUndoClose Todoist：待办事项列表及任务管理器</description>
     </item>
     
   </channel>

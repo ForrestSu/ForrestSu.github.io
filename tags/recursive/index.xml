@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>recursive on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/recursive/</link>
+    <description>Recent content in recursive on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 09 Dec 2021 23:19:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/recursive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优雅的递归算法</title>
+      <link>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</link>
+      <pubDate>Thu, 09 Dec 2021 23:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</guid>
+      <description>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;这个世界上优雅的东西很少，递归至少算一个。&lt;code&gt;tree&lt;/code&gt; 和 &lt;code&gt;single list&lt;/code&gt; 的数据结构，是非常适合使用递归来操作的。下面我们使用 Go 来做几道题，感受一下递归的魅力。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

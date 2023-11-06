@@ -5,20 +5,15 @@
     <link>https://forrestsu.github.io/tags/web/</link>
     <description>Recent content in Web on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 12 Jan 2018 01:04:49 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 12 Jan 2018 01:04:49 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>echarts 数据可视化-初体验</title>
       <link>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Fri, 12 Jan 2018 01:04:49 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
-      <description>Preface 　欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。
-Problem 实现一个简单的需求，实时动态展示 一只股票的价格和预测价格，预测价格采用最简单的深度神经网络模型(DNN) 。</description>
+      <description>Preface 欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。 Problem 实现一个简单的需求，实时动态展示 一只股票的价格和</description>
     </item>
     
     <item>
@@ -27,11 +22,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
       <pubDate>Thu, 26 Oct 2017 23:44:48 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/web/web-design-in-4-minutes/</guid>
-      <description>网页设计 4 分钟  假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？
-1 Content  设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是
-2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。
-1 2 3 4  body { margin: 0 auto; max-width: 50em; }   在对文本块进行样式化后，如何对文本自身进行样式化？
-3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为它是 “unstyled” 字体)。选择一个无衬线字体(比如 “Helvetica&amp;rdquo; 或者 ”Arial“)，能够极大的改善你页面的外观。</description>
+      <description>网页设计 4 分钟 假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？ 1 Content 设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是 2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。 1 2 3 4 body { margin: 0 auto; max-width: 50em; } 在对文本块进行样式化后，如何对文本自身进行样式化？ 3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为</description>
     </item>
     
     <item>
@@ -40,9 +31,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
       <pubDate>Wed, 01 Feb 2017 21:39:21 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</guid>
-      <description>本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。
-1 StartUp  Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip  2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64
-3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.</description>
+      <description>本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。 1 StartUp Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip 2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64 3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.conf配置: 2 复制并注释掉fastcgi_param,修改/scripts为$document_root 3.2 php配置文件 1 复制php.ini-develo</description>
     </item>
     
     <item>
@@ -51,9 +40,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
       <pubDate>Wed, 18 Jan 2017 15:56:07 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/</guid>
-      <description>上一篇主要入门了 XSL，这一课来进一步学习XSL。
-1 语法 (1) xsl:if 元素 语法：
-1 2 3 4 5  &amp;lt;xsl:if test=&amp;#34;expression&amp;#34;&amp;gt; ... ...如果条件成立则输出... ... &amp;lt;/xsl:if&amp;gt;   如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。</description>
+      <description>上一篇主要入门了 XSL，这一课来进一步学习XSL。 1 语法 (1) xsl:if 元素 语法： 1 2 3 4 5 &amp;lt;xsl:if test=&amp;#34;expression&amp;#34;&amp;gt; ... ...如果条件成立则输出... ... &amp;lt;/xsl:if&amp;gt; 如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。 &amp;lt;xsl:for-each select=&amp;#34;catalog/cd&amp;#34;&amp;gt; &amp;lt;xsl:if test=&amp;#34;price = 10&amp;#34;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;#34;title&amp;#34;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;#34;artist&amp;#34;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/xsl:if&amp;gt; &amp;lt;/xsl:for-each&amp;gt; (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;xsl:choose&amp;gt; &amp;lt;xsl:when test=&amp;#34;expression1&amp;#34;&amp;gt; ... 输出 ... &amp;lt;/xsl:when&amp;gt; &amp;lt;xsl:when test=&amp;#34;expression2&amp;#34;&amp;gt; ... 输出 ... &amp;lt;/xsl:when&amp;gt; &amp;lt;xsl:otherwise&amp;gt; ... 输出 .... &amp;lt;/xsl:otherwise&amp;gt; &amp;lt;/xsl:choose&amp;gt; (3) xsl:apply-templates 元素 &amp;lt;xsl:apply-templates &amp;gt; 元素可把一个模板应用于当前的元素或者</description>
     </item>
     
     <item>
@@ -62,9 +49,7 @@ Problem 实现一个简单的需求，实时动态展示 一只股票的价格�
       <pubDate>Wed, 18 Jan 2017 14:08:31 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/</guid>
-      <description>1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。
-XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  &amp;lt;?</description>
+      <description>1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。 XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;?xml-stylesheet type=&amp;#34;text/xsl&amp;#34; href=&amp;#34;cdcatalog.xsl&amp;#34;?&amp;gt; &amp;lt;!-- &amp;lt;?xml-stylesheet type=&amp;#34;text/xsl&amp;#34; href=&amp;#34;readline.xsl&amp;#34;?&amp;gt;--&amp;gt; &amp;lt;catalog&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;你好&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Bob Zhang&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;9.9&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;Happy in the Rain&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Alice&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;10.00&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;A litte Boy&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Jhon&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;12.20&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;/catalog&amp;gt; 2 语法 XSL 样式表由一个或多套被称为模板（template）的规则组成。 每个模板含有当某个指定的节点被匹配时所应用的</description>
     </item>
     
   </channel>

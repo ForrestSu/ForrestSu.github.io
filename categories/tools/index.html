@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>Tools | 程序员的冷浪漫</title>
     <meta property="og:title" content="Tools - 程序员的冷浪漫">
@@ -16,11 +19,11 @@
         
     <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/categories/tools/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/categories/tools/index.xml" title="程序员的冷浪漫" />
+    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/categories/tools/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -32,7 +35,6 @@
     
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -81,291 +83,215 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/">wireshark lua 插件tcp报文分段(desegment)？</a>
+                <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" target="_blank">zsh 插件推荐</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 23:23:47
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            591
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2023-08-20T01:40:28Z" class="post-meta meta-date dt-published">
+    2023年8月20日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  393
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。
-那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？
-解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。
-1 2 3 4 5 6 7 8 9 10 11  -- 在入口处 function slicer.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/">阅读全文</a></p>
+            1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;&gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &gt; $(brew &ndash;prefix)/share/zsh/site-functions/_goup……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/">wireshark lua 插件之 tvb():string()</a>
+                <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" target="_blank">Gerrit 使用</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 22:35:47
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            482
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2022-05-10T02:40:28Z" class="post-meta meta-date dt-published">
+    2022年5月10日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  202
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。
-于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。
-解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。
-1 2  -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len())   总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/">阅读全文</a></p>
+            前言 Gerrit 是一个免费的、基于网络的团队代码协作(code review)工具。 常用快捷键 快捷键 作用 ? 显示所有快捷键手册 c 快速评论 cmd+s 保存评论 [ 上一个文件 ] 下一个文件 h 显示/隐藏所有评论 f 展开cr文件列表 r 勾选/取消文件的审阅标志 📢注意：因为gerrit提供了丰富的快捷键，如果 chrome 使用了 Vimium 插件， 方法： 点击Vimium插件图标，即可对对应站点禁用 (Keys为空表示该链接下禁用)……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/">wireshark插件，如何关联请求应答(如ping协议)？</a>
+                <a href="https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/" target="_blank">Xcode 编译 swift 项目</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 22:15:47
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            2518
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2021-10-10T02:40:28Z" class="post-meta meta-date dt-published">
+    2021年10月10日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  270
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。
-遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。
-  于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下:
- The dissector code has no access to pinfo of any other packet than the one currently dissected.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/">阅读全文</a></p>
+            常见问题 1 如何调整依赖的系统版本macOS Deployment Target? A: 双击编辑器的项目名，然后调整。 ctrl+b 编译 2 Debug Or Release 编译？ 选择 Product-&gt;Scheme-&gt;Edit Scheme，将编译配置改为 Release。 3 编译后，输出的App路径？ 输出目录：~/Library/Developer/Xcode/DerivedData + 项目名。 比如： ~/Library/Developer/Xcode/DerivedData/Hidden_Bar-xxxx/Build/Products/Debug……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/">推荐-小工具</a>
+                <a href="https://forrestsu.github.io/posts/tools/docker-introduction/" target="_blank">Docker 简介</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2017年10月10日 10:40:28
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            224
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2021-03-21T08:55:52Z" class="post-meta meta-date dt-published">
+    2021年3月21日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  108
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            推荐个人最常用的Top10 便携自由(Free)的小软件。
-Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 AutoHotkey 自定义全局热键 clover 资源管理器像浏览器一样显示多窗口 everything 快速查找磁盘文件(支持正则) (V1.3.4.686) Ditto 可以选择的粘贴板工具 GifCam Gif动画录制工具 chrome 及一系列插件 待补充&hellip;  大家如果需要留言，可以直接回复*_*……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/">阅读全文</a></p>
+            <h2 id="1-前言">1 前言</h2>
+<p>
+        <a data-fancybox="gallery" href="/images/docker/docker-contributors.jpg">
+            <img class="mx-auto" alt="docker" src="/images/docker/docker-contributors.jpg" />
+        </a>
+    </p>……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-introduction/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/">在Markdown中输入数学公式(MathJax)</a>
+                <a href="https://forrestsu.github.io/posts/tools/git-diff-ms-office/" target="_blank">Git 如何查看 pptx，docx，xlsx 文件的差异？</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2017年6月25日 19:46:26
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            1336
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2020-03-26T08:22:28Z" class="post-meta meta-date dt-published">
+    2020年3月26日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  782
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 基本语法 1.1 呈现位置  正文(inline)中的LaTeX公式用$...$定义 语句为$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$ 显示在当前行内(简书目前不支持mathjax 只好暂时用图片代替了→_→)    单独显示(display)的LaTeX公式用$$...$$定义，此时公式居中并放大显示 语句为$$\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t$$ 显示为   下列描述语句中若非特别指出均省略$...$  2 希腊字母    显示 命令 显示 命令     α \alpha β \beta   γ \gamma δ \delta   ε \epsilon ζ \zeta   η \eta θ \theta   ι \iota κ \kappa   λ \lambda μ \mu   ν \nu ξ \xi   π \pi ρ \rho   σ \sigma τ \tau   υ \upsilon φ \phi   χ \chi ψ \psi   ω \omega        若需要大写希腊字母，将命令首字母大写即可。 \Gamma呈现为    若需要斜体希腊字母，将命令前加上var前缀即可。    3 字母修饰 3.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/%E5%9C%A8markdown%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8Fmathjax/">阅读全文</a></p>
+            1 MS Office 如果作为开发人员，工作场合需要经常使用 MS Office，那么在尝试比较 MS Office 文件时会遇到一些问题。 也许你在问自己：这有什么问题？ 这是：MS Office 将生成 Git 无法比较的二进制文件。 之前在 Windows 平台下，我们使用的文本转换工具，将二进制文件转化为text，然后再diff。 catdoc（用于 Word） xls2csv（用于 Excel） catppt（用于幻灯片） 2 寻找新的方案 目前主要使用MacOS系统，想看看有没有更好的方案？ 通过搜索，发现一个更通用的文本转换工具：textract。它不仅支持Office全家桶，还支……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/git-diff-ms-office/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">win下ssh指定密码登陆</a>
+                <a href="https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/" target="_blank">推荐-小工具</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2017年5月29日 21:02:22
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            1031
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2017-10-10T02:40:28Z" class="post-meta meta-date dt-published">
+    2017年10月10日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  224
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 Preface 因为ssh基于安全考虑，不支持参数指定密码(.bash_history可查看输入过的命令)。  2 PROBLEM 因为需要经常远程登录到vmware中Linux 服务器，每次都得输入一遍密码，比较麻烦！所以，想找找有没有什么方法，可以在调用ssh的时候就指定好密码，每次输入alias就好了。
-3 Current Solutions 在网上搜一下，大致有3种方式。 方案一：通过ssh-keygen生成RSA，然后采用公钥登陆的。 方案二 (仅适用于*unix系统) ：用Python的expect来发送密码验证，验证通过后，把控制权返还给终端。 Linux下一般使用sshpass(C language) ，还有 python 实现的 sshpass 方案三：采用putty.exe
-4 Problem Analysis 1、最好弄成rsa公钥验证方式，达到ssh无密码登录。 2、ssh的密码输入是绑定到 TTY 而不是stdin 的，所以无法重定向（到管道） 2.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/win%E4%B8%8Bssh%E6%8C%87%E5%AE%9A%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86/">阅读全文</a></p>
+            推荐个人最常用的Top10 便携自由(Free)的小软件。 Windows cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒鸡强大。 AutoHotkey 自定义全局热键 clover 资源管理器像浏览器一样显示多窗口 everything 快速查找磁盘文件(支持正则) (V1.3.4.686) Ditto 可以选择的粘贴板工具 GifCam Gif动画录制工具 chrome 及一系列插件 待补充&hellip; 大家如果需要留言，可以直接回复*_*……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/%E6%8E%A8%E8%8D%90-%E5%B0%8F%E5%B7%A5%E5%85%B7/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">Eclipse 4.6 support c&#43;&#43;11</a>
+                <a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/" target="_blank">My Chrome Plugin</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2017年4月27日 10:14:35
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            1628
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
+  <time datetime="2016-12-06T00:44:52Z" class="post-meta meta-date dt-published">
+    2016年12月6日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  253
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 配置MinGW-w64环境 　使用MinGW时(其中g++ version 4.9.2 )，发现std::to_string()函数无法使用，还是推荐使用snprintf()。 如果在Windows下搭建MinGW环境，推荐使用MinGw-w64，std::to_string()等函数都能正常使用（其中g++ version 6.3.0），所以后续推荐使用64位版本的MingW，可在nuwen下载MinGW-w64,即mingw-14.1-without-git.exe。  然后双击exe，即可解压到D:\Portable\，配置系统环境变量MINGW_HOME。  最后在Path后追加 ;%MINGW_HOME%\bin,完成配置。
-2 支持C++ 11 There&rsquo;s two things you have to do, first you need to setup your compiler, then you need to setup CDT&rsquo;s language processor.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/eclipse-4-6-support-c&#43;&#43;11/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">Docker install Ubuntu</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2017年3月21日 16:55:52
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            578
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
-        <div class="post-content">
-            1 前言 Ubuntu on Windows都来了，还要啥自行车！Windows里也可以有Linux Shell了。 体验过的老司机说一下（Win10 14316），现在还不！稳！定！
-当时我也是天真烂漫，格掉机器，Terminal弹出的一刹那，眼角湿润了！可是，当我装完了QQ等常用软件后发现，系统出错，各种不兼容。只能用Terminal的Windows，你们用过嘛。据说，更新为14367后，好多问题都解决了，还是先不要试了（逃.
-2 安装 访问官方地址：https://www.docker.com/products/docker-toolbox ，下载Windows版本的Docker Toolbox。
-    然后点击next.
-  安装完之后启动Docker Quickstart Terminal. 启动前需先配置：windows下面没有设置VirtualBox的安装路径的环境变量（VBOX_MSI_INSTALL_PATH或者VBOX_INSTALL_PATH）
-3 启动 双击Docker Quickstart Terminal 启动即可。……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/docker-install-ubuntu/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/">My Chrome Plugin</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年12月6日 08:44:52
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            89
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
-        <div class="post-content">
-            广告拦截    隐私保护    文档查看    写邮件    书签查找    网页截图工具    Github代码查看    标签页管理        Scroll To Top (offered by AlphaTr)……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">Sublime Text 3 Markdown</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2016年5月16日 00:22:06
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            1556
-        </div>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/tools'>Tools</a>
-            
-        </div>
-        
-        <div class="post-content">
-            1 MarkdownEditing Markdown高亮显示 安装完后需修改GFM Settings-User文件，添加我们自己个性化的配置：  添加如下内容：
- { &ldquo;color_scheme&rdquo;: &ldquo;Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme&rdquo;, &ldquo;draw_centered&rdquo;: false, &ldquo;line_numbers&rdquo;: true, &ldquo;highlight_line&rdquo;: true, //wrap_width表示多少个字符显示到下一行,0表示不限制 &ldquo;wrap_width&rdquo;:0 }
- 最后我们新建一个md文件就可以开始写作了^_^  2 安装markdown-preview 这个插件可以把Markdown书写的文本输出为github样式html文件，作用：本地开发Git项目预览readme的效果。
- git clone https://github.com/revolunet/sublimetext-markdown-preview MarkdownPreview……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/sublime-text-3-markdown/">阅读全文</a></p>
+            广告拦截 隐私保护 文档查看 写邮件 书签查找 网页截图工具 Github代码查看 标签页管理 如何将OneTab数据同步到另一台电脑? chrome 插件数据目录： Library/Application Support/Google/Chrome/Default/Local Extension Settings/chphlpgkkbolifaimnlloiipkdnihall 将对应插件的数据 Scroll To Top (offered by AlphaTr) 官网地址 SimpleUndoClose Todoist：待办事项列表及任务管理器……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/my-chrome-plugin/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
@@ -373,26 +299,6 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
 
 
-
-<ol class="page-navigator">
-    
-
-    
-    <li  class="current">
-        <a href="https://forrestsu.github.io/categories/tools/">1</a>
-    </li>
-    
-    <li >
-        <a href="https://forrestsu.github.io/categories/tools/page/2/">2</a>
-    </li>
-    
-
-    
-    <li class="next">
-        <a href="https://forrestsu.github.io/categories/tools/page/2/">下一页</a>
-    </li>
-    
-</ol>
 
 
 
@@ -400,7 +306,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2023 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -410,7 +316,6 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
@@ -429,49 +334,49 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
-    
+
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
+        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
+        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark lua 插件之 tvb():string()">wireshark lua 插件之 tvb():string()</a>
+        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+        <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
     </li>
     
 </ul>
@@ -480,46 +385,56 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="/categories">分类</a></h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (14)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
     
+    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -532,9 +447,52 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
 </ul>
     </section>
 
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
     <section class="widget">
-        <h3 class="widget-title"><a href="/tags">标签</a></h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
     
@@ -542,9 +500,7 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -552,9 +508,11 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
     
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
@@ -562,21 +520,31 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
     
     <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
     
@@ -588,13 +556,21 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
     <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -612,15 +588,27 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
     
     <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
@@ -628,13 +616,15 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
@@ -644,9 +634,13 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
@@ -664,37 +658,33 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     
     <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
     
-    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
@@ -702,9 +692,17 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
@@ -714,31 +712,22 @@ Windows  cmder 一个类*nix的控制台,支持Git/ssh/常用的linux命令,炒�
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
 </div>
     </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
-        </li>
-        
-    </ul>
-</section>
-
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

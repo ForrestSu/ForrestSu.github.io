@@ -5,24 +5,15 @@
     <link>https://forrestsu.github.io/tags/cmake/</link>
     <description>Recent content in CMake on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Jan 2020 17:06:09 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 16 Jan 2020 17:06:09 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 CMake 快速制作 RPM 安装包</title>
       <link>https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/</link>
       <pubDate>Thu, 16 Jan 2020 17:06:09 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/</guid>
-      <description>1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。
-制作 rpm 包通用的方式是：
-直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。
-今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild)
-下面我们就基于Centos7，尝试使用CMake制作了一个yaml-cpp的RPM包：
-2 添加项目打包信息 在一个项目的 CMakeList.txt 文件尾部, 追加以下内容：</description>
+      <description>1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。 制作 rpm 包通用的方式是： 直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。 今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild) 下面我们就基于C</description>
     </item>
     
   </channel>

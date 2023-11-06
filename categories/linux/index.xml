@@ -5,12 +5,8 @@
     <link>https://forrestsu.github.io/categories/linux/</link>
     <description>Recent content in Linux on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Dec 2018 17:33:53 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 25 Dec 2018 17:33:53 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>系统调用之 restart_syscall</title>
       <link>https://forrestsu.github.io/posts/linux/restart-syscall/</link>
@@ -32,34 +28,7 @@
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
-      <description>1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。
-它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。
-eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。
-更详细的可以查看 man eventfd
-1 2 3  #include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags);   eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。</description>
-    </item>
-    
-    <item>
-      <title>ubuntu 16.10安装eclipse 4.6</title>
-      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/</link>
-      <pubDate>Sat, 13 May 2017 15:22:38 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85eclipse-4-6/</guid>
-      <description>1.下载jdk , jdk-8u131-linux-x64.tar.gz 2 建立 sudo mkdir /usr/lib/java
-3 添加环境变量sudo vi /etc/profile
- export JAVA_HOME=/usr/lib/java/jdk1.8.0_131 export JRE_HOME=${JAVA_HOME}/jre export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib export PATH=${JAVA_HOME}/bin:$PATH
- 4
- [Desktop Entry] Encoding=UTF-8 Name=Eclipse Comment=Eclipse Exec=/home/sunquan/App/eclipse/eclipse Icon=/home/sunquan/App/eclipse/icon.</description>
-    </item>
-    
-    <item>
-      <title>ubuntu 16.10安装teamviewer12</title>
-      <link>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</link>
-      <pubDate>Fri, 12 May 2017 23:52:34 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/linux/ubuntu-16-10%E5%AE%89%E8%A3%85teamviewer12/</guid>
-      <description>1 首先在官网上下载适用于ubuntu的 teamviewer12.deb  sudo dpkg -i teamviewer_i386.deb sudo apt-get install -f
- 2 在终端输入teamviewer，即可在终端启动该程序   In case you get the error “wrong architecture i386” you have to execute the following commands:</description>
+      <description>1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。 它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。 eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。 更详细的可以查看 man eventfd 1 2 3 #include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags); eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。 该对象包含了一个无符号64位整型计数器，计数器由内核维护。 此计数器，</description>
     </item>
     
   </channel>

@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>Posts | 程序员的冷浪漫</title>
     <meta property="og:title" content="Posts - 程序员的冷浪漫">
@@ -16,11 +19,11 @@
         
     <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/posts/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/posts/index.xml" title="程序员的冷浪漫" />
+    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/posts/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -32,7 +35,6 @@
     
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -48,7 +50,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
                     
                     <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
                     
@@ -74,151 +76,267 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/" title="MySQL: 一条SQL语句是如何执行的？">MySQL: 一条SQL语句是如何执行的？</a>
+                <a href="https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/" title="业务缓存之可行性？" target="_blank">业务缓存之可行性？</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2019年10月11日
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cs'>CS</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 MySQL 基本架构 MySQL基本架构示意图  2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。
-如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。
-2.1 重要的日志模块：redo log ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/duck-type/" title="什么是鸭子类型(duck typing)">什么是鸭子类型(duck typing)</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年8月10日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <h2 id="1-duck-type">1 duck type</h2>
-<blockquote>
-<p>&ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&rdquo;</p>
-</blockquote>
-<p>我们并不关心对象是什么类型，到底是不是鸭子，只关心行为。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/hk-victoria-harbor-duck.jpg">
-            <img class="mx-auto" alt="duck-type" src="/images/hk-victoria-harbor-duck.jpg" />
-        </a>
-    </p>
-<p>比如在 python 中，有很多 <code>file-like</code> 的东西，比如 StringIO, GzipFile, socket;
-它们有很多相同的方法，我们把它们当作文件使用。</p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/duck-type/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/" title="浅谈微服务架构、大数据技术">浅谈微服务架构、大数据技术</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年6月28日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。
-其中: 微服务化主要是对单体应用功能解耦。
-1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式编码方式很难实现的功能提供了模块化的解决方案，使单体服务很容易开发理解和维护。 微服务架构模式使得每个微服务独立部署，开发者不再需要协调其他服务部署对本服务的影响。在此模式下可以加快部署速度，降低服务的耦合。
-1.2 微服务架构缺点 1、微服务应用是分布式系统，复杂度高。多个微服务也会存在分布式事务、数据一致性等问题，对业务开发提出了更高的挑战。
-2、使用微服务处理大数据的计算在数据聚合数据分片等方面处理难度高。微服务间的大量的通信IO会成为计算瓶颈。在数据量不断增大，性能瓶颈愈加明显。
-1.3 微服务架构总结 微服务化的重点是对业务应用的拆分，功能解耦。但并不解决业务应用本身如大规模数据计算等问题。业务拆分对于OLTP型系统较适合（容错、负载均衡、可扩展性）但是对于计算密集型任务，处理能力不足。尤其与集群计算对比不足更加明显。
-2 大数据处理框架现状 目前开源分布式大数据计算引擎有很多选择，批处理如 Spark, Hive, Pig, Flink 等，流计算如 Storm, Samza, Flink, Kafka Stream 等。如果需要同时支持流处理和批处理，有两种主流的选择：一个是Apache Spark，一个是Apache Flink。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/microservices-vs-big-data/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/io/io-model/" title="五种 IO 模型">五种 IO 模型</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2019年3月11日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/io'>IO</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/io/io-model/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall">系统调用之 restart_syscall</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年12月25日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
+  <time datetime="2021-01-08T05:46:15Z" class="post-meta meta-date dt-published">
+    2021年1月8日
+  </time>
 
-        <a data-fancybox="gallery" href="/images/unix_restart_syscall.png">
-            <img class="mx-auto" alt="restart_syscall" src="/images/unix_restart_syscall.png" />
+<div class="post-meta">
+  <span>| 字数 </span>
+  1888
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 在业务系统中，为了提高服务的性能，降低平均时延，一个常用的手段：增加cache。 鲁迅:-）人们发明一种方法解决一个问题，而几乎总是会引入另一个问题。 那么可能会问：Cache 要加在哪里，要缓存多久，才会更有效? 下面就拿一个例子，来展开看看。 2 分析 一般而言，需要对执行频率高，耗时占比大的逻辑，优先增加Cache。 但是要注意：增加 Cache 不能影响到业务的正确性。 适用场景：数据变化不频繁，因为一旦数据发生变化，Cache可能产生不一致。 对于不一致，还需要设计一个合理的失效时间，在业务可接受的误差之内增加c……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/network/wireshark-go-plugin/" title="基于 go 的 wireshark 插件实现方案" target="_blank">基于 go 的 wireshark 插件实现方案</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-08T14:15:47Z" class="post-meta meta-date dt-published">
+    2020年12月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1040
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/network' target="_blank">Network</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-go-plugin/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/" title="wireshark lua 插件tcp报文分段(desegment)？" target="_blank">wireshark lua 插件tcp报文分段(desegment)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T15:23:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  591
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/network' target="_blank">Network</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/network/wireshark-lua-trap/" title="wireshark lua 插件之 tvb():string()" target="_blank">wireshark lua 插件之 tvb():string()</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T14:35:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  482
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/network' target="_blank">Network</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。 于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。 解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。 1 2 -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len()) 总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。 有时候遇到问题，我们可以先通过 google……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-lua-trap/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" title="wireshark插件，如何关联请求应答(如ping协议)？" target="_blank">wireshark插件，如何关联请求应答(如ping协议)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T14:15:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2558
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/network' target="_blank">Network</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)" target="_blank">Go 常用的包推荐 (持续更新)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  826
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/go' target="_blank">Go</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Go 常用工具包推荐 1 stringer 为枚举量生成String()方法 go install golang.org/x/tools/cmd/stringer 2 pretty 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印) go install github.com/kylelemons/godebug 3 GoMock 2 调试工具 Delve 源码调试工具 安装： go install github.com/go-delve/delve/cmd/dlv@latest 快速上手： 1 2 3 $ dlv debug main.go $ &gt; break main.main $ &gt; continue 3 常用开发库 1 http-router 高性能、可扩展的HTTP路由 2 easyjson 高性能的Json Codec, 适用于有schema的Json数据 3 set set集合数据结构，基于原生 map 实现 4 测试框架 1 goconvey 简单易用的go测试框架，包含webUI 2 testify 在 go 中使用断言 assert wip&hellip; 其他 Go 多版本管理 GoUP 方便同时管理多个 go 版本 a）安……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不会提示 narrow-cast 的警告" target="_blank">g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-06T03:09:51Z" class="post-meta meta-date dt-published">
+    2020年11月6日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  989
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/cpp' target="_blank">CPP</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp; operator=(_CharT __c) { this-&gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&quot;N&quot;， int64转换成 char，仅保留了最低的一个字节……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/architecture/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析" target="_blank">Eureka 服务注册与发现-原理分析</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-05-25T09:28:06Z" class="post-meta meta-date dt-published">
+    2020年5月25日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4905
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。</p>
+<p>SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。</p>
+<p>在 Spring 全家桶中, Eureka 是一个微服务注册中心，主要提供服务的注册与发现，另一个功能就是服务配置获取。</p>
+<h2 id="2-eureka-核心概念">2 Eureka 核心概念</h2>
+<p>Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。</p>
+<p>下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。<br>
+整体上可以分为两个主体：<code>Eureka Server</code> 和 <code>Eureka Client</code>。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/spring/eureka-server.png">
+            <img class="mx-auto" alt="Eureka" src="/images/spring/eureka-server.png" />
         </a>
-    </p>
-<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+    </p>……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/spring-eureka-registry/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -226,26 +344,31 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)">Red Black Tree (01)</a>
+                <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件" target="_blank">Git 项目仓库中的 OWNERS 文件</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2018年11月19日
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
+  <time datetime="2020-05-21T14:21:45Z" class="post-meta meta-date dt-published">
+    2020年5月21日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1284
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/git' target="_blank">Git</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
-红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：……
+            1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -253,114 +376,40 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ">Multithreading-with-ZeroMQ</a>
+                <a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)" target="_blank">Seastar 之 ready_future(3)</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2018年10月30日
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
+  <time datetime="2020-05-08T11:55:17Z" class="post-meta meta-date dt-published">
+    2020年5月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1497
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
         <div class="post-content">
-            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ
-Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。
-它的异步IO模型可供你编写作为异步消息处理任务的可扩展的多核应用。 它有几十个API, 能运行在大多数的操作系统上。 ZeroMQ源自IMatix并按LGPLv3许可开放源码。
-Multithreading-with-ZeroMQ ZeroMQ有可能是编写多线程应用的最佳方式。 然而, 如果你习惯于使用传统套接字, 那么ZeroMQ套接字你需要重新适应一下, ZeroMQ多线程编程将会把你知道的关于多线程应用的一切, 统统堆到院子里, 浇上汽油, 再点一把火。 该烧的书是很少的, 但大部分关于并发编程的书都是。……
+            <h2 id="1-什么是-ready_future">1 什么是 ready_future</h2>
+<p>如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
+我们把这个 future 称为 <code>ready_future</code>。</p>
+<p>ready_future 的不同之处在于:</p>
+<blockquote>
+<p>(1) ready_future 可以单独使用，不必关联一个promise；<br>
+(2) ready_future.then(lambda) 会把传入的lambda立即执行掉，
+也就是说这个lambda没有机会放入任务队列；<br>
+(3) 而not_ready_future每次执行，产生的新任务都会被放入任务队列，然后依此取出来执行。</p>
+</blockquote>……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/" title="Zookeeper&#43;Kafka集群搭建方案">Zookeeper&#43;Kafka集群搭建方案</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年10月30日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/highavailable'>HighAvailable</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Preface Zookeeper是一个高性能分布式应用协调服务
- Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交  Zookeeper工作方式
- Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO    与Kafka读写操作不一样，Kafka只有Leader提供读写操作。
-说明 搭建zookeeper和Kafka集群： 本实验拥有3个节点，均为CentOS 7系统，且均有相同用户名 （本实验为 opadm）……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/highavailable/zookeeper-kafka-cluster-deployment-plan/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/" title="eventfd 入门">eventfd 入门</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年8月12日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/linux'>Linux</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。
-它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。
-eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。
-更详细的可以查看 man eventfd
-1 2 3  #include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags);   eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/eventfd-introduction/">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装">kafka安装</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2018年7月31日
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/library'>Library</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。
-启动zookeeper服务 bin/zkServer.sh start
-kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录：
-dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper
-bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker）
-启动kafka服务器（broker） ……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -427,13 +476,13 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/13/">13</a>
+            <a href="https://forrestsu.github.io/posts/page/14/">14</a>
         </li>
         
     
 
     
-    
+
 
     <li class="next">
         <a href="https://forrestsu.github.io/posts/page/4/">下一页</a>
@@ -448,7 +497,7 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2023 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -458,7 +507,6 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
@@ -477,49 +525,49 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
-    
+
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
+        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
+        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark lua 插件之 tvb():string()">wireshark lua 插件之 tvb():string()</a>
+        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+        <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
     </li>
     
 </ul>
@@ -528,46 +576,56 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="/categories">分类</a></h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (14)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
     
+    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -580,9 +638,52 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
 </ul>
     </section>
 
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
     <section class="widget">
-        <h3 class="widget-title"><a href="/tags">标签</a></h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
     
@@ -590,9 +691,7 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -600,9 +699,11 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
     
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
@@ -610,21 +711,31 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
     
     <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
     
@@ -636,13 +747,21 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
     <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -660,15 +779,27 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
     
     <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
@@ -676,13 +807,15 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
@@ -692,9 +825,13 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
@@ -712,37 +849,33 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     
     <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
     
-    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
@@ -750,9 +883,17 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
@@ -762,31 +903,22 @@ bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
 </div>
     </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
-        </li>
-        
-    </ul>
-</section>
-
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

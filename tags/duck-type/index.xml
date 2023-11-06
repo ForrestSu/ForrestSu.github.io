@@ -5,12 +5,8 @@
     <link>https://forrestsu.github.io/tags/duck-type/</link>
     <description>Recent content in duck-type on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Aug 2019 19:34:23 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/duck-type/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Sat, 10 Aug 2019 19:34:23 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/duck-type/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>什么是鸭子类型(duck typing)</title>
       <link>https://forrestsu.github.io/posts/go/duck-type/</link>

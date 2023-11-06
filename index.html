@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
-	<meta name="generator" content="Hugo 0.74.2" />
+	<meta name="generator" content="Hugo 0.119.0">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>程序员的冷浪漫 | 专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </title>
     <meta property="og:title" content="程序员的冷浪漫 | 专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang ">
@@ -13,11 +16,11 @@
     <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
     <meta name="description" content="专注于IT互联网，金融行业 ，C&#43;&#43;、Golang、Java、Python、软件架构、项目管理等">
     <meta property="og:url" content="https://forrestsu.github.io/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
+    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -29,7 +32,6 @@
     
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -69,276 +71,325 @@
                     
 <div class="res-cons">
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2021年4月28日 21:08:02
-        </date>
-        
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/algorithm'>Algorithm</a></span>
-            
-        </div>
-        
-        <div class="post-content">
-            1 Preface 最近在开发过程中，遇到多个集合，计算交集的问题，于是思考怎么计算效率最高呢？
-2 现有的 go-set 库 在 github 上搜索 go-set， 突然眼睛一亮，发现 scylladb 竟然实现了一个(scylladb出品，必属精品)；
-  3 源码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  // Intersection returns a new set which contains items that only exist in all // given sets.……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/">阅读全文</a></p>
-    </article>
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
+                <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 23:23:47
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
+  <time datetime="2023-11-05T11:20:00Z" class="post-meta meta-date dt-published">
+    2023年11月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  464
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/git' target="_blank">Git</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。
-那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？
-解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。
-1 2 3 4 5 6 7 8 9 10 11  -- 在入口处 function slicer.……
+            1 Preface 当使用 git cherry-pick A^..B 来 copy 一组 commits 时，会默认使用当前的系统时间； 我们想修改一组 commits 的 author和 email，但是要保留 commit-date 和 author-date， 这时候该怎么做呢？ 2 解决办法 1 git -c rebase.instructionFormat=&#39;%s%nexec GIT_COMMITTER_DATE=&#34;%cD&#34; GIT_AUTHOR_DATE=&#34;%aD&#34; git commit --amend --no-edit --reset-author&#39; rebase -i ${hashid} 不使用-i，改为 -f，则不显示交互会话界面，直接执行。 默认只影响 hash-id 之后的commits，如果需要从 root 开始rebase，则使用 --root to rebase all。 3 参考 1 How to update git commit author 2 更多玩法 How to preserve the committer date in git-rebase.md……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark lua 插件之 tvb():string()">wireshark lua 插件之 tvb():string()</a>
+                <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 22:35:47
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
+  <time datetime="2023-08-20T01:40:28Z" class="post-meta meta-date dt-published">
+    2023年8月20日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  393
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。
-于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。
-解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。
-1 2  -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len())   总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。……
+            1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;&gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &gt; $(brew &ndash;prefix)/share/zsh/site-functions/_goup……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+                <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年12月5日 22:15:47
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/tools'>Tools</a></span>
-            
-        </div>
-        
+  <time datetime="2023-01-03T06:39:00Z" class="post-meta meta-date dt-published">
+    2023年1月3日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1063
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/business' target="_blank">Business</a>
+  
+</div>
+
+
         <div class="post-content">
-            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。
-遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。
-  于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下:
- The dissector code has no access to pinfo of any other packet than the one currently dissected.……
+            在线广告领域，特许人支付广告费用的方式主要有三种，CPM、CPC 和 CPA。 首先，让我们花点时间为您定义它们。 CPM（Cost Per Mille）: 广告商需要为 1,000 次展示或观看支付的金额。 CPM=总消费/曝光量1000 CPC（Cost Per Click）: 广告商需要为 1 次点击支付的金额。 CPA（每次操作成本）: 广告商需要为 1 次操作支付的金额。例如，如果有人要填写联系表，特许人只支付广告商只支付给平台的费用。 （注意：通过将 CPM 除以 1000 可以很容易地计算出一次展示的成本。但是，由于这是行业发展的方式，因此价格几乎完全按照……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+                <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年11月17日 23:28:06
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/go'>Go</a></span>
-            
-        </div>
-        
+  <time datetime="2022-12-09T11:07:00Z" class="post-meta meta-date dt-published">
+    2022年12月9日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1442
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/design' target="_blank">Design</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 Go 常用工具包推荐  1 [stringer] 为枚举量生成String()方法   go install golang.org/x/tools/cmd/stringer
-  2 [pretty] 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印)   go install github.com/kylelemons/godebug
-  3 GoMock  2 常用开发库   1 http-router……
+            1 前言 基于拦截器，实现一个基于 trpc 协议的流量录制、回放插件。 支持回放流量验证。 常用场景： 服务重构后的流量验证，差异检测 日常需求迭代，回放验证(上线前) 2 整体方案 实现两组拦截器：录制拦截器、回放拦截器 录制拦截器：负责记录服务接口+所有下游调用数据（req、rsp、err），序列化后上报，用于回放。 回放拦截器：负责下游调用的mock（不实际发起调用），服务接口的回包上报，用于diff。 回包 diff 能力：由 LogReplay 平台提供，拦截器插件只负责上报diff所需数据。 补充一点，如何保存切面数据？ 方案一： 基于trpc包头 metadata……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/design/log-replay/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+                <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年11月6日 11:09:51
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/cpp'>CPP</a></span>
-            
-        </div>
-        
+  <time datetime="2022-05-10T02:40:28Z" class="post-meta meta-date dt-published">
+    2022年5月10日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  202
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/tools' target="_blank">Tools</a>
+  
+</div>
+
+
         <div class="post-content">
-            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码:
-1 2 3 4  int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl;   我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall .……
+            前言 Gerrit 是一个免费的、基于网络的团队代码协作(code review)工具。 常用快捷键 快捷键 作用 ? 显示所有快捷键手册 c 快速评论 cmd+s 保存评论 [ 上一个文件 ] 下一个文件 h 显示/隐藏所有评论 f 展开cr文件列表 r 勾选/取消文件的审阅标志 📢注意：因为gerrit提供了丰富的快捷键，如果 chrome 使用了 Vimium 插件， 方法： 点击Vimium插件图标，即可对对应站点禁用 (Keys为空表示该链接下禁用)……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+                <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年5月25日 17:28:06
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
+  <time datetime="2022-05-01T10:21:55Z" class="post-meta meta-date dt-published">
+    2022年5月1日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  555
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/life' target="_blank">Life</a>
+  
+</div>
+
+
         <div class="post-content">
-            <h2 id="1-preface">1 Preface</h2>
-<p>Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。<br>
-SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。</p>
-<p>在 Spring 全家桶中, Eureka 是一个微服务注册中心，主要提供服务的注册与发现，另一个功能就是服务配置获取。</p>
-<h2 id="2-eureka-核心概念">2 Eureka 核心概念</h2>
-<p>Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。</p>
-<p>下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。<br>
-整体上可以分为两个主体：<code>Eureka Server</code> 和 <code>Eureka Client</code>。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/spring/eureka-server.png">
-            <img class="mx-auto" alt="Eureka" src="/images/spring/eureka-server.png" />
-        </a>
-    </p>……
+            生活的忙碌可以分成七个层次。 大家可以对照一下，自己属于哪个层次？ 第 1 级：一点不忙。 时间很自由，怎么安排都可以，没有一定要去完成的事项，周末想睡多久就多久。 第 2 级：有一些小事。 你记得有一些事要做。这些事情是合理的事项，没有截止期，但是你知道这些事迟早要做。 第 3 级：有一些重要的事。 你有必须要做的事情，需要及时跟踪，不能拖延，你会时刻提醒自己这些事情。 第 4 级：日程排满了。 你的日程排满了，不得不经常问自己&quot;什么事情更重要？&quot;，以便决定先做哪些事，后做哪些事。 你没有计划外的时间，不过你……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/busy-7-levels/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+                <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年5月21日 22:21:45
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/git'>Git</a></span>
-            
-        </div>
-        
+  <time datetime="2022-04-12T08:07:47Z" class="post-meta meta-date dt-published">
+    2022年4月12日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  206
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/thinking' target="_blank">Thinking</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下：
-   terms means 翻译     WIP  Work in progress, do not merge yet. 开发中   LGTM Looks good to me.……
+            一、设计问题 (ABI 原则) CR 的意图 (Intention) 首先要了解整个 CR 要解决的问题； 正确的解决方案 (Better Solution) 在了解问题的基础上，思考标准的解决方案； 架构设计（合理的分层）(Architecture Design) 包设计 类设计 接口设计 安全 (safety) 不要迫使使用方到处传递敏感信息 二、实现问题 命名规范 命名规范： 一致性 注释和代码保持一致 同一个概念，不要用多个（近似但不一样的）名称 作用域……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+                <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年5月8日 19:55:17
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
+  <time datetime="2022-03-29T17:10:59Z" class="post-meta meta-date dt-published">
+    2022年3月30日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  688
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/design' target="_blank">Design</a>
+  
+</div>
+
+
         <div class="post-content">
-            <h2 id="1-什么是-ready_future">1 什么是 ready_future</h2>
-<p>如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
-我们把这个 future 称为 <code>ready_future</code>。</p>
-<p>ready_future 的不同之处在于:</p>
-<blockquote>
-<p>(1) ready_future 可以单独使用，不必关联一个promise；<br>
-(2) ready_future.then(lambda) 会把传入的lambda立即执行掉，
-也就是说这个lambda没有机会放入任务队列；<br>
-(3) 而not_ready_future每次执行，产生的新任务都会被放入任务队列，然后依此取出来执行。</p>
-</blockquote>……
+            1 为什么要做一个机器人？ 解决的问题 （🤖的适用场景） 日常工作中，重复繁琐的运营工作 线上问题定位 （媒资 Union 查询，用户染色、错误日志等 ） 借助机器人做错误告警，业务周报等 2 设计思想 可扩展 可扩展，轻松增加新指令 统一的指令注册接口 指令按照 tree 的方式管理，每个指令实现一个文件。 内聚：指令实现细节在内部的 rpc 包中管理 基于文本消息指令 基于空格分隔的多级指令设计； 格式：@robot &lt;cmd&hellip;&gt; &lt; arguments &gt; 易用性（对用户友好） 类似 unix 工具，每一级指令要带有 help 指令，并给出示例，无需查询文档，即可上手。 采用 markdown 消息， 消息样式丰富，可读性好，提示使……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/design/wework-robot-design/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
     
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+                <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2020年4月8日 13:46:15
-        </date>
         
-        <div class="post-meta">
-            <span>|</span>
-            
-            <span class="meta-category"><a href='https://forrestsu.github.io/categories/architecture'>Architecture</a></span>
-            
-        </div>
-        
+  <time datetime="2022-03-01T14:36:23Z" class="post-meta meta-date dt-published">
+    2022年3月1日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  550
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/readingnotes' target="_blank">ReadingNotes</a>
+  
+</div>
+
+
         <div class="post-content">
-            1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。
-多处理器结构有两种：
- (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。
-(2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。
- 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。
-现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者都有32 Kbytes,他的存取速度是最接近于寄存器的。L2 cache一般有 256 Kbytes, L3 Cache 有 8 Mbytes。……
+            “尽管很多人都很努力地工作，但却没能取得什么成就。 ——安迪·格鲁夫 1. 简单介绍 OKR 分为目标和关键结果， 关键结果必须是可以衡量的，最终是可以看到的。 OKR也可以作为逆向思考问题的有效方法，比如：快速分析各类业务协议报文？ 关键结果可以定义为： 基于go编写通用 Wireshark 插件，30分钟内对接一种新的七层协议； 协议解析性能 1w/s； 支持 wireshark 显示过滤器，以及请求应答关联； 2. KPI vs OKR KPI OKR &ldquo;目标是什么&rdquo; &ldquo;目标是什么&rdquo; 及 &ldquo;如何实现&rdquo; 年度 季度或月度 不公开、不透……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" target="_blank">阅读全文</a></p>
     </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-01-24T02:40:28Z" class="post-meta meta-date dt-published">
+    2022年1月24日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  619
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/database' target="_blank">Database</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 创建存储过程 1.1 创建一个存储过程 1 2 3 4 5 6 7 8 9 CREATE PROCEDURE `ClearExpiredData`() BEGIN -- 清理已过期10天的数据 delete from vid_blacklist where expire_time &gt; CAST(&#39;2010-10-10&#39; AS DATETIME) and expire_time &lt; SUBDATE(CURDATE(), 10); -- end END 1.2 执行存储过程 1 call ClearExpiredData() 2 数据库定时任务 2.1 创建一次性事件 1 2 3 CREATE EVENT clearEvent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 DAY DO call ClearExpiredData() 2.2 创建周期性事件 每天早上8点执行一次： 1 2 3 4 5 CREATE EVENT clearEvent ON SCHEDULE EVERY 1 DAY STARTS &#39;2022-01-24 08:00:00&#39; COMMENT &#39;定时清理过期数据&#39; DO call ClearExpiredData(); 2.3 查询数据库 Event 1 select * from information_schema.events where event_name = &#39;clearEvent&#39; 2.4 删除 Event 1 drop EVENT clearEvent 总结 TODO……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" target="_blank">阅读全文</a></p>
+    </article>
+    
     
     
 
@@ -385,13 +436,13 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
         
         
         <li >
-            <a href="https://forrestsu.github.io/page/13/">13</a>
+            <a href="https://forrestsu.github.io/page/14/">14</a>
         </li>
         
     
 
     
-    
+
 
     <li class="next">
         <a href="https://forrestsu.github.io/page/2/">下一页</a>
@@ -406,7 +457,7 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2023 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -416,7 +467,6 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
@@ -435,49 +485,49 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
-    
+
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
+        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
+        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark lua 插件之 tvb():string()">wireshark lua 插件之 tvb():string()</a>
+        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+        <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
     </li>
     
 </ul>
@@ -486,46 +536,56 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="/categories">分类</a></h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (14)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
     
+    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -538,9 +598,52 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
 </ul>
     </section>
 
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
     <section class="widget">
-        <h3 class="widget-title"><a href="/tags">标签</a></h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
     
@@ -548,9 +651,7 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -558,9 +659,11 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
     
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
@@ -568,21 +671,31 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
     
     <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
     
@@ -594,13 +707,21 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
     <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -618,15 +739,27 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
     
     <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
@@ -634,13 +767,15 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
@@ -650,9 +785,13 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
@@ -670,37 +809,33 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     
     <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
     
-    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
@@ -708,9 +843,17 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
@@ -720,31 +863,22 @@ SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringC
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
 </div>
     </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
-        </li>
-        
-    </ul>
-</section>
-
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

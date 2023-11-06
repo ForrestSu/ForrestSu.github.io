@@ -5,22 +5,15 @@
     <link>https://forrestsu.github.io/tags/2017/</link>
     <description>Recent content in 2017 on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 01 Jan 2018 01:42:05 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/2017/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 01 Jan 2018 01:42:05 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/2017/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>工作总结-2017年</title>
       <link>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/</link>
       <pubDate>Mon, 01 Jan 2018 01:42:05 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-2017%E5%B9%B4/</guid>
-      <description>Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:).
-Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉，老板的谈吐之间，很多价值观都有认同感。用着自己熟悉和喜欢的语言Unix C/C++，开发效率很高，CTO和同事有时候会搞个技术分享会，很有在学校实验室的感觉。 7月初开始调研cuda，并实现期货高频的参数计算，真金白银实盘开始测试，一个月陆续亏损10W，Boss遂决定做AI基金。
-Life 在帝都有3个大学同学，4月份刚来的时候，就在同学那里下榻，平时有事没事就一起聚聚，唱唱歌，聚聚餐，周边自驾游，业余生活也丰富了不少，很是惬意，心存感恩和敬畏。 7月29日参加2017张北草原音乐节，音乐人的歌很嗨，草原的天很蓝，花也美。 10月1日，带爷爷在北京畅游了2日，去了天安门。爷爷说：“人民大会堂会场好小，感觉没有新闻联播里的大。” 去颐和园“爬山”，这时候要是懂点历史就好了! 长城爬了北八楼，万木枯荣，还是更喜欢夏日的温热和青葱。 老板隔三差五带我们出去搓一顿，打打牙祭，尤其钟爱大龙虾，哈哈。 参加了一场小朋友的Artists Show，应该努力活的像个小孩。
-Growing up 2017年1月31日，和当年高一的同学(glp&amp;amp;syk)去一中回忆往昔，当年的宿舍楼重建了，也装了空调，老同学也在为生活和工作奔波。 2017年2月4日和 ljd 在长沙小聚，聊到了AI和物联网，然后下半年我就真的开始接触AI.阁中小聚(ljd) 3月- 4月的时候，一边上班一边纠结是否需要离职，感觉慢慢的变成了一颗螺丝钉，继续待下去3~4年的未来都可以预见！然后咨询了贺老、浩哥，于是决定换个环境。一边投递简历，准备电话面试，一边补技术空缺，毕竟写了1.5年的业务代码。 3月底，前导师投来橄榄枝，于是决定北漂。入职后开始熟悉新系统，得益于大学写的算法，工作上手很快，写了T0模块，用 cuda 在GPU 实现 Order Imbalance 模型，重构策略宝资讯前后台，9月份的时候老板开始要做机器学习。现在主要负责系统的行情模块，探索LSTM如何来预测股价。</description>
+      <description>Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:). Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉</description>
     </item>
     
   </channel>

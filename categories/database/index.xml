@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/database/</link>
+    <description>Recent content in Database on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 24 Jan 2022 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL 定时任务</title>
+      <link>https://forrestsu.github.io/posts/database/mysql-timer-schedule/</link>
+      <pubDate>Mon, 24 Jan 2022 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/database/mysql-timer-schedule/</guid>
+      <description>1 创建存储过程 1.1 创建一个存储过程 1 2 3 4 5 6 7 8 9 CREATE PROCEDURE `ClearExpiredData`() BEGIN -- 清理已过期10天的数据 delete from vid_blacklist where expire_time &amp;gt; CAST(&amp;#39;2010-10-10&amp;#39; AS DATETIME) and expire_time &amp;lt; SUBDATE(CURDATE(), 10); -- end END 1.2 执行存储过程 1 call ClearExpiredData() 2 数据库定时任务 2.1 创建一次性事件 1 2 3 CREATE EVENT clearEvent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 DAY DO call ClearExpiredData() 2.2 创建周期性事件 每天早上8点执行一次： 1 2 3 4 5 CREATE EVENT clearEvent ON SCHEDULE EVERY 1 DAY STARTS &amp;#39;2022-01-24 08:00:00&amp;#39; COMMENT &amp;#39;定时清理过期数据&amp;#39; DO call ClearExpiredData(); 2.3 查询数据库 Event 1 select * from information_schema.events where event_name = &amp;#39;clearEvent&amp;#39; 2.4 删除 Event 1 drop EVENT clearEvent 总结 TODO</description>
+    </item>
+    
+    <item>
+      <title>MySQL 数据导入导出</title>
+      <link>https://forrestsu.github.io/posts/database/mysqldump-usage/</link>
+      <pubDate>Sat, 22 Jan 2022 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/database/mysqldump-usage/</guid>
+      <description>1 DB 回档操作 1.1 mysqldump 备份表数据（不包含建表语句） 1 2 3 4 5 6 7 mysqldump -h10.10.10.10 -P15192 -uroot -pPassword \ --single-transaction \ --default-character-set=utf8 \ --no-create-info \ --skip-disable-keys \ --skip-add-locks \ [database name] [table name1] [table name2] &amp;gt; [dump file] 1.2 恢复数据 执行以下命令前一定要清理原有的数据，要不然会报唯一键冲突的 导入数据之前，最好将线上的表备份一下，然后 delete 清空原表； 最后进行导入，否则原数据不清理，导入的时候会报唯一健冲突。 方式一： 1 #mysql -h10.10.10.10 -P15192 -uroot -pPassword [database name] &amp;lt; [dump file] 方式二： 登陆mysql 然后执行source命令 1 2 3 #mysql -h10.10.10.10 -P15192 -uroot -pPassword &amp;gt; use db_name &amp;gt; source [dump file] 总结</description>
+    </item>
+    
+    <item>
+      <title>如何实现 SQL 用户标签的查询？</title>
+      <link>https://forrestsu.github.io/posts/database/sql-user-tags/</link>
+      <pubDate>Wed, 15 Sep 2021 16:50:12 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/database/sql-user-tags/</guid>
+      <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
+&lt;p&gt;在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。&lt;/p&gt;
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/db/user-label.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;user-label&#34; src=&#34;https://forrestsu.github.io/images/db/user-label.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;考虑两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;标签的量级较大，我们需要基于 ES 来加速查询;&lt;/li&gt;
+&lt;li&gt;标签量级较小，可以使用数据库实现一个简易版的标签功能；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面我们使用数据库，实现一个简易的标签功能；&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,21 +5,15 @@
     <link>https://forrestsu.github.io/categories/algorithm/</link>
     <description>Recent content in Algorithm on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 28 Apr 2021 21:08:02 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 28 Apr 2021 21:08:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>多个集合计算交集</title>
-      <link>https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/</link>
+      <title>多个集合，取交集</title>
+      <link>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</link>
       <pubDate>Wed, 28 Apr 2021 21:08:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/</guid>
-      <description>1 Preface 最近在开发过程中，遇到多个集合，计算交集的问题，于是思考怎么计算效率最高呢？
-2 现有的 go-set 库 在 github 上搜索 go-set， 突然眼睛一亮，发现 scylladb 竟然实现了一个(scylladb出品，必属精品)；
-  3 源码实现 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30  // Intersection returns a new set which contains items that only exist in all // given sets.</description>
+      <guid>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</guid>
+      <description>1 Preface 最近在一直采用 go 语言进行项目开发，遇到一个比较有意思的问题： 多个集合，计算交集，哪种计算方法最高效？ 假定集合采用 HashMap 来实现，那么每次查询的时间复杂度为 O(1) 考虑最简单的情况，假定有2个集合A和B，A 的元素个数为2, B 的元素个数为10。 计算A和B的交集有 2 个方案： 方案一：先遍历A，在B中查找是否存在，时间复杂度为 2*O(1) 方案二：时间复杂度为 10*O(1) 于是得出结论： 每次遍历最小的集合去计算交集，总的时间复杂度最小。 2 寻找已有的轮子 由于 go 标准库，并不提供 set 数据结构；先尝试用 google 搜索，fatih/set 出镜率比较高。 于是</description>
     </item>
     
     <item>
@@ -44,10 +38,7 @@
       <pubDate>Thu, 19 Mar 2020 14:07:56 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</guid>
-      <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
-T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果：
- 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次：
- cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1</description>
+      <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。 T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果： 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1) 假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次： cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数： F(T, n) = min{cost(1, T, n), cost(2, T, n), &amp;hellip;, cost(k, T, n), &amp;hellip;, cost(T, T, n)} 2 实现 简</description>
     </item>
     
     <item>
@@ -56,9 +47,7 @@ T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后�
       <pubDate>Mon, 19 Nov 2018 15:00:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</guid>
-      <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。
-Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N  因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。
-红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图：</description>
+      <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。 Conclusion BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N 因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。 红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图： 上图：</description>
     </item>
     
     <item>
@@ -67,11 +56,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
       <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
-      <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。
-博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！
-程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。
-本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。
-待续</description>
+      <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典</description>
     </item>
     
     <item>
@@ -80,13 +65,7 @@ Conclusion  BST 的查询复杂度取决于树的高度, 树的高度即最大�
       <pubDate>Sun, 28 Aug 2016 01:13:01 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
-      <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。
-关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程：
-1  dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品   当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V-cn，即可提前中止当前(n-1物品的)循环。
-也就是说，当处理第i个物品时只需要循环到：  备注：原作者手误把公式中ｃi+1写成了ｗi。
-更进一步优化————物品顺序 在上一步的优化下，我们发现先处理花费较大的物品会使得后续物品的循环次数更少，所以我们还可以做一个优化：把物品按照花费从大到小排序。
-最后： 基于上面两步优化，我在网上找个题目(nyoj654)来验证下正确性,运行结果如下。    代码如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64  /** nyoj: 654*/ //c header #include &amp;lt;cstdlib&amp;gt;#include &amp;lt;cstdio&amp;gt;#include &amp;lt;cstring&amp;gt;//cpp header #include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;lt;string&amp;gt; using namespace std; #define M 1100000 //Max bag&amp;#39;s Capacity #define N 120 //Max Item&amp;#39;s amount #define CLS(x,v) memset(x,v,sizeof(x)) typedef pair&amp;lt;int,int&amp;gt; ppi; /**Cap is the bag&amp;#39;s Capacity; SumCost is the sum of Item&amp;#39;s cost*/ int dp[M],Cap,SumCost; /** first is cost ,second is weight*/ int cmp(ppi x,ppi y) { //return true will be Swap elements  return x.</description>
+      <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程： 1 dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V</description>
     </item>
     
   </channel>

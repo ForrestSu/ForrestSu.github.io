@@ -5,22 +5,15 @@
     <link>https://forrestsu.github.io/tags/dp/</link>
     <description>Recent content in DP on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Mar 2020 14:07:56 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/dp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 19 Mar 2020 14:07:56 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/dp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>双蛋问题(动态规划)</title>
       <link>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</link>
       <pubDate>Thu, 19 Mar 2020 14:07:56 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</guid>
-      <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。
-T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果：
- 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1)  假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次：
- cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1</description>
+      <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。 T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果： 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1) 假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次： cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数： F(T, n) = min{cost(1, T, n), cost(2, T, n), &amp;hellip;, cost(k, T, n), &amp;hellip;, cost(T, T, n)} 2 实现 简</description>
     </item>
     
   </channel>

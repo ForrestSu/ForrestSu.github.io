@@ -1,10 +1,13 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
 
     <title>Java | 程序员的冷浪漫</title>
     <meta property="og:title" content="Java - 程序员的冷浪漫">
@@ -16,11 +19,11 @@
         
     <meta name="author" content="ForrestSun">
     <meta property="og:url" content="https://forrestsu.github.io/tags/java/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://forrestsu.github.io/tags/java/index.xml" title="程序员的冷浪漫" />
+    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/tags/java/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -32,7 +35,6 @@
     
     
 </head>
-
 
 <body>
     <header id="header" class="clearfix">
@@ -73,7 +75,7 @@
     <h3 class="archive-title">
         包含标签
         <span class="keyword">Java</span>
-        的文章
+        中的文章
     </h3>
     
 
@@ -81,31 +83,30 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/java/java-reflection/">Java 反射机制(1)</a>
+                <a href="https://forrestsu.github.io/posts/languages/java-reflection/" target="_blank">Java 反射机制(1)</a>
             </h1>
         </header>
-        <date class="post-meta meta-date">
-            2016年12月7日 23:28:21
-        </date>
-        <div class="post-meta">
-            <span>| 字数 </span>
-            2757
-        </div>
         
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://forrestsu.github.io/categories/java'>Java</a>
-            
-        </div>
-        
+  <time datetime="2016-12-07T15:28:21Z" class="post-meta meta-date dt-published">
+    2016年12月7日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2757
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/languages' target="_blank">Languages</a>
+  
+</div>
+
+
         <div class="post-content">
-            什么是反射 反射（Reflection）是java的特征之一。
- 1 能够在运行时动态检查类自身的类和方法。
-2 能够获得java类中各个成员的名称并显示出来。
- javaBean是reflection的实际运用之一。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  // src/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub  try { Class c = Class.……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/java/java-reflection/">阅读全文</a></p>
+            什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 // src/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&#34;Javass.c10.HelloWorld&#34;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&#34;-&gt;&#34;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.printStackTrace(); } } 二、动态构造一个类，并动态调用其方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 public static void main(String[] args) { try { Class c = Class.forName(&#34;Javass.c10.HelloWorld&#34;); Class paramtype[] = new Class[2]; paramtype[0] = Integer.TYPE;//int paramtype[1] = String.class; Constructor cs = c.getConstructor(paramtype); Object param[] = new Object[2]; param[0] = 100; param[1] = &#34;sunquan&#34;; //dynamic create one Class……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/languages/java-reflection/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
@@ -120,7 +121,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2021 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2023 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -130,7 +131,6 @@
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
@@ -149,49 +149,49 @@
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
-    
+
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/algorithm/intersection-of-multi-sets/" title="多个集合计算交集">多个集合计算交集</a>
+        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/" title="wireshark lua 插件tcp报文分段(desegment)？">wireshark lua 插件tcp报文分段(desegment)？</a>
+        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_lua_trap/" title="wireshark lua 插件之 tvb():string()">wireshark lua 插件之 tvb():string()</a>
+        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/" title="wireshark插件，如何关联请求应答(如ping协议)？">wireshark插件，如何关联请求应答(如ping协议)？</a>
+        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)">Go 常用的包推荐 (持续更新)</a>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不提示 narrow-cast 的警告">g&#43;&#43; -Wall 不提示 narrow-cast 的警告</a>
+        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析">Eureka 服务注册与发现-原理分析</a>
+        <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件">Git 项目仓库中的 OWNERS 文件</a>
+        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)">Seastar 之 ready_future(3)</a>
+        <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/architecture-thinking/cpu-cache/" title="CPU Cache 架构">CPU Cache 架构</a>
+        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
     </li>
     
 </ul>
@@ -200,46 +200,56 @@
     
 
     <section class="widget">
-        <h3 class="widget-title"><a href="/categories">分类</a></h3>
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go/">Go (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/io/">IO (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/java/">Java (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (2)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (13)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (14)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (4)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
     
+    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
+    
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
     
@@ -252,9 +262,52 @@
 </ul>
     </section>
 
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
     <section class="widget">
-        <h3 class="widget-title"><a href="/tags">标签</a></h3>
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
     
     <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
     
@@ -262,9 +315,7 @@
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">Algorithm(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/architecture/">Architecture(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -272,9 +323,11 @@
     
     <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/cache/">cache(1)</a>
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
     
     <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
     
@@ -282,21 +335,31 @@
     
     <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmder/">cmder(1)</a>
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(9)</a>
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
     <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
     
     <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
     
@@ -308,13 +371,21 @@
     
     <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
     
     <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">Git(5)</a>
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -332,15 +403,27 @@
     
     <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/microservices/">MicroServices(1)</a>
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
     
     <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
@@ -348,13 +431,15 @@
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/plugin/">plugin(4)</a>
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/putty/">putty(1)</a>
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
@@ -364,9 +449,13 @@
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/reflection/">reflection(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
@@ -384,37 +473,33 @@
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/sql/">sql(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/ssh/">ssh(1)</a>
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     
     <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
     
     <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/teamviewer/">TeamViewer(1)</a>
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
     
     <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
     
     <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/tools/">Tools(12)</a>
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
     
-    <a href="https://forrestsu.github.io/tags/travel/">Travel(3)</a>
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/ubuntu/">ubuntu(2)</a>
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/wall/">-Wall(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
     
-    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(3)</a>
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
@@ -422,9 +507,17 @@
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
@@ -434,31 +527,22 @@
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
 </div>
     </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
-        </li>
-        
-    </ul>
-</section>
-
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>

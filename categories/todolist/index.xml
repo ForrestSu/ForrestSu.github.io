@@ -5,24 +5,15 @@
     <link>https://forrestsu.github.io/categories/todolist/</link>
     <description>Recent content in TodoList on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Oct 2019 11:28:08 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/todolist/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 10 Oct 2019 11:28:08 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/todolist/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TodoList</title>
       <link>https://forrestsu.github.io/todo/</link>
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/todo/</guid>
-      <description>20170224   1 libaio
-  2 linux epoll
-  3 select 和 epoll 的区别
-  3 System v消息队列
-msgsnd() msgrcv() 函数
-  5 eventfd demo</description>
+      <description>20170224 1 libaio 2 linux epoll 3 select 和 epoll 的区别 3 System v消息队列 msgsnd() msgrcv() 函数 5 eventfd demo 6 Go coroutine M:N 协程的调度机制，全局运行队列 GRQ 和本地运行队列LRQ 写作计划 gorm 使用 (2021-04-29) 如何实现一个断路器(circuit-breaker) ？(2022-02-01) 后台服务使用 http3 quic 协议 (2022-03-01)</description>
     </item>
     
   </channel>

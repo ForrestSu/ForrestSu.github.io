@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code Review on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/code-review/</link>
+    <description>Recent content in Code Review on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 10 May 2022 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/code-review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gerrit 使用</title>
+      <link>https://forrestsu.github.io/posts/tools/gerrit-usage/</link>
+      <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/gerrit-usage/</guid>
+      <description>前言 Gerrit 是一个免费的、基于网络的团队代码协作(code review)工具。 常用快捷键 快捷键 作用 ? 显示所有快捷键手册 c 快速评论 cmd+s 保存评论 [ 上一个文件 ] 下一个文件 h 显示/隐藏所有评论 f 展开cr文件列表 r 勾选/取消文件的审阅标志 📢注意：因为gerrit提供了丰富的快捷键，如果 chrome 使用了 Vimium 插件， 方法： 点击Vimium插件图标，即可对对应站点禁用 (Keys为空表示该链接下禁用)</description>
+    </item>
+    
+  </channel>
+</rss>

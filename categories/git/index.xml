@@ -5,11 +5,16 @@
     <link>https://forrestsu.github.io/categories/git/</link>
     <description>Recent content in Git on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 May 2020 22:21:45 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 05 Nov 2023 19:20:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git rebase 保留提交者原始日期?</title>
+      <link>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</link>
+      <pubDate>Sun, 05 Nov 2023 19:20:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</guid>
+      <description>1 Preface 当使用 git cherry-pick A^..B 来 copy 一组 commits 时，会默认使用当前的系统时间； 我们想修改一组 commits 的 author和 email，但是要保留 commit-date 和 author-date， 这时候该怎么做呢？ 2 解决办法 1 git -c rebase.instructionFormat=&amp;#39;%s%nexec GIT_COMMITTER_DATE=&amp;#34;%cD&amp;#34; GIT_AUTHOR_DATE=&amp;#34;%aD&amp;#34; git commit --amend --no-edit --reset-author&amp;#39; rebase -i ${hashid} 不使用-i，改为 -f，则不显示交互会话界面，直接执行。 默认只影响 hash-id 之后的commits，如果需要从 root 开始rebase，则使用 --root to rebase all。 3 参考 1 How to update git commit author 2 更多玩法 How to preserve the committer date in git-rebase.md</description>
+    </item>
     
     <item>
       <title>Git 项目仓库中的 OWNERS 文件</title>
@@ -17,8 +22,7 @@
       <pubDate>Thu, 21 May 2020 22:21:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</guid>
-      <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下：
-   terms means 翻译     WIP  Work in progress, do not merge yet. 开发中   LGTM Looks good to me.</description>
+      <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的</description>
     </item>
     
     <item>
@@ -27,24 +31,7 @@
       <pubDate>Thu, 09 Mar 2017 11:24:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
-      <description>Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &amp;gt;number.txt。
- git init git add number.txt
- 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出  </description>
-    </item>
-    
-    <item>
-      <title>访问git网页排版紊乱</title>
-      <link>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</link>
-      <pubDate>Sun, 06 Nov 2016 21:02:59 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/git/%E8%AE%BF%E9%97%AEgit%E7%BD%91%E9%A1%B5%E6%8E%92%E7%89%88%E7%B4%8A%E4%B9%B1/</guid>
-      <description>在chrome下用F12查看（右键- &amp;gt; 审察元素）有几个请求TIMED_OUT 了，猜想应该是github的DNS被 GFirewall 污染了。
-  解决办法 修改hosts文件，直接通过IP访问github的CDN assets-cdn.github.com，不用域名解析。
-通过 www.ipaddress.com 这个网站查询assets-cdn.github.com的IP地址，然后在hosts中增加一条。
- 151.101.44.133	assets-cdn.github.com 151.101.12.133	avatars0.githubusercontent.com
- 然后在控制台刷新下DNS缓存：
- ipconfig /flushdns
- 最后访问github.com首页，布局就显示正常了。</description>
+      <description>Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &amp;gt;number.txt。 git init git add number.txt 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出</description>
     </item>
     
     <item>
@@ -53,10 +40,7 @@
       <pubDate>Mon, 12 Sep 2016 01:10:59 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-cherry-pick/</guid>
-      <description>1 cherry-pick 　git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用：
- git cherry-pick ee99d9a
-   如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。
-2 冲突解决 如下图，我们进行cherry-pick发生了冲突。git 提示我们先手工修复，然后git add [patchs],最后git commit 即可。 通过git status 可以选择终止cherry-pick 或者继续。  解决完冲突后:   《全文完》</description>
+      <description>1 cherry-pick git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： git cherry-pick ee99d9a 如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。 2 冲突解决 如下图，我</description>
     </item>
     
     <item>
@@ -65,11 +49,7 @@
       <pubDate>Sun, 11 Sep 2016 23:57:14 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-      <description>最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。
-一、git merge [branchName] 　顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图)  我们在dev-feature 分支，想同步master的通用修改：
- git checkout dev-feature git merge master
-   　Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1。
-二、git rebase [branchName] 　按照字面意思立即就是变基，比如我们当前在dev-feature分支，执行git rebase master，Git会先找到new-feature分支和master的最近公共祖先（C2结点），然后把当前分支的后续修改依次应用于master分支。 Git会把C4和C6节点回收，可以用git gc查看。</description>
+      <description>最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。 一、git merge [branchName] 顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改： git checkout dev-feature git merge master Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1</description>
     </item>
     
   </channel>

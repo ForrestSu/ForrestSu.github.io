@@ -5,46 +5,15 @@
     <link>https://forrestsu.github.io/tags/plugin/</link>
     <description>Recent content in plugin on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 05 Dec 2020 23:23:47 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 08 Dec 2020 22:15:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>wireshark lua 插件tcp报文分段(desegment)？</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/</link>
-      <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
+      <title>基于 go 的 wireshark 插件实现方案</title>
+      <link>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</link>
+      <pubDate>Tue, 08 Dec 2020 22:15:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_lua_tcp_desegment/</guid>
-      <description>缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。
-那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？
-解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。
-1 2 3 4 5 6 7 8 9 10 11  -- 在入口处 function slicer.</description>
-    </item>
-    
-    <item>
-      <title>wireshark lua 插件之 tvb():string()</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_lua_trap/</link>
-      <pubDate>Sat, 05 Dec 2020 22:35:47 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_lua_trap/</guid>
-      <description>缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。
-于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。
-解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。
-1 2  -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len())   总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。</description>
-    </item>
-    
-    <item>
-      <title>wireshark插件，如何关联请求应答(如ping协议)？</title>
-      <link>https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/</link>
-      <pubDate>Sat, 05 Dec 2020 22:15:47 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/tools/wireshark_plugin_qa/</guid>
-      <description>缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。
-遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。
-  于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下:
- The dissector code has no access to pinfo of any other packet than the one currently dissected.</description>
+      <guid>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</guid>
+      <description>1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务</description>
     </item>
     
     <item>
@@ -53,7 +22,7 @@
       <pubDate>Tue, 06 Dec 2016 08:44:52 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/my-chrome-plugin/</guid>
-      <description>广告拦截    隐私保护    文档查看    写邮件    书签查找    网页截图工具    Github代码查看    标签页管理        Scroll To Top (offered by AlphaTr)</description>
+      <description>广告拦截 隐私保护 文档查看 写邮件 书签查找 网页截图工具 Github代码查看 标签页管理 如何将OneTab数据同步到另一台电脑? chrome 插件数据目录： Library/Application Support/Google/Chrome/Default/Local Extension Settings/chphlpgkkbolifaimnlloiipkdnihall 将对应插件的数据 Scroll To Top (offered by AlphaTr) 官网地址 SimpleUndoClose Todoist：待办事项列表及任务管理器</description>
     </item>
     
   </channel>

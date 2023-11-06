@@ -5,18 +5,14 @@
     <link>https://forrestsu.github.io/tags/seastar/</link>
     <description>Recent content in seastar on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 08 May 2020 19:55:17 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/seastar/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 08 May 2020 19:55:17 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/seastar/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seastar 之 ready_future(3)</title>
-      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/</link>
+      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</link>
       <pubDate>Fri, 08 May 2020 19:55:17 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-ready-future/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</guid>
       <description>&lt;h2 id=&#34;1-什么是-ready_future&#34;&gt;1 什么是 ready_future&lt;/h2&gt;
 &lt;p&gt;如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
 我们把这个 future 称为 &lt;code&gt;ready_future&lt;/code&gt;。&lt;/p&gt;
@@ -31,10 +27,10 @@
     
     <item>
       <title>Seastar 之核间通信 (2)</title>
-      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</link>
+      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</link>
       <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-inter-core-communication/</guid>
+      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</guid>
       <description>&lt;h2 id=&#34;1-0核和任一个核通信&#34;&gt;1 0核和任一个核通信&lt;/h2&gt;
 &lt;p&gt;Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API &lt;code&gt;sched_set_affinity()&lt;/code&gt;，绑定一个 SMP 的 core，所以我们这里称之为&lt;strong&gt;核间通信&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
@@ -49,28 +45,20 @@
     
     <item>
       <title>Seastar 之 future/promise 原理(1)</title>
-      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</link>
+      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</guid>
-      <description>1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
-Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
-Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
-(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
-(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
-为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。</description>
+      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</guid>
+      <description>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当</description>
     </item>
     
     <item>
       <title>Seastar 入门</title>
-      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-started/</link>
+      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</link>
       <pubDate>Tue, 27 Feb 2018 14:00:04 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-started/</guid>
-      <description>1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。
-有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。
-2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现吞吐量提高10倍，以及显着降低和更一致的延迟。 Seastar提供了一个完整的异步编程框架，它使用两个概念 - 期货和延续 - 统一表示和处理每种类型的异步事件，包括网络I/O，磁盘 I/O 以及其他事件的复杂组合。
-由于现代多核和多插槽机器在核心之间共享数据（原子指令，高速缓存行反弹和内存隔离）具有陡峭的惩罚，Seastar程序使用无共享编程模型，即可用内存在内核之间分配，每个内核都在其内存部分进行数据处理，内核之间的通信通过显式消息传递进行（当然，这本身就是使用SMP的共享内存硬件发生的）。</description>
+      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</guid>
+      <description>1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现</description>
     </item>
     
   </channel>

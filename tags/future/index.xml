@@ -5,24 +5,15 @@
     <link>https://forrestsu.github.io/tags/future/</link>
     <description>Recent content in future on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 Mar 2020 23:11:26 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/future/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 26 Mar 2020 23:11:26 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/future/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seastar 之 future/promise 原理(1)</title>
-      <link>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</link>
+      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/archi-seastar/seastar-future-promise/</guid>
-      <description>1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。
-Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。
-Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。
-(1) promise 表示一个承诺，这个承诺将在未来某一个时刻兑现;
-(2) promise可以立即返回一个future, 拿到future的调用者可以在未来某个时刻调用future.get()兑现承诺。
-为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。</description>
+      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</guid>
+      <description>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当</description>
     </item>
     
     <item>
@@ -31,9 +22,7 @@ Seastar引入了 future/promise, 把面向 callback 编程变成了面向future/
       <pubDate>Mon, 05 Jun 2017 15:19:02 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
-      <description>1 题目描述 我们提供了一个类：
-public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。
-线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。</description>
+      <description>1 题目描述 我们提供了一个类： public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。 线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/print-in-order 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 1114. 按序打印 2 考点 着重考察多线程的并发控制。 3 Solution 下</description>
     </item>
     
   </channel>

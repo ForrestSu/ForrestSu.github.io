@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/go/</link>
+    <description>Recent content in go on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 09 Dec 2022 19:07:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LogReplay 流量录制回放设计与实现</title>
+      <link>https://forrestsu.github.io/posts/design/log-replay/</link>
+      <pubDate>Fri, 09 Dec 2022 19:07:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/design/log-replay/</guid>
+      <description>1 前言 基于拦截器，实现一个基于 trpc 协议的流量录制、回放插件。 支持回放流量验证。 常用场景： 服务重构后的流量验证，差异检测 日常需求迭代，回放验证(上线前) 2 整体方案 实现两组拦截器：录制拦截器、回放拦截器 录制拦截器：负责记录服务接口+所有下游调用数据（req、rsp、err），序列化后上报，用于回放。 回放拦截器：负责下游调用的mock（不实际发起调用），服务接口的回包上报，用于diff。 回包 diff 能力：由 LogReplay 平台提供，拦截器插件只负责上报diff所需数据。 补充一点，如何保存切面数据？ 方案一： 基于trpc包头 metadata</description>
+    </item>
+    
+    <item>
+      <title>OpenTelemetry 入门</title>
+      <link>https://forrestsu.github.io/posts/architecture/tracing/go-opentelemetry-tracing/</link>
+      <pubDate>Sat, 08 Jan 2022 19:54:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/architecture/tracing/go-opentelemetry-tracing/</guid>
+      <description>Preface OpenTelemetry 是一个可观测性工具，通过标准化的 API 和 SDK，提供了跨语言、跨平台的分布式追踪、日志和指标收集和分析能力。OpenTelemetry 的目标是让开发者更容易地维护和监测他们的应用程序。 本文将介绍 OpenTelemetry 的一些基本概念和用法，帮助读者快速入门。 1. 安装 OpenTelemetry 首先，需要安装 OpenTelemetry 的 SDK。这里以 Golang 为例，介绍如何安装 OpenTelemetry Go SDK。 1 go get go.opentelemetry.io/otel 通过运行上述命令，可以下载并安装 OpenTelemetry Go SDK。 2. 配置 OpenTelemetry Collector OpenTelemetry Collector 是一个数据收集器，它可以收集不同类型的数据并发送到指定的目的地。在使用 OpenTelemetry 进行分布式追踪时，通常需要将追踪数据发送到 Zipkin 或 Jaeger 等追踪</description>
+    </item>
+    
+    <item>
+      <title>基于 go 的 wireshark 插件实现方案</title>
+      <link>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</link>
+      <pubDate>Tue, 08 Dec 2020 22:15:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</guid>
+      <description>1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务</description>
+    </item>
+    
+  </channel>
+</rss>

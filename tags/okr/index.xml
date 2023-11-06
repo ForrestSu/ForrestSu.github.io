@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OKR on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/okr/</link>
+    <description>Recent content in OKR on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 01 Mar 2022 22:36:23 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/okr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>什么是OKR？</title>
+      <link>https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/</link>
+      <pubDate>Tue, 01 Mar 2022 22:36:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/</guid>
+      <description>“尽管很多人都很努力地工作，但却没能取得什么成就。 ——安迪·格鲁夫 1. 简单介绍 OKR 分为目标和关键结果， 关键结果必须是可以衡量的，最终是可以看到的。 OKR也可以作为逆向思考问题的有效方法，比如：快速分析各类业务协议报文？ 关键结果可以定义为： 基于go编写通用 Wireshark 插件，30分钟内对接一种新的七层协议； 协议解析性能 1w/s； 支持 wireshark 显示过滤器，以及请求应答关联； 2. KPI vs OKR KPI OKR &amp;ldquo;目标是什么&amp;rdquo; &amp;ldquo;目标是什么&amp;rdquo; 及 &amp;ldquo;如何实现&amp;rdquo; 年度 季度或月度 不公开、不透</description>
+    </item>
+    
+  </channel>
+</rss>

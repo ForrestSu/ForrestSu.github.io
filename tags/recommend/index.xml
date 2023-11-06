@@ -5,21 +5,15 @@
     <link>https://forrestsu.github.io/tags/recommend/</link>
     <description>Recent content in recommend on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Nov 2020 23:28:06 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/recommend/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 17 Nov 2020 23:28:06 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/recommend/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 常用的包推荐 (持续更新)</title>
       <link>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</link>
       <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</guid>
-      <description>1 Go 常用工具包推荐  1 [stringer] 为枚举量生成String()方法   go install golang.org/x/tools/cmd/stringer
-  2 [pretty] 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印)   go install github.com/kylelemons/godebug
-  3 GoMock  2 常用开发库   1 http-router</description>
+      <description>1 Go 常用工具包推荐 1 stringer 为枚举量生成String()方法 go install golang.org/x/tools/cmd/stringer 2 pretty 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印) go install github.com/kylelemons/godebug 3 GoMock 2 调试工具 Delve 源码调试工具 安装： go install github.com/go-delve/delve/cmd/dlv@latest 快速上手： 1 2 3 $ dlv debug main.go $ &amp;gt; break main.main $ &amp;gt; continue 3 常用开发库 1 http-router 高性能、可扩展的HTTP路由 2 easyjson 高性能的Json Codec, 适用于有schema的Json数据 3 set set集合数据结构，基于原生 map 实现 4 测试框架 1 goconvey 简单易用的go测试框架，包含webUI 2 testify 在 go 中使用断言 assert wip&amp;hellip; 其他 Go 多版本管理 GoUP 方便同时管理多个 go 版本 a）安</description>
     </item>
     
   </channel>

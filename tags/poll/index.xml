@@ -5,21 +5,15 @@
     <link>https://forrestsu.github.io/tags/poll/</link>
     <description>Recent content in poll on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 11 Mar 2019 17:41:47 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/poll/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Mon, 11 Mar 2019 17:41:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/poll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>五种 IO 模型</title>
-      <link>https://forrestsu.github.io/posts/io/io-model/</link>
+      <link>https://forrestsu.github.io/posts/thinking/io-model/</link>
       <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/io/io-model/</guid>
-      <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。
-我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。
-2 五种 I/O 模型  blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions)  再说一下IO发生时涉及的对象和步骤。</description>
+      <guid>https://forrestsu.github.io/posts/thinking/io-model/</guid>
+      <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。 我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。 2 五种 I/O 模型 blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions) 再说一下IO发生时涉及的对象和步骤。 对于一个net</description>
     </item>
     
   </channel>

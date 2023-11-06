@@ -5,12 +5,8 @@
     <link>https://forrestsu.github.io/categories/resume/</link>
     <description>Recent content in Resume on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Tue, 14 Feb 2017 23:39:53 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/categories/resume/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 14 Feb 2017 23:39:53 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/resume/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
       <link>https://forrestsu.github.io/about/</link>
@@ -19,10 +15,10 @@
       <guid>https://forrestsu.github.io/about/</guid>
       <description>&lt;p&gt;C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。&lt;/p&gt;
 &lt;h2 id=&#34;quan-sun孙权&#34;&gt;Quan Sun(孙权)&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Web&lt;/strong&gt;&lt;br&gt;
-　　https://forrestsu.github.io&lt;br&gt;
-&lt;strong&gt;Email&lt;/strong&gt;&lt;br&gt;
-　　sunquana@gmail.com&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Blog: &lt;a href=&#34;https://forrestsu.github.io&#34;&gt;https://forrestsu.github.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:sunquana@gmail.com&#34;&gt;sunquana@gmail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;skill&#34;&gt;Skill&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;编程语言: C/C++, Java, Python.&lt;/li&gt;
@@ -31,7 +27,9 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;experience&#34;&gt;Experience&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;2017.04 - 现在，研发工程师, 名策数据, BeiJing&lt;/li&gt;
+&lt;li&gt;2020.09 - 现在 后台开发工程师, &lt;a href=&#34;https://www.tencent.com/&#34;&gt;Tencent&lt;/a&gt;, Shenzhen&lt;/li&gt;
+&lt;li&gt;2018.09 - 2020.09 高级研发工程师, ** , Shenzhen&lt;/li&gt;
+&lt;li&gt;2017.04 - 2018.08，研发工程师, 名策数据, BeiJing&lt;/li&gt;
 &lt;li&gt;2015.07 - 2017.03，软件工程师, &lt;a href=&#34;http://www.hundsun.com/&#34;&gt;Hundsun Technologies Inc&lt;/a&gt;, HangZhou.&lt;/li&gt;
 &lt;li&gt;2011.09 - 2015.06，就读于湖南农业大学，计算机专业。&lt;/li&gt;
 &lt;/ul&gt;</description>

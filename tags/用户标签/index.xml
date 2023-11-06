@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>用户标签 on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/</link>
+    <description>Recent content in 用户标签 on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 15 Sep 2021 16:50:12 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何实现 SQL 用户标签的查询？</title>
+      <link>https://forrestsu.github.io/posts/database/sql-user-tags/</link>
+      <pubDate>Wed, 15 Sep 2021 16:50:12 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/database/sql-user-tags/</guid>
+      <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
+&lt;p&gt;在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。&lt;/p&gt;
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/db/user-label.png&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;user-label&#34; src=&#34;https://forrestsu.github.io/images/db/user-label.png&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+&lt;p&gt;考虑两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;标签的量级较大，我们需要基于 ES 来加速查询;&lt;/li&gt;
+&lt;li&gt;标签量级较小，可以使用数据库实现一个简易版的标签功能；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面我们使用数据库，实现一个简易的标签功能；&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

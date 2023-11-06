@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algorithm on 程序员的冷浪漫</title>
+    <title>algorithm on 程序员的冷浪漫</title>
     <link>https://forrestsu.github.io/tags/algorithm/</link>
-    <description>Recent content in Algorithm on 程序员的冷浪漫</description>
+    <description>Recent content in algorithm on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sun, 16 Jul 2017 17:14:54 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 09 Dec 2021 23:19:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优雅的递归算法</title>
+      <link>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</link>
+      <pubDate>Thu, 09 Dec 2021 23:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</guid>
+      <description>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;这个世界上优雅的东西很少，递归至少算一个。&lt;code&gt;tree&lt;/code&gt; 和 &lt;code&gt;single list&lt;/code&gt; 的数据结构，是非常适合使用递归来操作的。下面我们使用 Go 来做几道题，感受一下递归的魅力。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>关于博弈论</title>
@@ -17,11 +23,7 @@
       <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
-      <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。
-博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！
-程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典的有BAT 有海盗分金币问题。
-本文主要来分析下狼人杀中的博弈，从而更好的玩这个游戏(不涉及心理方面的分析)。狼人杀 游戏和拜占庭将军问题有点类似。
-待续</description>
+      <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典</description>
     </item>
     
   </channel>

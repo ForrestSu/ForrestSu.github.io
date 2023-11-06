@@ -5,24 +5,15 @@
     <link>https://forrestsu.github.io/tags/timeout/</link>
     <description>Recent content in timeout on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/timeout/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/timeout/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go select多路复用, 实现超时机制</title>
       <link>https://forrestsu.github.io/posts/go/select-in-go/</link>
       <pubDate>Wed, 18 Dec 2019 20:19:15 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/go/select-in-go/</guid>
-      <description>1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？
-在 select 中加入一个 timer channel
- case rc2 := &amp;lt;-time.After(d):
- After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。
-完整代码如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  // 采用 select 实现超时 func TestSelectTimeOut(t *testing.</description>
+      <description>1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？ 在 select 中加入一个 timer channel case rc2 := &amp;lt;-time.After(d): After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。 完整代码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 采用 select 实现超时</description>
     </item>
     
   </channel>

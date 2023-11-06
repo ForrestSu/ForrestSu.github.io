@@ -5,20 +5,15 @@
     <link>https://forrestsu.github.io/tags/owners/</link>
     <description>Recent content in owners on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 May 2020 22:21:45 +0800</lastBuildDate>
-    
-	<atom:link href="https://forrestsu.github.io/tags/owners/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 21 May 2020 22:21:45 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/owners/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git 项目仓库中的 OWNERS 文件</title>
       <link>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</link>
       <pubDate>Thu, 21 May 2020 22:21:45 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</guid>
-      <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下：
-   terms means 翻译     WIP  Work in progress, do not merge yet. 开发中   LGTM Looks good to me.</description>
+      <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的</description>
     </item>
     
   </channel>

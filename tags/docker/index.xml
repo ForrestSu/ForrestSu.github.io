@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/docker/</link>
+    <description>Recent content in Docker on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 21 Mar 2021 16:55:52 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 简介</title>
+      <link>https://forrestsu.github.io/posts/tools/docker-introduction/</link>
+      <pubDate>Sun, 21 Mar 2021 16:55:52 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/docker-introduction/</guid>
+      <description>&lt;h2 id=&#34;1-前言&#34;&gt;1 前言&lt;/h2&gt;
+&lt;p&gt;
+        &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/docker/docker-contributors.jpg&#34;&gt;
+            &lt;img class=&#34;mx-auto&#34; alt=&#34;docker&#34; src=&#34;https://forrestsu.github.io/images/docker/docker-contributors.jpg&#34; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
