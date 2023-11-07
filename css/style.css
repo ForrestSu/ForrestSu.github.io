@@ -107,7 +107,8 @@ code {
     display: inline-block;
 }
 pre code {
-    text-wrap: wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 blockquote {
     display: block;
@@ -1231,8 +1232,5 @@ table tbody tr td:nth-of-type(1) pre {
     }
     table tr th, table tr td {
         border-color: #3e4752;
-    }
-    pre code {
-        text-wrap: wrap;
     }
 }
