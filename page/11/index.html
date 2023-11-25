@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/" title="C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)" target="_blank">C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-04-08T12:42:42Z" class="post-meta meta-date dt-published">
+    2017年4月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1692
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/cpp' target="_blank">CPP</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 引用限定符 学了这么多年C++，今天拜读了Scott Meyes的《more effective cpp》，第一次看到这种写法&hellip; 引用限定可以让成员函数只能被左值对象调用或者只能被右值对象调用。 下面举例说明： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace left_value { class Hello { void show() &amp; { std::cout &lt;&lt; &#34;just for left-value\n&#34;; } }; inline void run() { Hello t; t.show(); // ok Hello{}.show(); // compile error: passing &#39;left_value::Hello&#39; as &#39;this&#39; argument discards qualifiers [-fpermissive] } } 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace right_value { struct Test { void show() &amp;&amp; { std::cout &lt;&lt; &#34; just for right value\n&#34;; } }; inline void run() { Test t; t.show(); //compile error: passing &#39;right_value::Test&#39; as &#39;this&#39; argument discards qualifiers [-fpermissive] Test{}.show(); //ok } } 换句话说，引用限定所限定的就是*this，它可以让一些函数只被左值this调用或者右值……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/" title="C&#43;&#43;11 explicit关键字" target="_blank">C&#43;&#43;11 explicit关键字</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" title="Git原理分析" target="_blank">Git原理分析</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-03-09T03:24:45Z" class="post-meta meta-date dt-published">
-    2017年3月9日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  216
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/git' target="_blank">Git</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &gt;number.txt。 git init git add number.txt 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -527,6 +527,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/diary/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
@@ -558,10 +562,6 @@
         <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -585,7 +585,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
@@ -908,6 +908,8 @@
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
     
 </div>
     </section>

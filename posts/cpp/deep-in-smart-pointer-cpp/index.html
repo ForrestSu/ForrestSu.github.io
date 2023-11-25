@@ -175,11 +175,11 @@
 <p>weak_ptr 和 shared_ptr 内存结构相同(1 个原始对象指针 + ctrl_block_t 指针)；</p>
 <p><strong>不同之处在于：</strong></p>
 <p>(1) 不直接使用 weak_ptr 进行对象的各种操作<br>
-每次使用 weak_ptr 时，提升一个shared_ptr<!-- raw HTML omitted -->, 然后使用shared_ptr; 但是如果提升失败，表示对象已经析构。</p>
+每次使用 weak_ptr 时，提升一个shared_ptr<T>, 然后使用shared_ptr; 但是如果提升失败，表示对象已经析构。</p>
 <p>(2) 负责管理不同对象的生命周期<br>
 shared_ptr 管理 <code>T*对象</code>的生命周期，而 weak_ptr 管理 <code>ctrl_block_t*</code> 的生命周期。</p>
 <p>(3) 不对称<br>
-shared_ptr 可以构造对象产生(make_shared<!-- raw HTML omitted -->() 或 shared_ptr(T*))，或者通过 weak_ptr 提升。</p>
+shared_ptr 可以构造对象产生(make_shared<T>() 或 shared_ptr(T*))，或者通过 weak_ptr 提升。</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -190,8 +190,8 @@ shared_ptr 可以构造对象产生(make_shared<!-- raw HTML omitted -->() 或 s
 </span></span><span style="display:flex;"><span>shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> sp <span style="color:#f92672">=</span> wp.lock(); <span style="color:#75715e">//提升
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>weak_ptr<!-- raw HTML omitted --> 通过拷贝 shared_ptr<!-- raw HTML omitted --> 构造得到，或者直接拷贝(或移动构造)其他的 weak_ptr<!-- raw HTML omitted -->。<br>
-<strong>也就是说, 第一个<code>有效的</code>weak_ptr<!-- raw HTML omitted --> 一定从 shared_ptr<!-- raw HTML omitted --> 拷贝得到的。</strong></p>
+</div><p>weak_ptr<T> 通过拷贝 shared_ptr<T> 构造得到，或者直接拷贝(或移动构造)其他的 weak_ptr<T>。<br>
+<strong>也就是说, 第一个<code>有效的</code>weak_ptr<T> 一定从 shared_ptr<T> 拷贝得到的。</strong></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -655,6 +655,10 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/diary/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
@@ -686,10 +690,6 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
         <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -713,7 +713,7 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     
     <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
@@ -1036,6 +1036,8 @@ div.highlight:hover .copy-code,pre:hover .copy-code {
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
     
 </div>
     </section>
