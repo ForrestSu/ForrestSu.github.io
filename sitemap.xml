@@ -2,26 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://forrestsu.github.io/posts/diary/health/2023-%E8%A1%A5%E7%89%99%E5%B0%8F%E8%AE%A1/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
     <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/diary/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/medicine/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/</loc>
-    <lastmod>2023-11-13T18:31:18+08:00</lastmod>
+    <lastmod>2023-11-05T19:20:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2023-11-05T19:20:00+08:00</lastmod>
@@ -32,13 +14,25 @@
     <loc>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</loc>
     <lastmod>2023-11-05T19:20:00+08:00</lastmod>
   </url><url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2023-11-05T19:20:00+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/tags/rebase/</loc>
     <lastmod>2023-11-05T19:20:00+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2023-11-05T19:20:00+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/</loc>
+    <lastmod>2023-11-05T19:20:00+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/categories/life/</loc>
+    <lastmod>2023-08-27T01:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/</loc>
     <lastmod>2023-08-27T01:21:55+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/diary/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/</loc>
+    <loc>https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/</loc>
     <lastmod>2023-08-27T01:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/plugins/</loc>
@@ -99,9 +93,6 @@
     <lastmod>2022-05-01T18:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/life/</loc>
-    <lastmod>2022-05-01T18:21:55+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/life/</loc>
     <lastmod>2022-05-01T18:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/busy-7-levels/</loc>
@@ -617,6 +608,9 @@
     <loc>https://forrestsu.github.io/tags/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url><url>
+    <loc>https://forrestsu.github.io/categories/diary/</loc>
+    <lastmod>2017-08-20T18:31:18+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url><url>
@@ -800,7 +794,7 @@
     <loc>https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/</loc>
     <lastmod>2017-01-16T00:03:59+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/diary/health/%E5%85%A8%E9%BA%BB%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8B%94%E5%9B%9B%E9%A2%97%E6%99%BA%E9%BD%BF%E6%98%AF%E6%80%8E%E6%A0%B7%E4%B8%80%E7%A7%8D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://forrestsu.github.io/posts/life/health/%E5%85%A8%E9%BA%BB%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8B%94%E5%9B%9B%E9%A2%97%E6%99%BA%E9%BD%BF%E6%98%AF%E6%80%8E%E6%A0%B7%E4%B8%80%E7%A7%8D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2017-01-16T00:03:59+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/</loc>
