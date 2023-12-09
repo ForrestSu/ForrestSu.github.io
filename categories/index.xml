@@ -215,15 +215,6 @@
     </item>
     
     <item>
-      <title>浮生若梦</title>
-      <link>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</link>
-      <pubDate>Mon, 01 Jan 2018 01:42:05 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/%E6%B5%AE%E7%94%9F%E8%8B%A5%E6%A2%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Languages</title>
       <link>https://forrestsu.github.io/categories/languages/</link>
       <pubDate>Mon, 18 Dec 2017 18:27:08 +0800</pubDate>
@@ -256,6 +247,15 @@
       <pubDate>Tue, 14 Feb 2017 23:39:53 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/resume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>杂谈</title>
+      <link>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Thu, 13 Oct 2016 18:04:13 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</guid>
       <description></description>
     </item>
     
