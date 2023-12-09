@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门" target="_blank">libuv入门</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-04-19T06:05:47Z" class="post-meta meta-date dt-published">
+    2017年4月19日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  912
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/library' target="_blank">Library</a>
+  
+</div>
+
+
+        <div class="post-content">
+            libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。 uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 //main.cpp #include &lt;cstdlib&gt; #include &lt;uv.h&gt; #include &lt;assert.h&gt; #include &lt;time.h&gt; #include &lt;iostream&gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&lt;&lt;&#34;count==&#34;&lt;&lt;count++&lt;&lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;timer); assert(r==0); // 0 cout&lt;&lt;uv_is_active((uv_handle_t*) &amp;timer)&lt;&lt;endl; // 0 cout&lt;&lt; uv_is_closing((uv_handle_t*) &amp;timer)&lt;&lt;endl; cout&lt;&lt;&#34;start &#34;&lt;&lt;time(NULL)&lt;&lt;endl; r = uv_timer_start(&amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&lt;&lt;&#34;r=&#34;&lt;&lt;r&lt;&lt;endl; return 0; }……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/" title="C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)" target="_blank">C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)</a>
             </h1>
         </header>
@@ -361,38 +393,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" title="程序员如何留Email？" target="_blank">程序员如何留Email？</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-03-12T14:21:45Z" class="post-meta meta-date dt-published">
-    2017年3月12日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  142
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/cs' target="_blank">CS</a>
-  
-</div>
-
-
-        <div class="post-content">
-            有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密 echo 邮箱号 | base64 我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -524,11 +524,15 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/diary/health/2023-%E8%A1%A5%E7%89%99%E5%B0%8F%E8%AE%A1/" title="2023 补牙小计" target="_blank">2023 补牙小计</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/diary/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+        <a href="https://forrestsu.github.io/posts/diary/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
     </li>
     
     <li>
@@ -559,10 +563,6 @@
         <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/readingnotes/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -586,7 +586,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
@@ -726,7 +726,7 @@
     
     <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
     
-    <a href="https://forrestsu.github.io/tags/diary/">Diary(6)</a>
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(5)</a>
     
     <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
     
@@ -779,6 +779,8 @@
     <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
     
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/medicine/">Medicine(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     
@@ -884,6 +886,8 @@
     
     <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
@@ -897,6 +901,8 @@
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
     

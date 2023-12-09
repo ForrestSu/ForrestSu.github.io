@@ -6,22 +6,22 @@
     <description>Recent content in Categories on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 05 Nov 2023 19:20:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Nov 2023 18:31:18 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diary</title>
+      <link>https://forrestsu.github.io/categories/diary/</link>
+      <pubDate>Mon, 13 Nov 2023 18:31:18 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/diary/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Git</title>
       <link>https://forrestsu.github.io/categories/git/</link>
       <pubDate>Sun, 05 Nov 2023 19:20:00 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Diary</title>
-      <link>https://forrestsu.github.io/categories/diary/</link>
-      <pubDate>Sun, 27 Aug 2023 01:21:55 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/diary/</guid>
       <description></description>
     </item>
     
