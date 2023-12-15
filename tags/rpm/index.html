@@ -83,7 +83,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/" target="_blank">使用 CMake 快速制作 RPM 安装包</a>
+                <a href="https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/" target="_blank">使用 CMake 快速制作 RPM 安装包</a>
             </h1>
         </header>
         
@@ -106,7 +106,7 @@
 
         <div class="post-content">
             1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。 制作 rpm 包通用的方式是： 直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。 今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild) 下面我们就基于C……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/build-rpm-package-use-cmake/" target="_blank">阅读全文</a></p>
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/" target="_blank">阅读全文</a></p>
         </div>
     </article>
     
