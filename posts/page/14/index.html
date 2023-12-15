@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/" title="C&#43;&#43;关于NULL、0、nullptr" target="_blank">C&#43;&#43;关于NULL、0、nullptr</a>
+            </h1>
+        </header>
+        
+  <time datetime="2016-07-16T17:11:00Z" class="post-meta meta-date dt-published">
+    2016年7月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  825
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/cpp' target="_blank">CPP</a>
+  
+</div>
+
+
+        <div class="post-content">
+            一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。 1 #define NULL ((void *)0) 所以在C语言中我们通常会写出如下语句 1 2 int *i = NULL; foo_t *f = NULL; 2 而在C++中，NULL会被定义为0 1 2 3 4 5 #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif 3 C++11引入了nullptr 来表示空指针 二 在C++中使用NULL的风险 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 //func1 int mycall(char *a, char *b) { cout&lt;&lt;&#34;char pointer!&#34;&lt;&lt;endl; } //func2 int mycall(char *a, int b) { cout&lt;&lt;&#34;int !&#34;&lt;&lt;endl; } // func3 int mycall(char *a,nullptr_t nullp) { cout&lt;&lt;&#34;nullptr !&#34;&lt;&lt;endl; } int main() { char *a,*b; mycall(a,b); //char pointer! //优先调用func2，没有func2则调用func1或fu……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/travel/2016-plans/" title="2016-Plans" target="_blank">2016-Plans</a>
             </h1>
         </header>
@@ -279,6 +311,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
@@ -300,10 +336,6 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%BB%80%E4%B9%88%E6%98%AFokr/" title="什么是OKR？" target="_blank">什么是OKR？</a>
     </li>
     
 </ul>
@@ -333,7 +365,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go/">Go (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (7)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -499,6 +531,8 @@
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
@@ -570,6 +604,8 @@
     <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     

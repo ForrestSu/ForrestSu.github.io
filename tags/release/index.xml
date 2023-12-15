@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Release on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/release/</link>
+    <description>Recent content in Release on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 09 Aug 2023 17:28:06 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/release/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 新版本特性</title>
+      <link>https://forrestsu.github.io/posts/go/go-version-feature/</link>
+      <pubDate>Wed, 09 Aug 2023 17:28:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/go-version-feature/</guid>
+      <description>Go 1.21.0 2023-08-08 slices、maps 泛型库：《slices、maps 泛型库终于要加入标准库。。。》 for 循环变量的语义变更：《Go 团队将修改 for 循环变量的语义，新版本即可体验！》 context 可设置取消原因和回调函数：《Context 可以设置取消原因和回调函数了，等的可太久了！》 主版本号支持第三位数字 0：《Go 改版本号规则，主版本号终于支持第三位数字 0 了。。。》 统一标准 log/slog：《Go 十年了，终于想起要统一 log 库了！》 支持自定义 go.env 文件：《支持自定义 go.env 文件，可惜还是有所残缺。。。》 增强约束 Go 程序构建：《go.mod 的</description>
+    </item>
+    
+  </channel>
+</rss>
