@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/diary/%E9%98%81%E4%B8%AD%E5%B0%8F%E8%81%9Aljd/" title="阁中小聚(ljd)" target="_blank">阁中小聚(ljd)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-06-25T10:31:10Z" class="post-meta meta-date dt-published">
+    2017年6月25日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  458
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/diary' target="_blank">Diary</a>
+  
+</div>
+
+
+        <div class="post-content">
+            今天2017-02-04，来长沙和 ljd 小聚，吃个饭感觉自己已经在舒适区呆得太久！ （数据挖掘，人工智能，物联网，云计算，VR/AR） 感觉自己不足的地方： 1 保持对新事物和未知领域的好奇。 2 感觉最近一年，已经被生活和工作方式固化，安逸的温水煮青蛙。 3 缺少追根溯源的精神，知其然不知其所以然！ 4 拿的起，放得下！ 工作过程中： 在这条流水线上，领导总是想雇佣更低廉的劳动力，如果你在这个岗位上只是纯粹的在既定的框架下实现功能，可能没有相应的升值空间。 更积极一点： 你可以思考这条流水线哪些环节是可以优化的，提高生产效率……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/diary/%E9%98%81%E4%B8%AD%E5%B0%8F%E8%81%9Aljd/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/" title="搭建CUDA 环境（GPU）" target="_blank">搭建CUDA 环境（GPU）</a>
             </h1>
         </header>
@@ -361,38 +393,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" title="libuv入门" target="_blank">libuv入门</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-04-19T06:05:47Z" class="post-meta meta-date dt-published">
-    2017年4月19日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  912
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/library' target="_blank">Library</a>
-  
-</div>
-
-
-        <div class="post-content">
-            libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。 uv_timer_start(&amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 //main.cpp #include &lt;cstdlib&gt; #include &lt;uv.h&gt; #include &lt;assert.h&gt; #include &lt;time.h&gt; #include &lt;iostream&gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&lt;&lt;&#34;count==&#34;&lt;&lt;count++&lt;&lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;timer); assert(r==0); // 0 cout&lt;&lt;uv_is_active((uv_handle_t*) &amp;timer)&lt;&lt;endl; // 0 cout&lt;&lt; uv_is_closing((uv_handle_t*) &amp;timer)&lt;&lt;endl; cout&lt;&lt;&#34;start &#34;&lt;&lt;time(NULL)&lt;&lt;endl; r = uv_timer_start(&amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&lt;&lt;&#34;r=&#34;&lt;&lt;r&lt;&lt;endl; return 0; }……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -578,7 +578,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
@@ -702,7 +702,7 @@
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(2)</a>
     
     <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
@@ -834,7 +834,7 @@
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(2)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     

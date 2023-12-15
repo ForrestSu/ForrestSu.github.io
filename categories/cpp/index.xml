@@ -35,6 +35,15 @@
     </item>
     
     <item>
+      <title>VSCode C&#43;&#43; bazel</title>
+      <link>https://forrestsu.github.io/posts/cpp/vscode-cpp-bazel/</link>
+      <pubDate>Thu, 16 Jan 2020 17:06:09 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/vscode-cpp-bazel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>使用 CMake 快速制作 RPM 安装包</title>
       <link>https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/</link>
       <pubDate>Thu, 16 Jan 2020 17:06:09 +0800</pubDate>
