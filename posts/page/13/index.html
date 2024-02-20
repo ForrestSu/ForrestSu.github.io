@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/" title="XSL 语言(2)" target="_blank">XSL 语言(2)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-01-18T07:56:07Z" class="post-meta meta-date dt-published">
+    2017年1月18日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1105
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/web' target="_blank">Web</a>
+  
+</div>
+
+
+        <div class="post-content">
+            上一篇主要入门了 XSL，这一课来进一步学习XSL。 1 语法 (1) xsl:if 元素 语法： 1 2 3 4 5 &lt;xsl:if test=&#34;expression&#34;&gt; ... ...如果条件成立则输出... ... &lt;/xsl:if&gt; 如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。 &lt;xsl:for-each select=&#34;catalog/cd&#34;&gt; &lt;xsl:if test=&#34;price = 10&#34;&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select=&#34;title&#34;/&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select=&#34;artist&#34;/&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:if&gt; &lt;/xsl:for-each&gt; (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法 1 2 3 4 5 6 7 8 9 10 11 &lt;xsl:choose&gt; &lt;xsl:when test=&#34;expression1&#34;&gt; ... 输出 ... &lt;/xsl:when&gt; &lt;xsl:when test=&#34;expression2&#34;&gt; ... 输出 ... &lt;/xsl:when&gt; &lt;xsl:otherwise&gt; ... 输出 .... &lt;/xsl:otherwise&gt; &lt;/xsl:choose&gt; (3) xsl:apply-templates 元素 &lt;xsl:apply-templates &gt; 元素可把一个模板应用于当前的元素或者……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/" title="XSL 语言" target="_blank">XSL 语言</a>
             </h1>
         </header>
@@ -361,38 +393,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化" target="_blank">背包九讲01-关于常数的优化</a>
-            </h1>
-        </header>
-        
-  <time datetime="2016-08-27T17:13:01Z" class="post-meta meta-date dt-published">
-    2016年8月28日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1903
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/algorithm' target="_blank">Algorithm</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程： 1 dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -570,7 +570,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -780,7 +780,7 @@
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
@@ -804,7 +804,7 @@
     
     <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
     
     <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
     

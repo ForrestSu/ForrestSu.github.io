@@ -304,6 +304,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/" title="Go 必须知道的 18 个Go开发库" target="_blank">Go 必须知道的 18 个Go开发库</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2071
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
+  
+</div>
+
+
+        <div class="post-content">
+            包含各种使用场景的Go第三方列表。 随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序! 备注：在Go语言中我们都称第三方库为package（包）。 配置文件处理库 配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。 1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。 可以读……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)" target="_blank">Go 常用的包推荐 (持续更新)</a>
             </h1>
         </header>
@@ -361,50 +393,6 @@
             Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp; operator=(_CharT __c) { this-&gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&quot;N&quot;， int64转换成 char，仅保留了最低的一个字节……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析" target="_blank">Eureka 服务注册与发现-原理分析</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-05-25T09:28:06Z" class="post-meta meta-date dt-published">
-    2020年5月25日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  4905
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <h2 id="1-preface">1 Preface</h2>
-<p>Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。</p>
-<p>SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。</p>
-<p>在 Spring 全家桶中, Eureka 是一个微服务注册中心，主要提供服务的注册与发现，另一个功能就是服务配置获取。</p>
-<h2 id="2-eureka-核心概念">2 Eureka 核心概念</h2>
-<p>Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。</p>
-<p>下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。<br>
-整体上可以分为两个主体：<code>Eureka Server</code> 和 <code>Eureka Client</code>。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/spring/eureka-server.png">
-            <img class="mx-auto" alt="Eureka" src="/images/spring/eureka-server.png" />
-        </a>
-    </p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/spring-eureka-registry/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -592,7 +580,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -802,7 +790,7 @@
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
@@ -826,7 +814,7 @@
     
     <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
     
     <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
     

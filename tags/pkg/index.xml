@@ -8,6 +8,15 @@
     <language>zh-Hans</language>
     <lastBuildDate>Tue, 17 Nov 2020 23:28:06 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/pkg/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Go 必须知道的 18 个Go开发库</title>
+      <link>https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/</link>
+      <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/</guid>
+      <description>包含各种使用场景的Go第三方列表。 随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序! 备注：在Go语言中我们都称第三方库为package（包）。 配置文件处理库 配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。 1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。 可以读</description>
+    </item>
+    
+    <item>
       <title>Go 常用的包推荐 (持续更新)</title>
       <link>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</link>
       <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>

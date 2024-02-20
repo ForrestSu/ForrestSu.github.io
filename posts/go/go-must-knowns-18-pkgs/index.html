@@ -9,21 +9,24 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>Resume | 程序员的冷浪漫</title>
-    <meta property="og:title" content="Resume - 程序员的冷浪漫">
+    <title>Go 必须知道的 18 个Go开发库 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Go 必须知道的 18 个Go开发库 - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2020-11-17T23:28:06&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-11-17T23:28:06&#43;08:00'>
         
     <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
-    <meta name="description" content="Resume">
+    <meta name="description" content="Go 必须知道的 18 个Go开发库">
         
     <meta name="author" content="ForrestSun">
-    <meta property="og:url" content="https://forrestsu.github.io/categories/resume/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/categories/resume/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -50,7 +53,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
                     
                     <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
                     
@@ -71,70 +74,194 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <h3 class="archive-title">
-        分类
-        <span class="keyword">Resume</span>
-        中的文章
-    </h3>
-    
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置文件处理库">配置文件处理库</a></li>
+    <li><a href="#命令行接口">命令行接口</a></li>
+    <li><a href="#环境变量">环境变量</a></li>
+    <li><a href="#自动化构建">自动化构建</a></li>
+    <li><a href="#动态编译">动态编译</a></li>
+    <li><a href="#web开发">Web开发</a></li>
+    <li><a href="#日期管理">日期管理</a></li>
+    <li><a href="#数据库orm">数据库ORM</a></li>
+    <li><a href="#微服务">微服务</a></li>
+    <li><a href="#web爬虫">web爬虫</a></li>
+    <li><a href="#lo泛型库">lo泛型库</a></li>
+    <li><a href="#其他">其他：</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
 
-    
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/about/" target="_blank">关于我</a>
-            </h1>
+            <h1 class="post-title">Go 必须知道的 18 个Go开发库</h1>
         </header>
         
-  <time datetime="2017-02-14T15:39:53Z" class="post-meta meta-date dt-published">
-    2017年2月14日
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
   </time>
 
 <div class="post-meta">
   <span>| 字数 </span>
-  731
+  2071
 </div>
 
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/resume' target="_blank">Resume</a>
+    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
   
 </div>
 
 
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
         <div class="post-content">
-            <p>C++开发攻城师，Python和Java打杂师，擅长分布式，高并发，低延时服务。</p>
-<h2 id="quan-sun孙权">Quan Sun(孙权)</h2>
+            <p>包含各种使用场景的Go第三方列表。</p>
+<p>随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序!</p>
+<p>备注：在Go语言中我们都称第三方库为package（包）。</p>
+<h2 id="配置文件处理库">配置文件处理库</h2>
+<p>配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。</p>
 <ul>
-<li>Blog: <a href="https://forrestsu.github.io">https://forrestsu.github.io</a></li>
-<li>Email: <a href="mailto:sunquana@gmail.com">sunquana@gmail.com</a></li>
+<li>1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。
+可以读取JSON, TOML, YAML, HCL, .env, and Java properties等格式的配置文件。
+实时监控和重新加载配置文件
+读取环境变量
+地址：https://github.com/spf13/viper</li>
 </ul>
-<h2 id="skill">Skill</h2>
+<h2 id="命令行接口">命令行接口</h2>
+<p>对于构建命令行应用程序，Go有一个很棒的库，使其变得轻而易举。</p>
 <ul>
-<li>编程语言: C/C++, Java, Python.</li>
-<li>熟悉Linux命令，服务端编程，Git</li>
-<li>快速学习和解决问题的能力</li>
+<li>2、Cobra：一个用于创建基于Go的CLI应用程序的强大库。具备的功能有：
+它与Viper库的配置文件集成了强大的功能。
+它支持常规子命令、嵌套子命令，并帮助对类似的命令进行分组。
+完全符合posix的参数(包括短和长版本)
+地址：https://github.com/spf13/cobra</li>
 </ul>
-<h2 id="experience">Experience</h2>
+<h2 id="环境变量">环境变量</h2>
+<p>Go有很多包能读.env文件，这些文件可以更容易地存储各种应用程序密匙。</p>
 <ul>
-<li>2020.09 - 现在 后台开发工程师, <a href="https://www.tencent.com/">Tencent</a>, Shenzhen</li>
-<li>2018.09 - 2020.09 高级研发工程师, ** , Shenzhen</li>
-<li>2017.04 - 2018.08，研发工程师, 名策数据, BeiJing</li>
-<li>2015.07 - 2017.03，软件工程师, <a href="http://www.hundsun.com/">Hundsun Technologies Inc</a>, HangZhou.</li>
-<li>2011.09 - 2015.06，就读于湖南农业大学，计算机专业。</li>
-</ul>……
-            <p class="readmore"><a href="https://forrestsu.github.io/about/" target="_blank">阅读全文</a></p>
+<li>3、GoDotEnv：从.env文件读取变量非常简单，而且使用起来相当轻便。
+地址：https://github.com/joho/godotenv</li>
+</ul>
+<h2 id="自动化构建">自动化构建</h2>
+<p>自动化工具，旨在通过简单的命令帮助执行任务。
+你可能已经知道的一个流行工具是Make命令，它帮助我们使用makefile的任务自动化。一个很好的开发实践是在Makefile中定义一个要执行的命令列表，我们可以在后面很容易地引用它并使用简单的make命令执行。</p>
+<ul>
+<li>4、Task：这个库拥有更多的详细说明，因此，在执行命令时比Make更好的解释性。它也没有依赖性，相比之下是相当轻量级的。
+地址：https://taskfile.dev/</li>
+</ul>
+<h2 id="动态编译">动态编译</h2>
+<ul>
+<li>5、Air：这是一个实用的Go库，当你在开发Go项目的时候，每当有代码更新，该库能自动检测到代码的更新并重新编译运行你的项目。
+地址：https://github.com/cosmtrek/air</li>
+</ul>
+<h2 id="web开发">Web开发</h2>
+<p>以下是两种经常被维护的顶级web框架:</p>
+<p>6、Gin web框架：这是Go最流行的web开发库，有很多好的特性。
+地址：https://gin-gonic.com/
+7、Iris web框架：这也是在Go中构建高性能web应用程序和api的另一种选择。如果你以前用过ExpressJS，你会觉得有点熟悉。
+地址：https://www.iris-go.com/</p>
+<h2 id="日期管理">日期管理</h2>
+<p>8、Carbon：这是一个轻量级的、易于使用的、语义智能的日期时间库，适用于Go开发者。
+地址：https://github.com/golang-module/carbon</p>
+<h2 id="数据库orm">数据库ORM</h2>
+<p>9、Gorm：这是最容易使用的对象关系映射(ORM) Go库，作者使用过三种主要的数据库SQLite, PostgreSQL和MySQL。</p>
+<h2 id="微服务">微服务</h2>
+<p>微服务通常在Docker和Kubernetes容器架构中使用，以构建健壮的应用程序。下面是几个Go微服务包:
+10、Echo：该框架支持RESTful API设计，是最流行的Go微服务框架。
+地址：https://echo.labstack.com/guide/
+11、go-micro：这个库具有内置的身份验证和数据存储设计，在同一领域是另一个很好的选择。确实很方便。
+地址：https://github.com/go-micro/go-micro</p>
+<h2 id="web爬虫">web爬虫</h2>
+<p>12、Colly：这是一个很棒的Go网页爬虫框架，特别适合存档(我经常用它)和数据挖掘。
+地址：https://github.com/gocolly/colly</p>
+<p>13、Retry
+用于重试逻辑和回退。它是高度可扩展的，可以完全控制重试发生的方式和时间。还可以通过实现backoff接口编写自己的自定义后退函数。
+地址：https://github.com/sethvargo/go-retry</p>
+<p>14、endless
+golang HTTP和HTTPS服务器的零停机重启。
+地址：https://github.com/fvbock/endless</p>
+<p>15、定时任务cron
+地址：https://github.com/robfig/cron</p>
+<h2 id="lo泛型库">lo泛型库</h2>
+<p>地址：github.com/samber/lo</p>
+<h2 id="其他">其他：</h2>
+<p>16、Go-Redis：这是一个很棒的、高度维护的Go redis数据库客户端。它与redis 6和7都兼容，并且有一个非常简单的设置过程。强烈推荐。
+地址：https://github.com/go-redis/redis</p>
+<p>17、go-elasticsearch：这是官方Elasticsearch的Go客户端。
+地址：https://github.com/elastic/go-elasticsearch</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/go/golang-recommend-pkgs/">Go 常用的包推荐 (持续更新)</a></li>
+        
+        <li><a href="/posts/cpp/narrow-cast-no-warnning/">g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</a></li>
+        
+        <li><a href="/posts/architecture/spring-eureka-registry/">Eureka 服务注册与发现-原理分析</a></li>
+        
+        <li><a href="/posts/git/git-owners-files-in-repos/">Git 项目仓库中的 OWNERS 文件</a></li>
+        
+        <li><a href="/posts/architecture/archi-seastar/seastar-ready-future/">Seastar 之 ready_future(3)</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/recommend' target="_blank">recommend</a></li>
+                
+                <li><a href='/tags/pkg' target="_blank">pkg</a></li>
+                
+            </ul>
+            
         </div>
     </article>
     
-
     
 
-
-
-
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
 
 </div>
 
@@ -147,9 +274,94 @@
 </footer>
 
 
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>

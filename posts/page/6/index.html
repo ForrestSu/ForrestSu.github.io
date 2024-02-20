@@ -76,6 +76,44 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/linux/restart-syscall/" title="系统调用之 restart_syscall" target="_blank">系统调用之 restart_syscall</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-12-25T09:33:53Z" class="post-meta meta-date dt-published">
+    2018年12月25日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  396
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/linux' target="_blank">Linux</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <p>在我们使用<code>strace -p pid</code> 的时候，经常会遇到如下情景：<br>
+
+        <a data-fancybox="gallery" href="/images/unix_restart_syscall.png">
+            <img class="mx-auto" alt="restart_syscall" src="/images/unix_restart_syscall.png" />
+        </a>
+    </p>
+<p>restart_syscall 究竟是个什么系统调用呢？什么时候会用到该系统调用呢?</p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/linux/restart-syscall/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/algorithm/red-black-tree-01/" title="Red Black Tree (01)" target="_blank">Red Black Tree (01)</a>
             </h1>
         </header>
@@ -361,38 +399,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/" title="异步编程之 CPS" target="_blank">异步编程之 CPS</a>
-            </h1>
-        </header>
-        
-  <time datetime="2018-04-20T14:44:50Z" class="post-meta meta-date dt-published">
-    2018年4月20日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1441
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。 CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。 现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。 1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下： 1 2 3 4 5 6 7 8 square :: Double -&gt; Double square x = x * x add :: Double -&gt; Double -&gt; Double add x y = x + y pythagorean :: Double -&gt; Double -&gt; Double pythagorean x y……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -590,7 +596,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
     
@@ -800,7 +806,7 @@
     
     <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/pkg/">pkg(1)</a>
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
     
     <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
     
@@ -824,7 +830,7 @@
     
     <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/recommend/">recommend(1)</a>
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
     
     <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
     
