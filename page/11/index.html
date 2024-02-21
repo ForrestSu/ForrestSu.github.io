@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/" title="单链表的递归算法&#43;变体" target="_blank">单链表的递归算法&#43;变体</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-06-03T07:19:02Z" class="post-meta meta-date dt-published">
+    2017年6月3日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  3053
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/leetcode' target="_blank">LeetCode</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 6 // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} }; 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13 class Solution { public: //尾插法 ListNode* reverseList(ListNode* head) { if(head == NULL || head-&gt;next == NULL) { return head; } auto tail = reverseList(head-&gt;next); head-&gt;next-&gt;next = head; head-&gt;next = NULL; return tail; // became new head } }; 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 ListNode* reverseList(ListNode *head) { ListNode *pNewHead……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/" title="Redis 入门" target="_blank">Redis 入门</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/" title="恒生工作梳理" target="_blank">恒生工作梳理</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-03-27T03:19:05Z" class="post-meta meta-date dt-published">
-    2017年3月27日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  339
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/work' target="_blank">Work</a>
-  
-</div>
-
-
-        <div class="post-content">
-            工作流程 一、 梳理工作流程 售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。 二、 还需要熟悉的模块 消息机制、主推，共享……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -523,6 +523,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -558,10 +562,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -577,7 +577,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     

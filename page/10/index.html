@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" title="关于博弈论" target="_blank">关于博弈论</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-07-16T09:14:54Z" class="post-meta meta-date dt-published">
+    2017年7月16日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  329
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/algorithm' target="_blank">Algorithm</a>
+  
+</div>
+
+
+        <div class="post-content">
+            大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/" title="大公司还是小公司？" target="_blank">大公司还是小公司？</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/" title="单链表的递归算法&#43;变体" target="_blank">单链表的递归算法&#43;变体</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-06-03T07:19:02Z" class="post-meta meta-date dt-published">
-    2017年6月3日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  3053
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/leetcode' target="_blank">LeetCode</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 6 // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} }; 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13 class Solution { public: //尾插法 ListNode* reverseList(ListNode* head) { if(head == NULL || head-&gt;next == NULL) { return head; } auto tail = reverseList(head-&gt;next); head-&gt;next-&gt;next = head; head-&gt;next = NULL; return tail; // became new head } }; 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 ListNode* reverseList(ListNode *head) { ListNode *pNewHead……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -523,6 +523,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -558,10 +562,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -577,7 +577,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     

@@ -9,21 +9,24 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     
 
-    <title>ready_future | 程序员的冷浪漫</title>
-    <meta property="og:title" content="ready_future - 程序员的冷浪漫">
+    <title>关于 C&#43;&#43; 未定的行为 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="关于 C&#43;&#43; 未定的行为 - 程序员的冷浪漫">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2024-02-20T08:11:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2024-02-20T08:11:00&#43;08:00'>
         
     <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
-    <meta name="description" content="ready_future">
+    <meta name="description" content="关于 C&#43;&#43; 未定的行为">
         
     <meta name="author" content="ForrestSun">
-    <meta property="og:url" content="https://forrestsu.github.io/tags/ready_future/">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/">
     <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/tags/ready_future/index.xml" title="程序员的冷浪漫" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -50,7 +53,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
                     
                     <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
                     
@@ -71,60 +74,107 @@
                 <div class="col-8" id="main">
                     
 <div class="res-cons">
-    
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">ready_future</span>
-        中的文章
-    </h3>
-    
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents"></nav>
+    </div>
+</div>
 
-    
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/" target="_blank">Seastar 之 ready_future(3)</a>
-            </h1>
+            <h1 class="post-title">关于 C&#43;&#43; 未定的行为</h1>
         </header>
         
-  <time datetime="2020-05-08T11:55:17Z" class="post-meta meta-date dt-published">
-    2020年5月8日
+  <time datetime="2024-02-20T00:11:00Z" class="post-meta meta-date dt-published">
+    2024年2月20日
   </time>
 
 <div class="post-meta">
   <span>| 字数 </span>
-  1497
+  212
 </div>
 
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/architecture' target="_blank">Architecture</a>
+    <a href='/categories/cpp' target="_blank">CPP</a>
   
 </div>
 
 
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
         <div class="post-content">
-            <h2 id="1-什么是-ready_future">1 什么是 ready_future</h2>
-<p>如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
-我们把这个 future 称为 <code>ready_future</code>。</p>
-<p>ready_future 的不同之处在于:</p>
-<blockquote>
-<p>(1) ready_future 可以单独使用，不必关联一个promise；<br>
-(2) ready_future.then(lambda) 会把传入的lambda立即执行掉，
-也就是说这个lambda没有机会放入任务队列；<br>
-(3) 而not_ready_future每次执行，产生的新任务都会被放入任务队列，然后依此取出来执行。</p>
-</blockquote>……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/" target="_blank">阅读全文</a></p>
+            <p>4 最后，不应该研究未定义行为（</p>
+<p>对，第4点很重要！但是，cpp的未定义行为实在太多了，要提前学完也还真不容易。
+给了const，又能const_cast。大家不应该经常cast，但是又没办法就是需要cast，比如派生类指针在继承树上候选类型之间的切换。开发者得一个个都经历，都思考，然后才能用好。</p>
+<p>Bjarne Stroustrup说相信程序员都是聪明的，但是程序员很多时候并不相信自己足够聪明。我就经常在debug的时候怀疑人生。</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/git/git-rebase-reserve-commit-date/">git rebase 保留提交者原始日期?</a></li>
+        
+        <li><a href="/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/">过敏性鼻炎用药-备忘录</a></li>
+        
+        <li><a href="/posts/tools/zsh-plugins/">zsh 插件推荐</a></li>
+        
+        <li><a href="/posts/go/go-version-feature/">Go 新版本特性</a></li>
+        
+        <li><a href="/posts/business/cpm&#43;cpc&#43;cpa/">什么是 CPM、CPC 和 CPA？</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/' target="_blank"></a></li>
+                
+            </ul>
+            
         </div>
     </article>
     
-
     
 
-
-
-
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
 
 </div>
 
@@ -137,9 +187,94 @@
 </footer>
 
 
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
 
 
     <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>

@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/golang-pb3-oneof/" title="Proto oneof schema 的使用" target="_blank">Proto oneof schema 的使用</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-09-15T07:50:12Z" class="post-meta meta-date dt-published">
+    2021年9月15日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1554
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface protobuf 提供了 oneof 语义，表示任选其一；类似于C语言的 union 关键字。 于是想了解下 oneof 语义在 golang 中是如何实现的，下面我们来一探究竟。 具体的用法如下： 1 2 3 4 5 6 7 8 9 10 11 message WechatPay { int64 uuid = 1; } message HelloRequest { string msg = 1; oneof one_of_pay { string noop = 2; WechatPay wx = 3; } } 2 stub 代码分析 使用 protoc 工具会生成如下代码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 定义一个接口，用于类型断言 type isHelloRequest_OneOfPay interface { isHelloRequest_OneOfPay() } type HelloRequest_Noop struct { Noop string `protobuf:&#34;bytes,2,opt,name=noop,proto3,oneof&#34;` } type HelloRequest_Wx struct { Wx *WechatPay `protobuf:&#34;bytes,3,opt,name=wx,proto3,oneof&#34;` } // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Noop) isHelloRequest_OneOfPay() {} // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Wx) isHelloRequest_OneOfPay() {} 3 总结 在 Golang 中, oneof 语义基于一个类型接口，oneof 的每个成员都实现这个接口，方便在Ge……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/golang-pb3-oneof/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/" title="多个集合，取交集" target="_blank">多个集合，取交集</a>
             </h1>
         </header>
@@ -366,38 +398,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不会提示 narrow-cast 的警告" target="_blank">g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-11-06T03:09:51Z" class="post-meta meta-date dt-published">
-    2020年11月6日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  989
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/cpp' target="_blank">CPP</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp; operator=(_CharT __c) { this-&gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&quot;N&quot;， int64转换成 char，仅保留了最低的一个字节……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -515,6 +515,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -550,10 +554,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -569,7 +569,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     

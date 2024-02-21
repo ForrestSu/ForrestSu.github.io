@@ -6,7 +6,16 @@
     <description>Recent content on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 05 Nov 2023 19:20:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 08:11:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于 C&#43;&#43; 未定的行为</title>
+      <link>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</link>
+      <pubDate>Tue, 20 Feb 2024 08:11:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</guid>
+      <description>4 最后，不应该研究未定义行为（ 对，第4点很重要！但是，cpp的未定义行为实在太多了，要提前学完也还真不容易。 给了const，又能const_cast。大家不应该经常cast，但是又没办法就是需要cast，比如派生类指针在继承树上候选类型之间的切换。开发者得一个个都经历，都思考，然后才能用好。 Bjarne Stroustrup说相信程序员都是聪明的，但是程序员很多时候并不相信自己足够聪明。我就经常在debug的时候怀疑人生。</description>
+    </item>
+    
     <item>
       <title>git rebase 保留提交者原始日期?</title>
       <link>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</link>

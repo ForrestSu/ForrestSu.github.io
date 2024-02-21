@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread" target="_blank">不建议使用std::thread</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-15T03:09:07Z" class="post-meta meta-date dt-published">
+    2020年3月15日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1746
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/cpp' target="_blank">CPP</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。 为了方便理解，下面给一个例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt; #include &lt;thread&gt; void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.join(); } 直接运行就会产生coredump, 通过gdb 分析： $ gdb test core.1243 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Program received signal SIGABRT, Aborted. [Switching to Thread 0x7ffff7fd0700 (LWP 10278)] 0x000000318f036285 in raise () from /lib64/libc.so.6 Missing separate debuginfos, use: debuginfo-install glibc-2.14.90-24.fc16.9.x86_64 libgcc-4.6.3-2.fc16.x86_64 libstdc++-4.6.3-2.fc16.x86_64 (gdb) bt #0 0x000000318f036285 in raise () from /lib64/libc.so.6 #1 0x000000318f037b9b in abort () from /lib64/libc.so.6 #2 0x00000031964bbc5d in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib64/libstdc++.so.6 #3 0x00000031964b9e16 in……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/" title="C&#43;&#43;14 lambda 用法" target="_blank">C&#43;&#43;14 lambda 用法</a>
             </h1>
         </header>
@@ -371,38 +403,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/thinking/io-model/" title="五种 IO 模型" target="_blank">五种 IO 模型</a>
-            </h1>
-        </header>
-        
-  <time datetime="2019-03-11T09:41:47Z" class="post-meta meta-date dt-published">
-    2019年3月11日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  4440
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/thinking' target="_blank">Thinking</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。 我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。 2 五种 I/O 模型 blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions) 再说一下IO发生时涉及的对象和步骤。 对于一个net……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/thinking/io-model/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -534,6 +534,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -569,10 +573,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -588,7 +588,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     

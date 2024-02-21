@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" title="g&#43;&#43; -Wall 不会提示 narrow-cast 的警告" target="_blank">g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-06T03:09:51Z" class="post-meta meta-date dt-published">
+    2020年11月6日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  989
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/cpp' target="_blank">CPP</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp; operator=(_CharT __c) { this-&gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&quot;N&quot;， int64转换成 char，仅保留了最低的一个字节……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture/spring-eureka-registry/" title="Eureka 服务注册与发现-原理分析" target="_blank">Eureka 服务注册与发现-原理分析</a>
             </h1>
         </header>
@@ -398,38 +430,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" title="不建议使用std::thread" target="_blank">不建议使用std::thread</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-15T03:09:07Z" class="post-meta meta-date dt-published">
-    2020年3月15日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1746
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/cpp' target="_blank">CPP</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。 为了方便理解，下面给一个例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt; #include &lt;thread&gt; void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.join(); } 直接运行就会产生coredump, 通过gdb 分析： $ gdb test core.1243 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Program received signal SIGABRT, Aborted. [Switching to Thread 0x7ffff7fd0700 (LWP 10278)] 0x000000318f036285 in raise () from /lib64/libc.so.6 Missing separate debuginfos, use: debuginfo-install glibc-2.14.90-24.fc16.9.x86_64 libgcc-4.6.3-2.fc16.x86_64 libstdc++-4.6.3-2.fc16.x86_64 (gdb) bt #0 0x000000318f036285 in raise () from /lib64/libc.so.6 #1 0x000000318f037b9b in abort () from /lib64/libc.so.6 #2 0x00000031964bbc5d in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib64/libstdc++.so.6 #3 0x00000031964b9e16 in……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/not-use-std-thread/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -561,6 +561,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -596,10 +600,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -615,7 +615,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     

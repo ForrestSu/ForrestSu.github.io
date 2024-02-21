@@ -6,7 +6,16 @@
     <description>Recent content in Categories on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 05 Nov 2023 19:20:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 08:11:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CPP</title>
+      <link>https://forrestsu.github.io/categories/cpp/</link>
+      <pubDate>Tue, 20 Feb 2024 08:11:00 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/categories/cpp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Git</title>
       <link>https://forrestsu.github.io/categories/git/</link>
@@ -130,15 +139,6 @@
       <pubDate>Tue, 08 Dec 2020 22:15:47 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/categories/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CPP</title>
-      <link>https://forrestsu.github.io/categories/cpp/</link>
-      <pubDate>Fri, 06 Nov 2020 11:09:51 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/categories/cpp/</guid>
       <description></description>
     </item>
     

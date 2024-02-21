@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/" title="Reflection in protobuf (C&#43;&#43;/Java)" target="_blank">Reflection in protobuf (C&#43;&#43;/Java)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-04-27T13:56:39Z" class="post-meta meta-date dt-published">
+    2018年4月27日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4230
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/library' target="_blank">Library</a>
+  
+</div>
+
+
+        <div class="post-content">
+            最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。 1 reflection in C++ 在c++中使用protobuf 反射 1 2 3 4 5 6 7 8 9 10 11 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc ... } C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 /** * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/" title="异步编程之 CPS" target="_blank">异步编程之 CPS</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/%E8%AE%A1%E5%88%92%E4%B8%8E%E6%80%BB%E7%BB%93/2017-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" title="工作总结-2017年" target="_blank">工作总结-2017年</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-12-31T17:42:05Z" class="post-meta meta-date dt-published">
-    2018年1月1日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1482
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/work' target="_blank">Work</a>
-  
-</div>
-
-
-        <div class="post-content">
-            Preface 这一年，我开始了人生的第二份工作；这一年，我开始堕入股市:)； 这一年，我开始追美剧；这一年，开始独自一个人生活；这一年，第一次喝了二两茅台；这一年，第一次把别人的车给刮了:(；第一次参加音乐节；第一次滑雪；第一次，收到读者打赏；第一次被「linkedin中国」编辑转载；这一年，在简书上一共更新了50篇文章(当然质量有待提升)；尝试自己做决定，对人对事逐渐有了不同的看法，时常幻想如果现在的我再去读当年的高中或大学，会不会是另一幅风景:). Work 4月份换了一份新工作，到北京一家创业小公司，有初恋的感觉……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/%E8%AE%A1%E5%88%92%E4%B8%8E%E6%80%BB%E7%BB%93/2017-%E4%B8%AA%E4%BA%BA%E6%80%BB%E7%BB%93/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -523,6 +523,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
@@ -558,10 +562,6 @@
         <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/design/wework-robot-design/" title="企微机器人设计" target="_blank">企微机器人设计</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -577,7 +577,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (15)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
     
