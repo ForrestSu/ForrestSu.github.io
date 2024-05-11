@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>广告术语 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="广告术语 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2023-01-03T14:39:00&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2023-01-03T14:39:00&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="广告术语">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#广告平台来源">广告平台/来源</a>
+      <ul>
+        <li><a href="#__spa__"><strong>SPA</strong></a></li>
+        <li><a href="#__amsads-marketing-services__"><strong>AMS（Ads Marketing Services）</strong></a></li>
+        <li><a href="#__广平__"><strong>广平</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#广告类型">广告类型</a>
+      <ul>
+        <li><a href="#__cny-china-new-year__"><strong>CNY （China New Year）</strong></a></li>
+        <li><a href="#__激励广告reward-ad__"><strong>激励广告（Reward AD）</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#广告页面类型">广告页面类型</a>
+      <ul>
+        <li><a href="#__长底__-长视频底层页--长视频详情页"><strong>长底</strong> （长视频底层页 / 长视频详情页）</a></li>
+        <li><a href="#__短底__-短长视频底层页--短视频详情页"><strong>短底</strong> （短长视频底层页 / 短视频详情页）</a></li>
+      </ul>
+    </li>
+    <li><a href="#视频常用指标">视频常用指标</a>
+      <ul>
+        <li><a href="#__uvunique-visitor__"><strong>UV（Unique Visitor）</strong></a></li>
+        <li><a href="#__dau__"><strong>DAU</strong></a></li>
+        <li><a href="#__roi__"><strong>ROI</strong></a></li>
+        <li><a href="#__月度覆盖__"><strong>月度覆盖</strong></a></li>
+        <li><a href="#__频次__"><strong>频次</strong></a></li>
+        <li><a href="#__视频播放vvvideo-view__"><strong>视频播放VV（Video View）</strong></a></li>
+        <li><a href="#__接收广告播放vvvideo-view__"><strong>接收广告播放VV（Video View）</strong></a></li>
+        <li><a href="#__开始广告播放vvvideo-view__"><strong>开始广告播放VV（Video View）</strong></a></li>
+        <li><a href="#__总曝光__"><strong>总曝光</strong></a></li>
+        <li><a href="#__外广曝光__"><strong>外广曝光</strong></a></li>
+        <li><a href="#__损耗率__"><strong>损耗率</strong></a></li>
+        <li><a href="#__总库存__"><strong>总库存</strong></a></li>
+        <li><a href="#__外广售卖库存__"><strong>外广售卖库存</strong></a></li>
+        <li><a href="#__分贴库存__"><strong>分贴库存</strong></a></li>
+        <li><a href="#__vv贡献度__"><strong>VV贡献度</strong></a></li>
+        <li><a href="#__总点击__"><strong>总点击</strong></a></li>
+        <li><a href="#__流量库存漏斗__"><strong>流量/库存漏斗</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#广告收益指标">广告收益指标</a>
+      <ul>
+        <li><a href="#__arpuaverage-revenue-per-user__"><strong>ARPU（Average revenue per user）</strong></a></li>
+        <li><a href="#__售卖率__"><strong>售卖率</strong></a></li>
+        <li><a href="#__cpacost-per-action__"><strong>CPA（Cost Per Action）</strong></a></li>
+        <li><a href="#__cpmcost-per-mille--cost-per-thousand--cost-per-impression__"><strong>CPM（Cost Per Mille / Cost Per Thousand / Cost Per Impression）</strong></a></li>
+        <li><a href="#__ecpmeffective-cost-per-mile__"><strong>ECPM（effective cost per mile）</strong></a></li>
+        <li><a href="#__cpmecpm__"><strong>CPM&amp;ECPM</strong></a></li>
+        <li><a href="#__cpccost-per-clickcost-per-thousand-click-through__"><strong>CPC（Cost Per Click；Cost Per Thousand Click-Through）</strong></a></li>
+        <li><a href="#__cpscost-per-sale__"><strong>CPS（Cost Per Sale）</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">广告术语</h1>
+        </header>
+        
+  <time datetime="2023-01-03T06:39:00Z" class="post-meta meta-date dt-published">
+    2023年1月3日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2621
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/business' target="_blank">Business</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>部分内容参考自：视频商业化常用数据指标及概念</p>
+<h2 id="广告平台来源">广告平台/来源</h2>
+<hr>
+<h3 id="__spa__"><strong>SPA</strong></h3>
+<blockquote>
+<p><strong>通常在我们内部交流时 SPA ≈ 指竞价广告</strong> 2018年9月30日（930组织架构调整，PCG也是那时候成立的）腾讯整合社交与效果广告部（SPA）与原网络媒体事业群（OMG）广告线，成立新的广告营销服务线（AMS）。<br>
+拓展阅读：<a href="http://km.oa.com/group/39168/articles/show/443436">腾讯商业化拼图进入最后一公里</a>。</p>
+</blockquote>
+<h3 id="__amsads-marketing-services__"><strong>AMS（Ads Marketing Services）</strong></h3>
+<blockquote>
+<p><strong>广告营销服务线</strong> ，新广告业务线，历史由来见 <strong>SPA</strong> 。</p>
+</blockquote>
+<h3 id="__广平__"><strong>广平</strong></h3>
+<blockquote>
+<p><strong>广告平台</strong> 的简称，广平广告一般指通过广告平台投放的广告，通常与合约广告等价，代码中常用 <strong>Adx</strong> 代表合约，具体原因不详。</p>
+</blockquote>
+<h2 id="广告类型">广告类型</h2>
+<hr>
+<h3 id="__cny-china-new-year__"><strong>CNY （China New Year）</strong></h3>
+<blockquote>
+<p><strong>新年广告</strong> ，用于春节期间投放。</p>
+</blockquote>
+<h3 id="__激励广告reward-ad__"><strong>激励广告（Reward AD）</strong></h3>
+<blockquote>
+<p><strong>激励广告</strong> ，非会员用户可以通过观看广告，满足一定解锁条件（通常为观看时长），解锁部分会员及付费内容、领取金币等特权。</p>
+</blockquote>
+<h2 id="广告页面类型">广告页面类型</h2>
+<hr>
+<h3 id="__长底__-长视频底层页--长视频详情页"><strong>长底</strong> （长视频底层页 / 长视频详情页）</h3>
+<blockquote>
+<p><strong>长视频详情页面</strong> ，即从外界（例如信息流）点击进入后，包含播放器播放的 <strong>长视频</strong> 页面，上方是播放器，下方是信息流</p>
+</blockquote>
+<h3 id="__短底__-短长视频底层页--短视频详情页"><strong>短底</strong> （短长视频底层页 / 短视频详情页）</h3>
+<blockquote>
+<p><strong>短视频详情页面</strong> ，即从外界（例如信息流）点击进入后，包含播放器播放的 <strong>短视频</strong> 页面，上方是播放器，下方是信息流</p>
+</blockquote>
+<h2 id="视频常用指标">视频常用指标</h2>
+<hr>
+<h3 id="__uvunique-visitor__"><strong>UV（Unique Visitor）</strong></h3>
+<blockquote>
+<p><strong>独立访问用户数</strong> ，访问网站页面的不同IP地址的人数。在同一自然天内，UV只记录第一次进入网站或访问页面的具有独立IP的访问者，在同一天内再次访问则不计数。</p>
+</blockquote>
+<h3 id="__dau__"><strong>DAU</strong></h3>
+<blockquote>
+<p>DAU(Daily Active User)日活跃用户数量。常用于反映网站、互联网应用或网络游戏的运营情况。DAU通常统计一日（统计日）之内，登录或使用了某个产品的用户数（去除重复登录的用户），这与流量统计工具里的访客（UV）概念相似。</p>
+</blockquote>
+<h3 id="__roi__"><strong>ROI</strong></h3>
+<blockquote>
+<p><strong>投资回报率</strong>（return on investment，简称 ROI），经济学名词，指投资后所得的收益与成本间的百分比率。</p>
+</blockquote>
+<h3 id="__月度覆盖__"><strong>月度覆盖</strong></h3>
+<blockquote>
+<p>在该月的独立访客（UV）总数（用户重复访问，但不重复计数）</p>
+</blockquote>
+<h3 id="__频次__"><strong>频次</strong></h3>
+<blockquote>
+<p>用户在特定时间周期内观看广告的次数，广告投放可以对用户观看的广告次数进行频次控制，以达到广告主期望的广告效果。<br>
+其中，通过收看腾讯视频广告次数将用户分为以下几类：</p>
+<ul>
+<li>低频：1至6次的UV</li>
+<li>中频：7至30次的UV</li>
+<li>高频：30次以上的UV</li>
+</ul>
+</blockquote>
+<h3 id="__视频播放vvvideo-view__"><strong>视频播放VV（Video View）</strong></h3>
+<blockquote>
+<p><strong>视频播放次数</strong> ，用户每1次播放视频均被记录1次。用户对同一视频的多次播放，播放量累计。</p>
+</blockquote>
+<h3 id="__接收广告播放vvvideo-view__"><strong>接收广告播放VV（Video View）</strong></h3>
+<blockquote>
+<p>用户点击播放视频后（产生VV量），广平侧接收到的广告请求的VV量。</p>
+</blockquote>
+<h3 id="__开始广告播放vvvideo-view__"><strong>开始广告播放VV（Video View）</strong></h3>
+<blockquote>
+<p>经过各类影响因素损耗之后，能够开始播放广告的VV量。</p>
+</blockquote>
+<h3 id="__总曝光__"><strong>总曝光</strong></h3>
+<blockquote>
+<p>某个时间段内或时间点，实际投放的广告资源产生的曝光；当没有外广和内广投放期间，会补充默认广告，也会记录曝光效果，所以总曝光包含了外广、内广、默认广告三部分。</p>
+</blockquote>
+<h3 id="__外广曝光__"><strong>外广曝光</strong></h3>
+<blockquote>
+<p>即外部广告曝光，外部广告主投放产生的曝光，与总曝光的区别是不包含内广和默认广告。</p>
+</blockquote>
+<h3 id="__损耗率__"><strong>损耗率</strong></h3>
+<blockquote>
+<p>从视频播放开始到真正的广告播放是有差异的，过程中因为各种原因包括会员、运营策略或技术问题等导致广告无法播出，从而导致损耗.<br>
+$$
+\begin{aligned}
+损耗率 = (1 - \frac{贴一曝光}{视频播放VV}) * 100%
+\end{aligned}
+$$
+损耗率是影响库存预估的重要指标，近年来由于会员用户的快速增长，导致贴片损耗率越来越高。</p>
+</blockquote>
+<h3 id="__总库存__"><strong>总库存</strong></h3>
+<blockquote>
+<p>广告资源的“货量”，计算方式为:
+$$
+\begin{aligned}
+总库存 = \frac{整体广告曝光}{1000}
+\end{aligned}
+$$</p>
+</blockquote>
+<h3 id="__外广售卖库存__"><strong>外广售卖库存</strong></h3>
+<blockquote>
+<p>外部广告主购买的库存量，计算方式为:
+$$
+\begin{aligned}
+总库存 = \frac{外广曝光}{1000}
+\end{aligned}
+$$</p>
+</blockquote>
+<h3 id="__分贴库存__"><strong>分贴库存</strong></h3>
+<blockquote>
+<p>根据视频的时长和运营配置，一个可播广告的视频可以播放一到多个贴片，以此来计算的库存量，如贴一库存，贴二库存等，视频内容播出前的最后一贴通常也叫“倒一”。</p>
+</blockquote>
+<h3 id="__vv贡献度__"><strong>VV贡献度</strong></h3>
+<blockquote>
+<p>平均每次开始播放广告的VV量可以产生的平均广告曝光次数。
+$$
+\begin{aligned}
+VV贡献度 = \frac{总库存}{贴一曝光} * 100%
+\end{aligned}
+$$
+VV贡献度是用来衡量视频播放VV带来的广告曝光效率，根本原因是广告设置规则导致（不同视频时长播出的广告贴片数量不同），一般特指前贴片广告，通常长视频比重越高，VV贡献度越高。</p>
+</blockquote>
+<h3 id="__总点击__"><strong>总点击</strong></h3>
+<blockquote>
+<p>用户看到广告并进行点击操作，即产生一个点击，某个时间段内或时间点，实际投放的广告资源产生的总点击量。</p>
+</blockquote>
+<h3 id="__流量库存漏斗__"><strong>流量/库存漏斗</strong></h3>
+<blockquote>
+<p>从视频播放VV到实际广告播出，是一个逐级转化，不断损耗的过程，将数据可视化，类似于漏斗的形态，所以习惯叫库存漏斗模型。</p>
+</blockquote>
+<h2 id="广告收益指标">广告收益指标</h2>
+<hr>
+<h3 id="__arpuaverage-revenue-per-user__"><strong>ARPU（Average revenue per user）</strong></h3>
+<blockquote>
+<p>每用户平均收入，取自每个终端用户的收入的一个指标。</p>
+</blockquote>
+<h3 id="__售卖率__"><strong>售卖率</strong></h3>
+<blockquote>
+<p>视频侧通常指前帖片的外部广告曝光售卖比例，计算方法为：
+$$
+\begin{aligned}
+VV贡献度 = \frac{外广曝光}{总广告曝光} * 100%
+\end{aligned}
+$$</p>
+</blockquote>
+<h3 id="__cpacost-per-action__"><strong>CPA（Cost Per Action）</strong></h3>
+<blockquote>
+<p><strong>每行动（回响）成本</strong> ，CPA计价方式是指按广告投放实际效果计费。</p>
+</blockquote>
+<h3 id="__cpmcost-per-mille--cost-per-thousand--cost-per-impression__"><strong>CPM（Cost Per Mille / Cost Per Thousand / Cost Per Impression）</strong></h3>
+<blockquote>
+<p><strong>每千人访问成本</strong> ，CPM（千人成本）指的是广告投放过程中，听到或者看到某广告的每一人平均分摊到多少广告成本。假设单价是10元/CPM的话，意味着每一千个人次看到这个广告的话就收10元。</p>
+</blockquote>
+<h3 id="__ecpmeffective-cost-per-mile__"><strong>ECPM（effective cost per mile）</strong></h3>
+<blockquote>
+<p><strong>ECPM</strong> 指的是每一千次展示可以获得的广告收入，展示的单位可以是网页，广告单元，甚至是单个广告（在 AdSense “高级报告”的“数据展示依据”下拉框中可以选择）。默认情况下，eCPM 指的都是千次网页展示（Pageview）收入。<br>
+ECPM 只是用来反映网站盈利能力的参数，不代表收入。</p>
+</blockquote>
+<h3 id="__cpmecpm__"><strong>CPM&amp;ECPM</strong></h3>
+<blockquote>
+<p><strong>CPM</strong> 是对广告主说的词，你要花多少钱，买一千次广告展示机会。
+<strong>ECPM</strong> 是对媒体说的词，你每展示一千次广告，能赚多少钱。</p>
+</blockquote>
+<h3 id="__cpccost-per-clickcost-per-thousand-click-through__"><strong>CPC（Cost Per Click；Cost Per Thousand Click-Through）</strong></h3>
+<blockquote>
+<p><strong>每（千次）点击成本</strong> ，以每点击一（千）次计费。一般是24小时内，不重复IP点击一次的成本。</p>
+</blockquote>
+<h3 id="__cpscost-per-sale__"><strong>CPS（Cost Per Sale）</strong></h3>
+<blockquote>
+<p>以 <strong>实际销售产品数量</strong> 来换算广告刊登金额。</p>
+</blockquote>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/business/cpm&#43;cpc&#43;cpa/">什么是 CPM、CPC 和 CPA？</a></li>
+        
+        <li><a href="/posts/design/log-replay/">LogReplay 流量录制回放设计与实现</a></li>
+        
+        <li><a href="/posts/tools/gerrit-usage/">Gerrit 使用</a></li>
+        
+        <li><a href="/posts/life/busy-7-levels/">忙碌的七个层次</a></li>
+        
+        <li><a href="/posts/thinking/how-to-cr-code/">如何做代码 CR？</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/%E5%B9%BF%E5%91%8A' target="_blank">广告</a></li>
+                
+                <li><a href='/tags/cpt' target="_blank">CPT</a></li>
+                
+                <li><a href='/tags/cpm' target="_blank">CPM</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (8)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (17)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (1)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -76,6 +76,50 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/database/sql-user-tags/" title="如何实现 SQL 用户标签的查询？" target="_blank">如何实现 SQL 用户标签的查询？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-09-15T08:50:12Z" class="post-meta meta-date dt-published">
+    2021年9月15日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1199
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/database' target="_blank">Database</a>
+  
+</div>
+
+
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/db/user-label.png">
+            <img class="mx-auto" alt="user-label" src="/images/db/user-label.png" />
+        </a>
+    </p>
+<p>考虑两种情况：</p>
+<ol>
+<li>标签的量级较大，我们需要基于 ES 来加速查询;</li>
+<li>标签量级较小，可以使用数据库实现一个简易版的标签功能；</li>
+</ol>
+<p>下面我们使用数据库，实现一个简易的标签功能；</p>……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/database/sql-user-tags/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/golang-pb3-oneof/" title="Proto oneof schema 的使用" target="_blank">Proto oneof schema 的使用</a>
             </h1>
         </header>
@@ -366,38 +410,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/" title="Go 必须知道的 18 个Go开发库" target="_blank">Go 必须知道的 18 个Go开发库</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
-    2020年11月17日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  2071
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
-  
-</div>
-
-
-        <div class="post-content">
-            包含各种使用场景的Go第三方列表。 随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序! 备注：在Go语言中我们都称第三方库为package（包）。 配置文件处理库 配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。 1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。 可以读……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -535,6 +547,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
@@ -550,10 +566,6 @@
         <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/thinking/how-to-cr-code/" title="如何做代码 CR？" target="_blank">如何做代码 CR？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -567,7 +579,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/business/">Business (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/business/">Business (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
     
@@ -707,11 +719,13 @@
     
     <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpm/">CPM(1)</a>
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
     
     <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
     
@@ -890,6 +904,8 @@
     <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
     
