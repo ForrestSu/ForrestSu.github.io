@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/" title="《偷影子的人》读后感" target="_blank">《偷影子的人》读后感</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-06-05T16:42:23Z" class="post-meta meta-date dt-published">
+    2017年6月6日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1307
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/readingnotes' target="_blank">ReadingNotes</a>
+  
+</div>
+
+
+        <div class="post-content">
+            preface 《偷影子的人》作者marc·levy，这本书是在2015-09-17日京东搞活动买的，差不多16年3月份才开始看，每天晚上看一点，断断续续差不读2周看完。整本书240页左右。 brief synopsis of story 一个老是受班上同学欺负的瘦弱小男孩，因为拥有一种特殊能力而强大：他能「偷别人的影子」，因而能看见他人心事，听见人们心中不愿意说出口的秘密。他开始成为需要帮助者的心灵伙伴，为每个偷来的影子点亮生命的小小光芒。 某年灿烂的夏天，他在海边邂逅一位又聋又哑的女孩克雷尔。他该如何用自己的能力帮助她？他将如何信守与她共许的承诺？……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/" title="[多线程]1114-按序打印" target="_blank">[多线程]1114-按序打印</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/" title="zeromq 入门" target="_blank">zeromq 入门</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-04-02T12:24:37Z" class="post-meta meta-date dt-published">
-    2017年4月2日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1553
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/library' target="_blank">Library</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz (2) 解压 tar -zxvf zeromq-4.2.1.tar.gz (3) 编译安装 执行configure文件：./configure 编译： make 安装： make install 2 编写样例代码 server端代码：server.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 #include &lt;stdio.h&gt; #include &lt;unistd.h&gt; #include &lt;string.h&gt; #include &lt;assert.h&gt; #include &lt;zmq.h&gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &#34;tcp://*:5555&#34;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&#34;Received Hello\n&#34;); sleep (1); // Do some &#39;work&#39; zmq_send (responder, &#34;World&#34;, 5, 0); } return 0; } client端代码：client.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 #include &lt;zmq.h&gt; #include &lt;string.h&gt; #include &lt;stdio.h&gt; #include &lt;unistd.h&gt; int……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -559,7 +559,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
+        <a href="https://forrestsu.github.io/posts/tools/macos-usage/" title="MacOS 场景问题答疑" target="_blank">MacOS 场景问题答疑</a>
     </li>
     
 </ul>
@@ -615,7 +615,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
@@ -709,6 +709,8 @@
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/configuration/">Configuration(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
@@ -784,6 +786,8 @@
     <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
     
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     

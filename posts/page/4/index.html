@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)" target="_blank">Go 常用的包推荐 (持续更新)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  994
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
+  
+</div>
+
+
+        <div class="post-content">
+            更新日志 2023-12-15 增加 cron, automaxprocs, goquery 常用库介绍 2022-09-05 更新 goup v0.5.2 使用说明 2022-02-13 增加 goup 使用 2021-06-10 增加 go-set 使用 2020-11-17 初始版本 1 Go 常用工具包推荐 1 stringer 为枚举量生成String()方法 go install golang.org/x/tools/cmd/stringer 2 pretty 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印) go install github.com/kylelemons/godebug 3 GoMock 2 调试工具 Delve 源码调试工具 安装： go install github.com/go-delve/delve/cmd/dlv@latest 快速上手： 1 2 3 $ dlv debug main.go $ &gt; break main.main $ &gt; continue 3 常用开发库 1 http-router 高性能、可扩展的HTTP路由 2 easyjson 高性能的Json Marshaler, 适用于有schema的Json数据 3 set set集合数据结构，基于原生 map 实现 4 测试框架 1 goconvey 简单易用的go测试框架，……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/" title="Go 必须知道的 18 个Go开发库" target="_blank">Go 必须知道的 18 个Go开发库</a>
             </h1>
         </header>
@@ -398,38 +430,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/git-diff-ms-office/" title="Git 如何查看 pptx，docx，xlsx 文件的差异？" target="_blank">Git 如何查看 pptx，docx，xlsx 文件的差异？</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-26T08:22:28Z" class="post-meta meta-date dt-published">
-    2020年3月26日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  782
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/tools' target="_blank">Tools</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 MS Office 如果作为开发人员，工作场合需要经常使用 MS Office，那么在尝试比较 MS Office 文件时会遇到一些问题。 也许你在问自己：这有什么问题？ 这是：MS Office 将生成 Git 无法比较的二进制文件。 之前在 Windows 平台下，我们使用的文本转换工具，将二进制文件转化为text，然后再diff。 catdoc（用于 Word） xls2csv（用于 Excel） catppt（用于幻灯片） 2 寻找新的方案 目前主要使用MacOS系统，想看看有没有更好的方案？ 通过搜索，发现一个更通用的文本转换工具：textract。它不仅支持Office全家桶，还支……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/git-diff-ms-office/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -597,7 +597,7 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/life/busy-7-levels/" title="忙碌的七个层次" target="_blank">忙碌的七个层次</a>
+        <a href="https://forrestsu.github.io/posts/tools/macos-usage/" title="MacOS 场景问题答疑" target="_blank">MacOS 场景问题答疑</a>
     </li>
     
 </ul>
@@ -653,7 +653,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (7)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
@@ -747,6 +747,8 @@
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/configuration/">Configuration(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
     <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
@@ -822,6 +824,8 @@
     <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
     
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     

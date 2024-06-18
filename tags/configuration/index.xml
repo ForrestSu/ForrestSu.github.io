@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/configuration/</link>
+    <description>Recent content in Configuration on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 10 May 2022 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS 场景问题答疑</title>
+      <link>https://forrestsu.github.io/posts/tools/macos-usage/</link>
+      <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/macos-usage/</guid>
+      <description>系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &amp;#39;(&amp;#34;zh-CN&amp;#34;)&amp;#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 参考链接</description>
+    </item>
+    
+  </channel>
+</rss>
