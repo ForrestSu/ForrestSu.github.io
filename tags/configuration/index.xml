@@ -13,7 +13,7 @@
       <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/macos-usage/</guid>
-      <description>系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &amp;#39;(&amp;#34;zh-CN&amp;#34;)&amp;#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 参考链接</description>
+      <description>系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &amp;#39;(&amp;#34;zh-CN&amp;#34;)&amp;#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 还原默认配置 1 defaults delete com.tencent.xinWeChat AppleLanguages 参考链接</description>
     </item>
     
   </channel>
