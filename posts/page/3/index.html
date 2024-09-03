@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/go/go-cmp/" title="go-cmp 对象比较" target="_blank">go-cmp 对象比较</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-11-25T09:28:06Z" class="post-meta meta-date dt-published">
+    2021年11月25日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  362
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
+  
+</div>
+
+
+        <div class="post-content">
+            简介 我们经常有深度比较两个 Object 是否相等的场景，比如： 1 如服务重构，新旧服务回包对比； 2 单测验证实际的返回值，标准库提供了 reflect.DeepEqual； 但是相对的，reflect.DeepEqual不够灵活，无法提供选项实现我们想要的行为，例如允许浮点数误差。所以今天的主角 go-cmp 登场了。 go-cmp 是 Google 开源的比较库，它提供了丰富的选项。最初定位是用在测试中。 1 快速使用 先安装： go get -u github.com/google/go-cmp/cmp Equal Diff 总结 go-cmp 非常适合对两个同类型的值进行比较。源码中大量使用熟知的 Option 模式，提供给使用者简洁、一致的接口。这种设计思想也值得我们学……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/go-cmp/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/" title="Xcode 编译 swift 项目" target="_blank">Xcode 编译 swift 项目</a>
             </h1>
         </header>
@@ -378,38 +410,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" title="wireshark插件，如何关联请求应答(如ping协议)？" target="_blank">wireshark插件，如何关联请求应答(如ping协议)？</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-12-05T14:15:47Z" class="post-meta meta-date dt-published">
-    2020年12月5日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  2558
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/network' target="_blank">Network</a>
-  
-</div>
-
-
-        <div class="post-content">
-            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -472,7 +472,7 @@
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/14/">14</a>
+            <a href="https://forrestsu.github.io/posts/page/15/">15</a>
         </li>
         
     
@@ -527,6 +527,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
@@ -560,10 +564,6 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/macos-usage/" title="MacOS 场景问题答疑" target="_blank">MacOS 场景问题答疑</a>
     </li>
     
 </ul>
@@ -619,7 +619,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
@@ -773,6 +773,8 @@
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
@@ -856,6 +858,8 @@
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     

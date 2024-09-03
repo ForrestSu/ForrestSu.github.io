@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" title="wireshark插件，如何关联请求应答(如ping协议)？" target="_blank">wireshark插件，如何关联请求应答(如ping协议)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T14:15:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2558
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/network' target="_blank">Network</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/network/wireshark-lua-relink/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/go/golang-recommend-pkgs/" title="Go 常用的包推荐 (持续更新)" target="_blank">Go 常用的包推荐 (持续更新)</a>
             </h1>
         </header>
@@ -398,38 +430,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/" title="Seastar 之 future/promise 原理(1)" target="_blank">Seastar 之 future/promise 原理(1)</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-26T15:11:26Z" class="post-meta meta-date dt-published">
-    2020年3月26日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1978
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -506,7 +506,7 @@
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/14/">14</a>
+            <a href="https://forrestsu.github.io/posts/page/15/">15</a>
         </li>
         
     
@@ -561,6 +561,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
@@ -594,10 +598,6 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/macos-usage/" title="MacOS 场景问题答疑" target="_blank">MacOS 场景问题答疑</a>
     </li>
     
 </ul>
@@ -653,7 +653,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
     
@@ -807,6 +807,8 @@
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
     
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
@@ -890,6 +892,8 @@
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     

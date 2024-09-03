@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simulate Location on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/simulate-location/</link>
+    <description>Recent content in Simulate Location on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 01 Sep 2024 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/simulate-location/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Xcode 修改iOS设备定位</title>
+      <link>https://forrestsu.github.io/posts/tools/iphone-simulate-location/</link>
+      <pubDate>Sun, 01 Sep 2024 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/iphone-simulate-location/</guid>
+      <description>因为某些原因，偶尔需要修改手机定位，之前都是用爱思助手来实现，升级到iOS 17后发现不能使用了，于是花了点时间研究了一下，顺利仅通过Xcode达到了同样的目的。 其实原理很简单，Xcode在debug时提供了模拟定位（Simulate Location）的功能，只需要跑个程序在你的设备上就可以修改定位了。以下是具体步骤（以Xcode 15为例）： 0 前置条件 一台装有Xcode的Mac电脑，如果要修改定位的设备系统较新，Xcode也需要安装对应支持的版本，一般用最新版就好。 苹果开发者账号，因为需要在iOS</description>
+    </item>
+    
+  </channel>
+</rss>
