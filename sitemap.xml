@@ -131,10 +131,10 @@
     <loc>https://forrestsu.github.io/tags/busy/</loc>
     <lastmod>2022-05-01T18:21:55+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/life/</loc>
+    <loc>https://forrestsu.github.io/categories/diary/</loc>
     <lastmod>2022-05-01T18:21:55+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/life/busy-7-levels/</loc>
+    <loc>https://forrestsu.github.io/posts/diary/busy-7-levels/</loc>
     <lastmod>2022-05-01T18:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/cr/</loc>
@@ -512,6 +512,9 @@
     <loc>https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url><url>
+    <loc>https://forrestsu.github.io/tags/life/</loc>
+    <lastmod>2018-06-09T20:29:57+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</loc>
     <lastmod>2018-06-09T20:29:57+08:00</lastmod>
   </url><url>
@@ -624,9 +627,6 @@
     <lastmod>2017-08-27T01:21:55+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/diary/</loc>
-    <lastmod>2017-08-20T18:31:18+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/diary/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/</loc>
