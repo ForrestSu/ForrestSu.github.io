@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 10 Oct 2021 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xcode 编译 swift 项目</title>
-      <link>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</link>
       <pubDate>Sun, 10 Oct 2021 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</guid>
       <description>常见问题 1 如何调整依赖的系统版本macOS Deployment Target? A: 双击编辑器的项目名，然后调整。 ctrl+b 编译 2 Debug Or Release 编译？ 选择 Product-&amp;gt;Scheme-&amp;gt;Edit Scheme，将编译配置改为 Release。 3 编译后，输出的App路径？ 输出目录：~/Library/Developer/Xcode/DerivedData + 项目名。 比如： ~/Library/Developer/Xcode/DerivedData/Hidden_Bar-xxxx/Build/Products/Debug</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 08 Apr 2020 13:46:15 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CPU Cache 架构</title>
-      <link>https://forrestsu.github.io/posts/architecture/cpu-cache/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</link>
       <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cpu-cache/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</guid>
       <description>1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。 多处理器结构有两种： (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。 (2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者</description>
     </item>
     

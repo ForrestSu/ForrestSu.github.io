@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Travel on 程序员的冷浪漫</title>
+    <title>🌴Travel on 程序员的冷浪漫</title>
     <link>https://forrestsu.github.io/categories/travel/</link>
-    <description>Recent content in Travel on 程序员的冷浪漫</description>
+    <description>Recent content in 🌴Travel on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Mon, 20 Feb 2017 20:21:25 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/travel/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>travel-2017</title>
-      <link>https://forrestsu.github.io/posts/travel/travel-2017/</link>
-      <pubDate>Mon, 20 Feb 2017 20:21:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/travel/travel-2017/</guid>
-      <description>一、 想去的地方 龙门古镇 （浙江杭州）</description>
-    </item>
-    
+    <lastBuildDate>Fri, 03 Jun 2016 22:22:05 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/travel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2016-Plans</title>
       <link>https://forrestsu.github.io/posts/travel/2016-plans/</link>

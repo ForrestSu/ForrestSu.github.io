@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 07 Apr 2017 20:54:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/shared_ptr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>深入理解C&#43;&#43;11智能指针</title>
-      <link>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/deep-in-smart-pointer-cpp/</link>
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/deep-in-smart-pointer-cpp/</guid>
       <description>1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想； C++ 11 包含了以下 3 种常用的智能指针： std::unique_ptr std::shared_ptr std::weak_ptr 包含头文件 #include &amp;lt;memory&amp;gt; 即可 2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象： 1 std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good()); 2.2 weak_ptr weak_ptr类 和 shared_ptr类 的成员变量相同。 为什么需要 weak_ptr? 因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构, 所以 weak_ptr 出现就是为了解决循环引用的问题。 打个不恰当的比喻：weak_ptr就像寄生虫，shared_ptr就是宿主。 weak_ptr 和 shared_ptr 内存结构相同(1 个原始对象指针 + ctrl_block_t 指针)； 不同之处在于</description>
     </item>
     

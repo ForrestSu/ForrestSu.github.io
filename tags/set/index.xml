@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 28 Apr 2021 21:08:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/set/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>多个集合，取交集</title>
-      <link>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</link>
       <pubDate>Wed, 28 Apr 2021 21:08:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</guid>
       <description>1 Preface 最近在一直采用 go 语言进行项目开发，遇到一个比较有意思的问题： 多个集合，计算交集，哪种计算方法最高效？ 假定集合采用 HashMap 来实现，那么每次查询的时间复杂度为 O(1) 考虑最简单的情况，假定有2个集合A和B，A 的元素个数为2, B 的元素个数为10。 计算A和B的交集有 2 个方案： 方案一：先遍历A，在B中查找是否存在，时间复杂度为 2*O(1) 方案二：时间复杂度为 10*O(1) 于是得出结论： 每次遍历最小的集合去计算交集，总的时间复杂度最小。 2 寻找已有的轮子 由于 go 标准库，并不提供 set 数据结构；先尝试用 google 搜索，fatih/set 出镜率比较高。 于是</description>
     </item>
     

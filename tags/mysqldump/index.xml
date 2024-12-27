@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 22 Jan 2022 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/mysqldump/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL 数据导入导出</title>
-      <link>https://forrestsu.github.io/posts/database/mysqldump-usage/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/</link>
       <pubDate>Sat, 22 Jan 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/database/mysqldump-usage/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/</guid>
       <description>1 DB 回档操作 1.1 mysqldump 备份表数据（不包含建表语句） 1 2 3 4 5 6 7 mysqldump -h10.10.10.10 -P15192 -uroot -pPassword \ --single-transaction \ --default-character-set=utf8 \ --no-create-info \ --skip-disable-keys \ --skip-add-locks \ [database name] [table name1] [table name2] &amp;gt; [dump file] 1.2 恢复数据 执行以下命令前一定要清理原有的数据，要不然会报唯一键冲突的 导入数据之前，最好将线上的表备份一下，然后 delete 清空原表； 最后进行导入，否则原数据不清理，导入的时候会报唯一健冲突。 方式一： 1 #mysql -h10.10.10.10 -P15192 -uroot -pPassword [database name] &amp;lt; [dump file] 方式二： 登陆mysql 然后执行source命令 1 2 3 #mysql -h10.10.10.10 -P15192 -uroot -pPassword &amp;gt; use db_name &amp;gt; source [dump file] 总结</description>
     </item>
     

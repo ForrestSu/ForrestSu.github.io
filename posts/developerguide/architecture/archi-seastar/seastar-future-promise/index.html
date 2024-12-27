@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Seastar 之 future/promise 原理(1) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Seastar 之 future/promise 原理(1) - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-03-26T23:11:26&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-03-26T23:11:26&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="Seastar 之 future/promise 原理(1)">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-preface">1 Preface</a></li>
+    <li><a href="#2-future--promise">2 future &amp; promise</a></li>
+    <li><a href="#3-fp-类图">3 f/p 类图</a></li>
+    <li><a href="#4-fp-调用时序图">4 f/p 调用时序图</a></li>
+    <li><a href="#5-对象占用的空间">5 对象占用的空间</a></li>
+    <li><a href="#6-future--promise-改进">6 future &amp; promise 改进</a></li>
+    <li><a href="#7-对象生命周期">7 对象生命周期</a></li>
+    <li><a href="#8-总结">8 总结</a></li>
+    <li><a href="#qa">QA</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">Seastar 之 future/promise 原理(1)</h1>
+        </header>
+        
+  <time datetime="2020-03-26T15:11:26Z" class="post-meta meta-date dt-published">
+    2020年3月26日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1978
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <blockquote>
+<p>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it.     —— from Wikipedia</p>
+</blockquote>
+<h2 id="1-preface">1 Preface</h2>
+<p>Seastar (f-p-c) 属于Reactive编程的一个子集。<br>
+Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计，
+而 f-p-c 是将 task 送入调度程序的一种更友好的方式。</p>
+<p>Seastar 引入了 <a href="https://en.wikipedia.org/wiki/Futures_and_promises">future/promise</a>, 把面向 callback 编程变成了面向future/promise编程，
+将以前的回调代码包装在 lambda_task 中，然后交给future调度。</p>
+<ul>
+<li>future 是一个 value ；</li>
+<li>promise 是一个函数，本质是返回 value 的异步函数;</li>
+<li>promise 写入 value 的过程又称为<em>解决、履行或绑定它</em>。</li>
+</ul>
+<p>具体来说，当区分用法时，future 是变量的只读占位符视图，而 promise 是可写的单一赋值设置未来 value 的容器。</p>
+<p>为了满足复杂的异步编程需要，Seastar重新实现了一些有别于标准库中的数据结构，因为像 thread safe这样的要求是无需考虑的。这里主要讨论的是Seastar实现的 future/promise。</p>
+<p><em>(注: 下文将使用 f/p 作为 future/promise的简称)</em></p>
+<h2 id="2-future--promise">2 future &amp; promise</h2>
+<p>future 和 promise 都有一个 _state 指针成员，都指向同一个future_state&lt;T&gt;堆对象；<br>
+future_state 堆对象作为一个桥梁，为 future 和 promise 建立了联系；<br>
+同时 future_state 可以携带一个task。如下图所示:</p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/future_promise_v1.jpg">
+            <img class="mx-auto" alt="future-promise-v1" src="/images/seastar/future_promise_v1.jpg" />
+        </a>
+    </p>
+<h2 id="3-fp-类图">3 f/p 类图</h2>
+<p>详细的类图如下，需要注意一点, promise有一个get_future() 方法，<br>
+是调用 future 的 private 构造函数构造的。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/f-p-class-diagram.png">
+            <img class="mx-auto" alt="f-p-class-diagram" src="/images/seastar/f-p-class-diagram.png" />
+        </a>
+    </p>
+<h2 id="4-fp-调用时序图">4 f/p 调用时序图</h2>
+<p>下面来看看 Seastar f/p 调用的时序图：<br>
+
+        <a data-fancybox="gallery" href="/images/seastar/f-p-timing-diagram.png">
+            <img class="mx-auto" alt="f-p-timing-diagram" src="/images/seastar/f-p-timing-diagram.png" />
+        </a>
+    </p>
+<p>Continuation在这里可以理解为：一个 task 的单链表，一个task内链着一个task;
+
+        <a data-fancybox="gallery" href="/images/seastar/seastar-each-loop.png">
+            <img class="mx-auto" alt="f-p-each-loop" src="/images/seastar/seastar-each-loop.png" />
+        </a>
+    
+f/p是成对使用的，相同颜色的f/p表示一对，因为他们操作同一个future_state；<br>
+future.then() 可以看成一个中间人，他会定义一个新的 promiseA，并产生 futureA，
+把 this，promiseA 转移到一个 lambda_task 内，最后返回futureA。</p>
+<h2 id="5-对象占用的空间">5 对象占用的空间</h2>
+<p>我们可以看到 future/promise 对象一般都位于栈上，都只有1个指针成员，所以大小 8 bytes；<br>
+而且这两个对象在定义之后，是需要被 move 到不同的lambda_task之中的，可谓是非常高效的设计。</p>
+<p>但是future_state对象位于堆上，而且占用的字节会比较多。</p>
+<h2 id="6-future--promise-改进">6 future &amp; promise 改进</h2>
+<p>后面为了<strong>减少堆空间</strong>占用，作者不再使用 future_state 作为桥梁，而使 f/p 直接建立相互关系，
+并且 future_state 只用于存储 task 和 task 的执行结果 tuple。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/seastar/future_promise_v2_smaller_heap.jpg">
+            <img class="mx-auto" alt="v2-smaller-heap" src="/images/seastar/future_promise_v2_smaller_heap.jpg" />
+        </a>
+    </p>
+<h2 id="7-对象生命周期">7 对象生命周期</h2>
+<p>一般来说, promise 对象在产生后，会被move到一个 lambda_task 里面，<br>
+lambda_task 执行完使命也就完成了，析构lambda_task时，promise 对象生命周期随之结束。<br>
+而 future 对象此时还在一个待执行的 task 里面。</p>
+<h2 id="8-总结">8 总结</h2>
+<blockquote>
+<p>(1) promise 对象会构造一个future对象，同时 future_state 的所有权也会转交给future对象；<br>
+(2) promise 会先于 future 对象消亡，满足严格的偏序关系。<br>
+(3) future.then() 会将传入的lambda + 当前的future自身 + 局部定义的promise，
+这3个对象的所有权都转移到一个更大的 lambda_W 之中，
+最后将这个还未ready的 lambda_W 放入 future_state 的task成员上，然后等待时机被调度。</p>
+</blockquote>
+<h2 id="qa">QA</h2>
+<p><em>最后问个问题：future_state之为啥要用future前缀命名?</em><br>
+因为future_state 对象的生命周期由future对象管理。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Futures_and_promises">wiki Futures_and_promises</a></li>
+</ul>
+<p>《全文完》</p>
+<p>文末尾给出了《Seastar 源码之美》系列文章的目录，希望你能在这个列表里找到自己感兴趣的内容。</p>
+<ul>
+<li><a href="/posts/archi-seastar/seastar-started/">Seastar 入门</a></li>
+<li><a href="/posts/archi-seastar/seastar-future-promise/">Seastar 之 future/promise 原理(1)</a></li>
+<li><a href="/posts/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a></li>
+<li><a href="/posts/archi-seastar/seastar-ready-future/">Seastar 之 ready_future(3)</a></li>
+</ul>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/developerguide/architecture/archi-seastar/seastar-started/">Seastar 入门</a></li>
+        
+        <li><a href="/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/">[多线程]1114-按序打印</a></li>
+        
+        <li><a href="/posts/tools/git-diff-ms-office/">Git 如何查看 pptx，docx，xlsx 文件的差异？</a></li>
+        
+        <li><a href="/posts/developerguide/algorithm/throwing-eggs-in-building/">双蛋问题(动态规划)</a></li>
+        
+        <li><a href="/posts/developerguide/cpp/not-use-std-thread/">不建议使用std::thread</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/seastar' target="_blank">seastar</a></li>
+                
+                <li><a href='/tags/future' target="_blank">future</a></li>
+                
+                <li><a href='/tags/promise' target="_blank">promise</a></li>
+                
+                <li><a href='/tags/reactive' target="_blank">Reactive</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">🌴Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

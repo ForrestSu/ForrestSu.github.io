@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>libuv on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/libuv/</link>
+    <description>Recent content in libuv on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 19 Apr 2017 14:05:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/libuv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>libuv入门</title>
+      <link>https://forrestsu.github.io/posts/developerguide/library/libuv%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 19 Apr 2017 14:05:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/library/libuv%E5%85%A5%E9%97%A8/</guid>
+      <description>libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。 uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 //main.cpp #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;uv.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&amp;lt;&amp;lt;&amp;#34;count==&amp;#34;&amp;lt;&amp;lt;count++&amp;lt;&amp;lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;amp;timer); assert(r==0); // 0 cout&amp;lt;&amp;lt;uv_is_active((uv_handle_t*) &amp;amp;timer)&amp;lt;&amp;lt;endl; // 0 cout&amp;lt;&amp;lt; uv_is_closing((uv_handle_t*) &amp;amp;timer)&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;start &amp;#34;&amp;lt;&amp;lt;time(NULL)&amp;lt;&amp;lt;endl; r = uv_timer_start(&amp;amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&amp;lt;&amp;lt;&amp;#34;r=&amp;#34;&amp;lt;&amp;lt;r&amp;lt;&amp;lt;endl; return 0; }</description>
+    </item>
+    
+  </channel>
+</rss>

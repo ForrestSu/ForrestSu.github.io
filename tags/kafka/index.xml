@@ -9,11 +9,20 @@
     <lastBuildDate>Tue, 30 Oct 2018 19:50:19 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zookeeper&#43;Kafka集群搭建方案</title>
-      <link>https://forrestsu.github.io/posts/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</link>
       <pubDate>Tue, 30 Oct 2018 19:50:19 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
       <description>Preface Zookeeper是一个高性能分布式应用协调服务 Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交 Zookeeper工作方式 Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO 与Kafka读写操作不一</description>
+    </item>
+    
+    <item>
+      <title>kafka安装</title>
+      <link>https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Tue, 31 Jul 2018 10:34:54 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/</guid>
+      <description>Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。 启动zookeeper服务 bin/zkServer.sh start kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录： dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker） 启动kafka服务器（broker）</description>
     </item>
     
   </channel>

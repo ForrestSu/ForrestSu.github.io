@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 15 Sep 2021 15:50:12 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/oneof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Proto oneof schema 的使用</title>
-      <link>https://forrestsu.github.io/posts/go/golang-pb3-oneof/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/</link>
       <pubDate>Wed, 15 Sep 2021 15:50:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/golang-pb3-oneof/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/</guid>
       <description>1 Preface protobuf 提供了 oneof 语义，表示任选其一；类似于C语言的 union 关键字。 于是想了解下 oneof 语义在 golang 中是如何实现的，下面我们来一探究竟。 具体的用法如下： 1 2 3 4 5 6 7 8 9 10 11 message WechatPay { int64 uuid = 1; } message HelloRequest { string msg = 1; oneof one_of_pay { string noop = 2; WechatPay wx = 3; } } 2 stub 代码分析 使用 protoc 工具会生成如下代码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 定义一个接口，用于类型断言 type isHelloRequest_OneOfPay interface { isHelloRequest_OneOfPay() } type HelloRequest_Noop struct { Noop string `protobuf:&amp;#34;bytes,2,opt,name=noop,proto3,oneof&amp;#34;` } type HelloRequest_Wx struct { Wx *WechatPay `protobuf:&amp;#34;bytes,3,opt,name=wx,proto3,oneof&amp;#34;` } // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Noop) isHelloRequest_OneOfPay() {} // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Wx) isHelloRequest_OneOfPay() {} 3 总结 在 Golang 中, oneof 语义基于一个类型接口，oneof 的每个成员都实现这个接口，方便在Ge</description>
     </item>
     

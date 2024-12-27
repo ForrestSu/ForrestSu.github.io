@@ -9,19 +9,19 @@
     <lastBuildDate>Wed, 18 Dec 2019 20:19:15 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/select/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go select多路复用, 实现超时机制</title>
-      <link>https://forrestsu.github.io/posts/go/select-in-go/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/select-in-go/</link>
       <pubDate>Wed, 18 Dec 2019 20:19:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/select-in-go/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/select-in-go/</guid>
       <description>1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？ 在 select 中加入一个 timer channel case rc2 := &amp;lt;-time.After(d): After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。 完整代码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 采用 select 实现超时</description>
     </item>
     
     <item>
       <title>五种 IO 模型</title>
-      <link>https://forrestsu.github.io/posts/thinking/io-model/</link>
+      <link>https://forrestsu.github.io/posts/cs/io-model/</link>
       <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/thinking/io-model/</guid>
+      <guid>https://forrestsu.github.io/posts/cs/io-model/</guid>
       <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。 我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。 2 五种 I/O 模型 blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions) 再说一下IO发生时涉及的对象和步骤。 对于一个net</description>
     </item>
     

@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Eureka 服务注册与发现-原理分析 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Eureka 服务注册与发现-原理分析 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-05-25T17:28:06&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-05-25T17:28:06&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="Eureka 服务注册与发现-原理分析">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-preface">1 Preface</a></li>
+    <li><a href="#2-eureka-核心概念">2 Eureka 核心概念</a>
+      <ul>
+        <li><a href="#21-eureka-server-注册中心">2.1 Eureka Server 注册中心</a></li>
+        <li><a href="#22-eureka-client注册中心客户端">2.2 Eureka Client：注册中心客户端</a></li>
+        <li><a href="#23-自我保护机制">2.3 自我保护机制</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-eureka-集群原理">3 Eureka 集群原理</a></li>
+    <li><a href="#4-eurka-工作流程">4 Eurka 工作流程</a></li>
+    <li><a href="#5-总结">5 总结</a></li>
+    <li><a href="#扩展">扩展</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">Eureka 服务注册与发现-原理分析</h1>
+        </header>
+        
+  <time datetime="2020-05-25T09:28:06Z" class="post-meta meta-date dt-published">
+    2020年5月25日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4905
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="1-preface">1 Preface</h2>
+<p>Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。</p>
+<p>SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。</p>
+<p>在 Spring 全家桶中, Eureka 是一个微服务注册中心，主要提供服务的注册与发现，另一个功能就是服务配置获取。</p>
+<h2 id="2-eureka-核心概念">2 Eureka 核心概念</h2>
+<p>Eureka 作为 Spring Cloud 体系中核心、默认的注册中心组件，研究它的运行机制，有助于我们在工作中更好地使用它。</p>
+<p>下图: 服务注册+调用示意图， 服务提供者和服务的消费者，本质上也是 Eureka Client 角色。<br>
+整体上可以分为两个主体：<code>Eureka Server</code> 和 <code>Eureka Client</code>。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/spring/eureka-server.png">
+            <img class="mx-auto" alt="Eureka" src="/images/spring/eureka-server.png" />
+        </a>
+    </p>
+<h3 id="21-eureka-server-注册中心">2.1 Eureka Server 注册中心</h3>
+<p>Eureka Server 主要对外提供了3个功能：</p>
+<ul>
+<li>
+<p>1 服务注册</p>
+<blockquote>
+<p>在微服务启动时，会通过 Eureka Client 向 Eureka Server 注册信息；<br>
+Eureka Server 会存储该服务的信息 (Eureka Server 内部有二层缓存机制来维护整个注册表)</p>
+</blockquote>
+</li>
+<li>
+<p>2 Heartbeat 心跳机制</p>
+<blockquote>
+<p>微服务在注册后，需要定时发送UP的心跳消息，更新自身的状态。</p>
+</blockquote>
+</li>
+<li>
+<p>3 服务发现-拉取所有服务列表</p>
+<blockquote>
+<p>微服务在启动时，先全量拉取所有在线的微服务列表，然后在发送心跳前，同时获取一次在线服务的增量列表。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="22-eureka-client注册中心客户端">2.2 Eureka Client：注册中心客户端</h3>
+<p>Eureka Client 是一个 Java 客户端，用于简化与 Eureka Server 的交互。Eureka Client 会拉取、更新和缓存 Eureka Server 中的信息。因此当所有的 Eureka Server 节点都宕掉，服务消费者依然可以使用缓存中的信息找到服务提供者，但是如果此时服务有更改，可能会出现调用失败。</p>
+<ul>
+<li>
+<p>1 Register: 服务注册</p>
+<blockquote>
+<p>微服务启动时，使用<code>Eureka Client</code>将自身注册到注册中心；
+注册时提供自身的元数据，比如 IP 地址、端口，运行状况指示符 URL，主页等。</p>
+</blockquote>
+</li>
+<li>
+<p>2 Renew: 服务续约</p>
+<blockquote>
+<p>Eureka Client 会每隔 30 秒发送一次心跳来续约。 通过续约来告知 Eureka Server 该 Eureka Client 运行正常，没有出现问题。
+默认情况下，如果 Eureka Server 在 90 秒内没有收到 Eureka Client 的续约，Server 端会将实例从其注册表中删除（超时时间可配置）。</p>
+</blockquote>
+<p><strong>服务续约的两个重要属性</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 服务续约任务的调用间隔时间，默认为30秒  </span>
+</span></span><span style="display:flex;"><span>eureka.instance.lease-renewal-interval-in-seconds<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 服务失效的时间，默认为90秒。</span>
+</span></span><span style="display:flex;"><span>eureka.instance.lease-expiration-duration-in-seconds<span style="color:#f92672">=</span><span style="color:#ae81ff">90</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>2 Eviction 服务剔除</p>
+<blockquote>
+<p>当Eureka Server 默认超过90秒，没有收到client的心跳时，Eureka Server 会将该服务实例从服务注册列表中删除。</p>
+</blockquote>
+</li>
+<li>
+<p>3 Cancel: 服务主动下线</p>
+<blockquote>
+<p>Eureka Client 在程序关闭时向 Eureka Server 发送取消请求。 发送请求后，该客户端实例信息将从 Eureka Server 的实例注册表中删除。</p>
+</blockquote>
+</li>
+<li>
+<p>4 Get-Registry: 获取已注册服务列表</p>
+<blockquote>
+<p>Eureka Client 从服务器获取注册表信息，并将其缓存在本地。客户端会使用该信息查找其他服务，从而进行远程调用。
+该注册列表信息定期（每30秒钟）更新一次。每次返回注册列表信息可能与 Eureka Client 的缓存信息不同，Eureka Client 自动处理。</p>
+</blockquote>
+<p>获取服务是服务消费者的基础，两个重要参数需要注意：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># 启用服务消费者从注册中心拉取服务列表的功能</span>
+</span></span><span style="display:flex;"><span>eureka.client.fetch-registry<span style="color:#f92672">=</span>true
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置服务消费者从注册中心拉取服务列表的间隔</span>
+</span></span><span style="display:flex;"><span>eureka.client.registry-fetch-interval-seconds<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>5 Remote Call: 远程调用</p>
+<blockquote>
+<p>当 Eureka Client 从注册中心获取到服务提供者信息后，就可以通过 Http 请求调用对应的服务；
+服务提供者有多个时，Eureka Client 客户端会通过 Round-Ribbon 自动进行负载均衡。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="23-自我保护机制">2.3 自我保护机制</h3>
+<p>默认情况下，如果 Eureka Server 在一定的 90秒 内没有接收到某个微服务实例的心跳，会注销该实例。
+但是在微服务架构下服务之间通常都是跨进程调用，网络通信往往会面临着各种问题，
+比如微服务状态正常，网络分区故障，导致此实例被注销。</p>
+<p>固定时间内大量实例被注销，可能会严重威胁整个微服务架构的可用性。为了解决这个问题，Eureka 开发了自我保护机制，那么什么是自我保护机制呢？</p>
+<p>Eureka Server 在运行期间会去统计心跳失败比例在 15 分钟之内是否低于 85%，如果低于 85%，Eureka Server 即会进入自我保护机制。</p>
+<p><strong>Eureka Server 触发自我保护机制后，页面会出现提示：</strong></p>
+<p><code>EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.</code></p>
+<p><strong>Eureka Server 进入自我保护机制，会出现以下几种情况：</strong></p>
+<p>(1) Eureka 不再从注册列表中移除因为长时间没收到心跳而应该过期的服务<br>
+(2) Eureka 仍然能够接受新服务的注册和查询请求，但是不会被同步到其它节点上(即保证当前节点依然可用)<br>
+(3) 当网络稳定时，当前实例新的注册信息会被同步到其它节点</p>
+<p>Eureka 自我保护机制是为了防止误杀服务而提供的一个机制。当个别客户端出现心跳失联时，则认为是客户端的问题，剔除掉客户端；
+当 Eureka 捕获到大量的心跳失败时，则认为可能是网络问题，进入自我保护机制；当客户端心跳恢复时，Eureka 会自动退出自我保护机制。</p>
+<p>如果在保护期内刚好这个服务提供者非正常下线了，此时服务消费者就会拿到一个无效的服务实例，即会调用失败。对于这个问题需要服务消费者端要有一些容错机制，如重试，断路器等。</p>
+<p>通过在 Eureka Server 配置如下参数，开启或者关闭保护机制，生产环境建议打开：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>eureka.server.enable-self-preservation<span style="color:#f92672">=</span>true
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-eureka-集群原理">3 Eureka 集群原理</h2>
+<p>再来看看 Eureka 集群的工作原理。我们假设有三台 Eureka Server 组成的集群，第一台 Eureka Server 在北京机房，另外两台 Eureka Server 在深圳和西安机房。这样三台 Eureka Server 就组建成了一个跨区域的高可用集群，只要三个地方的任意一个机房不出现问题，都不会影响整个架构的稳定性。</p>
+<p>
+        <a data-fancybox="gallery" href="/images/spring/eureka-cluster-deploy.png">
+            <img class="mx-auto" alt="eureka-cluster" src="/images/spring/eureka-cluster-deploy.png" />
+        </a>
+    </p>
+<p>从图中可以看出 Eureka Server 集群相互之间通过 Replicate 来同步数据，相互之间不区分主节点和从节点，所有的节点都是平等的。
+在这种架构中，节点通过彼此互相注册来提高可用性，每个节点需要添加一个或多个有效的 serviceUrl 指向其他节点。</p>
+<p>如果某台 Eureka Server 宕机，Eureka Client 的请求会自动切换到新的 Eureka Server 节点。当宕机的服务器重新恢复后，Eureka 会再次将其纳入到服务器集群管理之中。当节点开始接受客户端请求时，所有的操作都会进行节点间复制，将请求复制到其它 Eureka Server 当前所知的所有节点中。</p>
+<p>另外 Eureka Server 的同步遵循着一个非常简单的原则：只要有一条边将节点连接，就可以进行信息传播与同步。所以，如果存在多个节点，只需要将节点之间两两连接起来形成通路，那么其它注册中心都可以共享信息。每个 Eureka Server 同时也是 Eureka Client，多个 Eureka Server 之间通过 P2P 的方式完成服务注册表的同步。</p>
+<p><strong>Eureka 分区</strong><br>
+Eureka 提供了 Region 和 Zone 两个概念来进行分区，这两个概念均来自于亚马逊的 AWS:<br>
+<strong>region：</strong> 可以理解为地理上的不同区域，比如亚洲地区，中国区或者深圳等等。没有具体大小的限制。根据项目具体的情况，可以自行合理划分 region。<br>
+<strong>zone：</strong> 可以简单理解为 region 内的具体机房，比如说 region 划分为深圳，然后深圳有两个机房，就可以在此 region 之下划分出 zone1、zone2 两个 zone。</p>
+<p>上图中的 us-east-1c、us-east-1d、us-east-1e 就代表了不同的 Zone。
+Zone 内的 Eureka Client 优先和 Zone 内的 Eureka Server 进行心跳同步，
+同样调用端优先在 Zone 内的 Eureka Server 获取服务列表，当 Zone 内的 Eureka Server 挂掉之后，才会从别的 Zone 中获取信息。</p>
+<p><strong>Eureka 保证 AP:</strong><br>
+Eureka Server 各个节点都是平等的，几个节点挂掉不会影响正常节点的工作，剩余的节点依然可以提供注册和查询服务。
+而 Eureka Client 在向某个 Eureka 注册时，如果发现连接失败，则会自动切换至其它节点。
+只要有一台 Eureka Server 还在，就能保证注册服务可用(保证可用性)，只不过查到的信息可能不是最新的(不保证强一致性)。</p>
+<p>多个 Eureka Server 之间通过 P2P 的方式完成服务注册表的同步，不保证节点间的状态是一致的，但保证最终一致性。</p>
+<h2 id="4-eurka-工作流程">4 Eurka 工作流程</h2>
+<p>了解完 Eureka 核心概念，自我保护机制，以及集群内的工作原理后，我们来整体梳理一下 Eureka 的工作流程：</p>
+<p>1、Eureka Server 启动成功，等待服务端注册。在启动过程中如果配置了集群，集群之间定时通过 Replicate 同步注册表，每个 Eureka Server 都存在独立完整的服务注册表信息</p>
+<p>2、Eureka Client 启动时根据配置的 Eureka Server 地址去注册中心注册服务</p>
+<p>3、Eureka Client 会每 30s 向 Eureka Server 发送一次心跳请求，证明客户端服务正常</p>
+<p>4、当 Eureka Server 90s 内没有收到 Eureka Client 的心跳，注册中心则认为该节点失效，会注销该实例</p>
+<p>5、单位时间内 Eureka Server 统计到有大量的 Eureka Client 没有上送心跳，则认为可能为网络异常，进入自我保护机制，不再剔除没有上送心跳的客户端</p>
+<p>6、当 Eureka Client 心跳请求恢复正常之后，Eureka Server 自动退出自我保护模式</p>
+<p>7、Eureka Client 定时全量或者增量从注册中心获取服务注册表，并且将获取到的信息缓存到本地</p>
+<p>8、服务调用时，Eureka Client 会先从本地缓存找寻调取的服务。如果获取不到，先从注册中心刷新注册表，再同步到本地缓存</p>
+<p>9、Eureka Client 获取到目标服务器信息，发起服务调用</p>
+<p>10、Eureka Client 程序关闭时向 Eureka Server 发送取消请求，Eureka Server 将实例从注册表中删除</p>
+<p>这就是Eurka基本工作流程</p>
+<h2 id="5-总结">5 总结</h2>
+<p>Eureka 为了保障注册中心的高可用性，容忍了数据的非强一致性，服务节点间的数据可能不一致， Client-Server 间的数据可能不一致。
+比较适合跨越多机房、对注册中心服务可用性要求较高的使用场景。</p>
+<p>当微服务节点数量到达一定规模时，节点间的同步开销较大，不过目前EurekaClient首次是调用全量服务列表，后续都是调用delta接口。</p>
+<p>但是也存在一定的问题：</p>
+<blockquote>
+<p>1 比如某个服务下线后，其他服务需要等到下一次同步服务列表，才能知道这个服务已经不可用。（这个同步时间间隔默认为30s）<br>
+2 服务间的调用是使用feign, 服务间的调用一般只能使用 REST 接口。</p>
+</blockquote>
+<h2 id="扩展">扩展</h2>
+<p>1 关于 <strong>istio</strong><br>
+Istio 初期是支持 eureka 的，但是随着 eureka 的闭源， 现在已经移除了对eureka的支持。<br>
+用 istio 可以将不同语言开发的微服务轻松结合起来 eureka, 基本只能用Java进行开发。</p>
+<p>《全文完》</p>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/developerguide/git/git-owners-files-in-repos/">Git 项目仓库中的 OWNERS 文件</a></li>
+        
+        <li><a href="/posts/developerguide/architecture/archi-seastar/seastar-ready-future/">Seastar 之 ready_future(3)</a></li>
+        
+        <li><a href="/posts/developerguide/architecture/cpu-cache/">CPU Cache 架构</a></li>
+        
+        <li><a href="/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/">Seastar 之核间通信 (2)</a></li>
+        
+        <li><a href="/posts/developerguide/algorithm/ac-automation/">多模匹配之AC自动机</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/eureka' target="_blank">Eureka</a></li>
+                
+                <li><a href='/tags/registry-center' target="_blank">Registry Center</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">🌴Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

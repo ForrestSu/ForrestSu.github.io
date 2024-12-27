@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Reflection in protobuf (C&#43;&#43;/Java) | 程序员的冷浪漫</title>
+    <meta property="og:title" content="Reflection in protobuf (C&#43;&#43;/Java) - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2018-04-27T21:56:39&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2018-04-27T21:56:39&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="Reflection in protobuf (C&#43;&#43;/Java)">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-reflection-in-c">1 reflection in C++</a></li>
+    <li><a href="#2-reflection-in-java">2 reflection in Java</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">Reflection in protobuf (C&#43;&#43;/Java)</h1>
+        </header>
+        
+  <time datetime="2018-04-27T13:56:39Z" class="post-meta meta-date dt-published">
+    2018年4月27日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4230
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。</p>
+<h2 id="1-reflection-in-c">1 reflection in C++</h2>
+<p>在c++中使用protobuf 反射</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#f92672">package</span> com<span style="color:#f92672">.</span>sunquan;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Login</span> <span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>{<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">int64</span> userid <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">string</span> username <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; <span style="color:#75715e">// name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">string</span> password <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>; <span style="color:#75715e">// passwd
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">string</span> email <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#66d9ef">optional</span> <span style="color:#66d9ef">string</span> nickname <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#75715e">// etc ... 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>   C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以调用该消息的 New() 方法来构造这种类型的可变消息。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param FullMsgName  eg: com.sunquan.Login
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @return if fail return NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Message<span style="color:#f92672">*</span> ParseUtil<span style="color:#f92672">::</span>FindMsgProtoType(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> FullMsgName)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>Message<span style="color:#f92672">*</span> pFactory <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> pDesc <span style="color:#f92672">=</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>DescriptorPool<span style="color:#f92672">::</span>generated_pool()<span style="color:#f92672">-&gt;</span>FindMessageTypeByName(FullMsgName);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (pDesc)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Calling this method twice with the same Descriptor returns the same object.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        pFactory <span style="color:#f92672">=</span> google<span style="color:#f92672">::</span>protobuf<span style="color:#f92672">::</span>MessageFactory<span style="color:#f92672">::</span>generated_factory()<span style="color:#f92672">-&gt;</span>GetPrototype(pDesc);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cerr <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;can&#39;t find new desc:&#34;</span> <span style="color:#f92672">&lt;&lt;</span> FullMsgName <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> pFactory;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当我们通过消息原型new一个可变的消息对象，就可以对消息进行动态赋值了，如下：</p>
+<pre tabindex="0"><code>int ParseUtil::ReflectionTest() {
+    std::string fullname = &#34;com.sunquan.Login&#34;;
+    const google::protobuf::Message* pMsgFactory = FindMsgProtoType(fullname);
+    if (pMsgFactory == NULL){
+       std::cerr &lt;&lt; &#34;CreateMessage() fail!&#34; &lt;&lt;std::endl;
+       return 0;
+    }
+    //new mutable msg
+    google::protobuf::Message* pMsg = pMsgFactory-&gt;New();
+
+    const google::protobuf::Descriptor *pdesc = pMsgFactory-&gt;GetDescriptor();
+    const google::protobuf::Reflection *refl = pMsgFactory-&gt;GetReflection();
+
+    // 动态查找一个 FieldDesc
+    std::string fieldname = &#34;username&#34;;
+    const google::protobuf::FieldDescriptor* pfield = pdesc-&gt;FindFieldByName(fieldname);
+    if (pfield) {
+        // 暂不支持 repeat 类型
+        if (pfield-&gt;is_repeated()) {
+            std::cerr &lt;&lt; &#34;repeat field is not support!&#34; &lt;&lt; fieldname &lt;&lt; std::endl;
+            continue;
+        }
+        switch (pfield-&gt;cpp_type()) {
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT32:
+            //if(oneRow[i].type() == QVariant::Date)
+            refl-&gt;SetInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_INT64:
+            refl-&gt;SetInt64(pMsg, pfield, 100LL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT32:
+            refl-&gt;SetUInt32(pMsg, pfield, 100);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_UINT64:
+            refl-&gt;SetUInt64(pMsg, pfield, 100ULL);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_DOUBLE:
+            refl-&gt;SetDouble(pMsg, pfield, 100.89);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_FLOAT:
+            refl-&gt;SetFloat(pMsg, pfield, 100.98);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_BOOL:
+            refl-&gt;SetBool(pMsg, pfield, true);
+            break;
+        case google::protobuf::FieldDescriptor::CppType::CPPTYPE_STRING:
+            refl-&gt;SetString(pMsg, pfield, &#34;name&#34;);
+            break;
+        default:
+            //NoSupport CPPTYPE_ENUM/CPPTYPE_MESSAGE
+            std::cout &lt;&lt; &#34;UnSupport Type=&#34; &lt;&lt; pfield-&gt;type_name() &lt;&lt; std::endl;
+            break;
+        }
+    }
+    //if no longer use, please remember delete &#34;pMsg&#34;
+    if (pMsg) delete pMsg;
+    return 0;
+}
+</code></pre><h2 id="2-reflection-in-java">2 reflection in Java</h2>
+<p>在Java中使用的protobuf反射。
+1 已知消息名称，查找到该消息类型的 Descriptor，然后根据序列化的字节码，动态构建对象。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Reflect_Parse</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		Login req <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">newBuilder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setUserid</span><span style="color:#f92672">(</span><span style="color:#ae81ff">100</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Alice&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setEmail</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Alice123@gmail.com&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>		        <span style="color:#f92672">.</span><span style="color:#a6e22e">setNickname</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;爱丽丝&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>Digest<span style="color:#f92672">.</span><span style="color:#a6e22e">getStringMD5</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;A123456&#34;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>	    		<span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		ByteString data <span style="color:#f92672">=</span> req<span style="color:#f92672">.</span><span style="color:#a6e22e">toByteString</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		    <span style="color:#75715e">//根据消息名称查找 Descriptor, DynamicMessage工厂 根据指定的 Descriptor 产生消息 object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            String magname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Login&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            Descriptor desc <span style="color:#f92672">=</span> DemoProtos<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">().</span><span style="color:#a6e22e">findMessageTypeByName</span><span style="color:#f92672">(</span>magname<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>desc <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// com.sunquan.zmqproto.Login
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">.</span><span style="color:#a6e22e">getFullName</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                DynamicMessage msg <span style="color:#f92672">=</span> DynamicMessage<span style="color:#f92672">.</span><span style="color:#a6e22e">parseFrom</span><span style="color:#f92672">(</span>desc<span style="color:#f92672">,</span> data<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>msg<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Can&#39;t find msg desc: &#34;</span> <span style="color:#f92672">+</span> magname<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//底层的实现: 每个消息自身都实现了 自己的  getDescriptor() 接口
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            Descriptor desc_direct <span style="color:#f92672">=</span> Login<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InvalidProtocolBufferException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>			e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>2 预先准备好所有可能的消息，动态解析
+把所有可能的消息的 Descriptor 加入到 Map，然后从Map中查找。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   <span style="color:#66d9ef">private</span> Map<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;</span> typeMap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">&lt;</span>MsgType<span style="color:#f92672">,</span> Descriptor<span style="color:#f92672">&gt;();</span>
+</span></span><span style="display:flex;"><span>   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">LOGINREP</span><span style="color:#f92672">,</span> LoginRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">INSERTORDERREP</span><span style="color:#f92672">,</span> InsertOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>   typeMap<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>MsgType<span style="color:#f92672">.</span><span style="color:#a6e22e">CANCELORDERREP</span><span style="color:#f92672">,</span> CancelOrderRep<span style="color:#f92672">.</span><span style="color:#a6e22e">getDescriptor</span><span style="color:#f92672">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>3 动态修改消息字段值
+wait</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/developerguide/java/java-reflection/">Java 反射机制(1)</a></li>
+        
+        <li><a href="/posts/developerguide/architecture/asynchronous-programming-cps/">异步编程之 CPS</a></li>
+        
+        <li><a href="/posts/developerguide/cpp/raii-in-cpp/">C&#43;&#43; RAII</a></li>
+        
+        <li><a href="/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/">2018 年会-Plan</a></li>
+        
+        <li><a href="/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/">2018年会</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/java' target="_blank">Java</a></li>
+                
+                <li><a href='/tags/reflection' target="_blank">Reflection</a></li>
+                
+                <li><a href='/tags/protobuf' target="_blank">Protobuf</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">🌴Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

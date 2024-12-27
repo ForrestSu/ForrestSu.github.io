@@ -9,11 +9,20 @@
     <lastBuildDate>Tue, 30 Oct 2018 19:50:51 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/zeromq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Multithreading-with-ZeroMQ</title>
-      <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/</link>
       <pubDate>Tue, 30 Oct 2018 19:50:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/</guid>
       <description>本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 它的异步I</description>
+    </item>
+    
+    <item>
+      <title>zeromq 入门</title>
+      <link>https://forrestsu.github.io/posts/developerguide/library/zeromq-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sun, 02 Apr 2017 20:24:37 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/library/zeromq-%E5%85%A5%E9%97%A8/</guid>
+      <description>1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz (2) 解压 tar -zxvf zeromq-4.2.1.tar.gz (3) 编译安装 执行configure文件：./configure 编译： make 安装： make install 2 编写样例代码 server端代码：server.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;zmq.h&amp;gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &amp;#34;tcp://*:5555&amp;#34;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&amp;#34;Received Hello\n&amp;#34;); sleep (1); // Do some &amp;#39;work&amp;#39; zmq_send (responder, &amp;#34;World&amp;#34;, 5, 0); } return 0; } client端代码：client.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 #include &amp;lt;zmq.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int</description>
     </item>
     
   </channel>

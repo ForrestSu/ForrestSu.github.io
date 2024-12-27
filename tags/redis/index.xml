@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/redis/</link>
+    <description>Recent content in Redis on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 16 May 2017 15:19:29 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis 入门</title>
+      <link>https://forrestsu.github.io/posts/developerguide/library/redis-%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 16 May 2017 15:19:29 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/library/redis-%E5%85%A5%E9%97%A8/</guid>
+      <description>1 登陆 redis-cli 远程访问： $ redis-cli -h host -p port -a password 2 常用命令 redis 127.0.0.1:6379&amp;gt; COMMAND KEY_NAME (1) 查找key的类型 type key 查找 keys *oob* 列出所有包含oob的key hash 集合 HMSET sqkey name &amp;ldquo;redis tutorial&amp;rdquo; description &amp;ldquo;redis basic commands for caching&amp;rdquo; likes 20 visitors 23000</description>
+    </item>
+    
+  </channel>
+</rss>

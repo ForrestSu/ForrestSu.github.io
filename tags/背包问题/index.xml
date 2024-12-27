@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 28 Aug 2016 01:13:01 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>背包九讲01-关于常数的优化</title>
-      <link>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
       <pubDate>Sun, 28 Aug 2016 01:13:01 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
       <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程： 1 dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V</description>
     </item>
     

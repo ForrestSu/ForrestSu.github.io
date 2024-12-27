@@ -108,7 +108,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
             </h1>
         </header>
         
@@ -124,7 +124,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/cpp' target="_blank">CPP</a>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
   
 </div>
 
@@ -132,7 +132,7 @@
         <div class="post-content">
             4 最后，不应该研究未定义行为（ 对，第4点很重要！但是，cpp的未定义行为实在太多了，要提前学完也还真不容易。 给了const，又能const_cast。大家不应该经常cast，但是又没办法就是需要cast，比如派生类指针在继承树上候选类型之间的切换。开发者得一个个都经历，都思考，然后才能用好。 Bjarne Stroustrup说相信程序员都是聪明的，但是程序员很多时候并不相信自己足够聪明。我就经常在debug的时候怀疑人生。……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -140,7 +140,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+                <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
             </h1>
         </header>
         
@@ -156,7 +156,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/git' target="_blank">Git</a>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
   
 </div>
 
@@ -164,7 +164,7 @@
         <div class="post-content">
             1 Preface 当使用 git cherry-pick A^..B 来 copy 一组 commits 时，会默认使用当前的系统时间； 我们想修改一组 commits 的 author和 email，但是要保留 commit-date 和 author-date， 这时候该怎么做呢？ 2 解决办法 1 git -c rebase.instructionFormat=&#39;%s%nexec GIT_COMMITTER_DATE=&#34;%cD&#34; GIT_AUTHOR_DATE=&#34;%aD&#34; git commit --amend --no-edit --reset-author&#39; rebase -i ${hashid} 不使用-i，改为 -f，则不显示交互会话界面，直接执行。 默认只影响 hash-id 之后的commits，如果需要从 root 开始rebase，则使用 --root to rebase all。 3 参考 1 How to update git commit author 2 更多玩法 How to preserve the committer date in git-rebase.md……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -204,7 +204,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+                <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
             </h1>
         </header>
         
@@ -228,7 +228,7 @@
         <div class="post-content">
             1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;&gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &gt; $(brew &ndash;prefix)/share/zsh/site-functions/_goup……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -236,7 +236,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+                <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
             </h1>
         </header>
         
@@ -252,7 +252,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/go-%E8%AF%AD%E8%A8%80' target="_blank">Go 语言</a>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
   
 </div>
 
@@ -260,7 +260,7 @@
         <div class="post-content">
             Go 1.21.0 2023-08-08 slices、maps 泛型库：《slices、maps 泛型库终于要加入标准库。。。》 for 循环变量的语义变更：《Go 团队将修改 for 循环变量的语义，新版本即可体验！》 context 可设置取消原因和回调函数：《Context 可以设置取消原因和回调函数了，等的可太久了！》 主版本号支持第三位数字 0：《Go 改版本号规则，主版本号终于支持第三位数字 0 了。。。》 统一标准 log/slog：《Go 十年了，终于想起要统一 log 库了！》 支持自定义 go.env 文件：《支持自定义 go.env 文件，可惜还是有所残缺。。。》 增强约束 Go 程序构建：《go.mod 的……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/go/go-version-feature/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -268,7 +268,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+                <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
             </h1>
         </header>
         
@@ -284,7 +284,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/business' target="_blank">Business</a>
+    <a href='/categories/work' target="_blank">Work</a>
   
 </div>
 
@@ -292,7 +292,7 @@
         <div class="post-content">
             在线广告领域，特许人支付广告费用的方式主要有三种，CPM、CPC 和 CPA。 首先，让我们花点时间为您定义它们。 CPM（Cost Per Mille）: 广告商需要为 1,000 次展示或观看支付的金额。 CPM=总消费/曝光量1000 CPC（Cost Per Click）: 广告商需要为 1 次点击支付的金额。 CPA（每次操作成本）: 广告商需要为 1 次操作支付的金额。例如，如果有人要填写联系表，特许人只支付广告商只支付给平台的费用。 （注意：通过将 CPM 除以 1000 可以很容易地计算出一次展示的成本。但是，由于这是行业发展的方式，因此价格几乎完全按照……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -300,7 +300,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+                <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
             </h1>
         </header>
         
@@ -316,7 +316,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/business' target="_blank">Business</a>
+    <a href='/categories/work' target="_blank">Work</a>
   
 </div>
 
@@ -324,7 +324,7 @@
         <div class="post-content">
             部分内容参考自：视频商业化常用数据指标及概念 广告平台/来源 SPA 通常在我们内部交流时 SPA ≈ 指竞价广告 2018年9月30日（930组织架构调整，PCG也是那时候成立的）腾讯整合社交与效果广告部（SPA）与原网络媒体事业群（OMG）广告线，成立新的广告营销服务线（AMS）。 拓展阅读：腾讯商业化拼图进入最后一公里。 AMS（Ads Marketing Services） 广告营销服务线 ，新广告业务线，历史由来见 SPA 。 广平 广告平台 的简称，广平广告一般指通过广告平台投放的广告，通常与合约广告等价，代码中常用 Adx 代表合约，具体原因不详。 广告……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -332,7 +332,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+                <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
             </h1>
         </header>
         
@@ -348,7 +348,7 @@
 <div class="post-meta meta-category">
   <span>&nbsp;|</span>
   
-    <a href='/categories/design' target="_blank">Design</a>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
   
 </div>
 
@@ -356,7 +356,7 @@
         <div class="post-content">
             1 前言 基于拦截器，实现一个基于 trpc 协议的流量录制、回放插件。 支持回放流量验证。 常用场景： 服务重构后的流量验证，差异检测 日常需求迭代，回放验证(上线前) 2 整体方案 实现两组拦截器：录制拦截器、回放拦截器 录制拦截器：负责记录服务接口+所有下游调用数据（req、rsp、err），序列化后上报，用于回放。 回放拦截器：负责下游调用的mock（不实际发起调用），服务接口的回包上报，用于diff。 回包 diff 能力：由 LogReplay 平台提供，拦截器插件只负责上报diff所需数据。 补充一点，如何保存切面数据？ 方案一： 基于trpc包头 metadata……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/design/log-replay/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -364,7 +364,7 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/macos-usage/" title="MacOS 场景问题答疑" target="_blank">MacOS 场景问题答疑</a>
+                <a href="https://forrestsu.github.io/posts/tools/macos/macos-usage/" title="有用的内置 macOS 命令行实用程序" target="_blank">有用的内置 macOS 命令行实用程序</a>
             </h1>
         </header>
         
@@ -374,7 +374,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  249
+  1202
 </div>
 
 <div class="post-meta meta-category">
@@ -386,9 +386,9 @@
 
 
         <div class="post-content">
-            系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &#39;(&#34;zh-CN&#34;)&#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 还原默认配置 1 defaults delete com.tencent.xinWeChat AppleLanguages 参考链接……
+            1 从终端打开文件 如果您想从终端打开文件，您可以使用该 open 命令。 1 open file.txt 这将在该文件类型的默认应用程序中打开该文件，就像您在 Finder 中双击它一样。 链接： https://ss64.com/mac/open.html 2 复制和粘贴 pbcopy和pbpaste命令行实用程序允许您将文本复制并粘贴到剪贴板（其他操作系统可能称之为“剪贴板”）。 pbcopy获取标准输入中给出的任何内容，并将其放置在剪贴板中。 1 echo &#34;Hello, world!&#34; | pbcopy; pbpaste将剪贴板中的所有内容打印到标准输出。 1 2 3 pbpaste &gt;&gt; Hello, world! 这对于将文件中的数据导入浏览器或其他 GUI 应用程序非常有用。 链接： https://ss64.com/mac/pbcopy.html https://ss64.com/mac/pbpaste.html 3 互联网速度测试 如果你想运行互……
         </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/macos-usage/" target="_blank">阅读全文</a></p>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/macos/macos-usage/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -437,7 +437,7 @@
         
         
         <li >
-            <a href="https://forrestsu.github.io/posts/page/15/">15</a>
+            <a href="https://forrestsu.github.io/posts/page/14/">14</a>
         </li>
         
     
@@ -496,11 +496,11 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
     </li>
     
     <li>
@@ -508,23 +508,23 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
     <li>
@@ -540,61 +540,25 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (6)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/business/">Business (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/cpp/">CPP (16)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/cs/">CS (5)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/database/">Database (3)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/design/">Design (2)</a></li>
-    
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/git/">Git (5)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/">Go 语言 (8)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/highavailable/">HighAvailable (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/languages/">Languages (3)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/leetcode/">LeetCode (3)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/library/">Library (6)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/linux/">Linux (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/microservice/">MicroService (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/network/">Network (4)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/readingnotes/">ReadingNotes (8)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/resume/">Resume (1)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/thinking/">Thinking (2)</a></li>
-    
-    <li><a href="https://forrestsu.github.io/categories/todolist/">TodoList (1)</a></li>
-    
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tracing/">Tracing (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/travel/">🌴Travel (2)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (3)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/web/">Web (5)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/work/">Work (17)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/">杂谈 (1)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
     
 </ul>
     </section>
@@ -660,8 +624,6 @@
     
     <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/blog/">blog(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
     
     <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
@@ -672,13 +634,13 @@
     
     <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/cmake/">CMake(2)</a>
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
     
     <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
     
     <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/configuration/">Configuration(1)</a>
     
     <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
     
@@ -688,7 +650,7 @@
     
     <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/cpp/">CPP(8)</a>
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
     
     <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
     
@@ -708,6 +670,8 @@
     
     <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
     
     <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
@@ -724,13 +688,13 @@
     
     <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/git/">git(5)</a>
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/golang/">Golang(1)</a>
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
@@ -740,19 +704,23 @@
     
     <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/java/">Java(1)</a>
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/kafka/">kafka(1)</a>
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
     
     <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/library/">Library(6)</a>
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
     
     <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
     
     <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
     
     <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
     
@@ -790,11 +758,11 @@
     
     <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
     <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/readingnotes/">ReadingNotes(7)</a>
     
     <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
     
@@ -804,7 +772,9 @@
     
     <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/reflection/">reflection(2)</a>
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
@@ -812,7 +782,7 @@
     
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/rpm/">rpm(2)</a>
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
@@ -842,7 +812,7 @@
     
     <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/travel/">Travel(2)</a>
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
     
     <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
     
@@ -850,13 +820,13 @@
     
     <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/web/">Web(5)</a>
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
     
     <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
     
     <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
     
-    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(1)</a>
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
     
     <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
     
@@ -880,6 +850,10 @@
     
     <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
     
     <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
@@ -898,7 +872,11 @@
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
     
     <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
     

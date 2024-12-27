@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 08 May 2020 19:55:17 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/ready_future/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seastar 之 ready_future(3)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</link>
       <pubDate>Fri, 08 May 2020 19:55:17 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</guid>
       <description>&lt;h2 id=&#34;1-什么是-ready_future&#34;&gt;1 什么是 ready_future&lt;/h2&gt;
 &lt;p&gt;如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
 我们把这个 future 称为 &lt;code&gt;ready_future&lt;/code&gt;。&lt;/p&gt;

@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 28 Jun 2019 11:53:25 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/bigdata/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅谈微服务架构、大数据技术</title>
-      <link>https://forrestsu.github.io/posts/architecture/microservice/microservices-vs-big-data/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/microservice/microservices-vs-big-data/</link>
       <pubDate>Fri, 28 Jun 2019 11:53:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/microservice/microservices-vs-big-data/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/microservice/microservices-vs-big-data/</guid>
       <description>1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。 其中: 微服务化主要是对单体应用功能解耦。 1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式</description>
     </item>
     

@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>开发者手册 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="开发者手册 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="开发者手册">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/index.xml" title="程序员的冷浪漫" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <h3 class="archive-title">
+        分类
+        <span class="keyword">开发者手册</span>
+        中的文章
+    </h3>
+    
+
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/" target="_blank">Proto oneof schema 的使用</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-09-15T07:50:12Z" class="post-meta meta-date dt-published">
+    2021年9月15日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1554
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface protobuf 提供了 oneof 语义，表示任选其一；类似于C语言的 union 关键字。 于是想了解下 oneof 语义在 golang 中是如何实现的，下面我们来一探究竟。 具体的用法如下： 1 2 3 4 5 6 7 8 9 10 11 message WechatPay { int64 uuid = 1; } message HelloRequest { string msg = 1; oneof one_of_pay { string noop = 2; WechatPay wx = 3; } } 2 stub 代码分析 使用 protoc 工具会生成如下代码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 定义一个接口，用于类型断言 type isHelloRequest_OneOfPay interface { isHelloRequest_OneOfPay() } type HelloRequest_Noop struct { Noop string `protobuf:&#34;bytes,2,opt,name=noop,proto3,oneof&#34;` } type HelloRequest_Wx struct { Wx *WechatPay `protobuf:&#34;bytes,3,opt,name=wx,proto3,oneof&#34;` } // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Noop) isHelloRequest_OneOfPay() {} // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Wx) isHelloRequest_OneOfPay() {} 3 总结 在 Golang 中, oneof 语义基于一个类型接口，oneof 的每个成员都实现这个接口，方便在Ge……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/" target="_blank">基于 go 的 wireshark 插件实现方案</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-08T14:15:47Z" class="post-meta meta-date dt-published">
+    2020年12月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1040
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/" target="_blank">wireshark lua 插件tcp报文分段(desegment)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T15:23:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  591
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/" target="_blank">wireshark lua 插件之 tvb():string()</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T14:35:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  482
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。 于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。 解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。 1 2 -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len()) 总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。 有时候遇到问题，我们可以先通过 google……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/" target="_blank">wireshark插件，如何关联请求应答(如ping协议)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T14:15:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2558
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/go-must-knowns-18-pkgs/" target="_blank">Go 必须知道的 18 个Go开发库</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2071
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            包含各种使用场景的Go第三方列表。 随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序! 备注：在Go语言中我们都称第三方库为package（包）。 配置文件处理库 配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。 1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。 可以读……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/go-must-knowns-18-pkgs/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/golang-recommend-pkgs/" target="_blank">Go 常用的包推荐 (持续更新)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-17T15:28:06Z" class="post-meta meta-date dt-published">
+    2020年11月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  994
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            更新日志 2023-12-15 增加 cron, automaxprocs, goquery 常用库介绍 2022-09-05 更新 goup v0.5.2 使用说明 2022-02-13 增加 goup 使用 2021-06-10 增加 go-set 使用 2020-11-17 初始版本 1 Go 常用工具包推荐 1 stringer 为枚举量生成String()方法 go install golang.org/x/tools/cmd/stringer 2 pretty 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印) go install github.com/kylelemons/godebug 3 GoMock 2 调试工具 Delve 源码调试工具 安装： go install github.com/go-delve/delve/cmd/dlv@latest 快速上手： 1 2 3 $ dlv debug main.go $ &gt; break main.main $ &gt; continue 3 常用开发库 1 http-router 高性能、可扩展的HTTP路由 2 easyjson 高性能的Json Marshaler, 适用于有schema的Json数据 3 set set集合数据结构，基于原生 map 实现 4 测试框架 1 goconvey 简单易用的go测试框架，……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/golang-recommend-pkgs/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/" target="_blank">g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-11-06T03:09:51Z" class="post-meta meta-date dt-published">
+    2020年11月6日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  989
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &lt;&lt; &#34;str = &#34; &lt;&lt; str &lt;&lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp; operator=(_CharT __c) { this-&gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&quot;N&quot;， int64转换成 char，仅保留了最低的一个字节……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/" target="_blank">Git 项目仓库中的 OWNERS 文件</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-05-21T14:21:45Z" class="post-meta meta-date dt-published">
+    2020年5月21日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1284
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/" target="_blank">不建议使用std::thread</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-03-15T03:09:07Z" class="post-meta meta-date dt-published">
+    2020年3月15日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1746
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。 为了方便理解，下面给一个例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt; #include &lt;thread&gt; void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.join(); } 直接运行就会产生coredump, 通过gdb 分析： $ gdb test core.1243 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Program received signal SIGABRT, Aborted. [Switching to Thread 0x7ffff7fd0700 (LWP 10278)] 0x000000318f036285 in raise () from /lib64/libc.so.6 Missing separate debuginfos, use: debuginfo-install glibc-2.14.90-24.fc16.9.x86_64 libgcc-4.6.3-2.fc16.x86_64 libstdc++-4.6.3-2.fc16.x86_64 (gdb) bt #0 0x000000318f036285 in raise () from /lib64/libc.so.6 #1 0x000000318f037b9b in abort () from /lib64/libc.so.6 #2 0x00000031964bbc5d in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib64/libstdc++.so.6 #3 0x00000031964b9e16 in……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+
+    
+
+
+
+<ol class="page-navigator">
+    
+    <li class="prev">
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">上一页</a>
+    </li>
+    
+
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">1</a>
+    </li>
+    
+    <li  class="current">
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/3/">3</a>
+    </li>
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/4/">4</a>
+    </li>
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/5/">5</a>
+    </li>
+    
+    <li >
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/6/">6</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/page/3/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (3)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">🌴Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://test.i-h5.cn/egret/study" title="学而不思则罔，思而不学则殆">白鹭引擎Study Room</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(13)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

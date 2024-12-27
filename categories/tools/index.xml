@@ -18,10 +18,10 @@
     
     <item>
       <title>zsh 插件推荐</title>
-      <link>https://forrestsu.github.io/posts/tools/zsh-plugins/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</link>
       <pubDate>Sun, 20 Aug 2023 09:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/zsh-plugins/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</guid>
       <description>1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;amp;&amp;gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &amp;gt; $(brew &amp;ndash;prefix)/share/zsh/site-functions/_goup</description>
     </item>
     
@@ -35,20 +35,20 @@
     </item>
     
     <item>
-      <title>MacOS 场景问题答疑</title>
-      <link>https://forrestsu.github.io/posts/tools/macos-usage/</link>
+      <title>有用的内置 macOS 命令行实用程序</title>
+      <link>https://forrestsu.github.io/posts/tools/macos/macos-usage/</link>
       <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/macos-usage/</guid>
-      <description>系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &amp;#39;(&amp;#34;zh-CN&amp;#34;)&amp;#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 还原默认配置 1 defaults delete com.tencent.xinWeChat AppleLanguages 参考链接</description>
+      <guid>https://forrestsu.github.io/posts/tools/macos/macos-usage/</guid>
+      <description>1 从终端打开文件 如果您想从终端打开文件，您可以使用该 open 命令。 1 open file.txt 这将在该文件类型的默认应用程序中打开该文件，就像您在 Finder 中双击它一样。 链接： https://ss64.com/mac/open.html 2 复制和粘贴 pbcopy和pbpaste命令行实用程序允许您将文本复制并粘贴到剪贴板（其他操作系统可能称之为“剪贴板”）。 pbcopy获取标准输入中给出的任何内容，并将其放置在剪贴板中。 1 echo &amp;#34;Hello, world!&amp;#34; | pbcopy; pbpaste将剪贴板中的所有内容打印到标准输出。 1 2 3 pbpaste &amp;gt;&amp;gt; Hello, world! 这对于将文件中的数据导入浏览器或其他 GUI 应用程序非常有用。 链接： https://ss64.com/mac/pbcopy.html https://ss64.com/mac/pbpaste.html 3 互联网速度测试 如果你想运行互</description>
     </item>
     
     <item>
       <title>Xcode 编译 swift 项目</title>
-      <link>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</link>
       <pubDate>Sun, 10 Oct 2021 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</guid>
       <description>常见问题 1 如何调整依赖的系统版本macOS Deployment Target? A: 双击编辑器的项目名，然后调整。 ctrl+b 编译 2 Debug Or Release 编译？ 选择 Product-&amp;gt;Scheme-&amp;gt;Edit Scheme，将编译配置改为 Release。 3 编译后，输出的App路径？ 输出目录：~/Library/Developer/Xcode/DerivedData + 项目名。 比如： ~/Library/Developer/Xcode/DerivedData/Hidden_Bar-xxxx/Build/Products/Debug</description>
     </item>
     

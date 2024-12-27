@@ -9,10 +9,10 @@
     <lastBuildDate>Thu, 26 Mar 2020 23:11:26 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/promise/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seastar 之 future/promise 原理(1)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</guid>
       <description>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 05 Nov 2023 19:20:00 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/rebase/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git rebase 保留提交者原始日期?</title>
-      <link>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/</link>
       <pubDate>Sun, 05 Nov 2023 19:20:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/</guid>
       <description>1 Preface 当使用 git cherry-pick A^..B 来 copy 一组 commits 时，会默认使用当前的系统时间； 我们想修改一组 commits 的 author和 email，但是要保留 commit-date 和 author-date， 这时候该怎么做呢？ 2 解决办法 1 git -c rebase.instructionFormat=&amp;#39;%s%nexec GIT_COMMITTER_DATE=&amp;#34;%cD&amp;#34; GIT_AUTHOR_DATE=&amp;#34;%aD&amp;#34; git commit --amend --no-edit --reset-author&amp;#39; rebase -i ${hashid} 不使用-i，改为 -f，则不显示交互会话界面，直接执行。 默认只影响 hash-id 之后的commits，如果需要从 root 开始rebase，则使用 --root to rebase all。 3 参考 1 How to update git commit author 2 更多玩法 How to preserve the committer date in git-rebase.md</description>
     </item>
     

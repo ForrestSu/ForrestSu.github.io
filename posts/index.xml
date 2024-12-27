@@ -18,19 +18,19 @@
     
     <item>
       <title>关于 C&#43;&#43; 未定的行为</title>
-      <link>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</link>
       <pubDate>Tue, 20 Feb 2024 08:11:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</guid>
       <description>4 最后，不应该研究未定义行为（ 对，第4点很重要！但是，cpp的未定义行为实在太多了，要提前学完也还真不容易。 给了const，又能const_cast。大家不应该经常cast，但是又没办法就是需要cast，比如派生类指针在继承树上候选类型之间的切换。开发者得一个个都经历，都思考，然后才能用好。 Bjarne Stroustrup说相信程序员都是聪明的，但是程序员很多时候并不相信自己足够聪明。我就经常在debug的时候怀疑人生。</description>
     </item>
     
     <item>
       <title>git rebase 保留提交者原始日期?</title>
-      <link>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/</link>
       <pubDate>Sun, 05 Nov 2023 19:20:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/</guid>
       <description>1 Preface 当使用 git cherry-pick A^..B 来 copy 一组 commits 时，会默认使用当前的系统时间； 我们想修改一组 commits 的 author和 email，但是要保留 commit-date 和 author-date， 这时候该怎么做呢？ 2 解决办法 1 git -c rebase.instructionFormat=&amp;#39;%s%nexec GIT_COMMITTER_DATE=&amp;#34;%cD&amp;#34; GIT_AUTHOR_DATE=&amp;#34;%aD&amp;#34; git commit --amend --no-edit --reset-author&amp;#39; rebase -i ${hashid} 不使用-i，改为 -f，则不显示交互会话界面，直接执行。 默认只影响 hash-id 之后的commits，如果需要从 root 开始rebase，则使用 --root to rebase all。 3 参考 1 How to update git commit author 2 更多玩法 How to preserve the committer date in git-rebase.md</description>
     </item>
     
@@ -45,46 +45,46 @@
     
     <item>
       <title>zsh 插件推荐</title>
-      <link>https://forrestsu.github.io/posts/tools/zsh-plugins/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</link>
       <pubDate>Sun, 20 Aug 2023 09:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/zsh-plugins/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</guid>
       <description>1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;amp;&amp;gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &amp;gt; $(brew &amp;ndash;prefix)/share/zsh/site-functions/_goup</description>
     </item>
     
     <item>
       <title>Go 新版本特性</title>
-      <link>https://forrestsu.github.io/posts/go/go-version-feature/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/go-version-feature/</link>
       <pubDate>Wed, 09 Aug 2023 17:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/go-version-feature/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/go-version-feature/</guid>
       <description>Go 1.21.0 2023-08-08 slices、maps 泛型库：《slices、maps 泛型库终于要加入标准库。。。》 for 循环变量的语义变更：《Go 团队将修改 for 循环变量的语义，新版本即可体验！》 context 可设置取消原因和回调函数：《Context 可以设置取消原因和回调函数了，等的可太久了！》 主版本号支持第三位数字 0：《Go 改版本号规则，主版本号终于支持第三位数字 0 了。。。》 统一标准 log/slog：《Go 十年了，终于想起要统一 log 库了！》 支持自定义 go.env 文件：《支持自定义 go.env 文件，可惜还是有所残缺。。。》 增强约束 Go 程序构建：《go.mod 的</description>
     </item>
     
     <item>
       <title>广告术语</title>
-      <link>https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</link>
+      <link>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</link>
       <pubDate>Tue, 03 Jan 2023 14:39:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</guid>
+      <guid>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</guid>
       <description>部分内容参考自：视频商业化常用数据指标及概念 广告平台/来源 SPA 通常在我们内部交流时 SPA ≈ 指竞价广告 2018年9月30日（930组织架构调整，PCG也是那时候成立的）腾讯整合社交与效果广告部（SPA）与原网络媒体事业群（OMG）广告线，成立新的广告营销服务线（AMS）。 拓展阅读：腾讯商业化拼图进入最后一公里。 AMS（Ads Marketing Services） 广告营销服务线 ，新广告业务线，历史由来见 SPA 。 广平 广告平台 的简称，广平广告一般指通过广告平台投放的广告，通常与合约广告等价，代码中常用 Adx 代表合约，具体原因不详。 广告</description>
     </item>
     
     <item>
       <title>什么是 CPM、CPC 和 CPA？</title>
-      <link>https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/</link>
+      <link>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/</link>
       <pubDate>Tue, 03 Jan 2023 14:39:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/</guid>
+      <guid>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/</guid>
       <description>在线广告领域，特许人支付广告费用的方式主要有三种，CPM、CPC 和 CPA。 首先，让我们花点时间为您定义它们。 CPM（Cost Per Mille）: 广告商需要为 1,000 次展示或观看支付的金额。 CPM=总消费/曝光量1000 CPC（Cost Per Click）: 广告商需要为 1 次点击支付的金额。 CPA（每次操作成本）: 广告商需要为 1 次操作支付的金额。例如，如果有人要填写联系表，特许人只支付广告商只支付给平台的费用。 （注意：通过将 CPM 除以 1000 可以很容易地计算出一次展示的成本。但是，由于这是行业发展的方式，因此价格几乎完全按照</description>
     </item>
     
     <item>
       <title>LogReplay 流量录制回放设计与实现</title>
-      <link>https://forrestsu.github.io/posts/design/log-replay/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/design/log-replay/</link>
       <pubDate>Fri, 09 Dec 2022 19:07:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/design/log-replay/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/design/log-replay/</guid>
       <description>1 前言 基于拦截器，实现一个基于 trpc 协议的流量录制、回放插件。 支持回放流量验证。 常用场景： 服务重构后的流量验证，差异检测 日常需求迭代，回放验证(上线前) 2 整体方案 实现两组拦截器：录制拦截器、回放拦截器 录制拦截器：负责记录服务接口+所有下游调用数据（req、rsp、err），序列化后上报，用于回放。 回放拦截器：负责下游调用的mock（不实际发起调用），服务接口的回包上报，用于diff。 回包 diff 能力：由 LogReplay 平台提供，拦截器插件只负责上报diff所需数据。 补充一点，如何保存切面数据？ 方案一： 基于trpc包头 metadata</description>
     </item>
     
@@ -98,12 +98,12 @@
     </item>
     
     <item>
-      <title>MacOS 场景问题答疑</title>
-      <link>https://forrestsu.github.io/posts/tools/macos-usage/</link>
+      <title>有用的内置 macOS 命令行实用程序</title>
+      <link>https://forrestsu.github.io/posts/tools/macos/macos-usage/</link>
       <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/macos-usage/</guid>
-      <description>系统配置 Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？ A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令： 1 defaults write com.tencent.xinWeChat AppleLanguages &amp;#39;(&amp;#34;zh-CN&amp;#34;)&amp;#39; 如果不清楚配置名，可以试试TAB补全。 希望可以帮到其他人。 还原默认配置 1 defaults delete com.tencent.xinWeChat AppleLanguages 参考链接</description>
+      <guid>https://forrestsu.github.io/posts/tools/macos/macos-usage/</guid>
+      <description>1 从终端打开文件 如果您想从终端打开文件，您可以使用该 open 命令。 1 open file.txt 这将在该文件类型的默认应用程序中打开该文件，就像您在 Finder 中双击它一样。 链接： https://ss64.com/mac/open.html 2 复制和粘贴 pbcopy和pbpaste命令行实用程序允许您将文本复制并粘贴到剪贴板（其他操作系统可能称之为“剪贴板”）。 pbcopy获取标准输入中给出的任何内容，并将其放置在剪贴板中。 1 echo &amp;#34;Hello, world!&amp;#34; | pbcopy; pbpaste将剪贴板中的所有内容打印到标准输出。 1 2 3 pbpaste &amp;gt;&amp;gt; Hello, world! 这对于将文件中的数据导入浏览器或其他 GUI 应用程序非常有用。 链接： https://ss64.com/mac/pbcopy.html https://ss64.com/mac/pbpaste.html 3 互联网速度测试 如果你想运行互</description>
     </item>
     
     <item>
@@ -117,19 +117,19 @@
     
     <item>
       <title>如何做代码 CR？</title>
-      <link>https://forrestsu.github.io/posts/thinking/how-to-cr-code/</link>
+      <link>https://forrestsu.github.io/posts/cs/how-to-cr-code/</link>
       <pubDate>Tue, 12 Apr 2022 16:07:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/thinking/how-to-cr-code/</guid>
+      <guid>https://forrestsu.github.io/posts/cs/how-to-cr-code/</guid>
       <description>一、设计问题 (ABI 原则) CR 的意图 (Intention) 首先要了解整个 CR 要解决的问题； 正确的解决方案 (Better Solution) 在了解问题的基础上，思考标准的解决方案； 架构设计（合理的分层）(Architecture Design) 包设计 类设计 接口设计 安全 (safety) 不要迫使使用方到处传递敏感信息 二、实现问题 命名规范 命名规范： 一致性 注释和代码保持一致 同一个概念，不要用多个（近似但不一样的）名称 作用域</description>
     </item>
     
     <item>
       <title>企微机器人设计</title>
-      <link>https://forrestsu.github.io/posts/design/wework-robot-design/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/design/wework-robot-design/</link>
       <pubDate>Wed, 30 Mar 2022 01:10:59 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/design/wework-robot-design/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/design/wework-robot-design/</guid>
       <description>1 为什么要做一个机器人？ 解决的问题 （🤖的适用场景） 日常工作中，重复繁琐的运营工作 线上问题定位 （媒资 Union 查询，用户染色、错误日志等 ） 借助机器人做错误告警，业务周报等 2 设计思想 可扩展 可扩展，轻松增加新指令 统一的指令注册接口 指令按照 tree 的方式管理，每个指令实现一个文件。 内聚：指令实现细节在内部的 rpc 包中管理 基于文本消息指令 基于空格分隔的多级指令设计； 格式：@robot &amp;lt;cmd&amp;hellip;&amp;gt; &amp;lt; arguments &amp;gt; 易用性（对用户友好） 类似 unix 工具，每一级指令要带有 help 指令，并给出示例，无需查询文档，即可上手。 采用 markdown 消息， 消息样式丰富，可读性好，提示使</description>
     </item>
     
@@ -144,74 +144,74 @@
     
     <item>
       <title>MySQL 定时任务</title>
-      <link>https://forrestsu.github.io/posts/database/mysql-timer-schedule/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/database/mysql-timer-schedule/</link>
       <pubDate>Mon, 24 Jan 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/database/mysql-timer-schedule/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/database/mysql-timer-schedule/</guid>
       <description>1 创建存储过程 1.1 创建一个存储过程 1 2 3 4 5 6 7 8 9 CREATE PROCEDURE `ClearExpiredData`() BEGIN -- 清理已过期10天的数据 delete from vid_blacklist where expire_time &amp;gt; CAST(&amp;#39;2010-10-10&amp;#39; AS DATETIME) and expire_time &amp;lt; SUBDATE(CURDATE(), 10); -- end END 1.2 执行存储过程 1 call ClearExpiredData() 2 数据库定时任务 2.1 创建一次性事件 1 2 3 CREATE EVENT clearEvent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 DAY DO call ClearExpiredData() 2.2 创建周期性事件 每天早上8点执行一次： 1 2 3 4 5 CREATE EVENT clearEvent ON SCHEDULE EVERY 1 DAY STARTS &amp;#39;2022-01-24 08:00:00&amp;#39; COMMENT &amp;#39;定时清理过期数据&amp;#39; DO call ClearExpiredData(); 2.3 查询数据库 Event 1 select * from information_schema.events where event_name = &amp;#39;clearEvent&amp;#39; 2.4 删除 Event 1 drop EVENT clearEvent 总结 TODO</description>
     </item>
     
     <item>
       <title>MySQL 数据导入导出</title>
-      <link>https://forrestsu.github.io/posts/database/mysqldump-usage/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/</link>
       <pubDate>Sat, 22 Jan 2022 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/database/mysqldump-usage/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/</guid>
       <description>1 DB 回档操作 1.1 mysqldump 备份表数据（不包含建表语句） 1 2 3 4 5 6 7 mysqldump -h10.10.10.10 -P15192 -uroot -pPassword \ --single-transaction \ --default-character-set=utf8 \ --no-create-info \ --skip-disable-keys \ --skip-add-locks \ [database name] [table name1] [table name2] &amp;gt; [dump file] 1.2 恢复数据 执行以下命令前一定要清理原有的数据，要不然会报唯一键冲突的 导入数据之前，最好将线上的表备份一下，然后 delete 清空原表； 最后进行导入，否则原数据不清理，导入的时候会报唯一健冲突。 方式一： 1 #mysql -h10.10.10.10 -P15192 -uroot -pPassword [database name] &amp;lt; [dump file] 方式二： 登陆mysql 然后执行source命令 1 2 3 #mysql -h10.10.10.10 -P15192 -uroot -pPassword &amp;gt; use db_name &amp;gt; source [dump file] 总结</description>
     </item>
     
     <item>
       <title>OpenTelemetry 入门</title>
-      <link>https://forrestsu.github.io/posts/architecture/tracing/go-opentelemetry-tracing/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/</link>
       <pubDate>Sat, 08 Jan 2022 19:54:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/tracing/go-opentelemetry-tracing/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/</guid>
       <description>Preface OpenTelemetry 是一个可观测性工具，通过标准化的 API 和 SDK，提供了跨语言、跨平台的分布式追踪、日志和指标收集和分析能力。OpenTelemetry 的目标是让开发者更容易地维护和监测他们的应用程序。 本文将介绍 OpenTelemetry 的一些基本概念和用法，帮助读者快速入门。 1. 安装 OpenTelemetry 首先，需要安装 OpenTelemetry 的 SDK。这里以 Golang 为例，介绍如何安装 OpenTelemetry Go SDK。 1 go get go.opentelemetry.io/otel 通过运行上述命令，可以下载并安装 OpenTelemetry Go SDK。 2. 配置 OpenTelemetry Collector OpenTelemetry Collector 是一个数据收集器，它可以收集不同类型的数据并发送到指定的目的地。在使用 OpenTelemetry 进行分布式追踪时，通常需要将追踪数据发送到 Zipkin 或 Jaeger 等追踪</description>
     </item>
     
     <item>
       <title>优雅的递归算法</title>
-      <link>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</link>
       <pubDate>Thu, 09 Dec 2021 23:19:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</guid>
       <description>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
 &lt;p&gt;这个世界上优雅的东西很少，递归至少算一个。&lt;code&gt;tree&lt;/code&gt; 和 &lt;code&gt;single list&lt;/code&gt; 的数据结构，是非常适合使用递归来操作的。下面我们使用 Go 来做几道题，感受一下递归的魅力。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>内存缓存-设计</title>
-      <link>https://forrestsu.github.io/posts/architecture/cache/memory-cache-design/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/</link>
       <pubDate>Wed, 08 Dec 2021 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cache/memory-cache-design/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/</guid>
       <description>1 缘起 在业务开发场景中，主要用到两个开发能力：接口粘合+缓存。 一个好的缓存设计，能够降低服务的时延，抵抗流量洪峰。 比如最近的西安健康码事件，明显缓存设计上是存在明显问题的 :-)。 2 什么场景需要加缓存？ 提高服务质量，降低时延； 减少对下游的请求量，节省资源 3 缓存常见问题 缓存问题 解决办法 (1) 缓存失效的策略 惰性过期（读取时判断如果过期了，就返回且异步更新） (2) 缓存集中失效 设置随机过期时间 (3) 缓存击穿(大量穿透导致雪崩) singleflight 合并多个相同的请求 3.1 50行代码，实现一个可用的 singleflight？ groupCache 库实现了一个可用</description>
     </item>
     
     <item>
       <title>go-cmp 对象比较</title>
-      <link>https://forrestsu.github.io/posts/go/go-cmp/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/go-cmp/</link>
       <pubDate>Thu, 25 Nov 2021 17:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/go-cmp/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/go-cmp/</guid>
       <description>简介 我们经常有深度比较两个 Object 是否相等的场景，比如： 1 如服务重构，新旧服务回包对比； 2 单测验证实际的返回值，标准库提供了 reflect.DeepEqual； 但是相对的，reflect.DeepEqual不够灵活，无法提供选项实现我们想要的行为，例如允许浮点数误差。所以今天的主角 go-cmp 登场了。 go-cmp 是 Google 开源的比较库，它提供了丰富的选项。最初定位是用在测试中。 1 快速使用 先安装： go get -u github.com/google/go-cmp/cmp Equal Diff 总结 go-cmp 非常适合对两个同类型的值进行比较。源码中大量使用熟知的 Option 模式，提供给使用者简洁、一致的接口。这种设计思想也值得我们学</description>
     </item>
     
     <item>
       <title>Xcode 编译 swift 项目</title>
-      <link>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</link>
       <pubDate>Sun, 10 Oct 2021 10:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</guid>
       <description>常见问题 1 如何调整依赖的系统版本macOS Deployment Target? A: 双击编辑器的项目名，然后调整。 ctrl+b 编译 2 Debug Or Release 编译？ 选择 Product-&amp;gt;Scheme-&amp;gt;Edit Scheme，将编译配置改为 Release。 3 编译后，输出的App路径？ 输出目录：~/Library/Developer/Xcode/DerivedData + 项目名。 比如： ~/Library/Developer/Xcode/DerivedData/Hidden_Bar-xxxx/Build/Products/Debug</description>
     </item>
     
     <item>
       <title>如何实现 SQL 用户标签的查询？</title>
-      <link>https://forrestsu.github.io/posts/database/sql-user-tags/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/</link>
       <pubDate>Wed, 15 Sep 2021 16:50:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/database/sql-user-tags/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。&lt;/p&gt;
 &lt;p&gt;
@@ -229,19 +229,19 @@
     
     <item>
       <title>Proto oneof schema 的使用</title>
-      <link>https://forrestsu.github.io/posts/go/golang-pb3-oneof/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/</link>
       <pubDate>Wed, 15 Sep 2021 15:50:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/golang-pb3-oneof/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/</guid>
       <description>1 Preface protobuf 提供了 oneof 语义，表示任选其一；类似于C语言的 union 关键字。 于是想了解下 oneof 语义在 golang 中是如何实现的，下面我们来一探究竟。 具体的用法如下： 1 2 3 4 5 6 7 8 9 10 11 message WechatPay { int64 uuid = 1; } message HelloRequest { string msg = 1; oneof one_of_pay { string noop = 2; WechatPay wx = 3; } } 2 stub 代码分析 使用 protoc 工具会生成如下代码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 // 定义一个接口，用于类型断言 type isHelloRequest_OneOfPay interface { isHelloRequest_OneOfPay() } type HelloRequest_Noop struct { Noop string `protobuf:&amp;#34;bytes,2,opt,name=noop,proto3,oneof&amp;#34;` } type HelloRequest_Wx struct { Wx *WechatPay `protobuf:&amp;#34;bytes,3,opt,name=wx,proto3,oneof&amp;#34;` } // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Noop) isHelloRequest_OneOfPay() {} // 接口实现 empty // implements isHelloRequest_OneOfPay interface func (*HelloRequest_Wx) isHelloRequest_OneOfPay() {} 3 总结 在 Golang 中, oneof 语义基于一个类型接口，oneof 的每个成员都实现这个接口，方便在Ge</description>
     </item>
     
     <item>
       <title>多个集合，取交集</title>
-      <link>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</link>
       <pubDate>Wed, 28 Apr 2021 21:08:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</guid>
       <description>1 Preface 最近在一直采用 go 语言进行项目开发，遇到一个比较有意思的问题： 多个集合，计算交集，哪种计算方法最高效？ 假定集合采用 HashMap 来实现，那么每次查询的时间复杂度为 O(1) 考虑最简单的情况，假定有2个集合A和B，A 的元素个数为2, B 的元素个数为10。 计算A和B的交集有 2 个方案： 方案一：先遍历A，在B中查找是否存在，时间复杂度为 2*O(1) 方案二：时间复杂度为 10*O(1) 于是得出结论： 每次遍历最小的集合去计算交集，总的时间复杂度最小。 2 寻找已有的轮子 由于 go 标准库，并不提供 set 数据结构；先尝试用 google 搜索，fatih/set 出镜率比较高。 于是</description>
     </item>
     
@@ -261,82 +261,82 @@
     
     <item>
       <title>业务缓存之可行性？</title>
-      <link>https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/</link>
       <pubDate>Fri, 08 Jan 2021 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/</guid>
       <description>1 Preface 在业务系统中，为了提高服务的性能，降低平均时延，一个常用的手段：增加cache。 鲁迅:-）人们发明一种方法解决一个问题，而几乎总是会引入另一个问题。 那么可能会问：Cache 要加在哪里，要缓存多久，才会更有效? 下面就拿一个例子，来展开看看。 2 分析 一般而言，需要对执行频率高，耗时占比大的逻辑，优先增加Cache。 但是要注意：增加 Cache 不能影响到业务的正确性。 适用场景：数据变化不频繁，因为一旦数据发生变化，Cache可能产生不一致。 对于不一致，还需要设计一个合理的失效时间，在业务可接受的误差之内增加c</description>
     </item>
     
     <item>
       <title>基于 go 的 wireshark 插件实现方案</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/</link>
       <pubDate>Tue, 08 Dec 2020 22:15:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/</guid>
       <description>1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务</description>
     </item>
     
     <item>
       <title>wireshark lua 插件tcp报文分段(desegment)？</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/</link>
       <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/</guid>
       <description>缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &amp;gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很</description>
     </item>
     
     <item>
       <title>wireshark lua 插件之 tvb():string()</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-trap/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/</link>
       <pubDate>Sat, 05 Dec 2020 22:35:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-trap/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/</guid>
       <description>缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。 于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。 解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。 1 2 -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len()) 总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。 有时候遇到问题，我们可以先通过 google</description>
     </item>
     
     <item>
       <title>wireshark插件，如何关联请求应答(如ping协议)？</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-relink/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/</link>
       <pubDate>Sat, 05 Dec 2020 22:15:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-relink/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/</guid>
       <description>缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever</description>
     </item>
     
     <item>
       <title>Go 必须知道的 18 个Go开发库</title>
-      <link>https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/go-must-knowns-18-pkgs/</link>
       <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/go-must-knowns-18-pkgs/</guid>
       <description>包含各种使用场景的Go第三方列表。 随着时间的推移，Go语言爱好者已经创建并共享了许多Go框架和库。这些库有不同的功能，从微服务开发到构建web应用程序! 备注：在Go语言中我们都称第三方库为package（包）。 配置文件处理库 配置文件通常以各种格式编写，如JSON和YAML。Go有一个非常有用的包，它使读取和写入各种格式的配置文件成为小菜一碟。 1、Viper：这是一个关于Go应用程序配置处理的完整解决方案，包括12-Factor应用程序。它作用在应用程序中，可以处理所有类型的配置文件和格式。 可以读</description>
     </item>
     
     <item>
       <title>Go 常用的包推荐 (持续更新)</title>
-      <link>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/golang-recommend-pkgs/</link>
       <pubDate>Tue, 17 Nov 2020 23:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/golang-recommend-pkgs/</guid>
       <description>更新日志 2023-12-15 增加 cron, automaxprocs, goquery 常用库介绍 2022-09-05 更新 goup v0.5.2 使用说明 2022-02-13 增加 goup 使用 2021-06-10 增加 go-set 使用 2020-11-17 初始版本 1 Go 常用工具包推荐 1 stringer 为枚举量生成String()方法 go install golang.org/x/tools/cmd/stringer 2 pretty 格式化打印任意 go 对象，开发测试打印大对象，非常有用 (这样就不用json.Marshal再打印) go install github.com/kylelemons/godebug 3 GoMock 2 调试工具 Delve 源码调试工具 安装： go install github.com/go-delve/delve/cmd/dlv@latest 快速上手： 1 2 3 $ dlv debug main.go $ &amp;gt; break main.main $ &amp;gt; continue 3 常用开发库 1 http-router 高性能、可扩展的HTTP路由 2 easyjson 高性能的Json Marshaler, 适用于有schema的Json数据 3 set set集合数据结构，基于原生 map 实现 4 测试框架 1 goconvey 简单易用的go测试框架，</description>
     </item>
     
     <item>
       <title>g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</title>
-      <link>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/</link>
       <pubDate>Fri, 06 Nov 2020 11:09:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/</guid>
       <description>Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &amp;lt;&amp;lt; &amp;#34;str = &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp;amp; operator=(_CharT __c) { this-&amp;gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&amp;quot;N&amp;quot;， int64转换成 char，仅保留了最低的一个字节</description>
     </item>
     
     <item>
       <title>Eureka 服务注册与发现-原理分析</title>
-      <link>https://forrestsu.github.io/posts/architecture/spring-eureka-registry/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/</link>
       <pubDate>Mon, 25 May 2020 17:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/spring-eureka-registry/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。&lt;/p&gt;
 &lt;p&gt;SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。&lt;/p&gt;
@@ -354,19 +354,19 @@
     
     <item>
       <title>Git 项目仓库中的 OWNERS 文件</title>
-      <link>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/</link>
       <pubDate>Thu, 21 May 2020 22:21:45 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/</guid>
       <description>1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的</description>
     </item>
     
     <item>
       <title>Seastar 之 ready_future(3)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</link>
       <pubDate>Fri, 08 May 2020 19:55:17 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</guid>
       <description>&lt;h2 id=&#34;1-什么是-ready_future&#34;&gt;1 什么是 ready_future&lt;/h2&gt;
 &lt;p&gt;如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
 我们把这个 future 称为 &lt;code&gt;ready_future&lt;/code&gt;。&lt;/p&gt;
@@ -381,19 +381,19 @@
     
     <item>
       <title>CPU Cache 架构</title>
-      <link>https://forrestsu.github.io/posts/architecture/cpu-cache/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</link>
       <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cpu-cache/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</guid>
       <description>1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。 多处理器结构有两种： (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。 (2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者</description>
     </item>
     
     <item>
       <title>Seastar 之核间通信 (2)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</link>
       <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</guid>
       <description>&lt;h2 id=&#34;1-0核和任一个核通信&#34;&gt;1 0核和任一个核通信&lt;/h2&gt;
 &lt;p&gt;Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API &lt;code&gt;sched_set_affinity()&lt;/code&gt;，绑定一个 SMP 的 core，所以我们这里称之为&lt;strong&gt;核间通信&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
@@ -408,10 +408,10 @@
     
     <item>
       <title>多模匹配之AC自动机</title>
-      <link>https://forrestsu.github.io/posts/algorithm/ac-automation/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/ac-automation/</link>
       <pubDate>Tue, 31 Mar 2020 18:06:58 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/ac-automation/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/ac-automation/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。&lt;/p&gt;
 &lt;p&gt;AC自动机算法分为3步：&lt;strong&gt;(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程&lt;/strong&gt;。&lt;/p&gt;
@@ -424,10 +424,10 @@
     
     <item>
       <title>Seastar 之 future/promise 原理(1)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</guid>
       <description>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当</description>
     </item>
     
@@ -442,73 +442,64 @@
     
     <item>
       <title>双蛋问题(动态规划)</title>
-      <link>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/throwing-eggs-in-building/</link>
       <pubDate>Thu, 19 Mar 2020 14:07:56 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/throwing-eggs-in-building/</guid>
       <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。 T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果： 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1) 假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次： cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数： F(T, n) = min{cost(1, T, n), cost(2, T, n), &amp;hellip;, cost(k, T, n), &amp;hellip;, cost(T, T, n)} 2 实现 简</description>
     </item>
     
     <item>
       <title>不建议使用std::thread</title>
-      <link>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/</link>
       <pubDate>Sun, 15 Mar 2020 11:09:07 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/</guid>
       <description>1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。 为了方便理解，下面给一个例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 // g++ -std=c++0x -g test.cpp -lpthread -o test #include &amp;lt;stdexcept&amp;gt; #include &amp;lt;thread&amp;gt; void foo() { throw std::runtime_error(&amp;#34;foo&amp;#34;); } int main() { std::thread t(foo); t.join(); } 直接运行就会产生coredump, 通过gdb 分析： $ gdb test core.1243 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Program received signal SIGABRT, Aborted. [Switching to Thread 0x7ffff7fd0700 (LWP 10278)] 0x000000318f036285 in raise () from /lib64/libc.so.6 Missing separate debuginfos, use: debuginfo-install glibc-2.14.90-24.fc16.9.x86_64 libgcc-4.6.3-2.fc16.x86_64 libstdc++-4.6.3-2.fc16.x86_64 (gdb) bt #0 0x000000318f036285 in raise () from /lib64/libc.so.6 #1 0x000000318f037b9b in abort () from /lib64/libc.so.6 #2 0x00000031964bbc5d in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib64/libstdc++.so.6 #3 0x00000031964b9e16 in</description>
     </item>
     
     <item>
       <title>C&#43;&#43;14 lambda 用法</title>
-      <link>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/cpp14-lambda-usage/</link>
       <pubDate>Fri, 07 Feb 2020 17:42:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/cpp14-lambda-usage/</guid>
       <description>1 嵌套lambda表达式 写一个lambda表达式A，其入参是一个lambda表达式B： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 #include &amp;lt;cstdio&amp;gt; #include &amp;lt;iostream&amp;gt; namespace example01 { template&amp;lt;typename Func&amp;gt; void run_task(Func &amp;amp;&amp;amp;func) { int arg = 100; printf(&amp;#34;1. arg &amp;gt;&amp;gt; %d\n&amp;#34;, arg); /** * 定义一个别名,进行引用捕获 * (注意：引用捕获时，请考虑被捕获对象的生命周期) */ func([&amp;amp;i = arg]() mutable { ++i; printf(&amp;#34;3. i == %d\n&amp;#34;, i); throw std::logic_error(&amp;#34;逻辑错误&amp;#34;); }); printf(&amp;#34;6. arg &amp;lt;&amp;lt; %d\n&amp;#34;, arg); } inline void run() { //写一个lambda表达式A，其入参是一个lambda表达式B example01::run_task([](auto get_ex) { printf(&amp;#34;2. start check\n&amp;#34;); try { get_ex(); } catch (std::exception &amp;amp;ex) { std::cout &amp;lt;&amp;lt; &amp;#34;4.</description>
     </item>
     
     <item>
-      <title>VSCode C&#43;&#43; bazel</title>
-      <link>https://forrestsu.github.io/posts/cpp/vscode-cpp-bazel/</link>
-      <pubDate>Thu, 16 Jan 2020 17:06:09 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/cpp/vscode-cpp-bazel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>使用 CMake 快速制作 RPM 安装包</title>
-      <link>https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/</link>
       <pubDate>Thu, 16 Jan 2020 17:06:09 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/</guid>
       <description>1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。 制作 rpm 包通用的方式是： 直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。 今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild) 下面我们就基于C</description>
     </item>
     
     <item>
       <title>Go select多路复用, 实现超时机制</title>
-      <link>https://forrestsu.github.io/posts/go/select-in-go/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/select-in-go/</link>
       <pubDate>Wed, 18 Dec 2019 20:19:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/select-in-go/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/select-in-go/</guid>
       <description>1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？ 在 select 中加入一个 timer channel case rc2 := &amp;lt;-time.After(d): After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。 完整代码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 采用 select 实现超时</description>
     </item>
     
     <item>
       <title>Golang 反射 (1)</title>
-      <link>https://forrestsu.github.io/posts/go/reflection-in-go/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/reflection-in-go/</link>
       <pubDate>Tue, 17 Dec 2019 18:10:48 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/reflection-in-go/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/reflection-in-go/</guid>
       <description>1 Preface 反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如 google 的 protobuf。 如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。 在之前的文章中，我们了解了如何在 Java/C++ 中使用反射： Java-反射机制 protobuf-反射 2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为Any</description>
     </item>
     
     <item>
       <title>etcd 服务注册与发现（一）</title>
-      <link>https://forrestsu.github.io/posts/architecture/highavailable/etcd-high-available/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/etcd-high-available/</link>
       <pubDate>Wed, 27 Nov 2019 23:59:19 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/highavailable/etcd-high-available/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/etcd-high-available/</guid>
       <description>1 Preface 最近 C++ 后台微服务组件，考虑使用etcd集群，替换 zookeeper 集群。 这篇先讨论实现服务的注册与发现，节点的上线和下线通知。后面讨论服务的负载均衡。 etcd基于raft协议，通过复制日志文件的方式来保证数据的强一致性。 在etcd之前，常用的是基于 paxos 协议的 zookeeper。 2 etcd 介绍 etcd是一个golang编写的分布式、高可用的一致性键值存储系统，用于提供可靠的分布式键值(key-value)存储、配置共享和服务发现等功能。 etcd可以用于存储关键数据和实现分布式调度，在现代化的集群运行中能够起到关键性的</description>
     </item>
     
@@ -523,10 +514,10 @@
     
     <item>
       <title>什么是鸭子类型(duck typing)</title>
-      <link>https://forrestsu.github.io/posts/go/duck-type/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/duck-type/</link>
       <pubDate>Sat, 10 Aug 2019 19:34:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/duck-type/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/duck-type/</guid>
       <description>&lt;h2 id=&#34;1-duck-type&#34;&gt;1 duck type&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;/p&gt;
@@ -543,28 +534,28 @@
     
     <item>
       <title>浅谈微服务架构、大数据技术</title>
-      <link>https://forrestsu.github.io/posts/architecture/microservice/microservices-vs-big-data/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/microservice/microservices-vs-big-data/</link>
       <pubDate>Fri, 28 Jun 2019 11:53:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/microservice/microservices-vs-big-data/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/microservice/microservices-vs-big-data/</guid>
       <description>1 微服务架构现状及原理 目前 SpringCloud、Dubbo等微服务主流开发框架盛行, Spring Cloud 也被开发者认为是最好的开发框架;越来越多的单体应用架构向微服务化转变。微服务化与容器技术相辅相成，容器技术的成熟为微服务提供了得天独厚的客观条件。轻量化的容器是微服务的最佳运行环境，微服务应用在容器环境下等到了运维效率的提升。 其中: 微服务化主要是对单体应用功能解耦。 1.1 微服务架构优点 通过分解单体应用为多个微服务的方式降低了单体应用的复杂度。每个服务通过rpc或者消息驱动的api定义清楚边界。微服务模式为单体式</description>
     </item>
     
     <item>
       <title>五种 IO 模型</title>
-      <link>https://forrestsu.github.io/posts/thinking/io-model/</link>
+      <link>https://forrestsu.github.io/posts/cs/io-model/</link>
       <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/thinking/io-model/</guid>
+      <guid>https://forrestsu.github.io/posts/cs/io-model/</guid>
       <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。 我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。 2 五种 I/O 模型 blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions) 再说一下IO发生时涉及的对象和步骤。 对于一个net</description>
     </item>
     
     <item>
       <title>系统调用之 restart_syscall</title>
-      <link>https://forrestsu.github.io/posts/linux/restart-syscall/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/os-linux/restart-syscall/</link>
       <pubDate>Tue, 25 Dec 2018 17:33:53 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/linux/restart-syscall/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/os-linux/restart-syscall/</guid>
       <description>&lt;p&gt;在我们使用&lt;code&gt;strace -p pid&lt;/code&gt; 的时候，经常会遇到如下情景：&lt;br&gt;
 
         &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://forrestsu.github.io/images/unix_restart_syscall.png&#34;&gt;
@@ -576,64 +567,64 @@
     
     <item>
       <title>Red Black Tree (01)</title>
-      <link>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/red-black-tree-01/</link>
       <pubDate>Mon, 19 Nov 2018 15:00:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/red-black-tree-01/</guid>
       <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。 Conclusion BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N 因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。 红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图： 上图：</description>
     </item>
     
     <item>
       <title>Multithreading-with-ZeroMQ</title>
-      <link>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/</link>
       <pubDate>Tue, 30 Oct 2018 19:50:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/</guid>
       <description>本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 它的异步I</description>
     </item>
     
     <item>
       <title>Zookeeper&#43;Kafka集群搭建方案</title>
-      <link>https://forrestsu.github.io/posts/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</link>
       <pubDate>Tue, 30 Oct 2018 19:50:19 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</guid>
       <description>Preface Zookeeper是一个高性能分布式应用协调服务 Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交 Zookeeper工作方式 Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO 与Kafka读写操作不一</description>
     </item>
     
     <item>
       <title>eventfd 入门</title>
-      <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/</link>
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/</guid>
       <description>1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。 它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。 eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。 更详细的可以查看 man eventfd 1 2 3 #include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags); eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。 该对象包含了一个无符号64位整型计数器，计数器由内核维护。 此计数器，</description>
     </item>
     
     <item>
       <title>kafka安装</title>
-      <link>https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/</link>
       <pubDate>Tue, 31 Jul 2018 10:34:54 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/</guid>
       <description>Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。 启动zookeeper服务 bin/zkServer.sh start kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录： dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker） 启动kafka服务器（broker）</description>
     </item>
     
     <item>
       <title>Simple Binary Encoding</title>
-      <link>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</link>
       <pubDate>Sat, 09 Jun 2018 20:29:57 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</guid>
       <description>金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。</description>
     </item>
     
     <item>
       <title>git 源码学习</title>
-      <link>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sun, 03 Jun 2018 23:57:22 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
       <description>Preface 最近趁上一个工作任务刚结束，新的任务还在规划中，难得清闲几天，可以抽点时间来看下 Linus 大神在2005年写的 git，为了简单，理解git 的原理，我们可以 checkout 刚开始的版本 比如hash为 79517a067。 这个版本总代码量只有1491 行。 Compile 依赖包：libssl-dev、zlib 修改编译选项：Makefile中LIBS 增加 -lcrypto 编译完之后会生成可执行文件： update-cache show-diff init-db write-tree read-tree commit-tree cat-file fsck-cache checkout-cache Analysis 1 init-db 初始化工作目录： 在当前路径下创建目录， .dircache └── objects ├── 00 ├── 01 ├── ...(255 dirs) ├── fe └── ff 2 update-cache</description>
     </item>
     
@@ -648,82 +639,82 @@
     
     <item>
       <title>Reflection in protobuf (C&#43;&#43;/Java)</title>
-      <link>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/</link>
       <pubDate>Fri, 27 Apr 2018 21:56:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/</guid>
       <description>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。 1 reflection in C++ 在c++中使用protobuf 反射 1 2 3 4 5 6 7 8 9 10 11 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc ... } C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 /** * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以</description>
     </item>
     
     <item>
       <title>异步编程之 CPS</title>
-      <link>https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/asynchronous-programming-cps/</link>
       <pubDate>Fri, 20 Apr 2018 22:44:50 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/asynchronous-programming-cps/</guid>
       <description>1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。 CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。 现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。 1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下： 1 2 3 4 5 6 7 8 square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y</description>
     </item>
     
     <item>
       <title>C&#43;&#43; RAII</title>
-      <link>https://forrestsu.github.io/posts/cpp/raii-in-cpp/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/raii-in-cpp/</link>
       <pubDate>Tue, 10 Apr 2018 11:01:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/raii-in-cpp/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/raii-in-cpp/</guid>
       <description>什么是RAII ? RAII即“Resource Acquisition Is Initialization”，也称为“资源获取即初始化”。是C++语言的一种管理资源、避免泄漏的惯用法。利用的就是C++构造的对象最终会被销毁的原则。 RAII的做法是使用一个对象，在其构造时获取对应的资源，在对象生命期内控制对资源的访问，使之始终保持有效，最后在对象析构的时候，释放构造时获取的资源。</description>
     </item>
     
     <item>
       <title>2018 年会-Plan</title>
-      <link>https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/</link>
       <pubDate>Thu, 15 Mar 2018 21:14:22 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/</guid>
       <description>plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。 平行世界，未来已来。 区块链，比特币 1 我们现在在做的 ems2.0 Al 日常运维。 正准备做的 ems3.0 seastar dpdk coroutine&amp;hellip; 我想做 ： 理财平台 智能投顾 大数据 语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。 通过这一次年会，我也发现了一些我不喜欢的</description>
     </item>
     
     <item>
       <title>2018年会</title>
-      <link>https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/</link>
       <pubDate>Thu, 15 Mar 2018 21:10:25 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/</guid>
       <description>2018-03-09 记于十三陵 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。 平行世界，未来已来。 区块链，比特币 1 我们现在在做的 ems2.0 Al 日常运维。 正准备做的 ems3.0 seastar dpdk coroutine&amp;hellip; 我想做 ： 理财平台 智能投顾 大数据 语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。 通过这一次年会，我也发现了一些我不喜欢的。</description>
     </item>
     
     <item>
       <title>公司的成长史</title>
-      <link>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</link>
       <pubDate>Sat, 10 Mar 2018 19:01:18 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</guid>
       <description>preface 最近Boss 开了例会，谈了下公司的发展史。听着挺有意思，于是决定记录下来。</description>
     </item>
     
     <item>
       <title>Seastar 入门</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/</link>
       <pubDate>Tue, 27 Feb 2018 14:00:04 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/</guid>
       <description>1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现</description>
     </item>
     
     <item>
       <title>2018 Vision Hubble</title>
-      <link>https://forrestsu.github.io/posts/work/2018-vision-hubble/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/2018-vision-hubble/</link>
       <pubDate>Mon, 05 Feb 2018 02:21:10 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/2018-vision-hubble/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/2018-vision-hubble/</guid>
       <description>1990年4月24日 Hubble Space Telescope Preface 和往常一样，今天又领到一笔资本主义安慰，一切都很安逸。CTO 会上开玩笑说：&amp;ldquo;软件不出Bug，每个月领着固定的薪水，生活就这样保持现状，多好！ 最好什么都不要变，生活就保持现状！如果说,把每个人的薪资都提高一倍，我想就没人干活了，生活太安逸了。 反过来，如果把每个人的薪资都降到5k，我想大家一定拼命写！写简历&amp;hellip;(哈哈)&amp;rdquo; 很有同感，之前在HS的时候，感觉自己用的东西太low，偶尔夜里做恶梦跟不上技术的革新，用着大家都淘汰的东西，失落就像坠</description>
     </item>
     
     <item>
       <title>echarts 数据可视化-初体验</title>
-      <link>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Fri, 12 Jan 2018 01:04:49 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>Preface 欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。 Problem 实现一个简单的需求，实时动态展示 一只股票的价格和</description>
     </item>
     
@@ -756,10 +747,10 @@
     
     <item>
       <title>谈谈mutable/unmutable传值/传地址</title>
-      <link>https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/java/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</link>
       <pubDate>Mon, 18 Dec 2017 18:27:08 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/java/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</guid>
       <description>1 传值/传地址 传地址也可以看成一种特殊的传值，只是这个值会被解析成地址。在C++里面传值更多的时候指的是对象拷贝。 传地址主要：1 为了简化程序逻辑，效率不再生成一个对象的副本。</description>
     </item>
     
@@ -774,10 +765,10 @@
     
     <item>
       <title>Web Design in 4 minutes</title>
-      <link>https://forrestsu.github.io/posts/web/web-design-in-4-minutes/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/web/web-design-in-4-minutes/</link>
       <pubDate>Thu, 26 Oct 2017 23:44:48 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/web/web-design-in-4-minutes/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/web/web-design-in-4-minutes/</guid>
       <description>网页设计 4 分钟 假如你有一个产品，一个作品集，又或仅仅是一个想法，你想要在你的网站上与大家分享。在你发布在网络上之前，你想要让它看起来有吸引力，专业，或者至少看起来像样。 那么你需要做的第一件事是什么呢？ 1 Content 设计的目的是增强你需要呈现的内容。这听起来似乎很明显，但是 2 Centering 长文字很难解析，同样也很难去阅读。设置每行字符数限制，极大地增强了文本块的可读性和吸引力。 1 2 3 4 body { margin: 0 auto; max-width: 50em; } 在对文本块进行样式化后，如何对文本自身进行样式化？ 3 Font family 浏览器缺省的(英文)字体是 &amp;ldquo;Times&amp;rdquo;, 这可能看起来不那么吸引人(主要是因为</description>
     </item>
     
@@ -819,10 +810,10 @@
     
     <item>
       <title>red 语言初体验</title>
-      <link>https://forrestsu.github.io/posts/languages/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/java/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Thu, 05 Oct 2017 01:38:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/languages/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/java/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>我第一次听到 red 这门语言是在2017-07-20，是通过陈天的一篇关于 red 的文章。正好趁十一，闲得浮生几日，来入个门。下面步入正题： red 目前最新的版本是0.6.3 (2017-10-05) 1 red 语言特性 我们首先来看下 red 语言的一些特性： 1 red 是一门编译型语言，不走虚拟机，直接编译成目标平台的，和 C 代码同级别性能的二进制。编译时可以直接跨平台往 windows / linux / osx 等 target OS，以及 x86 / arm 等 target CPU 上面编译。 2 跨平台的本地GUI 看上去像是一门后端的语言，竟然去抢前端的饭碗。而且，妄图支持 osx，windows，android，iOS，一统江湖。是的，就</description>
     </item>
     
@@ -855,10 +846,10 @@
     
     <item>
       <title>工作会议</title>
-      <link>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</link>
       <pubDate>Fri, 04 Aug 2017 01:02:34 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</guid>
       <description>1 PLAN 下半年主要是推系统，券商全面终身免费铺开~~ 工作重心： (1) 系统性能测试 (2) 商品期货 (+期货高频) (3) 深度学习 (Deep Learn &amp;amp;&amp;amp; Recommend ) 2 期货高频模块 (1) 策略执行的优先级 策略的执行顺序的先后顺序，对执行结果的影响。 (2) 限制完成的Job CTP 会不断重试. (3) 金额＞10000的都需要用逗号分隔 3 业务了解 (营利模式） 公募基金：收管理费 对冲基金：2倍的管理费 + 20~40%的收益分成 4 排查问题 我们在遇到一个比较难的问题时，往往会先问搜索引擎，然后确实感觉自己 Handle 不了，就会考虑向上级反馈。 (1) 问题的反馈 倍增效应： 当一个问题由底层开发人员逐级</description>
     </item>
     
@@ -909,37 +900,37 @@
     
     <item>
       <title>c和c&#43;&#43;混用技巧</title>
-      <link>https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
       <pubDate>Mon, 17 Jul 2017 16:12:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
       <description>1 用C-style 来访问vector 1 2 3 4 5 6 7 8 vector&amp;lt;char*&amp;gt; str; str.push_back(&amp;#34;abc&amp;#34;); str.push_back(&amp;#34;123&amp;#34;); //按照 C-style 来访问vector char** ptr= str.data(); for(int i =0;i&amp;lt;2;++i) printf(&amp;#34;%s\n&amp;#34;,ptr[i]);</description>
     </item>
     
     <item>
       <title>关于博弈论</title>
-      <link>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</link>
       <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
       <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典</description>
     </item>
     
     <item>
       <title>大公司还是小公司？</title>
-      <link>https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</link>
       <pubDate>Tue, 27 Jun 2017 00:11:30 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</guid>
       <description>大公司就像温水煮青蛙，慢慢的你就不知不觉变成一颗螺丝钉，这也是一般的领导所期望的。 1 公司的组织结构 以下是个人的愚见，如有高见，不吝留言评论^_* 大公司的特点：就像一个螺丝钉，要求就是:尽管做好自己那块。 优点：工作更规范，更加标准化，流程化，了解的业务更全面，平台更大。 缺点：可能对自己的能力提升很慢，如果不在业余时间自己充实提升自己，就像温水煮青蛙，螺丝钉越钉越牢固。 小公司的特点：要做的工作更杂，更有挑战性和创新性。 优点：能够学到更多前沿的东西(前提是你肯钻研)，然后还能应用到工作中，每个人承担的</description>
     </item>
     
     <item>
       <title>谈创业公司的例会</title>
-      <link>https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</link>
       <pubDate>Mon, 26 Jun 2017 23:50:35 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</guid>
       <description>2017-07-28 Preface 今天是我参加公司的第二次全体会议，每次 Boss 都会讲很多东西，虽然有很多不理解，但是潜意识里面还是非常认同，很多观点能产生共鸣。 我是 2017年 4 月 10 日入职一个40人左右的小型创业公司，到今天(20170608)差不多快2个月，创业公司能迫使你成长的更加快 :)。 有时候，很多事需要你自己去 handle ！ 1 Business Driven 公司都是由业务驱动的，而且是那些赚钱的业务决定了这个公司成长有多快，走多远。 技术往往是第一生产力，我们要能够 Perceive (感知)新技术，看是否能够对当下的业务有提升。 (1) 不要为追求新技术而用新技术，要以业务需求为主导来</description>
     </item>
     
@@ -963,19 +954,19 @@
     
     <item>
       <title>工作重心梳理</title>
-      <link>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</link>
+      <link>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</link>
       <pubDate>Fri, 09 Jun 2017 22:53:22 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</guid>
+      <guid>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</guid>
       <description>1 目前的工作模块划分data-20170609 Team1 : z(Teamleader) (10人左右) Module front-developers backend developers 1 T0Service huoyanfeng、liuchengbo sunquan 2 Risk liuwei、zhangyue liuwei、zhangyue 3 Account Management guoyuzhen guoyuzhen 4 Quotes konghairong lizhijian 期货高频 yantao yantao 衍生数据计算 - lizhijian 测试：1人 HR&amp;amp;财务：1人 Team2 : App(Andriod &amp;amp;&amp;amp; IOS) Team (4~5 人) Team3 : Trading Team (5人左右) Team4 : 金工数据 Team (4人左右) 2 2017下半年的工作重心 近期已经完成的 Task List： 1 ZMQ 消息1帧改为2帧，第1帧 改为主题，第2帧传递数据。（需要考虑smooth migration） 2 银河策略宝： 客户端c</description>
     </item>
     
     <item>
       <title>C&#43;&#43;11 std::function 和 std::bind</title>
-      <link>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-std_function%E5%92%8Cstd_bind/</link>
       <pubDate>Fri, 09 Jun 2017 16:50:08 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-std_function%E5%92%8Cstd_bind/</guid>
       <description>1 std::bind std::bind 可以用来绑定一个函数 std::placeholders; 定义有_1、_2、_3 &amp;hellip; 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #include &amp;lt;functional&amp;gt; using namespace std; using namespace std::placeholders; int f(int, char, double); int main() { // 翻转参数顺序 auto frev = bind(f, _3, _2, _1); int x = frev(1.2, &amp;#39;w&amp;#39;, 7); cout&amp;lt;&amp;lt;x&amp;lt;&amp;lt;endl; return 0; } int f(int a, char b , double c) { cout&amp;lt;&amp;lt;&amp;#34;a==&amp;#34;&amp;lt;&amp;lt; a &amp;lt;&amp;lt;&amp;#34;,b==&amp;#34; &amp;lt;&amp;lt;b &amp;lt;&amp;lt; &amp;#34;,c==&amp;#34;&amp;lt;&amp;lt;c &amp;lt;&amp;lt;endl; return 0; } 2 std::function std::function 可以用来定义一个函数 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 int add(int a, int b){ return a+b; } auto mod=[](int a, int b){return a%b;}; struct divide{ int operator()(int m, int n){ return m/n; } }; int main() { function&amp;lt;int(int,int)&amp;gt; func1= add; function&amp;lt;int(int,int)&amp;gt; func2= mod; function&amp;lt;int(int,int)&amp;gt; func3= divide(); cout&amp;lt;&amp;lt;func1(5, 6)&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;func2(5, 6)&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;func3(5, 6)&amp;lt;&amp;lt;endl; return 0; }</description>
     </item>
     
@@ -999,28 +990,28 @@
     
     <item>
       <title>[多线程]1114-按序打印</title>
-      <link>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
       <pubDate>Mon, 05 Jun 2017 15:19:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
       <description>1 题目描述 我们提供了一个类： public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。 线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/print-in-order 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 1114. 按序打印 2 考点 着重考察多线程的并发控制。 3 Solution 下</description>
     </item>
     
     <item>
       <title>单链表的递归算法&#43;变体</title>
-      <link>https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/</link>
       <pubDate>Sat, 03 Jun 2017 15:19:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/</guid>
       <description>Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 6 // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} }; 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13 class Solution { public: //尾插法 ListNode* reverseList(ListNode* head) { if(head == NULL || head-&amp;gt;next == NULL) { return head; } auto tail = reverseList(head-&amp;gt;next); head-&amp;gt;next-&amp;gt;next = head; head-&amp;gt;next = NULL; return tail; // became new head } }; 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 ListNode* reverseList(ListNode *head) { ListNode *pNewHead</description>
     </item>
     
     <item>
       <title>Redis 入门</title>
-      <link>https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/library/redis-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Tue, 16 May 2017 15:19:29 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/library/redis-%E5%85%A5%E9%97%A8/</guid>
       <description>1 登陆 redis-cli 远程访问： $ redis-cli -h host -p port -a password 2 常用命令 redis 127.0.0.1:6379&amp;gt; COMMAND KEY_NAME (1) 查找key的类型 type key 查找 keys *oob* 列出所有包含oob的key hash 集合 HMSET sqkey name &amp;ldquo;redis tutorial&amp;rdquo; description &amp;ldquo;redis basic commands for caching&amp;rdquo; likes 20 visitors 23000</description>
     </item>
     
@@ -1035,55 +1026,55 @@
     
     <item>
       <title>libuv入门</title>
-      <link>https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/library/libuv%E5%85%A5%E9%97%A8/</link>
       <pubDate>Wed, 19 Apr 2017 14:05:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/library/libuv%E5%85%A5%E9%97%A8/</guid>
       <description>libuv 定时器timer 使用： g++ -o sunquan main.cpp -luv 执行 ./sunquan 可以看到每隔1秒打印一次 count的值。 uv_timer_start(&amp;amp;timer, timer_cb, timeout, repeat); 其中timeout是首次触发等待的时间毫秒值，之后每隔repeat毫秒触发一次，如果repeat=0表示首次触发之后不再触发。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 //main.cpp #include &amp;lt;cstdlib&amp;gt; #include &amp;lt;uv.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;time.h&amp;gt; #include &amp;lt;iostream&amp;gt; using namespace std; void timer_cb(uv_timer_t *handlei) { static int count=1; cout&amp;lt;&amp;lt;&amp;#34;count==&amp;#34;&amp;lt;&amp;lt;count++&amp;lt;&amp;lt;endl; } int main() { int r; uv_timer_t timer; r = uv_timer_init(uv_default_loop(),&amp;amp;timer); assert(r==0); // 0 cout&amp;lt;&amp;lt;uv_is_active((uv_handle_t*) &amp;amp;timer)&amp;lt;&amp;lt;endl; // 0 cout&amp;lt;&amp;lt; uv_is_closing((uv_handle_t*) &amp;amp;timer)&amp;lt;&amp;lt;endl; cout&amp;lt;&amp;lt;&amp;#34;start &amp;#34;&amp;lt;&amp;lt;time(NULL)&amp;lt;&amp;lt;endl; r = uv_timer_start(&amp;amp;timer, timer_cb, 5000, 1000); r = uv_run(uv_default_loop(),UV_RUN_DEFAULT); cout&amp;lt;&amp;lt;&amp;#34;r=&amp;#34;&amp;lt;&amp;lt;r&amp;lt;&amp;lt;endl; return 0; }</description>
     </item>
     
     <item>
       <title>C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)</title>
-      <link>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-reference-qualifier/</link>
       <pubDate>Sat, 08 Apr 2017 20:42:42 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-reference-qualifier/</guid>
       <description>1 引用限定符 学了这么多年C++，今天拜读了Scott Meyes的《more effective cpp》，第一次看到这种写法&amp;hellip; 引用限定可以让成员函数只能被左值对象调用或者只能被右值对象调用。 下面举例说明： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace left_value { class Hello { void show() &amp;amp; { std::cout &amp;lt;&amp;lt; &amp;#34;just for left-value\n&amp;#34;; } }; inline void run() { Hello t; t.show(); // ok Hello{}.show(); // compile error: passing &amp;#39;left_value::Hello&amp;#39; as &amp;#39;this&amp;#39; argument discards qualifiers [-fpermissive] } } 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace right_value { struct Test { void show() &amp;amp;&amp;amp; { std::cout &amp;lt;&amp;lt; &amp;#34; just for right value\n&amp;#34;; } }; inline void run() { Test t; t.show(); //compile error: passing &amp;#39;right_value::Test&amp;#39; as &amp;#39;this&amp;#39; argument discards qualifiers [-fpermissive] Test{}.show(); //ok } } 换句话说，引用限定所限定的就是*this，它可以让一些函数只被左值this调用或者右值</description>
     </item>
     
     <item>
       <title>C&#43;&#43;11 explicit关键字</title>
-      <link>https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/cpp-explicit-keywords/</link>
       <pubDate>Fri, 07 Apr 2017 23:42:42 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/cpp-explicit-keywords/</guid>
       <description>C++中的explicit 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 class Test1 { public: Test1(int n) { num=n; }//普通构造函数 private: int num; }; class Test2 { public: explicit Test2(int n) { num=n; }//explicit(显式)构造函数 private: int num; }; int main() { Test1 t1=12; //隐式调用其构造函数,成功 Test2 t2=12; //编译错误,不能隐式调用其构造函数 Test2 t2(12); //显式调用成功 return 0; }</description>
     </item>
     
     <item>
       <title>深入理解C&#43;&#43;11智能指针</title>
-      <link>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/deep-in-smart-pointer-cpp/</link>
       <pubDate>Fri, 07 Apr 2017 20:54:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/deep-in-smart-pointer-cpp/</guid>
       <description>1 Preface 软件工程遇到的问题都可以通过增加一个中间层来解决, 智能指针也是基于这样的思想； C++ 11 包含了以下 3 种常用的智能指针： std::unique_ptr std::shared_ptr std::weak_ptr 包含头文件 #include &amp;lt;memory&amp;gt; 即可 2 原理分析 2.1 shared_ptr 直接用 shared_ptr 管理一个堆上的裸指针对象： 1 std::shared_ptr&amp;lt;Good&amp;gt; gp1(new Good()); 2.2 weak_ptr weak_ptr类 和 shared_ptr类 的成员变量相同。 为什么需要 weak_ptr? 因为 shared_ptr 是对象的强引用, 一旦发生循环引用,对象就无法析构, 所以 weak_ptr 出现就是为了解决循环引用的问题。 打个不恰当的比喻：weak_ptr就像寄生虫，shared_ptr就是宿主。 weak_ptr 和 shared_ptr 内存结构相同(1 个原始对象指针 + ctrl_block_t 指针)； 不同之处在于</description>
     </item>
     
     <item>
       <title>恒生一年半工作体验</title>
-      <link>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</link>
+      <link>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Fri, 07 Apr 2017 17:51:39 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</guid>
       <description>前言 我是2015年6月毕业就来到恒生电子工作，算上3个月实习期，到今天(2017-02-21)将近有2年光景。 先简单介绍下我这边的工作情况：我工作的部门是恒生起步比较早的部门—资产管理事业部（隶属于资产管理事业部&amp;lt;下面有研发一二三四、投资一部、投资二部共6个子部门&amp;gt;）。 每个部门都有一个到多个产品，一个产品即一个BU。比如我所在的投资二部目前有4个小BU（资管SQL版本，非标1.0，非标2.0，QDII境外投资）资管SQL是逐渐被O32的替换的产品，QDII也是拿了O32一个版本来独立</description>
     </item>
     
     <item>
       <title>zeromq 入门</title>
-      <link>https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/library/zeromq-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Sun, 02 Apr 2017 20:24:37 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/library/zeromq-%E5%85%A5%E9%97%A8/</guid>
       <description>1 Install ubuntu 16.10上安装zeroMQ： (1) 下载zeromq wget https://github.com/zeromq/libzmq/releases/download/v4.2.1/zeromq-4.2.1.tar.gz (2) 解压 tar -zxvf zeromq-4.2.1.tar.gz (3) 编译安装 执行configure文件：./configure 编译： make 安装： make install 2 编写样例代码 server端代码：server.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;assert.h&amp;gt; #include &amp;lt;zmq.h&amp;gt; int main (void) { // Socket to talk to clients void *context = zmq_ctx_new (); void *responder = zmq_socket (context, ZMQ_REP); int rc = zmq_bind (responder, &amp;#34;tcp://*:5555&amp;#34;); assert (rc == 0); while (1) { char buffer [10]; zmq_recv (responder, buffer, 10, 0); printf (&amp;#34;Received Hello\n&amp;#34;); sleep (1); // Do some &amp;#39;work&amp;#39; zmq_send (responder, &amp;#34;World&amp;#34;, 5, 0); } return 0; } client端代码：client.cpp 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 #include &amp;lt;zmq.h&amp;gt; #include &amp;lt;string.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; int</description>
     </item>
     
@@ -1098,28 +1089,28 @@
     
     <item>
       <title>恒生工作梳理</title>
-      <link>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</link>
+      <link>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</link>
       <pubDate>Mon, 27 Mar 2017 11:19:05 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</guid>
+      <guid>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</guid>
       <description>工作流程 一、 梳理工作流程 售前去聊客户，看客户有没有新的业务需求，具体是哪家券商，然后达到对应的券商的业务接口。 业务人员 通过网络或者咨询客户业务部门等渠道了解，具体的业务流程，业务属性，以及想要实现的功能。 经过一轮业务分析，然后找客户确认功能需求。 开发拿到业务需求，确认信息是否足够，然后制定相应的修改方案。并进行修改方案评审，评审通过则分配到具体开发，进行修改。 开发修改完成然后递交集成，然后分发到测试，测试验证完毕。 最后客户测试环境线上测试通过，部署到生产。 二、 还需要熟悉的模块 消息机制、主推，共享</description>
     </item>
     
     <item>
       <title>posix 进程 vs. 线程 </title>
-      <link>https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/posix-process-vs-thread/</link>
       <pubDate>Wed, 22 Mar 2017 17:48:27 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/posix-process-vs-thread/</guid>
       <description>进程和线程api对比 进程 线程 pid_t thread_t fork pthread_create waitpid pthread_jion exit pthread_exit 在main函数中调用return 在线程函数中调用return 僵进程 僵线程 wait_pid pthread_jion pthread_detach kill pthread_cancel 知识点 1 使用pthread_detach 方法脱离一个线程就不会产生僵线程。 2 获取当前县城id 3 pthread_cancel可以杀死一个执行中的线程。 线程结束 自杀： pthread_exit ,在线程入口函数中调用return. 他杀： pthread_cancel</description>
     </item>
     
     <item>
       <title>QDII转换机工作汇总</title>
-      <link>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</link>
+      <link>https://forrestsu.github.io/posts/work/hundsun2015/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</link>
       <pubDate>Tue, 21 Mar 2017 17:35:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</guid>
+      <guid>https://forrestsu.github.io/posts/work/hundsun2015/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</guid>
       <description>1 概述 目前，我主要负责QDII的报盘，涉及证券代码的资讯、行情、交易报盘等任务。 操作手册《QDII操作手册－转换机部分.docx》 1 、设计文档 2。清单如下: qdii_archivehq (境外行情归档，境外业务日期自动切换) qdii_baseinfo (一系列彭博行情文件转换任务) qdii_fix (FIX转换任务) qdii_futhsfix (境外FIX期货报盘) qdii_hsfix (恒生FIX转换任务) qdii_realhq (彭博实时行情任务，聚源行情转换任务) qdii_reuterhq (路透Xtra3000行情转换) qdii_spfut (境外统一期货委托、 境外统一期货成交 、 境外统一期货行情) 下面有 √ 的任务需要代码走读。 2 转换任务逻辑 境外行情归档/ 境外业务日期自动</description>
     </item>
     
@@ -1134,29 +1125,20 @@
     
     <item>
       <title>Git原理分析</title>
-      <link>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</link>
       <pubDate>Thu, 09 Mar 2017 11:24:45 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</guid>
       <description>Git Analysis 1 我们通过实验的方式来分析，Git是如何管理本地代码的。 我们在alpha目录下新建一个number.txt文件，echo first &amp;gt;number.txt。 git init git add number.txt 此时在.git 下会产生一个index 文本文件 查看文件： object 下会产生一个9c的文件夹，然后后面跟长度为38的字符串。（也就是40位的sha-1,前面2位作为文件夹名作为索引。） 我们用sha-1计算出</description>
     </item>
     
     <item>
       <title>Linux 服务端编程（一）</title>
-      <link>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</link>
       <pubDate>Fri, 24 Feb 2017 17:29:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</guid>
       <description>ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&amp;gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;amp;0xff03 hex(节点号)&amp;amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。</description>
-    </item>
-    
-    <item>
-      <title>travel-2017</title>
-      <link>https://forrestsu.github.io/posts/travel/travel-2017/</link>
-      <pubDate>Mon, 20 Feb 2017 20:21:25 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/travel/travel-2017/</guid>
-      <description>一、 想去的地方 龙门古镇 （浙江杭州）</description>
     </item>
     
     <item>
@@ -1187,33 +1169,6 @@
     </item>
     
     <item>
-      <title>如何配置nginx php7(windows)</title>
-      <link>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</link>
-      <pubDate>Wed, 01 Feb 2017 21:39:21 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</guid>
-      <description>本文主要介绍如何用Nginx(engine x) 搭建php7的服务器。 1 StartUp Nginx http://nginx.org/en/download.html php7 ： http://windows.php.net vc14： https://www.microsoft.com/zh-CN/download/details.aspx?id=48145 （vcruntime14） RunHiddenConsole： http://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip 2 Install 1 安装vc14 2 解压nginx到D:\Portable\nginx-1.10.3 3 解压Php到D:\Portable\php-7.1.1x64 3 修改配置文件 3.1 nginx 配置文件 1 修改nginx.conf配置: 2 复制并注释掉fastcgi_param,修改/scripts为$document_root 3.2 php配置文件 1 复制php.ini-develo</description>
-    </item>
-    
-    <item>
-      <title>XSL 语言(2)</title>
-      <link>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/</link>
-      <pubDate>Wed, 18 Jan 2017 15:56:07 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/</guid>
-      <description>上一篇主要入门了 XSL，这一课来进一步学习XSL。 1 语法 (1) xsl:if 元素 语法： 1 2 3 4 5 &amp;lt;xsl:if test=&amp;#34;expression&amp;#34;&amp;gt; ... ...如果条件成立则输出... ... &amp;lt;/xsl:if&amp;gt; 如需添加有条件的测试，请在 XSL 文件中的 xsl:for-each 元素内部添加 xsl:if 元素。(下面的代码仅仅会输出价格等于 10 的 CD 的 title 和 artist 元素) 注：小于等于 可以组合起来使用。 &amp;lt;xsl:for-each select=&amp;#34;catalog/cd&amp;#34;&amp;gt; &amp;lt;xsl:if test=&amp;#34;price = 10&amp;#34;&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;#34;title&amp;#34;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;&amp;lt;xsl:value-of select=&amp;#34;artist&amp;#34;/&amp;gt;&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/xsl:if&amp;gt; &amp;lt;/xsl:for-each&amp;gt; (2) xsl:choose 元素 xsl:choose 元素用于结合 xsl:when 和 xsl:otherwise 来表达多重条件测试。可以理解成C语言里面的条件分支case when。 语法 1 2 3 4 5 6 7 8 9 10 11 &amp;lt;xsl:choose&amp;gt; &amp;lt;xsl:when test=&amp;#34;expression1&amp;#34;&amp;gt; ... 输出 ... &amp;lt;/xsl:when&amp;gt; &amp;lt;xsl:when test=&amp;#34;expression2&amp;#34;&amp;gt; ... 输出 ... &amp;lt;/xsl:when&amp;gt; &amp;lt;xsl:otherwise&amp;gt; ... 输出 .... &amp;lt;/xsl:otherwise&amp;gt; &amp;lt;/xsl:choose&amp;gt; (3) xsl:apply-templates 元素 &amp;lt;xsl:apply-templates &amp;gt; 元素可把一个模板应用于当前的元素或者</description>
-    </item>
-    
-    <item>
-      <title>XSL 语言</title>
-      <link>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/</link>
-      <pubDate>Wed, 18 Jan 2017 14:08:31 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/</guid>
-      <description>1 Introduction XSL 指扩展样式表语言（EXtensible Stylesheet Language）。 XSLT 是指 XSL 转换(transfer)，这里主要来学习如何用XSLT将XML 文档转换为其他文档，比如 XHTML。样例XML文件： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;?xml-stylesheet type=&amp;#34;text/xsl&amp;#34; href=&amp;#34;cdcatalog.xsl&amp;#34;?&amp;gt; &amp;lt;!-- &amp;lt;?xml-stylesheet type=&amp;#34;text/xsl&amp;#34; href=&amp;#34;readline.xsl&amp;#34;?&amp;gt;--&amp;gt; &amp;lt;catalog&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;你好&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Bob Zhang&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;9.9&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;Happy in the Rain&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Alice&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;10.00&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;cd&amp;gt; &amp;lt;title&amp;gt;A litte Boy&amp;lt;/title&amp;gt; &amp;lt;artist&amp;gt;Jhon&amp;lt;/artist&amp;gt; &amp;lt;country&amp;gt;USA&amp;lt;/country&amp;gt; &amp;lt;company&amp;gt;Columbia&amp;lt;/company&amp;gt; &amp;lt;price&amp;gt;12.20&amp;lt;/price&amp;gt; &amp;lt;year&amp;gt;1985&amp;lt;/year&amp;gt; &amp;lt;/cd&amp;gt; &amp;lt;/catalog&amp;gt; 2 语法 XSL 样式表由一个或多套被称为模板（template）的规则组成。 每个模板含有当某个指定的节点被匹配时所应用的</description>
-    </item>
-    
-    <item>
       <title>全麻一次性拔四颗智齿是怎样一种体验？</title>
       <link>https://forrestsu.github.io/posts/life/health/%E5%85%A8%E9%BA%BB%E4%B8%80%E6%AC%A1%E6%80%A7%E6%8B%94%E5%9B%9B%E9%A2%97%E6%99%BA%E9%BD%BF%E6%98%AF%E6%80%8E%E6%A0%B7%E4%B8%80%E7%A7%8D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Mon, 16 Jan 2017 00:03:59 +0800</pubDate>
@@ -1233,10 +1188,10 @@
     
     <item>
       <title>Java 反射机制(1)</title>
-      <link>https://forrestsu.github.io/posts/languages/java-reflection/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/java/java-reflection/</link>
       <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/languages/java-reflection/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/java/java-reflection/</guid>
       <description>什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 // src/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;#34;Javass.c10.HelloWorld&amp;#34;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&amp;#34;-&amp;gt;&amp;#34;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.printStackTrace(); } } 二、动态构造一个类，并动态调用其方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 public static void main(String[] args) { try { Class c = Class.forName(&amp;#34;Javass.c10.HelloWorld&amp;#34;); Class paramtype[] = new Class[2]; paramtype[0] = Integer.TYPE;//int paramtype[1] = String.class; Constructor cs = c.getConstructor(paramtype); Object param[] = new Object[2]; param[0] = 100; param[1] = &amp;#34;sunquan&amp;#34;; //dynamic create one Class</description>
     </item>
     
@@ -1259,38 +1214,29 @@
     </item>
     
     <item>
-      <title>First Blog for Me</title>
-      <link>https://forrestsu.github.io/posts/life/%E6%9D%82%E8%B0%88/first-blog-for-me/</link>
-      <pubDate>Thu, 13 Oct 2016 18:04:13 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/posts/life/%E6%9D%82%E8%B0%88/first-blog-for-me/</guid>
-      <description>这个小站将以技术分享学习为主，当然也同样会记录我生活的喜怒哀乐， 作为我小小人生的一个旁观者，也许若干年后回头看，会有别样的心情。</description>
-    </item>
-    
-    <item>
       <title>git cherry-pick</title>
-      <link>https://forrestsu.github.io/posts/git/git-cherry-pick/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-cherry-pick/</link>
       <pubDate>Mon, 12 Sep 2016 01:10:59 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git-cherry-pick/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-cherry-pick/</guid>
       <description>1 cherry-pick git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： git cherry-pick ee99d9a 如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。 2 冲突解决 如下图，我</description>
     </item>
     
     <item>
       <title>git merge 和git rebase的区别</title>
-      <link>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
       <pubDate>Sun, 11 Sep 2016 23:57:14 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
       <description>最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。 一、git merge [branchName] 顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改： git checkout dev-feature git merge master Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1</description>
     </item>
     
     <item>
       <title>背包九讲01-关于常数的优化</title>
-      <link>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
       <pubDate>Sun, 28 Aug 2016 01:13:01 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
       <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程： 1 dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V</description>
     </item>
     
@@ -1314,10 +1260,10 @@
     
     <item>
       <title>C&#43;&#43;关于NULL、0、nullptr</title>
-      <link>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/about-null-0-nullptr/</link>
       <pubDate>Sun, 17 Jul 2016 01:11:00 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/about-null-0-nullptr/</guid>
       <description>一 关于NULL、0、nullptr 1 在C语言中NULL被定义为：一个void* 指针，指向的地址为0。 1 #define NULL ((void *)0) 所以在C语言中我们通常会写出如下语句 1 2 int *i = NULL; foo_t *f = NULL; 2 而在C++中，NULL会被定义为0 1 2 3 4 5 #ifndef __cplusplus #define NULL ((void *)0) #else /* C++ */ #define NULL 0 #endif 3 C++11引入了nullptr 来表示空指针 二 在C++中使用NULL的风险 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 //func1 int mycall(char *a, char *b) { cout&amp;lt;&amp;lt;&amp;#34;char pointer!&amp;#34;&amp;lt;&amp;lt;endl; } //func2 int mycall(char *a, int b) { cout&amp;lt;&amp;lt;&amp;#34;int !&amp;#34;&amp;lt;&amp;lt;endl; } // func3 int mycall(char *a,nullptr_t nullp) { cout&amp;lt;&amp;lt;&amp;#34;nullptr !&amp;#34;&amp;lt;&amp;lt;endl; } int main() { char *a,*b; mycall(a,b); //char pointer! //优先调用func2，没有func2则调用func1或fu</description>
     </item>
     

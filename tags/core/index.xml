@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 07 Apr 2020 23:06:23 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/core/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Seastar 之核间通信 (2)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</link>
       <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</guid>
       <description>&lt;h2 id=&#34;1-0核和任一个核通信&#34;&gt;1 0核和任一个核通信&lt;/h2&gt;
 &lt;p&gt;Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API &lt;code&gt;sched_set_affinity()&lt;/code&gt;，绑定一个 SMP 的 core，所以我们这里称之为&lt;strong&gt;核间通信&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;

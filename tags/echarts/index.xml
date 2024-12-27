@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>echarts on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/echarts/</link>
+    <description>Recent content in echarts on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 12 Jan 2018 01:04:49 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/echarts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>echarts 数据可视化-初体验</title>
+      <link>https://forrestsu.github.io/posts/developerguide/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Fri, 12 Jan 2018 01:04:49 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <description>Preface 欠缺架构方面的能力，又困于实现业务需求，数据可视化感觉是锦上添花的需求。但是这方面的能力还是很欠缺，最近看了AlphaGo 2017的电影，发现 DeepMind team 数据可视化做的很不错，特别是李世乭 第三局 赢了AlphaGo 的时候，后台 AlphaGo 呈现各个 state 输赢的概率一目了然(不清楚 state 的童鞋可以看下之前写的一篇 MCTS 的译文) 。真正做AI的基础还是数据分析，神经网络可以在海量数据里面寻找 和 发现规律， 但是人类还是很难理解； 如果用把数据 图表或者 投射高维空间，应该能让我们有直观的感受。 Problem 实现一个简单的需求，实时动态展示 一只股票的价格和</description>
+    </item>
+    
+  </channel>
+</rss>

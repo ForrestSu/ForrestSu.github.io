@@ -26,19 +26,19 @@
     <loc>https://forrestsu.github.io/posts/tools/iphone-simulate-location/</loc>
     <lastmod>2024-09-01T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/cpp/</loc>
+    <loc>https://forrestsu.github.io/tags/cpp/</loc>
     <lastmod>2024-02-20T08:11:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/</loc>
+    <lastmod>2024-02-20T08:11:00+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2024-02-20T08:11:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/git/</loc>
     <lastmod>2023-11-05T19:20:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/git/</loc>
-    <lastmod>2023-11-05T19:20:00+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/git/git-rebase-reserve-commit-date/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/</loc>
     <lastmod>2023-11-05T19:20:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/rebase/</loc>
@@ -59,13 +59,10 @@
     <loc>https://forrestsu.github.io/tags/zsh/</loc>
     <lastmod>2023-08-20T09:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/tools/zsh-plugins/</loc>
+    <loc>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</loc>
     <lastmod>2023-08-20T09:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/go-version-feature/</loc>
-    <lastmod>2023-08-09T17:28:06+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/go-%E8%AF%AD%E8%A8%80/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/go-version-feature/</loc>
     <lastmod>2023-08-09T17:28:06+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/golang/</loc>
@@ -73,9 +70,6 @@
   </url><url>
     <loc>https://forrestsu.github.io/tags/release/</loc>
     <lastmod>2023-08-09T17:28:06+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/business/</loc>
-    <lastmod>2023-01-03T14:39:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/cpa/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
@@ -89,20 +83,20 @@
     <loc>https://forrestsu.github.io/tags/cpt/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
   </url><url>
+    <loc>https://forrestsu.github.io/categories/work/</loc>
+    <lastmod>2023-01-03T14:39:00+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/business/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</loc>
+    <loc>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/business/cpm&#43;cpc&#43;cpa/</loc>
+    <loc>https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/</loc>
     <lastmod>2023-01-03T14:39:00+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/design/</loc>
-    <lastmod>2022-12-09T19:07:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/go/</loc>
     <lastmod>2022-12-09T19:07:00+08:00</lastmod>
@@ -110,16 +104,16 @@
     <loc>https://forrestsu.github.io/tags/logreplay/</loc>
     <lastmod>2022-12-09T19:07:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/design/log-replay/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/design/log-replay/</loc>
     <lastmod>2022-12-09T19:07:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/</loc>
     <lastmod>2022-12-09T19:07:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/code-review/</loc>
+    <loc>https://forrestsu.github.io/tags/cmd/</loc>
     <lastmod>2022-05-10T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/configuration/</loc>
+    <loc>https://forrestsu.github.io/tags/code-review/</loc>
     <lastmod>2022-05-10T10:40:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/gerrit/</loc>
@@ -131,7 +125,7 @@
     <loc>https://forrestsu.github.io/tags/macos/</loc>
     <lastmod>2022-05-10T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/tools/macos-usage/</loc>
+    <loc>https://forrestsu.github.io/posts/tools/macos/macos-usage/</loc>
     <lastmod>2022-05-10T10:40:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/busy/</loc>
@@ -146,16 +140,16 @@
     <loc>https://forrestsu.github.io/tags/cr/</loc>
     <lastmod>2022-04-12T16:07:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/thinking/</loc>
+    <loc>https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
     <lastmod>2022-04-12T16:07:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/thinking/how-to-cr-code/</loc>
+    <loc>https://forrestsu.github.io/posts/cs/how-to-cr-code/</loc>
     <lastmod>2022-04-12T16:07:47+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
     <lastmod>2022-03-30T01:10:59+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/design/wework-robot-design/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/design/wework-robot-design/</loc>
     <lastmod>2022-03-30T01:10:59+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/</loc>
@@ -164,14 +158,14 @@
     <loc>https://forrestsu.github.io/tags/okr/</loc>
     <lastmod>2022-03-01T22:36:23+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/readingnotes/</loc>
+    <loc>https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-03-01T22:36:23+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/</loc>
     <lastmod>2022-03-01T22:36:23+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%BB%80%E4%B9%88%E6%98%AFokr/</loc>
     <lastmod>2022-03-01T22:36:23+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/database/</loc>
-    <lastmod>2022-01-24T10:40:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/event/</loc>
     <lastmod>2022-01-24T10:40:28+08:00</lastmod>
@@ -179,10 +173,10 @@
     <loc>https://forrestsu.github.io/tags/mysql/</loc>
     <lastmod>2022-01-24T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/database/mysql-timer-schedule/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/database/mysql-timer-schedule/</loc>
     <lastmod>2022-01-24T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/database/mysqldump-usage/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/</loc>
     <lastmod>2022-01-22T10:40:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/mysqldump/</loc>
@@ -191,25 +185,25 @@
     <loc>https://forrestsu.github.io/tags/opentelemetry/</loc>
     <lastmod>2022-01-08T19:54:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/tracing/go-opentelemetry-tracing/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/</loc>
     <lastmod>2022-01-08T19:54:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/tracing/</loc>
     <lastmod>2022-01-08T19:54:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/tracing/</loc>
-    <lastmod>2022-01-08T19:54:28+08:00</lastmod>
-  </url><url>
     <loc>https://forrestsu.github.io/tags/algorithm/</loc>
     <lastmod>2021-12-09T23:19:02+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/leetcode/</loc>
+    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
+    <lastmod>2021-12-09T23:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/leetcode/</loc>
     <lastmod>2021-12-09T23:19:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/recursive/</loc>
     <lastmod>2021-12-09T23:19:02+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/leetcode/elegant-recursive-algorithm/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</loc>
     <lastmod>2021-12-09T23:19:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/categories/architecture/</loc>
@@ -218,25 +212,25 @@
     <loc>https://forrestsu.github.io/tags/cache/</loc>
     <lastmod>2021-12-08T13:46:15+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/cache/memory-cache-design/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/</loc>
     <lastmod>2021-12-08T13:46:15+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/go-cmp/</loc>
     <lastmod>2021-11-25T17:28:06+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/go-cmp/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/go-cmp/</loc>
     <lastmod>2021-11-25T17:28:06+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/tools/</loc>
     <lastmod>2021-10-10T10:40:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/tools/xcode-compile-swift-project/</loc>
+    <loc>https://forrestsu.github.io/posts/tools/macos/xcode-compile-swift-project/</loc>
     <lastmod>2021-10-10T10:40:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/sql/</loc>
     <lastmod>2021-09-15T16:50:12+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/database/sql-user-tags/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/</loc>
     <lastmod>2021-09-15T16:50:12+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/</loc>
@@ -245,14 +239,11 @@
     <loc>https://forrestsu.github.io/tags/oneof/</loc>
     <lastmod>2021-09-15T15:50:12+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/golang-pb3-oneof/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/golang-pb3-oneof/</loc>
     <lastmod>2021-09-15T15:50:12+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/proto3/</loc>
     <lastmod>2021-09-15T15:50:12+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
-    <lastmod>2021-04-28T21:08:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/intersection/</loc>
     <lastmod>2021-04-28T21:08:02+08:00</lastmod>
@@ -260,7 +251,7 @@
     <loc>https://forrestsu.github.io/tags/set/</loc>
     <lastmod>2021-04-28T21:08:02+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</loc>
     <lastmod>2021-04-28T21:08:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/docker/</loc>
@@ -269,11 +260,8 @@
     <loc>https://forrestsu.github.io/posts/tools/docker-introduction/</loc>
     <lastmod>2021-03-21T16:55:52+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/</loc>
     <lastmod>2021-01-08T13:46:15+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/network/</loc>
-    <lastmod>2020-12-08T22:15:47+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/plugin/</loc>
     <lastmod>2020-12-08T22:15:47+08:00</lastmod>
@@ -281,7 +269,7 @@
     <loc>https://forrestsu.github.io/tags/wireshark/</loc>
     <lastmod>2020-12-08T22:15:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/network/wireshark-go-plugin/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/</loc>
     <lastmod>2020-12-08T22:15:47+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/lua/</loc>
@@ -290,19 +278,19 @@
     <loc>https://forrestsu.github.io/tags/tcp/</loc>
     <lastmod>2020-12-05T23:23:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/</loc>
     <lastmod>2020-12-05T23:23:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/network/wireshark-lua-trap/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/</loc>
     <lastmod>2020-12-05T22:35:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/network/wireshark-lua-relink/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/</loc>
     <lastmod>2020-12-05T22:15:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/go-must-knowns-18-pkgs/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/go-must-knowns-18-pkgs/</loc>
     <lastmod>2020-11-17T23:28:06+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/golang-recommend-pkgs/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/golang-recommend-pkgs/</loc>
     <lastmod>2020-11-17T23:28:06+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/pkg/</loc>
@@ -314,7 +302,7 @@
     <loc>https://forrestsu.github.io/tags/-wall/</loc>
     <lastmod>2020-11-06T11:09:51+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/</loc>
     <lastmod>2020-11-06T11:09:51+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/narrow-cast/</loc>
@@ -323,13 +311,13 @@
     <loc>https://forrestsu.github.io/tags/eureka/</loc>
     <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/spring-eureka-registry/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/</loc>
     <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/registry-center/</loc>
     <lastmod>2020-05-25T17:28:06+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/git/git-owners-files-in-repos/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/</loc>
     <lastmod>2020-05-21T22:21:45+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/owners/</loc>
@@ -341,13 +329,13 @@
     <loc>https://forrestsu.github.io/tags/seastar/</loc>
     <lastmod>2020-05-08T19:55:17+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</loc>
     <lastmod>2020-05-08T19:55:17+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/cpu/</loc>
     <lastmod>2020-04-08T13:46:15+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/cpu-cache/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</loc>
     <lastmod>2020-04-08T13:46:15+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/hardware/</loc>
@@ -359,7 +347,7 @@
     <loc>https://forrestsu.github.io/tags/core/</loc>
     <lastmod>2020-04-07T23:06:23+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</loc>
     <lastmod>2020-04-07T23:06:23+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/</loc>
@@ -368,7 +356,7 @@
     <loc>https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/</loc>
     <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/ac-automation/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/ac-automation/</loc>
     <lastmod>2020-03-31T18:06:58+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/future/</loc>
@@ -380,7 +368,7 @@
     <loc>https://forrestsu.github.io/tags/reactive/</loc>
     <lastmod>2020-03-26T23:11:26+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</loc>
     <lastmod>2020-03-26T23:11:26+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/tools/git-diff-ms-office/</loc>
@@ -395,7 +383,7 @@
     <loc>https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2020-03-19T14:07:56+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/throwing-eggs-in-building/</loc>
     <lastmod>2020-03-19T14:07:56+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/sigabrt/</loc>
@@ -407,13 +395,10 @@
     <loc>https://forrestsu.github.io/tags/unwound-stack/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/not-use-std-thread/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/</loc>
     <lastmod>2020-03-15T11:09:07+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/cpp14-lambda-usage/</loc>
-    <lastmod>2020-02-07T17:42:28+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/cpp/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/cpp14-lambda-usage/</loc>
     <lastmod>2020-02-07T17:42:28+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/lambda/</loc>
@@ -425,13 +410,10 @@
     <loc>https://forrestsu.github.io/tags/rpm/</loc>
     <lastmod>2020-01-16T17:06:09+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/vscode-cpp-bazel/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/</loc>
     <lastmod>2020-01-16T17:06:09+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/build_tool/build-rpm-package-use-cmake/</loc>
-    <lastmod>2020-01-16T17:06:09+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/go/select-in-go/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/select-in-go/</loc>
     <lastmod>2019-12-18T20:19:15+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/select/</loc>
@@ -440,7 +422,7 @@
     <loc>https://forrestsu.github.io/tags/timeout/</loc>
     <lastmod>2019-12-18T20:19:15+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/reflection-in-go/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/reflection-in-go/</loc>
     <lastmod>2019-12-17T18:10:48+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/reflection/</loc>
@@ -449,25 +431,19 @@
     <loc>https://forrestsu.github.io/tags/etcd/</loc>
     <lastmod>2019-11-27T23:59:19+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/highavailable/etcd-high-available/</loc>
-    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/highavailable/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/etcd-high-available/</loc>
     <lastmod>2019-11-27T23:59:19+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/zookeeper/</loc>
     <lastmod>2019-11-27T23:59:19+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/cs/</loc>
-    <lastmod>2019-10-11T20:12:34+08:00</lastmod>
+    <loc>https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/</loc>
+    <lastmod>2019-11-27T23:59:19+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/</loc>
     <lastmod>2019-10-11T20:12:34+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/todolist/</loc>
-    <lastmod>2019-10-10T11:28:08+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/todolist/</loc>
     <lastmod>2019-10-10T11:28:08+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/todo/</loc>
@@ -476,16 +452,13 @@
     <loc>https://forrestsu.github.io/tags/duck-type/</loc>
     <lastmod>2019-08-10T19:34:23+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/go/duck-type/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/go/duck-type/</loc>
     <lastmod>2019-08-10T19:34:23+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/bigdata/</loc>
     <lastmod>2019-06-28T11:53:25+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/microservice/</loc>
-    <lastmod>2019-06-28T11:53:25+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/microservice/microservices-vs-big-data/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/microservice/microservices-vs-big-data/</loc>
     <lastmod>2019-06-28T11:53:25+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/epoll/</loc>
@@ -494,25 +467,25 @@
     <loc>https://forrestsu.github.io/tags/poll/</loc>
     <lastmod>2019-03-11T17:41:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/thinking/io-model/</loc>
+    <loc>https://forrestsu.github.io/posts/cs/io-model/</loc>
     <lastmod>2019-03-11T17:41:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/linux/</loc>
+    <loc>https://forrestsu.github.io/tags/linux/</loc>
     <lastmod>2018-12-25T17:33:53+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/syscall/</loc>
     <lastmod>2018-12-25T17:33:53+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/linux/restart-syscall/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/os-linux/restart-syscall/</loc>
     <lastmod>2018-12-25T17:33:53+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/rb-tree/</loc>
     <lastmod>2018-11-19T15:00:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/red-black-tree-01/</loc>
     <lastmod>2018-11-19T15:00:28+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/multithreading-with-zeromq/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/</loc>
     <lastmod>2018-10-30T19:50:51+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/zeromq/</loc>
@@ -524,73 +497,76 @@
     <loc>https://forrestsu.github.io/tags/kafka/</loc>
     <lastmod>2018-10-30T19:50:19+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/</loc>
     <lastmod>2018-10-30T19:50:19+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/eventfd/</loc>
     <lastmod>2018-08-12T01:50:45+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/linux/eventfd-introduction/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/</loc>
     <lastmod>2018-08-12T01:50:45+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/kafka%E5%AE%89%E8%A3%85/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/library/</loc>
+    <loc>https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/</loc>
     <lastmod>2018-07-31T10:34:54+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/library/</loc>
-    <lastmod>2018-07-31T10:34:54+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</loc>
     <lastmod>2018-06-09T20:29:57+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2018-06-03T23:57:22+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2018-06-03T23:57:22+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/what-do-you-want/</loc>
     <lastmod>2018-06-03T23:04:10+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/reflection-in-protobuf-cpp-java/</loc>
+    <loc>https://forrestsu.github.io/tags/java/</loc>
+    <lastmod>2018-04-27T21:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/protobuf/</loc>
+    <lastmod>2018-04-27T21:56:39+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/</loc>
     <lastmod>2018-04-27T21:56:39+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/cps/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/asynchronous-programming-cps/</loc>
     <lastmod>2018-04-20T22:44:50+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/raii-in-cpp/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/raii-in-cpp/</loc>
     <lastmod>2018-04-10T11:01:51+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/2018-%E5%B9%B4%E4%BC%9A-plan/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/</loc>
     <lastmod>2018-03-15T21:14:22+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/work/</loc>
     <lastmod>2018-03-15T21:14:22+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/work/</loc>
-    <lastmod>2018-03-15T21:14:22+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/work/2018%E5%B9%B4%E4%BC%9A/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/</loc>
     <lastmod>2018-03-15T21:10:25+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/</loc>
     <lastmod>2018-03-10T19:01:18+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/</loc>
     <lastmod>2018-02-27T14:00:04+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/2018-vision-hubble/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/2018-vision-hubble/</loc>
     <lastmod>2018-02-05T02:21:10+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://forrestsu.github.io/tags/echarts/</loc>
+    <lastmod>2018-01-12T01:04:49+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/developerguide/web/echarts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/web/</loc>
-    <lastmod>2018-01-12T01:04:49+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/web/</loc>
     <lastmod>2018-01-12T01:04:49+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/cs/</loc>
@@ -617,23 +593,17 @@
     <loc>https://forrestsu.github.io/tags/languages/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/categories/languages/</loc>
-    <lastmod>2017-12-18T18:27:08+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/languages/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/java/%E8%B0%88%E8%B0%88mutable-unmutable%E4%BC%A0%E5%80%BC-%E4%BC%A0%E5%9C%B0%E5%9D%80/</loc>
     <lastmod>2017-12-18T18:27:08+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E5%B8%9D%E9%83%BD%E7%94%9F%E6%B4%BB%E6%9D%82%E6%84%9F2/</loc>
     <lastmod>2017-11-21T23:51:27+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/web/web-design-in-4-minutes/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/web/web-design-in-4-minutes/</loc>
     <lastmod>2017-10-26T23:44:48+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</loc>
     <lastmod>2017-10-20T00:54:53+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/readingnotes/</loc>
-    <lastmod>2017-10-10T11:23:08+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</loc>
     <lastmod>2017-10-10T11:23:08+08:00</lastmod>
@@ -644,7 +614,7 @@
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/</loc>
     <lastmod>2017-10-09T20:24:56+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/languages/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/java/red-%E8%AF%AD%E8%A8%80%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2017-10-05T01:38:51+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/we-need-some-magic-moments/</loc>
@@ -662,7 +632,7 @@
     <loc>https://forrestsu.github.io/posts/diary/%E4%BC%98%E7%BE%8E%E7%9A%84%E5%8F%A5%E5%AD%90/</loc>
     <lastmod>2017-08-20T18:31:18+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E4%BC%9A%E8%AE%AE/</loc>
     <lastmod>2017-08-04T01:02:34+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/diary/%E5%BD%93%E4%B8%8B%E7%9A%84%E6%97%B6%E5%85%89%E6%9C%AA%E6%9D%A5/</loc>
@@ -680,16 +650,16 @@
     <loc>https://forrestsu.github.io/posts/life/%E5%A6%82%E4%BD%95%E6%8E%8C%E6%8F%A1%E6%89%80%E6%9C%89%E8%AF%AD%E8%A8%80/</loc>
     <lastmod>2017-07-23T12:35:33+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2017-07-17T16:12:12+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</loc>
     <lastmod>2017-07-16T17:14:54+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/%E5%A4%A7%E5%85%AC%E5%8F%B8%E8%BF%98%E6%98%AF%E5%B0%8F%E5%85%AC%E5%8F%B8/</loc>
     <lastmod>2017-06-27T00:11:30+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/%E8%B0%88%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E7%9A%84%E4%BE%8B%E4%BC%9A/</loc>
     <lastmod>2017-06-26T23:50:35+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/diary/%E9%98%81%E4%B8%AD%E5%B0%8F%E8%81%9Aljd/</loc>
@@ -698,13 +668,13 @@
     <loc>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</loc>
     <lastmod>2017-06-12T10:24:33+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</loc>
+    <loc>https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/</loc>
     <lastmod>2017-06-09T22:53:22+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/c&#43;&#43;11/</loc>
     <lastmod>2017-06-09T16:50:08+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/cpp11-std_function%E5%92%8Cstd_bind/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-std_function%E5%92%8Cstd_bind/</loc>
     <lastmod>2017-06-09T16:50:08+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
@@ -713,7 +683,7 @@
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2017-06-06T00:42:23+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</loc>
     <lastmod>2017-06-05T15:19:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/atomic/</loc>
@@ -722,22 +692,28 @@
     <loc>https://forrestsu.github.io/tags/linklist/</loc>
     <lastmod>2017-06-03T15:19:02+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/leetcode/variants-singly-linkedlist-algo/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/</loc>
     <lastmod>2017-06-03T15:19:02+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/redis-%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://forrestsu.github.io/tags/redis/</loc>
+    <lastmod>2017-05-16T15:19:29+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/developerguide/library/redis-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2017-05-16T15:19:29+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/talk-with-yuanyuan/</loc>
     <lastmod>2017-05-09T20:28:51+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/libuv%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://forrestsu.github.io/tags/libuv/</loc>
     <lastmod>2017-04-19T14:05:47+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/cpp11-reference-qualifier/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/library/libuv%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2017-04-19T14:05:47+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/cpp11-reference-qualifier/</loc>
     <lastmod>2017-04-08T20:42:42+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/cpp-explicit-keywords/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/cpp-explicit-keywords/</loc>
     <lastmod>2017-04-07T23:42:42+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/shared_ptr/</loc>
@@ -749,7 +725,7 @@
     <loc>https://forrestsu.github.io/tags/weak_ptr/</loc>
     <lastmod>2017-04-07T20:54:00+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/deep-in-smart-pointer-cpp/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/deep-in-smart-pointer-cpp/</loc>
     <lastmod>2017-04-07T20:54:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/feeling/</loc>
@@ -758,49 +734,37 @@
     <loc>https://forrestsu.github.io/tags/hundsun/</loc>
     <lastmod>2017-04-07T17:51:39+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E4%B8%80%E5%B9%B4%E5%8D%8A%E5%B7%A5%E4%BD%9C%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2017-04-07T17:51:39+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/library/zeromq-%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/library/zeromq-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2017-04-02T20:24:37+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6%E5%AF%BC%E5%B8%88-%E8%B4%BA%E8%80%81%E5%B8%88/</loc>
     <lastmod>2017-04-01T09:11:12+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</loc>
+    <loc>https://forrestsu.github.io/posts/work/hundsun2015/%E6%81%92%E7%94%9F%E5%B7%A5%E4%BD%9C%E6%A2%B3%E7%90%86/</loc>
     <lastmod>2017-03-27T11:19:05+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/posix-process-vs-thread/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/posix-process-vs-thread/</loc>
     <lastmod>2017-03-22T17:48:27+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/work/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</loc>
+    <loc>https://forrestsu.github.io/posts/work/hundsun2015/qdii%E8%BD%AC%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E6%B1%87%E6%80%BB/</loc>
     <lastmod>2017-03-21T17:35:12+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</loc>
     <lastmod>2017-03-12T22:21:45+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</loc>
     <lastmod>2017-03-09T11:24:45+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/</loc>
     <lastmod>2017-02-24T17:29:28+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/travel/</loc>
-    <lastmod>2017-02-20T20:21:25+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/travel/</loc>
-    <lastmod>2017-02-20T20:21:25+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/travel/travel-2017/</loc>
-    <lastmod>2017-02-20T20:21:25+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/about/</loc>
     <lastmod>2017-02-14T23:39:53+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/resume/</loc>
-    <lastmod>2017-02-14T23:39:53+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/resume/</loc>
     <lastmod>2017-02-14T23:39:53+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/about/</loc>
@@ -827,15 +791,6 @@
     <loc>https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/</loc>
     <lastmod>2017-02-08T15:58:52+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/web/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx-php7windows/</loc>
-    <lastmod>2017-02-01T21:39:21+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%802/</loc>
-    <lastmod>2017-01-18T15:56:07+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/web/xsl-%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2017-01-18T14:08:31+08:00</lastmod>
-  </url><url>
     <loc>https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/</loc>
     <lastmod>2017-01-16T00:03:59+08:00</lastmod>
   </url><url>
@@ -848,10 +803,7 @@
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</loc>
     <lastmod>2016-12-11T00:46:13+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/java/</loc>
-    <lastmod>2016-12-07T23:28:21+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/languages/java-reflection/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/java/java-reflection/</loc>
     <lastmod>2016-12-07T23:28:21+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/chrome/</loc>
@@ -866,25 +818,16 @@
     <loc>https://forrestsu.github.io/posts/life/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%90%88%E4%BC%99%E5%90%83%E9%A5%AD%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2016-10-18T23:42:39+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/tags/blog/</loc>
-    <lastmod>2016-10-13T18:04:13+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/life/%E6%9D%82%E8%B0%88/first-blog-for-me/</loc>
-    <lastmod>2016-10-13T18:04:13+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
-    <lastmod>2016-10-13T18:04:13+08:00</lastmod>
-  </url><url>
     <loc>https://forrestsu.github.io/archives/</loc>
     <lastmod>2016-09-26T00:23:04+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/git/git-cherry-pick/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git-cherry-pick/</loc>
     <lastmod>2016-09-12T01:10:59+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     <lastmod>2016-09-11T23:57:14+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</loc>
     <lastmod>2016-08-28T01:13:01+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</loc>
@@ -896,13 +839,19 @@
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/</loc>
     <lastmod>2016-08-06T21:11:50+08:00</lastmod>
   </url><url>
-    <loc>https://forrestsu.github.io/posts/cpp/about-null-0-nullptr/</loc>
+    <loc>https://forrestsu.github.io/posts/developerguide/cpp/about-null-0-nullptr/</loc>
     <lastmod>2016-07-17T01:11:00+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/nullptr/</loc>
     <lastmod>2016-07-17T01:11:00+08:00</lastmod>
   </url><url>
+    <loc>https://forrestsu.github.io/categories/travel/</loc>
+    <lastmod>2016-06-03T22:22:05+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/posts/travel/2016-plans/</loc>
+    <lastmod>2016-06-03T22:22:05+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/travel/</loc>
     <lastmod>2016-06-03T22:22:05+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/</loc>

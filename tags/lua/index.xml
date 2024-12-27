@@ -9,28 +9,28 @@
     <lastBuildDate>Sat, 05 Dec 2020 23:23:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>wireshark lua 插件tcp报文分段(desegment)？</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/</link>
       <pubDate>Sat, 05 Dec 2020 23:23:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-tcp-desegment/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/</guid>
       <description>缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &amp;gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很</description>
     </item>
     
     <item>
       <title>wireshark lua 插件之 tvb():string()</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-trap/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/</link>
       <pubDate>Sat, 05 Dec 2020 22:35:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-trap/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/</guid>
       <description>缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。 于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。 解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。 1 2 -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len()) 总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。 有时候遇到问题，我们可以先通过 google</description>
     </item>
     
     <item>
       <title>wireshark插件，如何关联请求应答(如ping协议)？</title>
-      <link>https://forrestsu.github.io/posts/network/wireshark-lua-relink/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/</link>
       <pubDate>Sat, 05 Dec 2020 22:15:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/network/wireshark-lua-relink/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-relink/</guid>
       <description>缘起 最近工作中，接触的内部协议比较多(项目历史原因)，于是想编写 wireshark plugin，来辅助分析业务报文， 从中寻找包含特定请求的报文。 遇到一个问题，如何对请求和应答进行关联，我知道 wireshark 解析 ping 协议，是支持ping-pong相互跳转的。 于是想自己写的协议插件，也具有这种功能，于是开始google。 在 wireshark 社区找到了sindy大神的这段回答，很受启发。原文如下: The dissector code has no access to pinfo of any other packet than the one currently dissected. If some transaction ID exists in modbus which allows you to match requests and responses, you may use two global tables indexed by this transaction ID and store the frame.number of the currently dissected packet to the appropriate table (request{transactionId} or response{transactionId}) during the first pass of the dissector (after loading the file, all packets are dissected in sequence). Whenever</description>
     </item>
     

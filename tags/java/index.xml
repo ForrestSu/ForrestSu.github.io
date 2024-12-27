@@ -6,13 +6,22 @@
     <description>Recent content in Java on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 07 Dec 2016 23:28:21 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Apr 2018 21:56:39 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reflection in protobuf (C&#43;&#43;/Java)</title>
+      <link>https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/</link>
+      <pubDate>Fri, 27 Apr 2018 21:56:39 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/library/reflection-in-protobuf-cpp-java/</guid>
+      <description>最近工作中，需要做一些消息动态解析，因为使用的 protobuf，考虑使用protobuf的反射特性。 1 reflection in C++ 在c++中使用protobuf 反射 1 2 3 4 5 6 7 8 9 10 11 package com.sunquan; message Login { optional int64 userid = 1; optional string username = 2; // name optional string password = 3; // passwd optional string email = 4; optional string nickname = 5; // etc ... } C++和Java 不同的是： c++有一个全局的pool，管理了所有定义在 proto 文件里的消息原型， 我们可以通过消息全称，查找到对应的单例的消息原型，然后通过原型构造可变的消息。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 /** * 通过消息名称, 获取构造该类型的默认（原型）。 然后你可以</description>
+    </item>
+    
     <item>
       <title>Java 反射机制(1)</title>
-      <link>https://forrestsu.github.io/posts/languages/java-reflection/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/java/java-reflection/</link>
       <pubDate>Wed, 07 Dec 2016 23:28:21 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/languages/java-reflection/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/java/java-reflection/</guid>
       <description>什么是反射 反射（Reflection）是java的特征之一。 1 能够在运行时动态检查类自身的类和方法。 2 能够获得java类中各个成员的名称并显示出来。 javaBean是reflection的实际运用之一。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 // src/HelloWorld.java public static void main(String[] args) { // TODO Auto-generated method stub try { Class c = Class.forName(&amp;#34;Javass.c10.HelloWorld&amp;#34;); Method ms[] = c.getDeclaredMethods(); for (Method a : ms) { System.out.println(a.getName()+&amp;#34;-&amp;gt;&amp;#34;+a.getReturnType().getName()); } } catch (ClassNotFoundException e) { // TODO Auto-generated catch block e.printStackTrace(); } } 二、动态构造一个类，并动态调用其方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 public static void main(String[] args) { try { Class c = Class.forName(&amp;#34;Javass.c10.HelloWorld&amp;#34;); Class paramtype[] = new Class[2]; paramtype[0] = Integer.TYPE;//int paramtype[1] = String.class; Constructor cs = c.getConstructor(paramtype); Object param[] = new Object[2]; param[0] = 100; param[1] = &amp;#34;sunquan&amp;#34;; //dynamic create one Class</description>
     </item>
     

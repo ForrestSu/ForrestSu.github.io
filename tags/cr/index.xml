@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 12 Apr 2022 16:07:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/cr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何做代码 CR？</title>
-      <link>https://forrestsu.github.io/posts/thinking/how-to-cr-code/</link>
+      <link>https://forrestsu.github.io/posts/cs/how-to-cr-code/</link>
       <pubDate>Tue, 12 Apr 2022 16:07:47 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/thinking/how-to-cr-code/</guid>
+      <guid>https://forrestsu.github.io/posts/cs/how-to-cr-code/</guid>
       <description>一、设计问题 (ABI 原则) CR 的意图 (Intention) 首先要了解整个 CR 要解决的问题； 正确的解决方案 (Better Solution) 在了解问题的基础上，思考标准的解决方案； 架构设计（合理的分层）(Architecture Design) 包设计 类设计 接口设计 安全 (safety) 不要迫使使用方到处传递敏感信息 二、实现问题 命名规范 命名规范： 一致性 注释和代码保持一致 同一个概念，不要用多个（近似但不一样的）名称 作用域</description>
     </item>
     

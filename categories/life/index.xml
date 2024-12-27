@@ -27,10 +27,10 @@
     
     <item>
       <title>Simple Binary Encoding</title>
-      <link>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</link>
       <pubDate>Sat, 09 Jun 2018 20:29:57 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/simple-binary-encoding/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/</guid>
       <description>金融系统通过发送大量不同格式的消息进行通信。当人们使用类似“巨量的”这一类术语时，我正常会想 “真的..是多少？” 因此，让我们为金融行业量化“巨大”。</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 20 Aug 2023 09:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>zsh 插件推荐</title>
-      <link>https://forrestsu.github.io/posts/tools/zsh-plugins/</link>
+      <link>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</link>
       <pubDate>Sun, 20 Aug 2023 09:40:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/tools/zsh-plugins/</guid>
+      <guid>https://forrestsu.github.io/posts/tools/macos/zsh-plugins/</guid>
       <description>1 准备工作 先安装 oh-my-zsh 配置管理工具 2 zsh常用插件 命名补全：zsh-completions brew install zsh-completions 如果自动补全不生效，将以下2个目录，追加到FPATH路径中即可。 在.zshrc 文件中，添加如下内容： 1 2 3 4 5 6 if type brew &amp;amp;&amp;gt;/dev/null; then FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH autoload -Uz compinit compinit fi 3 扩展 其他第三方工具，自动补全脚本（比如goup）保存在如下路径即可。 goup completion zsh &amp;gt; $(brew &amp;ndash;prefix)/share/zsh/site-functions/_goup</description>
     </item>
     

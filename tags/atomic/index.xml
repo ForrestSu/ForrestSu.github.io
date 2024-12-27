@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 05 Jun 2017 15:19:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/atomic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[多线程]1114-按序打印</title>
-      <link>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
       <pubDate>Mon, 05 Jun 2017 15:19:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
       <description>1 题目描述 我们提供了一个类： public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。 线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/print-in-order 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 1114. 按序打印 2 考点 着重考察多线程的并发控制。 3 Solution 下</description>
     </item>
     

@@ -6,22 +6,32 @@
     <description>Recent content in Algorithm on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 28 Apr 2021 21:08:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 23:19:02 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优雅的递归算法</title>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</link>
+      <pubDate>Thu, 09 Dec 2021 23:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</guid>
+      <description>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;这个世界上优雅的东西很少，递归至少算一个。&lt;code&gt;tree&lt;/code&gt; 和 &lt;code&gt;single list&lt;/code&gt; 的数据结构，是非常适合使用递归来操作的。下面我们使用 Go 来做几道题，感受一下递归的魅力。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>多个集合，取交集</title>
-      <link>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</link>
       <pubDate>Wed, 28 Apr 2021 21:08:02 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/data-structure/intersection-of-multi-sets/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/data-structure/intersection-of-multi-sets/</guid>
       <description>1 Preface 最近在一直采用 go 语言进行项目开发，遇到一个比较有意思的问题： 多个集合，计算交集，哪种计算方法最高效？ 假定集合采用 HashMap 来实现，那么每次查询的时间复杂度为 O(1) 考虑最简单的情况，假定有2个集合A和B，A 的元素个数为2, B 的元素个数为10。 计算A和B的交集有 2 个方案： 方案一：先遍历A，在B中查找是否存在，时间复杂度为 2*O(1) 方案二：时间复杂度为 10*O(1) 于是得出结论： 每次遍历最小的集合去计算交集，总的时间复杂度最小。 2 寻找已有的轮子 由于 go 标准库，并不提供 set 数据结构；先尝试用 google 搜索，fatih/set 出镜率比较高。 于是</description>
     </item>
     
     <item>
       <title>多模匹配之AC自动机</title>
-      <link>https://forrestsu.github.io/posts/algorithm/ac-automation/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/ac-automation/</link>
       <pubDate>Tue, 31 Mar 2020 18:06:58 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/ac-automation/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/ac-automation/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;Aho-Corasick automation，该算法在1975年产生于贝尔实验室，是著名的多模匹配算法。&lt;/p&gt;
 &lt;p&gt;AC自动机算法分为3步：&lt;strong&gt;(1)构造一棵Trie树，(2)构造Fail指针, (3) 模式匹配过程&lt;/strong&gt;。&lt;/p&gt;
@@ -34,37 +44,55 @@
     
     <item>
       <title>双蛋问题(动态规划)</title>
-      <link>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/throwing-eggs-in-building/</link>
       <pubDate>Thu, 19 Mar 2020 14:07:56 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/throwing-eggs-in-building/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/throwing-eggs-in-building/</guid>
       <description>1 问题描述 有 T 层楼，n个鸡蛋，鸡蛋是相同的，临界楼层是指从某个楼层之上抛下来，都会碎，但从这个楼层之下抛下来，都不会碎。没有碎的鸡蛋可以重复使用。试假设能找到这个临界楼层需要抛投的最少次数。 T层，n个鸡蛋, 总是先要任选一层k, 扔下一个鸡蛋；扔下之后有两个结果： 没碎: 则需要在高层求解 F(T-k, n) 碎了: 则在k层以下求解 F(k-1, n-1) 假设我们在第 k 层扔下第一个鸡蛋，最坏的情况下，我们需要扔多少次： cost(k, T, n) = max{F(T-k, n), F(k-1, n-1)} + 1 我们把每一层，遍历一下最坏情况下所有方案的，最少扔鸡蛋的次数： F(T, n) = min{cost(1, T, n), cost(2, T, n), &amp;hellip;, cost(k, T, n), &amp;hellip;, cost(T, T, n)} 2 实现 简</description>
     </item>
     
     <item>
       <title>Red Black Tree (01)</title>
-      <link>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/red-black-tree-01/</link>
       <pubDate>Mon, 19 Nov 2018 15:00:28 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/red-black-tree-01/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/red-black-tree-01/</guid>
       <description>1 BST BST (Binary Search Tree) 二叉搜索树, 在key 恰好有序的时候，会退化成链表。 Conclusion BST 的查询复杂度取决于树的高度, 树的高度即最大比较次数。 一棵具有 N 个 node 的 BST 树高(height)取值范围为：logN ≤ height ≤ N 因此，BST越平衡，在树中查找的时间就越短，连带地插入，删除也会变得效率更高。 红黑树的特征 红黑树（RBT）是节点涂了「颜色」的二分搜索树（BST），借助颜色控制，能够保证在 RBT 中，最长路径(path)不会超过最短路径的2倍（若最短的路径是5，最长的路径至多只能是10），如此，RBT便能够近似地视为平衡，如下图： 上图：</description>
     </item>
     
     <item>
       <title>关于博弈论</title>
-      <link>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</link>
       <pubDate>Sun, 16 Jul 2017 17:14:54 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%BC%88%E8%AE%BA/</guid>
       <description>大学的时候，我主要钻研的方向就有博弈论。博弈论挺有意思的，而且生活中处处有博弈， 趣味性的小游戏更是如此，比如斗地主，围棋，三国杀，狼人杀。当然如果在和几个朋友一起玩，你可能还需要人物的心理，语气分析来 enhance 你的判断。 博弈论有几个比较经典的表征，一个是对抗性，还有一个是态势(必胜态，必败态) 。态势是可以转移的，一般可以用「状态转移方程」来描述。在学习博弈论的过程中，可采用周伯通的左右互博的方式来思考！ 程序员面试过程中，面试官也会通过一些博弈题来考察一个程序员的思维应变能力，入门级的就是分石子游戏，经典</description>
     </item>
     
     <item>
+      <title>[多线程]1114-按序打印</title>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</link>
+      <pubDate>Mon, 05 Jun 2017 15:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/%E5%A4%9A%E7%BA%BF%E7%A8%8B1114-%E6%8C%89%E5%BA%8F%E6%89%93%E5%8D%B0/</guid>
+      <description>1 题目描述 我们提供了一个类： public class Foo { public void one() { print(&amp;ldquo;one&amp;rdquo;); } public void two() { print(&amp;ldquo;two&amp;rdquo;); } public void three() { print(&amp;ldquo;three&amp;rdquo;); } } 三个不同的线程将会共用一个 Foo 实例。 线程 A 将会调用 one() 方法 线程 B 将会调用 two() 方法 线程 C 将会调用 three() 方法 请设计修改程序，以确保 two() 方法在 one() 方法之后被执行，three() 方法在 two() 方法之后被执行。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/print-in-order 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 1114. 按序打印 2 考点 着重考察多线程的并发控制。 3 Solution 下</description>
+    </item>
+    
+    <item>
+      <title>单链表的递归算法&#43;变体</title>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/</link>
+      <pubDate>Sat, 03 Jun 2017 15:19:02 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/</guid>
+      <description>Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 6 // Definition for singly-linked list. struct ListNode { int val; ListNode *next; ListNode(int x) : val(x), next(NULL) {} }; 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 11 12 13 class Solution { public: //尾插法 ListNode* reverseList(ListNode* head) { if(head == NULL || head-&amp;gt;next == NULL) { return head; } auto tail = reverseList(head-&amp;gt;next); head-&amp;gt;next-&amp;gt;next = head; head-&amp;gt;next = NULL; return tail; // became new head } }; 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 ListNode* reverseList(ListNode *head) { ListNode *pNewHead</description>
+    </item>
+    
+    <item>
       <title>背包九讲01-关于常数的优化</title>
-      <link>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</link>
       <pubDate>Sun, 28 Aug 2016 01:13:01 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/</guid>
       <description>Preface 01背包容量为V，在求能装入物品的获得最大价值dp[V]时，有一个常数优化。（也适用于恰好装满容量为V的01背包问题） 说明:大写字母V表示背包的容量。 关于一个常数优化的问题 前提：如果我们最后只想计算出dp[V]的值，根据动归方程： 1 dp[v]=max(dp[v], dp[v-ci]+wi);//i表示第i个物品 当计算到第n个物品时，我们只需要知道dp[V-cn]的值是多少，也就是说计算第n-1个物品的时候，正常for循环下标 v 应该递减至第n-1件物品的cost，但是下一步得到答案只需要知道dp[V-cn]，我们一旦到达下标 V</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 15 Sep 2021 16:50:12 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何实现 SQL 用户标签的查询？</title>
-      <link>https://forrestsu.github.io/posts/database/sql-user-tags/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/</link>
       <pubDate>Wed, 15 Sep 2021 16:50:12 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/database/sql-user-tags/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。&lt;/p&gt;
 &lt;p&gt;

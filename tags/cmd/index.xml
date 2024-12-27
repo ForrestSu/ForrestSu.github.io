@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cmd on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/cmd/</link>
+    <description>Recent content in cmd on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 10 May 2022 10:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/cmd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>有用的内置 macOS 命令行实用程序</title>
+      <link>https://forrestsu.github.io/posts/tools/macos/macos-usage/</link>
+      <pubDate>Tue, 10 May 2022 10:40:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/macos/macos-usage/</guid>
+      <description>1 从终端打开文件 如果您想从终端打开文件，您可以使用该 open 命令。 1 open file.txt 这将在该文件类型的默认应用程序中打开该文件，就像您在 Finder 中双击它一样。 链接： https://ss64.com/mac/open.html 2 复制和粘贴 pbcopy和pbpaste命令行实用程序允许您将文本复制并粘贴到剪贴板（其他操作系统可能称之为“剪贴板”）。 pbcopy获取标准输入中给出的任何内容，并将其放置在剪贴板中。 1 echo &amp;#34;Hello, world!&amp;#34; | pbcopy; pbpaste将剪贴板中的所有内容打印到标准输出。 1 2 3 pbpaste &amp;gt;&amp;gt; Hello, world! 这对于将文件中的数据导入浏览器或其他 GUI 应用程序非常有用。 链接： https://ss64.com/mac/pbcopy.html https://ss64.com/mac/pbpaste.html 3 互联网速度测试 如果你想运行互</description>
+    </item>
+    
+  </channel>
+</rss>

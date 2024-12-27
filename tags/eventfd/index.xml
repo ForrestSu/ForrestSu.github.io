@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 12 Aug 2018 01:50:45 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/eventfd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eventfd 入门</title>
-      <link>https://forrestsu.github.io/posts/linux/eventfd-introduction/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/</link>
       <pubDate>Sun, 12 Aug 2018 01:50:45 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/linux/eventfd-introduction/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/</guid>
       <description>1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。 它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。 eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。 更详细的可以查看 man eventfd 1 2 3 #include &amp;lt;sys/eventfd.h&amp;gt; int eventfd(unsigned int initval, int flags); eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。 该对象包含了一个无符号64位整型计数器，计数器由内核维护。 此计数器，</description>
     </item>
     

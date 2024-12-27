@@ -9,28 +9,28 @@
     <lastBuildDate>Wed, 08 Dec 2021 13:46:15 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>内存缓存-设计</title>
-      <link>https://forrestsu.github.io/posts/architecture/cache/memory-cache-design/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/</link>
       <pubDate>Wed, 08 Dec 2021 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cache/memory-cache-design/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/</guid>
       <description>1 缘起 在业务开发场景中，主要用到两个开发能力：接口粘合+缓存。 一个好的缓存设计，能够降低服务的时延，抵抗流量洪峰。 比如最近的西安健康码事件，明显缓存设计上是存在明显问题的 :-)。 2 什么场景需要加缓存？ 提高服务质量，降低时延； 减少对下游的请求量，节省资源 3 缓存常见问题 缓存问题 解决办法 (1) 缓存失效的策略 惰性过期（读取时判断如果过期了，就返回且异步更新） (2) 缓存集中失效 设置随机过期时间 (3) 缓存击穿(大量穿透导致雪崩) singleflight 合并多个相同的请求 3.1 50行代码，实现一个可用的 singleflight？ groupCache 库实现了一个可用</description>
     </item>
     
     <item>
       <title>业务缓存之可行性？</title>
-      <link>https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/</link>
       <pubDate>Fri, 08 Jan 2021 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cache/caching-feasibility/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/</guid>
       <description>1 Preface 在业务系统中，为了提高服务的性能，降低平均时延，一个常用的手段：增加cache。 鲁迅:-）人们发明一种方法解决一个问题，而几乎总是会引入另一个问题。 那么可能会问：Cache 要加在哪里，要缓存多久，才会更有效? 下面就拿一个例子，来展开看看。 2 分析 一般而言，需要对执行频率高，耗时占比大的逻辑，优先增加Cache。 但是要注意：增加 Cache 不能影响到业务的正确性。 适用场景：数据变化不频繁，因为一旦数据发生变化，Cache可能产生不一致。 对于不一致，还需要设计一个合理的失效时间，在业务可接受的误差之内增加c</description>
     </item>
     
     <item>
       <title>Eureka 服务注册与发现-原理分析</title>
-      <link>https://forrestsu.github.io/posts/architecture/spring-eureka-registry/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/</link>
       <pubDate>Mon, 25 May 2020 17:28:06 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/spring-eureka-registry/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/spring-eureka-registry/</guid>
       <description>&lt;h2 id=&#34;1-preface&#34;&gt;1 Preface&lt;/h2&gt;
 &lt;p&gt;Eureka 是Netflix开发的服务发现框架，本身是一个基于REST的服务。&lt;/p&gt;
 &lt;p&gt;SpringCloud将它集成在其子项目spring-cloud-netflix中，以实现SpringCloud的服务注册与发现功能。&lt;/p&gt;
@@ -48,10 +48,10 @@
     
     <item>
       <title>Seastar 之 ready_future(3)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</link>
       <pubDate>Fri, 08 May 2020 19:55:17 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-ready-future/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/</guid>
       <description>&lt;h2 id=&#34;1-什么是-ready_future&#34;&gt;1 什么是 ready_future&lt;/h2&gt;
 &lt;p&gt;如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
 我们把这个 future 称为 &lt;code&gt;ready_future&lt;/code&gt;。&lt;/p&gt;
@@ -66,19 +66,19 @@
     
     <item>
       <title>CPU Cache 架构</title>
-      <link>https://forrestsu.github.io/posts/architecture/cpu-cache/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</link>
       <pubDate>Wed, 08 Apr 2020 13:46:15 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/cpu-cache/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/</guid>
       <description>1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。 多处理器结构有两种： (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。 (2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者</description>
     </item>
     
     <item>
       <title>Seastar 之核间通信 (2)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</link>
       <pubDate>Tue, 07 Apr 2020 23:06:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-inter-core-communication/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/</guid>
       <description>&lt;h2 id=&#34;1-0核和任一个核通信&#34;&gt;1 0核和任一个核通信&lt;/h2&gt;
 &lt;p&gt;Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API &lt;code&gt;sched_set_affinity()&lt;/code&gt;，绑定一个 SMP 的 core，所以我们这里称之为&lt;strong&gt;核间通信&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。&lt;br&gt;
@@ -93,28 +93,28 @@
     
     <item>
       <title>Seastar 之 future/promise 原理(1)</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</link>
       <pubDate>Thu, 26 Mar 2020 23:11:26 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-future-promise/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-future-promise/</guid>
       <description>The future is the value, the promise is the function that sets the value – essentially the return value (future) of an asynchronous function (promise). Setting the value of a future is also called resolving, fulfilling, or binding it. —— from Wikipedia 1 Preface Seastar (f-p-c) 属于Reactive编程的一个子集。 Seastar的性能源自 sharded，cooperative，non-blocking的微任务调度设计， 而 f-p-c 是将 task 送入调度程序的一种更友好的方式。 Seastar 引入了 future/promise, 把面向 callback 编程变成了面向future/promise编程， 将以前的回调代码包装在 lambda_task 中，然后交给future调度。 future 是一个 value ； promise 是一个函数，本质是返回 value 的异步函数; promise 写入 value 的过程又称为解决、履行或绑定它。 具体来说，当</description>
     </item>
     
     <item>
       <title>异步编程之 CPS</title>
-      <link>https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/asynchronous-programming-cps/</link>
       <pubDate>Fri, 20 Apr 2018 22:44:50 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/asynchronous-programming-cps/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/asynchronous-programming-cps/</guid>
       <description>1 Preface 后继传递风格(continuation-passing style CPS wiki) 具体解释请阅读wiki。 CPS 最初在1970年代作为一种编程风格出现，主要用于函数式编程； 在1980年代到1990年代期间，其作为高级编程语言的编译器的一种中间表达形式开始崭露头角。 现在，CPS作为非阻塞系统（通常是分布式）的一种编程风格被再次发掘出来。 1.1 CPS in Haskell 我们使用Haskell 实现勾股定理(Pythagorean theorem) 计算斜边的长度。 传统的实现如下： 1 2 3 4 5 6 7 8 square :: Double -&amp;gt; Double square x = x * x add :: Double -&amp;gt; Double -&amp;gt; Double add x y = x + y pythagorean :: Double -&amp;gt; Double -&amp;gt; Double pythagorean x y</description>
     </item>
     
     <item>
       <title>Seastar 入门</title>
-      <link>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/</link>
       <pubDate>Tue, 27 Feb 2018 14:00:04 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/architecture/archi-seastar/seastar-started/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/</guid>
       <description>1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现</description>
     </item>
     

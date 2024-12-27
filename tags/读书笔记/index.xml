@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>读书笔记 on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 读书笔记 on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 01 Mar 2022 22:36:23 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>什么是OKR？</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%BB%80%E4%B9%88%E6%98%AFokr/</link>
+      <pubDate>Tue, 01 Mar 2022 22:36:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E4%BB%80%E4%B9%88%E6%98%AFokr/</guid>
+      <description>“尽管很多人都很努力地工作，但却没能取得什么成就。 ——安迪·格鲁夫 1. 简单介绍 OKR 分为目标和关键结果， 关键结果必须是可以衡量的，最终是可以看到的。 OKR也可以作为逆向思考问题的有效方法，比如：快速分析各类业务协议报文？ 关键结果可以定义为： 基于go编写通用 Wireshark 插件，30分钟内对接一种新的七层协议； 协议解析性能 1w/s； 支持 wireshark 显示过滤器，以及请求应答关联； 2. KPI vs OKR KPI OKR &amp;ldquo;目标是什么&amp;rdquo; &amp;ldquo;目标是什么&amp;rdquo; 及 &amp;ldquo;如何实现&amp;rdquo; 年度 季度或月度 不公开、不透</description>
+    </item>
+    
+    <item>
+      <title>编译-链接-笔记(1)</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Tue, 10 Oct 2017 11:23:08 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%BC%96%E8%AF%91-%E9%93%BE%E6%8E%A5-%E7%AC%94%E8%AE%B01/</guid>
+      <description>1 函数的调用是用栈实现的，C常用的函数调用方式cdecl，c++采用一种新的thiscall 方式，主要是用于类成员的调用。 2 cdecl 参数压栈是从右向左，参数出栈由调用方 维护。 3 stdcall的参数出栈由 被调用的函数自己维护。</description>
+    </item>
+    
+    <item>
+      <title>最好的告别</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/</link>
+      <pubDate>Mon, 09 Oct 2017 20:24:56 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%91%8A%E5%88%AB/</guid>
+      <description>当我们谈论衰老与死亡这个话题，那么远却又那么近，确实这个话题有些悲伤，很多时候都刻意让自己不去想，但是我们必须得面对，或早或晚。以防那天突然来临，我们不至于恍然不知所措。 1 About Aging 2 Do Something？ 我们还面对一个貌似简单的谜题：当我们年老、体弱、不能照顾自己的时候，是什么使得生活值得过下去？ 3 What should I do?</description>
+    </item>
+    
+    <item>
+      <title>「Silicon Valley 4 」观后感</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Tue, 06 Jun 2017 01:10:38 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-4-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <description>看了硅谷4 前5集，男主角属于那种典型的技术男，不想在视屏聊天软件上继续发展，想基于自己创造的压缩算法来构建一个互联网络。印度人搞出来的视频聊天App由于小于12岁的用户太多，此时正好huli的CEO，Gavin有收购的想法，正好阴差阳错把产品转给了Gavin，进而导致Gavin被赶下台。 此时男主角 发现自己想要构建的Piper网络却被Gavin注册了专利，他晚上直接去找Gavin，遭遇闭门羹，峰回路转Gavin却提出要和男主角合作。后来却因为哺血仔的欺骗，对人生心灰意冷把专利无偿转给了Richar</description>
+    </item>
+    
+    <item>
+      <title>《偷影子的人》读后感</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Tue, 06 Jun 2017 00:42:23 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E5%81%B7%E5%BD%B1%E5%AD%90%E7%9A%84%E4%BA%BA%E8%AF%BB%E5%90%8E%E6%84%9F/</guid>
+      <description>preface 《偷影子的人》作者marc·levy，这本书是在2015-09-17日京东搞活动买的，差不多16年3月份才开始看，每天晚上看一点，断断续续差不读2周看完。整本书240页左右。 brief synopsis of story 一个老是受班上同学欺负的瘦弱小男孩，因为拥有一种特殊能力而强大：他能「偷别人的影子」，因而能看见他人心事，听见人们心中不愿意说出口的秘密。他开始成为需要帮助者的心灵伙伴，为每个偷来的影子点亮生命的小小光芒。 某年灿烂的夏天，他在海边邂逅一位又聋又哑的女孩克雷尔。他该如何用自己的能力帮助她？他将如何信守与她共许的承诺？</description>
+    </item>
+    
+    <item>
+      <title>「Silicon Valley 3 」观后感</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Sun, 11 Dec 2016 00:46:13 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/silicon-valley-3-%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <description>硅谷一个在硅晶体上发展起来的城市，一波又一波聪明的年轻人在这里改变着世界。 今天周末，在房间里休息看了硅谷3，感受了一下像google、Twitter、Facebook、Uber、Arbin这一类的公司是如何发展起来的，就像google，两个年轻人搞出来一个搜索算法，Twitter搞了一个社交网络! 硅谷3主要以day-to-day的方式描述了Engineer的日常，风险投资人来资助Good idea,当然也有很多创意项目在孵化期间就陨灭了。但是一旦成长起来就能够掀起一波互联网的浪潮。感觉到底是干一行</description>
+    </item>
+    
+    <item>
+      <title>晓松奇谈</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/</link>
+      <pubDate>Sat, 06 Aug 2016 21:11:50 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%99%93%E6%9D%BE%E5%A5%87%E8%B0%88/</guid>
+      <description>历史不是镜子，历史是精子，牺牲亿万，才有一个活到今天。人生不是故事，人生是事故，摸爬滚打，才不辜负功名尘土。</description>
+    </item>
+    
+    <item>
+      <title>《有味》汪涵</title>
+      <link>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/</link>
+      <pubDate>Thu, 07 Apr 2016 19:28:27 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/life/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%89%E5%91%B3%E6%B1%AA%E6%B6%B5/</guid>
+      <description>2016-04-07 第一次看到《有味》(汪涵)的这本书是在高三的时候，上午第二节课做完午间操，都会路过书店，当时只是走马观花看了一下，最近才在「微信读书」上看完了。 汪涵生于苏州，自幼随父母到湖南湘潭生活，毕业于湖南广电，积极上进，成就了今天的汪涵。看完整本书，如果汪涵非常喜欢手工艺品，喜欢琴棋书画。 男生小时候都喜欢自己做点什么，比如砍个树杈做弹弓，找根竹竿做吊杆，我记得我小时候喜欢自己做过一个风铃，在海边捡的贝壳，要爷爷在山上砍的大约10cm的竹筒。然后我就一个劲的在竹筒上钻孔，引线，最后悬挂在床帘上，有风时可以</description>
+    </item>
+    
+  </channel>
+</rss>

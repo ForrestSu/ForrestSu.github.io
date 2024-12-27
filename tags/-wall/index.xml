@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 06 Nov 2020 11:09:51 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/-wall/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>g&#43;&#43; -Wall 不会提示 narrow-cast 的警告</title>
-      <link>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/</link>
       <pubDate>Fri, 06 Nov 2020 11:09:51 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/cpp/narrow-cast-no-warnning/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/cpp/narrow-cast-no-warnning/</guid>
       <description>Preface 最近在使用 go 重构C++旧项目, 发现一个旧代码的bug，很有意思；下面展示一下简化的代码: 1 2 3 4 int64_t ip = 12345678; std::string str; str = ip; std::cout &amp;lt;&amp;lt; &amp;#34;str = &amp;#34; &amp;lt;&amp;lt; str &amp;lt;&amp;lt; std::endl; // str = N 我的第一感觉是: 第三行应该编译报错吧，于是写了个hello world，然后g++ -Wall ...， 竟然编译过了还能正常运行, 神奇吧。 于是探其究竟，原来string重载了赋值符号=, 支持单个字符 char 的赋值，int64在这里发生了窄转换。 源码如下： 1 2 3 4 basic_string&amp;amp; operator=(_CharT __c) { this-&amp;gt;assign(1, __c); return *this; } 这就解释了为啥输出字符&amp;quot;N&amp;quot;， int64转换成 char，仅保留了最低的一个字节</description>
     </item>
     

@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 10 Aug 2019 19:34:23 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/duck-type/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>什么是鸭子类型(duck typing)</title>
-      <link>https://forrestsu.github.io/posts/go/duck-type/</link>
+      <link>https://forrestsu.github.io/posts/developerguide/go/duck-type/</link>
       <pubDate>Sat, 10 Aug 2019 19:34:23 +0800</pubDate>
       
-      <guid>https://forrestsu.github.io/posts/go/duck-type/</guid>
+      <guid>https://forrestsu.github.io/posts/developerguide/go/duck-type/</guid>
       <description>&lt;h2 id=&#34;1-duck-type&#34;&gt;1 duck type&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。&amp;rdquo;&lt;/p&gt;

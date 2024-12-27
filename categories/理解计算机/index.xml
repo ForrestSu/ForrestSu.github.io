@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>理解计算机 on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+    <description>Recent content in 理解计算机 on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 12 Apr 2022 16:07:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何做代码 CR？</title>
+      <link>https://forrestsu.github.io/posts/cs/how-to-cr-code/</link>
+      <pubDate>Tue, 12 Apr 2022 16:07:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/how-to-cr-code/</guid>
+      <description>一、设计问题 (ABI 原则) CR 的意图 (Intention) 首先要了解整个 CR 要解决的问题； 正确的解决方案 (Better Solution) 在了解问题的基础上，思考标准的解决方案； 架构设计（合理的分层）(Architecture Design) 包设计 类设计 接口设计 安全 (safety) 不要迫使使用方到处传递敏感信息 二、实现问题 命名规范 命名规范： 一致性 注释和代码保持一致 同一个概念，不要用多个（近似但不一样的）名称 作用域</description>
+    </item>
+    
+    <item>
+      <title>MySQL: 一条SQL语句是如何执行的？</title>
+      <link>https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/</link>
+      <pubDate>Fri, 11 Oct 2019 20:12:34 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/how-is-a-sql-statement-executed-by-mysql/</guid>
+      <description>1 MySQL 基本架构 MySQL基本架构示意图 2 日志系统 与查询流程不一样的是，更新流程还涉及两个重要的日志模块，它们正是我们要讨论 的主角：redo log（重做日志）和 binlog（归档日志）。 如果接触 MySQL，那这两个词肯定是绕不过的，我后面的内容里也会不断地和你强调。 不过话说回来，redo log 和 binlog 在设计上有很多有意思的地方，这些设计思路也可以用到你自己的程序里。 2.1 重要的日志模块：redo log</description>
+    </item>
+    
+    <item>
+      <title>五种 IO 模型</title>
+      <link>https://forrestsu.github.io/posts/cs/io-model/</link>
+      <pubDate>Mon, 11 Mar 2019 17:41:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/io-model/</guid>
+      <description>1 Preface 同步 (synchronous IO) 和异步 (asynchronous) IO，阻塞 (blocking) IO和非阻塞(non-blocking) IO分别是什么，到底有什么区别？ 这个问题不同的人给出的答案可能不同。为不同的人的知识背景不同，并且在讨论这个问题的时候上下文(context)也不相同。 我们这里讨论的背景是Linux环境下的network IO， 本文参考 Richard Stevens 2003 年的传世之作 1 ，如果英文够好的话，推荐直接阅读。Stevens的文风是有名的深入浅出，所以不用担心看不懂。 2 五种 I/O 模型 blocking I/O nonblocking I/O I/O multiplexing (select and poll) signal driven I/O (SIGIO) asynchronous I/O (the POSIX aio_functions) 再说一下IO发生时涉及的对象和步骤。 对于一个net</description>
+    </item>
+    
+    <item>
+      <title>计算机系统组成</title>
+      <link>https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</link>
+      <pubDate>Sat, 06 Jan 2018 15:38:19 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90/</guid>
+      <description>1 不用goto 原因： (1) 可能会破坏程序的局部性原理，会导致cache失效，从而降低执行效率。 (2) 程序的逻辑变得混乱，不利于程序的维护和bug排查。</description>
+    </item>
+    
+    <item>
+      <title>(译) 蒙特卡罗搜索树</title>
+      <link>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</link>
+      <pubDate>Fri, 20 Oct 2017 00:54:53 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E8%92%99%E7%89%B9%E5%8D%A1%E7%BD%97%E6%90%9C%E7%B4%A2%E6%A0%91%E8%AF%91/</guid>
+      <description>今天(2017-10-19) 看到一篇关于蒙特卡罗搜索树 (Monte Carlo Tree Search) 的文章，感觉写的非常好，决定尝试翻译一下，于是就有了这篇文章:)。 原文在这阅读原文。 1 What is MCTS? 蒙特卡罗搜索树是 一个在人工智能(AI)问题中做出优化决策的方法，通常在组合游戏中移动规划。它将随机模拟的一般性与树搜索的精度相结合。 由于 AlphaGo 卓越的表现，并潜在应用于一些其他难题上，人们对MCTS的研究兴趣急剧上升。其应用范围超越了游戏，理论上 MCTS 可以应用于能用 {state，action} 来描述的任何领域，以及预测结果的 模拟。 2 Basic Algorithm 基本的MCTS算法</description>
+    </item>
+    
+    <item>
+      <title>搭建CUDA 环境（GPU）</title>
+      <link>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</link>
+      <pubDate>Mon, 12 Jun 2017 10:24:33 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/</guid>
+      <description>1 Preface 最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正) 1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612) CUDA Toolkit on x86_32 is unsupported 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定</description>
+    </item>
+    
+    <item>
+      <title>程序员如何留Email？</title>
+      <link>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</link>
+      <pubDate>Sun, 12 Mar 2017 22:21:45 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/cs/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%A6%82%E4%BD%95%E7%95%99email/</guid>
+      <description>有时候我们在公共网络上留下自己的Email，会收到垃圾邮件？ 那么我们可以这样留邮箱： 1 有人会把@换成 # 2 还有人会用base64加密 echo 邮箱号 | base64 我的电子邮件地址是—— echo c3VucXVhbmFAZ21haWwuY29tIA0K | base64 -d 我想你应该知道怎么做。</description>
+    </item>
+    
+  </channel>
+</rss>
