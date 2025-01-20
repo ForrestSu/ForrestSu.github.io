@@ -83,6 +83,36 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" target="_blank">Postman 动态计算MD5</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-01-08T08:15:47Z" class="post-meta meta-date dt-published">
+    2025年1月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  477
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            动态计算 md5 header字段 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var CryptoJS = require(&#34;crypto-js&#34;); // Unix 时间秒数 var nowSec = Math.floor(new Date().getTime()/1000); // 获取 collection 变量 var appID = pm.collectionVariables.get(&#34;TAGAppID&#34;); var random = pm.collectionVariables.get(&#34;TAGRandom&#34;); // 计算MD5 var hash = CryptoJS.MD5(appID +&#34;token&#34; + nowSec + random ).toString(); // Set the new collection variable pm.collectionVariables.set(&#34;timestampS&#34;, nowSec); pm.collectionVariables.set(&#34;TAGToken&#34;, hash);……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" target="_blank">关于 C&#43;&#43; 未定的行为</a>
             </h1>
         </header>
@@ -350,48 +380,6 @@
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/" target="_blank">如何实现 SQL 用户标签的查询？</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-09-15T08:50:12Z" class="post-meta meta-date dt-published">
-    2021年9月15日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1199
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <h2 id="1-preface">1 Preface</h2>
-<p>在社交 APP 中，经常会看到用户标签功能，那么这个功能如何实现呢？ 如微信的用户标签。</p>
-<p>
-        <a data-fancybox="gallery" href="/images/db/user-label.png">
-            <img class="mx-auto" alt="user-label" src="/images/db/user-label.png" />
-        </a>
-    </p>
-<p>考虑两种情况：</p>
-<ol>
-<li>标签的量级较大，我们需要基于 ES 来加速查询;</li>
-<li>标签量级较小，可以使用数据库实现一个简易版的标签功能；</li>
-</ol>
-<p>下面我们使用数据库，实现一个简易的标签功能；</p>……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/database/sql-user-tags/" target="_blank">阅读全文</a></p>
-        </div>
-    </article>
-    
 
     
 
@@ -439,7 +427,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -471,6 +459,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
@@ -508,10 +500,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -535,7 +523,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -687,6 +675,8 @@
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
@@ -734,6 +724,8 @@
     <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     

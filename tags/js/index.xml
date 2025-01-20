@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>js on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/js/</link>
+    <description>Recent content in js on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 08 Jan 2025 16:15:47 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postman 动态计算MD5</title>
+      <link>https://forrestsu.github.io/posts/developerguide/network/postman-scripts/</link>
+      <pubDate>Wed, 08 Jan 2025 16:15:47 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/network/postman-scripts/</guid>
+      <description>动态计算 md5 header字段 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var CryptoJS = require(&amp;#34;crypto-js&amp;#34;); // Unix 时间秒数 var nowSec = Math.floor(new Date().getTime()/1000); // 获取 collection 变量 var appID = pm.collectionVariables.get(&amp;#34;TAGAppID&amp;#34;); var random = pm.collectionVariables.get(&amp;#34;TAGRandom&amp;#34;); // 计算MD5 var hash = CryptoJS.MD5(appID +&amp;#34;token&amp;#34; + nowSec + random ).toString(); // Set the new collection variable pm.collectionVariables.set(&amp;#34;timestampS&amp;#34;, nowSec); pm.collectionVariables.set(&amp;#34;TAGToken&amp;#34;, hash);</description>
+    </item>
+    
+  </channel>
+</rss>

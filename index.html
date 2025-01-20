@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-01-08T08:15:47Z" class="post-meta meta-date dt-published">
+    2025年1月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  477
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            动态计算 md5 header字段 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var CryptoJS = require(&#34;crypto-js&#34;); // Unix 时间秒数 var nowSec = Math.floor(new Date().getTime()/1000); // 获取 collection 变量 var appID = pm.collectionVariables.get(&#34;TAGAppID&#34;); var random = pm.collectionVariables.get(&#34;TAGRandom&#34;); // 计算MD5 var hash = CryptoJS.MD5(appID +&#34;token&#34; + nowSec + random ).toString(); // Set the new collection variable pm.collectionVariables.set(&#34;timestampS&#34;, nowSec); pm.collectionVariables.set(&#34;TAGToken&#34;, hash);……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-            </h1>
-        </header>
-        
-  <time datetime="2022-05-10T02:40:28Z" class="post-meta meta-date dt-published">
-    2022年5月10日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  202
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/tools' target="_blank">Tools</a>
-  
-</div>
-
-
-        <div class="post-content">
-            前言 Gerrit 是一个免费的、基于网络的团队代码协作(code review)工具。 常用快捷键 快捷键 作用 ? 显示所有快捷键手册 c 快速评论 cmd+s 保存评论 [ 上一个文件 ] 下一个文件 h 显示/隐藏所有评论 f 展开cr文件列表 r 勾选/取消文件的审阅标志 📢注意：因为gerrit提供了丰富的快捷键，如果 chrome 使用了 Vimium 插件， 方法： 点击Vimium插件图标，即可对对应站点禁用 (Keys为空表示该链接下禁用)……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -457,7 +457,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -489,6 +489,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
@@ -526,10 +530,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -553,7 +553,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -705,6 +705,8 @@
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
@@ -752,6 +754,8 @@
     <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     

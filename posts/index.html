@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+            </h1>
+        </header>
+        
+  <time datetime="2025-01-08T08:15:47Z" class="post-meta meta-date dt-published">
+    2025年1月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  477
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            动态计算 md5 header字段 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var CryptoJS = require(&#34;crypto-js&#34;); // Unix 时间秒数 var nowSec = Math.floor(new Date().getTime()/1000); // 获取 collection 变量 var appID = pm.collectionVariables.get(&#34;TAGAppID&#34;); var random = pm.collectionVariables.get(&#34;TAGRandom&#34;); // 计算MD5 var hash = CryptoJS.MD5(appID +&#34;token&#34; + nowSec + random ).toString(); // Set the new collection variable pm.collectionVariables.set(&#34;timestampS&#34;, nowSec); pm.collectionVariables.set(&#34;TAGToken&#34;, hash);……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
             </h1>
         </header>
@@ -361,38 +393,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/macos/macos-usage/" title="有用的内置 macOS 命令行实用程序" target="_blank">有用的内置 macOS 命令行实用程序</a>
-            </h1>
-        </header>
-        
-  <time datetime="2022-05-10T02:40:28Z" class="post-meta meta-date dt-published">
-    2022年5月10日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1202
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/tools' target="_blank">Tools</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 从终端打开文件 如果您想从终端打开文件，您可以使用该 open 命令。 1 open file.txt 这将在该文件类型的默认应用程序中打开该文件，就像您在 Finder 中双击它一样。 链接： https://ss64.com/mac/open.html 2 复制和粘贴 pbcopy和pbpaste命令行实用程序允许您将文本复制并粘贴到剪贴板（其他操作系统可能称之为“剪贴板”）。 pbcopy获取标准输入中给出的任何内容，并将其放置在剪贴板中。 1 echo &#34;Hello, world!&#34; | pbcopy; pbpaste将剪贴板中的所有内容打印到标准输出。 1 2 3 pbpaste &gt;&gt; Hello, world! 这对于将文件中的数据导入浏览器或其他 GUI 应用程序非常有用。 链接： https://ss64.com/mac/pbcopy.html https://ss64.com/mac/pbpaste.html 3 互联网速度测试 如果你想运行互……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/macos/macos-usage/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -458,7 +458,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -490,6 +490,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
@@ -527,10 +531,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -554,7 +554,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -706,6 +706,8 @@
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
@@ -753,6 +755,8 @@
     <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     

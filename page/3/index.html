@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/" title="内存缓存-设计" target="_blank">内存缓存-设计</a>
+            </h1>
+        </header>
+        
+  <time datetime="2021-12-08T05:46:15Z" class="post-meta meta-date dt-published">
+    2021年12月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1226
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 缘起 在业务开发场景中，主要用到两个开发能力：接口粘合+缓存。 一个好的缓存设计，能够降低服务的时延，抵抗流量洪峰。 比如最近的西安健康码事件，明显缓存设计上是存在明显问题的 :-)。 2 什么场景需要加缓存？ 提高服务质量，降低时延； 减少对下游的请求量，节省资源 3 缓存常见问题 缓存问题 解决办法 (1) 缓存失效的策略 惰性过期（读取时判断如果过期了，就返回且异步更新） (2) 缓存集中失效 设置随机过期时间 (3) 缓存击穿(大量穿透导致雪崩) singleflight 合并多个相同的请求 3.1 50行代码，实现一个可用的 singleflight？ groupCache 库实现了一个可用……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/cache/memory-cache-design/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/go/go-cmp/" title="go-cmp 对象比较" target="_blank">go-cmp 对象比较</a>
             </h1>
         </header>
@@ -377,38 +409,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/" title="wireshark lua 插件之 tvb():string()" target="_blank">wireshark lua 插件之 tvb():string()</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-12-05T14:35:47Z" class="post-meta meta-date dt-published">
-    2020年12月5日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  482
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            缘起 最近在编写 lua 插件时，遇到一个问题：发现tvb中的字节码，传入 lua-protobuf 中，部分报文解码失败。 于是经过一顿debug，最后将字节码写入文件，对比 lua-protobuf 中的字节码和 tvb 中的字节码，发现不一致。 解决办法 通过 goolge 找到了如下一篇文章，wireshark-lua-stringbyte-error 不应该使用 tvb_range:string() 这个方法默认是带字符集转换的，要想将原始的bytes转为 lua string，需要使用raw方法。 1 2 -- local lua_str = tvb_range:string() local lua_str = tvb_range:raw(tvb_range:offset(), tvb_range:len()) 总结 这个问题，本质还是没有仔细阅读 wireshark lua 插件关于 tvb 的API文档导致的。 有时候遇到问题，我们可以先通过 google……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -492,7 +492,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -524,6 +524,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
@@ -561,10 +565,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -588,7 +588,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -740,6 +740,8 @@
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
@@ -787,6 +789,8 @@
     <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     

@@ -83,6 +83,36 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank">c和c&#43;&#43;混用技巧</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-07-17T08:12:12Z" class="post-meta meta-date dt-published">
+    2017年7月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  200
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 用C-style 来访问vector 1 2 3 4 5 6 7 8 vector&lt;char*&gt; str; str.push_back(&#34;abc&#34;); str.push_back(&#34;123&#34;); //按照 C-style 来访问vector char** ptr= str.data(); for(int i =0;i&lt;2;++i) printf(&#34;%s\n&#34;,ptr[i]);……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/c%E5%92%8Cc&#43;&#43;%E6%B7%B7%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/cpp/cpp11-std_function%E5%92%8Cstd_bind/" target="_blank">C&#43;&#43;11 std::function 和 std::bind</a>
             </h1>
         </header>
@@ -350,36 +380,6 @@
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" target="_blank">Linux 服务端编程（一）</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-02-24T09:29:28Z" class="post-meta meta-date dt-published">
-    2017年2月24日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  528
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            ftok()函数 系统建立IPC通讯 （消息队列、信号量和共享内存） 时必须指定一个ID值。通常情况下，该id值通过ftok函数得到。 函数原型：key_t ftok( const char * fname, int id ); (id&gt;0) fname就是你指定的文件名（已经存在的文件名），一般使用当前目录。 在一般的UNIX实现中，是将文件的索引节点号取出。(文件重建将会分配一个新的索引节点号) ftok 返回值组成：hex(id)&amp;0xff03 hex(节点号)&amp;0xffff。 传入的id低8位+0x03+ 节点号的低16位。（test on redhat ） 可通过 ls -l 查看文件节点值。……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/linux-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E7%A8%8B%E4%B8%80/" target="_blank">阅读全文</a></p>
-        </div>
-    </article>
-    
 
     
 
@@ -431,7 +431,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2024 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -463,6 +463,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
@@ -500,10 +504,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/tools/gerrit-usage/" title="Gerrit 使用" target="_blank">Gerrit 使用</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -527,7 +527,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -679,6 +679,8 @@
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
     
     <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
@@ -726,6 +728,8 @@
     <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
     
     <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
     
     <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
     
