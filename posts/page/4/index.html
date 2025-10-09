@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/" title="wireshark lua 插件tcp报文分段(desegment)？" target="_blank">wireshark lua 插件tcp报文分段(desegment)？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-12-05T15:23:47Z" class="post-meta meta-date dt-published">
+    2020年12月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  591
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            缘起 我们知道 一般网路中 以太网的帧长度不超过 1500字节(MTU)，所以单个 tcp segment 最大为1460； 如果我们业务报文超过 1420 字节(tcp payload)，就会被分成多个 segment。 那么如何在 编写 wireshark 插件时，拿到一个完整的业务报文呢？ 解决办法 通过goolge，发现解决办法非常简单，只需要为pinfo.desegment_len 还需要的字节长度即可。 1 2 3 4 5 6 7 8 9 10 11 -- 在入口处 function slicer.dissector(tvb, pinfo, tree) ... local pdu_length = get_pdu_length(...) if pdu_length &gt; tvb:len() then pinfo.desegment_len = pdu_length - tvb:len() else do_dissection(tvb, pifo, tree) end return end 如果不知道明确的长度，那我们也可以: 1 pinfo.desegment_len = DESEGMENT_ONE_MORE_SEGMENT 总结 通过 wireshark lua 插件的编写，发现很……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-tcp-desegment/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-lua-trap/" title="wireshark lua 插件之 tvb():string()" target="_blank">wireshark lua 插件之 tvb():string()</a>
             </h1>
         </header>
@@ -382,47 +414,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)" target="_blank">Seastar 之核间通信 (2)</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-04-07T15:06:23Z" class="post-meta meta-date dt-published">
-    2020年4月7日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1581
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <h2 id="1-0核和任一个核通信">1 0核和任一个核通信</h2>
-<p>Seastar 使用 eventfd 进行核间（线程间）通信，因为每个线程使用内核API <code>sched_set_affinity()</code>，绑定一个 SMP 的 core，所以我们这里称之为<strong>核间通信</strong>。</p>
-<p>Seastar 创建了一个 N*N 的 event_fd 矩阵，每个单元格上两个event_fd，每一行event_fds由一个线程(Core)管理。<br>
-也就是说每个线程的 epoll 上，一共需要侦听 2N 个 event_fd。</p>
-<p>示意图如下：</p>
-<p>
-        <a data-fancybox="gallery" href="/images/seastar/inter-core-communication.jpg">
-            <img class="mx-auto" alt="f-p-inter-code-communication" src="/images/seastar/inter-core-communication.jpg" />
-        </a>
-    </p>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -554,6 +545,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/" title="优雅的递归算法（二）交叉合并" target="_blank">优雅的递归算法（二）交叉合并</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
     </li>
     
@@ -589,10 +584,6 @@
         <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -602,7 +593,7 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
@@ -680,7 +671,7 @@
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -776,7 +767,7 @@
     
     <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(4)</a>
     
     <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
     
@@ -836,7 +827,7 @@
     
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
     

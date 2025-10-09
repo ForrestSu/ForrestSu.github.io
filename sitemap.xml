@@ -2,8 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://forrestsu.github.io/tags/algorithm/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
     <loc>https://forrestsu.github.io/categories/</loc>
-    <lastmod>2025-01-08T16:15:47+08:00</lastmod>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/leetcode/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/recursive/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/tags/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
+  </url><url>
+    <loc>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/</loc>
+    <lastmod>2025-10-09T09:19:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/tags/js/</loc>
     <lastmod>2025-01-08T16:15:47+08:00</lastmod>
@@ -12,15 +36,6 @@
     <lastmod>2025-01-08T16:15:47+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/developerguide/network/postman-scripts/</loc>
-    <lastmod>2025-01-08T16:15:47+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/posts/</loc>
-    <lastmod>2025-01-08T16:15:47+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/</loc>
-    <lastmod>2025-01-08T16:15:47+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/</loc>
     <lastmod>2025-01-08T16:15:47+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/</loc>
@@ -199,18 +214,6 @@
   </url><url>
     <loc>https://forrestsu.github.io/tags/tracing/</loc>
     <lastmod>2022-01-08T19:54:28+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/algorithm/</loc>
-    <lastmod>2021-12-09T23:19:02+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/categories/algorithm/</loc>
-    <lastmod>2021-12-09T23:19:02+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/leetcode/</loc>
-    <lastmod>2021-12-09T23:19:02+08:00</lastmod>
-  </url><url>
-    <loc>https://forrestsu.github.io/tags/recursive/</loc>
-    <lastmod>2021-12-09T23:19:02+08:00</lastmod>
   </url><url>
     <loc>https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/</loc>
     <lastmod>2021-12-09T23:19:02+08:00</lastmod>

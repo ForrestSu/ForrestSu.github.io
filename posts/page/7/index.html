@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" target="_blank">kafka安装</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-07-31T02:34:54Z" class="post-meta meta-date dt-published">
+    2018年7月31日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  312
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Install zookeeper cp conf/zoo-sample.cfg conf/zoo.cfg vi conf/zoo.cfg 主要修改配置文件中，数据目录的位置。 启动zookeeper服务 bin/zkServer.sh start kafka 2.12 修改配置文件: config/zookeeper.properties 修改数据目录： dataDir=/home/hadoop/zk #因为zookeeper变更为zk,所以需要在这里修改一下 启动zookeeper bin/zookeeper-server-start.sh config/zk.properties 启动kafka服务器（broker） 启动kafka服务器（broker）……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/architecture/simple-binary-encoding/" title="Simple Binary Encoding" target="_blank">Simple Binary Encoding</a>
             </h1>
         </header>
@@ -361,38 +393,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/" title="Seastar 入门" target="_blank">Seastar 入门</a>
-            </h1>
-        </header>
-        
-  <time datetime="2018-02-27T06:00:04Z" class="post-meta meta-date dt-published">
-    2018年2月27日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  2496
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 what is Seastar 这篇文章将介绍一下 Seastar : 一个在现在多核机器上编写高效复杂的服务器应用程序的 C++ 库。 有些框架非常高效，但只允许构建简单的应用程序（eg: DPDK 允许单独处理数据包的应用程序）, 而其他框架则允许构建极其复杂的应用程序，代价是运行时效率。Seastar 是我们尝试获得两全其美的方法：创建一个允许构建高度复杂的服务器应用程序并实现最佳性能的库。 2 起源 Seastar 的灵感和首例使用案例是ScyllaDB，重写了Apache Cassandra，Cassandra 是一个分厂复杂的应用，同时通过 Seastar，我们能够重新实现……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-started/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -524,6 +524,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/" title="优雅的递归算法（二）交叉合并" target="_blank">优雅的递归算法（二）交叉合并</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
     </li>
     
@@ -559,10 +563,6 @@
         <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/developerguide/design/log-replay/" title="LogReplay 流量录制回放设计与实现" target="_blank">LogReplay 流量录制回放设计与实现</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -572,7 +572,7 @@
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
     
@@ -650,7 +650,7 @@
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(2)</a>
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
     
     <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
     
@@ -746,7 +746,7 @@
     
     <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(3)</a>
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(4)</a>
     
     <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
     
@@ -806,7 +806,7 @@
     
     <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
     
-    <a href="https://forrestsu.github.io/tags/recursive/">recursive(1)</a>
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(2)</a>
     
     <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
     
