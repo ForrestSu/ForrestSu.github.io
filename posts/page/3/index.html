@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/" title="OpenTelemetry 入门" target="_blank">OpenTelemetry 入门</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-01-08T11:54:28Z" class="post-meta meta-date dt-published">
+    2022年1月8日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  3121
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface OpenTelemetry 是一个可观测性工具，通过标准化的 API 和 SDK，提供了跨语言、跨平台的分布式追踪、日志和指标收集和分析能力。OpenTelemetry 的目标是让开发者更容易地维护和监测他们的应用程序。 本文将介绍 OpenTelemetry 的一些基本概念和用法，帮助读者快速入门。 1. 安装 OpenTelemetry 首先，需要安装 OpenTelemetry 的 SDK。这里以 Golang 为例，介绍如何安装 OpenTelemetry Go SDK。 1 go get go.opentelemetry.io/otel 通过运行上述命令，可以下载并安装 OpenTelemetry Go SDK。 2. 配置 OpenTelemetry Collector OpenTelemetry Collector 是一个数据收集器，它可以收集不同类型的数据并发送到指定的目的地。在使用 OpenTelemetry 进行分布式追踪时，通常需要将追踪数据发送到 Zipkin 或 Jaeger 等追踪……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/elegant-recursive-algorithm/" title="优雅的递归算法" target="_blank">优雅的递归算法</a>
             </h1>
         </header>
@@ -379,38 +411,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/" title="基于 go 的 wireshark 插件实现方案" target="_blank">基于 go 的 wireshark 插件实现方案</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-12-08T14:15:47Z" class="post-meta meta-date dt-published">
-    2020年12月8日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1040
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 背景 在业务服务重构过程中，发现后台一些RPC服务，使用的自定义的应用层协议（七层）。 为了方便验证重构逻辑，想在在海量的请求中，快速找到某一类业务请求包。 2 思考 一般来说简单的协议使用 lua 实现即可，但是遇到 pb/thrift 等 tlv 类型的协议就比较麻烦了； 比较友好的是，目前有 lua-protobuf 这样的库，可以在lua中解析PB协议, 只需要提供proto即可； 但是对于内部的 tlv 协议，由于本人不太会使用lua去封装c库； 突然萌生了一个想法，能不能用 golang 来开发 wireshark 插件？ 是否可以让 lua5.2 直接调用cgo？ 3 定制目标（okr） 定位: 本地的报文分析工具 1 当业务……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/wireshark-go-plugin/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -494,7 +494,7 @@
 
                     <footer id="footer">
     <div>
-        &copy; 2025 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        &copy; 2026 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
         .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
         
     </div>
@@ -526,6 +526,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/" title="网配蔡司智锐流程" target="_blank">网配蔡司智锐流程</a>
+    </li>
     
     <li>
         <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/" title="优雅的递归算法（二）交叉合并" target="_blank">优雅的递归算法（二）交叉合并</a>
@@ -563,10 +567,6 @@
         <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -582,7 +582,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (4)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/life/">Life (14)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
@@ -912,9 +912,15 @@
     
     <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E8%94%A1%E5%8F%B8/">蔡司(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
     
+    <a href="https://forrestsu.github.io/tags/%E8%BF%91%E8%A7%86%E9%85%8D%E9%95%9C/">近视配镜(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AA%8C%E5%85%89/">验光(1)</a>
     
     <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
     
