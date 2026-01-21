@@ -84,6 +84,7 @@
     <li><a href="#3-互联网速度测试">3 互联网速度测试</a></li>
     <li><a href="#4-防止-mac-进入睡眠状态">4 防止 Mac 进入睡眠状态</a></li>
     <li><a href="#5-生成-uuid">5 生成 UUID</a></li>
+    <li><a href="#6-macos-colima-替代-docker-desktop">6 MacOs colima 替代 Docker-Desktop</a></li>
     <li><a href="#其他">其他</a></li>
     <li><a href="#参考链接">参考链接</a></li>
   </ul>
@@ -102,7 +103,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  1202
+  1430
 </div>
 
 <div class="post-meta meta-category">
@@ -214,6 +215,26 @@
 </div>
 </div><p>在编写需要 ID 的单元测试时我经常使用它。</p>
 <p>链接: <a href="https://ss64.com/mac/uuidgen.html">https://ss64.com/mac/uuidgen.html</a></p>
+<h2 id="6-macos-colima-替代-docker-desktop">6 MacOs colima 替代 Docker-Desktop</h2>
+<p>brew install docker colima
+更改配置：<code>vim ~/.colima/default/colima.yaml</code>, 将<code>docker: {}</code> 替换为以下：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">docker</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">registry-mirrors</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://dockerhub.woa.com</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">https://mirror.ccs.tencentyun.com</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>brew install docker-credential-helper</p>
+</blockquote>
 <h2 id="其他">其他</h2>
 <p>Q1：我的MacOS系统语言是英文，怎么把微信单独切换成中文？</p>
 <p>A：找到了一个一劳永逸的方法，以后什么app都可以用这个方法了。在 Terminal 运行下面的命令：</p>
