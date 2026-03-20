@@ -13,7 +13,7 @@
       <pubDate>Thu, 10 Oct 2019 11:28:08 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/todo/</guid>
-      <description>养老保险-值得规划吗？ 20170224 1 libaio 2 linux epoll 3 select 和 epoll 的区别 3 System v消息队列 msgsnd() msgrcv() 函数 5 eventfd demo 6 Go coroutine M:N 协程的调度机制，全局运行队列 GRQ 和本地运行队列LRQ 写作计划 gorm 使用 (2021-04-29) 如何实现一个断路器(circuit-breaker) ？(2022-02-01) 后台服务使用 http3 quic 协议 (2022-03-01)</description>
+      <description>养老保险-值得规划吗？ 20170224 1 libaio 2 linux epoll 3 select 和 epoll 的区别 3 System v消息队列 msgsnd() msgrcv() 函数 5 eventfd demo 6 Go coroutine M:N 协程的调度机制，全局运行队列 GRQ 和本地运行队列LRQ 当下思考 AI 大趋势势在必行，哪些场景需要升级到新的方式？ 个人数据资产的管理 目前我的数据资产，散落在很多地方 文件和照片：百度云、U盘、笔记本磁盘 笔记：OneNote 如何做整理？ 图片：具有长期保存的价值 文件：大部分可以丢弃 电子书籍： 仅保留有意义的书籍 哪些是有价值的？ 照片：需要长期保存 Markdown: 沉淀的 markdown 笔记 AI 方向的计划</description>
     </item>
     
   </channel>
