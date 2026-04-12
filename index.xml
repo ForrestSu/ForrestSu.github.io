@@ -6,7 +6,16 @@
     <description>Recent content on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Wed, 10 Dec 2025 12:21:55 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2026 11:05:43 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 规范驱动开发 SDD</title>
+      <link>https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/</link>
+      <pubDate>Sun, 12 Apr 2026 11:05:43 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/</guid>
+      <description>什么是规范驱动开发 (Spec-Driven Development, SDD) 规范驱动开发（SDD）是一种专门为 AI 辅助编程（AI-Native Engineering） 打造的软件开发方法论。在传统的开发中，人类开发者直接编写代码；而在 SDD 模式下，人类的角色转变为“系统架构师”和“产品经理”，主要负责编写和维护结构化的需求规范（Spec），然后由 AI 智能体（如 Claude Code）根据规范自动生成执行计划、拆解任务并最终编写和测试代码。 SDD 的核心理念是：规范（Spec）即唯一的真实数据源（Single Source of Truth）。 只要规范定义得足够清晰、边界足够明确，AI 就能高效</description>
+    </item>
+    
     <item>
       <title>网配蔡司智锐流程</title>
       <link>https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/</link>

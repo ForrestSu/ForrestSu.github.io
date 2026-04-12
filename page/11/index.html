@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/" title="搭建CUDA 环境（GPU）" target="_blank">搭建CUDA 环境（GPU）</a>
+            </h1>
+        </header>
+        
+  <time datetime="2017-06-12T02:24:33Z" class="post-meta meta-date dt-published">
+    2017年6月12日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4492
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA' target="_blank">理解计算机</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 最近拿到一篇论文，老板需要按照论文的思路，通过提取股票行情的特征，从而预测未来几分钟内股票的价格变动。在这之前已经用python 的 scikit 库实现过了。计算完全市场3000只股票大概需要1小时(10 thread)。Boss想能不能1min能就算完全市场的？所以 CTO 就建议使用GPU来加速计算。 下面我们就来讲讲怎么搭建GPU的环境。(如有不正确的地方，请不吝指正) 1.1 首先确认配置的 Nvidia 显卡型号 官网查看CUDA兼容的GPU型号cuda-gpu (20170612) CUDA Toolkit on x86_32 is unsupported 2 CUDA 环境搭建 2.1 Download nvidia cuda-toolkit 下载对应的开发包，安装的时候选择自定……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/cs/%E6%90%AD%E5%BB%BAcuda-%E7%8E%AF%E5%A2%83gpu/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/toptrade2017/%E5%B7%A5%E4%BD%9C%E9%87%8D%E5%BF%83%E6%A2%B3%E7%90%86/" title="工作重心梳理" target="_blank">工作重心梳理</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/cpp/cpp11-reference-qualifier/" title="C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)" target="_blank">C&#43;&#43;11 特性：成员函数引用限定符(Reference qualifier)</a>
-            </h1>
-        </header>
-        
-  <time datetime="2017-04-08T12:42:42Z" class="post-meta meta-date dt-published">
-    2017年4月8日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1692
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 引用限定符 学了这么多年C++，今天拜读了Scott Meyes的《more effective cpp》，第一次看到这种写法&hellip; 引用限定可以让成员函数只能被左值对象调用或者只能被右值对象调用。 下面举例说明： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace left_value { class Hello { void show() &amp; { std::cout &lt;&lt; &#34;just for left-value\n&#34;; } }; inline void run() { Hello t; t.show(); // ok Hello{}.show(); // compile error: passing &#39;left_value::Hello&#39; as &#39;this&#39; argument discards qualifiers [-fpermissive] } } 1 2 3 4 5 6 7 8 9 10 11 12 13 14 namespace right_value { struct Test { void show() &amp;&amp; { std::cout &lt;&lt; &#34; just for right value\n&#34;; } }; inline void run() { Test t; t.show(); //compile error: passing &#39;right_value::Test&#39; as &#39;this&#39; argument discards qualifiers [-fpermissive] Test{}.show(); //ok } } 换句话说，引用限定所限定的就是*this，它可以让一些函数只被左值this调用或者右值……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/cpp11-reference-qualifier/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -523,6 +523,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/" title="网配蔡司智锐流程" target="_blank">网配蔡司智锐流程</a>
     </li>
     
@@ -558,10 +562,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -570,6 +570,8 @@
     <section class="widget">
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/ai/">AI (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
@@ -648,6 +650,8 @@
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ai/">AI(1)</a>
     
     <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
     
@@ -818,6 +822,8 @@
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sdd/">SDD(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     

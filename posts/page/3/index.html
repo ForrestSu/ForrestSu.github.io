@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/" title="MySQL 数据导入导出" target="_blank">MySQL 数据导入导出</a>
+            </h1>
+        </header>
+        
+  <time datetime="2022-01-22T02:40:28Z" class="post-meta meta-date dt-published">
+    2022年1月22日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  518
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 DB 回档操作 1.1 mysqldump 备份表数据（不包含建表语句） 1 2 3 4 5 6 7 mysqldump -h10.10.10.10 -P15192 -uroot -pPassword \ --single-transaction \ --default-character-set=utf8 \ --no-create-info \ --skip-disable-keys \ --skip-add-locks \ [database name] [table name1] [table name2] &gt; [dump file] 1.2 恢复数据 执行以下命令前一定要清理原有的数据，要不然会报唯一键冲突的 导入数据之前，最好将线上的表备份一下，然后 delete 清空原表； 最后进行导入，否则原数据不清理，导入的时候会报唯一健冲突。 方式一： 1 #mysql -h10.10.10.10 -P15192 -uroot -pPassword [database name] &lt; [dump file] 方式二： 登陆mysql 然后执行source命令 1 2 3 #mysql -h10.10.10.10 -P15192 -uroot -pPassword &gt; use db_name &gt; source [dump file] 总结……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/database/mysqldump-usage/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/architecture/tracing/go-opentelemetry-tracing/" title="OpenTelemetry 入门" target="_blank">OpenTelemetry 入门</a>
             </h1>
         </header>
@@ -379,38 +411,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/" title="业务缓存之可行性？" target="_blank">业务缓存之可行性？</a>
-            </h1>
-        </header>
-        
-  <time datetime="2021-01-08T05:46:15Z" class="post-meta meta-date dt-published">
-    2021年1月8日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1888
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 Preface 在业务系统中，为了提高服务的性能，降低平均时延，一个常用的手段：增加cache。 鲁迅:-）人们发明一种方法解决一个问题，而几乎总是会引入另一个问题。 那么可能会问：Cache 要加在哪里，要缓存多久，才会更有效? 下面就拿一个例子，来展开看看。 2 分析 一般而言，需要对执行频率高，耗时占比大的逻辑，优先增加Cache。 但是要注意：增加 Cache 不能影响到业务的正确性。 适用场景：数据变化不频繁，因为一旦数据发生变化，Cache可能产生不一致。 对于不一致，还需要设计一个合理的失效时间，在业务可接受的误差之内增加c……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/cache/caching-feasibility/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -528,6 +528,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/" title="网配蔡司智锐流程" target="_blank">网配蔡司智锐流程</a>
     </li>
     
@@ -563,10 +567,6 @@
         <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -575,6 +575,8 @@
     <section class="widget">
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/ai/">AI (1)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
@@ -653,6 +655,8 @@
     <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
     
     <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ai/">AI(1)</a>
     
     <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
     
@@ -823,6 +827,8 @@
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sdd/">SDD(1)</a>
     
     <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
     
