@@ -81,7 +81,8 @@
   <ul>
     <li><a href="#1-前言">1 前言</a></li>
     <li><a href="#2-出厂日期">2 出厂日期</a></li>
-    <li><a href="#3-速率测试">3 速率测试</a>
+    <li><a href="#3-todo">3 TODO</a></li>
+    <li><a href="#4-速率测试">4 速率测试</a>
       <ul>
         <li><a href="#无线速度内网">无线速度（内网）</a></li>
       </ul>
@@ -89,6 +90,7 @@
     <li><a href="#参考">参考</a>
       <ul>
         <li><a href="#软件源">软件源</a></li>
+        <li><a href="#mt3600-change-geolocation">MT3600 change GeoLocation</a></li>
       </ul>
     </li>
   </ul>
@@ -107,7 +109,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  1775
+  2640
 </div>
 
 <div class="post-meta meta-category">
@@ -143,18 +145,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/
 </span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Apr <span style="color:#ae81ff">15</span> 22:01 country_code
-</span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Jul <span style="color:#ae81ff">10</span> 22:31 device_cert
-</span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Apr <span style="color:#ae81ff">15</span> 22:06 device_ddns
-</span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Jul <span style="color:#ae81ff">10</span> 22:31 device_key
-</span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Apr <span style="color:#ae81ff">15</span> 22:05 device_mac
 </span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Apr <span style="color:#ae81ff">15</span> 22:06 device_sn
 </span></span><span style="display:flex;"><span>-r--r--r--    <span style="color:#ae81ff">1</span> root     root             <span style="color:#ae81ff">0</span> Apr <span style="color:#ae81ff">15</span> 22:06 device_sn_bak
 </span></span></code></pre></td></tr></table>
@@ -164,13 +158,14 @@
             <img class="mx-auto" alt="出厂日期" src="/images/wireless-router/mt3600be.webp" />
         </a>
     
-从商家查询的出厂日期
+从商家查询的出厂日期：<code>2026-06-11</code>
 
         <a data-fancybox="gallery" href="/images/wireless-router/issue_data.jpg">
             <img class="mx-auto" alt="出厂日期" src="/images/wireless-router/issue_data.jpg" />
         </a>
     </p>
-<h2 id="3-速率测试">3 速率测试</h2>
+<h2 id="3-todo">3 TODO</h2>
+<h2 id="4-速率测试">4 速率测试</h2>
 <h3 id="无线速度内网">无线速度（内网）</h3>
 <p>电脑 ➜ 路由器(上行速度)</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -248,7 +243,65 @@
 </span></span><span style="display:flex;"><span>src/gz glinet_gli_packages https://fw.gl-inet.com/releases/v21.02-SNAPSHOT/mt7987a/packages/aarch64_cortex-a53/packages
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="mt3600-change-geolocation">MT3600 change GeoLocation</h3>
+<p>参考: <a href="https://www.reddit.com/r/GlInet/comments/1qfeva7/guide_region_unlock_glmt3600be_beryl_7_cn_to/?show=original">https://www.reddit.com/r/GlInet/comments/1qfeva7/guide_region_unlock_glmt3600be_beryl_7_cn_to/?show=original</a></p>
+<p><strong>Step 2: Find Your &ldquo;CN&rdquo; Offset</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hexdump -v -e <span style="color:#e6db74">&#39;&#34;%_ad: &#34; 16/1 &#34;%02X &#34; &#34;\n&#34;&#39;</span> /dev/mtdblock3 | grep <span style="color:#e6db74">&#34;43 4E&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>(Note: 43 4E is the Hex code for &ldquo;CN&rdquo;)</p>
+<p>
+        <a data-fancybox="gallery" href="/images/wireless-router/mtd-CN.webp">
+            <img class="mx-auto" alt="mtd-terminal-CN" src="/images/wireless-router/mtd-CN.webp" />
+        </a>
+    </p>
+<p>My Result: On my GL-MT3600BE, the correct offset was 16520.</p>
+<p><strong>Step 3: VERIFY Before Writing (Crucial)</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Replace 16520 with YOUR calculated number</span>
+</span></span><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/mtdblock3 bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> skip<span style="color:#f92672">=</span><span style="color:#ae81ff">16520</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> 2&gt;/dev/null
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 4: The Unlock Command</strong>
+Once confirmed, run the write command to change &ldquo;CN&rdquo; to &ldquo;US&rdquo;.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Replace 16520 with your VERIFIED number</span>
+</span></span><span style="display:flex;"><span>echo -n <span style="color:#e6db74">&#34;US&#34;</span> | dd of<span style="color:#f92672">=</span>/dev/mtdblock3 bs<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> seek<span style="color:#f92672">=</span><span style="color:#ae81ff">16520</span> count<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> conv<span style="color:#f92672">=</span>notrunc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Result: It should print exactly <code>CN</code>.
+If it prints random junk, STOP. Recalculate your offset.</p>
+<p><strong>Step 5: Save and Reboot</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sync
+</span></span><span style="display:flex;"><span>reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Result</strong>
+After rebooting, the router will identify as a US/Global unit.
+Permanent: You can update firmware or factory reset freely; it will default to US settings.
+Features: VPN (WireGuard/OpenVPN) and AdGuard Home should now be visible in the sidebar.</p>
+
         </div>
 
         
