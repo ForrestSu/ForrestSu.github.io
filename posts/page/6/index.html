@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/" title="使用 CMake 快速制作 RPM 安装包" target="_blank">使用 CMake 快速制作 RPM 安装包</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-01-16T09:06:09Z" class="post-meta meta-date dt-published">
+    2020年1月16日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2093
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。 制作 rpm 包通用的方式是： 直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。 今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild) 下面我们就基于C……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/go/select-in-go/" title="Go select多路复用, 实现超时机制" target="_blank">Go select多路复用, 实现超时机制</a>
             </h1>
         </header>
@@ -378,38 +410,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/" title="Multithreading-with-ZeroMQ" target="_blank">Multithreading-with-ZeroMQ</a>
-            </h1>
-        </header>
-        
-  <time datetime="2018-10-30T11:50:51Z" class="post-meta meta-date dt-published">
-    2018年10月30日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  2298
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            本文翻译自ZeroMQ文档的一小部分内容, 该段落提供了解决多线程问题的一个绝佳方式。 这是前辈30多年的并发编程经验之谈！ 点击阅读原文：Multithreading-with-ZeroMQ Preface ZeroMQ(又称为ØMQ,0MQ,或zmq)看起来像一个可嵌入的网络编程库, 但用起来更像是一个并发框架。 它为你提供的套接字(sockets), 能以进程间, 进程内, TCP 和多播等多种方式传输原子消息。 你可以用fan-out, pub-sub, 任务分发, 和 req-rep 等多种模式, 给套接字建立多对多的连接。 它速度之快足以构建集群产品。 它的异步I……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/multithreading-with-zeromq/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -541,6 +541,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
     </li>
     
@@ -576,10 +580,6 @@
         <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -599,7 +599,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
@@ -739,6 +739,8 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
+    <a href="https://forrestsu.github.io/tags/glinet/">GLinet(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
@@ -778,6 +780,8 @@
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
     
     <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mt3600be/">MT3600be(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     

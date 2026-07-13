@@ -75,6 +75,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
+            </h1>
+        </header>
+        
+  <time datetime="2023-08-09T09:28:06Z" class="post-meta meta-date dt-published">
+    2023年8月9日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  562
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Go 1.21.0 2023-08-08 slices、maps 泛型库：《slices、maps 泛型库终于要加入标准库。。。》 for 循环变量的语义变更：《Go 团队将修改 for 循环变量的语义，新版本即可体验！》 context 可设置取消原因和回调函数：《Context 可以设置取消原因和回调函数了，等的可太久了！》 主版本号支持第三位数字 0：《Go 改版本号规则，主版本号终于支持第三位数字 0 了。。。》 统一标准 log/slog：《Go 十年了，终于想起要统一 log 库了！》 支持自定义 go.env 文件：《支持自定义 go.env 文件，可惜还是有所残缺。。。》 增强约束 Go 程序构建：《go.mod 的……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
             </h1>
         </header>
@@ -360,38 +392,6 @@
     
     
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/database/mysql-timer-schedule/" title="MySQL 定时任务" target="_blank">MySQL 定时任务</a>
-            </h1>
-        </header>
-        
-  <time datetime="2022-01-24T02:40:28Z" class="post-meta meta-date dt-published">
-    2022年1月24日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  619
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 创建存储过程 1.1 创建一个存储过程 1 2 3 4 5 6 7 8 9 CREATE PROCEDURE `ClearExpiredData`() BEGIN -- 清理已过期10天的数据 delete from vid_blacklist where expire_time &gt; CAST(&#39;2010-10-10&#39; AS DATETIME) and expire_time &lt; SUBDATE(CURDATE(), 10); -- end END 1.2 执行存储过程 1 call ClearExpiredData() 2 数据库定时任务 2.1 创建一次性事件 1 2 3 CREATE EVENT clearEvent ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 DAY DO call ClearExpiredData() 2.2 创建周期性事件 每天早上8点执行一次： 1 2 3 4 5 CREATE EVENT clearEvent ON SCHEDULE EVERY 1 DAY STARTS &#39;2022-01-24 08:00:00&#39; COMMENT &#39;定时清理过期数据&#39; DO call ClearExpiredData(); 2.3 查询数据库 Event 1 select * from information_schema.events where event_name = &#39;clearEvent&#39; 2.4 删除 Event 1 drop EVENT clearEvent 总结 TODO……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/database/mysql-timer-schedule/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
 
 
 
@@ -502,6 +502,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
     </li>
     
@@ -537,10 +541,6 @@
         <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/developerguide/go/go-version-feature/" title="Go 新版本特性" target="_blank">Go 新版本特性</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -560,7 +560,7 @@
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
@@ -700,6 +700,8 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
+    <a href="https://forrestsu.github.io/tags/glinet/">GLinet(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
@@ -739,6 +741,8 @@
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
     
     <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mt3600be/">MT3600be(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     
