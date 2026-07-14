@@ -81,7 +81,7 @@
   <ul>
     <li><a href="#1-前言">1 前言</a></li>
     <li><a href="#2-出厂日期">2 出厂日期</a></li>
-    <li><a href="#3-安装-passwall2">3 安装 passwall2</a></li>
+    <li><a href="#3-安装-openclxxx">3 安装 OpenClxxx</a></li>
     <li><a href="#4-速率测试">4 速率测试</a>
       <ul>
         <li><a href="#无线速度内网">无线速度（内网）</a></li>
@@ -109,7 +109,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  2838
+  2885
 </div>
 
 <div class="post-meta meta-category">
@@ -164,18 +164,21 @@
             <img class="mx-auto" alt="出厂日期" src="/images/wireless-router/issue_data.jpg" />
         </a>
     </p>
-<h2 id="3-安装-passwall2">3 安装 passwall2</h2>
-<p><a href="https://github.com/Openwrt-Passwall/openwrt-passwall2">https://github.com/Openwrt-Passwall/openwrt-passwall2</a></p>
-<pre tabindex="0"><code>opkg install \
-    chinadns-ng*.ipk \
-    tcping*.ipk \
-    sing-box*.ipk \
-    xray-*.ipk \
-    geoview_*.ipk \
-    v2ray-*.ipk \
-    luci-app-passwall*.ipk \
-    luci-i18n-passwall*.ipk
-</code></pre><h2 id="4-速率测试">4 速率测试</h2>
+<h2 id="3-安装-openclxxx">3 安装 OpenClxxx</h2>
+<p><a href="https://github.com/vernesong/OpenClash/releases">https://github.com/vernesong/OpenClash/releases</a></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># [iptables for ipk]</span>
+</span></span><span style="display:flex;"><span>opkg update
+</span></span><span style="display:flex;"><span>opkg install bash iptables dnsmasq-full curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-速率测试">4 速率测试</h2>
 <h3 id="无线速度内网">无线速度（内网）</h3>
 <p>电脑 ➜ 路由器(上行速度)</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
