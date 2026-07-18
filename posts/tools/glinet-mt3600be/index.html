@@ -81,6 +81,7 @@
   <ul>
     <li><a href="#1-前言">1 前言</a></li>
     <li><a href="#2-出厂日期">2 出厂日期</a></li>
+    <li><a href="#3-修改地区us">3 修改地区US</a></li>
     <li><a href="#3-安装-openclxxx">3 安装 OpenClxxx</a></li>
     <li><a href="#4-速率测试">4 速率测试</a>
       <ul>
@@ -109,7 +110,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  2950
+  3202
 </div>
 
 <div class="post-meta meta-category">
@@ -164,7 +165,26 @@
             <img class="mx-auto" alt="出厂日期" src="/images/wireless-router/issue_data.jpg" />
         </a>
     </p>
-<h2 id="3-安装-openclxxx">3 安装 OpenClxxx</h2>
+<h2 id="3-修改地区us">3 修改地区US</h2>
+<p>在改区完成之后，wifi可能还是CN，5G配置无法选择<code>高信道</code>，我可以尝试uci命名修改。</p>
+<p>1 查询无线的地区配置：</p>
+<blockquote>
+<p>uci show wireless | grep -E &ldquo;type|band|country&rdquo;</p>
+</blockquote>
+<p>2 执行修改，重启之后，就能在UI界面出现更多<code>信道</code>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>uci set wireless.MT7993_1_1.country<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;US&#39;</span>
+</span></span><span style="display:flex;"><span>uci set wireless.MT7993_1_2.country<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;US&#39;</span>
+</span></span><span style="display:flex;"><span>uci commit wireless
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-安装-openclxxx">3 安装 OpenClxxx</h2>
 <p><a href="https://github.com/vernesong/OpenClash/releases">https://github.com/vernesong/OpenClash/releases</a></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

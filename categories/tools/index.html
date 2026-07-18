@@ -93,7 +93,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  2950
+  3202
 </div>
 
 <div class="post-meta meta-category">
@@ -105,7 +105,7 @@
 
 
         <div class="post-content">
-            1 前言 最近购买了 GL-inet 家的便携路由器，基于openwrt定制，可玩性非常足。 2 出厂日期 路由器出厂日期：2026-04-15 14:02:39 1 2 3 4 root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/ -r--r--r-- 1 root root 0 Apr 15 22:01 country_code -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn_bak 从商家查询的出厂日期：2026-06-11 3 安装 OpenClxxx https://github.com/vernesong/OpenClash/releases 1 2 3 # [iptables for ipk] opkg update opkg install bash iptables dnsmasq-full curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base 上传 1 scp -O luci-app-openclash_0.47.116_all.ipk root@192.168.8.1:/tmp/ 4 速率测试 无线速度（内网） 电脑 ➜ 路由器(上行速度) 1 2 3 4 5 6 7 8 9 ➜ ~ iperf3 -c 192.168.8.1 -t 10 -i 1 Connecting to host 192.168.8.1, port 5201 [ 5] local 192.168.8.189 port 52071 connected to 192.168.8.1 port 5201 [ ID] Interval Transfer Bitrate Retr Cwnd [ 5] 0.00-1.01 sec 59.6 MBytes 497 Mbits/sec 0 5.00 KBytes [ 5] 1.01-2.00 sec 59.9 MBytes 504 Mbits/sec 0 5.00 KBytes [ 5] 2.00-3.00 sec 59.6……
+            1 前言 最近购买了 GL-inet 家的便携路由器，基于openwrt定制，可玩性非常足。 2 出厂日期 路由器出厂日期：2026-04-15 14:02:39 1 2 3 4 root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/ -r--r--r-- 1 root root 0 Apr 15 22:01 country_code -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn_bak 从商家查询的出厂日期：2026-06-11 3 修改地区US 在改区完成之后，wifi可能还是CN，5G配置无法选择高信道，我可以尝试uci命名修改。 1 查询无线的地区配置： uci show wireless | grep -E &ldquo;type|band|country&rdquo; 2 执行修改，重启之后，就能在UI界面出现更多信道: 1 2 3 uci set wireless.MT7993_1_1.country=&#39;US&#39; uci set wireless.MT7993_1_2.country=&#39;US&#39; uci commit wireless 3 安装 OpenClxxx https://github.com/vernesong/OpenClash/releases 1 2 3 # [iptables for ipk] opkg update opkg install bash iptables dnsmasq-full curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun……
             <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" target="_blank">阅读全文</a></p>
         </div>
     </article>
