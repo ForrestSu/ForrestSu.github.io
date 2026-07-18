@@ -13,7 +13,7 @@
       <pubDate>Sat, 11 Jul 2026 09:40:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/posts/tools/glinet-mt3600be/</guid>
-      <description>1 前言 最近购买了 GL-inet 家的便携路由器，基于openwrt定制，可玩性非常足。 2 出厂日期 路由器出厂日期：2026-04-15 14:02:39 1 2 3 4 root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/ -r--r--r-- 1 root root 0 Apr 15 22:01 country_code -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn_bak 从商家查询的出厂日期：2026-06-11 3 修改地区US 在改区完成之后，wifi可能还是CN，5G配置无法选择高信道，我可以尝试uci命名修改。 1 查询无线的地区配置： uci show wireless | grep -E &amp;ldquo;type|band|country&amp;rdquo; 2 执行修改，重启之后，就能在UI界面出现更多信道: 1 2 3 uci set wireless.MT7993_1_1.country=&amp;#39;US&amp;#39; uci set wireless.MT7993_1_2.country=&amp;#39;US&amp;#39; uci commit wireless 3 安装 OpenClxxx https://github.com/vernesong/OpenClash/releases 1 2 3 # [iptables for ipk] opkg update opkg install bash iptables dnsmasq-full curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun</description>
+      <description>1 前言 最近购买了 GL-inet 家的便携路由器，基于openwrt定制，可玩性非常足。 2 出厂日期 路由器出厂日期：2026-04-15 14:02:39 1 2 3 4 root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/ -r--r--r-- 1 root root 0 Apr 15 22:01 country_code -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn_bak 从商家查询的出厂日期：2026-06-11 3 修改地区US 在改区完成之后，存在的问题。 问题1：云服务会定向到全球区。 可以尝试修改： /etc/config/glcloud, 中国区域名如下： option server &amp;lsquo;gslb.gl-inet.cn&amp;rsquo; 问题2：无线的5G配置无法选择高信道，wifi地区是CN，可以尝试uci命名修改。 1 查询无线的地区配置： uci show wireless | grep -E &amp;ldquo;type|band|country&amp;rdquo; 2 执行修改，重启之后，就能在UI界面出现</description>
     </item>
     
   </channel>
