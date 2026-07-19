@@ -84,7 +84,6 @@
     <li><a href="#3-修改地区us">3 修改地区US</a>
       <ul>
         <li><a href="#问题1云服务会定向到全球区">问题1：云服务会定向到全球区。</a></li>
-        <li><a href="#问题2无线的5g配置无法选择高信道wifi地区是cn可以尝试uci命名修改">问题2：无线的5G配置无法选择<code>高信道</code>，wifi地区是CN，可以尝试uci命名修改。</a></li>
       </ul>
     </li>
     <li><a href="#3-安装-openclxxx">3 安装 OpenClxxx</a></li>
@@ -115,7 +114,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  3304
+  3136
 </div>
 
 <div class="post-meta meta-category">
@@ -171,31 +170,17 @@
         </a>
     </p>
 <h2 id="3-修改地区us">3 修改地区US</h2>
-<p>在改区完成之后，存在的问题。</p>
+<p>在改区完成之后，wifi地区仍是CN，需要重置路由器。</p>
 <h3 id="问题1云服务会定向到全球区">问题1：云服务会定向到全球区。</h3>
 <p>可以尝试修改： <code>/etc/config/glcloud</code>, 中国区域名如下：</p>
 <blockquote>
 <p>option server &lsquo;gslb.gl-inet.cn&rsquo;</p>
 </blockquote>
-<h3 id="问题2无线的5g配置无法选择高信道wifi地区是cn可以尝试uci命名修改">问题2：无线的5G配置无法选择<code>高信道</code>，wifi地区是CN，可以尝试uci命名修改。</h3>
-<p>1 查询无线的地区配置：</p>
+<p>改区之后，云服务地区是下面：</p>
 <blockquote>
-<p>uci show wireless | grep -E &ldquo;type|band|country&rdquo;</p>
+<p>option server &lsquo;gslb-eu.goodcloud.xyz&rsquo;</p>
 </blockquote>
-<p>2 执行修改，重启之后，就能在UI界面出现更多<code>信道</code>:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>uci set wireless.MT7993_1_1.country<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;US&#39;</span>
-</span></span><span style="display:flex;"><span>uci set wireless.MT7993_1_2.country<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;US&#39;</span>
-</span></span><span style="display:flex;"><span>uci commit wireless
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="3-安装-openclxxx">3 安装 OpenClxxx</h2>
+<h2 id="3-安装-openclxxx">3 安装 OpenClxxx</h2>
 <p><a href="https://github.com/vernesong/OpenClash/releases">https://github.com/vernesong/OpenClash/releases</a></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
