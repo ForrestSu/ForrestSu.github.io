@@ -76,111 +76,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/" title="Git 项目仓库中的 OWNERS 文件" target="_blank">Git 项目仓库中的 OWNERS 文件</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-05-21T14:21:45Z" class="post-meta meta-date dt-published">
-    2020年5月21日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1284
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 Git 在开发中的常用术语 在团队开发过程中，我们经常会看到如下术语(terms)，下面记录一下： terms means 翻译 WIP Work in progress, do not merge yet. 开发中 LGTM Looks good to me. Riview 完别人的 PR，没有问题，可以合并了 PTAL Please take a look. 帮我看下，一般都是请别人 review 自己的 PR CC Carbon copy 一般代表抄送别人的意思 RFC request for comments. 我觉得这个想法很好, 我们来一起讨论下 IIRC if I recall correctly. 如果我没记错 ACK acknowledgement. 我确认了或者我接受了,我承认了 NACK/NAK negative acknowledgement. 我不同意 2 OWNERS 文件 k8s 使用 owners 文件的灵感来自于Chromium OWNERS文件 owners 文件主要是为了解决代码审查过程中的问题： 项目中代码审查的速度, 受到能够审查代码的……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/git/git-owners-files-in-repos/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/" title="Seastar 之 ready_future(3)" target="_blank">Seastar 之 ready_future(3)</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-05-08T11:55:17Z" class="post-meta meta-date dt-published">
-    2020年5月8日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1497
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            <h2 id="1-什么是-ready_future">1 什么是 ready_future</h2>
-<p>如果一个 future 在当下就已经有结果了，不必等到未来某个时刻，
-我们把这个 future 称为 <code>ready_future</code>。</p>
-<p>ready_future 的不同之处在于:</p>
-<blockquote>
-<p>(1) ready_future 可以单独使用，不必关联一个promise；<br>
-(2) ready_future.then(lambda) 会把传入的lambda立即执行掉，
-也就是说这个lambda没有机会放入任务队列；<br>
-(3) 而not_ready_future每次执行，产生的新任务都会被放入任务队列，然后依此取出来执行。</p>
-</blockquote>……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-ready-future/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/" title="CPU Cache 架构" target="_blank">CPU Cache 架构</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-04-08T05:46:15Z" class="post-meta meta-date dt-published">
-    2020年4月8日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1503
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/architecture' target="_blank">Architecture</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 SMP (Symmetric Multi-Processor) 对称式多处理器 (SMP) 是一种计算机系统结构。 多处理器结构有两种： (l) 对称 —— 多个处理器都是等价的，线程每次受调度运行时都可以动态选择在任何一个处理器上运行。 (2) 非对称 —— 处理器的结构、能力、所处的部位、和作用都各不相同，不同的线程只能在特定的处理器上运行。 通用 CPU 一般都是对称多处理器，生活中常见的CPU有 Intel Core 和 AMD 的CPU。 现代CPU朝着多核，多线程的方向发展。因为内存的存取速度远远跟不上CPU的执行速度， 所以引入了L1, L2,L3 级cache，L1 cache最小，分为指令cache和数据cache两种，两者……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/cpu-cache/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/architecture/archi-seastar/seastar-inter-core-communication/" title="Seastar 之核间通信 (2)" target="_blank">Seastar 之核间通信 (2)</a>
             </h1>
         </header>
@@ -418,6 +313,102 @@
     
     
     
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/" title="使用 CMake 快速制作 RPM 安装包" target="_blank">使用 CMake 快速制作 RPM 安装包</a>
+            </h1>
+        </header>
+        
+  <time datetime="2020-01-16T09:06:09Z" class="post-meta meta-date dt-published">
+    2020年1月16日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2093
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 最近对框架进行了改造，支持yaml格式的配置文件， 使用到了 yaml-cpp 这个第三方库， yum官方提供的是 0.5.1 版本(依赖boost)，看到最新版 0.6.3 已经去除了boost的依赖， 于时想自己做一个包。 制作 rpm 包通用的方式是： 直接使用rpm-build, 编写project.spec,这样就需要了解spec的语法规则。 今天不经意在网上搜到，可以用CMake来制作RPM包(因为我们的 C++ 项目也是采用 CMake 进行编译的)。 CMake打包的基本原理是：CMake内部有一个cpack工具，支持调用不同的打包工具(比如 rpmbuild) 下面我们就基于C……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/build_tool/build-rpm-package-use-cmake/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/select-in-go/" title="Go select多路复用, 实现超时机制" target="_blank">Go select多路复用, 实现超时机制</a>
+            </h1>
+        </header>
+        
+  <time datetime="2019-12-18T12:19:15Z" class="post-meta meta-date dt-published">
+    2019年12月18日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  892
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 我们在 Linux 服务端编程的时候，select/epoll 可以监控多个fd, 并且可以指定超时时间。 那么我们在Go 里面也有select 关键字，那么怎么实现超时机制呢？ 在 select 中加入一个 timer channel case rc2 := &lt;-time.After(d): After等待持续时间过去，然后在返回的通道上发送当前时间。 它等效于NewTimer(d)。 在计时器触发之前，底层的计时器不会由垃圾收集器恢复。 如果需要提高效率，请改用NewTimer，如果不再需要计时器，请调用Timer.Stop。 完整代码如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 采用 select 实现超时……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/select-in-go/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/go/reflection-in-go/" title="Golang 反射 (1)" target="_blank">Golang 反射 (1)</a>
+            </h1>
+        </header>
+        
+  <time datetime="2019-12-17T10:10:48Z" class="post-meta meta-date dt-published">
+    2019年12月17日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1750
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 Preface 反射是程序在运行时检查变量和值, 并获取到它们的类型的能力。 很多主流语言都提供了反射语法特性，比如Java, python等; C++语言本身不支持反射， 但是第三方库实现了反射特性, 比如 google 的 protobuf。 如果支持反射，解决某些场景的问题，可以变得简单。 比如通过struct/class, 生成对应的建表语句，根据生成 insert 语句(批量将CSV导入数据库)等。 在之前的文章中，我们了解了如何在 Java/C++ 中使用反射： Java-反射机制 protobuf-反射 2 Go 反射 Go语言中使用空的接口，表示任一类型(可以理解为Any……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/go/reflection-in-go/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
 
 
 
@@ -549,10 +540,6 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
     </li>
     
@@ -569,10 +556,6 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
@@ -586,6 +569,14 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
 </ul>
@@ -607,13 +598,13 @@
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -747,21 +738,17 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/glinet/">GLinet(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(7)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
@@ -788,8 +775,6 @@
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
     
     <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/mt3600be/">MT3600be(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     
@@ -843,8 +828,6 @@
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
@@ -860,8 +843,6 @@
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     

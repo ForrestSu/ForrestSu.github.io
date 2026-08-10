@@ -6,25 +6,7 @@
     <description>Recent content in Tags on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sat, 11 Jul 2026 09:40:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GLinet</title>
-      <link>https://forrestsu.github.io/tags/glinet/</link>
-      <pubDate>Sat, 11 Jul 2026 09:40:28 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/glinet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MT3600be</title>
-      <link>https://forrestsu.github.io/tags/mt3600be/</link>
-      <pubDate>Sat, 11 Jul 2026 09:40:28 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/mt3600be/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sun, 12 Apr 2026 11:05:43 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI</title>
       <link>https://forrestsu.github.io/tags/ai/</link>
@@ -116,24 +98,6 @@
     </item>
     
     <item>
-      <title>iPhone</title>
-      <link>https://forrestsu.github.io/tags/iphone/</link>
-      <pubDate>Sun, 01 Sep 2024 10:40:28 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/iphone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Simulate Location</title>
-      <link>https://forrestsu.github.io/tags/simulate-location/</link>
-      <pubDate>Sun, 01 Sep 2024 10:40:28 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/simulate-location/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>CPP</title>
       <link>https://forrestsu.github.io/tags/cpp/</link>
       <pubDate>Tue, 20 Feb 2024 08:11:00 +0800</pubDate>
@@ -184,24 +148,6 @@
       <pubDate>Sun, 20 Aug 2023 09:40:28 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/tags/zsh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://forrestsu.github.io/tags/golang/</link>
-      <pubDate>Wed, 09 Aug 2023 17:28:06 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Release</title>
-      <link>https://forrestsu.github.io/tags/release/</link>
-      <pubDate>Wed, 09 Aug 2023 17:28:06 +0800</pubDate>
-      
-      <guid>https://forrestsu.github.io/tags/release/</guid>
       <description></description>
     </item>
     
@@ -436,6 +382,15 @@
       <pubDate>Thu, 25 Nov 2021 17:28:06 +0800</pubDate>
       
       <guid>https://forrestsu.github.io/tags/go-cmp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://forrestsu.github.io/tags/golang/</link>
+      <pubDate>Thu, 25 Nov 2021 17:28:06 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/tags/golang/</guid>
       <description></description>
     </item>
     

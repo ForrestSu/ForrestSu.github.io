@@ -83,36 +83,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/" target="_blank">不建议使用std::thread</a>
-            </h1>
-        </header>
-        
-  <time datetime="2020-03-15T03:09:07Z" class="post-meta meta-date dt-published">
-    2020年3月15日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1746
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 问题描述 使用std::thread 创建线程, 代码逻辑如果主动throw 某些异常, 但是用户又没有捕获。这时候程序会产生coredump, 但是分析coredump, 会发现调用栈是缺失的，根本无法定位具体问题。 为了方便理解，下面给一个例子： 1 2 3 4 5 6 7 8 9 10 11 12 13 // g++ -std=c++0x -g test.cpp -lpthread -o test #include &lt;stdexcept&gt; #include &lt;thread&gt; void foo() { throw std::runtime_error(&#34;foo&#34;); } int main() { std::thread t(foo); t.join(); } 直接运行就会产生coredump, 通过gdb 分析： $ gdb test core.1243 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Program received signal SIGABRT, Aborted. [Switching to Thread 0x7ffff7fd0700 (LWP 10278)] 0x000000318f036285 in raise () from /lib64/libc.so.6 Missing separate debuginfos, use: debuginfo-install glibc-2.14.90-24.fc16.9.x86_64 libgcc-4.6.3-2.fc16.x86_64 libstdc++-4.6.3-2.fc16.x86_64 (gdb) bt #0 0x000000318f036285 in raise () from /lib64/libc.so.6 #1 0x000000318f037b9b in abort () from /lib64/libc.so.6 #2 0x00000031964bbc5d in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib64/libstdc++.so.6 #3 0x00000031964b9e16 in……
-            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/cpp/not-use-std-thread/" target="_blank">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/cpp/cpp14-lambda-usage/" target="_blank">C&#43;&#43;14 lambda 用法</a>
             </h1>
         </header>
@@ -397,6 +367,36 @@
         </div>
     </article>
     
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/" target="_blank">Zookeeper&#43;Kafka集群搭建方案</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-10-30T11:50:19Z" class="post-meta meta-date dt-published">
+    2018年10月30日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  4967
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Preface Zookeeper是一个高性能分布式应用协调服务 Naming Service 配置管理 Leader Election 服务发现 同步 Group Service Barrier 分布式队列(其实zookeeper并不适合作为分布式队列，性能不高只不过在特定场合可以) 两阶段提交 Zookeeper工作方式 Zookeeper集群包含一个1个Leader，多个Follower 所有的Follower都可提供读服务 所有的写操作都会被forward到Leader Client与Server通过NIO通信 全局串行化所有的写操作 保证同一客户端的指令被FIFO执行 保证消息通知的FIFO 与Kafka读写操作不一……
+            <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/highavailable/zookeeper-kafka-cluster-deployment-plan/" target="_blank">阅读全文</a></p>
+        </div>
+    </article>
+    
 
     
 
@@ -482,10 +482,6 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
     </li>
     
@@ -502,10 +498,6 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
@@ -519,6 +511,14 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
 </ul>
@@ -540,13 +540,13 @@
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -680,21 +680,17 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/glinet/">GLinet(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(7)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
@@ -721,8 +717,6 @@
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
     
     <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/mt3600be/">MT3600be(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     
@@ -776,8 +770,6 @@
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
@@ -793,8 +785,6 @@
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     

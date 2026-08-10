@@ -76,38 +76,6 @@
     <article class="post">
         <header>
             <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
-            </h1>
-        </header>
-        
-  <time datetime="2026-07-11T01:40:28Z" class="post-meta meta-date dt-published">
-    2026年7月11日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  3136
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/tools' target="_blank">Tools</a>
-  
-</div>
-
-
-        <div class="post-content">
-            1 前言 最近购买了 GL-inet 家的便携路由器，基于openwrt定制，可玩性非常足。 2 出厂日期 路由器出厂日期：2026-04-15 14:02:39 1 2 3 4 root@GL-MT3600BE:~# ls -l /proc/gl-hw-info/ -r--r--r-- 1 root root 0 Apr 15 22:01 country_code -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn -r--r--r-- 1 root root 0 Apr 15 22:06 device_sn_bak 从商家查询的出厂日期：2026-06-11 3 修改地区US 在改区完成之后，wifi地区仍是CN，需要重置路由器。 问题1：云服务会定向到全球区。 可以尝试修改： /etc/config/glcloud, 中国区域名如下： option server &lsquo;gslb.gl-inet.cn&rsquo; 改区之后，云服务地区是下面： option server &lsquo;gslb-eu.goodcloud.xyz&rsquo; 3 安装 OpenClxxx https://github.com/vernesong/OpenClash/releases 1 2 3 # [iptables for ipk] opkg update opkg install bash iptables dnsmasq-full curl ca-bundle ipset ip-full iptables-mod-tproxy iptables-mod-extra ruby ruby-yaml kmod-tun kmod-inet-diag unzip luci-compat luci luci-base 上传 1 scp -O luci-app-openclash_0.47.116_all.ipk root@192.168.8.1:/tmp/ 4 速率测试 无线速度……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
             </h1>
         </header>
@@ -229,38 +197,6 @@
             动态计算 md5 header字段 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 var CryptoJS = require(&#34;crypto-js&#34;); // Unix 时间秒数 var nowSec = Math.floor(new Date().getTime()/1000); // 获取 collection 变量 var appID = pm.collectionVariables.get(&#34;TAGAppID&#34;); var random = pm.collectionVariables.get(&#34;TAGRandom&#34;); // 计算MD5 var hash = CryptoJS.MD5(appID +&#34;token&#34; + nowSec + random ).toString(); // Set the new collection variable pm.collectionVariables.set(&#34;timestampS&#34;, nowSec); pm.collectionVariables.set(&#34;TAGToken&#34;, hash);……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
-            </h1>
-        </header>
-        
-  <time datetime="2024-09-01T02:40:28Z" class="post-meta meta-date dt-published">
-    2024年9月1日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  1417
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/tools' target="_blank">Tools</a>
-  
-</div>
-
-
-        <div class="post-content">
-            因为某些原因，偶尔需要修改手机定位，之前都是用爱思助手来实现，升级到iOS 17后发现不能使用了，于是花了点时间研究了一下，顺利仅通过Xcode达到了同样的目的。 其实原理很简单，Xcode在debug时提供了模拟定位（Simulate Location）的功能，只需要跑个程序在你的设备上就可以修改定位了。以下是具体步骤（以Xcode 15为例）： 0 前置条件 一台装有Xcode的Mac电脑，如果要修改定位的设备系统较新，Xcode也需要安装对应支持的版本，一般用最新版就好。 苹果开发者账号，因为需要在iOS……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -393,6 +329,70 @@
     
     
     
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2023-01-03T06:39:00Z" class="post-meta meta-date dt-published">
+    2023年1月3日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1106
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/work' target="_blank">Work</a>
+  
+</div>
+
+
+        <div class="post-content">
+            在线广告领域，特许人支付广告费用的方式主要有三种，CPM、CPC 和 CPA。 首先，让我们花点时间为您定义它们。 CPM（Cost Per Mille）: 广告商需要为 1,000 次展示或观看支付的金额。 CPM=总消费/曝光量1000 CPC（Cost Per Click）: 广告商需要为 1 次点击支付的金额。 CPA（每次操作成本）: 广告商需要为 1 次操作支付的金额。例如，如果有人要填写联系表，特许人只支付广告商只支付给平台的费用。 （注意：通过将 CPM 除以 1000 可以很容易地计算出一次展示的成本。但是，由于这是行业发展的方式，因此价格几乎完全按照……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+            </h1>
+        </header>
+        
+  <time datetime="2023-01-03T06:39:00Z" class="post-meta meta-date dt-published">
+    2023年1月3日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2621
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/work' target="_blank">Work</a>
+  
+</div>
+
+
+        <div class="post-content">
+            部分内容参考自：视频商业化常用数据指标及概念 广告平台/来源 SPA 通常在我们内部交流时 SPA ≈ 指竞价广告 2018年9月30日（930组织架构调整，PCG也是那时候成立的）腾讯整合社交与效果广告部（SPA）与原网络媒体事业群（OMG）广告线，成立新的广告营销服务线（AMS）。 拓展阅读：腾讯商业化拼图进入最后一公里。 AMS（Ads Marketing Services） 广告营销服务线 ，新广告业务线，历史由来见 SPA 。 广平 广告平台 的简称，广平广告一般指通过广告平台投放的广告，通常与合约广告等价，代码中常用 Adx 代表合约，具体原因不详。 广告……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
 
 
 
@@ -492,10 +492,6 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/glinet-mt3600be/" title="软路由使用 GLinet-MT3600be" target="_blank">软路由使用 GLinet-MT3600be</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
     </li>
     
@@ -512,10 +508,6 @@
     </li>
     
     <li>
-        <a href="https://forrestsu.github.io/posts/tools/iphone-simulate-location/" title="使用 Xcode 修改iOS设备定位" target="_blank">使用 Xcode 修改iOS设备定位</a>
-    </li>
-    
-    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
     </li>
     
@@ -529,6 +521,14 @@
     
     <li>
         <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
     </li>
     
 </ul>
@@ -550,13 +550,13 @@
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (10)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
     
@@ -690,21 +690,17 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
-    <a href="https://forrestsu.github.io/tags/glinet/">GLinet(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/golang/">Golang(8)</a>
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(7)</a>
     
     <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
     
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
@@ -731,8 +727,6 @@
     <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
     
     <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/mt3600be/">MT3600be(1)</a>
     
     <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
     
@@ -786,8 +780,6 @@
     
     <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
     
-    <a href="https://forrestsu.github.io/tags/release/">Release(1)</a>
-    
     <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
@@ -803,8 +795,6 @@
     <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
-    
-    <a href="https://forrestsu.github.io/tags/simulate-location/">Simulate Location(1)</a>
     
     <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
     
