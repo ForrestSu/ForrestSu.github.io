@@ -214,7 +214,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  2748
+  3136
 </div>
 
 <div class="post-meta meta-category">
@@ -226,7 +226,7 @@
 
 
         <div class="post-content">
-            Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 // 尾插法 func reverseList(head *ListNode) *ListNode { if head == nil || head.Next == nil { return head } tail := reverseList(head.Next) head.Next.Next = head head.Next = nil return tail // became new head } 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 func reverseList(head *ListNode) *ListNode { var newHead *ListNode for head != nil { pop := head head = head.Next //……
+            Preface 单链表的反转，按K反转等各种考点变体。 处理单链表时， 尽量采用递归实现： 1 因为递归代码简洁+优美，节省时间，并且不容易出错，是面试优选策略。 2 在面试时间比较宝贵的情况下，尽量预留时间展示自己的才能。 1 反转单链表(基础) 单链表结构定义如下： 1 2 3 4 5 // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } 方法一: 递归实现(尾插法) 1 2 3 4 5 6 7 8 9 10 // 尾插法 func reverseList(head *ListNode) *ListNode { if head == nil || head.Next == nil { return head } tail := reverseList(head.Next) head.Next.Next = head head.Next = nil return tail // became new head } 方法二: 循环实现(头插法) 双指针,头插法: 1 2 3 4 5 6 7 8 9 10 11 func reverseListIter(head *ListNode) *ListNode { var newHead *ListNode for head != nil { pop := head head = head.Next //……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/variants-singly-linkedlist-algo/" target="_blank">阅读全文</a></p>
     </article>
