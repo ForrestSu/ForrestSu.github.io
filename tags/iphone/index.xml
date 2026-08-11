@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iPhone on 程序员的冷浪漫</title>
+    <link>https://forrestsu.github.io/tags/iphone/</link>
+    <description>Recent content in iPhone on 程序员的冷浪漫</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 26 Mar 2025 16:22:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/tags/iphone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iPhone上使用 Obsidian &#43; Git仓库</title>
+      <link>https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/</link>
+      <pubDate>Wed, 26 Mar 2025 16:22:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/</guid>
+      <description>笔记托管在 GitHub，电脑端用 Git 同步没问题；iPhone 上则借助 Obsidian Git 插件完成 pull / commit / push。 1 申请 Personal Access Token GitHub → Settings → Personal access tokens，创建 Fine-grained token。 个人笔记仓库多为私有项目，建议只对该 repo 授权 Contents: Read and write。Token 创建后保存好，后面配置插件要用。 2 电脑上 clone 仓库 iPhone 不支持 SSH，建议用 HTTPS： 1 git clone https://github.com/&amp;lt;your-username&amp;gt;/&amp;lt;your-notes-repo&amp;gt;.git 3 拷贝到 iPhone 把整个仓库压缩成 zip 包 ，传到手机后解压，移动到 On My iPhone → Obsidian，用 Obsidian 打开即可。 4 配置 Obsidian Git 安装并启用 Obsidian Git，在插件设置里填入 GitHub 用户名和上面的 PAT，然后 Pull / Commit / Push 验证一下就行</description>
+    </item>
+    
+  </channel>
+</rss>

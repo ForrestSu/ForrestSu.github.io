@@ -75,6 +75,70 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/git/git-cherry-pick/" title="git cherry-pick" target="_blank">git cherry-pick</a>
+            </h1>
+        </header>
+        
+  <time datetime="2016-09-11T17:10:59Z" class="post-meta meta-date dt-published">
+    2016年9月12日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  597
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 cherry-pick git cherry-pick可以选择某一个分支中的一个或几个commit(s)来进行操作。 例如，假设我们有个稳定版本的分支，叫v2.0，另外还有个开发版本的分支v3.0，我们不能直接把两个分支合并，这样会导致稳定版本混乱，但是又想增加一个v3.0中的功能到v2.0中，这里就可以使用cherry-pick了。 如下图，比如我们想将master的C5修改记录，也提交到dev-feature这个分支上，我们可以使用： git cherry-pick ee99d9a 如果没有修改文件的同一行则提交顺利。如果有冲突则需要手工解决。 2 冲突解决 如下图，我……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/git/git-cherry-pick/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" title="git merge 和git rebase的区别" target="_blank">git merge 和git rebase的区别</a>
+            </h1>
+        </header>
+        
+  <time datetime="2016-09-11T15:57:14Z" class="post-meta meta-date dt-published">
+    2016年9月11日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  855
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            最近在学习git的版本控制，分支之间的同步、冲突处理，cherry-pick等有趣的功能。下面是整理的一些学习笔记。 一、git merge [branchName] 顾名思义，就是合并分支，比如你当前代码库有两个分支一个是master，另一个是dev-feature。(如下图) 我们在dev-feature 分支，想同步master的通用修改： git checkout dev-feature git merge master Git会按照修改的时间点将master分支的修改记录依次应用到dev-feature分支。 我们使用git log 可以看到修改记录依次为（从新到旧）：C7←C5←C6←C3←C4←C2←C1……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/git/git-merge-%E5%92%8Cgit-rebase%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/algorithm/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B201-%E5%85%B3%E4%BA%8E%E5%B8%B8%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96/" title="背包九讲01-关于常数的优化" target="_blank">背包九讲01-关于常数的优化</a>
             </h1>
         </header>
@@ -406,6 +470,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/" title="iPhone上使用 Obsidian &#43; Git仓库" target="_blank">iPhone上使用 Obsidian &#43; Git仓库</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
     </li>
     
@@ -429,10 +497,6 @@
         <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -446,13 +510,13 @@
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
@@ -592,6 +656,8 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
+    <a href="https://forrestsu.github.io/tags/github/">github(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
@@ -603,6 +669,8 @@
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
@@ -638,6 +706,8 @@
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/obsidian/">Obsidian(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
     
     <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
@@ -663,6 +733,8 @@
     <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/raft/">raft(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     

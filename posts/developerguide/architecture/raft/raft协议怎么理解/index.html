@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>raft协议怎么理解？ | 程序员的冷浪漫</title>
+    <meta property="og:title" content="raft协议怎么理解？ - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2018-04-20T22:44:50&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2018-04-20T22:44:50&#43;08:00'>
+        
+    <meta name="Keywords" content="C&#43;&#43;, zeromq, libuv, seastar, golang">
+    <meta name="description" content="raft协议怎么理解？">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/developerguide/architecture/raft/raft%E5%8D%8F%E8%AE%AE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于异步, 高并发, 低延时, 高吞吐, 分布式服务, 软件架构C&#43;&#43;/Golang </p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于">关于</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一-核心思想强-leader-模型">一、 核心思想：强 Leader 模型</a></li>
+        <li><a href="#二-节点的三种角色与转换">二、 节点的三种角色与转换</a></li>
+        <li><a href="#三-两个核心机制">三、 两个核心机制</a></li>
+        <li><a href="#四-raft-如何保证数据安全与一致">四、 Raft 如何保证数据安全与一致？</a></li>
+        <li><a href="#一句话总结">一句话总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#课后练习">课后练习</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">raft协议怎么理解？</h1>
+        </header>
+        
+  <time datetime="2018-04-20T14:44:50Z" class="post-meta meta-date dt-published">
+    2018年4月20日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2469
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>Raft 协议是一种为了提高<strong>易理解性（Understandability）<strong>和</strong>易实现性</strong>而设计的<strong>分布式共识算法（Consensus Algorithm）</strong>。</p>
+<p>在分布式系统中，为了保证“数据不丢、服务不挂”，通常会将数据复制到多台服务器上。但如果某台机器宕机或网络发生抖动，如何让所有机器对某个数据更改“达成一致”？这就是分布式共识要解决的问题。著名的 Paxos 协议虽然严谨，但极其晦涩且难以工程落地；Raft 就是为了替代 Paxos 而诞生的。</p>
+<p>理解 Raft 协议，核心只需要抓住 <strong>“1 个目标、3 种角色、2 个核心机制”</strong>。</p>
+<hr>
+<h3 id="一-核心思想强-leader-模型">一、 核心思想：强 Leader 模型</h3>
+<p>Raft 采用了<strong>强 Leader（Leader-Driven）<strong>的设计。简单来说，就是</strong>“一个集群，一个老大，听老大的”</strong>：</p>
+<ul>
+<li>所有的写请求（客户的数据更新）都<strong>必须</strong>由 Leader 统一处理。</li>
+<li>Leader 负责把日志（数据）复制给其他人（Follower），并决定什么时候把数据正式写入磁盘（Commit）。</li>
+<li>只要 Leader 还在且大多数机器正常，集群就能正常工作；如果 Leader 挂了，大家就重新选一个 Leader。</li>
+</ul>
+<hr>
+<h3 id="二-节点的三种角色与转换">二、 节点的三种角色与转换</h3>
+<p>Raft 将集群中的每个节点定义为以下三种角色之一：</p>
+<ol>
+<li><strong>Leader（领导者）</strong>：负责处理所有客户端请求、管理日志复制，并定期给所有节点发送“心跳（Heartbeat）”来维持统治。</li>
+<li><strong>Follower（跟随者）</strong>：完全被动。不发送请求，只响应来自 Leader 和 Candidate 的请求。如果长时间没收到 Leader 的心跳，就会变身。</li>
+<li><strong>Candidate（候选人）</strong>：Leader 挂了之后，节点变成 Candidate，开始拉票准备竞选新的 Leader。</li>
+</ol>
+<p><strong>角色转换过程</strong>：</p>
+<blockquote>
+<p><strong>Follower</strong>（超时没收到心跳） → 变成 <strong>Candidate</strong>（发起投票） → 收到半数以上选票 → 成为 <strong>Leader</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="三-两个核心机制">三、 两个核心机制</h3>
+<p>Raft 协议把复杂的分布式一致性问题拆分成了两个核心子问题：<strong>Leader 选举</strong> 和 <strong>日志复制</strong>。</p>
+<h4 id="1-leader-选举leader-election">1. Leader 选举（Leader Election）</h4>
+<ul>
+<li><strong>任期（Term）</strong>：Raft 把时间划分为一个个连续的“任期（Term）”，用递增的数字表示（如 Term 1, Term 2）。每个 Term 最多只有一个 Leader。</li>
+<li><strong>心跳与超时</strong>：Leader 会定期向 Follower 发送心跳。每个 Follower 都有一个随机的<strong>选举超时时间（Election Timeout，通常在 150ms ~ 300ms 之间）</strong>。</li>
+<li><strong>竞选过程</strong>：</li>
+</ul>
+<ol>
+<li>如果 Follower 在超时时间内没收到心跳，它就认为 Leader 挂了。</li>
+<li>Follower 将自己的 Term 加 1，角色转为 Candidate，并向其他节点发送“请投我一票（RequestVote）”的请求。</li>
+<li><strong>先到先得</strong>：其他节点在一个 Term 内只能投出一票。如果某个 Candidate 获得了超过半数（Majority，如 5 台机器中的 3 台）的选票，它就成功当选为新的 Leader，并开始发送心跳宣布主权。</li>
+<li><strong>随机超时规避平票</strong>：因为各节点的选举超时时间是随机的，大大降低了多个节点同时发起竞选导致“平票（Split Vote）”的概率。</li>
+</ol>
+<h4 id="2-日志复制log-replication">2. 日志复制（Log Replication）</h4>
+<p>当 Leader 选出来后，系统就可以正常处理客户端的写请求了。日志复制的完整生命周期如下：</p>
+<ol>
+<li><strong>接收请求</strong>：客户端发来写请求（如 <code>Set X = 10</code>），Leader 先把这条指令作为一条日志（Log）追加到自己的本地。</li>
+<li><strong>复制日志</strong>：Leader 通过 RPC（<code>AppendEntries</code>）把这条日志广播复制给所有 Follower。</li>
+<li><strong>提交日志（Commit）</strong>：当 Leader 发现超过半数（Majority）的 Follower 已经成功把这条日志写入了本地磁盘，Leader 就会将这条日志标记为 <strong>Committed（已提交）</strong>，并将其应用（Apply）到自己的状态机（把结果写入数据库/内存）。</li>
+<li><strong>返回响应</strong>：Leader 向客户端返回操作成功。</li>
+<li><strong>通知 Follower</strong>：在下一次心跳或日志复制时，Leader 会通知 Follower：“这条日志我已经 Commit 了，你们也可以应用到状态机中了”。</li>
+</ol>
+<hr>
+<h3 id="四-raft-如何保证数据安全与一致">四、 Raft 如何保证数据安全与一致？</h3>
+<p>在分布式网络中，网络分区、节点宕机随时会发生。Raft 通过以下强约束规则保证数据绝不丢失和混乱：</p>
+<ol>
+<li><strong>选举安全性（Election Safety）</strong>：</li>
+</ol>
+<ul>
+<li>拥有“最新数据”的节点才有资格当 Leader。如果 Candidate 的日志落后于某个 Follower，Follower 就会拒绝投票给它。这样保证了<strong>新 Leader 一定包含了所有已提交（Committed）的日志</strong>。</li>
+</ul>
+<ol start="2">
+<li><strong>Leader 只追加，不修改（Leader Append-Only）</strong>：</li>
+</ol>
+<ul>
+<li>Leader 绝对不会覆盖或删除自己的日志，只能追加新日志。</li>
+</ul>
+<ol start="3">
+<li><strong>日志匹配特性（Log Matching Property）</strong>：</li>
+</ol>
+<ul>
+<li>如果两个节点上的日志在某个索引（Index）位置的 Term 相同，那么从头到这个索引为止的所有日志都完全相同。</li>
+</ul>
+<ol start="4">
+<li><strong>强行覆盖不一致（Leader 优先）</strong>：</li>
+</ol>
+<ul>
+<li>如果网络抖动导致某些 Follower 的日志落后或与 Leader 不一致，Leader 会强制将自己的日志复制给 Follower，覆盖掉 Follower 上不一致的部分，最终保持全网完全一致。</li>
+</ul>
+<hr>
+<h3 id="一句话总结">一句话总结</h3>
+<p>理解 Raft 协议，就记住这句话：</p>
+<blockquote>
+<p><strong>“通过随机超时选出唯一 Leader，Leader 接收请求并广播日志，只要过半节点落盘即算提交，始终以 Leader 的日志为准。”</strong></p>
+</blockquote>
+<h2 id="课后练习">课后练习</h2>
+<p>1 raft满足CAP理论中哪些项？同时给出理由</p>
+<blockquote>
+<p>raft满足CP，缺少可用性。
+原因：</p>
+<ol>
+<li>当集群发生网络分区，导致某一部分节点处于“少数派分区”（节点数 ≤ N/2）时，该分区由于无法凑齐多数派，无法选举 Leader 也无法提交写日志。</li>
+<li>处于少数派分区的健康节点在接收到写请求或强一致读请求时，会直接返回错误或超时。</li>
+<li>由于健康节点无法正常给出成功响应，违反了 CAP 中“任意非故障节点均需返回成功响应”的定义。</li>
+</ol>
+</blockquote>
+<p>在分布式系统中，“网络通信中断”不等于“节点下线/退集群”。集群的总节点数（配置文件中固定的集群规模）在运行期是静态确定的，网络分区绝对不会改变节点对“集群总数”的认知。</p>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/developerguide/architecture/asynchronous-programming-cps/">异步编程之 CPS</a></li>
+        
+        <li><a href="/posts/developerguide/cpp/raii-in-cpp/">C&#43;&#43; RAII</a></li>
+        
+        <li><a href="/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/">2018 年会-Plan</a></li>
+        
+        <li><a href="/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/">2018年会</a></li>
+        
+        <li><a href="/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/">公司的成长史</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/raft' target="_blank">raft</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2026 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/" title="网配蔡司智锐流程" target="_blank">网配蔡司智锐流程</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/" title="优雅的递归算法（二）交叉合并" target="_blank">优雅的递归算法（二）交叉合并</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/" title="iPhone上使用 Obsidian &#43; Git仓库" target="_blank">iPhone上使用 Obsidian &#43; Git仓库</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/ai/">AI (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (54)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ai/">AI(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/github/">github(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/obsidian/">Obsidian(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/raft/">raft(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sdd/">SDD(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%94%A1%E5%8F%B8/">蔡司(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%BF%91%E8%A7%86%E9%85%8D%E9%95%9C/">近视配镜(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AA%8C%E5%85%89/">验光(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

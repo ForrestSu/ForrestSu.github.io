@@ -76,6 +76,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/" title="eventfd 入门" target="_blank">eventfd 入门</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-08-11T17:50:45Z" class="post-meta meta-date dt-published">
+    2018年8月12日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  1695
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        <div class="post-content">
+            1 eventfd 是什么 eventfd 是linux内核一个计数器，主要用于进程间或者线程间，高效的事件通知。 它也是一个系统调用，在内核空间进行计数，用于事件通知 (since linux 2.6.22)。 eventfd 也是一个fd，同样可以使用read/write进行读写操作，本质上是eventfd实现了read/write接口（里氏替换）。 更详细的可以查看 man eventfd 1 2 3 #include &lt;sys/eventfd.h&gt; int eventfd(unsigned int initval, int flags); eventfd() 创建一个 eventfd 对象，可以由用户空间应用程序实现事件等待/通知机制， 或由内核发送事件通知, 到用户空间的应用程序。 该对象包含了一个无符号64位整型计数器，计数器由内核维护。 此计数器，……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/os-linux/eventfd-introduction/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/library/kafka%E5%AE%89%E8%A3%85/" title="kafka安装" target="_blank">kafka安装</a>
             </h1>
         </header>
@@ -268,6 +300,38 @@
     <article class="post">
         <header>
             <h1 class="post-title">
+                <a href="https://forrestsu.github.io/posts/developerguide/architecture/raft/raft%E5%8D%8F%E8%AE%AE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/" title="raft协议怎么理解？" target="_blank">raft协议怎么理解？</a>
+            </h1>
+        </header>
+        
+  <time datetime="2018-04-20T14:44:50Z" class="post-meta meta-date dt-published">
+    2018年4月20日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  2469
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/architecture' target="_blank">Architecture</a>
+  
+</div>
+
+
+        <div class="post-content">
+            Raft 协议是一种为了提高易理解性（Understandability）和易实现性而设计的分布式共识算法（Consensus Algorithm）。 在分布式系统中，为了保证“数据不丢、服务不挂”，通常会将数据复制到多台服务器上。但如果某台机器宕机或网络发生抖动，如何让所有机器对某个数据更改“达成一致”？这就是分布式共识要解决的问题。著名的 Paxos 协议虽然严谨，但极其晦涩且难以工程落地；Raft 就是为了替代 Paxos 而诞生的。 理解 Raft 协议，核心只需要抓住 “1 个目标、3 种角色、2 个核心机制”。 一、 核心思想：强 Leader 模型 Raft 采用了……
+        </div>
+        <p class="readmore"><a href="https://forrestsu.github.io/posts/developerguide/architecture/raft/raft%E5%8D%8F%E8%AE%AE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/" target="_blank">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
                 <a href="https://forrestsu.github.io/posts/developerguide/cpp/raii-in-cpp/" title="C&#43;&#43; RAII" target="_blank">C&#43;&#43; RAII</a>
             </h1>
         </header>
@@ -325,70 +389,6 @@
             plan 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。 平行世界，未来已来。 区块链，比特币 1 我们现在在做的 ems2.0 Al 日常运维。 正准备做的 ems3.0 seastar dpdk coroutine&hellip; 我想做 ： 理财平台 智能投顾 大数据 语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。 通过这一次年会，我也发现了一些我不喜欢的……
         </div>
         <p class="readmore"><a href="https://forrestsu.github.io/posts/work/toptrade2017/2018-%E5%B9%B4%E4%BC%9A-plan/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/" title="2018年会" target="_blank">2018年会</a>
-            </h1>
-        </header>
-        
-  <time datetime="2018-03-15T13:10:25Z" class="post-meta meta-date dt-published">
-    2018年3月15日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  214
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/work' target="_blank">Work</a>
-  
-</div>
-
-
-        <div class="post-content">
-            2018-03-09 记于十三陵 1 如果你是CEO或 CTO, 2018你想做什么？ 说出你有创意的idea, 可以异想天开。 平行世界，未来已来。 区块链，比特币 1 我们现在在做的 ems2.0 Al 日常运维。 正准备做的 ems3.0 seastar dpdk coroutine&hellip; 我想做 ： 理财平台 智能投顾 大数据 语言的技巧很重要，很多时候用言语表达出来的都是浅薄的，很多时候说的多反而起不到好的效果。 通过这一次年会，我也发现了一些我不喜欢的。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/toptrade2017/2018%E5%B9%B4%E4%BC%9A/" target="_blank">阅读全文</a></p>
-    </article>
-    
-    
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://forrestsu.github.io/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" title="公司的成长史" target="_blank">公司的成长史</a>
-            </h1>
-        </header>
-        
-  <time datetime="2018-03-10T11:01:18Z" class="post-meta meta-date dt-published">
-    2018年3月10日
-  </time>
-
-<div class="post-meta">
-  <span>| 字数 </span>
-  44
-</div>
-
-<div class="post-meta meta-category">
-  <span>&nbsp;|</span>
-  
-    <a href='/categories/work' target="_blank">Work</a>
-  
-</div>
-
-
-        <div class="post-content">
-            preface 最近Boss 开了例会，谈了下公司的发展史。听着挺有意思，于是决定记录下来。……
-        </div>
-        <p class="readmore"><a href="https://forrestsu.github.io/posts/work/toptrade2017/%E5%85%AC%E5%8F%B8%E7%9A%84%E6%88%90%E9%95%BF%E5%8F%B2/" target="_blank">阅读全文</a></p>
     </article>
     
     
@@ -536,6 +536,10 @@
     </li>
     
     <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/" title="iPhone上使用 Obsidian &#43; Git仓库" target="_blank">iPhone上使用 Obsidian &#43; Git仓库</a>
+    </li>
+    
+    <li>
         <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
     </li>
     
@@ -559,10 +563,6 @@
         <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/%E5%B9%BF%E5%91%8A%E6%A6%82%E5%BF%B5%E7%B1%BB/" title="广告术语" target="_blank">广告术语</a>
     </li>
     
-    <li>
-        <a href="https://forrestsu.github.io/posts/work/tencent2020/%E5%B9%BF%E5%91%8A%E4%B8%9A%E5%8A%A1/cpm&#43;cpc&#43;cpa/" title="什么是 CPM、CPC 和 CPA？" target="_blank">什么是 CPM、CPC 和 CPA？</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -576,13 +576,13 @@
     
     <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (9)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/diary/">Diary (4)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
     
-    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (8)</a></li>
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
     
     <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
     
@@ -722,6 +722,8 @@
     
     <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
     
+    <a href="https://forrestsu.github.io/tags/github/">github(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
     
     <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
@@ -733,6 +735,8 @@
     <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
     
     <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
     
     <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
     
@@ -768,6 +772,8 @@
     
     <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
     
+    <a href="https://forrestsu.github.io/tags/obsidian/">Obsidian(1)</a>
+    
     <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
     
     <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
@@ -793,6 +799,8 @@
     <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
     
     <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/raft/">raft(1)</a>
     
     <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
     
