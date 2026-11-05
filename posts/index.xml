@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 程序员的冷浪漫</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Sun, 12 Apr 2026 11:05:43 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Nov 2026 19:54:28 +0800</lastBuildDate><atom:link href="https://forrestsu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tRPC-Go 故障熔断分析</title>
+      <link>https://forrestsu.github.io/posts/developerguide/trpc-go/polaris-circuitbreaker-analysis/</link>
+      <pubDate>Thu, 05 Nov 2026 19:54:28 +0800</pubDate>
+      
+      <guid>https://forrestsu.github.io/posts/developerguide/trpc-go/polaris-circuitbreaker-analysis/</guid>
+      <description>trpc-naming-polaris/v3 熔断机制分析与 HTTP 5xx 熔断接入 适用版本：trpc-go v0.19.3 · trpc-naming-polaris/v3 v3.0.6 · polaris-go/v2 v2.6.10 适用项目：ad_auth（其他 trpc-go 项目同理，注意核对版本） TL;DR 会默认注入熔断：只要 import 了 trpc-naming-polaris/v3 并配置了 plugins.selector.polaris（未设 default: false），北极星熔断器就会被注册为 trpc-go 的全局默认熔断器，且 polaris SDK 熔断默认 enable=true。 默认只对 3 类框架错误熔断：101 客户端超时、111 连接失败、141 网络错误。业务错误（含 HTTP 4xx/5xx）默认按成功上报，不会触发熔断。 HTTP 503 要熔断：需 ① 让错误上报给 selector（repo</description>
+    </item>
+    
     <item>
       <title>AI 规范驱动开发 SDD</title>
       <link>https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/</link>

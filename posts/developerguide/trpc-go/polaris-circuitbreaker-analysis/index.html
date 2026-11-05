@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>tRPC-Go 故障熔断分析 | 程序员的冷浪漫</title>
+    <meta property="og:title" content="tRPC-Go 故障熔断分析 - 程序员的冷浪漫">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2026-11-05T19:54:28&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2026-11-05T19:54:28&#43;08:00'>
+        
+    <meta name="Keywords" content="Go, C&#43;&#43;, zeromq, libuv, seastar">
+    <meta name="description" content="tRPC-Go 故障熔断分析">
+        
+    <meta name="author" content="ForrestSun">
+    <meta property="og:url" content="https://forrestsu.github.io/posts/developerguide/trpc-go/polaris-circuitbreaker-analysis/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+    
+    
+    
+</head>
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://forrestsu.github.io">
+                        程序员的冷浪漫
+                    </a>
+                
+                <p class="description">专注于垂直行业 &#43; AI 应用落地、分布式微服务(异步, 高并发, 低延时, 高吞吐)、DDD软件架构</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://forrestsu.github.io">首页</a>
+                    
+                    <a  href="https://forrestsu.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://forrestsu.github.io/todo/" title="TODO">TODO</a>
+                    
+                    <a  href="https://forrestsu.github.io/about/" title="关于我">关于我</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <div class="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#一默认是否注入熔断">一、默认是否注入熔断</a>
+      <ul>
+        <li><a href="#11-线上配置">1.1 线上配置</a></li>
+        <li><a href="#12-插件层setup-时无条件注册">1.2 插件层：Setup 时无条件注册</a></li>
+        <li><a href="#13-sdk-层polaris-go-默认参数">1.3 SDK 层：polaris-go 默认参数</a></li>
+        <li><a href="#14-两条调用路径都生效">1.4 两条调用路径都生效</a></li>
+        <li><a href="#15-哪些错误会被计为熔断失败">1.5 哪些错误会被计为熔断失败</a></li>
+      </ul>
+    </li>
+    <li><a href="#二http-503-如何支持熔断">二、HTTP 503 如何支持熔断</a>
+      <ul>
+        <li><a href="#21-现象">2.1 现象</a></li>
+        <li><a href="#22-为什么不生效">2.2 为什么不生效</a></li>
+        <li><a href="#23-改造方案">2.3 改造方案</a></li>
+        <li><a href="#24-注意事项">2.4 注意事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#附关键源码位置">附：关键源码位置</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+    <article class="post">
+        <header>
+            <h1 class="post-title">tRPC-Go 故障熔断分析</h1>
+        </header>
+        
+  <time datetime="2026-11-05T11:54:28Z" class="post-meta meta-date dt-published">
+    2026年11月5日
+  </time>
+
+<div class="post-meta">
+  <span>| 字数 </span>
+  5338
+</div>
+
+<div class="post-meta meta-category">
+  <span>&nbsp;|</span>
+  
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C' target="_blank">开发者手册</a>
+  
+</div>
+
+
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">&nbsp;|
+                <span id="busuanzi_value_page_pv"></span> <span>阅读</span>
+            </span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h1 id="trpc-naming-polarisv3-熔断机制分析与-http-5xx-熔断接入">trpc-naming-polaris/v3 熔断机制分析与 HTTP 5xx 熔断接入</h1>
+<blockquote>
+<p>适用版本：<code>trpc-go v0.19.3</code> · <code>trpc-naming-polaris/v3 v3.0.6</code> · <code>polaris-go/v2 v2.6.10</code>
+适用项目：<code>ad_auth</code>（其他 trpc-go 项目同理，注意核对版本）</p>
+</blockquote>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li><strong>会默认注入熔断</strong>：只要 import 了 <code>trpc-naming-polaris/v3</code> 并配置了 <code>plugins.selector.polaris</code>（未设 <code>default: false</code>），北极星熔断器就会被注册为 trpc-go 的<strong>全局默认熔断器</strong>，且 polaris SDK 熔断默认 <code>enable=true</code>。</li>
+<li><strong>默认只对 3 类框架错误熔断</strong>：<code>101 客户端超时</code>、<code>111 连接失败</code>、<code>141 网络错误</code>。业务错误（含 HTTP 4xx/5xx）默认<strong>按成功上报</strong>，不会触发熔断。</li>
+<li><strong>HTTP 503 要熔断</strong>：需 ① 让错误上报给 selector（<code>report_any_err_to_selector</code> 或 <code>WithShouldErrReportToSelector</code>）；② 若走「按名寻址」还需 <code>ShouldCircuitBreak</code> 判定为失败；③ 下游必须是北极星寻址（<code>ip://</code> 不生效）。</li>
+</ol>
+<hr>
+<h2 id="一默认是否注入熔断">一、默认是否注入熔断</h2>
+<h3 id="11-线上配置">1.1 线上配置</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">plugins</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">polaris</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">address_list</span>: <span style="color:#ae81ff">${polaris_address_grpc_list}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">grpc</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">discovery</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">refresh_interval</span>: <span style="color:#ae81ff">${polaris_refresh_interval}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">enable_canary</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>未配置 <code>circuitbreaker</code>、<code>default</code>、<code>report_timeout</code>，全部走默认值。</p>
+<h3 id="12-插件层setup-时无条件注册">1.2 插件层：Setup 时无条件注册</h3>
+<p><code>naming.go</code> 的 <code>setupComponents</code> 不做任何开关判断，直接调用 <code>circuitbreaker.Setup</code>：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// trpc-naming-polaris/v3@v3.0.6/naming.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">circuitbreaker</span>.<span style="color:#a6e22e">Setup</span>(<span style="color:#a6e22e">sdkCtx</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">circuitbreaker</span>.<span style="color:#a6e22e">Config</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Name</span>:          <span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">Name</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ReportTimeout</span>: <span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">ReportTimeout</span>,
+</span></span><span style="display:flex;"><span>}, <span style="color:#a6e22e">setDefault</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#f92672">...</span> }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>setDefault</code> 由 <code>default</code> 配置决定，<strong>未配置时为 <code>true</code></strong>：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// trpc-naming-polaris/v3@v3.0.6/circuitbreaker/circuitbreaker.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">circuitbreaker</span>.<span style="color:#a6e22e">Register</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">cb</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">setDefault</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">circuitbreaker</span>.<span style="color:#a6e22e">SetDefaultCircuitBreaker</span>(<span style="color:#a6e22e">cb</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>trpc-go 原默认值是 <code>NoopCircuitBreaker</code>（不熔断），此处被替换为北极星实现。</p>
+<h3 id="13-sdk-层polaris-go-默认参数">1.3 SDK 层：polaris-go 默认参数</h3>
+<p>插件 <code>setSdkCircuitBreaker</code> 只在 yaml 显式配置时覆盖，否则使用 SDK 默认值：</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>默认值</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Enable</code></td>
+<td><code>true</code></td>
+<td><code>config.DefaultCircuitBreakerEnabled</code></td>
+</tr>
+<tr>
+<td>Chain</td>
+<td><code>errorCount</code> → <code>errorRate</code> → <code>errorCheck</code></td>
+<td><code>CircuitBreakerConfigImpl.SetDefault</code></td>
+</tr>
+<tr>
+<td>errorCount</td>
+<td>连续 <strong>10</strong> 次失败熔断，统计窗口 1min</td>
+<td><code>errorcount/config.go</code></td>
+</tr>
+<tr>
+<td>errorRate</td>
+<td>60s 窗口，错误率 <strong>≥50%</strong> 且请求数 <strong>≥10</strong> 熔断</td>
+<td><code>errorrate/config.go</code></td>
+</tr>
+<tr>
+<td>sleepWindow</td>
+<td><strong>30s</strong> 后进入半开</td>
+<td><code>DefaultSleepWindow</code></td>
+</tr>
+<tr>
+<td>checkPeriod</td>
+<td>2s</td>
+<td><code>DefaultCircuitBreakerCheckPeriod</code></td>
+</tr>
+<tr>
+<td>outlierDetection（主动探测）</td>
+<td><strong>关闭</strong>；开启时插件强制仅用 <code>tcp</code> 探测</td>
+<td><code>DefaultOutlierDetectEnabled</code> / <code>naming.go</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="14-两条调用路径都生效">1.4 两条调用路径都生效</h3>
+<table>
+<thead>
+<tr>
+<th>下游 client 配置方式</th>
+<th>Selector</th>
+<th>上报逻辑</th>
+<th>摘除熔断实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>target: polaris://xxx</code></td>
+<td>插件 <code>selector.Selector</code></td>
+<td><code>circuitbreaker.Report</code>（包级函数）</td>
+<td><code>GetOneInstance</code> 过滤</td>
+</tr>
+<tr>
+<td>仅 <code>name</code>（默认北极星寻址）</td>
+<td>trpc-go <code>TrpcSelector</code></td>
+<td><code>DefaultCircuitBreaker.Report</code>（即北极星 CB）</td>
+<td>北极星路由/负载均衡过滤</td>
+</tr>
+<tr>
+<td><code>target: ip://...</code></td>
+<td><code>ipSelector</code></td>
+<td><code>noopCircuitBreak</code></td>
+<td><strong>不熔断</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-哪些错误会被计为熔断失败">1.5 哪些错误会被计为熔断失败</h3>
+<p><code>trpc-go/client/client.go</code> 的 <code>selectorFilter</code>：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">e</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">as</span>(<span style="color:#a6e22e">err</span>); <span style="color:#a6e22e">e</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {             <span style="color:#75715e">// 仅框架错误 101/111/141
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">Selector</span>.<span style="color:#a6e22e">Report</span>(<span style="color:#a6e22e">node</span>, <span style="color:#a6e22e">cost</span>, <span style="color:#a6e22e">e</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">shouldErrReportToSelector</span>(<span style="color:#a6e22e">err</span>) { <span style="color:#75715e">// 默认 false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">Selector</span>.<span style="color:#a6e22e">Report</span>(<span style="color:#a6e22e">node</span>, <span style="color:#a6e22e">cost</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">Selector</span>.<span style="color:#a6e22e">Report</span>(<span style="color:#a6e22e">node</span>, <span style="color:#a6e22e">cost</span>, <span style="color:#66d9ef">nil</span>)  <span style="color:#75715e">// 其它错误都按成功上报
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>仅 <code>RetClientConnectFail(111)</code>、<code>RetClientTimeout(101)</code>、<code>RetClientNetErr(141)</code> 的<strong>框架错误</strong>原样上报。</li>
+<li>101 超时若耗时 <code>&lt; report_timeout</code>（默认 1ms）会被忽略。</li>
+<li>业务错误、下游返回的错误码 → 按<strong>成功</strong>上报。</li>
+</ul>
+<p><strong>效果</strong>：某下游实例在 60s 内超时/连接失败率 &gt;50%（≥10 请求）或连续失败 10 次，被摘除 30s，之后半开探测恢复。</p>
+<hr>
+<h2 id="二http-503-如何支持熔断">二、HTTP 503 如何支持熔断</h2>
+<h3 id="21-现象">2.1 现象</h3>
+<pre tabindex="0"><code>GetAmsAD fail! err=type:business, code:503, msg:http client codec StatusCode: Service Unavailable
+</code></pre><h3 id="22-为什么不生效">2.2 为什么不生效</h3>
+<ol>
+<li>
+<p>trpc-go HTTP 客户端对 <code>StatusCode &gt;= 300</code> 生成的是<strong>业务错误</strong>（<code>type:business, code:503</code>）：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// trpc-go@v0.19.3/http/codec.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">rsp</span>.<span style="color:#a6e22e">StatusCode</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusMultipleChoices</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">msg</span>.<span style="color:#a6e22e">WithClientRspErr</span>(<span style="color:#a6e22e">errs</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">rsp</span>.<span style="color:#a6e22e">StatusCode</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;http client codec StatusCode: %s, body: %q&#34;</span>, <span style="color:#f92672">...</span>)))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>selectorFilter</code> 中 <code>as(err)</code> 只认框架错误，<code>shouldErrReportToSelector</code> 默认 <code>false</code> → <strong>503 被按成功上报</strong>。</p>
+</li>
+<li>
+<p>即使上报了，两条路径的判定也不同：</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><code>trpc.http.ams.ads</code> 寻址方式</th>
+<th>判定逻辑</th>
+<th>默认是否把 503 计为失败</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>target: polaris://xxx</code></td>
+<td>包级 <code>circuitbreaker.Report</code> → <code>canIgnoreError</code> 只忽略 nil 与短耗时 101</td>
+<td><strong>是</strong>（上报即失败）</td>
+</tr>
+<tr>
+<td>仅 <code>name</code>（<code>TrpcSelector</code>）</td>
+<td><code>CircuitBreaker.Report</code> → <code>shouldCircuitBreak</code> 默认只认 111/141/101</td>
+<td><strong>否</strong></td>
+</tr>
+<tr>
+<td><code>target: ip://...</code>（当前本地 yaml）</td>
+<td><code>noopCircuitBreak</code></td>
+<td>不熔断</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-改造方案">2.3 改造方案</h3>
+<h4 id="step-1必需让-503-上报到-selector">Step 1（必需）：让 503 上报到 selector</h4>
+<p><strong>方式 A：yaml 配置（零代码）</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">client</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">service</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">trpc.http.ams.ads</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">target</span>: <span style="color:#ae81ff">polaris://&lt;AMS北极星服务名&gt;  </span> <span style="color:#75715e"># 必须是北极星寻址</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">report_any_err_to_selector</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>副作用：4xx（400/404 等）也会上报，在 polaris target 路径下同样计为失败。</p>
+</blockquote>
+<p><strong>方式 B：代码精准控制（推荐，仅 5xx）</strong></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// deps/ams.go
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">opts</span> <span style="color:#f92672">:=</span> []<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Option</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">WithReqHead</span>(<span style="color:#a6e22e">header</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">WithShouldErrReportToSelector</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">errs</span>.<span style="color:#a6e22e">Code</span>(<span style="color:#a6e22e">err</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusBadGateway</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusServiceUnavailable</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusGatewayTimeout</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="step-2按寻址方式补齐判定">Step 2：按寻址方式补齐判定</h4>
+<ul>
+<li>
+<p><strong><code>target: polaris://</code></strong>：Step 1 即可，上报的错误直接计为失败。</p>
+</li>
+<li>
+<p><strong>仅 <code>name</code>（默认北极星寻址）</strong>：还需在 <code>main.go</code> 中、<strong><code>trpc.NewServer()</code> 之前</strong>注册判定函数（插件在 <code>NewServer</code> 时 Setup，之后注册无效）：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#a6e22e">pcb</span> <span style="color:#e6db74">&#34;git.code.oa.com/trpc-go/trpc-naming-polaris/v3/circuitbreaker&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pcb</span>.<span style="color:#a6e22e">ShouldCircuitBreak</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) <span style="color:#a6e22e">pcb</span>.<span style="color:#a6e22e">Should</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">e</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">err</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">errs</span>.<span style="color:#a6e22e">Error</span>); <span style="color:#a6e22e">ok</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Type</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">errs</span>.<span style="color:#a6e22e">ErrorTypeBusiness</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">Code</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">502</span>, <span style="color:#ae81ff">503</span>, <span style="color:#ae81ff">504</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pcb</span>.<span style="color:#a6e22e">True</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pcb</span>.<span style="color:#a6e22e">Unknown</span> <span style="color:#75715e">// 交回默认逻辑（101/111/141）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    })
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">trpc</span>.<span style="color:#a6e22e">NewServer</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>ShouldCircuitBreak</code> 只影响 <code>TrpcSelector</code> 路径，对 <code>polaris://</code> 路径无效。</p>
+</blockquote>
+</li>
+<li>
+<p><strong><code>ip://</code></strong>：需改为北极星寻址；或自行 <code>selector.NewIPSelectorWithCircuitBreaker</code> 重新注册 ip selector（不推荐）。</p>
+</li>
+</ul>
+<h4 id="step-3可选调整熔断参数">Step 3（可选）：调整熔断参数</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">plugins</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">selector</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">polaris</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">report_timeout</span>: <span style="color:#ae81ff">1ms         </span> <span style="color:#75715e"># 耗时低于该值的 101 超时不计失败</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">circuitbreaker</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># enable: false            # 如需整体关闭</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">sleepWindow</span>: <span style="color:#ae81ff">30s</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">errorCount</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">continuousErrorThreshold</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">errorRate</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">errorRateThreshold</span>: <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">requestVolumeThreshold</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">metricStatTimeWindow</span>: <span style="color:#ae81ff">60s</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="24-注意事项">2.4 注意事项</h3>
+<ol>
+<li><strong>北极星熔断是实例级的</strong>：仅当下游在北极星有多个实例时才有意义。若是 CLB/VIP 单入口，熔断等于全断；而「全死全活」默认开启，全部熔断时会全部放开，等于没熔断。此类场景更适合调用方级别的降级/限流（如 sentinel / hystrix 类 filter）。</li>
+<li><strong>503 常代表下游过载/限流</strong>：实例级熔断会把流量集中到剩余实例，可能引发雪崩，阈值需保守。</li>
+<li><strong>业务码不参与熔断</strong>：上述方案只对传输层 HTTP 状态码生效；<code>rsp.Ret != 0</code> 等业务码是在 <code>proxy.Post</code> 返回后判断的，不经过 selector。</li>
+</ol>
+<hr>
+<h2 id="附关键源码位置">附：关键源码位置</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trpc-naming-polaris/v3@v3.0.6/naming.go</code></td>
+<td><code>setupComponents</code>、<code>setSdkCircuitBreaker</code>、<code>setSdkOutlierDetection</code></td>
+</tr>
+<tr>
+<td><code>trpc-naming-polaris/v3@v3.0.6/circuitbreaker/circuitbreaker.go</code></td>
+<td><code>Setup</code>、<code>Report</code>、<code>canIgnoreError</code>、<code>ShouldCircuitBreak</code></td>
+</tr>
+<tr>
+<td><code>trpc-naming-polaris/v3@v3.0.6/selector/selector.go</code></td>
+<td>polaris target 路径的 <code>Select</code> / <code>Report</code></td>
+</tr>
+<tr>
+<td><code>trpc-go@v0.19.3/client/client.go</code></td>
+<td><code>selectorFilter</code>、<code>as()</code></td>
+</tr>
+<tr>
+<td><code>trpc-go@v0.19.3/client/config.go</code></td>
+<td><code>report_any_err_to_selector</code></td>
+</tr>
+<tr>
+<td><code>trpc-go@v0.19.3/naming/selector/trpc_selector.go</code></td>
+<td>按名寻址路径的熔断上报</td>
+</tr>
+<tr>
+<td><code>trpc-go@v0.19.3/naming/selector/ip_selector.go</code></td>
+<td>ip 直连默认 <code>noopCircuitBreak</code></td>
+</tr>
+<tr>
+<td><code>trpc-go@v0.19.3/http/codec.go</code></td>
+<td>HTTP 状态码转业务错误</td>
+</tr>
+<tr>
+<td><code>polaris-go/v2@v2.6.10/pkg/config/default.go</code>、<code>circuitbreaker.go</code></td>
+<td>SDK 熔断默认参数</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>相关文章</h2>
+    <ul class="listing">
+        
+        <li><a href="/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/">AI 规范驱动开发 SDD</a></li>
+        
+        <li><a href="/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/">网配蔡司智锐流程</a></li>
+        
+        <li><a href="/posts/developerguide/algorithm/leetcode/cross-merge/">优雅的递归算法（二）交叉合并</a></li>
+        
+        <li><a href="/posts/tools/iphone-obsidian-with-github/">iPhone上使用 Obsidian &#43; Git仓库</a></li>
+        
+        <li><a href="/posts/developerguide/network/postman-scripts/">Postman 动态计算MD5</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/circuit-breaker' target="_blank">Circuit Breaker</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    <div class="post bg-white">
+      <script src="https://utteranc.es/client.js"
+            repo= "ForrestSu/ForrestSu.github.io"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+      </script>
+    </div>
+    
+    
+    
+
+</div>
+
+                    <footer id="footer">
+    <div>
+        &copy; 2026 <a href="https://forrestsu.github.io">程序员的冷浪漫 By ForrestSun</a>
+        .Powered by <a rel="nofollow noreferer noopener" href="https://blog.csdn.net/sunquana" target="_blank">sunquan</a>.
+        
+    </div>
+</footer>
+
+
+    
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+<style type="text/css">
+div.highlight {
+    position: relative;
+    margin: 1em 0px;
+}
+
+.copy-code {
+    display: none;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(78, 78, 78, 0.8);
+    border-radius: var(--radius);
+    padding: 0 5px;
+    font: inherit;
+    user-select: none;
+    cursor: pointer;
+    border: 0;
+    --radius: 8px;
+}
+
+div.highlight:hover .copy-code,pre:hover .copy-code {
+    display: block;
+}
+
+</style>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://forrestsu.github.io">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/trpc-go/polaris-circuitbreaker-analysis/" title="tRPC-Go 故障熔断分析" target="_blank">tRPC-Go 故障熔断分析</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/ai/ai-%E8%A7%84%E8%8C%83%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91-sdd/" title="AI 规范驱动开发 SDD" target="_blank">AI 规范驱动开发 SDD</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E7%BD%91%E9%85%8D%E6%99%BA%E9%94%90%E6%B5%81%E7%A8%8B/" title="网配蔡司智锐流程" target="_blank">网配蔡司智锐流程</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/algorithm/leetcode/cross-merge/" title="优雅的递归算法（二）交叉合并" target="_blank">优雅的递归算法（二）交叉合并</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/iphone-obsidian-with-github/" title="iPhone上使用 Obsidian &#43; Git仓库" target="_blank">iPhone上使用 Obsidian &#43; Git仓库</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/network/postman-scripts/" title="Postman 动态计算MD5" target="_blank">Postman 动态计算MD5</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/cpp/%E5%85%B3%E4%BA%8Ec&#43;&#43;%E6%9C%AA%E5%AE%9A%E7%9A%84%E8%A1%8C%E4%B8%BA/" title="关于 C&#43;&#43; 未定的行为" target="_blank">关于 C&#43;&#43; 未定的行为</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/developerguide/git/git-rebase-reserve-commit-date/" title="git rebase 保留提交者原始日期?" target="_blank">git rebase 保留提交者原始日期?</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/life/health/%E8%BF%87%E6%95%8F%E6%80%A7%E9%BC%BB%E7%82%8E-%E5%A4%87%E5%BF%98%E5%BD%95/" title="过敏性鼻炎用药-备忘录" target="_blank">过敏性鼻炎用药-备忘录</a>
+    </li>
+    
+    <li>
+        <a href="https://forrestsu.github.io/posts/tools/macos/zsh-plugins/" title="zsh 插件推荐" target="_blank">zsh 插件推荐</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://forrestsu.github.io/categories/ai/">AI (1)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/algorithm/">Algorithm (10)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/architecture/">Architecture (10)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/diary/">Diary (4)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/life/">Life (15)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/tools/">Tools (9)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/travel/">Travel (2)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/work/">Work (19)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E5%BC%80%E5%8F%91%E8%80%85%E6%89%8B%E5%86%8C/">开发者手册 (55)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA/">理解计算机 (7)</a></li>
+    
+    <li><a href="https://forrestsu.github.io/categories/%E8%A7%82%E7%82%B9%E4%B8%8E%E6%84%9F%E6%83%B3/">观点与感想 (8)</a></li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://www.martinfowler.com/" title="架构">0. Martin Fowler (马丁·福勒)</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://coolshell.cn/articles/author/haoel" title="前辈">1. 陈皓|酷壳 COOLSHELL</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://www.ruanyifeng.com/" title="前端大佬，文章清晰易懂">2. 阮一峰的网络日志</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://github.com/tianyicui" title="ACM大牛 § 翼若垂天之云">3. 崔添翼</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="https://byvoid.com/zht/" title="IOer § 旅行达人">4. 郭家宝</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://www.yinwang.org/" title="简单的语言，描述复杂的知识">5. 王垠</a>
+        </li>
+        
+        <li>
+            <a target="_blank" href="http://tanqidong1992.github.io" title="偶尔记一些东西">tanqidong1992</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://forrestsu.github.io/tags/-wall/">-Wall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2017/">2017(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/2023/">2023(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/about/">about(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ac%E8%87%AA%E5%8A%A8%E6%9C%BA/">AC自动机(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ai/">AI(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/algorithm/">algorithm(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/atomic/">atomic(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/bigdata/">BigData(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/busy/">busy(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/c&#43;&#43;11/">C&#43;&#43;11(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cache/">cache(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/chrome/">chrome(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/circuit-breaker/">Circuit Breaker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cluster/">cluster(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmake/">CMake(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cmd/">cmd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/code-review/">Code Review(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/communication/">communication(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/core/">core(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpa/">CPA(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpc/">CPC(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpm/">CPM(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpp/">CPP(15)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cps/">CPS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpt/">CPT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cpu/">CPU(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cr/">CR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/cs/">CS(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/diary/">Diary(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/docker/">Docker(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/dp/">DP(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/duck-type/">duck-type(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/echarts/">echarts(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/epoll/">epoll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/etcd/">etcd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eureka/">Eureka(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/event/">event(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/eventfd/">eventfd(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/feeling/">Feeling(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/future/">future(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/gerrit/">Gerrit(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/git/">git(6)</a>
+    
+    <a href="https://forrestsu.github.io/tags/github/">github(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go/">go(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/go-cmp/">go-cmp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/golang/">Golang(7)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hardware/">hardware(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/hundsun/">Hundsun(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/intersection/">intersection(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/iphone/">iPhone(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/java/">Java(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/js/">js(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/kafka/">kafka(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lambda/">lambda(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/languages/">Languages(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/leetcode/">LeetCode(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/libuv/">libuv(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/life/">Life(12)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linklist/">LinkList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/linux/">Linux(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/logreplay/">LogReplay(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/lua/">lua(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/macos/">MacOS(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysql/">MySQL(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/mysqldump/">mysqldump(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/narrow-cast/">narrow cast(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/nullptr/">nullptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/obsidian/">Obsidian(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/okr/">OKR(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/oneof/">oneof(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/opentelemetry/">OpenTelemetry(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/owners/">owners(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/pkg/">pkg(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plan/">plan(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugin/">plugin(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/plugins/">plugins(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/poll/">poll(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/postman/">postman(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/promise/">promise(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/proto3/">proto3(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/protobuf/">Protobuf(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/raft/">raft(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rb-tree/">rb-tree(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reactive/">Reactive(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/ready_future/">ready_future(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rebase/">rebase(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recommend/">recommend(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/recursive/">recursive(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/redis/">Redis(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/reflection/">reflection(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/registry-center/">Registry Center(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/resume/">resume(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/rpm/">rpm(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sdd/">SDD(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/seastar/">seastar(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/select/">select(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/set/">set(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/shared_ptr/">shared_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sigabrt/">SIGABRT(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/sql/">sql(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/stdthread/">std::thread(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/syscall/">syscall(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tcp/">tcp(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/timeout/">timeout(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/todolist/">TodoList(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tools/">Tools(3)</a>
+    
+    <a href="https://forrestsu.github.io/tags/tracing/">tracing(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/travel/">Travel(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unique_ptr/">unique_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/unwound-stack/">unwound stack(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/weak_ptr/">weak_ptr(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/web/">Web(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/wireshark/">Wireshark(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/work/">Work(9)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zeromq/">zeromq(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zookeeper/">zookeeper(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/zsh/">zsh(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%B8%AA%E4%BA%BA%E6%97%85%E6%B8%B8/">个人旅游(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%81%E5%BE%AE%E6%9C%BA%E5%99%A8%E4%BA%BA/">企微机器人(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E4%BC%98%E7%82%B9/">优点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%85%A8%E9%BA%BB/">全麻(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B9%BF%E5%91%8A/">在线广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%A4%9A%E6%A8%A1%E5%8C%B9%E9%85%8D/">多模匹配(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">工作总结(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%B9%BF%E5%91%8A/">广告(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库(4)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%80%BB%E7%BB%93/">总结(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%89%94%E9%B8%A1%E8%9B%8B%E9%97%AE%E9%A2%98/">扔鸡蛋问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%E6%8C%87%E4%BB%A4/">文本消息指令(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%99%BA%E9%BD%BF/">智齿(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E6%B5%81%E9%87%8F%E5%BD%95%E5%88%B6%E5%9B%9E%E6%94%BE/">流量录制回放(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE/">用户标签(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BC%BA%E7%82%B9/">缺点(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E7%BE%A4%E6%94%B6%E6%AC%BE/">群收款(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">背包问题(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%94%A1%E5%8F%B8/">蔡司(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记(8)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E8%BF%91%E8%A7%86%E9%85%8D%E9%95%9C/">近视配镜(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%A6%99%E6%B8%AF%E7%AD%BE%E6%B3%A8/">香港签注(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AA%8C%E5%85%89/">验光(1)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用(2)</a>
+    
+    <a href="https://forrestsu.github.io/tags/%E9%BC%BB%E7%82%8E/">鼻炎(1)</a>
+    
+</div>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://forrestsu.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
