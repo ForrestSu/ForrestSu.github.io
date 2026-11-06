@@ -114,7 +114,7 @@
 
 <div class="post-meta">
   <span>| 字数 </span>
-  5338
+  5455
 </div>
 
 <div class="post-meta meta-category">
@@ -144,6 +144,7 @@
 <li><strong>会默认注入熔断</strong>：只要 import 了 <code>trpc-naming-polaris/v3</code> 并配置了 <code>plugins.selector.polaris</code>（未设 <code>default: false</code>），北极星熔断器就会被注册为 trpc-go 的<strong>全局默认熔断器</strong>，且 polaris SDK 熔断默认 <code>enable=true</code>。</li>
 <li><strong>默认只对 3 类框架错误熔断</strong>：<code>101 客户端超时</code>、<code>111 连接失败</code>、<code>141 网络错误</code>。业务错误（含 HTTP 4xx/5xx）默认<strong>按成功上报</strong>，不会触发熔断。</li>
 <li><strong>HTTP 503 要熔断</strong>：需 ① 让错误上报给 selector（<code>report_any_err_to_selector</code> 或 <code>WithShouldErrReportToSelector</code>）；② 若走「按名寻址」还需 <code>ShouldCircuitBreak</code> 判定为失败；③ 下游必须是北极星寻址（<code>ip://</code> 不生效）。</li>
+<li><strong>为什么有两套寻址</strong>：client 配了 <code>target: polaris://</code> 走插件的一站式 Selector；不配 <code>target</code> 走框架组合式 <code>TrpcSelector</code>（北极星替换其 4 个默认组件）。两者 <code>Report</code> 是插件里两份独立实现，熔断判定不同。</li>
 </ol>
 <hr>
 <h2 id="一默认是否注入熔断">一、默认是否注入熔断</h2>
